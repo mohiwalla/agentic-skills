@@ -11,6 +11,8 @@ description: >-
 ## Required Rules
 
 - Use the project name defined in `AGENTS.md` in all ticket URLs, Azure paths, and command values.
+- If the project name is missing in `AGENTS.md`, ask the user explicitly and do not assume a project name.
+- For "assigned to me" lookups or assigning tickets to the user, use the value from `AZURE_DEVOPS_USERNAME`.
 - When creating new tickets, always place them in the latest iteration by default.
 - Only use a different iteration when the user explicitly requests it.
 - Always start by creating an easy-to-skim execution plan and ask the user to confirm before proceeding.

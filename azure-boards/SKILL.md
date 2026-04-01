@@ -13,6 +13,8 @@ description: >-
 ## Required Rules
 
 - Use the project name defined in `AGENTS.md` for all Azure Boards commands and paths.
+- If the project name is missing in `AGENTS.md`, ask the user explicitly and do not assume a project name.
+- For "assigned to me" lookups or assigning tickets to the user, use the value from `AZURE_DEVOPS_USERNAME`.
 - When creating new tickets, always assign them to the latest iteration by default.
 - Only use a non-latest iteration when the user explicitly asks for a different one.
 
