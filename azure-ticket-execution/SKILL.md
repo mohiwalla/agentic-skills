@@ -23,6 +23,10 @@ description: >-
 - After code changes, run formatting, linting, and a lint-fix pass at least once.
 - Resolve all lint errors and warnings introduced by the change.
 - For TypeScript codebases, build the project and fix all resulting errors and warnings before completion.
+- When raising a PR, always ask the user for required reviewer name(s) if not already provided.
+- Always add required reviewers: the user (`AZURE_DEVOPS_USERNAME`) and any reviewer(s) requested by the user.
+- Right after creating the PR, submit approval from the user's side.
+- Always target PRs to `develop` unless the user explicitly asks for a different target branch.
 
 ## Commit Convention
 
@@ -43,7 +47,7 @@ EOF
 git push origin fix-16486
 az repos pr create \
   --source-branch fix-16486 \
-  --target-branch main \
+  --target-branch develop \
   --title "fix: handle SOCKS proxy authentication" \
   --description "$(cat <<'EOF'
 ## Summary
