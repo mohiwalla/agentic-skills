@@ -10,6 +10,12 @@ description: >-
 
 # Azure Boards CLI Reference
 
+## Required Rules
+
+- Use the project name defined in `AGENTS.md` for all Azure Boards commands and paths.
+- When creating new tickets, always assign them to the latest iteration by default.
+- Only use a non-latest iteration when the user explicitly asks for a different one.
+
 ## Prerequisites
 
 - **Azure CLI** with the `azure-devops` extension installed.
