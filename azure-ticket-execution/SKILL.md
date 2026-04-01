@@ -35,7 +35,7 @@ git checkout -b fix-16486
 # ... make changes ...
 git add <changed-files>
 git commit -m "$(cat <<'EOF'
-fix(proxy): handle SOCKS proxy authentication
+fix: handle SOCKS proxy authentication
 
 Fixes: https://dev.azure.com/sifars/<project-name>/_workitems/edit/16486
 EOF
@@ -44,7 +44,7 @@ git push origin fix-16486
 az repos pr create \
   --source-branch fix-16486 \
   --target-branch main \
-  --title "fix(proxy): handle SOCKS proxy authentication" \
+  --title "fix: handle SOCKS proxy authentication" \
   --description "$(cat <<'EOF'
 ## Summary
 - <describe the change very! briefly>
