@@ -18,20 +18,21 @@ Reference guide for selecting the right AWS architecture pattern based on applic
 
 ## Pattern Selection Matrix
 
-| Pattern | Best For | Users | Monthly Cost | Complexity |
-|---------|----------|-------|--------------|------------|
-| Serverless Web | MVP, SaaS, mobile backend | <50K | $50-500 | Low |
-| Event-Driven Microservices | Complex workflows, async processing | Any | $100-1000 | Medium |
-| Three-Tier | Traditional web, e-commerce | 10K-500K | $300-2000 | Medium |
-| Real-Time Data | Analytics, IoT, streaming | Any | $200-1500 | High |
-| GraphQL Backend | Mobile apps, SPAs | <100K | $50-400 | Medium |
-| Multi-Region HA | Global apps, DR requirements | >100K | 1.5-2x single | High |
+| Pattern                    | Best For                            | Users    | Monthly Cost  | Complexity |
+| -------------------------- | ----------------------------------- | -------- | ------------- | ---------- |
+| Serverless Web             | MVP, SaaS, mobile backend           | <50K     | $50-500       | Low        |
+| Event-Driven Microservices | Complex workflows, async processing | Any      | $100-1000     | Medium     |
+| Three-Tier                 | Traditional web, e-commerce         | 10K-500K | $300-2000     | Medium     |
+| Real-Time Data             | Analytics, IoT, streaming           | Any      | $200-1500     | High       |
+| GraphQL Backend            | Mobile apps, SPAs                   | <100K    | $50-400       | Medium     |
+| Multi-Region HA            | Global apps, DR requirements        | >100K    | 1.5-2x single | High       |
 
 ---
 
 ## Pattern 1: Serverless Web Application
 
 ### Use Case
+
 SaaS platforms, mobile backends, low-traffic websites, MVPs
 
 ### Architecture Diagram
@@ -55,18 +56,18 @@ SaaS platforms, mobile backends, low-traffic websites, MVPs
 
 ### Service Stack
 
-| Layer | Service | Configuration |
-|-------|---------|---------------|
-| Frontend | S3 + CloudFront | Static hosting with HTTPS |
-| API | API Gateway + Lambda | REST endpoints with throttling |
-| Database | DynamoDB | Pay-per-request billing |
-| Auth | Cognito | User pools with MFA support |
-| CI/CD | Amplify or CodePipeline | Automated deployments |
+| Layer    | Service                 | Configuration                  |
+| -------- | ----------------------- | ------------------------------ |
+| Frontend | S3 + CloudFront         | Static hosting with HTTPS      |
+| API      | API Gateway + Lambda    | REST endpoints with throttling |
+| Database | DynamoDB                | Pay-per-request billing        |
+| Auth     | Cognito                 | User pools with MFA support    |
+| CI/CD    | Amplify or CodePipeline | Automated deployments          |
 
 ### CloudFormation Template
 
 ```yaml
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 
 Resources:
@@ -104,25 +105,27 @@ Resources:
 
 ### Cost Breakdown (10K users)
 
-| Service | Monthly Cost |
-|---------|-------------|
-| Lambda | $5-20 |
-| API Gateway | $10-30 |
-| DynamoDB | $10-50 |
-| CloudFront | $5-15 |
-| S3 | $1-5 |
-| Cognito | $0-50 |
-| **Total** | **$31-170** |
+| Service     | Monthly Cost |
+| ----------- | ------------ |
+| Lambda      | $5-20        |
+| API Gateway | $10-30       |
+| DynamoDB    | $10-50       |
+| CloudFront  | $5-15        |
+| S3          | $1-5         |
+| Cognito     | $0-50        |
+| **Total**   | **$31-170**  |
 
 ### Pros and Cons
 
 **Pros:**
+
 - Zero server management
 - Pay only for what you use
 - Auto-scaling built-in
 - Low operational overhead
 
 **Cons:**
+
 - Cold start latency (100-500ms)
 - 15-minute Lambda execution limit
 - Vendor lock-in
@@ -132,6 +135,7 @@ Resources:
 ## Pattern 2: Event-Driven Microservices
 
 ### Use Case
+
 Complex business workflows, asynchronous processing, decoupled systems
 
 ### Architecture Diagram
@@ -155,13 +159,13 @@ Complex business workflows, asynchronous processing, decoupled systems
 
 ### Service Stack
 
-| Layer | Service | Purpose |
-|-------|---------|---------|
-| Events | EventBridge | Central event bus |
-| Processing | Lambda or ECS Fargate | Event handlers |
-| Queue | SQS | Dead letter queue for failures |
-| Orchestration | Step Functions | Complex workflow state |
-| Storage | DynamoDB, S3 | Persistent data |
+| Layer         | Service               | Purpose                        |
+| ------------- | --------------------- | ------------------------------ |
+| Events        | EventBridge           | Central event bus              |
+| Processing    | Lambda or ECS Fargate | Event handlers                 |
+| Queue         | SQS                   | Dead letter queue for failures |
+| Orchestration | Step Functions        | Complex workflow state         |
+| Storage       | DynamoDB, S3          | Persistent data                |
 
 ### Event Schema Example
 
@@ -181,24 +185,26 @@ Complex business workflows, asynchronous processing, decoupled systems
 
 ### Cost Breakdown
 
-| Service | Monthly Cost |
-|---------|-------------|
-| EventBridge | $1-10 |
-| Lambda | $20-100 |
-| SQS | $5-20 |
-| Step Functions | $25-100 |
-| DynamoDB | $20-100 |
-| **Total** | **$71-330** |
+| Service        | Monthly Cost |
+| -------------- | ------------ |
+| EventBridge    | $1-10        |
+| Lambda         | $20-100      |
+| SQS            | $5-20        |
+| Step Functions | $25-100      |
+| DynamoDB       | $20-100      |
+| **Total**      | **$71-330**  |
 
 ### Pros and Cons
 
 **Pros:**
+
 - Loose coupling between services
 - Independent scaling per service
 - Failure isolation
 - Easy to test individually
 
 **Cons:**
+
 - Distributed system complexity
 - Eventual consistency
 - Harder to debug
@@ -208,6 +214,7 @@ Complex business workflows, asynchronous processing, decoupled systems
 ## Pattern 3: Modern Three-Tier Application
 
 ### Use Case
+
 Traditional web apps, e-commerce, CMS, applications with complex queries
 
 ### Architecture Diagram
@@ -233,14 +240,14 @@ Traditional web apps, e-commerce, CMS, applications with complex queries
 
 ### Service Stack
 
-| Layer | Service | Configuration |
-|-------|---------|---------------|
-| CDN | CloudFront | Edge caching, HTTPS |
-| Load Balancer | ALB | Path-based routing, health checks |
-| Compute | ECS Fargate | Container auto-scaling |
-| Database | Aurora MySQL/PostgreSQL | Multi-AZ, auto-scaling |
-| Cache | ElastiCache Redis | Session, query caching |
-| Storage | S3 | Static assets, uploads |
+| Layer         | Service                 | Configuration                     |
+| ------------- | ----------------------- | --------------------------------- |
+| CDN           | CloudFront              | Edge caching, HTTPS               |
+| Load Balancer | ALB                     | Path-based routing, health checks |
+| Compute       | ECS Fargate             | Container auto-scaling            |
+| Database      | Aurora MySQL/PostgreSQL | Multi-AZ, auto-scaling            |
+| Cache         | ElastiCache Redis       | Session, query caching            |
+| Storage       | S3                      | Static assets, uploads            |
 
 ### Terraform Example
 
@@ -276,20 +283,21 @@ resource "aws_appautoscaling_target" "app" {
 
 ### Cost Breakdown (50K users)
 
-| Service | Monthly Cost |
-|---------|-------------|
-| ECS Fargate (2 tasks) | $100-200 |
-| ALB | $25-50 |
-| Aurora | $100-300 |
-| ElastiCache | $50-100 |
-| CloudFront | $20-50 |
-| **Total** | **$295-700** |
+| Service               | Monthly Cost |
+| --------------------- | ------------ |
+| ECS Fargate (2 tasks) | $100-200     |
+| ALB                   | $25-50       |
+| Aurora                | $100-300     |
+| ElastiCache           | $50-100      |
+| CloudFront            | $20-50       |
+| **Total**             | **$295-700** |
 
 ---
 
 ## Pattern 4: Real-Time Data Processing
 
 ### Use Case
+
 Analytics, IoT data ingestion, log processing, streaming data
 
 ### Architecture Diagram
@@ -313,14 +321,14 @@ Analytics, IoT data ingestion, log processing, streaming data
 
 ### Service Stack
 
-| Layer | Service | Purpose |
-|-------|---------|---------|
-| Ingestion | Kinesis Data Streams | Real-time data capture |
-| Processing | Lambda or Kinesis Analytics | Transform and analyze |
-| Storage | S3 (data lake) | Long-term storage |
-| Query | Athena | SQL queries on S3 |
-| Visualization | QuickSight | Dashboards and reports |
-| Alerting | CloudWatch + SNS | Threshold-based alerts |
+| Layer         | Service                     | Purpose                |
+| ------------- | --------------------------- | ---------------------- |
+| Ingestion     | Kinesis Data Streams        | Real-time data capture |
+| Processing    | Lambda or Kinesis Analytics | Transform and analyze  |
+| Storage       | S3 (data lake)              | Long-term storage      |
+| Query         | Athena                      | SQL queries on S3      |
+| Visualization | QuickSight                  | Dashboards and reports |
+| Alerting      | CloudWatch + SNS            | Threshold-based alerts |
 
 ### Kinesis Producer Example
 
@@ -348,20 +356,21 @@ send_event(
 
 ### Cost Breakdown
 
-| Service | Monthly Cost |
-|---------|-------------|
-| Kinesis (1 shard) | $15-30 |
-| Lambda | $10-50 |
-| S3 | $5-50 |
-| Athena | $5-25 |
-| QuickSight | $24+ |
-| **Total** | **$59-179** |
+| Service           | Monthly Cost |
+| ----------------- | ------------ |
+| Kinesis (1 shard) | $15-30       |
+| Lambda            | $10-50       |
+| S3                | $5-50        |
+| Athena            | $5-25        |
+| QuickSight        | $24+         |
+| **Total**         | **$59-179**  |
 
 ---
 
 ## Pattern 5: GraphQL API Backend
 
 ### Use Case
+
 Mobile apps, single-page applications, flexible data queries
 
 ### Architecture Diagram
@@ -417,19 +426,20 @@ type Post {
 
 ### Cost Breakdown
 
-| Service | Monthly Cost |
-|---------|-------------|
-| AppSync | $4-40 |
-| Lambda | $5-30 |
-| DynamoDB | $10-50 |
-| Cognito | $0-50 |
-| **Total** | **$19-170** |
+| Service   | Monthly Cost |
+| --------- | ------------ |
+| AppSync   | $4-40        |
+| Lambda    | $5-30        |
+| DynamoDB  | $10-50       |
+| Cognito   | $0-50        |
+| **Total** | **$19-170**  |
 
 ---
 
 ## Pattern 6: Multi-Region High Availability
 
 ### Use Case
+
 Global applications, disaster recovery, data sovereignty compliance
 
 ### Architecture Diagram
@@ -459,13 +469,13 @@ Global applications, disaster recovery, data sovereignty compliance
 
 ### Service Stack
 
-| Component | Service | Configuration |
-|-----------|---------|---------------|
-| DNS | Route 53 | Geolocation or latency routing |
-| CDN | CloudFront | Multiple origins per region |
-| Compute | Lambda or ECS | Deployed in each region |
-| Database | DynamoDB Global Tables | Automatic replication |
-| Storage | S3 CRR | Cross-region replication |
+| Component | Service                | Configuration                  |
+| --------- | ---------------------- | ------------------------------ |
+| DNS       | Route 53               | Geolocation or latency routing |
+| CDN       | CloudFront             | Multiple origins per region    |
+| Compute   | Lambda or ECS          | Deployed in each region        |
+| Database  | DynamoDB Global Tables | Automatic replication          |
+| Storage   | S3 CRR                 | Cross-region replication       |
 
 ### Route 53 Failover Policy
 
@@ -495,13 +505,13 @@ RecordSetPrimary:
 
 ### Cost Considerations
 
-| Factor | Impact |
-|--------|--------|
-| Compute | 2x (each region) |
-| Database | 25% premium for global tables |
+| Factor        | Impact                         |
+| ------------- | ------------------------------ |
+| Compute       | 2x (each region)               |
+| Database      | 25% premium for global tables  |
 | Data Transfer | Cross-region replication costs |
-| Route 53 | Health checks + geo queries |
-| **Total** | **1.5-2x single region** |
+| Route 53      | Health checks + geo queries    |
+| **Total**     | **1.5-2x single region**       |
 
 ---
 
@@ -509,27 +519,27 @@ RecordSetPrimary:
 
 ### Latency
 
-| Pattern | Typical Latency |
-|---------|-----------------|
-| Serverless | 50-200ms (cold: 500ms+) |
-| Three-Tier | 20-100ms |
-| GraphQL | 30-150ms |
-| Multi-Region | <50ms (regional) |
+| Pattern      | Typical Latency         |
+| ------------ | ----------------------- |
+| Serverless   | 50-200ms (cold: 500ms+) |
+| Three-Tier   | 20-100ms                |
+| GraphQL      | 30-150ms                |
+| Multi-Region | <50ms (regional)        |
 
 ### Scaling Characteristics
 
-| Pattern | Scale Limit | Scale Speed |
-|---------|-------------|-------------|
-| Serverless | 1000 concurrent/function | Instant |
-| Three-Tier | Instance limits | Minutes |
-| Event-Driven | Unlimited | Instant |
-| Multi-Region | Regional limits | Instant |
+| Pattern      | Scale Limit              | Scale Speed |
+| ------------ | ------------------------ | ----------- |
+| Serverless   | 1000 concurrent/function | Instant     |
+| Three-Tier   | Instance limits          | Minutes     |
+| Event-Driven | Unlimited                | Instant     |
+| Multi-Region | Regional limits          | Instant     |
 
 ### Operational Complexity
 
-| Pattern | Setup | Maintenance | Debugging |
-|---------|-------|-------------|-----------|
-| Serverless | Low | Low | Medium |
-| Three-Tier | Medium | Medium | Low |
-| Event-Driven | High | Medium | High |
-| Multi-Region | High | High | High |
+| Pattern      | Setup  | Maintenance | Debugging |
+| ------------ | ------ | ----------- | --------- |
+| Serverless   | Low    | Low         | Medium    |
+| Three-Tier   | Medium | Medium      | Low       |
+| Event-Driven | High   | Medium      | High      |
+| Multi-Region | High   | High        | High      |

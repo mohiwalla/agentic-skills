@@ -2,14 +2,14 @@
 
 ## Document Information
 
-| Field | Value |
-|-------|-------|
-| Customer | [Customer Name] |
-| Opportunity | [Opportunity Name / RFP Reference] |
-| Prepared By | [Sales Engineer Name] |
-| Date | [Date] |
-| Version | [Version Number] |
-| Classification | [Confidential / Internal] |
+| Field          | Value                              |
+| -------------- | ---------------------------------- |
+| Customer       | [Customer Name]                    |
+| Opportunity    | [Opportunity Name / RFP Reference] |
+| Prepared By    | [Sales Engineer Name]              |
+| Date           | [Date]                             |
+| Version        | [Version Number]                   |
+| Classification | [Confidential / Internal]          |
 
 ---
 
@@ -39,11 +39,11 @@
 
 ### Coverage Overview
 
-| Category | Requirements | Full | Partial | Planned | Gap | Coverage |
-|----------|-------------|------|---------|---------|-----|----------|
-| [Category 1] | [N] | [N] | [N] | [N] | [N] | [X%] |
-| [Category 2] | [N] | [N] | [N] | [N] | [N] | [X%] |
-| **Total** | **[N]** | **[N]** | **[N]** | **[N]** | **[N]** | **[X%]** |
+| Category     | Requirements | Full    | Partial | Planned | Gap     | Coverage |
+| ------------ | ------------ | ------- | ------- | ------- | ------- | -------- |
+| [Category 1] | [N]          | [N]     | [N]     | [N]     | [N]     | [X%]     |
+| [Category 2] | [N]          | [N]     | [N]     | [N]     | [N]     | [X%]     |
+| **Total**    | **[N]**      | **[N]** | **[N]** | **[N]** | **[N]** | **[X%]** |
 
 ### Key Differentiators
 
@@ -53,10 +53,10 @@
 
 ### Gap Mitigation Plan
 
-| Gap | Priority | Mitigation Strategy | Timeline |
-|-----|----------|-------------------|----------|
-| [Gap 1] | [Must/Should/Nice] | [Strategy] | [Date] |
-| [Gap 2] | [Must/Should/Nice] | [Strategy] | [Date] |
+| Gap     | Priority           | Mitigation Strategy | Timeline |
+| ------- | ------------------ | ------------------- | -------- |
+| [Gap 1] | [Must/Should/Nice] | [Strategy]          | [Date]   |
+| [Gap 2] | [Must/Should/Nice] | [Strategy]          | [Date]   |
 
 ---
 
@@ -88,12 +88,14 @@ Example:
 ### Component Details
 
 #### [Component 1]
+
 - **Purpose:** [What this component does]
 - **Technology:** [Underlying technology]
 - **Scaling:** [How it scales]
 - **Availability:** [HA/DR approach]
 
 #### [Component 2]
+
 - **Purpose:** [What this component does]
 - **Technology:** [Underlying technology]
 - **Scaling:** [How it scales]
@@ -101,11 +103,11 @@ Example:
 
 ### Integration Architecture
 
-| Integration Point | Protocol | Direction | Frequency | Authentication |
-|-------------------|----------|-----------|-----------|---------------|
-| [System A] | REST API | Inbound | Real-time | OAuth 2.0 |
-| [System B] | JDBC | Inbound | Batch (hourly) | Service Account |
-| [System C] | Webhook | Outbound | Event-driven | API Key |
+| Integration Point | Protocol | Direction | Frequency      | Authentication  |
+| ----------------- | -------- | --------- | -------------- | --------------- |
+| [System A]        | REST API | Inbound   | Real-time      | OAuth 2.0       |
+| [System B]        | JDBC     | Inbound   | Batch (hourly) | Service Account |
+| [System C]        | Webhook  | Outbound  | Event-driven   | API Key         |
 
 ### Security Architecture
 
@@ -121,12 +123,12 @@ Example:
 
 ### Phase Overview
 
-| Phase | Duration | Focus | Deliverables |
-|-------|----------|-------|-------------|
-| Phase 1: Foundation | [X weeks] | Environment setup, core configuration | Working environment, admin access |
-| Phase 2: Core Implementation | [X weeks] | Primary use cases, integrations | [Deliverables] |
-| Phase 3: Advanced Features | [X weeks] | Advanced scenarios, optimization | [Deliverables] |
-| Phase 4: Go-Live | [X weeks] | Testing, training, cutover | Production deployment |
+| Phase                        | Duration  | Focus                                 | Deliverables                      |
+| ---------------------------- | --------- | ------------------------------------- | --------------------------------- |
+| Phase 1: Foundation          | [X weeks] | Environment setup, core configuration | Working environment, admin access |
+| Phase 2: Core Implementation | [X weeks] | Primary use cases, integrations       | [Deliverables]                    |
+| Phase 3: Advanced Features   | [X weeks] | Advanced scenarios, optimization      | [Deliverables]                    |
+| Phase 4: Go-Live             | [X weeks] | Testing, training, cutover            | Production deployment             |
 
 ### Detailed Timeline
 
@@ -155,31 +157,31 @@ Week 9-10:  [Phase 4 - Go-Live]
 
 ### Resource Requirements
 
-| Role | Hours | Phase(s) | Provider |
-|------|-------|----------|----------|
-| Solutions Architect | [X] | All | [Vendor] |
-| Implementation Engineer | [X] | 1-3 | [Vendor] |
-| Project Manager | [X] | All | [Vendor] |
-| Customer IT Admin | [X] | 1, 4 | [Customer] |
-| Customer Business Lead | [X] | 2-4 | [Customer] |
+| Role                    | Hours | Phase(s) | Provider   |
+| ----------------------- | ----- | -------- | ---------- |
+| Solutions Architect     | [X]   | All      | [Vendor]   |
+| Implementation Engineer | [X]   | 1-3      | [Vendor]   |
+| Project Manager         | [X]   | All      | [Vendor]   |
+| Customer IT Admin       | [X]   | 1, 4     | [Customer] |
+| Customer Business Lead  | [X]   | 2-4      | [Customer] |
 
 ### Training Plan
 
-| Audience | Format | Duration | Content |
-|----------|--------|----------|---------|
-| Administrators | Workshop | [X hours] | Configuration, security, monitoring |
-| Power Users | Workshop | [X hours] | Advanced features, reporting, automation |
-| End Users | Webinar | [X hours] | Core workflows, self-service analytics |
+| Audience       | Format   | Duration  | Content                                  |
+| -------------- | -------- | --------- | ---------------------------------------- |
+| Administrators | Workshop | [X hours] | Configuration, security, monitoring      |
+| Power Users    | Workshop | [X hours] | Advanced features, reporting, automation |
+| End Users      | Webinar  | [X hours] | Core workflows, self-service analytics   |
 
 ---
 
 ## 5. Risk Mitigation
 
-| Risk | Probability | Impact | Mitigation |
-|------|------------|--------|------------|
-| [Risk 1] | [H/M/L] | [H/M/L] | [Strategy] |
-| [Risk 2] | [H/M/L] | [H/M/L] | [Strategy] |
-| [Risk 3] | [H/M/L] | [H/M/L] | [Strategy] |
+| Risk     | Probability | Impact  | Mitigation |
+| -------- | ----------- | ------- | ---------- |
+| [Risk 1] | [H/M/L]     | [H/M/L] | [Strategy] |
+| [Risk 2] | [H/M/L]     | [H/M/L] | [Strategy] |
+| [Risk 3] | [H/M/L]     | [H/M/L] | [Strategy] |
 
 ---
 
@@ -187,22 +189,22 @@ Week 9-10:  [Phase 4 - Go-Live]
 
 ### Pricing Overview
 
-| Component | Annual Cost |
-|-----------|------------|
-| Platform License | $[X] |
-| Implementation Services | $[X] |
-| Training | $[X] |
-| Premium Support | $[X] |
-| **Total Year 1** | **$[X]** |
-| **Annual Renewal** | **$[X]** |
+| Component               | Annual Cost |
+| ----------------------- | ----------- |
+| Platform License        | $[X]        |
+| Implementation Services | $[X]        |
+| Training                | $[X]        |
+| Premium Support         | $[X]        |
+| **Total Year 1**        | **$[X]**    |
+| **Annual Renewal**      | **$[X]**    |
 
 ### ROI Projection
 
-| Metric | Current State | With Solution | Improvement |
-|--------|--------------|---------------|-------------|
-| [Metric 1] | [Value] | [Value] | [%] |
-| [Metric 2] | [Value] | [Value] | [%] |
-| [Metric 3] | [Value] | [Value] | [%] |
+| Metric     | Current State | With Solution | Improvement |
+| ---------- | ------------- | ------------- | ----------- |
+| [Metric 1] | [Value]       | [Value]       | [%]         |
+| [Metric 2] | [Value]       | [Value]       | [%]         |
+| [Metric 3] | [Value]       | [Value]       | [%]         |
 
 **Estimated payback period:** [X months]
 
@@ -219,13 +221,17 @@ Week 9-10:  [Phase 4 - Go-Live]
 ## Appendices
 
 ### A. Detailed Compliance Matrix
+
 [Reference to full requirement-by-requirement response]
 
 ### B. Reference Customers
+
 [2-3 relevant customer references with industry, use case, and outcomes]
 
 ### C. Architecture Diagrams
+
 [Detailed architecture diagrams]
 
 ### D. Product Roadmap (Relevant Items)
+
 [Roadmap items relevant to this proposal with estimated delivery dates]

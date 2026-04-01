@@ -16,6 +16,7 @@ metadata:
 Two-layer memory system. Layer 1 stores everything. Layer 2 stores only what the founder approved. Future meetings read Layer 2 only — this prevents hallucinated consensus from past debates bleeding into new deliberations.
 
 ## Keywords
+
 decision log, memory, approved decisions, action items, board minutes, /cs:decisions, /cs:review, conflict detection, DO_NOT_RESURFACE
 
 ## Quick Start
@@ -33,28 +34,32 @@ python scripts/decision_tracker.py --search "pricing" # Search decisions
 
 ## Commands
 
-| Command | Effect |
-|---------|--------|
-| `/cs:decisions` | Last 10 approved decisions |
-| `/cs:decisions --all` | Full history |
-| `/cs:decisions --owner CMO` | Filter by owner |
-| `/cs:decisions --topic pricing` | Search by keyword |
-| `/cs:review` | Action items due within 7 days |
-| `/cs:review --overdue` | Items past deadline |
+| Command                         | Effect                         |
+| ------------------------------- | ------------------------------ |
+| `/cs:decisions`                 | Last 10 approved decisions     |
+| `/cs:decisions --all`           | Full history                   |
+| `/cs:decisions --owner CMO`     | Filter by owner                |
+| `/cs:decisions --topic pricing` | Search by keyword              |
+| `/cs:review`                    | Action items due within 7 days |
+| `/cs:review --overdue`          | Items past deadline            |
 
 ---
 
 ## Two-Layer Architecture
 
 ### Layer 1 — Raw Transcripts
+
 **Location:** `memory/board-meetings/YYYY-MM-DD-raw.md`
+
 - Full Phase 2 agent contributions, Phase 3 critique, Phase 4 synthesis
 - All debates, including rejected arguments
 - **NEVER auto-loaded.** Only on explicit founder request.
 - Archive after 90 days → `memory/board-meetings/archive/YYYY/`
 
 ### Layer 2 — Approved Decisions
+
 **Location:** `memory/board-meetings/decisions.md`
+
 - ONLY founder-approved decisions, action items, user corrections
 - **Loaded automatically in Phase 1 of every board meeting**
 - Append-only. Decisions are never deleted — only superseded.
@@ -76,9 +81,11 @@ python scripts/decision_tracker.py --search "pricing" # Search decisions
 **User Override:** [If founder changed agent recommendation — what and why. Blank if not applicable.]
 
 **Rejected:**
+
 - [Proposal] — [reason] [DO_NOT_RESURFACE]
 
 **Action Items:**
+
 - [ ] [Action] — Owner: [name] — Due: [YYYY-MM-DD] — Review: [YYYY-MM-DD]
 
 **Supersedes:** [DATE of previous decision on same topic, if any]
@@ -91,11 +98,13 @@ python scripts/decision_tracker.py --search "pricing" # Search decisions
 ## Conflict Detection
 
 Before logging, Chief of Staff checks for:
+
 1. **DO_NOT_RESURFACE violations** — new decision matches a rejected proposal
 2. **Topic contradictions** — two active decisions on same topic with different conclusions
 3. **Owner conflicts** — same action assigned to different people in different decisions
 
 When a conflict is found:
+
 ```
 ⚠️ DECISION CONFLICT
 New: [text]
@@ -105,6 +114,7 @@ Options: (1) Supersede old  (2) Merge  (3) Defer to founder
 ```
 
 **DO_NOT_RESURFACE enforcement:**
+
 ```
 🚫 BLOCKED: "[Proposal]" was rejected on [DATE]. Reason: [reason].
 To reopen: founder must explicitly say "reopen [topic] from [DATE]".
@@ -145,5 +155,6 @@ memory/board-meetings/
 ---
 
 ## References
+
 - `templates/decision-entry.md` — single entry template with field rules
 - `scripts/decision_tracker.py` — CLI parser, overdue tracker, conflict detector

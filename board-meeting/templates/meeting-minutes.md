@@ -20,6 +20,7 @@ Do NOT include raw agent debate here. That lives in `YYYY-MM-DD-raw.md` (Layer 1
 ## Decisions Made
 
 ### Decision 1: [Title]
+
 **Agenda item:** [Item this decision resolves]
 **Decision:** [Exactly what was decided — one clear statement]
 **Rationale:** [Why this was chosen over alternatives, in 1-3 sentences]
@@ -31,6 +32,7 @@ Do NOT include raw agent debate here. That lives in `YYYY-MM-DD-raw.md` (Layer 1
 ---
 
 ### Decision 2: [Title]
+
 **Agenda item:**
 **Decision:**
 **Rationale:**
@@ -43,11 +45,11 @@ Do NOT include raw agent debate here. That lives in `YYYY-MM-DD-raw.md` (Layer 1
 
 ## Action Items
 
-| # | Action | Owner | Deadline | Review Date | Status |
-|---|--------|-------|----------|-------------|--------|
-| 1 | [action] | [name/role] | [date] | [date] | Open |
-| 2 | [action] | [name/role] | [date] | [date] | Open |
-| 3 | [action] | [name/role] | [date] | [date] | Open |
+| #   | Action   | Owner       | Deadline | Review Date | Status |
+| --- | -------- | ----------- | -------- | ----------- | ------ |
+| 1   | [action] | [name/role] | [date]   | [date]      | Open   |
+| 2   | [action] | [name/role] | [date]   | [date]      | Open   |
+| 3   | [action] | [name/role] | [date]   | [date]      | Open   |
 
 ---
 
@@ -55,10 +57,10 @@ Do NOT include raw agent debate here. That lives in `YYYY-MM-DD-raw.md` (Layer 1
 
 These were considered and rejected. Do not resurface without new information.
 
-| Proposal | Rejected by | Reason | Flag |
-|----------|-------------|--------|------|
-| [Proposal text] | Founder | [reason] | [DO_NOT_RESURFACE] |
-| [Proposal text] | Consensus | [reason] | [DO_NOT_RESURFACE] |
+| Proposal        | Rejected by | Reason   | Flag               |
+| --------------- | ----------- | -------- | ------------------ |
+| [Proposal text] | Founder     | [reason] | [DO_NOT_RESURFACE] |
+| [Proposal text] | Consensus   | [reason] | [DO_NOT_RESURFACE] |
 
 ---
 
@@ -73,9 +75,9 @@ These were not resolved in this meeting. They carry forward.
 
 ## Risk Register Updates
 
-| Risk | Probability | Impact | Owner | Mitigation | Status |
-|------|-------------|--------|-------|-----------|--------|
-| [risk] | H/M/L | H/M/L | [name] | [action] | Open |
+| Risk   | Probability | Impact | Owner  | Mitigation | Status |
+| ------ | ----------- | ------ | ------ | ---------- | ------ |
+| [risk] | H/M/L       | H/M/L  | [name] | [action]   | Open   |
 
 ---
 
@@ -87,5 +89,5 @@ These were not resolved in this meeting. They carry forward.
 
 ---
 
-*Minutes approved by: [Founder name] on [DATE]*
-*Raw transcript: `memory/board-meetings/[DATE]-raw.md`*
+_Minutes approved by: [Founder name] on [DATE]_
+_Raw transcript: `memory/board-meetings/[DATE]-raw.md`_

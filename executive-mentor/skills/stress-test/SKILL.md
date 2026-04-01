@@ -32,6 +32,7 @@ State it explicitly. Not "our market is large" but "the total addressable market
 The more specific the assumption, the more testable it is. Vague assumptions are unfalsifiable — and therefore useless.
 
 **Common assumption types:**
+
 - **Market size** — TAM, SAM, SOM; growth rate; customer segments
 - **Customer behavior** — willingness to pay, churn, expansion, referrals
 - **Revenue model** — conversion rates, deal size, sales cycle, CAC
@@ -44,6 +45,7 @@ The more specific the assumption, the more testable it is. Vague assumptions are
 For every assumption, actively search for evidence that it's wrong.
 
 Ask:
+
 - Who has tried this and failed?
 - What data contradicts this assumption?
 - What does the bear case look like?
@@ -51,6 +53,7 @@ Ask:
 - What's the base rate for assumptions like this?
 
 **Sources of counter-evidence:**
+
 - Comparable companies that failed in adjacent markets
 - Customer churn data from similar businesses
 - Historical accuracy of similar forecasts
@@ -65,12 +68,12 @@ Most plans model the base case and the upside. Stress testing means modeling the
 
 **For quantitative assumptions (revenue, growth, conversion):**
 
-| Scenario | Assumption Value | Probability | Impact |
-|----------|-----------------|-------------|--------|
-| Base case | [Original value] | ? | |
-| Bear case | -30% | ? | |
-| Stress case | -50% | ? | |
-| Catastrophic | -80% | ? | |
+| Scenario     | Assumption Value | Probability | Impact |
+| ------------ | ---------------- | ----------- | ------ |
+| Base case    | [Original value] | ?           |        |
+| Bear case    | -30%             | ?           |        |
+| Stress case  | -50%             | ?           |        |
+| Catastrophic | -80%             | ?           |        |
 
 Key question at each level: **Does the business survive? Does the plan make sense?**
 
@@ -84,7 +87,8 @@ Key question at each level: **Does the business survive? Does the plan make sens
 
 Some assumptions matter more than others. Sensitivity analysis answers: **if this one assumption changes, how much does the outcome change?**
 
-Example: 
+Example:
+
 - If CAC doubles, how does that change runway?
 - If churn goes from 5% to 10%, how does that change NRR in 24 months?
 - If the deal cycle is 6 months instead of 3, how does that affect Q3 revenue?
@@ -106,11 +110,13 @@ For every high-risk assumption, there should be a hedge:
 ### Revenue Projections
 
 **Common failures:**
+
 - Bottom-up model assumes 100% of pipeline converts
 - Doesn't account for deal slippage, churn, seasonality
 - New channel assumed to work before tested at scale
 
 **Stress questions:**
+
 - What's your actual historical win rate on pipeline?
 - If your top 3 deals slip to next quarter, what happens to the number?
 - What's the model look like if your new sales rep takes 4 months to ramp, not 2?
@@ -121,11 +127,13 @@ For every high-risk assumption, there should be a hedge:
 ### Market Size
 
 **Common failures:**
+
 - TAM calculated top-down from industry reports without bottoms-up validation
 - Conflating total market with serviceable market
 - Assuming 100% of SAM is reachable
 
 **Stress questions:**
+
 - How many companies in your ICP actually exist and can you name them?
 - What's your serviceable obtainable market in year 1-3?
 - What percentage of your ICP is currently spending on any solution to this problem?
@@ -136,11 +144,13 @@ For every high-risk assumption, there should be a hedge:
 ### Competitive Moat
 
 **Common failures:**
+
 - Moat is technology advantage that can be built in 6 months
 - Network effects that haven't yet materialized
 - Data advantage that requires scale you don't have
 
 **Stress questions:**
+
 - If a well-funded competitor copied your best feature in 90 days, what do customers do?
 - What's your retention rate among customers who have tried alternatives?
 - Is the moat real today or theoretical at scale?
@@ -151,11 +161,13 @@ For every high-risk assumption, there should be a hedge:
 ### Hiring Plan
 
 **Common failures:**
+
 - Time-to-hire assumes standard recruiting cycle, not current market
 - Ramp time not modeled (3-6 months before full productivity)
 - Key hire dependency: plan only works if specific person is hired
 
 **Stress questions:**
+
 - What happens if the VP Sales hire takes 5 months, not 2?
 - What does execution look like if you only hire 70% of planned headcount?
 - Which single person, if they left tomorrow, would most damage the plan?
@@ -166,11 +178,13 @@ For every high-risk assumption, there should be a hedge:
 ### Competitive Response
 
 **Common failures:**
+
 - Assumes incumbents won't respond (they will if you're winning)
 - Underestimates speed of response
 - Doesn't model resource asymmetry
 
 **Stress questions:**
+
 - If the market leader copies your product in 6 months, how does pricing change?
 - What's your response if a competitor raises $30M to attack your space?
 - Which of your customers have vendor relationships with your competitors?

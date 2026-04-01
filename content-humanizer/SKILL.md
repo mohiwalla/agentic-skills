@@ -23,6 +23,7 @@ If `marketing-context.md` exists, read it. It contains brand voice guidelines, w
 Gather what you need before starting:
 
 ### What you need
+
 - **The content** — paste the draft to humanize
 - **Brand voice notes** — if no `marketing-context.md`, ask: "Is your voice direct/casual/technical/irreverent? Give me one example of writing you love."
 - **Audience** — who reads this? (This changes what "human" sounds like)
@@ -35,13 +36,16 @@ One question if needed: "Before I rewrite this, give me an example of content yo
 Three modes. Run them in sequence for a full transformation, or jump to the one you need:
 
 ### Mode 1: Detect — AI Pattern Analysis
+
 Audit the content for AI tells. Name what's wrong and why before fixing anything. This is diagnostic — not editorial.
 
 ### Mode 2: Humanize — Pattern Removal and Rhythm Fix
+
 Strip the AI patterns. Fix sentence rhythm. Replace generic with specific. The content starts sounding like a person.
 
 ### Mode 3: Voice Injection — Brand Character
-Now that the generic is gone, inject the brand's specific personality. This is where "human" becomes *your brand's* human.
+
+Now that the generic is gone, inject the brand's specific personality. This is where "human" becomes _your brand's_ human.
 
 Run all three in one pass when you have enough context. Split them when the client needs to see the audit before you edit.
 
@@ -57,6 +61,7 @@ See [references/ai-tells-checklist.md](references/ai-tells-checklist.md) for the
 
 **1. Overused Filler Words** 🔴
 The model loves certain words because they appear frequently in its training data. Flag these on sight:
+
 - "delve," "delve into," "delve deeper"
 - "landscape" (as in "the current AI landscape")
 - "crucial," "vital," "pivotal"
@@ -68,6 +73,7 @@ The model loves certain words because they appear frequently in its training dat
 
 **2. Hedging Chains** 🔴
 AI hedges constantly. It hedges because it doesn't know if it's right. Humans hedge sometimes — but not in every sentence.
+
 - "It's important to note that..."
 - "It's worth mentioning that..."
 - "One might argue that..."
@@ -83,6 +89,7 @@ Every paragraph: topic sentence → explanation → example → bridge to next. 
 
 **5. Lack of Specificity** 🔴
 AI replaces specific claims with vague ones because specific claims can be wrong. Look for:
+
 - "Many companies" → which companies?
 - "Studies show" → which studies?
 - "Significantly improved" → improved by how much?
@@ -105,28 +112,30 @@ After identifying what's wrong, fix it systematically.
 
 **Rule:** Never just delete — always replace with something better.
 
-| AI phrase | Human alternative |
-|---|---|
-| "delve into" | "look at," "dig into," "break down," or just: "here's what matters" |
-| "the [X] landscape" | "how [X] works today," "the current state of [X]" |
-| "leverage" | "use," "apply," "put to work" |
-| "crucial" / "vital" | "the part that actually matters," "the one thing," or just state the thing — let it be self-evidently important |
-| "furthermore" | nothing (just start the next sentence), or "and," or "also" |
-| "robust" | specific: "handles 10,000 requests/sec," "covers 47 edge cases" |
-| "facilitate" | "help," "make easier," "allow" |
-| "navigate this challenge" | "handle this," "deal with this," "get through this" |
+| AI phrase                 | Human alternative                                                                                               |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| "delve into"              | "look at," "dig into," "break down," or just: "here's what matters"                                             |
+| "the [X] landscape"       | "how [X] works today," "the current state of [X]"                                                               |
+| "leverage"                | "use," "apply," "put to work"                                                                                   |
+| "crucial" / "vital"       | "the part that actually matters," "the one thing," or just state the thing — let it be self-evidently important |
+| "furthermore"             | nothing (just start the next sentence), or "and," or "also"                                                     |
+| "robust"                  | specific: "handles 10,000 requests/sec," "covers 47 edge cases"                                                 |
+| "facilitate"              | "help," "make easier," "allow"                                                                                  |
+| "navigate this challenge" | "handle this," "deal with this," "get through this"                                                             |
 
 ### Fix Sentence Rhythm
 
 **The problem:** AI produces uniform sentence length. Every sentence is 18-22 words. The ear goes numb.
 
 **The fix:** Deliberate variation. Read aloud. Then:
+
 - Break long sentences into two
 - Add a short sentence after a long one. Like this.
 - Use fragments where they serve emphasis. Especially for emphasis.
 - Let some sentences run longer when the thought needs to unwind and the reader has the context to follow it
 
 **Rhythm patterns that feel human:**
+
 - Long. Short. Long, long. Short.
 - Question? Answer. Proof.
 - Claim. Specific example. So what?
@@ -156,6 +165,7 @@ Break the uniform SEEB pattern (Statement → Explanation → Example → Bridge
 ### Add Friction and Imperfection
 
 AI writing is too smooth. Too complete. Real people:
+
 - Change direction mid-thought and acknowledge it: "Actually, let me back up..."
 - Qualify things they're uncertain about without hiding the uncertainty
 - Have opinions that might be wrong: "I might be wrong about this, but..."
@@ -166,13 +176,14 @@ AI writing is too smooth. Too complete. Real people:
 
 ## Mode 3: Voice Injection — Brand Character
 
-Humanizing removes AI. Voice injection makes it *yours*.
+Humanizing removes AI. Voice injection makes it _yours_.
 
 ### Read the Voice Blueprint First
 
 If `marketing-context.md` is available: read the brand voice section and writing examples. If not, ask for one example of content this brand loves. One. Then extract the patterns from it.
 
 **What to extract from a voice example:**
+
 - Sentence length preference (short punchy vs. longer flowing?)
 - Formality level (contractions? slang? industry jargon?)
 - Use of humor (dry wit? self-deprecating? none?)
@@ -201,9 +212,11 @@ Every brand has a rhythm. Some write in short staccato bursts. Some write long, 
 ### Before / After Example
 
 **Before (AI-generated):**
+
 > It is crucial to leverage your existing customer data in order to effectively navigate the competitive landscape. Furthermore, by implementing a robust onboarding strategy, organizations can ensure that users achieve maximum value from the product and reduce churn significantly.
 
 **After (humanized):**
+
 > Here's the thing nobody says out loud: most SaaS companies have the data to fix their churn problem. They just don't look at it until after customers leave.
 >
 > Your activation funnel is in there. Your best cohorts, your worst, the moment the drop-off happens. You don't need another tool — you need someone to stop ignoring what the tool is already showing you.
@@ -211,6 +224,7 @@ Every brand has a rhythm. Some write in short staccato bursts. Some write long, 
 > Nail onboarding first. Everything else is downstream.
 
 What changed:
+
 - Removed: "crucial," "leverage," "navigate," "robust," "ensure," "significantly," "furthermore"
 - Added: direct address, specific accusation ("what the tool is already showing you"), short-sentence punch at the end
 - Changed: passive recommendations → active point of view
@@ -231,19 +245,20 @@ Flag these without being asked:
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|---|---|
-| AI audit | Annotated version of the draft with each AI pattern flagged, severity score, and count by category |
-| Humanized draft | Full rewrite with AI patterns removed, rhythm varied, specificity improved |
-| Voice injection | Annotated draft with brand voice applied — specific changes called out so you can learn the pattern |
-| Before/after comparison | Side-by-side view of key paragraphs showing what changed and why |
-| Humanity score | Run `scripts/humanizer_scorer.py` — 0-100 score with breakdown by signal type |
+| When you ask for...     | You get...                                                                                          |
+| ----------------------- | --------------------------------------------------------------------------------------------------- |
+| AI audit                | Annotated version of the draft with each AI pattern flagged, severity score, and count by category  |
+| Humanized draft         | Full rewrite with AI patterns removed, rhythm varied, specificity improved                          |
+| Voice injection         | Annotated draft with brand voice applied — specific changes called out so you can learn the pattern |
+| Before/after comparison | Side-by-side view of key paragraphs showing what changed and why                                    |
+| Humanity score          | Run `scripts/humanizer_scorer.py` — 0-100 score with breakdown by signal type                       |
 
 ---
 
 ## Communication
 
 All output follows the structured standard:
+
 - **Bottom line first** — answer before explanation
 - **What + Why + How** — every finding includes all three
 - **Actions have owners and deadlines** — no "you might want to consider"

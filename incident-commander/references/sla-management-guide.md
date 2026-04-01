@@ -13,18 +13,18 @@ An SLI is the quantitative measurement of a specific aspect of service quality. 
 
 **Common SLI types by service:**
 
-| Service Type | SLI | Measurement Method |
-|---|---|---|
-| Web Application | Request latency (p50, p95, p99) | Server-side histogram |
-| Web Application | Availability (successful responses / total requests) | Load balancer logs |
-| REST API | Error rate (5xx responses / total responses) | API gateway metrics |
-| REST API | Throughput (requests per second) | Counter metric |
-| Database | Query latency (p99) | Slow query log + APM |
-| Database | Replication lag (seconds) | Replica monitoring |
-| Message Queue | End-to-end delivery latency | Timestamp comparison |
-| Message Queue | Message loss rate | Producer vs consumer counts |
-| Storage | Durability (objects lost / objects stored) | Integrity checksums |
-| CDN | Cache hit ratio | Edge server logs |
+| Service Type    | SLI                                                  | Measurement Method          |
+| --------------- | ---------------------------------------------------- | --------------------------- |
+| Web Application | Request latency (p50, p95, p99)                      | Server-side histogram       |
+| Web Application | Availability (successful responses / total requests) | Load balancer logs          |
+| REST API        | Error rate (5xx responses / total responses)         | API gateway metrics         |
+| REST API        | Throughput (requests per second)                     | Counter metric              |
+| Database        | Query latency (p99)                                  | Slow query log + APM        |
+| Database        | Replication lag (seconds)                            | Replica monitoring          |
+| Message Queue   | End-to-end delivery latency                          | Timestamp comparison        |
+| Message Queue   | Message loss rate                                    | Producer vs consumer counts |
+| Storage         | Durability (objects lost / objects stored)           | Integrity checksums         |
+| CDN             | Cache hit ratio                                      | Edge server logs            |
 
 **SLI specification formula:**
 
@@ -72,12 +72,12 @@ An SLA is a formal contract between a service provider and its customers that sp
 
 **Standard combinations by tier:**
 
-| Tier | SLI (Metric) | SLO (Target) | SLA (Contract) | Allowed Downtime/Month |
-|---|---|---|---|---|
-| Critical (payments) | Availability | 99.99% | 99.95% | SLO: 4.38 min / SLA: 21.9 min |
-| High (core API) | Availability | 99.95% | 99.9% | SLO: 21.9 min / SLA: 43.8 min |
-| Standard (dashboard) | Availability | 99.9% | 99.5% | SLO: 43.8 min / SLA: 3.65 hrs |
-| Low (internal tools) | Availability | 99.5% | 99.0% | SLO: 3.65 hrs / SLA: 7.3 hrs |
+| Tier                 | SLI (Metric) | SLO (Target) | SLA (Contract) | Allowed Downtime/Month        |
+| -------------------- | ------------ | ------------ | -------------- | ----------------------------- |
+| Critical (payments)  | Availability | 99.99%       | 99.95%         | SLO: 4.38 min / SLA: 21.9 min |
+| High (core API)      | Availability | 99.95%       | 99.9%          | SLO: 21.9 min / SLA: 43.8 min |
+| Standard (dashboard) | Availability | 99.9%        | 99.5%          | SLO: 43.8 min / SLA: 3.65 hrs |
+| Low (internal tools) | Availability | 99.5%        | 99.0%          | SLO: 3.65 hrs / SLA: 7.3 hrs  |
 
 ---
 
@@ -100,14 +100,14 @@ Allowed Downtime = 43,200 x 0.001 = 43.2 minutes
 
 ### Downtime Allowances by SLO
 
-| SLO | Error Budget | Monthly Downtime | Quarterly Downtime | Annual Downtime |
-|---|---|---|---|---|
-| 99.0% | 1.0% | 7 hrs 18 min | 21 hrs 54 min | 3 days 15 hrs |
-| 99.5% | 0.5% | 3 hrs 39 min | 10 hrs 57 min | 1 day 19 hrs |
-| 99.9% | 0.1% | 43.8 min | 2 hrs 11 min | 8 hrs 46 min |
-| 99.95% | 0.05% | 21.9 min | 1 hr 6 min | 4 hrs 23 min |
-| 99.99% | 0.01% | 4.38 min | 13.1 min | 52.6 min |
-| 99.999% | 0.001% | 26.3 sec | 78.9 sec | 5.26 min |
+| SLO     | Error Budget | Monthly Downtime | Quarterly Downtime | Annual Downtime |
+| ------- | ------------ | ---------------- | ------------------ | --------------- |
+| 99.0%   | 1.0%         | 7 hrs 18 min     | 21 hrs 54 min      | 3 days 15 hrs   |
+| 99.5%   | 0.5%         | 3 hrs 39 min     | 10 hrs 57 min      | 1 day 19 hrs    |
+| 99.9%   | 0.1%         | 43.8 min         | 2 hrs 11 min       | 8 hrs 46 min    |
+| 99.95%  | 0.05%        | 21.9 min         | 1 hr 6 min         | 4 hrs 23 min    |
+| 99.99%  | 0.01%        | 4.38 min         | 13.1 min           | 52.6 min        |
+| 99.999% | 0.001%       | 26.3 sec         | 78.9 sec           | 5.26 min        |
 
 ### Error Budget Consumption Tracking
 
@@ -137,26 +137,28 @@ A burn rate of 1.0 means the budget will be exactly exhausted by the end of the 
 
 **Burn rate to time-to-exhaustion (30-day month):**
 
-| Burn Rate | Budget Exhausted In | Urgency |
-|---|---|---|
-| 1x | 30 days | On pace, monitoring only |
-| 2x | 15 days | Elevated attention |
-| 6x | 5 days | Active investigation required |
-| 14.4x | 2.08 days (~50 hours) | Immediate page |
-| 36x | 20 hours | Critical, all-hands |
-| 720x | 1 hour | Total outage scenario |
+| Burn Rate | Budget Exhausted In   | Urgency                       |
+| --------- | --------------------- | ----------------------------- |
+| 1x        | 30 days               | On pace, monitoring only      |
+| 2x        | 15 days               | Elevated attention            |
+| 6x        | 5 days                | Active investigation required |
+| 14.4x     | 2.08 days (~50 hours) | Immediate page                |
+| 36x       | 20 hours              | Critical, all-hands           |
+| 720x      | 1 hour                | Total outage scenario         |
 
 ### Error Budget Exhaustion Policy
 
 When the error budget is consumed, the following actions trigger based on threshold:
 
 **Tier 1 - Budget at 75% consumed (Yellow):**
+
 - Notify service team lead via automated alert
 - Freeze non-critical deployments to the affected service
 - Conduct pre-emptive review of upcoming changes for risk
 - Increase monitoring sensitivity (lower alert thresholds)
 
 **Tier 2 - Budget at 100% consumed (Orange):**
+
 - Hard feature freeze on the affected service
 - Mandatory reliability sprint: all engineering effort redirected to reliability
 - Daily status updates to engineering leadership
@@ -164,6 +166,7 @@ When the error budget is consumed, the following actions trigger based on thresh
 - Freeze lasts until budget replenishes to 50% or systemic fixes are verified
 
 **Tier 3 - Budget at 150% consumed / SLA breach imminent (Red):**
+
 - Escalation to VP Engineering and CTO
 - Cross-team war room if dependencies are involved
 - Customer communication prepared and staged
@@ -198,12 +201,14 @@ APPROVED BY: [Engineering Lead] / [Product Lead] / [Date]
 ### Detection Methods
 
 **Automated detection (primary):**
+
 - Real-time monitoring dashboards with SLA burn-rate alerts
 - Automated SLA compliance calculations running every 5 minutes
 - Threshold-based alerts when cumulative downtime approaches SLA limits
 - Synthetic monitoring (external probes) for customer-perspective validation
 
 **Manual review (secondary):**
+
 - Monthly SLA compliance reports generated on the 1st of each month
 - Customer-reported incidents cross-referenced with internal metrics
 - Quarterly audits comparing measured SLIs against contracted SLAs
@@ -212,6 +217,7 @@ APPROVED BY: [Engineering Lead] / [Product Lead] / [Date]
 ### Breach Classification
 
 **Minor Breach:**
+
 - SLA missed by less than 0.05 percentage points (e.g., 99.85% vs 99.9% SLA)
 - Fewer than 3 discrete incidents contributed
 - No single incident exceeded 30 minutes
@@ -219,12 +225,14 @@ APPROVED BY: [Engineering Lead] / [Product Lead] / [Date]
 - Financial credit: typically 5-10% of monthly service fee
 
 **Major Breach:**
+
 - SLA missed by 0.05 to 0.5 percentage points
 - Extended outage of 1-4 hours in a single incident, or multiple significant incidents
 - Clear customer impact with support tickets generated
 - Financial credit: typically 10-25% of monthly service fee
 
 **Critical Breach:**
+
 - SLA missed by more than 0.5 percentage points
 - Total outage exceeding 4 hours, or repeated major incidents in same window
 - Data loss, security incident, or compliance violation involved
@@ -234,6 +242,7 @@ APPROVED BY: [Engineering Lead] / [Product Lead] / [Date]
 ### Response Protocol
 
 **For Minor Breach (within 3 business days):**
+
 1. Generate SLA compliance report with exact metrics
 2. Document contributing incidents with root causes
 3. Send proactive notification to customer success manager
@@ -241,6 +250,7 @@ APPROVED BY: [Engineering Lead] / [Product Lead] / [Date]
 5. File internal improvement ticket with 30-day remediation target
 
 **For Major Breach (within 24 hours):**
+
 1. Incident commander confirms SLA impact calculation
 2. Draft customer communication (see template below)
 3. Executive sponsor reviews and approves communication
@@ -249,6 +259,7 @@ APPROVED BY: [Engineering Lead] / [Product Lead] / [Date]
 6. Produce remediation plan with committed timelines
 
 **For Critical Breach (immediate):**
+
 1. Activate executive escalation chain
 2. Legal team reviews contractual exposure
 3. Finance team calculates credit obligations
@@ -316,13 +327,13 @@ Downtime = End Time - Start Time (in minutes)
 Effective Downtime = Actual Duration x Degradation Factor
 ```
 
-| Degradation Level | Factor | Description |
-|---|---|---|
-| Complete outage | 1.0 | Service fully unavailable |
-| Severe degradation | 0.75 | >50% of requests failing or >10x latency |
-| Moderate degradation | 0.5 | 10-50% of requests affected or 3-10x latency |
-| Minor degradation | 0.25 | <10% of requests affected or <3x latency increase |
-| Cosmetic / non-functional | 0.0 | No impact on core SLI metrics |
+| Degradation Level         | Factor | Description                                       |
+| ------------------------- | ------ | ------------------------------------------------- |
+| Complete outage           | 1.0    | Service fully unavailable                         |
+| Severe degradation        | 0.75   | >50% of requests failing or >10x latency          |
+| Moderate degradation      | 0.5    | 10-50% of requests affected or 3-10x latency      |
+| Minor degradation         | 0.25   | <10% of requests affected or <3x latency increase |
+| Cosmetic / non-functional | 0.0    | No impact on core SLI metrics                     |
 
 **Note:** The exact degradation factors must be agreed upon in the SLA contract. The above are industry-standard starting points.
 
@@ -344,12 +355,14 @@ SLA Availability = (Total Minutes - Excluded Maintenance - Unplanned Downtime) /
 When a customer-facing product depends on multiple services, composite SLA is calculated as:
 
 **Serial dependency (all must be up):**
+
 ```
 Composite SLA = SLA_A x SLA_B x SLA_C
 Example: 99.9% x 99.95% x 99.99% = 99.84%
 ```
 
 **Parallel / redundant (any one must be up):**
+
 ```
 Composite Availability = 1 - ((1 - SLA_A) x (1 - SLA_B))
 Example: 1 - ((1 - 0.999) x (1 - 0.999)) = 1 - 0.000001 = 99.9999%
@@ -360,6 +373,7 @@ This is critical during incidents: an outage in a shared dependency may breach S
 ### Worked Examples
 
 **Example 1: Simple outage**
+
 - Service: Core API (SLA: 99.9%)
 - Month: 30 days = 43,200 minutes
 - Incident: Full outage from 14:23 to 14:38 UTC on the 12th (15 minutes)
@@ -372,6 +386,7 @@ Error Budget Consumed: 15 / 43.2 = 34.7%
 ```
 
 **Example 2: Partial degradation**
+
 - Service: Payment Processing (SLA: 99.95%)
 - Month: 30 days = 43,200 minutes
 - Incident: 50% of transactions failing for 4 hours (240 minutes)
@@ -385,6 +400,7 @@ Shortfall: 0.228 percentage points → Major Breach
 ```
 
 **Example 3: Multiple incidents**
+
 - Service: Dashboard (SLA: 99.5%)
 - Month: 31 days = 44,640 minutes
 - Incident A: 45-minute full outage on the 5th
@@ -418,12 +434,12 @@ A database with 99.99% uptime is meaningless if the API in front of it has a bug
 
 From Google SRE, the four golden signals provide comprehensive service health:
 
-| Signal | SLI Example | Typical SLO |
-|---|---|---|
-| Latency | p99 request duration < 500ms | 99% of requests under threshold |
-| Traffic | Requests per second | N/A (capacity planning, not SLO) |
-| Errors | 5xx rate as % of total requests | < 0.1% error rate over rolling window |
-| Saturation | CPU/memory/queue depth | < 80% utilization (capacity SLI) |
+| Signal     | SLI Example                     | Typical SLO                           |
+| ---------- | ------------------------------- | ------------------------------------- |
+| Latency    | p99 request duration < 500ms    | 99% of requests under threshold       |
+| Traffic    | Requests per second             | N/A (capacity planning, not SLO)      |
+| Errors     | 5xx rate as % of total requests | < 0.1% error rate over rolling window |
+| Saturation | CPU/memory/queue depth          | < 80% utilization (capacity SLI)      |
 
 For most services, latency and error rate are the two most important SLIs to back with SLOs.
 
@@ -446,14 +462,14 @@ For most services, latency and error rate are the two most important SLIs to bac
 
 ### Anti-Patterns
 
-| Anti-Pattern | Problem | Fix |
-|---|---|---|
-| Vanity SLOs | Setting 99.99% to impress, then ignoring breaches | Set achievable targets, enforce budget policy |
-| SLO Inflation | Ratcheting SLOs up whenever performance is good | Only increase SLOs when users demonstrably need it |
-| Unmeasured SLAs | Committing contractual SLAs without actual SLI measurement | Instrument SLIs before signing SLA contracts |
-| Copy-Paste SLOs | Same SLO for every service regardless of criticality | Tier services by business impact, set SLOs accordingly |
+| Anti-Pattern          | Problem                                                               | Fix                                                              |
+| --------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Vanity SLOs           | Setting 99.99% to impress, then ignoring breaches                     | Set achievable targets, enforce budget policy                    |
+| SLO Inflation         | Ratcheting SLOs up whenever performance is good                       | Only increase SLOs when users demonstrably need it               |
+| Unmeasured SLAs       | Committing contractual SLAs without actual SLI measurement            | Instrument SLIs before signing SLA contracts                     |
+| Copy-Paste SLOs       | Same SLO for every service regardless of criticality                  | Tier services by business impact, set SLOs accordingly           |
 | Ignoring Dependencies | Setting aggressive SLOs without accounting for dependency reliability | Calculate composite SLA; your SLO cannot exceed dependency chain |
-| Alert-Free SLOs | Having SLOs but no automated alerting on budget consumption | Every SLO must have corresponding burn rate alerts |
+| Alert-Free SLOs       | Having SLOs but no automated alerting on budget consumption           | Every SLO must have corresponding burn rate alerts               |
 
 ---
 
@@ -465,11 +481,11 @@ The Google SRE approach uses multiple time windows to balance speed of detection
 
 **Alert configuration matrix:**
 
-| Severity | Short Window | Short Threshold | Long Window | Long Threshold | Action |
-|---|---|---|---|---|---|
-| Critical (Page) | 1 hour | > 14.4x burn rate | 5 minutes | > 14.4x burn rate | Wake someone up |
-| High (Page) | 6 hours | > 6x burn rate | 30 minutes | > 6x burn rate | Page on-call within 30 min |
-| Medium (Ticket) | 3 days | > 1x burn rate | 6 hours | > 1x burn rate | Create ticket, next business day |
+| Severity        | Short Window | Short Threshold   | Long Window | Long Threshold    | Action                           |
+| --------------- | ------------ | ----------------- | ----------- | ----------------- | -------------------------------- |
+| Critical (Page) | 1 hour       | > 14.4x burn rate | 5 minutes   | > 14.4x burn rate | Wake someone up                  |
+| High (Page)     | 6 hours      | > 6x burn rate    | 30 minutes  | > 6x burn rate    | Page on-call within 30 min       |
+| Medium (Ticket) | 3 days       | > 1x burn rate    | 6 hours     | > 1x burn rate    | Create ticket, next business day |
 
 **Why these specific numbers:**
 
@@ -497,35 +513,39 @@ A burn rate of 5.0 means the error budget is being consumed 5 times faster than 
 
 ### Alert Severity to SLA Risk Mapping
 
-| Burn Rate | Budget Impact | SLA Risk | Response |
-|---|---|---|---|
-| < 1x | Under budget pace | None | Routine monitoring |
-| 1x - 3x | On pace or slightly over | Low | Investigate next business day |
-| 3x - 6x | Budget will exhaust in 5-10 days | Moderate | Investigate within 4 hours |
-| 6x - 14.4x | Budget will exhaust in 2-5 days | High | Page on-call, respond in 30 min |
-| > 14.4x | Budget will exhaust in < 2 days | Critical | Immediate page, incident declared |
-| > 100x | Active major outage | SLA breach imminent | All-hands incident response |
+| Burn Rate  | Budget Impact                    | SLA Risk            | Response                          |
+| ---------- | -------------------------------- | ------------------- | --------------------------------- |
+| < 1x       | Under budget pace                | None                | Routine monitoring                |
+| 1x - 3x    | On pace or slightly over         | Low                 | Investigate next business day     |
+| 3x - 6x    | Budget will exhaust in 5-10 days | Moderate            | Investigate within 4 hours        |
+| 6x - 14.4x | Budget will exhaust in 2-5 days  | High                | Page on-call, respond in 30 min   |
+| > 14.4x    | Budget will exhaust in < 2 days  | Critical            | Immediate page, incident declared |
+| > 100x     | Active major outage              | SLA breach imminent | All-hands incident response       |
 
 ### Dashboard Design for SLA Tracking
 
 Every SLA-tracked service should have a dashboard with these panels:
 
 **Row 1 - Current Status:**
+
 - Current availability (real-time, rolling 5-minute window)
 - Current error rate (real-time)
 - Current p99 latency (real-time)
 
 **Row 2 - Budget Status:**
+
 - Error budget remaining (% of monthly budget, gauge visualization)
 - Budget consumption timeline (line chart, actual vs expected burn)
 - Budget burn rate (current 1h, 6h, and 3d burn rates)
 
 **Row 3 - Historical Context:**
+
 - 30-day availability trend (daily granularity)
 - SLA compliance status for current and previous 3 months
 - Incident markers overlaid on availability timeline
 
 **Row 4 - Dependencies:**
+
 - Upstream dependency availability (services this service depends on)
 - Downstream impact scope (services that depend on this service)
 - Composite SLA calculation for customer-facing products
@@ -548,19 +568,19 @@ Alert fatigue is the primary reason SLA monitoring fails in practice. Mitigation
 
 ### Practical Monitoring Stack
 
-| Layer | Tool Category | Purpose |
-|---|---|---|
-| Collection | Prometheus, OpenTelemetry, StatsD | Gather SLI metrics from services |
-| Storage | Prometheus TSDB, Thanos, Mimir | Retain metrics for SLO window + 90 days |
-| Calculation | Prometheus recording rules, Sloth | Pre-compute burn rates and budget consumption |
-| Alerting | Alertmanager, PagerDuty, OpsGenie | Route alerts by severity and schedule |
-| Visualization | Grafana, Datadog | Dashboards for real-time and historical SLA views |
-| Reporting | Custom scripts, SLO generators | Monthly SLA compliance reports for customers |
+| Layer         | Tool Category                     | Purpose                                           |
+| ------------- | --------------------------------- | ------------------------------------------------- |
+| Collection    | Prometheus, OpenTelemetry, StatsD | Gather SLI metrics from services                  |
+| Storage       | Prometheus TSDB, Thanos, Mimir    | Retain metrics for SLO window + 90 days           |
+| Calculation   | Prometheus recording rules, Sloth | Pre-compute burn rates and budget consumption     |
+| Alerting      | Alertmanager, PagerDuty, OpsGenie | Route alerts by severity and schedule             |
+| Visualization | Grafana, Datadog                  | Dashboards for real-time and historical SLA views |
+| Reporting     | Custom scripts, SLO generators    | Monthly SLA compliance reports for customers      |
 
 **Retention requirement:** SLI data must be retained for at least the SLA reporting period (typically monthly or quarterly) plus a 90-day dispute window. Annual SLA reviews require 12 months of data at daily granularity minimum.
 
 ---
 
-*Last updated: February 2026*
-*For use with: incident-commander skill*
-*Maintainer: Engineering Team*
+_Last updated: February 2026_
+_For use with: incident-commander skill_
+_Maintainer: Engineering Team_

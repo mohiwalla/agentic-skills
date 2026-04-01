@@ -484,7 +484,7 @@ schema:
 quality:
   freshness:
     max_delay_minutes: 60
-    check_frequency: "*/15 * * * *"  # Every 15 minutes
+    check_frequency: "*/15 * * * *" # Every 15 minutes
 
   completeness:
     required_fields_null_rate: 0.0
@@ -499,12 +499,13 @@ quality:
       min: 0
       max: 1000000
     status:
-      allowed_values: ["pending", "confirmed", "shipped", "delivered", "cancelled"]
+      allowed_values:
+        ["pending", "confirmed", "shipped", "delivered", "cancelled"]
 
   volume:
     min_daily_records: 1000
     max_daily_records: 1000000
-    anomaly_threshold: 0.5  # 50% deviation from average
+    anomaly_threshold: 0.5 # 50% deviation from average
 
 # Semantic versioning rules
 versioning:
@@ -712,9 +713,9 @@ on:
   push:
     branches: [main, develop]
     paths:
-      - 'dbt/**'
-      - 'airflow/**'
-      - 'tests/**'
+      - "dbt/**"
+      - "airflow/**"
+      - "tests/**"
   pull_request:
     branches: [main]
 
@@ -733,7 +734,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install dependencies
         run: |
@@ -756,7 +757,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install dependencies
         run: |
@@ -832,11 +833,11 @@ jobs:
 
 ```yaml
 # dbt_project.yml
-name: 'analytics'
-version: '1.0.0'
+name: "analytics"
+version: "1.0.0"
 
 config-version: 2
-profile: 'analytics'
+profile: "analytics"
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -874,10 +875,10 @@ models:
       +schema: marts
 
       core:
-        +tags: ['core', 'daily']
+        +tags: ["core", "daily"]
 
       marketing:
-        +tags: ['marketing', 'daily']
+        +tags: ["marketing", "daily"]
 ```
 
 ### Slim CI with State Comparison
@@ -1195,13 +1196,15 @@ groups:
 
 ### Runbook Template
 
-```markdown
+````markdown
 # Incident Runbook: Data Pipeline Failure
 
 ## Overview
+
 This runbook covers procedures for handling data pipeline failures.
 
 ## Severity Levels
+
 - **P1 (Critical)**: Data older than 24 hours, revenue-impacting
 - **P2 (High)**: Data older than 4 hours, customer-facing dashboards affected
 - **P3 (Medium)**: Data older than 1 hour, internal reports delayed
@@ -1210,14 +1213,17 @@ This runbook covers procedures for handling data pipeline failures.
 ## Initial Response (First 15 minutes)
 
 ### 1. Acknowledge the Alert
+
 ```bash
 # Acknowledge in PagerDuty
 curl -X POST https://api.pagerduty.com/incidents/{incident_id}/acknowledge
 
 # Post in #data-incidents Slack channel
 ```
+````
 
 ### 2. Assess Impact
+
 - Which tables are affected?
 - Which downstream consumers are impacted?
 - What is the data freshness currently?
@@ -1237,6 +1243,7 @@ ORDER BY hours_stale DESC;
 ### 3. Identify Root Cause
 
 #### Check Pipeline Status
+
 ```bash
 # Airflow
 airflow dags list-runs -d <dag_id> --state failed
@@ -1251,17 +1258,18 @@ spark-submit --status <application_id>
 
 #### Common Failure Modes
 
-| Symptom | Likely Cause | Fix |
-|---------|--------------|-----|
-| OOM errors | Data volume spike | Increase memory, add partitioning |
-| Timeout | Slow query | Optimize query, check locks |
-| Connection refused | Network/auth | Check credentials, VPC rules |
-| Schema mismatch | Source change | Update schema, add contract |
-| Duplicate key | Upstream bug | Deduplicate, fix source |
+| Symptom            | Likely Cause      | Fix                               |
+| ------------------ | ----------------- | --------------------------------- |
+| OOM errors         | Data volume spike | Increase memory, add partitioning |
+| Timeout            | Slow query        | Optimize query, check locks       |
+| Connection refused | Network/auth      | Check credentials, VPC rules      |
+| Schema mismatch    | Source change     | Update schema, add contract       |
+| Duplicate key      | Upstream bug      | Deduplicate, fix source           |
 
 ## Resolution Procedures
 
 ### Restart Failed Pipeline
+
 ```bash
 # Clear failed Airflow task
 airflow tasks clear <dag_id> -t <task_id> -s <start_date> -e <end_date>
@@ -1274,6 +1282,7 @@ spark-submit --deploy-mode cluster <job.py>
 ```
 
 ### Backfill Missing Data
+
 ```bash
 # Airflow backfill
 airflow dags backfill -s 2024-01-01 -e 2024-01-02 <dag_id>
@@ -1283,6 +1292,7 @@ dbt run --full-refresh --select <model_name>
 ```
 
 ### Rollback Procedure
+
 ```bash
 # dbt rollback (use previous version)
 git checkout <previous_sha> -- models/<model>.sql
@@ -1297,6 +1307,7 @@ spark.sql("""
 ## Post-Incident
 
 ### 1. Write Incident Report
+
 - Timeline of events
 - Root cause analysis
 - Impact assessment
@@ -1304,15 +1315,18 @@ spark.sql("""
 - Follow-up action items
 
 ### 2. Update Monitoring
+
 - Add missing alerts
 - Adjust thresholds
 - Improve documentation
 
 ### 3. Share Learnings
+
 - Post in #data-engineering
 - Update runbooks
 - Schedule blameless postmortem if P1/P2
-```
+
+````
 
 ---
 
@@ -1346,7 +1360,7 @@ FROM `project.region-us.INFORMATION_SCHEMA.JOBS_BY_USER`
 WHERE creation_time > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY)
 ORDER BY total_bytes_processed DESC
 LIMIT 20;
-```
+````
 
 ### Cost Optimization Strategies
 

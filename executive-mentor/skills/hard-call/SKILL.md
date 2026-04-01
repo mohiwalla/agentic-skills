@@ -66,13 +66,13 @@ If the answer is clear to an outsider, the question becomes: why haven't you don
 
 For each option, map who's affected and how:
 
-| Stakeholder | Option A Impact | Option B Impact | Their reaction |
-|-------------|----------------|----------------|----------------|
-| Affected employees | | | |
-| Remaining team | | | |
-| Customers | | | |
-| Investors | | | |
-| You | | | |
+| Stakeholder        | Option A Impact | Option B Impact | Their reaction |
+| ------------------ | --------------- | --------------- | -------------- |
+| Affected employees |                 |                 |                |
+| Remaining team     |                 |                 |                |
+| Customers          |                 |                 |                |
+| Investors          |                 |                 |                |
+| You                |                 |                 |                |
 
 This isn't about finding the option that hurts nobody — there isn't one. It's about understanding the full picture before you decide.
 
@@ -89,6 +89,7 @@ Writing it forces you to confront the reality of what you're doing. It also surf
 Hard decisions almost always get harder if communication is bad. The decision itself is not the only thing that matters — how it's done matters enormously.
 
 For every hard call, plan:
+
 - **Who needs to know first** (the person directly affected, before anyone else)
 - **How you'll tell them** (in person when possible, never via email for personal impact)
 - **What you'll say** (honest, direct, compassionate — see `references/hard_things.md`)
@@ -100,9 +101,11 @@ For every hard call, plan:
 ## Decision-Specific Frameworks
 
 ### Firing a Co-Founder
+
 See `references/hard_things.md — Co-Founder Conflicts` for full framework.
 
 Key questions to answer first:
+
 - Is this a performance problem or a values/culture problem? (Different conversations)
 - Have you been explicit — not hinted, but direct — about the problem?
 - What does the cap table look like and what are the legal implications?
@@ -112,7 +115,9 @@ Key questions to answer first:
 **The rule:** If you've been thinking about this for more than 3 months, you already know the answer. The question is when, not whether.
 
 ### Layoffs
+
 Key questions:
+
 - Is this a one-time reset or the beginning of a longer decline? (One reset is recoverable. Serial layoffs kill culture.)
 - Are you cutting deep enough? (Insufficient layoffs are worse than no layoffs — two rounds destroys trust.)
 - Who owns the announcement and is it direct and honest?
@@ -122,7 +127,9 @@ Key questions:
 **The rule:** Cut once, cut deep, cut with dignity. Uncertainty is worse than clarity.
 
 ### Pivoting
+
 Key questions:
+
 - Is this a true pivot (new direction) or an optimization (same direction, different tactic)?
 - What are you keeping and what are you abandoning?
 - Do you have evidence the new direction works, or are you running from failure?
@@ -132,7 +139,9 @@ Key questions:
 **The rule:** Pivots should be pulled by evidence of new opportunity, not pushed by failure of the current path.
 
 ### Killing a Product Line
+
 Key questions:
+
 - What happens to customers currently using it?
 - What's the migration path?
 - What do the people who built it do?
@@ -144,6 +153,7 @@ Key questions:
 ## The Avoiding-It Test
 
 You know you've been avoiding a hard call if:
+
 - You've thought about it every week for more than a month
 - You're hoping the situation will "resolve itself"
 - You're waiting for more data that you'll never feel is enough

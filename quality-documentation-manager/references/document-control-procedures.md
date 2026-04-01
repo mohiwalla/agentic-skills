@@ -21,40 +21,40 @@ Implementation guide for ISO 13485-compliant document control systems.
 
 Standard format: `[PREFIX]-[CATEGORY]-[SEQUENCE]-[REVISION]`
 
-| Component | Format | Example | Description |
-|-----------|--------|---------|-------------|
-| PREFIX | 2-3 letters | SOP, WI, TF | Document type identifier |
-| CATEGORY | 2-3 digits | 01, 02, 10 | Functional area code |
-| SEQUENCE | 3-4 digits | 001, 0001 | Sequential number within category |
-| REVISION | Letter or number | A, 01 | Revision indicator |
+| Component | Format           | Example     | Description                       |
+| --------- | ---------------- | ----------- | --------------------------------- |
+| PREFIX    | 2-3 letters      | SOP, WI, TF | Document type identifier          |
+| CATEGORY  | 2-3 digits       | 01, 02, 10  | Functional area code              |
+| SEQUENCE  | 3-4 digits       | 001, 0001   | Sequential number within category |
+| REVISION  | Letter or number | A, 01       | Revision indicator                |
 
 ### Document Type Prefixes
 
-| Prefix | Document Type | Description |
-|--------|---------------|-------------|
-| QM | Quality Manual | Top-level QMS description |
-| SOP | Standard Operating Procedure | Process procedures |
-| WI | Work Instruction | Task-level instructions |
-| TF | Template/Form | Controlled forms and templates |
-| POL | Policy | Policy statements |
-| SPEC | Specification | Product/process specifications |
-| PLN | Plan | Project and quality plans |
-| RPT | Report | Technical and quality reports |
+| Prefix | Document Type                | Description                    |
+| ------ | ---------------------------- | ------------------------------ |
+| QM     | Quality Manual               | Top-level QMS description      |
+| SOP    | Standard Operating Procedure | Process procedures             |
+| WI     | Work Instruction             | Task-level instructions        |
+| TF     | Template/Form                | Controlled forms and templates |
+| POL    | Policy                       | Policy statements              |
+| SPEC   | Specification                | Product/process specifications |
+| PLN    | Plan                         | Project and quality plans      |
+| RPT    | Report                       | Technical and quality reports  |
 
 ### Category Codes
 
-| Code | Functional Area | Examples |
-|------|-----------------|----------|
-| 01 | Quality Management | QMS procedures, audits |
-| 02 | Document Control | This area |
-| 03 | Human Resources | Training, competency |
-| 04 | Design & Development | Design control |
-| 05 | Purchasing | Supplier management |
-| 06 | Production | Manufacturing |
-| 07 | Quality Control | Inspection, testing |
-| 08 | CAPA | Corrective/preventive actions |
-| 09 | Risk Management | ISO 14971 processes |
-| 10 | Regulatory Affairs | Submissions, compliance |
+| Code | Functional Area      | Examples                      |
+| ---- | -------------------- | ----------------------------- |
+| 01   | Quality Management   | QMS procedures, audits        |
+| 02   | Document Control     | This area                     |
+| 03   | Human Resources      | Training, competency          |
+| 04   | Design & Development | Design control                |
+| 05   | Purchasing           | Supplier management           |
+| 06   | Production           | Manufacturing                 |
+| 07   | Quality Control      | Inspection, testing           |
+| 08   | CAPA                 | Corrective/preventive actions |
+| 09   | Risk Management      | ISO 14971 processes           |
+| 10   | Regulatory Affairs   | Submissions, compliance       |
 
 ### Numbering Workflow
 
@@ -83,23 +83,23 @@ DRAFT → REVIEW → APPROVED → EFFECTIVE → SUPERSEDED → OBSOLETE
 
 ### Stage Definitions
 
-| Stage | Definition | Actions Required |
-|-------|------------|------------------|
-| Draft | Document under creation or revision | Author editing, not for use |
-| Review | Circulated for review and comment | Reviewers provide feedback |
-| Approved | All required signatures obtained | Ready for training/distribution |
-| Effective | Training complete, document released | Available for use |
-| Superseded | Replaced by newer revision | Remove from active use |
-| Obsolete | No longer applicable | Archive per retention schedule |
+| Stage      | Definition                           | Actions Required                |
+| ---------- | ------------------------------------ | ------------------------------- |
+| Draft      | Document under creation or revision  | Author editing, not for use     |
+| Review     | Circulated for review and comment    | Reviewers provide feedback      |
+| Approved   | All required signatures obtained     | Ready for training/distribution |
+| Effective  | Training complete, document released | Available for use               |
+| Superseded | Replaced by newer revision           | Remove from active use          |
+| Obsolete   | No longer applicable                 | Archive per retention schedule  |
 
 ### Document Status Indicators
 
-| Status | Indicator | Location |
-|--------|-----------|----------|
-| Draft | "DRAFT" watermark | Header or footer |
-| Approved | Approval signatures with dates | Signature page |
-| Effective | Effective date | Header |
-| Obsolete | "OBSOLETE" stamp | Across all pages |
+| Status    | Indicator                      | Location         |
+| --------- | ------------------------------ | ---------------- |
+| Draft     | "DRAFT" watermark              | Header or footer |
+| Approved  | Approval signatures with dates | Signature page   |
+| Effective | Effective date                 | Header           |
+| Obsolete  | "OBSOLETE" stamp               | Across all pages |
 
 ---
 
@@ -118,14 +118,14 @@ DRAFT → REVIEW → APPROVED → EFFECTIVE → SUPERSEDED → OBSOLETE
 
 ### Required Reviewers by Document Type
 
-| Document Type | Required Reviewers | Required Approvers |
-|---------------|-------------------|-------------------|
-| SOP | Process Owner, QA | QA Manager, Process Owner |
-| WI | Area Supervisor, QA | Area Manager |
-| SPEC | Engineering, QA | Engineering Manager, QA |
-| TF | Process Owner | QA |
-| POL | Department Heads | Management Representative |
-| Design Documents | Design Team, QA | Design Control Authority |
+| Document Type    | Required Reviewers  | Required Approvers        |
+| ---------------- | ------------------- | ------------------------- |
+| SOP              | Process Owner, QA   | QA Manager, Process Owner |
+| WI               | Area Supervisor, QA | Area Manager              |
+| SPEC             | Engineering, QA     | Engineering Manager, QA   |
+| TF               | Process Owner       | QA                        |
+| POL              | Department Heads    | Management Representative |
+| Design Documents | Design Team, QA     | Design Control Authority  |
 
 ### Approval Matrix
 
@@ -171,32 +171,32 @@ Review Date: [Date]
 
 ### Change Classification
 
-| Class | Definition | Approval Level | Examples |
-|-------|------------|----------------|----------|
-| Administrative | No impact on content meaning | Document Control | Typos, formatting, references |
-| Minor | Limited content change, no process impact | Process Owner + QA | Clarifications, minor additions |
-| Major | Significant content change, process impact | Full review cycle | New requirements, process changes |
-| Emergency | Urgent change required for safety/compliance | Expedited approval + retrospective review | Safety issues, regulatory mandates |
+| Class          | Definition                                   | Approval Level                            | Examples                           |
+| -------------- | -------------------------------------------- | ----------------------------------------- | ---------------------------------- |
+| Administrative | No impact on content meaning                 | Document Control                          | Typos, formatting, references      |
+| Minor          | Limited content change, no process impact    | Process Owner + QA                        | Clarifications, minor additions    |
+| Major          | Significant content change, process impact   | Full review cycle                         | New requirements, process changes  |
+| Emergency      | Urgent change required for safety/compliance | Expedited approval + retrospective review | Safety issues, regulatory mandates |
 
 ### Change Impact Assessment
 
-| Impact Area | Assessment Questions |
-|-------------|---------------------|
-| Training | Does change require retraining? Who? |
-| Equipment | Does change affect equipment or systems? |
-| Validation | Does change require revalidation? |
-| Regulatory | Does change affect regulatory filings? |
-| Other Documents | Which related documents need updating? |
-| Records | What records are affected? |
+| Impact Area     | Assessment Questions                     |
+| --------------- | ---------------------------------------- |
+| Training        | Does change require retraining? Who?     |
+| Equipment       | Does change affect equipment or systems? |
+| Validation      | Does change require revalidation?        |
+| Regulatory      | Does change affect regulatory filings?   |
+| Other Documents | Which related documents need updating?   |
+| Records         | What records are affected?               |
 
 ### Version Control Rules
 
-| Change Type | Version Increment | Example |
-|-------------|-------------------|---------|
-| Major revision | Increment revision number | Rev 01 → Rev 02 |
-| Minor revision | Increment sub-revision | Rev 01 → Rev 01.1 |
-| Administrative | No version change (or sub-increment) | Rev 01 → Rev 01a |
-| Draft iterations | Use draft version | Draft 1, Draft 2 |
+| Change Type      | Version Increment                    | Example           |
+| ---------------- | ------------------------------------ | ----------------- |
+| Major revision   | Increment revision number            | Rev 01 → Rev 02   |
+| Minor revision   | Increment sub-revision               | Rev 01 → Rev 01.1 |
+| Administrative   | No version change (or sub-increment) | Rev 01 → Rev 01a  |
+| Draft iterations | Use draft version                    | Draft 1, Draft 2  |
 
 ### Change History Template
 
@@ -215,23 +215,23 @@ DOCUMENT CHANGE HISTORY
 
 ### Distribution Methods
 
-| Method | Use Case | Control Mechanism |
-|--------|----------|-------------------|
-| Electronic (DMS) | Primary method | Access permissions |
-| Controlled Print | Manufacturing floor | Signature log |
-| Uncontrolled Copy | External distribution | Watermark "UNCONTROLLED" |
-| Reference Copy | Training/archive | Watermark "REFERENCE ONLY" |
+| Method            | Use Case              | Control Mechanism          |
+| ----------------- | --------------------- | -------------------------- |
+| Electronic (DMS)  | Primary method        | Access permissions         |
+| Controlled Print  | Manufacturing floor   | Signature log              |
+| Uncontrolled Copy | External distribution | Watermark "UNCONTROLLED"   |
+| Reference Copy    | Training/archive      | Watermark "REFERENCE ONLY" |
 
 ### Access Permission Levels
 
-| Level | Permissions | Typical Roles |
-|-------|-------------|---------------|
-| Read | View documents only | General users |
-| Print | View and print controlled copies | Area supervisors |
-| Review | View, print, add comments | Reviewers |
-| Author | Create, edit drafts | Document authors |
-| Approve | Approve documents | Approvers |
-| Admin | Full system access | Document Control |
+| Level   | Permissions                      | Typical Roles    |
+| ------- | -------------------------------- | ---------------- |
+| Read    | View documents only              | General users    |
+| Print   | View and print controlled copies | Area supervisors |
+| Review  | View, print, add comments        | Reviewers        |
+| Author  | Create, edit drafts              | Document authors |
+| Approve | Approve documents                | Approvers        |
+| Admin   | Full system access               | Document Control |
 
 ### Controlled Print Log
 
@@ -262,29 +262,29 @@ Revision: [Revision Number]
 
 ### Retention Periods
 
-| Record Type | Retention Period | Basis |
-|-------------|------------------|-------|
-| Device Master Record (DMR) | Life of device + 2 years | 21 CFR 820.181 |
-| Device History Record (DHR) | Life of device + 2 years | 21 CFR 820.184 |
-| Design History File (DHF) | Life of device + 2 years | 21 CFR 820.30 |
-| Quality Records | 2 years beyond device discontinuation | ISO 13485 |
-| Training Records | Duration of employment + 3 years | Best practice |
-| Audit Records | 7 years | Best practice |
-| Complaint Records | Life of device + 2 years | 21 CFR 820.198 |
-| CAPA Records | 7 years | Best practice |
-| Calibration Records | 2 years beyond equipment disposal | Best practice |
-| Supplier Records | Life of relationship + 3 years | Best practice |
+| Record Type                 | Retention Period                      | Basis          |
+| --------------------------- | ------------------------------------- | -------------- |
+| Device Master Record (DMR)  | Life of device + 2 years              | 21 CFR 820.181 |
+| Device History Record (DHR) | Life of device + 2 years              | 21 CFR 820.184 |
+| Design History File (DHF)   | Life of device + 2 years              | 21 CFR 820.30  |
+| Quality Records             | 2 years beyond device discontinuation | ISO 13485      |
+| Training Records            | Duration of employment + 3 years      | Best practice  |
+| Audit Records               | 7 years                               | Best practice  |
+| Complaint Records           | Life of device + 2 years              | 21 CFR 820.198 |
+| CAPA Records                | 7 years                               | Best practice  |
+| Calibration Records         | 2 years beyond equipment disposal     | Best practice  |
+| Supplier Records            | Life of relationship + 3 years        | Best practice  |
 
 ### Archive Requirements
 
-| Requirement | Specification |
-|-------------|---------------|
-| Storage Conditions | Temperature 15-25°C, RH 30-60% |
-| Access Control | Restricted to authorized personnel |
-| Indexing | Searchable by document number, date, type |
-| Media | Original format or validated conversion |
-| Backup | Offsite backup for electronic records |
-| Integrity Checks | Periodic verification of record legibility |
+| Requirement        | Specification                              |
+| ------------------ | ------------------------------------------ |
+| Storage Conditions | Temperature 15-25°C, RH 30-60%             |
+| Access Control     | Restricted to authorized personnel         |
+| Indexing           | Searchable by document number, date, type  |
+| Media              | Original format or validated conversion    |
+| Backup             | Offsite backup for electronic records      |
+| Integrity Checks   | Periodic verification of record legibility |
 
 ### Disposal Procedure
 
@@ -311,17 +311,17 @@ RECORD DISPOSAL LOG
 
 ### Master List Content
 
-| Field | Description | Required |
-|-------|-------------|----------|
-| Document Number | Unique identifier | Yes |
-| Title | Document title | Yes |
-| Current Revision | Active revision number | Yes |
-| Effective Date | Date document became effective | Yes |
-| Status | Draft/Effective/Obsolete | Yes |
-| Process Owner | Responsible party | Yes |
-| Review Date | Next scheduled review | Yes |
-| Category | Functional area | Yes |
-| Storage Location | Physical or electronic location | Yes |
+| Field            | Description                     | Required |
+| ---------------- | ------------------------------- | -------- |
+| Document Number  | Unique identifier               | Yes      |
+| Title            | Document title                  | Yes      |
+| Current Revision | Active revision number          | Yes      |
+| Effective Date   | Date document became effective  | Yes      |
+| Status           | Draft/Effective/Obsolete        | Yes      |
+| Process Owner    | Responsible party               | Yes      |
+| Review Date      | Next scheduled review           | Yes      |
+| Category         | Functional area                 | Yes      |
+| Storage Location | Physical or electronic location | Yes      |
 
 ### Master List Maintenance
 

@@ -309,7 +309,7 @@ spark = SparkSession.builder \
 **Memory Tuning Guidelines:**
 
 | Data Size | Executors | Memory/Executor | Cores/Executor |
-|-----------|-----------|-----------------|----------------|
+| --------- | --------- | --------------- | -------------- |
 | < 10 GB   | 2-4       | 4-8 GB          | 2-4            |
 | 10-100 GB | 10-20     | 8-16 GB         | 4-8            |
 | 100+ GB   | 50+       | 16-32 GB        | 4-8            |
@@ -503,11 +503,11 @@ kafka-topics.sh --create \
 
 **Partition Count Guidelines:**
 
-| Throughput | Partitions | Notes |
-|------------|------------|-------|
-| < 10K msg/s | 6-12 | Single consumer can handle |
-| 10K-100K msg/s | 24-48 | Multiple consumers needed |
-| > 100K msg/s | 100+ | Scale consumers with partitions |
+| Throughput     | Partitions | Notes                           |
+| -------------- | ---------- | ------------------------------- |
+| < 10K msg/s    | 6-12       | Single consumer can handle      |
+| 10K-100K msg/s | 24-48      | Multiple consumers needed       |
+| > 100K msg/s   | 100+       | Scale consumers with partitions |
 
 **Partition Key Selection:**
 

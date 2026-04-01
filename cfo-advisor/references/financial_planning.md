@@ -9,14 +9,17 @@ Startup financial modeling frameworks. Build models that drive decisions, not mo
 ### Bottoms-Up vs Top-Down
 
 **Top-down model (don't use for operating):**
+
 ```
 TAM = $10B
 SOM = 1% = $100M
 Revenue = $100M in year 5
 ```
+
 This is marketing. You cannot manage a company against these numbers.
 
 **Bottoms-up model (use this):**
+
 ```
 Year 1 Revenue Build:
   Sales headcount: 3 AEs by Q1, +2 in Q2, +3 in Q4
@@ -36,6 +39,7 @@ Now you have something actionable. You know how many SDR calls, how many marketi
 #### Revenue Engine
 
 **New ARR Model (SaaS):**
+
 ```
 Month N New ARR:
   = Quota-carrying reps (fully ramped equivalent)
@@ -55,6 +59,7 @@ Ramp schedule:
 ```
 
 **ARR Bridge (most important recurring visual):**
+
 ```
 Beginning ARR
   + New ARR (new logos)
@@ -72,6 +77,7 @@ Net Dollar Retention (NDR):
 ```
 
 **MRR and ARR Relationship:**
+
 ```
 ARR = MRR × 12 (simple, always use this)
 Never mix monthly and annual contracts in MRR without normalization.
@@ -96,6 +102,7 @@ Total headcount cost = Σ (each FTE × loaded cost × months active / 12)
 ```
 
 **Department headcount ratios (Series A benchmarks):**
+
 ```
 Sales (S&M): 20-30% of headcount
 Engineering/Product (R&D): 40-50% of headcount
@@ -108,6 +115,7 @@ G&A: 10-15% of headcount
 Gross margin is the most important long-term indicator of business quality.
 
 **COGS for SaaS:**
+
 ```
 1. Hosting / Infrastructure (AWS, GCP, Azure)
    - Scale with customer count or usage
@@ -129,6 +137,7 @@ Gross margin is the most important long-term indicator of business quality.
 ```
 
 **Gross Margin targets:**
+
 ```
 SaaS: > 65% acceptable, > 75% good, > 80% exceptional
 Marketplace: 50-70%
@@ -137,6 +146,7 @@ Services + software: 30-50%
 ```
 
 **If gross margin < 65%:**
+
 - Infrastructure cost optimization (rightsizing, reserved instances)
 - CS headcount review (automation, pooled CSMs)
 - Pricing model review (usage-based pricing if cost is usage-driven)
@@ -169,15 +179,15 @@ General & Administrative:
 
 ### Financial Model Do's and Don'ts
 
-| Do | Don't |
-|----|-------|
-| Build assumptions tab with all inputs | Hardcode numbers in formulas |
-| Model monthly (not quarterly) at early stage | Use annual model for first 3 years |
-| Start with headcount plan, build costs from it | Guess at expense line items |
-| Show model to actual customers or users | Show model to investors before internal stress-test |
-| Version your model | Overwrite old versions |
-| Reconcile cash flow to P&L monthly | Trust P&L without cash flow model |
-| Include a sensitivity table | Present single-scenario forecast |
+| Do                                             | Don't                                               |
+| ---------------------------------------------- | --------------------------------------------------- |
+| Build assumptions tab with all inputs          | Hardcode numbers in formulas                        |
+| Model monthly (not quarterly) at early stage   | Use annual model for first 3 years                  |
+| Start with headcount plan, build costs from it | Guess at expense line items                         |
+| Show model to actual customers or users        | Show model to investors before internal stress-test |
+| Version your model                             | Overwrite old versions                              |
+| Reconcile cash flow to P&L monthly             | Trust P&L without cash flow model                   |
+| Include a sensitivity table                    | Present single-scenario forecast                    |
 
 ---
 
@@ -288,6 +298,7 @@ Never report Tier 4 metrics to your board if Tier 1 metrics are off-track.
 ### Core Metric Definitions
 
 **ARR (Annual Recurring Revenue):**
+
 ```
 ARR = Sum of all active annual contract values (normalized to annual)
 What it is NOT: bookings, billings, or TCV
@@ -296,6 +307,7 @@ When to use ARR: Companies with majority annual contracts
 ```
 
 **Net Dollar Retention (NDR / NRR):**
+
 ```
 NDR = (Beginning MRR + Expansion MRR - Churned MRR - Contraction MRR)
       / Beginning MRR × 100
@@ -309,6 +321,7 @@ At NDR = 120% and $5M ARR: you will reach $7M ARR in 24 months without a single 
 ```
 
 **Gross Revenue Retention (GRR):**
+
 ```
 GRR = (Beginning MRR - Churned MRR - Contraction MRR) / Beginning MRR × 100
 
@@ -318,6 +331,7 @@ Target: > 85% for SMB SaaS, > 90% for mid-market, > 95% for enterprise.
 ```
 
 **Logo Churn vs Revenue Churn:**
+
 ```
 Logo churn: % of customers who cancel (ignores size)
 Revenue churn: % of ARR that cancels (accounts for size)
@@ -330,6 +344,7 @@ Report both. If they diverge significantly, investigate immediately.
 ```
 
 **ACV (Annual Contract Value):**
+
 ```
 ACV = Total contract value / contract term in years
 Not to be confused with ARR (which only counts recurring, not one-time fees)
@@ -339,6 +354,7 @@ Falling ACV: You're moving downmarket (check burn multiple — may not be econom
 ```
 
 **Rule of 40:**
+
 ```
 Rule of 40 = Revenue Growth Rate % + EBITDA Margin %
 Target: > 40%
@@ -358,6 +374,7 @@ At scale ($20M+ ARR): Board and investors will hold you to this.
 ### Metrics by Stage
 
 **Pre-seed / Seed (< $1M ARR):**
+
 ```
 Focus on: Cash, pipeline, customer conversations
 Measure: Monthly cash burn, weeks of runway, NPS / customer satisfaction
@@ -366,6 +383,7 @@ Frequency: Weekly cash check, monthly everything else
 ```
 
 **Series A ($1-5M ARR):**
+
 ```
 Focus on: Repeatable sales, unit economics
 Measure: MRR growth, LTV:CAC, CAC payback by channel, gross margin
@@ -375,6 +393,7 @@ Frequency: Monthly board pack, weekly leadership metrics
 ```
 
 **Series B ($5-20M ARR):**
+
 ```
 Focus on: Scalable go-to-market, operational efficiency
 Measure: NDR, burn multiple, revenue per FTE, OKR attainment
@@ -384,6 +403,7 @@ Frequency: Monthly board pack + quarterly deep dive
 ```
 
 **Series C+ ($20M+ ARR):**
+
 ```
 Focus on: Path to profitability, market leadership
 Measure: Rule of 40, free cash flow, CAC efficiency by segment
@@ -394,17 +414,20 @@ Frequency: Monthly financial close (< 3 business days), quarterly earnings prep
 ### Reporting Cadence
 
 **Weekly (CFO + leadership):**
+
 - Cash balance (CFO checks daily, reports weekly)
 - Pipeline / sales metrics (if in a sales-led motion)
 - Any metric that changed dramatically vs. prior week
 
 **Monthly (board + leadership):**
+
 - Full financial dashboard (ARR, gross margin, burn, runway)
 - Budget vs actual with explanations for > 10% variances
 - Unit economics update
 - Headcount change summary
 
 **Quarterly (board + investors):**
+
 - Full three-statement model vs budget
 - Cohort analysis update
 - Scenario planning review and trigger assessment
@@ -416,7 +439,7 @@ Frequency: Monthly financial close (< 3 business days), quarterly earnings prep
 
 ### The Purpose of BvA
 
-Budget vs actual is not about being right. It's about understanding *why* you were wrong, so you can make better decisions.
+Budget vs actual is not about being right. It's about understanding _why_ you were wrong, so you can make better decisions.
 
 The CFO who reports "we missed budget by 15%" without explanation is failing. The CFO who says "we missed budget by 15% because enterprise deals took 30 more days to close than modeled — here's what we're doing about it" is doing their job.
 
@@ -459,6 +482,7 @@ Correct approach: Forecast is your best current estimate given all known informa
 ```
 
 **Rolling forecast (recommended for startups):**
+
 ```
 Always have a 12-month forward model.
 Update it monthly with actuals replacing the first month.

@@ -10,12 +10,12 @@
   "globalEnv": ["NODE_ENV", "DATABASE_URL"],
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],    // build deps first (topological order)
+      "dependsOn": ["^build"], // build deps first (topological order)
       "outputs": [".next/**", "dist/**", "build/**"],
       "env": ["NEXT_PUBLIC_API_URL"]
     },
     "test": {
-      "dependsOn": ["^build"],    // need built deps to test
+      "dependsOn": ["^build"], // need built deps to test
       "outputs": ["coverage/**"],
       "cache": true
     },
@@ -24,8 +24,8 @@
       "cache": true
     },
     "dev": {
-      "cache": false,             // never cache dev servers
-      "persistent": true          // long-running process
+      "cache": false, // never cache dev servers
+      "persistent": true // long-running process
     },
     "type-check": {
       "dependsOn": ["^build"],
@@ -121,8 +121,12 @@ nx affected --target=test --base=main --head=HEAD
     }
   },
   "namedInputs": {
-    "default":    ["{projectRoot}/**/*", "sharedGlobals"],
-    "production": ["default", "!{projectRoot}/**/*.spec.ts", "!{projectRoot}/jest.config.*"],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/**/*.spec.ts",
+      "!{projectRoot}/jest.config.*"
+    ],
     "sharedGlobals": []
   },
   "parallel": 4,
@@ -138,21 +142,21 @@ nx affected --target=test --base=main --head=HEAD
 
 ```yaml
 packages:
-  - 'apps/*'
-  - 'packages/*'
-  - 'tools/*'
+  - "apps/*"
+  - "packages/*"
+  - "tools/*"
 ```
 
-### workspace:* protocol for local packages
+### workspace:\* protocol for local packages
 
 ```json
 // apps/web/package.json
 {
   "name": "@myorg/web",
   "dependencies": {
-    "@myorg/ui":     "workspace:*",   // always use local version
-    "@myorg/utils":  "workspace:^",   // local, but respect semver on publish
-    "@myorg/types":  "workspace:~"
+    "@myorg/ui": "workspace:*", // always use local version
+    "@myorg/utils": "workspace:^", // local, but respect semver on publish
+    "@myorg/types": "workspace:~"
   }
 }
 ```
@@ -215,7 +219,7 @@ done
 
 Generate a Mermaid diagram from your workspace:
 
-```bash
+````bash
 # Generate dependency graph as Mermaid
 cat > scripts/gen-dep-graph.js << 'EOF'
 const { execSync } = require('child_process');
@@ -241,7 +245,7 @@ fs.writeFileSync('docs/dep-graph.md', '```mermaid\n' + mermaid + '```\n');
 console.log('Written to docs/dep-graph.md');
 EOF
 node scripts/gen-dep-graph.js
-```
+````
 
 **Example output:**
 
@@ -269,25 +273,29 @@ Place a root CLAUDE.md + per-package CLAUDE.md files:
 # /CLAUDE.md — Root (applies to all packages)
 
 ## Monorepo Structure
-- apps/web       — Next.js customer-facing app
-- apps/admin     — Next.js internal admin
-- apps/api       — Express REST API
-- packages/ui    — Shared React component library
+
+- apps/web — Next.js customer-facing app
+- apps/admin — Next.js internal admin
+- apps/api — Express REST API
+- packages/ui — Shared React component library
 - packages/utils — Shared utilities (pure functions only)
 - packages/types — Shared TypeScript types (no runtime code)
 
 ## Build System
+
 - pnpm workspaces + Turborepo
 - Always use `pnpm --filter <package>` to scope commands
 - Never run `npm install` or `yarn` — pnpm only
 - Run `turbo run build --filter=...[HEAD^1]` before committing
 
 ## Task Scoping Rules
+
 - When modifying packages/ui: also run tests for apps/web and apps/admin (they depend on it)
 - When modifying packages/types: run type-check across ALL packages
 - When modifying apps/api: only need to test apps/api
 
 ## Package Manager
+
 pnpm — version pinned in packageManager field of root package.json
 ```
 
@@ -295,19 +303,23 @@ pnpm — version pinned in packageManager field of root package.json
 # /packages/ui/CLAUDE.md — Package-specific
 
 ## This Package
+
 Shared React component library. Zero business logic. Pure UI only.
 
 ## Rules
+
 - All components must be exported from src/index.ts
 - No direct API calls in components — accept data via props
 - Every component needs a Storybook story in src/stories/
 - Use Tailwind for styling — no CSS modules or styled-components
 
 ## Testing
+
 - Component tests: `pnpm --filter @myorg/ui test`
 - Visual regression: `pnpm --filter @myorg/ui test:storybook`
 
 ## Publishing
+
 - Version bumps via changesets only — never edit package.json version manually
 - Run `pnpm changeset` from repo root after changes
 ```
@@ -375,7 +387,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0          # full history needed for affected detection
+          fetch-depth: 0 # full history needed for affected detection
 
       - uses: pnpm/action-setup@v3
         with:

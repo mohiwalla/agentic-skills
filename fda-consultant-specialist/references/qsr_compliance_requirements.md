@@ -23,6 +23,7 @@ Complete guide to 21 CFR Part 820 requirements for medical device manufacturers.
 ### Applicability
 
 The QSR applies to:
+
 - Finished device manufacturers
 - Specification developers
 - Initial distributors of imported devices
@@ -31,12 +32,12 @@ The QSR applies to:
 
 ### Exemptions
 
-| Device Class | Exemption Status |
-|--------------|------------------|
-| Class I (most) | Exempt from design controls (820.30) |
-| Class I (listed) | Fully exempt from QSR |
-| Class II | Full QSR compliance |
-| Class III | Full QSR compliance |
+| Device Class     | Exemption Status                     |
+| ---------------- | ------------------------------------ |
+| Class I (most)   | Exempt from design controls (820.30) |
+| Class I (listed) | Fully exempt from QSR                |
+| Class II         | Full QSR compliance                  |
+| Class III        | Full QSR compliance                  |
 
 ### QSR Structure
 
@@ -66,6 +67,7 @@ The QSR applies to:
 ### Quality Policy
 
 **Requirements:**
+
 - Documented quality policy
 - Objectives for quality
 - Commitment to meeting requirements
@@ -86,24 +88,25 @@ standards. We achieve this through:
 4. Training and empowering employees
 5. Supplier quality management
 
-Approved by: _______________  Date: _______________
+Approved by: ******\_\_\_****** Date: ******\_\_\_******
 Management Representative
 ```
 
 ### Organization
 
-| Role | Responsibilities | Documentation |
-|------|------------------|---------------|
-| Management Representative | QMS oversight, FDA liaison | Org chart, job description |
-| Quality Manager | Day-to-day QMS operations | Procedures, authority matrix |
-| Design Authority | Design control decisions | DHF sign-offs |
-| Production Manager | Manufacturing compliance | Process documentation |
+| Role                      | Responsibilities           | Documentation                |
+| ------------------------- | -------------------------- | ---------------------------- |
+| Management Representative | QMS oversight, FDA liaison | Org chart, job description   |
+| Quality Manager           | Day-to-day QMS operations  | Procedures, authority matrix |
+| Design Authority          | Design control decisions   | DHF sign-offs                |
+| Production Manager        | Manufacturing compliance   | Process documentation        |
 
 ### Management Review
 
 **Frequency:** At least annually (more frequently recommended)
 
 **Required Inputs:**
+
 1. Audit results (internal and external)
 2. Customer feedback and complaints
 3. Process performance metrics
@@ -113,6 +116,7 @@ Management Representative
 7. Recommendations for improvement
 
 **Required Outputs:**
+
 - Decisions on improvement actions
 - Resource needs
 - Quality objectives updates
@@ -122,8 +126,8 @@ Management Representative
 ```markdown
 ## Management Review Meeting
 
-Date: _______________
-Attendees: _______________
+Date: ******\_\_\_******
+Attendees: ******\_\_\_******
 
 ### Agenda Items
 
@@ -138,11 +142,12 @@ Attendees: _______________
 9. Improvement opportunities
 
 ### Decisions and Actions
+
 | Item | Decision | Owner | Due Date |
-|------|----------|-------|----------|
+| ---- | -------- | ----- | -------- |
 |      |          |       |          |
 
-### Next Review Date: _______________
+### Next Review Date: ******\_\_\_******
 ```
 
 ---
@@ -152,6 +157,7 @@ Attendees: _______________
 ### When Required
 
 Design controls are required for:
+
 - Class II devices (most)
 - Class III devices (all)
 - Class I devices with software
@@ -180,6 +186,7 @@ Design History File (820.30j)
 ### Design Input Requirements
 
 **Must Include:**
+
 - Intended use and user requirements
 - Patient population
 - Performance requirements
@@ -188,6 +195,7 @@ Design History File (820.30j)
 - Risk management requirements
 
 **Verification Criteria:**
+
 - Complete (all requirements captured)
 - Unambiguous (clear interpretation)
 - Not conflicting
@@ -195,14 +203,15 @@ Design History File (820.30j)
 
 ### Design Output Requirements
 
-| Output Type | Examples | Verification Method |
-|-------------|----------|---------------------|
-| Device specifications | Drawings, BOMs | Inspection, testing |
-| Manufacturing specs | Process parameters | Process validation |
-| Software specs | Source code, architecture | Software V&V |
-| Labeling | IFU, labels | Review against inputs |
+| Output Type           | Examples                  | Verification Method   |
+| --------------------- | ------------------------- | --------------------- |
+| Device specifications | Drawings, BOMs            | Inspection, testing   |
+| Manufacturing specs   | Process parameters        | Process validation    |
+| Software specs        | Source code, architecture | Software V&V          |
+| Labeling              | IFU, labels               | Review against inputs |
 
 **Essential Requirements:**
+
 - Traceable to design inputs
 - Contains acceptance criteria
 - Identifies critical characteristics
@@ -210,6 +219,7 @@ Design History File (820.30j)
 ### Design Review
 
 **Review Stages:**
+
 1. Concept review (feasibility)
 2. Design input review (requirements complete)
 3. Preliminary design review (architecture)
@@ -217,11 +227,13 @@ Design History File (820.30j)
 5. Final design review (transfer readiness)
 
 **Participants:**
+
 - Representative of each design function
 - Other specialists as needed
 - Independent reviewers (no direct design responsibility)
 
 **Documentation:**
+
 - Meeting minutes
 - Issues identified
 - Resolution actions
@@ -230,6 +242,7 @@ Design History File (820.30j)
 ### Design Verification
 
 **Methods:**
+
 - Inspections and measurements
 - Bench testing
 - Analysis and calculations
@@ -239,11 +252,11 @@ Design History File (820.30j)
 **Verification Matrix Template:**
 
 ```markdown
-| Req ID | Requirement | Verification Method | Pass Criteria | Result |
-|--------|-------------|---------------------|---------------|--------|
-| REQ-001 | Dimension tolerance | Measurement | ±0.5mm | |
-| REQ-002 | Tensile strength | Testing per ASTM | >500 MPa | |
-| REQ-003 | Software function | Unit testing | 100% pass | |
+| Req ID  | Requirement         | Verification Method | Pass Criteria | Result |
+| ------- | ------------------- | ------------------- | ------------- | ------ |
+| REQ-001 | Dimension tolerance | Measurement         | ±0.5mm        |        |
+| REQ-002 | Tensile strength    | Testing per ASTM    | >500 MPa      |        |
+| REQ-003 | Software function   | Unit testing        | 100% pass     |        |
 ```
 
 ### Design Validation
@@ -251,11 +264,13 @@ Design History File (820.30j)
 **Definition:** Confirmation that device meets user needs and intended uses
 
 **Validation Requirements:**
+
 - Use initial production units (or equivalent)
 - Simulated or actual use conditions
 - Includes software validation
 
 **Validation Types:**
+
 1. **Bench validation** - Laboratory simulated use
 2. **Clinical validation** - Human subjects (may require IDE)
 3. **Usability validation** - Human factors testing
@@ -280,6 +295,7 @@ Design History File (820.30j)
 ### Design History File (DHF)
 
 **Contents:**
+
 - Design and development plan
 - Design input records
 - Design output records
@@ -297,6 +313,7 @@ Design History File (820.30j)
 ### Document Approval and Distribution
 
 **Requirements:**
+
 - Documents reviewed and approved before use
 - Approved documents available at point of use
 - Obsolete documents removed or marked
@@ -304,12 +321,12 @@ Design History File (820.30j)
 
 ### Document Control Matrix
 
-| Document Type | Author | Reviewer | Approver | Distribution |
-|---------------|--------|----------|----------|--------------|
-| SOPs | Process owner | QA | Quality Manager | Controlled |
-| Work Instructions | Supervisor | QA | Manager | Controlled |
-| Forms | QA | QA | Quality Manager | Controlled |
-| Drawings | Engineer | Peer | Design Authority | Controlled |
+| Document Type     | Author        | Reviewer | Approver         | Distribution |
+| ----------------- | ------------- | -------- | ---------------- | ------------ |
+| SOPs              | Process owner | QA       | Quality Manager  | Controlled   |
+| Work Instructions | Supervisor    | QA       | Manager          | Controlled   |
+| Forms             | QA            | QA       | Quality Manager  | Controlled   |
+| Drawings          | Engineer      | Peer     | Design Authority | Controlled   |
 
 ### Change Control
 
@@ -347,6 +364,7 @@ Design History File (820.30j)
 ### Supplier Qualification
 
 **Qualification Criteria:**
+
 - Quality system capability
 - Product/service quality history
 - Financial stability
@@ -354,16 +372,17 @@ Design History File (820.30j)
 
 **Qualification Methods:**
 
-| Method | When Used | Documentation |
-|--------|-----------|---------------|
-| On-site audit | Critical suppliers, high risk | Audit report |
-| Questionnaire | Initial screening | Completed form |
-| Certification review | ISO certified suppliers | Cert copies |
-| Product qualification | Incoming inspection data | Test results |
+| Method                | When Used                     | Documentation  |
+| --------------------- | ----------------------------- | -------------- |
+| On-site audit         | Critical suppliers, high risk | Audit report   |
+| Questionnaire         | Initial screening             | Completed form |
+| Certification review  | ISO certified suppliers       | Cert copies    |
+| Product qualification | Incoming inspection data      | Test results   |
 
 ### Approved Supplier List (ASL)
 
 **ASL Requirements:**
+
 - Supplier name and contact
 - Products/services approved
 - Qualification date and method
@@ -373,6 +392,7 @@ Design History File (820.30j)
 ### Purchasing Data
 
 **Purchase Order Requirements:**
+
 - Complete product specifications
 - Quality requirements
 - Applicable standards
@@ -386,6 +406,7 @@ Design History File (820.30j)
 ### Process Validation (820.75)
 
 **When Required:**
+
 - Process output cannot be fully verified
 - Deficiencies would only appear after use
 - Examples: sterilization, welding, molding
@@ -396,47 +417,56 @@ Design History File (820.30j)
 ## Process Validation Protocol
 
 ### 1. Protocol Approval
-Prepared by: _______________  Date: _______________
-Approved by: _______________  Date: _______________
+
+Prepared by: ******\_\_\_****** Date: ******\_\_\_******
+Approved by: ******\_\_\_****** Date: ******\_\_\_******
 
 ### 2. Process Description
+
 [Describe process, equipment, materials, parameters]
 
 ### 3. Acceptance Criteria
+
 | Parameter | Specification | Test Method |
-|-----------|---------------|-------------|
+| --------- | ------------- | ----------- |
 |           |               |             |
 
 ### 4. Equipment Qualification
-- IQ (Installation Qualification): _______________
-- OQ (Operational Qualification): _______________
-- PQ (Performance Qualification): _______________
+
+- IQ (Installation Qualification): ******\_\_\_******
+- OQ (Operational Qualification): ******\_\_\_******
+- PQ (Performance Qualification): ******\_\_\_******
 
 ### 5. Validation Runs
-Number of runs: _____ (minimum 3)
-Lot sizes: _____
+
+Number of runs: **\_** (minimum 3)
+Lot sizes: **\_**
 
 ### 6. Results Summary
+
 | Run | Date | Parameters | Results | Pass/Fail |
-|-----|------|------------|---------|-----------|
+| --- | ---- | ---------- | ------- | --------- |
 | 1   |      |            |         |           |
 | 2   |      |            |         |           |
 | 3   |      |            |         |           |
 
 ### 7. Conclusion
+
 Process validated: Yes / No
-Revalidation triggers: _____
+Revalidation triggers: **\_**
 ```
 
 ### Environmental Controls (820.70(c))
 
 **Controlled Conditions:**
+
 - Temperature and humidity
 - Particulate contamination (cleanrooms)
 - ESD (electrostatic discharge)
 - Lighting levels
 
 **Monitoring Requirements:**
+
 - Continuous or periodic monitoring
 - Documented limits
 - Out-of-specification procedures
@@ -445,6 +475,7 @@ Revalidation triggers: _____
 ### Personnel (820.70(d))
 
 **Training Requirements:**
+
 - Job-specific training
 - Competency verification
 - Retraining for significant changes
@@ -455,17 +486,18 @@ Revalidation triggers: _____
 ```markdown
 ## Training Record
 
-Employee: _______________ ID: _______________
-Position: _______________
+Employee: ******\_\_\_****** ID: ******\_\_\_******
+Position: ******\_\_\_******
 
-| Training Topic | Trainer | Date | Method | Competency Verified |
-|----------------|---------|------|--------|---------------------|
-|                |         |      |        | Signature: ________ |
+| Training Topic | Trainer | Date | Method | Competency Verified     |
+| -------------- | ------- | ---- | ------ | ----------------------- |
+|                |         |      |        | Signature: **\_\_\_\_** |
 ```
 
 ### Equipment (820.70(g))
 
 **Requirements:**
+
 - Maintenance schedule
 - Calibration program
 - Adjustment limits documented
@@ -474,6 +506,7 @@ Position: _______________
 ### Calibration (820.72)
 
 **Calibration Program Elements:**
+
 1. Equipment identification
 2. Calibration frequency
 3. Calibration procedures
@@ -538,6 +571,7 @@ Root Cause: Document control failure - procedure not updated
 ```
 
 **Fishbone Categories:**
+
 - Man (People)
 - Machine (Equipment)
 - Method (Process)
@@ -547,12 +581,12 @@ Root Cause: Document control failure - procedure not updated
 
 ### CAPA Metrics
 
-| Metric | Target | Frequency |
-|--------|--------|-----------|
-| CAPA on-time closure | >90% | Monthly |
-| Overdue CAPAs | <5 | Monthly |
-| Effectiveness rate | >85% | Quarterly |
-| Average days to closure | <60 | Monthly |
+| Metric                  | Target | Frequency |
+| ----------------------- | ------ | --------- |
+| CAPA on-time closure    | >90%   | Monthly   |
+| Overdue CAPAs           | <5     | Monthly   |
+| Effectiveness rate      | >85%   | Quarterly |
+| Average days to closure | <60    | Monthly   |
 
 ---
 
@@ -585,6 +619,7 @@ Device Master Record
 ### Device History Record (DHR) - 820.184
 
 **DHR Contents:**
+
 - Dates of manufacture
 - Quantity manufactured
 - Quantity released for distribution
@@ -595,6 +630,7 @@ Device Master Record
 ### Quality System Record (QSR) - 820.186
 
 **QSR Contents:**
+
 - Procedures and changes
 - Calibration records
 - Distribution records
@@ -614,6 +650,7 @@ Device Master Record
 ## FDA Inspection Readiness
 
 ### Documentation Review
+
 - [ ] Quality manual current
 - [ ] SOPs reviewed and approved
 - [ ] Training records complete
@@ -623,6 +660,7 @@ Device Master Record
 - [ ] Management review records current
 
 ### Facility Review
+
 - [ ] Controlled areas properly identified
 - [ ] Equipment calibration current
 - [ ] Environmental monitoring records available
@@ -630,6 +668,7 @@ Device Master Record
 - [ ] Quarantine areas clearly marked
 
 ### Personnel Preparation
+
 - [ ] Escort team identified
 - [ ] Subject matter experts briefed
 - [ ] Front desk/reception notified
@@ -637,6 +676,7 @@ Device Master Record
 - [ ] FDA credentials verification process
 
 ### Record Accessibility
+
 - [ ] Electronic records accessible
 - [ ] Backup copies available
 - [ ] Audit trail functional
@@ -646,6 +686,7 @@ Device Master Record
 ### During Inspection
 
 **Escort Guidelines:**
+
 1. One designated escort with investigator at all times
 2. Answer questions truthfully and concisely
 3. Don't volunteer information not requested
@@ -656,12 +697,13 @@ Device Master Record
 **Record Request Tracking:**
 
 | Request # | Date | Document Requested | Provided By | Date Provided |
-|-----------|------|-------------------|-------------|---------------|
-|           |      |                   |             |               |
+| --------- | ---- | ------------------ | ----------- | ------------- |
+|           |      |                    |             |               |
 
 ### Post-Inspection
 
 **FDA 483 Response:**
+
 - Due within 15 business days
 - Address each observation specifically
 - Include corrective actions and timeline
@@ -673,28 +715,35 @@ Device Master Record
 ## Observation [Number]
 
 ### FDA Observation:
+
 [Copy verbatim from Form 483]
 
 ### Company Response:
 
 #### Understanding of Observation:
+
 [Demonstrate understanding of the concern]
 
 #### Immediate Correction:
+
 [Actions already taken]
 
 #### Root Cause Analysis:
+
 [Investigation findings]
 
 #### Corrective Actions:
+
 | Action | Responsible | Target Date | Status |
-|--------|-------------|-------------|--------|
+| ------ | ----------- | ----------- | ------ |
 |        |             |             |        |
 
 #### Preventive Actions:
+
 [Systemic improvements]
 
 #### Verification:
+
 [How effectiveness will be verified]
 ```
 
@@ -704,20 +753,21 @@ Device Master Record
 
 ### Key Performance Indicators
 
-| Category | Metric | Target | Current |
-|----------|--------|--------|---------|
-| CAPA | On-time closure rate | >90% | |
-| CAPA | Effectiveness rate | >85% | |
-| Complaints | Response time (days) | <5 | |
-| Training | Compliance rate | 100% | |
-| Calibration | On-time rate | 100% | |
-| Audit | Findings closure rate | >95% | |
-| NCR | Recurring issues | <5% | |
-| Supplier | Quality rate | >98% | |
+| Category    | Metric                | Target | Current |
+| ----------- | --------------------- | ------ | ------- |
+| CAPA        | On-time closure rate  | >90%   |         |
+| CAPA        | Effectiveness rate    | >85%   |         |
+| Complaints  | Response time (days)  | <5     |         |
+| Training    | Compliance rate       | 100%   |         |
+| Calibration | On-time rate          | 100%   |         |
+| Audit       | Findings closure rate | >95%   |         |
+| NCR         | Recurring issues      | <5%    |         |
+| Supplier    | Quality rate          | >98%   |         |
 
 ### Trend Analysis
 
 **Monthly Review Items:**
+
 - Complaint trends by product/failure mode
 - NCR trends by cause code
 - CAPA effectiveness
@@ -731,23 +781,23 @@ Device Master Record
 
 ### Common 483 Observations
 
-| Observation | Prevention |
-|-------------|------------|
-| CAPA not effective | Verify effectiveness before closure |
-| Training incomplete | Competency-based training records |
-| Document control gaps | Regular procedure reviews |
+| Observation             | Prevention                          |
+| ----------------------- | ----------------------------------- |
+| CAPA not effective      | Verify effectiveness before closure |
+| Training incomplete     | Competency-based training records   |
+| Document control gaps   | Regular procedure reviews           |
 | Complaint investigation | Thorough, documented investigations |
-| Supplier controls weak | Robust qualification and monitoring |
-| Validation inadequate | Follow IQ/OQ/PQ protocols |
+| Supplier controls weak  | Robust qualification and monitoring |
+| Validation inadequate   | Follow IQ/OQ/PQ protocols           |
 
 ### Regulatory Cross-References
 
 | QSR Section | ISO 13485 Clause |
-|-------------|------------------|
-| 820.20 | 5.1, 5.5, 5.6 |
-| 820.30 | 7.3 |
-| 820.40 | 4.2.4 |
-| 820.50 | 7.4 |
-| 820.70 | 7.5.1 |
-| 820.75 | 7.5.6 |
-| 820.100 | 8.5.2, 8.5.3 |
+| ----------- | ---------------- |
+| 820.20      | 5.1, 5.5, 5.6    |
+| 820.30      | 7.3              |
+| 820.40      | 4.2.4            |
+| 820.50      | 7.4              |
+| 820.70      | 7.5.1            |
+| 820.75      | 7.5.6            |
+| 820.100     | 8.5.2, 8.5.3     |

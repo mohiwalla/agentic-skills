@@ -10,6 +10,7 @@ Detailed strategies for each major social platform.
 **Best times:** Tuesday-Thursday, 7-8am, 12pm, 5-6pm
 
 **What works:**
+
 - Personal stories with business lessons
 - Contrarian takes on industry topics
 - Behind-the-scenes of building a company
@@ -18,12 +19,14 @@ Detailed strategies for each major social platform.
 - Polls that spark discussion
 
 **What doesn't:**
+
 - Overly promotional content
 - Generic motivational quotes
 - Links in the main post (kills reach)
 - Corporate speak without personality
 
 **Format tips:**
+
 - First line is everything (hook before "see more")
 - Use line breaks for readability
 - 1,200-1,500 characters performs well
@@ -31,6 +34,7 @@ Detailed strategies for each major social platform.
 - Tag people sparingly and genuinely
 
 **Algorithm tips:**
+
 - First hour engagement matters most
 - Comments > reactions > clicks
 - Dwell time (people reading) signals quality
@@ -48,6 +52,7 @@ Detailed strategies for each major social platform.
 **Best times:** Varies by audience; test and measure
 
 **What works:**
+
 - Hot takes and opinions
 - Threads that teach something
 - Behind-the-scenes moments
@@ -56,18 +61,21 @@ Detailed strategies for each major social platform.
 - Real-time commentary on events
 
 **What doesn't:**
+
 - Pure self-promotion
 - Threads without a strong hook
 - Ignoring replies and mentions
 - Scheduling everything (no real-time presence)
 
 **Format tips:**
+
 - Tweets under 100 characters get more engagement
 - Threads: Hook in tweet 1, promise value, deliver
 - Quote tweets with added insight beat plain retweets
 - Use visuals to stop the scroll
 
 **Algorithm tips:**
+
 - Replies and quote tweets build authority
 - Threads keep people on platform (rewarded)
 - Images and video get more reach
@@ -84,6 +92,7 @@ Detailed strategies for each major social platform.
 **Best times:** 11am-1pm, 7-9pm
 
 **What works:**
+
 - High-quality visuals
 - Behind-the-scenes Stories
 - Reels (short-form video)
@@ -92,18 +101,21 @@ Detailed strategies for each major social platform.
 - Interactive Stories (polls, questions)
 
 **What doesn't:**
+
 - Low-quality images
 - Too much text in images
 - Ignoring Stories and Reels
 - Only promotional content
 
 **Format tips:**
+
 - Reels get 2x reach of static posts
 - First frame of Reels must hook
 - Carousels: 10 slides with educational content
 - Use all Story features (polls, links, etc.)
 
 **Algorithm tips:**
+
 - Reels heavily prioritized over static posts
 - Saves and shares > likes
 - Stories keep you top of feed
@@ -120,6 +132,7 @@ Detailed strategies for each major social platform.
 **Best times:** 7-9am, 12-3pm, 7-11pm
 
 **What works:**
+
 - Native, unpolished content
 - Trending sounds and formats
 - Educational content in entertaining wrapper
@@ -128,12 +141,14 @@ Detailed strategies for each major social platform.
 - Duets and stitches
 
 **What doesn't:**
+
 - Overly produced content
 - Ignoring trends
 - Hard selling
 - Repurposed horizontal video
 
 **Format tips:**
+
 - Hook in first 1-2 seconds
 - Keep it under 30 seconds to start
 - Vertical only (9:16)
@@ -150,6 +165,7 @@ Detailed strategies for each major social platform.
 **Best times:** 1-4pm weekdays
 
 **What works:**
+
 - Facebook Groups (community)
 - Native video
 - Live video
@@ -157,6 +173,7 @@ Detailed strategies for each major social platform.
 - Discussion-prompting questions
 
 **What doesn't:**
+
 - Links to external sites (reach killer)
 - Pure promotional content
 - Ignoring comments

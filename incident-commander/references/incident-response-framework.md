@@ -11,6 +11,7 @@ Production-grade incident management knowledge base synthesizing PagerDuty, Goog
 PagerDuty's open-source incident response process defines four core roles and five process phases. The model prioritizes **speed of mobilization** over process perfection.
 
 **Roles:**
+
 - **Incident Commander (IC):** Owns the incident end-to-end. Does NOT perform technical investigation. Delegates, coordinates, and makes final escalation decisions. The IC is the single point of authority; conflicting opinions are resolved by the IC, not by committee.
 - **Scribe:** Captures timestamped decisions, actions, and findings in the incident channel. The scribe never participates in technical work. A good scribe reduces postmortem preparation time by 70%.
 - **Subject Matter Expert (SME):** Pulled in on-demand for specific subsystems. SMEs report findings to the IC, not to each other. Parallel SME investigations must be coordinated through the IC to avoid duplicated effort.
@@ -22,9 +23,10 @@ PagerDuty's open-source incident response process defines four core roles and fi
 
 ### Google SRE: Managing Incidents (Chapter 14)
 
-Google's SRE model, documented in *Site Reliability Engineering* (O'Reilly, 2016), emphasizes **role separation** and **clear handoffs** as the primary mechanisms for preventing incident chaos.
+Google's SRE model, documented in _Site Reliability Engineering_ (O'Reilly, 2016), emphasizes **role separation** and **clear handoffs** as the primary mechanisms for preventing incident chaos.
 
 **Key Principles:**
+
 - **Operational vs. Communication Tracks:** Google splits incident work into two parallel tracks. The operational track handles technical mitigation. The communication track handles stakeholder updates, executive briefings, and customer notifications. These tracks run independently with the IC bridging them.
 - **Role Separation is Non-Negotiable:** The person debugging the system must never be the person updating stakeholders. Cognitive load from context-switching between technical work and communication degrades both outputs. Google measured a 40% increase in mean-time-to-resolution (MTTR) when a single person attempted both.
 - **Clear Handoffs:** When an IC rotates out (recommended every 60-90 minutes for SEV1), the handoff includes: current status summary, active hypotheses, pending actions, and escalation state. Handoffs happen on the bridge call, not asynchronously.
@@ -32,9 +34,10 @@ Google's SRE model, documented in *Site Reliability Engineering* (O'Reilly, 2016
 
 ### Atlassian Incident Management Model
 
-Atlassian's model, published in their *Incident Management Handbook*, is **severity-driven** and **template-heavy**. It favors structured playbooks over improvisation.
+Atlassian's model, published in their _Incident Management Handbook_, is **severity-driven** and **template-heavy**. It favors structured playbooks over improvisation.
 
 **Key Characteristics:**
+
 - **Severity Levels Drive Everything:** The assigned severity determines who gets paged, what communication templates are used, response time SLAs, and postmortem requirements. Severity is assigned at triage and reassessed every 30 minutes.
 - **Handbook-Driven Approach:** Atlassian maintains runbooks for every known failure mode. During incidents, responders follow documented playbooks before improvising. This reduces MTTR for known issues by 50-60% but requires significant upfront investment in documentation.
 - **Communication Templates:** Pre-written templates for status page updates, customer emails, and executive summaries. Templates include severity-specific language and are reviewed quarterly. This eliminates wordsmithing during active incidents.
@@ -42,15 +45,15 @@ Atlassian's model, published in their *Incident Management Handbook*, is **sever
 
 ### Framework Comparison Table
 
-| Dimension | PagerDuty | Google SRE | Atlassian |
-|-----------|-----------|------------|-----------|
-| Primary strength | Speed of mobilization | Role separation discipline | Structured playbooks |
-| IC authority model | IC has final say | IC coordinates, escalates to VP if blocked | IC follows handbook, escalates if off-script |
-| Communication style | Dedicated channel + bridge | Command post with dual tracks | Template-driven status updates |
-| Handoff protocol | Informal | Formal on-call handoff script | Rotation policy in handbook |
-| Postmortem requirement | All SEV1/SEV2 | All incidents | SEV1/SEV2 mandatory, SEV3 optional |
-| Best for | Fast-moving startups | Large-scale distributed systems | Regulated or process-heavy orgs |
-| Weakness | Under-documented for edge cases | Heavyweight for small teams | Rigid, slow to adapt to novel failures |
+| Dimension              | PagerDuty                       | Google SRE                                 | Atlassian                                    |
+| ---------------------- | ------------------------------- | ------------------------------------------ | -------------------------------------------- |
+| Primary strength       | Speed of mobilization           | Role separation discipline                 | Structured playbooks                         |
+| IC authority model     | IC has final say                | IC coordinates, escalates to VP if blocked | IC follows handbook, escalates if off-script |
+| Communication style    | Dedicated channel + bridge      | Command post with dual tracks              | Template-driven status updates               |
+| Handoff protocol       | Informal                        | Formal on-call handoff script              | Rotation policy in handbook                  |
+| Postmortem requirement | All SEV1/SEV2                   | All incidents                              | SEV1/SEV2 mandatory, SEV3 optional           |
+| Best for               | Fast-moving startups            | Large-scale distributed systems            | Regulated or process-heavy orgs              |
+| Weakness               | Under-documented for edge cases | Heavyweight for small teams                | Rigid, slow to adapt to novel failures       |
 
 ### When to Use Which Framework
 
@@ -65,12 +68,12 @@ Atlassian's model, published in their *Incident Management Handbook*, is **sever
 
 ### Severity Classification Matrix
 
-| Severity | Impact | Response Time | Update Cadence | Escalation Trigger | Example |
-|----------|--------|---------------|----------------|---------------------|---------|
-| **SEV1** | Total service outage or data breach affecting all users. Revenue loss exceeding $10K/hour. Security incident with active exfiltration. | Page IC + on-call within 5 min. All hands mobilized within 15 min. | Every 15 min to stakeholders. Continuous updates in incident channel. | Immediate executive notification. Board notification for data breaches. | Primary database cluster down. Payment processing system offline. Active ransomware attack. |
-| **SEV2** | Major feature degraded for >30% of users. Revenue impact $1K-$10K/hour. Data integrity concerns without confirmed loss. | IC assigned within 15 min. Responders mobilized within 30 min. | Every 30 min to stakeholders. Every 15 min in incident channel. | Executive notification if unresolved after 1 hour. Upgrade to SEV1 if impact expands. | Search functionality returning errors for 40% of queries. Checkout flow failing intermittently. Authentication latency exceeding 10s. |
-| **SEV3** | Minor feature degraded or non-critical service impaired. Workaround available. No direct revenue impact. | Acknowledged within 1 hour. Investigation started within 4 hours. | Every 2 hours to stakeholders if actively worked. Daily if deferred. | Escalate to SEV2 if workaround fails or user complaints exceed 50 in 1 hour. | Admin dashboard loading slowly. Email notifications delayed by 30+ minutes. Non-critical API endpoint returning 5xx for <5% of requests. |
-| **SEV4** | Cosmetic issue, minor bug, or internal tooling degradation. No user-facing impact or negligible impact. | Acknowledged within 1 business day. Prioritized against backlog. | No scheduled updates. Tracked in issue tracker. | Escalate to SEV3 if internal productivity impact exceeds 2 hours/day across team. | Logging pipeline dropping non-critical debug logs. Internal metrics dashboard showing stale data. Minor UI alignment issue on one browser. |
+| Severity | Impact                                                                                                                                 | Response Time                                                      | Update Cadence                                                        | Escalation Trigger                                                                    | Example                                                                                                                                    |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **SEV1** | Total service outage or data breach affecting all users. Revenue loss exceeding $10K/hour. Security incident with active exfiltration. | Page IC + on-call within 5 min. All hands mobilized within 15 min. | Every 15 min to stakeholders. Continuous updates in incident channel. | Immediate executive notification. Board notification for data breaches.               | Primary database cluster down. Payment processing system offline. Active ransomware attack.                                                |
+| **SEV2** | Major feature degraded for >30% of users. Revenue impact $1K-$10K/hour. Data integrity concerns without confirmed loss.                | IC assigned within 15 min. Responders mobilized within 30 min.     | Every 30 min to stakeholders. Every 15 min in incident channel.       | Executive notification if unresolved after 1 hour. Upgrade to SEV1 if impact expands. | Search functionality returning errors for 40% of queries. Checkout flow failing intermittently. Authentication latency exceeding 10s.      |
+| **SEV3** | Minor feature degraded or non-critical service impaired. Workaround available. No direct revenue impact.                               | Acknowledged within 1 hour. Investigation started within 4 hours.  | Every 2 hours to stakeholders if actively worked. Daily if deferred.  | Escalate to SEV2 if workaround fails or user complaints exceed 50 in 1 hour.          | Admin dashboard loading slowly. Email notifications delayed by 30+ minutes. Non-critical API endpoint returning 5xx for <5% of requests.   |
+| **SEV4** | Cosmetic issue, minor bug, or internal tooling degradation. No user-facing impact or negligible impact.                                | Acknowledged within 1 business day. Prioritized against backlog.   | No scheduled updates. Tracked in issue tracker.                       | Escalate to SEV3 if internal productivity impact exceeds 2 hours/day across team.     | Logging pipeline dropping non-critical debug logs. Internal metrics dashboard showing stale data. Minor UI alignment issue on one browser. |
 
 ### Customer-Facing Signals by Severity
 
@@ -92,7 +95,6 @@ Atlassian's model, published in their *Incident Management Handbook*, is **sever
 
 Severity changes must be announced by the IC in the incident channel with justification. The scribe logs the timestamp and rationale.
 
-
 ---
 
 ## 3. Role Definitions
@@ -102,6 +104,7 @@ Severity changes must be announced by the IC in the incident channel with justif
 The IC is the single decision-maker during an incident. This role exists to eliminate decision-by-committee, which adds 20-40 minutes to MTTR in measured studies.
 
 **Responsibilities:**
+
 - Assign severity level at triage (reassess every 30 minutes)
 - Assign all other incident roles
 - Approve status page updates before publication
@@ -116,6 +119,7 @@ The IC is the single decision-maker during an incident. This role exists to elim
 ### Communications Lead
 
 **Responsibilities:**
+
 - Draft all status page updates using severity-appropriate templates
 - Coordinate with Customer Liaison on outbound customer messaging
 - Maintain the executive summary document (updated every 30 min for SEV1/SEV2)
@@ -125,6 +129,7 @@ The IC is the single decision-maker during an incident. This role exists to elim
 ### Operations Lead
 
 **Responsibilities:**
+
 - Coordinate technical investigation across SMEs
 - Maintain the running hypothesis list and assign investigation tasks
 - Report technical findings to the IC in plain language
@@ -134,6 +139,7 @@ The IC is the single decision-maker during an incident. This role exists to elim
 ### Scribe
 
 **Responsibilities:**
+
 - Maintain a timestamped log of all decisions, actions, and findings
 - Document who said what and when in the incident channel
 - Capture rollback decisions, hypothesis changes, and escalation triggers
@@ -156,6 +162,7 @@ Owns the customer-facing voice during the incident. Monitors support channels fo
 Format: `#inc-YYYYMMDD-brief-desc`
 
 Examples:
+
 - `#inc-20260216-payment-api-timeout`
 - `#inc-20260216-db-primary-failover`
 - `#inc-20260216-auth-service-degraded`
@@ -166,6 +173,7 @@ Example topic: `SEV1 | IC: @jane.smith | Bridge: https://meet.example.com/inc-20
 ### Internal Status Update Templates
 
 **SEV1/SEV2 Update Template (posted in incident channel and executive Slack channel):**
+
 ```
 INCIDENT UPDATE - [SEV1/SEV2] - [HH:MM UTC]
 Status: [Investigating | Identified | Mitigating | Resolved]
@@ -176,6 +184,7 @@ IC: @[name]
 ```
 
 **Executive Summary Template (for SEV1, updated every 30 min):**
+
 ```
 EXECUTIVE SUMMARY - [Incident Title] - [HH:MM UTC]
 Severity: SEV1
@@ -190,6 +199,7 @@ Next Escalation Point: [What triggers executive action]
 ### Status Page Update Templates
 
 **SEV1 Initial Post:**
+
 ```
 Title: [Service Name] - Service Disruption
 Body: We are currently experiencing a disruption affecting [service/feature].
@@ -199,6 +209,7 @@ We will provide an update within 15 minutes.
 ```
 
 **SEV1 Update (mitigation in progress):**
+
 ```
 Title: [Service Name] - Service Disruption (Update)
 Body: We have identified the cause of the disruption affecting [service/feature]
@@ -207,6 +218,7 @@ We expect to have an update on resolution within [X] minutes.
 ```
 
 **SEV1 Resolution:**
+
 ```
 Title: [Service Name] - Resolved
 Body: The disruption affecting [service/feature] has been resolved as of [HH:MM UTC].
@@ -216,6 +228,7 @@ We apologize for the inconvenience.
 ```
 
 **SEV2 Initial Post:**
+
 ```
 Title: [Service Name] - Degraded Performance
 Body: We are investigating reports of degraded performance affecting [feature].
@@ -235,6 +248,7 @@ Our team is actively investigating and we will provide an update within 30 minut
 ### Customer Notification Templates
 
 **SEV1 Customer Email (B2B, enterprise accounts):**
+
 ```
 Subject: [Company Name] Service Incident - [Date]
 
@@ -271,15 +285,15 @@ VP of Engineering notified for all SEV1 incidents immediately. CTO notified if S
 
 ### Time-Based Escalation Triggers
 
-| Elapsed Time | SEV1 Action | SEV2 Action |
-|-------------|-------------|-------------|
-| 0 min | Page IC + all on-call. Notify VP Eng. | Page IC + primary on-call. |
-| 15 min | Confirm all roles staffed. Open bridge call. | IC assesses if additional SMEs needed. |
-| 30 min | If no mitigation path identified, page backup on-call for all related services. | First stakeholder update. Reassess severity. |
-| 45 min | Escalate to CTO if no progress. Consider customer notification. | If no progress, consider escalating to SEV1. |
-| 60 min | CTO briefing. Initiate customer notification if not already done. | Notify VP Eng. Page cross-team SMEs. |
-| 90 min | IC rotation (fresh IC takes over). Reassess all hypotheses. | IC rotation if needed. |
-| 120 min | CEO briefing if data breach or regulatory risk. External PR team engaged. | Escalate to SEV1 if impact has not decreased. |
+| Elapsed Time | SEV1 Action                                                                     | SEV2 Action                                   |
+| ------------ | ------------------------------------------------------------------------------- | --------------------------------------------- |
+| 0 min        | Page IC + all on-call. Notify VP Eng.                                           | Page IC + primary on-call.                    |
+| 15 min       | Confirm all roles staffed. Open bridge call.                                    | IC assesses if additional SMEs needed.        |
+| 30 min       | If no mitigation path identified, page backup on-call for all related services. | First stakeholder update. Reassess severity.  |
+| 45 min       | Escalate to CTO if no progress. Consider customer notification.                 | If no progress, consider escalating to SEV1.  |
+| 60 min       | CTO briefing. Initiate customer notification if not already done.               | Notify VP Eng. Page cross-team SMEs.          |
+| 90 min       | IC rotation (fresh IC takes over). Reassess all hypotheses.                     | IC rotation if needed.                        |
+| 120 min      | CEO briefing if data breach or regulatory risk. External PR team engaged.       | Escalate to SEV1 if impact has not decreased. |
 
 ### Escalation Path Examples
 

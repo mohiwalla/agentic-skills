@@ -21,20 +21,20 @@ CAPA effectiveness assessment procedures, verification methods, and closure crit
 
 Verification planning must occur BEFORE corrective action implementation:
 
-| Stage | Planning Activity | Owner |
-|-------|-------------------|-------|
-| CAPA Initiation | Define preliminary verification approach | CAPA Owner |
-| Root Cause Analysis | Refine criteria based on root cause | Investigation Team |
-| Action Planning | Finalize verification method and timeline | CAPA Owner |
-| Implementation | Schedule verification activities | Quality Assurance |
+| Stage               | Planning Activity                         | Owner              |
+| ------------------- | ----------------------------------------- | ------------------ |
+| CAPA Initiation     | Define preliminary verification approach  | CAPA Owner         |
+| Root Cause Analysis | Refine criteria based on root cause       | Investigation Team |
+| Action Planning     | Finalize verification method and timeline | CAPA Owner         |
+| Implementation      | Schedule verification activities          | Quality Assurance  |
 
 ### Verification Timeline Guidelines
 
-| CAPA Severity | Minimum Wait Period | Verification Window |
-|---------------|---------------------|---------------------|
-| Critical (Safety) | 30 days | 30-90 days post-implementation |
-| Major | 60 days | 60-180 days post-implementation |
-| Minor | 90 days | 90-365 days post-implementation |
+| CAPA Severity     | Minimum Wait Period | Verification Window             |
+| ----------------- | ------------------- | ------------------------------- |
+| Critical (Safety) | 30 days             | 30-90 days post-implementation  |
+| Major             | 60 days             | 60-180 days post-implementation |
+| Minor             | 90 days             | 90-365 days post-implementation |
 
 **Rationale**: Waiting period ensures sufficient data collection and accounts for process variation.
 
@@ -92,17 +92,20 @@ Quality Assurance: _____________ Date: _______
 **Best for:** Quantifiable issues with measurable outcomes (defect rates, cycle times, complaint trends)
 
 **Procedure:**
+
 1. Collect post-implementation data for defined period
 2. Compare to pre-implementation baseline
 3. Apply statistical analysis if sample size permits
 4. Document trend direction and magnitude
 
 **Example Criteria:**
+
 - Defect rate reduced by ≥50% from baseline
 - Zero recurrence of specific failure mode
 - Process capability (Cpk) improved to ≥1.33
 
 **Evidence Required:**
+
 - Pre-implementation baseline data
 - Post-implementation trend data
 - Statistical analysis (if applicable)
@@ -113,6 +116,7 @@ Quality Assurance: _____________ Date: _______
 **Best for:** Procedure compliance issues, process control failures, systemic problems
 
 **Procedure:**
+
 1. Develop audit checklist based on corrective action
 2. Conduct unannounced process audit
 3. Interview operators and supervisors
@@ -120,11 +124,13 @@ Quality Assurance: _____________ Date: _______
 5. Document compliance percentage
 
 **Example Criteria:**
+
 - 100% compliance with revised procedure
 - All operators demonstrate competency
 - No deviations observed during audit
 
 **Evidence Required:**
+
 - Audit checklist completed
 - Interview notes
 - Record samples reviewed
@@ -135,17 +141,20 @@ Quality Assurance: _____________ Date: _______
 **Best for:** Documentation issues, completeness problems, traceability failures
 
 **Procedure:**
+
 1. Define sample size based on volume (minimum 10 or 10%, whichever greater)
 2. Review records generated post-implementation
 3. Evaluate against specified requirements
 4. Calculate compliance rate
 
 **Example Criteria:**
+
 - 100% of records meet completeness requirements
 - All required signatures present
 - Traceability maintained throughout
 
 **Evidence Required:**
+
 - List of records reviewed
 - Compliance checklist results
 - Non-compliance summary (if any)
@@ -155,17 +164,20 @@ Quality Assurance: _____________ Date: _______
 **Best for:** Product quality issues, equipment failures, specification non-conformances
 
 **Procedure:**
+
 1. Define test protocol based on corrective action
 2. Conduct testing on post-implementation units
 3. Compare results to acceptance criteria
 4. Document pass/fail rates
 
 **Example Criteria:**
+
 - 100% of units pass revised inspection criteria
 - All test results within specification
 - Zero failures of targeted parameter
 
 **Evidence Required:**
+
 - Test protocol/method
 - Test results data
 - Pass/fail summary
@@ -176,17 +188,20 @@ Quality Assurance: _____________ Date: _______
 **Best for:** Training issues, communication problems, human factors causes
 
 **Procedure:**
+
 1. Develop structured interview questions
 2. Interview representative sample of affected personnel
 3. Observe process execution in real-time
 4. Document responses and observations
 
 **Example Criteria:**
+
 - All interviewed personnel demonstrate knowledge
 - Observed practices match documented procedure
 - No unsafe acts or workarounds observed
 
 **Evidence Required:**
+
 - Interview questions and responses
 - Observation notes
 - Training records (supporting)
@@ -199,35 +214,35 @@ Quality Assurance: _____________ Date: _______
 
 Criteria must be **SMART**:
 
-| Element | Requirement | Example |
-|---------|-------------|---------|
-| **S**pecific | Clearly defined what to measure | "Calibration overdue rate" not "equipment issues" |
-| **M**easurable | Quantifiable or objectively verifiable | "<2% overdue rate" not "improved timeliness" |
-| **A**chievable | Realistic given the corrective action | Within capability of implemented solution |
-| **R**elevant | Directly related to root cause | Addresses the actual problem |
-| **T**ime-bound | Specified evaluation period | "For 90 consecutive days" |
+| Element        | Requirement                            | Example                                           |
+| -------------- | -------------------------------------- | ------------------------------------------------- |
+| **S**pecific   | Clearly defined what to measure        | "Calibration overdue rate" not "equipment issues" |
+| **M**easurable | Quantifiable or objectively verifiable | "<2% overdue rate" not "improved timeliness"      |
+| **A**chievable | Realistic given the corrective action  | Within capability of implemented solution         |
+| **R**elevant   | Directly related to root cause         | Addresses the actual problem                      |
+| **T**ime-bound | Specified evaluation period            | "For 90 consecutive days"                         |
 
 ### Criteria by Issue Type
 
-| Issue Type | Typical Criteria | Threshold |
-|------------|------------------|-----------|
-| Nonconformance | Recurrence rate | Zero recurrence |
-| Process deviation | Compliance rate | ≥95% compliance |
-| Complaint | Complaint trend | ≥50% reduction |
-| Calibration | Overdue rate | <2% overdue |
-| Training | Competency pass rate | 100% pass |
-| Documentation | Completeness rate | 100% complete |
-| Supplier | Incoming reject rate | ≤1% reject rate |
+| Issue Type        | Typical Criteria     | Threshold       |
+| ----------------- | -------------------- | --------------- |
+| Nonconformance    | Recurrence rate      | Zero recurrence |
+| Process deviation | Compliance rate      | ≥95% compliance |
+| Complaint         | Complaint trend      | ≥50% reduction  |
+| Calibration       | Overdue rate         | <2% overdue     |
+| Training          | Competency pass rate | 100% pass       |
+| Documentation     | Completeness rate    | 100% complete   |
+| Supplier          | Incoming reject rate | ≤1% reject rate |
 
 ### Sample Size Guidelines
 
-| Population Size | Minimum Sample |
-|-----------------|----------------|
-| <10 | All (100%) |
-| 10-50 | 10 |
-| 51-100 | 15 |
-| 101-500 | 20 |
-| >500 | 25 or 10%, whichever less |
+| Population Size | Minimum Sample            |
+| --------------- | ------------------------- |
+| <10             | All (100%)                |
+| 10-50           | 10                        |
+| 51-100          | 15                        |
+| 101-500         | 20                        |
+| >500            | 25 or 10%, whichever less |
 
 ---
 
@@ -318,6 +333,7 @@ Management (if Major/Critical): _____________ Date: _______
 ### Definition of Ineffective
 
 CAPA is ineffective when:
+
 1. Original problem recurs during or after verification period
 2. Effectiveness criteria not met
 3. Root cause still present
@@ -356,14 +372,14 @@ INEFFECTIVE CAPA DETECTED
 
 ### Preventing Ineffective CAPAs
 
-| Common Cause | Prevention |
-|--------------|------------|
-| Superficial root cause | Validate root cause before action |
-| Action addresses symptom not cause | Ensure action targets root cause |
-| Implementation incomplete | Verify implementation before verification |
-| Insufficient verification period | Allow adequate time for data collection |
-| Wrong verification method | Match method to issue type |
-| Unclear success criteria | Define SMART criteria upfront |
+| Common Cause                       | Prevention                                |
+| ---------------------------------- | ----------------------------------------- |
+| Superficial root cause             | Validate root cause before action         |
+| Action addresses symptom not cause | Ensure action targets root cause          |
+| Implementation incomplete          | Verify implementation before verification |
+| Insufficient verification period   | Allow adequate time for data collection   |
+| Wrong verification method          | Match method to issue type                |
+| Unclear success criteria           | Define SMART criteria upfront             |
 
 ---
 

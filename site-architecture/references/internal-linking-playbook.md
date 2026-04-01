@@ -31,6 +31,7 @@ Hub (Pillar) Page
 ```
 
 **Link rules:**
+
 - Hub → all spokes (contextual, in-body links)
 - Each spoke → hub (with anchor text matching hub's target keyword)
 - Each spoke → adjacent spokes (only when genuinely relevant)
@@ -49,6 +50,7 @@ Introduction → Part 1 → Part 2 → Part 3 → Summary/CTA
 ```
 
 **Link rules:**
+
 - Each page links forward (next) and back (previous)
 - An index page links to all parts
 - Summary page links back to each key section
@@ -67,6 +69,7 @@ Blog Post (awareness) → Case Study (social proof) → Free Trial / Demo CTA
 ```
 
 **Link rules:**
+
 - Every blog post should have at least one contextual link to a product/feature page
 - Case studies link to the relevant feature/solution and to pricing
 - Feature pages link to relevant case studies and to pricing
@@ -89,6 +92,7 @@ Homepage (authority source)
 ```
 
 **Link rules:**
+
 - Homepage links only to the most important pages
 - Not to every blog post — to the category hubs
 - Each hub then distributes equity downward
@@ -101,28 +105,32 @@ Homepage (authority source)
 
 ### The Right Mix
 
-| Type | Target % of Internal Links | Example |
-|------|--------------------------|---------|
-| Descriptive partial match | 50-60% | "cold email writing guide" |
-| Exact match keyword | 10-15% | "cold email templates" |
-| Page title / branded | 20-25% | "our guide to cold outreach" |
-| Generic | <5% | "learn more" |
-| Naked URL | 0% | Never |
+| Type                      | Target % of Internal Links | Example                      |
+| ------------------------- | -------------------------- | ---------------------------- |
+| Descriptive partial match | 50-60%                     | "cold email writing guide"   |
+| Exact match keyword       | 10-15%                     | "cold email templates"       |
+| Page title / branded      | 20-25%                     | "our guide to cold outreach" |
+| Generic                   | <5%                        | "learn more"                 |
+| Naked URL                 | 0%                         | Never                        |
 
 ### Writing Good Anchor Text
 
 **Good:** Uses the target keyword naturally in a sentence.
+
 > "For tactical patterns, see our [cold email frameworks](link)."
 
 **Bad:** Forces exact match where it sounds unnatural.
+
 > "Click here to read our cold email templates cold email cold outreach guide."
 
 **Bad:** Generic — signals nothing.
+
 > "For more information, [click here](link)."
 
 ### Anchor Text Diversification
 
 Don't link to the same page with the same anchor every time. Vary it. If you have 15 internal links to your "cold email templates" page:
+
 - 8 using variations: "email outreach templates," "cold outreach scripts," "first-email frameworks"
 - 4 using exact: "cold email templates"
 - 3 using title/branded: "our template library"
@@ -146,6 +154,7 @@ Any page that mentions "cold email" and doesn't already link to your cold email 
 ### Method 2: Screaming Frog Crawl
 
 Crawl your site with Screaming Frog → Bulk Export → Internal links. Then filter:
+
 - Pages with 0 inbound internal links = orphans (fix immediately)
 - Pages with 1-2 inbound internal links = at-risk (add more)
 - Pages with high outbound links but low inbound = over-givers (these should be receiving, not just giving)
@@ -161,20 +170,22 @@ When you audit your content clusters, look for spokes that aren't linked from th
 An orphan page has no internal links pointing to it. It's effectively invisible to Google's link graph.
 
 **Step 1: Find your orphans**
+
 - Run `scripts/sitemap_analyzer.py` to get all indexed URLs
 - Cross-reference with your internal link graph (from Screaming Frog or GSC)
 - Pages in sitemap but not in internal link graph = candidates
 
 **Step 2: Classify them**
 
-| Type | Action |
-|------|--------|
-| Valuable content, no home | Find existing relevant pages to add contextual links from; add to relevant hub |
-| Landing pages (PPC, events) | These are intentionally unlinked — check if they're accidentally indexed |
-| Duplicate / thin content | Consolidate with canonical or noindex |
-| Old content no longer relevant | Consider 301 redirect to updated version or 410 |
+| Type                           | Action                                                                         |
+| ------------------------------ | ------------------------------------------------------------------------------ |
+| Valuable content, no home      | Find existing relevant pages to add contextual links from; add to relevant hub |
+| Landing pages (PPC, events)    | These are intentionally unlinked — check if they're accidentally indexed       |
+| Duplicate / thin content       | Consolidate with canonical or noindex                                          |
+| Old content no longer relevant | Consider 301 redirect to updated version or 410                                |
 
 **Step 3: Fix in priority order**
+
 1. Orphans with inbound external links first (equity is flowing in but going nowhere)
 2. Orphans with good content and search potential
 3. Orphans with thin content (fix content first, then link)
@@ -201,16 +212,21 @@ Run this quarterly:
 ## Common Patterns That Fail
 
 ### The Footer Dump
+
 Putting 80 links in the footer because "they should be accessible." Google gives footer links minimal weight and won't thank you for linking to every blog post from there. Footer = navigation to key sections + legal. That's it.
 
 ### The "Related Posts" Widget Approach Only
+
 Auto-generated related posts widgets are fine as supplemental linking, but they don't replace intentional contextual linking. The widget links to "related" content by tag or category — not necessarily to what you actually want to rank. Do the manual work.
 
 ### The Nav-Only Money Pages
+
 Feature pages and pricing pages that only appear in the navigation get equity from nav links only. Powerful nav links are sitewide — but adding 5-10 contextual blog links to your pricing page is a significant equity boost. Write one blog post that organically links to pricing. That's real.
 
 ### Linking to Pages You Want to Rank for the Wrong Topic
+
 If your /blog/seo-guide has 30 internal links to it but all the anchor text says "our guide" and "learn more," you're not sending a topical signal. The link equity flows in, but Google doesn't know what topic to attribute. Fix anchor text.
 
 ### Never Touching Old Posts
+
 Old blog posts accumulate internal links over time because new posts link to them. But they rarely link out to newer, better content. When you publish new content, go back and update old posts to add contextual links to the new piece. This is one of the highest-ROI activities in content SEO.

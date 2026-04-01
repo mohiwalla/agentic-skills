@@ -3,6 +3,7 @@
 ## Audit Framework
 
 ### Priority Order
+
 1. **Crawlability & Indexation** (can Google find and index it?)
 2. **Technical Foundations** (is the site fast and functional?)
 3. **On-Page Optimization** (is content optimized?)
@@ -16,11 +17,13 @@
 ### Crawlability
 
 **Robots.txt**
+
 - Check for unintentional blocks
 - Verify important pages allowed
 - Check sitemap reference
 
 **XML Sitemap**
+
 - Exists and accessible
 - Submitted to Search Console
 - Contains only canonical, indexable URLs
@@ -28,12 +31,14 @@
 - Proper formatting
 
 **Site Architecture**
+
 - Important pages within 3 clicks of homepage
 - Logical hierarchy
 - Internal linking structure
 - No orphan pages
 
 **Crawl Budget Issues** (for large sites)
+
 - Parameterized URLs under control
 - Faceted navigation handled properly
 - Infinite scroll with pagination fallback
@@ -42,11 +47,13 @@
 ### Indexation
 
 **Index Status**
+
 - site:domain.com check
 - Search Console coverage report
 - Compare indexed vs. expected
 
 **Indexation Issues**
+
 - Noindex tags on important pages
 - Canonicals pointing wrong direction
 - Redirect chains/loops
@@ -54,6 +61,7 @@
 - Duplicate content without canonicals
 
 **Canonicalization**
+
 - All pages have canonical tags
 - Self-referencing canonicals on unique pages
 - HTTP → HTTPS canonicals
@@ -63,11 +71,13 @@
 ### Site Speed & Core Web Vitals
 
 **Core Web Vitals**
+
 - LCP (Largest Contentful Paint): < 2.5s
 - INP (Interaction to Next Paint): < 200ms
 - CLS (Cumulative Layout Shift): < 0.1
 
 **Speed Factors**
+
 - Server response time (TTFB)
 - Image optimization
 - JavaScript execution
@@ -77,6 +87,7 @@
 - Font loading
 
 **Tools**
+
 - PageSpeed Insights
 - WebPageTest
 - Chrome DevTools
@@ -114,6 +125,7 @@
 ### Title Tags
 
 **Check for:**
+
 - Unique titles for each page
 - Primary keyword near beginning
 - 50-60 characters (visible in SERP)
@@ -121,6 +133,7 @@
 - Brand name placement (end, usually)
 
 **Common issues:**
+
 - Duplicate titles
 - Too long (truncated)
 - Too short (wasted opportunity)
@@ -130,6 +143,7 @@
 ### Meta Descriptions
 
 **Check for:**
+
 - Unique descriptions per page
 - 150-160 characters
 - Includes primary keyword
@@ -137,6 +151,7 @@
 - Call to action
 
 **Common issues:**
+
 - Duplicate descriptions
 - Auto-generated garbage
 - Too long/short
@@ -145,6 +160,7 @@
 ### Heading Structure
 
 **Check for:**
+
 - One H1 per page
 - H1 contains primary keyword
 - Logical hierarchy (H1 → H2 → H3)
@@ -152,6 +168,7 @@
 - Not just for styling
 
 **Common issues:**
+
 - Multiple H1s
 - Skip levels (H1 → H3)
 - Headings used for styling only
@@ -160,6 +177,7 @@
 ### Content Optimization
 
 **Primary Page Content**
+
 - Keyword in first 100 words
 - Related keywords naturally used
 - Sufficient depth/length for topic
@@ -167,6 +185,7 @@
 - Better than competitors
 
 **Thin Content Issues**
+
 - Pages with little unique content
 - Tag/category pages with no value
 - Doorway pages
@@ -175,6 +194,7 @@
 ### Image Optimization
 
 **Check for:**
+
 - Descriptive file names
 - Alt text on all images
 - Alt text describes image
@@ -186,6 +206,7 @@
 ### Internal Linking
 
 **Check for:**
+
 - Important pages well-linked
 - Descriptive anchor text
 - Logical link relationships
@@ -193,6 +214,7 @@
 - Reasonable link count per page
 
 **Common issues:**
+
 - Orphan pages (no internal links)
 - Over-optimized anchor text
 - Important pages buried
@@ -201,12 +223,14 @@
 ### Keyword Targeting
 
 **Per Page**
+
 - Clear primary keyword target
 - Title, H1, URL aligned
 - Content satisfies search intent
 - Not competing with other pages (cannibalization)
 
 **Site-Wide**
+
 - Keyword mapping document
 - No major gaps in coverage
 - No keyword cannibalization
@@ -219,21 +243,25 @@
 ### E-E-A-T Signals
 
 **Experience**
+
 - First-hand experience demonstrated
 - Original insights/data
 - Real examples and case studies
 
 **Expertise**
+
 - Author credentials visible
 - Accurate, detailed information
 - Properly sourced claims
 
 **Authoritativeness**
+
 - Recognized in the space
 - Cited by others
 - Industry credentials
 
 **Trustworthiness**
+
 - Accurate information
 - Transparent about business
 - Contact information available
@@ -259,6 +287,7 @@
 ## Common Issues by Site Type
 
 ### SaaS/Product Sites
+
 - Product pages lack content depth
 - Blog not integrated with product pages
 - Missing comparison/alternative pages
@@ -266,6 +295,7 @@
 - No glossary/educational content
 
 ### E-commerce
+
 - Thin category pages
 - Duplicate product descriptions
 - Missing product schema
@@ -273,6 +303,7 @@
 - Out-of-stock pages mishandled
 
 ### Content/Blog Sites
+
 - Outdated content not refreshed
 - Keyword cannibalization
 - No topical clustering
@@ -280,6 +311,7 @@
 - Missing author pages
 
 ### Local Business
+
 - Inconsistent NAP
 - Missing local schema
 - No Google Business Profile optimization

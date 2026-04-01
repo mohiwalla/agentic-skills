@@ -115,7 +115,7 @@ JWT_SECRET="${JWT_SECRET}"
 **Environment validation:**
 
 ```typescript
-import { z } from "zod";
+import { z } from "zod"
 
 const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
@@ -123,9 +123,9 @@ const envSchema = z.object({
   REDIS_URL: z.string().url().optional(),
   JWT_SECRET: z.string().min(32),
   PORT: z.coerce.number().default(3000),
-});
+})
 
-export const env = envSchema.parse(process.env);
+export const env = envSchema.parse(process.env)
 ```
 
 ---
@@ -147,6 +147,7 @@ main (protected)
 ```
 
 **Branch naming:**
+
 - `feature/description` - New features
 - `fix/description` - Bug fixes
 - `chore/description` - Maintenance tasks
@@ -165,6 +166,7 @@ main (protected)
 ```
 
 **Types:**
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation
@@ -414,80 +416,80 @@ describe("UserForm", () => {
 
 ```typescript
 // API integration test
-import { createTestClient } from "./test-utils";
-import { db } from "@/lib/db";
+import { createTestClient } from "./test-utils"
+import { db } from "@/lib/db"
 
 describe("POST /api/users", () => {
   beforeEach(async () => {
-    await db.user.deleteMany();
-  });
+    await db.user.deleteMany()
+  })
 
   it("creates user with valid data", async () => {
-    const client = createTestClient();
+    const client = createTestClient()
 
     const response = await client.post("/api/users", {
       email: "new@example.com",
       name: "New User",
-    });
+    })
 
-    expect(response.status).toBe(201);
-    expect(response.data.user.email).toBe("new@example.com");
+    expect(response.status).toBe(201)
+    expect(response.data.user.email).toBe("new@example.com")
 
     // Verify in database
     const user = await db.user.findUnique({
       where: { email: "new@example.com" },
-    });
-    expect(user).toBeTruthy();
-  });
+    })
+    expect(user).toBeTruthy()
+  })
 
   it("returns 409 for duplicate email", async () => {
     await db.user.create({
       data: { email: "existing@example.com", name: "Existing" },
-    });
+    })
 
-    const client = createTestClient();
+    const client = createTestClient()
 
     const response = await client.post("/api/users", {
       email: "existing@example.com",
       name: "Duplicate",
-    });
+    })
 
-    expect(response.status).toBe(409);
-    expect(response.data.error.code).toBe("EMAIL_EXISTS");
-  });
-});
+    expect(response.status).toBe(409)
+    expect(response.data.error.code).toBe("EMAIL_EXISTS")
+  })
+})
 ```
 
 ### E2E Testing with Playwright
 
 ```typescript
 // e2e/auth.spec.ts
-import { test, expect } from "@playwright/test";
+import { test, expect } from "@playwright/test"
 
 test.describe("Authentication", () => {
   test("user can log in and access dashboard", async ({ page }) => {
-    await page.goto("/login");
+    await page.goto("/login")
 
-    await page.fill('[name="email"]', "user@example.com");
-    await page.fill('[name="password"]', "password123");
-    await page.click('button[type="submit"]');
+    await page.fill('[name="email"]', "user@example.com")
+    await page.fill('[name="password"]', "password123")
+    await page.click('button[type="submit"]')
 
-    await expect(page).toHaveURL("/dashboard");
-    await expect(page.locator("h1")).toHaveText("Welcome back");
-  });
+    await expect(page).toHaveURL("/dashboard")
+    await expect(page.locator("h1")).toHaveText("Welcome back")
+  })
 
   test("shows error for invalid credentials", async ({ page }) => {
-    await page.goto("/login");
+    await page.goto("/login")
 
-    await page.fill('[name="email"]', "wrong@example.com");
-    await page.fill('[name="password"]', "wrongpassword");
-    await page.click('button[type="submit"]');
+    await page.fill('[name="email"]', "wrong@example.com")
+    await page.fill('[name="password"]', "wrongpassword")
+    await page.click('button[type="submit"]')
 
     await expect(page.locator('[role="alert"]')).toHaveText(
-      "Invalid email or password"
-    );
-  });
-});
+      "Invalid email or password",
+    )
+  })
+})
 ```
 
 ---
@@ -498,26 +500,32 @@ test.describe("Authentication", () => {
 
 ```markdown
 ## Summary
+
 <!-- Brief description of changes -->
 
 ## Type of Change
+
 - [ ] Bug fix
 - [ ] New feature
 - [ ] Breaking change
 - [ ] Documentation update
 
 ## Changes Made
+
 <!-- List specific changes -->
 
 ## Testing
+
 - [ ] Unit tests added/updated
 - [ ] Integration tests added/updated
 - [ ] Manual testing completed
 
 ## Screenshots
+
 <!-- If applicable -->
 
 ## Checklist
+
 - [ ] Code follows style guidelines
 - [ ] Self-review completed
 - [ ] Documentation updated
@@ -527,21 +535,25 @@ test.describe("Authentication", () => {
 ### Review Checklist
 
 **Functionality:**
+
 - Does the code do what it's supposed to?
 - Are edge cases handled?
 - Is error handling appropriate?
 
 **Code Quality:**
+
 - Is the code readable and maintainable?
 - Are there any code smells?
 - Is there unnecessary duplication?
 
 **Performance:**
+
 - Are there N+1 queries?
 - Is caching used appropriately?
 - Are there memory leaks?
 
 **Security:**
+
 - Is user input validated?
 - Are there injection vulnerabilities?
 - Is sensitive data protected?
@@ -626,19 +638,19 @@ return <LegacyCheckout />;
 ### Structured Logging
 
 ```typescript
-import pino from "pino";
+import pino from "pino"
 
 const logger = pino({
   level: process.env.LOG_LEVEL || "info",
   formatters: {
-    level: (label) => ({ level: label }),
+    level: label => ({ level: label }),
   },
-});
+})
 
 // Request logging middleware
 app.use((req, res, next) => {
-  const start = Date.now();
-  const requestId = req.headers["x-request-id"] || crypto.randomUUID();
+  const start = Date.now()
+  const requestId = req.headers["x-request-id"] || crypto.randomUUID()
 
   res.on("finish", () => {
     logger.info({
@@ -649,53 +661,53 @@ app.use((req, res, next) => {
       statusCode: res.statusCode,
       duration: Date.now() - start,
       userAgent: req.headers["user-agent"],
-    });
-  });
+    })
+  })
 
-  next();
-});
+  next()
+})
 
 // Application logging
-logger.info({ userId: user.id, action: "login" }, "User logged in");
-logger.error({ err, orderId }, "Failed to process order");
+logger.info({ userId: user.id, action: "login" }, "User logged in")
+logger.error({ err, orderId }, "Failed to process order")
 ```
 
 ### Metrics Collection
 
 ```typescript
-import { Counter, Histogram } from "prom-client";
+import { Counter, Histogram } from "prom-client"
 
 const httpRequestsTotal = new Counter({
   name: "http_requests_total",
   help: "Total HTTP requests",
   labelNames: ["method", "path", "status"],
-});
+})
 
 const httpRequestDuration = new Histogram({
   name: "http_request_duration_seconds",
   help: "HTTP request duration",
   labelNames: ["method", "path"],
   buckets: [0.1, 0.3, 0.5, 1, 3, 5, 10],
-});
+})
 
 // Middleware
 app.use((req, res, next) => {
   const end = httpRequestDuration.startTimer({
     method: req.method,
     path: req.route?.path || req.path,
-  });
+  })
 
   res.on("finish", () => {
     httpRequestsTotal.inc({
       method: req.method,
       path: req.route?.path || req.path,
       status: res.statusCode,
-    });
-    end();
-  });
+    })
+    end()
+  })
 
-  next();
-});
+  next()
+})
 ```
 
 ### Health Checks
@@ -706,36 +718,36 @@ app.get("/health", async (req, res) => {
     database: await checkDatabase(),
     redis: await checkRedis(),
     memory: checkMemory(),
-  };
+  }
 
-  const healthy = Object.values(checks).every((c) => c.status === "healthy");
+  const healthy = Object.values(checks).every(c => c.status === "healthy")
 
   res.status(healthy ? 200 : 503).json({
     status: healthy ? "healthy" : "unhealthy",
     checks,
     timestamp: new Date().toISOString(),
-  });
-});
+  })
+})
 
 async function checkDatabase() {
   try {
-    await db.$queryRaw`SELECT 1`;
-    return { status: "healthy" };
+    await db.$queryRaw`SELECT 1`
+    return { status: "healthy" }
   } catch (error) {
-    return { status: "unhealthy", error: error.message };
+    return { status: "unhealthy", error: error.message }
   }
 }
 
 function checkMemory() {
-  const used = process.memoryUsage();
-  const heapUsedMB = Math.round(used.heapUsed / 1024 / 1024);
-  const heapTotalMB = Math.round(used.heapTotal / 1024 / 1024);
+  const used = process.memoryUsage()
+  const heapUsedMB = Math.round(used.heapUsed / 1024 / 1024)
+  const heapTotalMB = Math.round(used.heapTotal / 1024 / 1024)
 
   return {
     status: heapUsedMB < heapTotalMB * 0.9 ? "healthy" : "warning",
     heapUsedMB,
     heapTotalMB,
-  };
+  }
 }
 ```
 

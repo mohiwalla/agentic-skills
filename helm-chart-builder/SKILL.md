@@ -21,11 +21,11 @@ Not a Helm tutorial — a set of concrete decisions about how to build charts th
 
 ## Slash Commands
 
-| Command | What it does |
-|---------|-------------|
-| `/helm:create` | Scaffold a production-ready Helm chart with best-practice structure |
-| `/helm:review` | Analyze an existing chart for issues — missing labels, hardcoded values, template anti-patterns |
-| `/helm:security` | Audit chart for security issues — RBAC, network policies, pod security, secrets handling |
+| Command          | What it does                                                                                    |
+| ---------------- | ----------------------------------------------------------------------------------------------- |
+| `/helm:create`   | Scaffold a production-ready Helm chart with best-practice structure                             |
+| `/helm:review`   | Analyze an existing chart for issues — missing labels, hardcoded values, template anti-patterns |
+| `/helm:security` | Audit chart for security issues — RBAC, network policies, pod security, secrets handling        |
 
 ---
 
@@ -40,7 +40,7 @@ Recognize these patterns from the user:
 - "Add a subchart dependency"
 - "Set up helm tests"
 - "Helm best practices for [workload type]"
-- Any request involving: Helm chart, values.yaml, Chart.yaml, templates, helpers, _helpers.tpl, subcharts, helm lint, helm test
+- Any request involving: Helm chart, values.yaml, Chart.yaml, templates, helpers, \_helpers.tpl, subcharts, helm lint, helm test
 
 If the user has a Helm chart or wants to package Kubernetes resources → this skill applies.
 
@@ -117,32 +117,34 @@ If the user has a Helm chart or wants to package Kubernetes resources → this s
 
 1. **Check chart structure**
 
-   | Check | Severity | Fix |
-   |-------|----------|-----|
-   | Missing _helpers.tpl | High | Create helpers for common labels and selectors |
-   | No NOTES.txt | Medium | Add post-install instructions |
-   | No .helmignore | Low | Create one to exclude .git, CI files, tests |
-   | Missing Chart.yaml fields | Medium | Add description, appVersion, maintainers |
-   | Hardcoded values in templates | High | Extract to values.yaml with defaults |
+   | Check                         | Severity | Fix                                            |
+   | ----------------------------- | -------- | ---------------------------------------------- |
+   | Missing \_helpers.tpl         | High     | Create helpers for common labels and selectors |
+   | No NOTES.txt                  | Medium   | Add post-install instructions                  |
+   | No .helmignore                | Low      | Create one to exclude .git, CI files, tests    |
+   | Missing Chart.yaml fields     | Medium   | Add description, appVersion, maintainers       |
+   | Hardcoded values in templates | High     | Extract to values.yaml with defaults           |
 
 2. **Check template quality**
 
-   | Check | Severity | Fix |
-   |-------|----------|-----|
-   | Missing standard labels | High | Use `app.kubernetes.io/*` labels via _helpers.tpl |
-   | No resource requests/limits | Critical | Add resources section with defaults in values.yaml |
-   | Hardcoded image tag | High | Use `{{ .Values.image.repository }}:{{ .Values.image.tag }}` |
-   | No imagePullPolicy | Medium | Default to `IfNotPresent`, overridable |
-   | Missing liveness/readiness probes | High | Add probes with configurable paths and ports |
-   | No pod anti-affinity | Medium | Add preferred anti-affinity for HA |
-   | Duplicate template code | Medium | Extract into named templates in _helpers.tpl |
+   | Check                             | Severity | Fix                                                          |
+   | --------------------------------- | -------- | ------------------------------------------------------------ |
+   | Missing standard labels           | High     | Use `app.kubernetes.io/*` labels via \_helpers.tpl           |
+   | No resource requests/limits       | Critical | Add resources section with defaults in values.yaml           |
+   | Hardcoded image tag               | High     | Use `{{ .Values.image.repository }}:{{ .Values.image.tag }}` |
+   | No imagePullPolicy                | Medium   | Default to `IfNotPresent`, overridable                       |
+   | Missing liveness/readiness probes | High     | Add probes with configurable paths and ports                 |
+   | No pod anti-affinity              | Medium   | Add preferred anti-affinity for HA                           |
+   | Duplicate template code           | Medium   | Extract into named templates in \_helpers.tpl                |
 
 3. **Check values.yaml quality**
+
    ```bash
    python3 scripts/values_validator.py mychart/values.yaml
    ```
 
 4. **Generate review report**
+
    ```
    HELM CHART REVIEW — [chart name]
    Date: [timestamp]
@@ -159,37 +161,38 @@ If the user has a Helm chart or wants to package Kubernetes resources → this s
 
 1. **Pod security audit**
 
-   | Check | Severity | Fix |
-   |-------|----------|-----|
-   | No securityContext | Critical | Add runAsNonRoot, readOnlyRootFilesystem |
-   | Running as root | Critical | Set `runAsNonRoot: true`, `runAsUser: 1000` |
-   | Writable root filesystem | High | Set `readOnlyRootFilesystem: true` + emptyDir for tmp |
-   | All capabilities retained | High | Drop ALL, add only specific needed caps |
-   | Privileged container | Critical | Set `privileged: false`, use specific capabilities |
-   | No seccomp profile | Medium | Set `seccompProfile.type: RuntimeDefault` |
-   | allowPrivilegeEscalation true | High | Set `allowPrivilegeEscalation: false` |
+   | Check                         | Severity | Fix                                                   |
+   | ----------------------------- | -------- | ----------------------------------------------------- |
+   | No securityContext            | Critical | Add runAsNonRoot, readOnlyRootFilesystem              |
+   | Running as root               | Critical | Set `runAsNonRoot: true`, `runAsUser: 1000`           |
+   | Writable root filesystem      | High     | Set `readOnlyRootFilesystem: true` + emptyDir for tmp |
+   | All capabilities retained     | High     | Drop ALL, add only specific needed caps               |
+   | Privileged container          | Critical | Set `privileged: false`, use specific capabilities    |
+   | No seccomp profile            | Medium   | Set `seccompProfile.type: RuntimeDefault`             |
+   | allowPrivilegeEscalation true | High     | Set `allowPrivilegeEscalation: false`                 |
 
 2. **RBAC audit**
 
-   | Check | Severity | Fix |
-   |-------|----------|-----|
-   | No ServiceAccount | Medium | Create dedicated SA, don't use default |
-   | automountServiceAccountToken true | Medium | Set to false unless pod needs K8s API access |
-   | ClusterRole instead of Role | Medium | Use namespace-scoped Role unless cluster-wide needed |
-   | Wildcard permissions | Critical | Use specific resource names and verbs |
-   | No RBAC at all | Low | Acceptable if pod doesn't need K8s API access |
+   | Check                             | Severity | Fix                                                  |
+   | --------------------------------- | -------- | ---------------------------------------------------- |
+   | No ServiceAccount                 | Medium   | Create dedicated SA, don't use default               |
+   | automountServiceAccountToken true | Medium   | Set to false unless pod needs K8s API access         |
+   | ClusterRole instead of Role       | Medium   | Use namespace-scoped Role unless cluster-wide needed |
+   | Wildcard permissions              | Critical | Use specific resource names and verbs                |
+   | No RBAC at all                    | Low      | Acceptable if pod doesn't need K8s API access        |
 
 3. **Network and secrets audit**
 
-   | Check | Severity | Fix |
-   |-------|----------|-----|
-   | No NetworkPolicy | Medium | Add default-deny ingress + explicit allow rules |
-   | Secrets in values.yaml | Critical | Use external secrets operator or sealed-secrets |
-   | No PodDisruptionBudget | Medium | Add PDB with minAvailable for HA workloads |
-   | hostNetwork: true | High | Remove unless absolutely required (e.g., CNI plugin) |
-   | hostPID or hostIPC | Critical | Never use in application charts |
+   | Check                  | Severity | Fix                                                  |
+   | ---------------------- | -------- | ---------------------------------------------------- |
+   | No NetworkPolicy       | Medium   | Add default-deny ingress + explicit allow rules      |
+   | Secrets in values.yaml | Critical | Use external secrets operator or sealed-secrets      |
+   | No PodDisruptionBudget | Medium   | Add PDB with minAvailable for HA workloads           |
+   | hostNetwork: true      | High     | Remove unless absolutely required (e.g., CNI plugin) |
+   | hostPID or hostIPC     | Critical | Never use in application charts                      |
 
 4. **Generate security report**
+
    ```
    SECURITY AUDIT — [chart name]
    Date: [timestamp]
@@ -211,14 +214,16 @@ If the user has a Helm chart or wants to package Kubernetes resources → this s
 CLI utility for static analysis of Helm chart directories.
 
 **Features:**
+
 - Chart structure validation (required files, directory layout)
 - Template anti-pattern detection (hardcoded values, missing labels, no resource limits)
 - Chart.yaml metadata checks
-- Standard labels verification (app.kubernetes.io/*)
+- Standard labels verification (app.kubernetes.io/\*)
 - Security baseline checks
 - JSON and text output
 
 **Usage:**
+
 ```bash
 # Analyze a chart directory
 python3 scripts/chart_analyzer.py mychart/
@@ -235,6 +240,7 @@ python3 scripts/chart_analyzer.py mychart/ --security
 CLI utility for validating values.yaml against best practices.
 
 **Features:**
+
 - Documentation coverage (inline comments)
 - Type consistency checks
 - Hardcoded secrets detection
@@ -244,6 +250,7 @@ CLI utility for validating values.yaml against best practices.
 - JSON and text output
 
 **Usage:**
+
 ```bash
 # Validate values.yaml
 python3 scripts/values_validator.py values.yaml
@@ -259,7 +266,7 @@ python3 scripts/values_validator.py values.yaml --strict
 
 ## Template Patterns
 
-### Pattern 1: Standard Labels (_helpers.tpl)
+### Pattern 1: Standard Labels (\_helpers.tpl)
 
 ```yaml
 {{/*
@@ -329,7 +336,7 @@ spec:
 
 ```yaml
 spec:
-  serviceAccountName: {{ include "mychart.serviceAccountName" . }}
+  serviceAccountName: { { include "mychart.serviceAccountName" . } }
   automountServiceAccountToken: false
   securityContext:
     runAsNonRoot: true
@@ -338,7 +345,7 @@ spec:
     seccompProfile:
       type: RuntimeDefault
   containers:
-    - name: {{ .Chart.Name }}
+    - name: { { .Chart.Name } }
       securityContext:
         allowPrivilegeEscalation: false
         readOnlyRootFilesystem: true
@@ -346,9 +353,8 @@ spec:
           drop:
             - ALL
       image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-      imagePullPolicy: {{ .Values.image.pullPolicy }}
-      resources:
-        {{- toYaml .Values.resources | nindent 8 }}
+      imagePullPolicy: { { .Values.image.pullPolicy } }
+      resources: { { - toYaml .Values.resources | nindent 8 } }
       volumeMounts:
         - name: tmp
           mountPath: /tmp
@@ -410,31 +416,34 @@ LIBRARY CHARTS
 
 Flag these without being asked:
 
-- **No _helpers.tpl** → Create one. Every chart needs standard labels and fullname helpers.
+- **No \_helpers.tpl** → Create one. Every chart needs standard labels and fullname helpers.
 - **Hardcoded image tag in template** → Extract to values.yaml. Tags must be overridable.
 - **No resource requests/limits** → Add them. Pods without limits can starve the node.
 - **Running as root** → Add securityContext. No exceptions for production charts.
 - **No NOTES.txt** → Create one. Users need post-install instructions.
 - **Secrets in values.yaml defaults** → Remove them. Use placeholders with comments explaining how to provide secrets.
 - **No liveness/readiness probes** → Add them. Kubernetes needs to know if the pod is healthy.
-- **Missing app.kubernetes.io labels** → Add via _helpers.tpl. Required for proper resource tracking.
+- **Missing app.kubernetes.io labels** → Add via \_helpers.tpl. Required for proper resource tracking.
 
 ---
 
 ## Installation
 
 ### One-liner (any tool)
+
 ```bash
 git clone https://github.com/alirezarezvani/claude-skills.git
 cp -r claude-skills/engineering/helm-chart-builder ~/.claude/skills/
 ```
 
 ### Multi-tool install
+
 ```bash
 ./scripts/convert.sh --skill helm-chart-builder --tool codex|gemini|cursor|windsurf|openclaw
 ```
 
 ### OpenClaw
+
 ```bash
 clawhub install cs-helm-chart-builder
 ```

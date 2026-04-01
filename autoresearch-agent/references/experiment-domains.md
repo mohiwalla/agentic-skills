@@ -235,21 +235,21 @@ python scripts/setup_experiment.py \
 
 ## Choosing Your Domain
 
-| I want to... | Domain | Evaluator | Cost |
-|-------------|--------|-----------|------|
-| Speed up my code | engineering | benchmark_speed | Free |
-| Shrink my bundle | engineering | benchmark_size | Free |
-| Fix flaky tests | engineering | test_pass_rate | Free |
-| Speed up Docker builds | engineering | build_speed | Free |
-| Reduce memory usage | engineering | memory_usage | Free |
-| Train ML models | engineering | (custom) | Free + GPU |
-| Write better headlines | marketing | llm_judge_content | Subscription |
-| Improve social posts | marketing | llm_judge_copy | Subscription |
-| Optimize email subjects | marketing | llm_judge_copy | Subscription |
-| Improve ad copy | marketing | llm_judge_copy | Subscription |
-| Optimize article structure | content | llm_judge_content | Subscription |
-| Improve SEO descriptions | content | llm_judge_content | Subscription |
-| Optimize system prompts | prompts | llm_judge_prompt | Subscription |
-| Improve agent skills | prompts | llm_judge_prompt | Subscription |
+| I want to...               | Domain      | Evaluator         | Cost         |
+| -------------------------- | ----------- | ----------------- | ------------ |
+| Speed up my code           | engineering | benchmark_speed   | Free         |
+| Shrink my bundle           | engineering | benchmark_size    | Free         |
+| Fix flaky tests            | engineering | test_pass_rate    | Free         |
+| Speed up Docker builds     | engineering | build_speed       | Free         |
+| Reduce memory usage        | engineering | memory_usage      | Free         |
+| Train ML models            | engineering | (custom)          | Free + GPU   |
+| Write better headlines     | marketing   | llm_judge_content | Subscription |
+| Improve social posts       | marketing   | llm_judge_copy    | Subscription |
+| Optimize email subjects    | marketing   | llm_judge_copy    | Subscription |
+| Improve ad copy            | marketing   | llm_judge_copy    | Subscription |
+| Optimize article structure | content     | llm_judge_content | Subscription |
+| Improve SEO descriptions   | content     | llm_judge_content | Subscription |
+| Optimize system prompts    | prompts     | llm_judge_prompt  | Subscription |
+| Improve agent skills       | prompts     | llm_judge_prompt  | Subscription |
 
 **First time?** Start with an engineering experiment (free, fast, measurable). Once comfortable, try content/marketing with LLM judges.

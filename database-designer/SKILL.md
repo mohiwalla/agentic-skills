@@ -12,6 +12,7 @@ A comprehensive database design skill that provides expert-level analysis, optim
 ## Core Competencies
 
 ### Schema Design & Analysis
+
 - **Normalization Analysis**: Automated detection of normalization levels (1NF through BCNF)
 - **Denormalization Strategy**: Smart recommendations for performance optimization
 - **Data Type Optimization**: Identification of inappropriate types and size issues
@@ -20,6 +21,7 @@ A comprehensive database design skill that provides expert-level analysis, optim
 - **ERD Generation**: Automatic Mermaid diagram creation from DDL
 
 ### Index Optimization
+
 - **Index Gap Analysis**: Identification of missing indexes on foreign keys and query patterns
 - **Composite Index Strategy**: Optimal column ordering for multi-column indexes
 - **Index Redundancy Detection**: Elimination of overlapping and unused indexes
@@ -27,6 +29,7 @@ A comprehensive database design skill that provides expert-level analysis, optim
 - **Index Type Selection**: B-tree, hash, partial, covering, and specialized indexes
 
 ### Migration Management
+
 - **Zero-Downtime Migrations**: Expand-contract pattern implementation
 - **Schema Evolution**: Safe column additions, deletions, and type changes
 - **Data Migration Scripts**: Automated data transformation and validation
@@ -34,11 +37,13 @@ A comprehensive database design skill that provides expert-level analysis, optim
 - **Execution Planning**: Ordered migration steps with dependency resolution
 
 ## Database Design Principles
+
 → See references/database-design-reference.md for details
 
 ## Best Practices
 
 ### Schema Design
+
 1. **Use meaningful names**: Clear, consistent naming conventions
 2. **Choose appropriate data types**: Right-sized columns for storage efficiency
 3. **Define proper constraints**: Foreign keys, check constraints, unique indexes
@@ -46,6 +51,7 @@ A comprehensive database design skill that provides expert-level analysis, optim
 5. **Document relationships**: Clear foreign key relationships and business rules
 
 ### Performance Optimization
+
 1. **Index strategically**: Cover common query patterns without over-indexing
 2. **Monitor query performance**: Regular analysis of slow queries
 3. **Partition large tables**: Improve query performance and maintenance
@@ -53,6 +59,7 @@ A comprehensive database design skill that provides expert-level analysis, optim
 5. **Implement connection pooling**: Efficient resource utilization
 
 ### Security Considerations
+
 1. **Principle of least privilege**: Grant minimal necessary permissions
 2. **Encrypt sensitive data**: At rest and in transit
 3. **Audit access patterns**: Monitor and log database access
@@ -173,13 +180,13 @@ WHERE id IN (SELECT id FROM users WHERE email_normalized IS NULL LIMIT 5000);
 
 ### Indexing Strategies
 
-| Index Type | Use Case | Example |
-|------------|----------|---------|
-| **B-tree** (default) | Equality, range, ORDER BY | `CREATE INDEX idx_users_email ON users(email);` |
-| **GIN** | Full-text search, JSONB, arrays | `CREATE INDEX idx_docs_body ON docs USING gin(to_tsvector('english', body));` |
-| **GiST** | Geometry, range types, nearest-neighbor | `CREATE INDEX idx_locations ON places USING gist(coords);` |
-| **Partial** | Subset of rows (reduce size) | `CREATE INDEX idx_active ON users(email) WHERE active = true;` |
-| **Covering** | Index-only scans | `CREATE INDEX idx_cov ON orders(customer_id) INCLUDE (total, created_at);` |
+| Index Type           | Use Case                                | Example                                                                       |
+| -------------------- | --------------------------------------- | ----------------------------------------------------------------------------- |
+| **B-tree** (default) | Equality, range, ORDER BY               | `CREATE INDEX idx_users_email ON users(email);`                               |
+| **GIN**              | Full-text search, JSONB, arrays         | `CREATE INDEX idx_docs_body ON docs USING gin(to_tsvector('english', body));` |
+| **GiST**             | Geometry, range types, nearest-neighbor | `CREATE INDEX idx_locations ON places USING gist(coords);`                    |
+| **Partial**          | Subset of rows (reduce size)            | `CREATE INDEX idx_active ON users(email) WHERE active = true;`                |
+| **Covering**         | Index-only scans                        | `CREATE INDEX idx_cov ON orders(customer_id) INCLUDE (total, created_at);`    |
 
 ### EXPLAIN Plan Reading
 
@@ -188,6 +195,7 @@ EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT) SELECT ...;
 ```
 
 Key signals to watch:
+
 - **Seq Scan** on large tables — missing index
 - **Nested Loop** with high row estimates — consider hash/merge join or add index
 - **Buffers shared read** much higher than **hit** — working set exceeds memory
@@ -197,17 +205,18 @@ Key signals to watch:
 Symptoms: application issues one query per row (e.g., fetching related records in a loop).
 
 Fixes:
+
 - Use `JOIN` or subquery to fetch in one round-trip
 - ORM eager loading (`select_related` / `includes` / `with`)
 - DataLoader pattern for GraphQL resolvers
 
 ### Connection Pooling
 
-| Tool | Protocol | Best For |
-|------|----------|----------|
-| **PgBouncer** | PostgreSQL | Transaction/statement pooling, low overhead |
-| **ProxySQL** | MySQL | Query routing, read/write splitting |
-| **Built-in pool** (HikariCP, SQLAlchemy pool) | Any | Application-level pooling |
+| Tool                                          | Protocol   | Best For                                    |
+| --------------------------------------------- | ---------- | ------------------------------------------- |
+| **PgBouncer**                                 | PostgreSQL | Transaction/statement pooling, low overhead |
+| **ProxySQL**                                  | MySQL      | Query routing, read/write splitting         |
+| **Built-in pool** (HikariCP, SQLAlchemy pool) | Any        | Application-level pooling                   |
 
 **Rule of thumb:** Set pool size to `(2 * CPU cores) + disk spindles`. For cloud SSDs, start with `2 * vCPUs` and tune.
 
@@ -221,15 +230,16 @@ Fixes:
 
 ## Multi-Database Decision Matrix
 
-| Criteria | PostgreSQL | MySQL | SQLite | SQL Server |
-|----------|-----------|-------|--------|------------|
-| **Best for** | Complex queries, JSONB, extensions | Web apps, read-heavy workloads | Embedded, dev/test, edge | Enterprise .NET stacks |
-| **JSON support** | Excellent (JSONB + GIN) | Good (JSON type) | Minimal | Good (OPENJSON) |
-| **Replication** | Streaming, logical | Group replication, InnoDB cluster | N/A | Always On AG |
-| **Licensing** | Open source (PostgreSQL License) | Open source (GPL) / commercial | Public domain | Commercial |
-| **Max practical size** | Multi-TB | Multi-TB | ~1 TB (single-writer) | Multi-TB |
+| Criteria               | PostgreSQL                         | MySQL                             | SQLite                   | SQL Server             |
+| ---------------------- | ---------------------------------- | --------------------------------- | ------------------------ | ---------------------- |
+| **Best for**           | Complex queries, JSONB, extensions | Web apps, read-heavy workloads    | Embedded, dev/test, edge | Enterprise .NET stacks |
+| **JSON support**       | Excellent (JSONB + GIN)            | Good (JSON type)                  | Minimal                  | Good (OPENJSON)        |
+| **Replication**        | Streaming, logical                 | Group replication, InnoDB cluster | N/A                      | Always On AG           |
+| **Licensing**          | Open source (PostgreSQL License)   | Open source (GPL) / commercial    | Public domain            | Commercial             |
+| **Max practical size** | Multi-TB                           | Multi-TB                          | ~1 TB (single-writer)    | Multi-TB               |
 
 **When to choose:**
+
 - **PostgreSQL** — default choice for new projects; best extensibility and standards compliance
 - **MySQL** — existing MySQL ecosystem; simple read-heavy web applications
 - **SQLite** — mobile apps, CLI tools, unit test databases, IoT/edge
@@ -237,11 +247,11 @@ Fixes:
 
 ### NoSQL Considerations
 
-| Database | Model | Use When |
-|----------|-------|----------|
-| **MongoDB** | Document | Schema flexibility, rapid prototyping, content management |
-| **Redis** | Key-value / cache | Session store, rate limiting, leaderboards, pub/sub |
-| **DynamoDB** | Wide-column | Serverless AWS apps, single-digit-ms latency at any scale |
+| Database     | Model             | Use When                                                  |
+| ------------ | ----------------- | --------------------------------------------------------- |
+| **MongoDB**  | Document          | Schema flexibility, rapid prototyping, content management |
+| **Redis**    | Key-value / cache | Session store, rate limiting, leaderboards, pub/sub       |
+| **DynamoDB** | Wide-column       | Serverless AWS apps, single-digit-ms latency at any scale |
 
 > Use SQL as default. Reach for NoSQL only when the access pattern clearly benefits from it.
 
@@ -256,19 +266,19 @@ Fixes:
 
 ### Sharding Strategies
 
-| Strategy | How It Works | Pros | Cons |
-|----------|-------------|------|------|
-| **Hash** | `shard = hash(key) % N` | Even distribution | Resharding is expensive |
-| **Range** | Shard by date or ID range | Simple, good for time-series | Hot spots on latest shard |
-| **Geographic** | Shard by user region | Data locality, compliance | Cross-region queries are hard |
+| Strategy       | How It Works              | Pros                         | Cons                          |
+| -------------- | ------------------------- | ---------------------------- | ----------------------------- |
+| **Hash**       | `shard = hash(key) % N`   | Even distribution            | Resharding is expensive       |
+| **Range**      | Shard by date or ID range | Simple, good for time-series | Hot spots on latest shard     |
+| **Geographic** | Shard by user region      | Data locality, compliance    | Cross-region queries are hard |
 
 ### Replication Patterns
 
-| Pattern | Consistency | Latency | Use Case |
-|---------|------------|---------|----------|
-| **Synchronous** | Strong | Higher write latency | Financial transactions |
-| **Asynchronous** | Eventual | Low write latency | Read-heavy web apps |
-| **Semi-synchronous** | At-least-one replica confirmed | Moderate | Balance of safety and speed |
+| Pattern              | Consistency                    | Latency              | Use Case                    |
+| -------------------- | ------------------------------ | -------------------- | --------------------------- |
+| **Synchronous**      | Strong                         | Higher write latency | Financial transactions      |
+| **Asynchronous**     | Eventual                       | Low write latency    | Read-heavy web apps         |
+| **Semi-synchronous** | At-least-one replica confirmed | Moderate             | Balance of safety and speed |
 
 ---
 

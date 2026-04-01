@@ -145,9 +145,9 @@ python scripts/seo_optimizer.py draft_article.md "content marketing strategy" --
     "target_density": "1-3%",
     "primary_found": false,
     "secondary_keywords": {
-      "content marketing": {"count": 0, "target": "3-5"},
-      "marketing tips": {"count": 1, "target": "2-3"},
-      "business growth": {"count": 0, "target": "2-3"}
+      "content marketing": { "count": 0, "target": "3-5" },
+      "marketing tips": { "count": 1, "target": "2-3" },
+      "business growth": { "count": 0, "target": "2-3" }
     },
     "placement": {
       "in_title": false,
@@ -159,8 +159,8 @@ python scripts/seo_optimizer.py draft_article.md "content marketing strategy" --
   "content_structure": {
     "word_count": 67,
     "min_recommended": 1500,
-    "headings": {"h1": 1, "h2": 3, "h3": 0},
-    "paragraphs": {"count": 6, "avg_length": 12}
+    "headings": { "h1": 1, "h2": 3, "h3": 0 },
+    "paragraphs": { "count": 6, "avg_length": 12 }
   },
   "readability": {
     "flesch_score": 82,
@@ -225,6 +225,7 @@ those relying solely on paid advertising. Content marketing builds lasting
 assets that continue generating value long after publication.
 
 The compounding effect of quality content creates sustainable business growth:
+
 - Organic search traffic increases over time
 - Brand authority strengthens with each published piece
 - Customer acquisition costs decrease as content library grows

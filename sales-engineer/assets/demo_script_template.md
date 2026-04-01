@@ -2,14 +2,14 @@
 
 ## Demo Information
 
-| Field | Value |
-|-------|-------|
-| Customer | [Customer Name] |
-| Date/Time | [Date and Time] |
-| Duration | [XX minutes] |
-| Demo Environment | [Environment URL/Details] |
-| Presenter | [Sales Engineer Name] |
-| AE/Account Executive | [AE Name] |
+| Field                | Value                     |
+| -------------------- | ------------------------- |
+| Customer             | [Customer Name]           |
+| Date/Time            | [Date and Time]           |
+| Duration             | [XX minutes]              |
+| Demo Environment     | [Environment URL/Details] |
+| Presenter            | [Sales Engineer Name]     |
+| AE/Account Executive | [AE Name]                 |
 
 ---
 
@@ -30,26 +30,26 @@
 
 ## Attendees and Roles
 
-| Name | Title | Role in Evaluation | Key Interest |
-|------|-------|-------------------|--------------|
-| [Name] | [CTO/VP Eng] | Decision Maker | ROI, strategic fit |
-| [Name] | [Director] | Champion | Solving [specific problem] |
-| [Name] | [Manager] | Technical Evaluator | Architecture, integrations |
-| [Name] | [Analyst] | End User | Day-to-day usability |
+| Name   | Title        | Role in Evaluation  | Key Interest               |
+| ------ | ------------ | ------------------- | -------------------------- |
+| [Name] | [CTO/VP Eng] | Decision Maker      | ROI, strategic fit         |
+| [Name] | [Director]   | Champion            | Solving [specific problem] |
+| [Name] | [Manager]    | Technical Evaluator | Architecture, integrations |
+| [Name] | [Analyst]    | End User            | Day-to-day usability       |
 
 ---
 
 ## Agenda
 
-| Time | Duration | Topic | Lead |
-|------|----------|-------|------|
-| 0:00 | 5 min | Welcome and introductions | AE |
-| 0:05 | 5 min | Agenda and objectives | SE |
-| 0:10 | 20 min | Core demo (Use Cases 1-3) | SE |
-| 0:30 | 10 min | Integration demo | SE |
-| 0:40 | 5 min | Admin and security overview | SE |
-| 0:45 | 10 min | Q&A | SE + AE |
-| 0:55 | 5 min | Next steps and wrap-up | AE |
+| Time | Duration | Topic                       | Lead    |
+| ---- | -------- | --------------------------- | ------- |
+| 0:00 | 5 min    | Welcome and introductions   | AE      |
+| 0:05 | 5 min    | Agenda and objectives       | SE      |
+| 0:10 | 20 min   | Core demo (Use Cases 1-3)   | SE      |
+| 0:30 | 10 min   | Integration demo            | SE      |
+| 0:40 | 5 min    | Admin and security overview | SE      |
+| 0:45 | 10 min   | Q&A                         | SE + AE |
+| 0:55 | 5 min    | Next steps and wrap-up      | AE      |
 
 ---
 
@@ -58,6 +58,7 @@
 ### Opening (5 minutes)
 
 **Talking Points:**
+
 - Thank attendees for their time
 - Recap what we learned in discovery: "[Summarize 2-3 key challenges]"
 - Set expectations: "Today I'll show you how we address [Challenge 1], [Challenge 2], and [Challenge 3]"
@@ -175,28 +176,31 @@
 
 ### Anticipated Objections
 
-| Objection | Response |
-|-----------|----------|
+| Objection                                            | Response                                                                                                                                                                                                      |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | "[Feature X] looks limited compared to [Competitor]" | "Great observation. Our approach to [Feature X] focuses on [benefit]. What specific aspect of [Feature X] is most important to your workflow? [Then demonstrate or explain how we address the specific need]" |
-| "How does this handle [edge case]?" | "That's an important scenario. [If supported: Let me show you how that works.] [If not directly: Here's how our customers typically handle that use case...]" |
-| "What about performance at our scale?" | "Excellent question. Our platform handles [benchmark data]. For your specific scale of [X], we'd recommend [architecture approach]. We can validate this in a POC." |
-| "The implementation timeline seems long" | "The timeline I shared is for the full solution. We can phase the rollout to deliver value sooner. Phase 1 would give you [core capability] within [X weeks]." |
-| "What happens if we outgrow this?" | "Our architecture is designed for growth. [Describe scaling approach]. We have customers who have scaled from [X] to [Y] without re-architecture." |
+| "How does this handle [edge case]?"                  | "That's an important scenario. [If supported: Let me show you how that works.] [If not directly: Here's how our customers typically handle that use case...]"                                                 |
+| "What about performance at our scale?"               | "Excellent question. Our platform handles [benchmark data]. For your specific scale of [X], we'd recommend [architecture approach]. We can validate this in a POC."                                           |
+| "The implementation timeline seems long"             | "The timeline I shared is for the full solution. We can phase the rollout to deliver value sooner. Phase 1 would give you [core capability] within [X weeks]."                                                |
+| "What happens if we outgrow this?"                   | "Our architecture is designed for growth. [Describe scaling approach]. We have customers who have scaled from [X] to [Y] without re-architecture."                                                            |
 
 ### Recovery Strategies
 
 **If the demo breaks:**
+
 1. Stay calm: "Let me switch to [backup environment / backup approach]"
 2. Explain what they would have seen
 3. Offer to follow up with a recorded walkthrough
 4. Pivot to the next demo section
 
 **If an unexpected question derails the flow:**
+
 1. Acknowledge: "That's an excellent question"
 2. Briefly answer or note it for follow-up
 3. Return to the demo flow: "Let me continue with [next section] and we can dive deeper into that during Q&A"
 
 **If the audience seems disengaged:**
+
 1. Pause and ask: "Before I continue, is this addressing what you're looking for?"
 2. Adjust focus based on their response
 3. Skip ahead to the section most relevant to their interests
@@ -220,13 +224,16 @@
 [Space for real-time notes during the demo]
 
 ### Questions Raised
+
 1. [Question] - [Answer / Follow-up needed]
 2. [Question] - [Answer / Follow-up needed]
 
 ### Feedback Received
+
 - [Positive feedback]
 - [Concerns raised]
 
 ### Next Steps Agreed
+
 1. [Action item] - [Owner] - [Date]
 2. [Action item] - [Owner] - [Date]

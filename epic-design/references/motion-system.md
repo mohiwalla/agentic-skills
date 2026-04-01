@@ -1,6 +1,7 @@
 # Motion System Reference
 
 ## Table of Contents
+
 1. [GSAP Setup & CDN](#gsap-setup)
 2. [Pattern 1: Multi-Layer Parallax](#pattern-1)
 3. [Pattern 2: Pinned Sticky Sections](#pattern-2)
@@ -33,12 +34,14 @@ Always load from jsDelivr CDN:
 
 <script>
   // Always register plugins immediately
-  gsap.registerPlugin(ScrollTrigger, Flip, MotionPathPlugin);
+  gsap.registerPlugin(ScrollTrigger, Flip, MotionPathPlugin)
 
   // Respect prefers-reduced-motion
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReduced = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches
   if (prefersReduced) {
-    gsap.globalTimeline.timeScale(0); // Freeze all animations
+    gsap.globalTimeline.timeScale(0) // Freeze all animations
   }
 </script>
 ```
@@ -51,28 +54,32 @@ The foundation of all 2.5D depth. Different layers scroll at different speeds.
 
 ```javascript
 function initParallax() {
-  const layers = document.querySelectorAll('[data-depth]');
+  const layers = document.querySelectorAll("[data-depth]")
 
   const depthFactors = {
-    '0': 0.10, '1': 0.25, '2': 0.50,
-    '3': 0.80, '4': 1.00, '5': 1.20
-  };
+    0: 0.1,
+    1: 0.25,
+    2: 0.5,
+    3: 0.8,
+    4: 1.0,
+    5: 1.2,
+  }
 
   layers.forEach(layer => {
-    const depth = layer.dataset.depth;
-    const factor = depthFactors[depth] || 1.0;
+    const depth = layer.dataset.depth
+    const factor = depthFactors[depth] || 1.0
 
     gsap.to(layer, {
-      yPercent: -15 * factor,  // adjust multiplier for desired effect intensity
-      ease: 'none',
+      yPercent: -15 * factor, // adjust multiplier for desired effect intensity
+      ease: "none",
       scrollTrigger: {
-        trigger: layer.closest('.scene'),
-        start: 'top bottom',
-        end: 'bottom top',
+        trigger: layer.closest(".scene"),
+        start: "top bottom",
+        end: "bottom top",
         scrub: true, // 1:1 scroll-to-animation
-      }
-    });
-  });
+      },
+    })
+  })
 }
 ```
 
@@ -91,22 +98,22 @@ function initPinnedSection(sceneEl) {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: sceneEl,
-      start: 'top top',
-      end: '+=150%',        // stay pinned for 1.5x viewport of scroll
-      pin: true,            // THIS is what pins the section
-      scrub: 1,             // 1 second smoothing
-      anticipatePin: 1,     // prevents jump on pin
-    }
-  });
+      start: "top top",
+      end: "+=150%", // stay pinned for 1.5x viewport of scroll
+      pin: true, // THIS is what pins the section
+      scrub: 1, // 1 second smoothing
+      anticipatePin: 1, // prevents jump on pin
+    },
+  })
 
   // Inner content animations while pinned
   // These play out over the scroll distance
-  tl.from('.pinned-title', { opacity: 0, y: 60, duration: 0.3 })
-    .from('.pinned-image', { scale: 0.8, opacity: 0, duration: 0.4 })
-    .to('.pinned-bg', { backgroundColor: '#1a0a2e', duration: 0.3 })
-    .from('.pinned-sub', { opacity: 0, x: -40, duration: 0.3 });
+  tl.from(".pinned-title", { opacity: 0, y: 60, duration: 0.3 })
+    .from(".pinned-image", { scale: 0.8, opacity: 0, duration: 0.4 })
+    .to(".pinned-bg", { backgroundColor: "#1a0a2e", duration: 0.3 })
+    .from(".pinned-sub", { opacity: 0, x: -40, duration: 0.3 })
 
-  return tl;
+  return tl
 }
 ```
 
@@ -126,33 +133,41 @@ New sections slide over previous ones. Each buried section scales down and darke
   height: 100vh;
   /* Each subsequent section has higher z-index */
 }
-.card-stack-section:nth-child(1) { z-index: 1; }
-.card-stack-section:nth-child(2) { z-index: 2; }
-.card-stack-section:nth-child(3) { z-index: 3; }
-.card-stack-section:nth-child(4) { z-index: 4; }
+.card-stack-section:nth-child(1) {
+  z-index: 1;
+}
+.card-stack-section:nth-child(2) {
+  z-index: 2;
+}
+.card-stack-section:nth-child(3) {
+  z-index: 3;
+}
+.card-stack-section:nth-child(4) {
+  z-index: 4;
+}
 ```
 
 ```javascript
 function initCardStack() {
-  const cards = gsap.utils.toArray('.card-stack-section');
+  const cards = gsap.utils.toArray(".card-stack-section")
 
   cards.forEach((card, i) => {
     // Each card (except last) gets buried as next one enters
     if (i < cards.length - 1) {
       gsap.to(card, {
         scale: 0.88,
-        filter: 'brightness(0.5) blur(3px)',
-        borderRadius: '20px',
-        ease: 'none',
+        filter: "brightness(0.5) blur(3px)",
+        borderRadius: "20px",
+        ease: "none",
         scrollTrigger: {
-          trigger: cards[i + 1],  // fires when NEXT card enters
-          start: 'top bottom',
-          end: 'top top',
+          trigger: cards[i + 1], // fires when NEXT card enters
+          start: "top bottom",
+          end: "top top",
           scrub: true,
-        }
-      });
+        },
+      })
     }
-  });
+  })
 }
 ```
 
@@ -167,41 +182,67 @@ function initScrubTimeline(sceneEl) {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: sceneEl,
-      start: 'top top',
-      end: '+=200%',
+      start: "top top",
+      end: "+=200%",
       pin: true,
-      scrub: 1.5,  // 1.5s lag for smooth, dreamy feel (use 0 for precise 1:1)
-    }
-  });
+      scrub: 1.5, // 1.5s lag for smooth, dreamy feel (use 0 for precise 1:1)
+    },
+  })
 
   // Sequences play out as user scrolls
   // 0.0 to 0.25 → first 25% of scroll
-  tl.fromTo('.hero-product',
+  tl.fromTo(
+    ".hero-product",
     { scale: 0.6, opacity: 0, y: 100 },
-    { scale: 1, opacity: 1, y: 0, duration: 0.25 }
+    { scale: 1, opacity: 1, y: 0, duration: 0.25 },
   )
-  // 0.25 to 0.5 → second quarter
-  .to('.hero-title span:first-child', {
-    x: '-30vw', opacity: 0, duration: 0.25
-  }, 0.25)
-  .to('.hero-title span:last-child', {
-    x: '30vw', opacity: 0, duration: 0.25
-  }, 0.25)
-  // 0.5 to 0.75 → third quarter
-  .to('.hero-product', {
-    scale: 1.3, y: -50, duration: 0.25
-  }, 0.5)
-  .fromTo('.next-section-content',
-    { opacity: 0, y: 80 },
-    { opacity: 1, y: 0, duration: 0.25 },
-    0.5
-  )
-  // 0.75 to 1.0 → final quarter
-  .to('.hero-product', {
-    opacity: 0, scale: 1.6, duration: 0.25
-  }, 0.75);
+    // 0.25 to 0.5 → second quarter
+    .to(
+      ".hero-title span:first-child",
+      {
+        x: "-30vw",
+        opacity: 0,
+        duration: 0.25,
+      },
+      0.25,
+    )
+    .to(
+      ".hero-title span:last-child",
+      {
+        x: "30vw",
+        opacity: 0,
+        duration: 0.25,
+      },
+      0.25,
+    )
+    // 0.5 to 0.75 → third quarter
+    .to(
+      ".hero-product",
+      {
+        scale: 1.3,
+        y: -50,
+        duration: 0.25,
+      },
+      0.5,
+    )
+    .fromTo(
+      ".next-section-content",
+      { opacity: 0, y: 80 },
+      { opacity: 1, y: 0, duration: 0.25 },
+      0.5,
+    )
+    // 0.75 to 1.0 → final quarter
+    .to(
+      ".hero-product",
+      {
+        opacity: 0,
+        scale: 1.6,
+        duration: 0.25,
+      },
+      0.75,
+    )
 
-  return tl;
+  return tl
 }
 ```
 
@@ -214,58 +255,62 @@ Content is hidden behind a clip-path mask that animates away to reveal the conte
 ```javascript
 // Left-to-right horizontal wipe
 function initHorizontalWipe(el) {
-  gsap.fromTo(el,
-    { clipPath: 'inset(0 100% 0 0)' },
+  gsap.fromTo(
+    el,
+    { clipPath: "inset(0 100% 0 0)" },
     {
-      clipPath: 'inset(0 0% 0 0)',
+      clipPath: "inset(0 0% 0 0)",
       duration: 1.2,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 80%' }
-    }
-  );
+      ease: "power3.out",
+      scrollTrigger: { trigger: el, start: "top 80%" },
+    },
+  )
 }
 
 // Top-to-bottom drop reveal
 function initTopDropReveal(el) {
-  gsap.fromTo(el,
-    { clipPath: 'inset(0 0 100% 0)' },
+  gsap.fromTo(
+    el,
+    { clipPath: "inset(0 0 100% 0)" },
     {
-      clipPath: 'inset(0 0 0% 0)',
+      clipPath: "inset(0 0 0% 0)",
       duration: 1.0,
-      ease: 'power2.out',
-      scrollTrigger: { trigger: el, start: 'top 75%' }
-    }
-  );
+      ease: "power2.out",
+      scrollTrigger: { trigger: el, start: "top 75%" },
+    },
+  )
 }
 
 // Circle iris expand
 function initCircleIris(el) {
-  gsap.fromTo(el,
-    { clipPath: 'circle(0% at 50% 50%)' },
+  gsap.fromTo(
+    el,
+    { clipPath: "circle(0% at 50% 50%)" },
     {
-      clipPath: 'circle(75% at 50% 50%)',
+      clipPath: "circle(75% at 50% 50%)",
       duration: 1.4,
-      ease: 'power2.inOut',
-      scrollTrigger: { trigger: el, start: 'top 60%' }
-    }
-  );
+      ease: "power2.inOut",
+      scrollTrigger: { trigger: el, start: "top 60%" },
+    },
+  )
 }
 
 // Window pane iris (tiny box expands to full)
 function initWindowPaneIris(sceneEl) {
-  gsap.fromTo(sceneEl,
-    { clipPath: 'inset(45% 30% 45% 30% round 8px)' },
+  gsap.fromTo(
+    sceneEl,
+    { clipPath: "inset(45% 30% 45% 30% round 8px)" },
     {
-      clipPath: 'inset(0% 0% 0% 0% round 0px)',
-      ease: 'none',
+      clipPath: "inset(0% 0% 0% 0% round 0px)",
+      ease: "none",
       scrollTrigger: {
         trigger: sceneEl,
-        start: 'top 80%',
-        end: 'top 20%',
+        start: "top 80%",
+        end: "top 20%",
         scrub: 1,
-      }
-    }
-  );
+      },
+    },
+  )
 }
 ```
 
@@ -277,19 +322,19 @@ Vertical scrolling drives horizontal movement through panels. Classic premium te
 
 ```javascript
 function initHorizontalScroll(containerEl) {
-  const panels = gsap.utils.toArray('.h-panel', containerEl);
+  const panels = gsap.utils.toArray(".h-panel", containerEl)
 
   gsap.to(panels, {
     xPercent: -100 * (panels.length - 1),
-    ease: 'none',
+    ease: "none",
     scrollTrigger: {
       trigger: containerEl,
       pin: true,
       scrub: 1,
       end: () => `+=${containerEl.offsetWidth * (panels.length - 1)}`,
-      snap: 1 / (panels.length - 1),  // auto-snap to each panel
-    }
-  });
+      snap: 1 / (panels.length - 1), // auto-snap to each panel
+    },
+  })
 }
 ```
 
@@ -318,30 +363,33 @@ function initPerspectiveZoom(sceneEl) {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: sceneEl,
-      start: 'top top',
-      end: '+=300%',
+      start: "top top",
+      end: "+=300%",
       pin: true,
       scrub: 2,
-    }
-  });
+    },
+  })
 
   // Background "rushes toward" viewer
-  tl.fromTo('.zoom-bg',
-    { scale: 0.4, filter: 'blur(20px)', opacity: 0.3 },
-    { scale: 1.2, filter: 'blur(0px)', opacity: 1, duration: 0.6 }
+  tl.fromTo(
+    ".zoom-bg",
+    { scale: 0.4, filter: "blur(20px)", opacity: 0.3 },
+    { scale: 1.2, filter: "blur(0px)", opacity: 1, duration: 0.6 },
   )
-  // Product appears from far
-  .fromTo('.zoom-product',
-    { scale: 0.1, z: -2000, opacity: 0 },
-    { scale: 1, z: 0, opacity: 1, duration: 0.5, ease: 'power2.out' },
-    0.2
-  )
-  // Text fades in after product arrives
-  .fromTo('.zoom-title',
-    { opacity: 0, letterSpacing: '2em' },
-    { opacity: 1, letterSpacing: '0.05em', duration: 0.3 },
-    0.55
-  );
+    // Product appears from far
+    .fromTo(
+      ".zoom-product",
+      { scale: 0.1, z: -2000, opacity: 0 },
+      { scale: 1, z: 0, opacity: 1, duration: 0.5, ease: "power2.out" },
+      0.2,
+    )
+    // Text fades in after product arrives
+    .fromTo(
+      ".zoom-title",
+      { opacity: 0, letterSpacing: "2em" },
+      { opacity: 1, letterSpacing: "0.05em", duration: 0.3 },
+      0.55,
+    )
 }
 ```
 
@@ -364,49 +412,50 @@ Full-page scroll snapping between sections — creates a chapter-like book feeli
 // Using GSAP Observer for smooth snapping
 function initSectionSnap() {
   // Register Observer plugin
-  gsap.registerPlugin(Observer);
+  gsap.registerPlugin(Observer)
 
-  const sections = gsap.utils.toArray('.snap-section');
-  let currentIndex = 0;
-  let animating = false;
+  const sections = gsap.utils.toArray(".snap-section")
+  let currentIndex = 0
+  let animating = false
 
   function goTo(index) {
-    if (animating || index === currentIndex) return;
-    animating = true;
+    if (animating || index === currentIndex) return
+    animating = true
 
-    const direction = index > currentIndex ? 1 : -1;
-    const current = sections[currentIndex];
-    const next = sections[index];
+    const direction = index > currentIndex ? 1 : -1
+    const current = sections[currentIndex]
+    const next = sections[index]
 
     const tl = gsap.timeline({
       onComplete: () => {
-        currentIndex = index;
-        animating = false;
-      }
-    });
+        currentIndex = index
+        animating = false
+      },
+    })
 
     // Current section exits upward
     tl.to(current, {
       yPercent: -100 * direction,
       opacity: 0,
       duration: 0.8,
-      ease: 'power2.inOut'
+      ease: "power2.inOut",
     })
-    // Next section enters from below/above
-    .fromTo(next,
-      { yPercent: 100 * direction, opacity: 0 },
-      { yPercent: 0, opacity: 1, duration: 0.8, ease: 'power2.inOut' },
-      0
-    );
+      // Next section enters from below/above
+      .fromTo(
+        next,
+        { yPercent: 100 * direction, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 0.8, ease: "power2.inOut" },
+        0,
+      )
   }
 
   Observer.create({
-    type: 'wheel,touch',
+    type: "wheel,touch",
     onDown: () => goTo(Math.min(currentIndex + 1, sections.length - 1)),
     onUp: () => goTo(Math.max(currentIndex - 1, 0)),
     tolerance: 100,
     preventDefault: true,
-  });
+  })
 }
 ```
 
@@ -424,17 +473,17 @@ Lenis replaces native browser scroll with silky-smooth physics-based scrolling. 
 function initLenis() {
   const lenis = new Lenis({
     duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    orientation: 'vertical',
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: "vertical",
     smoothWheel: true,
-  });
+  })
 
   // CRITICAL: Connect Lenis to GSAP ticker
-  lenis.on('scroll', ScrollTrigger.update);
-  gsap.ticker.add((time) => lenis.raf(time * 1000));
-  gsap.ticker.lagSmoothing(0);
+  lenis.on("scroll", ScrollTrigger.update)
+  gsap.ticker.add(time => lenis.raf(time * 1000))
+  gsap.ticker.lagSmoothing(0)
 
-  return lenis;
+  return lenis
 }
 ```
 
@@ -446,35 +495,50 @@ Only animate elements that are currently visible. Critical for performance.
 
 ```javascript
 function initRevealObserver() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        // Trigger GSAP animation
-        const animType = entry.target.dataset.animate;
-        if (animType) triggerAnimation(entry.target, animType);
-        // Stop observing after first trigger
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
-  });
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible")
+          // Trigger GSAP animation
+          const animType = entry.target.dataset.animate
+          if (animType) triggerAnimation(entry.target, animType)
+          // Stop observing after first trigger
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px",
+    },
+  )
 
-  document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  document
+    .querySelectorAll("[data-animate]")
+    .forEach(el => observer.observe(el))
 }
 
 function triggerAnimation(el, type) {
   const animations = {
-    'fade-up':    () => gsap.from(el, { y: 60, opacity: 0, duration: 0.8, ease: 'power3.out' }),
-    'fade-in':    () => gsap.from(el, { opacity: 0, duration: 1.0, ease: 'power2.out' }),
-    'scale-in':   () => gsap.from(el, { scale: 0.8, opacity: 0, duration: 0.7, ease: 'back.out(1.7)' }),
-    'slide-left': () => gsap.from(el, { x: -80, opacity: 0, duration: 0.8, ease: 'power3.out' }),
-    'slide-right':() => gsap.from(el, { x: 80, opacity: 0, duration: 0.8, ease: 'power3.out' }),
-    'converge':   () => animateSplitConverge(el), // See text-animations.md
-  };
-  animations[type]?.();
+    "fade-up": () =>
+      gsap.from(el, { y: 60, opacity: 0, duration: 0.8, ease: "power3.out" }),
+    "fade-in": () =>
+      gsap.from(el, { opacity: 0, duration: 1.0, ease: "power2.out" }),
+    "scale-in": () =>
+      gsap.from(el, {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.7,
+        ease: "back.out(1.7)",
+      }),
+    "slide-left": () =>
+      gsap.from(el, { x: -80, opacity: 0, duration: 0.8, ease: "power3.out" }),
+    "slide-right": () =>
+      gsap.from(el, { x: 80, opacity: 0, duration: 0.8, ease: "power3.out" }),
+    converge: () => animateSplitConverge(el), // See text-animations.md
+  }
+  animations[type]?.()
 }
 ```
 
@@ -487,7 +551,7 @@ micro-rotation shake fires on landing — simulating physical weight and impact.
 
 ```javascript
 function initElasticDrop(productEl, wrapperEl) {
-  const tl = gsap.timeline({ delay: 0.3 });
+  const tl = gsap.timeline({ delay: 0.3 })
 
   // Phase 1: element drops with elastic bounce
   tl.from(productEl, {
@@ -495,23 +559,27 @@ function initElasticDrop(productEl, wrapperEl) {
     opacity: 0,
     scale: 1.1,
     duration: 1.3,
-    ease: 'elastic.out(1, 0.65)',
+    ease: "elastic.out(1, 0.65)",
   })
 
-  // Phase 2: shake fires just as the elastic settles
-  // Apply to the WRAPPER not the element — avoids transform conflicts
-  .to(wrapperEl, {
-    keyframes: [
-      { rotation: -2,   duration: 0.08 },
-      { rotation:  2,   duration: 0.08 },
-      { rotation: -1.5, duration: 0.07 },
-      { rotation:  1,   duration: 0.07 },
-      { rotation:  0,   duration: 0.10 },
-    ],
-    ease: 'power1.inOut',
-  }, '-=0.35');
+    // Phase 2: shake fires just as the elastic settles
+    // Apply to the WRAPPER not the element — avoids transform conflicts
+    .to(
+      wrapperEl,
+      {
+        keyframes: [
+          { rotation: -2, duration: 0.08 },
+          { rotation: 2, duration: 0.08 },
+          { rotation: -1.5, duration: 0.07 },
+          { rotation: 1, duration: 0.07 },
+          { rotation: 0, duration: 0.1 },
+        ],
+        ease: "power1.inOut",
+      },
+      "-=0.35",
+    )
 
-  return tl;
+  return tl
 }
 ```
 
@@ -523,6 +591,7 @@ function initElasticDrop(productEl, wrapperEl) {
 ```
 
 Ease variants:
+
 - `elastic.out(1, 0.65)` — standard product, moderate bounce
 - `elastic.out(1.2, 0.5)` — heavier object, more overshoot
 - `elastic.out(0.8, 0.8)` — lighter, quicker settle

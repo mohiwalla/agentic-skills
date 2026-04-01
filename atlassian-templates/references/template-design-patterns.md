@@ -22,6 +22,7 @@ Well-designed Confluence and Jira templates accelerate team productivity by prov
 | `reviewers` | Review participants | "@mention reviewers" |
 
 **Best Practices:**
+
 - Use descriptive variable names (camelCase)
 - Always provide meaningful default values
 - Group related variables together
@@ -31,6 +32,7 @@ Well-designed Confluence and Jira templates accelerate team productivity by prov
 ### Jira Template Fields
 
 **Custom Fields for Templates:**
+
 - Text fields for structured input
 - Select lists for controlled vocabularies
 - Date fields for milestones
@@ -95,6 +97,7 @@ Use Expand macros for optional detail:
 ## Reusable Components
 
 ### Header Block
+
 Every template should start with a consistent header:
 
 ```
@@ -109,6 +112,7 @@ Every template should start with a consistent header:
 ```
 
 ### Decision Log Component
+
 Reusable across templates that involve decisions:
 
 ```
@@ -119,6 +123,7 @@ Reusable across templates that involve decisions:
 ```
 
 ### Change History Component
+
 Track document evolution:
 
 ```
@@ -129,6 +134,7 @@ Track document evolution:
 ```
 
 ### Action Items Component
+
 Standard task tracking:
 
 ```
@@ -142,24 +148,28 @@ Standard task tracking:
 ### Recommended Macros per Template Type
 
 **Meeting Notes Template:**
+
 - Table of Contents (for long meetings)
 - Action Items (task list macro)
 - Jira Issues (link to discussed tickets)
 - Expand (for detailed discussion notes)
 
 **Decision Record Template:**
+
 - Status macro (decision status)
 - Page Properties (structured metadata)
 - Info/Warning panels (context and caveats)
 - Jira Issues (related tickets)
 
 **Project Plan Template:**
+
 - Roadmap Planner (timeline view)
 - Jira Issues (JQL for project epics)
 - Children Display (sub-pages for phases)
 - Chart macro (status distribution)
 
 **Runbook Template:**
+
 - Code Block (commands and scripts)
 - Warning panels (danger zones)
 - Expand (detailed troubleshooting)
@@ -168,6 +178,7 @@ Standard task tracking:
 ## Responsive Layouts
 
 ### Two-Column Layout
+
 Use Confluence Section and Column macros:
 
 ```
@@ -182,6 +193,7 @@ Use Confluence Section and Column macros:
 ```
 
 ### Card Layout
+
 For overview pages with multiple items:
 
 ```
@@ -203,12 +215,14 @@ For overview pages with multiple items:
 ## Brand Consistency
 
 ### Visual Standards
+
 - Use consistent heading levels (H1 for title, H2 for sections, H3 for subsections)
 - Apply Info/Warning/Note panels consistently (same meaning across templates)
 - Use Status macro colors consistently (Green=done, Yellow=in progress, Red=blocked)
 - Maintain consistent table formatting (header row, alignment)
 
 ### Content Standards
+
 - Use the same voice and tone across templates
 - Standardize date format (YYYY-MM-DD or your organization's preference)
 - Use consistent terminology (define terms in a glossary)
@@ -217,18 +231,22 @@ For overview pages with multiple items:
 ## Versioning Strategy
 
 ### Template Version Control
+
 - Include version number in template metadata
 - Maintain a changelog for template updates
 - Communicate template changes to users
 - Keep previous versions accessible during transition periods
 
 ### Version Numbering
+
 - **Major (2.0):** Structural changes, section additions/removals
 - **Minor (1.1):** Content updates, improved instructions
 - **Patch (1.0.1):** Typo fixes, formatting corrections
 
 ### Migration Path
+
 When updating templates:
+
 1. Create new version alongside old version
 2. Announce change with migration guide
 3. New documents use new template automatically
@@ -239,13 +257,16 @@ When updating templates:
 ## Template Catalog Organization
 
 ### Categorization
+
 Organize templates by:
+
 - **Document type:** Meeting notes, decisions, plans, runbooks
 - **Team:** Engineering, product, marketing, HR
 - **Lifecycle:** Planning, execution, review, retrospective
 - **Frequency:** One-time, recurring, as-needed
 
 ### Discovery
+
 - Maintain a "Template Index" page with descriptions and links
 - Tag templates with consistent labels
 - Include a "When to Use" section in each template

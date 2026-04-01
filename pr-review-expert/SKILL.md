@@ -43,6 +43,7 @@ calculation. Produces a reviewer-ready report with a 30+ item checklist and prio
 ## Fetching the Diff
 
 ### GitHub (gh CLI)
+
 ```bash
 # View diff in terminal
 gh pr diff <PR_NUMBER>
@@ -61,6 +62,7 @@ gh pr diff <PR_NUMBER> > /tmp/pr-<PR_NUMBER>.diff
 ```
 
 ### GitLab (glab CLI)
+
 ```bash
 # View MR diff
 glab mr diff <MR_IID>
@@ -93,6 +95,7 @@ gh pr diff $PR > /tmp/pr-$PR.diff
 For each changed file, identify:
 
 1. **Direct dependents** — who imports this file?
+
 ```bash
 # Find all files importing a changed module
 grep -r "from ['\"].*changed-module['\"]" src/ --include="*.ts" -l
@@ -103,21 +106,24 @@ grep -r "from changed_module import\|import changed_module" . --include="*.py" -
 ```
 
 2. **Service boundaries** — does this change cross a service?
+
 ```bash
 # Check if changed files span multiple services (monorepo)
 gh pr diff $PR --name-only | cut -d/ -f1-2 | sort -u
 ```
 
 3. **Shared contracts** — types, interfaces, schemas
+
 ```bash
 gh pr diff $PR --name-only | grep -E "types/|interfaces/|schemas/|models/"
 ```
 
 **Blast radius severity:**
+
 - CRITICAL — shared library, DB model, auth middleware, API contract
-- HIGH     — service used by >3 others, shared config, env vars
-- MEDIUM   — single service internal change, utility function
-- LOW      — UI component, test file, docs
+- HIGH — service used by >3 others, shared config, env vars
+- MEDIUM — single service internal change, utility function
+- LOW — UI component, test file, docs
 
 ### Step 3 — Security Scan
 
@@ -175,6 +181,7 @@ pytest --cov --cov-report=term-missing 2>/dev/null | tail -20
 ```
 
 **Coverage delta rules:**
+
 - New function without tests → flag
 - Deleted tests without deleted code → flag
 - Coverage drop >5% → block merge
@@ -183,6 +190,7 @@ pytest --cov --cov-report=term-missing 2>/dev/null | tail -20
 ### Step 5 — Breaking Change Detection
 
 #### API Contract Changes
+
 ```bash
 # OpenAPI/Swagger spec changes
 grep -n "openapi\|swagger" /tmp/pr-$PR.diff | head -20
@@ -198,6 +206,7 @@ grep "^-" /tmp/pr-$PR.diff | grep -E "^-\s*(export\s+)?(interface|type) "
 ```
 
 #### DB Schema Changes
+
 ```bash
 # Migration files added
 gh pr diff $PR --name-only | grep -E "migrations?/|alembic/|knex/"
@@ -210,6 +219,7 @@ grep "DROP INDEX\|remove_index" /tmp/pr-$PR.diff
 ```
 
 #### Config / Env Var Changes
+
 ```bash
 # New env vars referenced in code (might be missing in prod)
 grep "^+" /tmp/pr-$PR.diff | grep -oE "process\.env\.[A-Z_]+" | sort -u
@@ -269,6 +279,7 @@ curl -s -H "Authorization: $LINEAR_API_KEY" \
 ## Code Review Checklist
 
 ### Scope & Context
+
 - [ ] PR title accurately describes the change
 - [ ] PR description explains WHY, not just WHAT
 - [ ] Linked Jira/Linear ticket exists and matches scope
@@ -276,6 +287,7 @@ curl -s -H "Authorization: $LINEAR_API_KEY" \
 - [ ] Breaking changes documented in PR body
 
 ### Blast Radius
+
 - [ ] Identified all files importing changed modules
 - [ ] Cross-service dependencies checked
 - [ ] Shared types/interfaces/schemas reviewed for breakage
@@ -283,6 +295,7 @@ curl -s -H "Authorization: $LINEAR_API_KEY" \
 - [ ] DB migrations are reversible (have down() / rollback)
 
 ### Security
+
 - [ ] No hardcoded secrets or API keys
 - [ ] SQL queries use parameterized inputs (no string interpolation)
 - [ ] User inputs validated/sanitized before use
@@ -294,6 +307,7 @@ curl -s -H "Authorization: $LINEAR_API_KEY" \
 - [ ] CORS configured correctly for new endpoints
 
 ### Testing
+
 - [ ] New public functions have unit tests
 - [ ] Edge cases covered (empty, null, max values)
 - [ ] Error paths tested (not just happy path)
@@ -302,6 +316,7 @@ curl -s -H "Authorization: $LINEAR_API_KEY" \
 - [ ] Test names clearly describe what they verify
 
 ### Breaking Changes
+
 - [ ] No API endpoints removed without deprecation notice
 - [ ] No required fields added to existing API responses
 - [ ] No DB columns removed without two-phase migration plan
@@ -309,6 +324,7 @@ curl -s -H "Authorization: $LINEAR_API_KEY" \
 - [ ] Backward-compatible for external API consumers
 
 ### Performance
+
 - [ ] No N+1 query patterns introduced
 - [ ] DB indexes added for new query patterns
 - [ ] No unbounded loops on potentially large datasets
@@ -317,6 +333,7 @@ curl -s -H "Authorization: $LINEAR_API_KEY" \
 - [ ] Caching considered for expensive repeated operations
 
 ### Code Quality
+
 - [ ] No dead code or unused imports
 - [ ] Error handling present (no bare empty catch blocks)
 - [ ] Consistent with existing patterns and conventions

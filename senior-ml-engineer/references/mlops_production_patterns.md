@@ -49,13 +49,13 @@ CMD ["uvicorn", "src.server:app", "--host", "0.0.0.0", "--port", "8080"]
 
 ### Model Serving Options
 
-| Option | Latency | Throughput | Use Case |
-|--------|---------|------------|----------|
-| FastAPI + Uvicorn | Low | Medium | REST APIs, small models |
-| Triton Inference Server | Very Low | Very High | GPU inference, batching |
-| TensorFlow Serving | Low | High | TensorFlow models |
-| TorchServe | Low | High | PyTorch models |
-| Ray Serve | Medium | High | Complex pipelines, multi-model |
+| Option                  | Latency  | Throughput | Use Case                       |
+| ----------------------- | -------- | ---------- | ------------------------------ |
+| FastAPI + Uvicorn       | Low      | Medium     | REST APIs, small models        |
+| Triton Inference Server | Very Low | Very High  | GPU inference, batching        |
+| TensorFlow Serving      | Low      | High       | TensorFlow models              |
+| TorchServe              | Low      | High       | PyTorch models                 |
+| Ray Serve               | Medium   | High       | Complex pipelines, multi-model |
 
 ### Kubernetes Deployment
 
@@ -72,21 +72,21 @@ spec:
   template:
     spec:
       containers:
-      - name: model
-        image: model:v1.0.0
-        resources:
-          requests:
-            memory: "2Gi"
-            cpu: "1"
-          limits:
-            memory: "4Gi"
-            cpu: "2"
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 8080
-          initialDelaySeconds: 10
-          periodSeconds: 5
+        - name: model
+          image: model:v1.0.0
+          resources:
+            requests:
+              memory: "2Gi"
+              cpu: "1"
+            limits:
+              memory: "4Gi"
+              cpu: "2"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
 ```
 
 ---
@@ -95,12 +95,12 @@ spec:
 
 ### Feature Store Components
 
-| Component | Purpose | Tools |
-|-----------|---------|-------|
-| Offline Store | Training data, batch features | BigQuery, Snowflake, S3 |
-| Online Store | Low-latency serving | Redis, DynamoDB, Feast |
-| Feature Registry | Metadata, lineage | Feast, Tecton, Hopsworks |
-| Transformation | Feature engineering | Spark, Flink, dbt |
+| Component        | Purpose                       | Tools                    |
+| ---------------- | ----------------------------- | ------------------------ |
+| Offline Store    | Training data, batch features | BigQuery, Snowflake, S3  |
+| Online Store     | Low-latency serving           | Redis, DynamoDB, Feast   |
+| Feature Registry | Metadata, lineage             | Feast, Tecton, Hopsworks |
+| Transformation   | Feature engineering           | Spark, Flink, dbt        |
 
 ### Feature Pipeline Workflow
 
@@ -139,13 +139,13 @@ user_features = FeatureView(
 
 ### Monitoring Dimensions
 
-| Dimension | Metrics | Alert Threshold |
-|-----------|---------|-----------------|
-| Latency | p50, p95, p99 | p95 > 100ms |
-| Throughput | requests/sec | < 80% baseline |
-| Errors | error rate, 5xx count | > 0.1% |
-| Data Drift | PSI, KS statistic | PSI > 0.2 |
-| Model Drift | accuracy, AUC decay | > 5% drop |
+| Dimension   | Metrics               | Alert Threshold |
+| ----------- | --------------------- | --------------- |
+| Latency     | p50, p95, p99         | p95 > 100ms     |
+| Throughput  | requests/sec          | < 80% baseline  |
+| Errors      | error rate, 5xx count | > 0.1%          |
+| Data Drift  | PSI, KS statistic     | PSI > 0.2       |
+| Model Drift | accuracy, AUC decay   | > 5% drop       |
 
 ### Data Drift Detection
 
@@ -170,6 +170,7 @@ def detect_drift(reference: np.array, current: np.array, threshold: float = 0.05
 ### Monitoring Dashboard Metrics
 
 **Infrastructure:**
+
 - Request latency (p50, p95, p99)
 - Requests per second
 - Error rate by type
@@ -177,6 +178,7 @@ def detect_drift(reference: np.array, current: np.array, threshold: float = 0.05
 - GPU utilization (if applicable)
 
 **Model Performance:**
+
 - Prediction distribution
 - Feature value distributions
 - Model output confidence
@@ -213,11 +215,11 @@ def get_variant(user_id: str, experiment: str, control_pct: float = 0.5) -> str:
 
 ### Metrics Collection
 
-| Metric Type | Examples | Collection Method |
-|-------------|----------|-------------------|
-| Primary | Conversion rate, revenue | Event logging |
-| Secondary | Latency, engagement | Request logs |
-| Guardrail | Error rate, crashes | Monitoring system |
+| Metric Type | Examples                 | Collection Method |
+| ----------- | ------------------------ | ----------------- |
+| Primary     | Conversion rate, revenue | Event logging     |
+| Secondary   | Latency, engagement      | Request logs      |
+| Guardrail   | Error rate, crashes      | Monitoring system |
 
 ---
 
@@ -225,12 +227,12 @@ def get_variant(user_id: str, experiment: str, control_pct: float = 0.5) -> str:
 
 ### Retraining Triggers
 
-| Trigger | Detection Method | Action |
-|---------|------------------|--------|
-| Scheduled | Cron (weekly/monthly) | Full retrain |
-| Performance drop | Accuracy < threshold | Immediate retrain |
-| Data drift | PSI > 0.2 | Evaluate, then retrain |
-| New data volume | X new samples | Incremental update |
+| Trigger          | Detection Method      | Action                 |
+| ---------------- | --------------------- | ---------------------- |
+| Scheduled        | Cron (weekly/monthly) | Full retrain           |
+| Performance drop | Accuracy < threshold  | Immediate retrain      |
+| Data drift       | PSI > 0.2             | Evaluate, then retrain |
+| New data volume  | X new samples         | Incremental update     |
 
 ### Retraining Pipeline
 

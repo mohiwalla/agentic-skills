@@ -43,18 +43,22 @@ Before providing recommendations, identify:
 ---
 
 ## Core Principles
+
 → See references/form-cro-playbook.md for details
 
 ## Output Format
 
 ### Form Audit
+
 For each issue:
+
 - **Issue**: What's wrong
 - **Impact**: Estimated effect on conversions
 - **Fix**: Specific recommendation
 - **Priority**: High/Medium/Low
 
 ### Recommended Form Design
+
 - **Required fields**: Justified list
 - **Optional fields**: With rationale
 - **Field order**: Recommended sequence
@@ -63,6 +67,7 @@ For each issue:
 - **Layout**: Visual guidance
 
 ### Test Hypotheses
+
 Ideas to A/B test with expected outcomes
 
 ---
@@ -72,6 +77,7 @@ Ideas to A/B test with expected outcomes
 ### Form Structure Experiments
 
 **Layout & Flow**
+
 - Single-step form vs. multi-step with progress bar
 - 1-column vs. 2-column field layout
 - Form embedded on page vs. separate page
@@ -79,6 +85,7 @@ Ideas to A/B test with expected outcomes
 - Form above fold vs. after content
 
 **Field Optimization**
+
 - Reduce to minimum viable fields
 - Add or remove phone number field
 - Add or remove company/organization field
@@ -87,6 +94,7 @@ Ideas to A/B test with expected outcomes
 - Hide fields for returning/known visitors
 
 **Smart Forms**
+
 - Add real-time validation for emails and phone numbers
 - Progressive profiling (ask more over time)
 - Conditional fields based on earlier answers
@@ -97,17 +105,20 @@ Ideas to A/B test with expected outcomes
 ### Copy & Design Experiments
 
 **Labels & Microcopy**
+
 - Test field label clarity and length
 - Placeholder text optimization
 - Help text: show vs. hide vs. on-hover
 - Error message tone (friendly vs. direct)
 
 **CTAs & Buttons**
+
 - Button text variations ("Submit" vs. "Get My Quote" vs. specific action)
 - Button color and size testing
 - Button placement relative to fields
 
 **Trust Elements**
+
 - Add privacy assurance near form
 - Show trust badges next to submit
 - Add testimonial near form
@@ -118,18 +129,21 @@ Ideas to A/B test with expected outcomes
 ### Form Type-Specific Experiments
 
 **Demo Request Forms**
+
 - Test with/without phone number requirement
 - Add "preferred contact method" choice
 - Include "What's your biggest challenge?" question
 - Test calendar embed vs. form submission
 
 **Lead Capture Forms**
+
 - Email-only vs. email + name
 - Test value proposition messaging above form
 - Gated vs. ungated content strategies
 - Post-submission enrichment questions
 
 **Contact Forms**
+
 - Add department/topic routing dropdown
 - Test with/without message field requirement
 - Show alternative contact methods (chat, phone)
@@ -172,6 +186,7 @@ Ideas to A/B test with expected outcomes
 ## Communication
 
 All form CRO output follows this quality standard:
+
 - Every field recommendation is justified — never just "remove fields" without explaining which and why
 - Audit output uses the **Issue / Impact / Fix / Priority** structure consistently
 - Multi-step vs. single-step recommendation always includes the qualifying criteria for the choice
@@ -195,10 +210,10 @@ Automatically surface form-cro when:
 
 ## Output Artifacts
 
-| Artifact | Format | Description |
-|----------|--------|-------------|
-| Form Audit | Issue/Impact/Fix/Priority table | Per-field and per-pattern analysis with actionable fixes |
-| Recommended Field Set | Justified list | Required vs. optional fields with rationale for each |
-| Field Order & Layout Spec | Annotated outline | Recommended sequence, grouping, column layout, and mobile considerations |
-| Submit Button Copy Options | 3-option table | Action-oriented button copy variants with reasoning |
-| A/B Test Hypotheses | Table | Hypothesis × variant × success metric × priority for top 3-5 test ideas |
+| Artifact                   | Format                          | Description                                                              |
+| -------------------------- | ------------------------------- | ------------------------------------------------------------------------ |
+| Form Audit                 | Issue/Impact/Fix/Priority table | Per-field and per-pattern analysis with actionable fixes                 |
+| Recommended Field Set      | Justified list                  | Required vs. optional fields with rationale for each                     |
+| Field Order & Layout Spec  | Annotated outline               | Recommended sequence, grouping, column layout, and mobile considerations |
+| Submit Button Copy Options | 3-option table                  | Action-oriented button copy variants with reasoning                      |
+| A/B Test Hypotheses        | Table                           | Hypothesis × variant × success metric × priority for top 3-5 test ideas  |

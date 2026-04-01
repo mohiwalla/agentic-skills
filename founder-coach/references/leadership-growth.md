@@ -8,13 +8,13 @@ Frameworks for founder and executive leadership development.
 
 John Maxwell's model describes leadership development as a ladder. Most founders start at Level 2–3 and need to reach Level 4–5 to scale effectively.
 
-| Level | Name | People follow because... | What it looks like |
-|-------|------|--------------------------|-------------------|
-| 1 | Position | They have to (title/authority) | "Do this because I'm the CEO" |
-| 2 | Permission | They want to (relationship) | People choose to work with you beyond the job requirement |
-| 3 | Production | You produce results | Team rallies because you deliver; your track record gives credibility |
-| 4 | People Development | You develop others | You're multiplying leaders; your success is measured by others' growth |
-| 5 | Pinnacle | Who you are (reputation) | People follow because of what you've built and who you've become |
+| Level | Name               | People follow because...       | What it looks like                                                     |
+| ----- | ------------------ | ------------------------------ | ---------------------------------------------------------------------- |
+| 1     | Position           | They have to (title/authority) | "Do this because I'm the CEO"                                          |
+| 2     | Permission         | They want to (relationship)    | People choose to work with you beyond the job requirement              |
+| 3     | Production         | You produce results            | Team rallies because you deliver; your track record gives credibility  |
+| 4     | People Development | You develop others             | You're multiplying leaders; your success is measured by others' growth |
+| 5     | Pinnacle           | Who you are (reputation)       | People follow because of what you've built and who you've become       |
 
 **Most founders are at Level 3.** They got here by building and shipping. The path to scaling is Level 4: developing other leaders.
 
@@ -30,17 +30,18 @@ Ken Blanchard's model says effective leadership style shifts based on the person
 
 Four styles based on the follower's development level:
 
-| Development Level | Competence | Commitment | Leadership Style | What to do |
-|------------------|------------|------------|-----------------|------------|
-| D1 — Enthusiastic Beginner | Low | High | S1: Directing | High direction, low support. Tell them what to do. |
-| D2 — Disillusioned Learner | Low/Med | Low | S2: Coaching | High direction + high support. Teach and encourage. |
-| D3 — Capable but Cautious | Medium/High | Variable | S3: Supporting | Low direction, high support. Collaborate and encourage. |
-| D4 — Self-Reliant Achiever | High | High | S4: Delegating | Low direction, low support. Get out of the way. |
+| Development Level          | Competence  | Commitment | Leadership Style | What to do                                              |
+| -------------------------- | ----------- | ---------- | ---------------- | ------------------------------------------------------- |
+| D1 — Enthusiastic Beginner | Low         | High       | S1: Directing    | High direction, low support. Tell them what to do.      |
+| D2 — Disillusioned Learner | Low/Med     | Low        | S2: Coaching     | High direction + high support. Teach and encourage.     |
+| D3 — Capable but Cautious  | Medium/High | Variable   | S3: Supporting   | Low direction, high support. Collaborate and encourage. |
+| D4 — Self-Reliant Achiever | High        | High       | S4: Delegating   | Low direction, low support. Get out of the way.         |
 
 **Common founder error:** Using the same leadership style with everyone. The founder who directs a D4 will frustrate them into leaving. The founder who delegates to a D1 will watch them fail.
 
 **Diagnosis before deciding:**
 Before determining your style, ask for each person + task:
+
 - How much do they know about this specific task? (Not in general — this task.)
 - How much do they want to do this specific task?
 
@@ -55,11 +56,13 @@ The hardest leadership change most founders face, and nobody prepares them for i
 ### What changes
 
 **As a founder, you were judged on:**
+
 - What you personally built
 - How fast you moved
 - Your own output
 
 **As a CEO, you're judged on:**
+
 - What your team produced
 - How effectively you set direction
 - The quality of the people around you
@@ -90,6 +93,7 @@ Failure mode: Retreating to execution to feel productive.
 ### The emotional reality
 
 Most founders describe the transition as:
+
 - A loss of identity ("I used to know everything that was happening")
 - A loss of control ("Decisions happen without me")
 - A loss of clarity ("Was I more effective before?")
@@ -105,6 +109,7 @@ These are real losses, not just discomfort. Acknowledge them. Find identity in w
 Common question: "When do I need a VP/C-suite?"
 
 **Trigger signs:**
+
 - The function is failing and you can't fix it by working harder
 - You can't attract or develop talent in that function because you lack the expertise
 - The function is growing faster than you can lead it
@@ -112,6 +117,7 @@ Common question: "When do I need a VP/C-suite?"
 
 **Order of first executives:**
 Most companies hire in this order, but the right order depends on your archetype and what's breaking:
+
 1. First non-founder exec is usually Sales (VP Sales) or Engineering (VP Eng / CTO)
 2. Then COO/Operations when coordination becomes the bottleneck
 3. Then Finance (CFO) when fundraising or financial complexity demands it
@@ -120,6 +126,7 @@ Most companies hire in this order, but the right order depends on your archetype
 ### How to onboard executives
 
 **The 30-60-90 plan:**
+
 - Day 1–30: Listen. Meet everyone. Learn the current state. No major decisions.
 - Day 31–60: Diagnose. What's working, what isn't, what's missing. Share findings.
 - Day 61–90: Act. Make changes. Start building systems. Establish their leadership presence.
@@ -128,6 +135,7 @@ Most companies hire in this order, but the right order depends on your archetype
 Start with small, visible wins. Let them prove themselves in low-stakes situations before handing over high-stakes decisions.
 
 **The founder's role during exec onboarding:**
+
 - Provide context generously
 - Introduce them with genuine authority ("This is the decision-maker for X — go to them, not me")
 - Don't override their decisions publicly
@@ -150,6 +158,7 @@ And: You lead the company. The board sets governance and approves major decision
 ### The founder mistake
 
 Most founders either:
+
 1. **Over-inform:** Share every detail, create noise, invite micro-management
 2. **Under-inform:** Share only wins, board is surprised by problems, trust erodes
 

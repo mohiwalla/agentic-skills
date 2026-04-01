@@ -93,12 +93,12 @@ def call_with_fallback(
 
 ### Prompt Templates
 
-| Pattern | Use Case | Structure |
-|---------|----------|-----------|
-| Zero-shot | Simple tasks | Task description + input |
-| Few-shot | Complex tasks | Examples + task + input |
-| Chain-of-thought | Reasoning | "Think step by step" + task |
-| Role-based | Specialized output | System role + task |
+| Pattern          | Use Case           | Structure                   |
+| ---------------- | ------------------ | --------------------------- |
+| Zero-shot        | Simple tasks       | Task description + input    |
+| Few-shot         | Complex tasks      | Examples + task + input     |
+| Chain-of-thought | Reasoning          | "Think step by step" + task |
+| Role-based       | Specialized output | System role + task          |
 
 ### Few-Shot Template
 
@@ -176,12 +176,12 @@ def truncate_to_token_limit(text: str, max_tokens: int, model: str = "gpt-4") ->
 
 ### Context Window Management
 
-| Model | Context Window | Effective Limit |
-|-------|----------------|-----------------|
-| GPT-4 | 8,192 | ~6,000 (leave room for response) |
-| GPT-4-32k | 32,768 | ~28,000 |
-| Claude 3 | 200,000 | ~180,000 |
-| Llama 3 | 8,192 | ~6,000 |
+| Model     | Context Window | Effective Limit                  |
+| --------- | -------------- | -------------------------------- |
+| GPT-4     | 8,192          | ~6,000 (leave room for response) |
+| GPT-4-32k | 32,768         | ~28,000                          |
+| Claude 3  | 200,000        | ~180,000                         |
+| Llama 3   | 8,192          | ~6,000                           |
 
 ### Chunking Strategy
 
@@ -206,12 +206,12 @@ def chunk_text(text: str, chunk_size: int = 1000, overlap: int = 100) -> List[st
 
 ### Cost Calculation
 
-| Provider | Input Cost | Output Cost | Example (1K tokens) |
-|----------|------------|-------------|---------------------|
-| GPT-4 | $0.03/1K | $0.06/1K | $0.09 |
-| GPT-3.5 | $0.0005/1K | $0.0015/1K | $0.002 |
-| Claude 3 Opus | $0.015/1K | $0.075/1K | $0.09 |
-| Claude 3 Haiku | $0.00025/1K | $0.00125/1K | $0.0015 |
+| Provider       | Input Cost  | Output Cost | Example (1K tokens) |
+| -------------- | ----------- | ----------- | ------------------- |
+| GPT-4          | $0.03/1K    | $0.06/1K    | $0.09               |
+| GPT-3.5        | $0.0005/1K  | $0.0015/1K  | $0.002              |
+| Claude 3 Opus  | $0.015/1K   | $0.075/1K   | $0.09               |
+| Claude 3 Haiku | $0.00025/1K | $0.00125/1K | $0.0015             |
 
 ### Cost Tracking
 
@@ -260,13 +260,13 @@ def calculate_cost(
 
 ### Common Error Types
 
-| Error | Cause | Handling |
-|-------|-------|----------|
-| RateLimitError | Too many requests | Exponential backoff |
-| InvalidRequestError | Bad input | Validate before sending |
-| AuthenticationError | Invalid API key | Check credentials |
-| ServiceUnavailable | Provider down | Fallback to alternative |
-| ContextLengthExceeded | Input too long | Truncate or chunk |
+| Error                 | Cause             | Handling                |
+| --------------------- | ----------------- | ----------------------- |
+| RateLimitError        | Too many requests | Exponential backoff     |
+| InvalidRequestError   | Bad input         | Validate before sending |
+| AuthenticationError   | Invalid API key   | Check credentials       |
+| ServiceUnavailable    | Provider down     | Fallback to alternative |
+| ContextLengthExceeded | Input too long    | Truncate or chunk       |
 
 ### Error Handling Pattern
 

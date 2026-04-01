@@ -96,14 +96,14 @@ gws auth status
 python3 scripts/auth_setup_guide.py --generate-env
 ```
 
-| Variable | Purpose |
-|----------|---------|
-| `GWS_CLIENT_ID` | OAuth client ID |
-| `GWS_CLIENT_SECRET` | OAuth client secret |
-| `GWS_TOKEN_PATH` | Custom token storage path |
-| `GWS_SERVICE_ACCOUNT_KEY` | Service account JSON key path |
-| `GWS_DELEGATED_USER` | User to impersonate (service accounts) |
-| `GWS_DEFAULT_FORMAT` | Default output format (json/ndjson/table) |
+| Variable                  | Purpose                                   |
+| ------------------------- | ----------------------------------------- |
+| `GWS_CLIENT_ID`           | OAuth client ID                           |
+| `GWS_CLIENT_SECRET`       | OAuth client secret                       |
+| `GWS_TOKEN_PATH`          | Custom token storage path                 |
+| `GWS_SERVICE_ACCOUNT_KEY` | Service account JSON key path             |
+| `GWS_DELEGATED_USER`      | User to impersonate (service accounts)    |
+| `GWS_DEFAULT_FORMAT`      | Default output format (json/ndjson/table) |
 
 ### Validate Authentication
 
@@ -279,15 +279,15 @@ python3 scripts/workspace_audit.py --demo
 
 ### Audit Checks
 
-| Area | Check | Risk |
-|------|-------|------|
-| Drive | External sharing enabled | Data exfiltration |
-| Gmail | Auto-forwarding rules | Data exfiltration |
-| Gmail | DMARC/SPF/DKIM records | Email spoofing |
-| Calendar | Default sharing visibility | Information leak |
-| OAuth | Third-party app grants | Unauthorized access |
-| Admin | Super admin count | Privilege escalation |
-| Admin | 2-Step verification enforcement | Account takeover |
+| Area     | Check                           | Risk                 |
+| -------- | ------------------------------- | -------------------- |
+| Drive    | External sharing enabled        | Data exfiltration    |
+| Gmail    | Auto-forwarding rules           | Data exfiltration    |
+| Gmail    | DMARC/SPF/DKIM records          | Email spoofing       |
+| Calendar | Default sharing visibility      | Information leak     |
+| OAuth    | Third-party app grants          | Unauthorized access  |
+| Admin    | Super admin count               | Privilege escalation |
+| Admin    | 2-Step verification enforcement | Account takeover     |
 
 ### Review and Remediate
 
@@ -305,13 +305,13 @@ gws drive about get --json  # Check current settings
 
 ## Python Tools
 
-| Script | Purpose | Usage |
-|--------|---------|-------|
-| `gws_doctor.py` | Pre-flight diagnostics | `python3 scripts/gws_doctor.py [--json] [--services gmail,drive]` |
-| `auth_setup_guide.py` | Guided auth setup | `python3 scripts/auth_setup_guide.py --guide oauth` |
-| `gws_recipe_runner.py` | Recipe catalog & runner | `python3 scripts/gws_recipe_runner.py --list [--persona pm]` |
-| `workspace_audit.py` | Security/config audit | `python3 scripts/workspace_audit.py [--json] [--demo]` |
-| `output_analyzer.py` | JSON/NDJSON analysis | `gws ... --json \| python3 scripts/output_analyzer.py --count` |
+| Script                 | Purpose                 | Usage                                                             |
+| ---------------------- | ----------------------- | ----------------------------------------------------------------- |
+| `gws_doctor.py`        | Pre-flight diagnostics  | `python3 scripts/gws_doctor.py [--json] [--services gmail,drive]` |
+| `auth_setup_guide.py`  | Guided auth setup       | `python3 scripts/auth_setup_guide.py --guide oauth`               |
+| `gws_recipe_runner.py` | Recipe catalog & runner | `python3 scripts/gws_recipe_runner.py --list [--persona pm]`      |
+| `workspace_audit.py`   | Security/config audit   | `python3 scripts/workspace_audit.py [--json] [--demo]`            |
+| `output_analyzer.py`   | JSON/NDJSON analysis    | `gws ... --json \| python3 scripts/output_analyzer.py --count`    |
 
 All scripts are stdlib-only, support `--json` output, and include demo mode with embedded sample data.
 
@@ -347,14 +347,14 @@ All scripts are stdlib-only, support `--json` output, and include demo mode with
 
 ## Limitations
 
-| Constraint | Impact |
-|------------|--------|
-| OAuth tokens expire after 1 hour | Re-auth needed for long-running scripts |
-| API rate limits (per-user, per-service) | Bulk operations may hit 429 errors |
-| Scope requirements vary by service | Must request correct scopes during auth |
-| Pre-v1.0 CLI status | Breaking changes possible between releases |
-| Google Cloud project required | Free, but requires setup in Cloud Console |
-| Admin API needs admin privileges | Some audit checks require Workspace Admin role |
+| Constraint                              | Impact                                         |
+| --------------------------------------- | ---------------------------------------------- |
+| OAuth tokens expire after 1 hour        | Re-auth needed for long-running scripts        |
+| API rate limits (per-user, per-service) | Bulk operations may hit 429 errors             |
+| Scope requirements vary by service      | Must request correct scopes during auth        |
+| Pre-v1.0 CLI status                     | Breaking changes possible between releases     |
+| Google Cloud project required           | Free, but requires setup in Cloud Console      |
+| Admin API needs admin privileges        | Some audit checks require Workspace Admin role |
 
 ### Required Scopes by Service
 
@@ -363,11 +363,11 @@ All scripts are stdlib-only, support `--json` output, and include demo mode with
 python3 scripts/auth_setup_guide.py --scopes gmail,drive,calendar,sheets
 ```
 
-| Service | Key Scopes |
-|---------|-----------|
-| Gmail | `gmail.modify`, `gmail.send`, `gmail.labels` |
-| Drive | `drive.file`, `drive.metadata.readonly` |
-| Sheets | `spreadsheets` |
-| Calendar | `calendar`, `calendar.events` |
-| Admin | `admin.directory.user.readonly`, `admin.directory.group` |
-| Tasks | `tasks` |
+| Service  | Key Scopes                                               |
+| -------- | -------------------------------------------------------- |
+| Gmail    | `gmail.modify`, `gmail.send`, `gmail.labels`             |
+| Drive    | `drive.file`, `drive.metadata.readonly`                  |
+| Sheets   | `spreadsheets`                                           |
+| Calendar | `calendar`, `calendar.events`                            |
+| Admin    | `admin.directory.user.readonly`, `admin.directory.group` |
+| Tasks    | `tasks`                                                  |

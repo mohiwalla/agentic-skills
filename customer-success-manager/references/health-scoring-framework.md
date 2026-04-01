@@ -18,13 +18,14 @@ This framework uses a weighted, multi-dimensional approach that scores customers
 
 Usage metrics are the strongest leading indicator of customer health. Customers who are not using the product are not deriving value and are at elevated churn risk.
 
-| Metric | Definition | Scoring Method |
-|--------|-----------|----------------|
-| Login Frequency | Percentage of expected login days with actual logins | (actual / target) * 100, capped at 100 |
-| Feature Adoption | Percentage of available features actively used | (adopted / available) * 100, capped at 100 |
-| DAU/MAU Ratio | Daily active users divided by monthly active users | (actual / target) * 100, capped at 100 |
+| Metric           | Definition                                           | Scoring Method                              |
+| ---------------- | ---------------------------------------------------- | ------------------------------------------- |
+| Login Frequency  | Percentage of expected login days with actual logins | (actual / target) \* 100, capped at 100     |
+| Feature Adoption | Percentage of available features actively used       | (adopted / available) \* 100, capped at 100 |
+| DAU/MAU Ratio    | Daily active users divided by monthly active users   | (actual / target) \* 100, capped at 100     |
 
 **Sub-weights within Usage:**
+
 - Login Frequency: 35%
 - Feature Adoption: 40%
 - DAU/MAU Ratio: 25%
@@ -35,14 +36,15 @@ Usage metrics are the strongest leading indicator of customer health. Customers 
 
 Engagement measures how actively the customer participates in the relationship beyond just product usage.
 
-| Metric | Definition | Scoring Method |
-|--------|-----------|----------------|
-| Support Ticket Volume | Number of support tickets in the period | Inverse score: (1 - actual/max) * 100 |
-| Meeting Attendance | Percentage of scheduled meetings attended | (actual / target) * 100, capped at 100 |
-| NPS Score | Net Promoter Score response (0-10) | (actual / target) * 100, capped at 100 |
-| CSAT Score | Customer Satisfaction score (1-5) | (actual / target) * 100, capped at 100 |
+| Metric                | Definition                                | Scoring Method                          |
+| --------------------- | ----------------------------------------- | --------------------------------------- |
+| Support Ticket Volume | Number of support tickets in the period   | Inverse score: (1 - actual/max) \* 100  |
+| Meeting Attendance    | Percentage of scheduled meetings attended | (actual / target) \* 100, capped at 100 |
+| NPS Score             | Net Promoter Score response (0-10)        | (actual / target) \* 100, capped at 100 |
+| CSAT Score            | Customer Satisfaction score (1-5)         | (actual / target) \* 100, capped at 100 |
 
 **Sub-weights within Engagement:**
+
 - Support Ticket Volume: 20% (inverse -- fewer tickets is better)
 - Meeting Attendance: 30%
 - NPS Score: 25%
@@ -54,13 +56,14 @@ Engagement measures how actively the customer participates in the relationship b
 
 Support health measures the quality of the customer's support experience, which directly impacts satisfaction and renewal likelihood.
 
-| Metric | Definition | Scoring Method |
-|--------|-----------|----------------|
-| Open Tickets | Number of currently unresolved tickets | Inverse score: (1 - actual/max) * 100 |
-| Escalation Rate | Percentage of tickets escalated | Inverse score: (1 - actual/max) * 100 |
-| Avg Resolution Time | Average hours to resolve tickets | Inverse score: (1 - actual/max) * 100 |
+| Metric              | Definition                             | Scoring Method                         |
+| ------------------- | -------------------------------------- | -------------------------------------- |
+| Open Tickets        | Number of currently unresolved tickets | Inverse score: (1 - actual/max) \* 100 |
+| Escalation Rate     | Percentage of tickets escalated        | Inverse score: (1 - actual/max) \* 100 |
+| Avg Resolution Time | Average hours to resolve tickets       | Inverse score: (1 - actual/max) \* 100 |
 
 **Sub-weights within Support:**
+
 - Open Tickets: 35%
 - Escalation Rate: 35%
 - Resolution Time: 30%
@@ -71,13 +74,14 @@ Support health measures the quality of the customer's support experience, which 
 
 Relationship health measures the strength and depth of the human connection between the customer and your organisation.
 
-| Metric | Definition | Scoring Method |
-|--------|-----------|----------------|
-| Executive Sponsor Engagement | Engagement level of exec sponsor (0-100) | (actual / target) * 100, capped at 100 |
-| Multi-Threading Depth | Number of stakeholder contacts | (actual / target) * 100, capped at 100 |
-| Renewal Sentiment | Qualitative sentiment assessment | Mapped to score: positive=100, neutral=60, negative=20, unknown=50 |
+| Metric                       | Definition                               | Scoring Method                                                     |
+| ---------------------------- | ---------------------------------------- | ------------------------------------------------------------------ |
+| Executive Sponsor Engagement | Engagement level of exec sponsor (0-100) | (actual / target) \* 100, capped at 100                            |
+| Multi-Threading Depth        | Number of stakeholder contacts           | (actual / target) \* 100, capped at 100                            |
+| Renewal Sentiment            | Qualitative sentiment assessment         | Mapped to score: positive=100, neutral=60, negative=20, unknown=50 |
 
 **Sub-weights within Relationship:**
+
 - Executive Sponsor Engagement: 35%
 - Multi-Threading Depth: 30%
 - Renewal Sentiment: 35%
@@ -90,27 +94,28 @@ Relationship health measures the strength and depth of the human connection betw
 
 ### Standard Thresholds
 
-| Classification | Score Range | Meaning | Action |
-|---------------|-------------|---------|--------|
-| Green | 75-100 | Customer is healthy and achieving value | Standard cadence, focus on expansion |
-| Yellow | 50-74 | Customer needs attention | Increase touch frequency, investigate root causes |
-| Red | 0-49 | Customer is at risk | Immediate intervention, create save plan |
+| Classification | Score Range | Meaning                                 | Action                                            |
+| -------------- | ----------- | --------------------------------------- | ------------------------------------------------- |
+| Green          | 75-100      | Customer is healthy and achieving value | Standard cadence, focus on expansion              |
+| Yellow         | 50-74       | Customer needs attention                | Increase touch frequency, investigate root causes |
+| Red            | 0-49        | Customer is at risk                     | Immediate intervention, create save plan          |
 
 ### Segment-Adjusted Thresholds
 
 Enterprise customers typically have higher expectations and more complex deployments, which means a higher bar for "healthy." SMB customers may have simpler use cases and lower engagement expectations.
 
-| Segment | Green Threshold | Yellow Threshold | Red Threshold |
-|---------|----------------|------------------|---------------|
-| Enterprise | 75-100 | 50-74 | 0-49 |
-| Mid-Market | 70-100 | 45-69 | 0-44 |
-| SMB | 65-100 | 40-64 | 0-39 |
+| Segment    | Green Threshold | Yellow Threshold | Red Threshold |
+| ---------- | --------------- | ---------------- | ------------- |
+| Enterprise | 75-100          | 50-74            | 0-49          |
+| Mid-Market | 70-100          | 45-69            | 0-44          |
+| SMB        | 65-100          | 40-64            | 0-39          |
 
 ### Segment-Specific Benchmarks
 
 Each metric target is calibrated per segment. Enterprise customers are expected to have higher login frequency, attendance, and sponsor engagement. SMB customers have lower targets but still meaningful thresholds.
 
 **Example Calibration:**
+
 - Enterprise login frequency target: 90% (high-touch, deeply embedded)
 - Mid-Market login frequency target: 80% (balanced engagement)
 - SMB login frequency target: 70% (self-serve oriented)
@@ -123,22 +128,22 @@ A single health score snapshot is useful. A health score trend is actionable.
 
 ### Trend Classification
 
-| Trend | Criteria | Implication |
-|-------|----------|-------------|
+| Trend     | Criteria                        | Implication                                    |
+| --------- | ------------------------------- | ---------------------------------------------- |
 | Improving | Current > Previous by 5+ points | Positive trajectory, reinforce what is working |
-| Stable | Within +/- 5 points | Maintain current approach |
-| Declining | Current < Previous by 5+ points | Investigate and intervene |
-| No Data | No previous period available | Establish baseline |
+| Stable    | Within +/- 5 points             | Maintain current approach                      |
+| Declining | Current < Previous by 5+ points | Investigate and intervene                      |
+| No Data   | No previous period available    | Establish baseline                             |
 
 ### Trend Priority Matrix
 
-| Current Score | Trend | Priority |
-|--------------|-------|----------|
-| Green | Declining | HIGH -- intervene before it drops further |
-| Yellow | Declining | CRITICAL -- trajectory leads to Red |
-| Yellow | Improving | MEDIUM -- reinforce positive momentum |
-| Red | Improving | HIGH -- support the recovery |
-| Red | Stable | CRITICAL -- needs new intervention approach |
+| Current Score | Trend     | Priority                                    |
+| ------------- | --------- | ------------------------------------------- |
+| Green         | Declining | HIGH -- intervene before it drops further   |
+| Yellow        | Declining | CRITICAL -- trajectory leads to Red         |
+| Yellow        | Improving | MEDIUM -- reinforce positive momentum       |
+| Red           | Improving | HIGH -- support the recovery                |
+| Red           | Stable    | CRITICAL -- needs new intervention approach |
 
 ---
 

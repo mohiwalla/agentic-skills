@@ -16,17 +16,17 @@ claude --plugin-dir ./engineering-team/playwright-pro
 
 ## Commands
 
-| Command | What it does |
-|---|---|
-| `/pw:init` | Set up Playwright in your project — detects framework, generates config, CI, first test |
-| `/pw:generate <spec>` | Generate tests from a user story, URL, or component name |
-| `/pw:review` | Review existing tests for anti-patterns and coverage gaps |
-| `/pw:fix <test>` | Diagnose and fix a failing or flaky test |
-| `/pw:migrate` | Migrate from Cypress or Selenium to Playwright |
-| `/pw:coverage` | Analyze what's tested vs. what's missing |
-| `/pw:testrail` | Sync with TestRail — read cases, push results, create runs |
-| `/pw:browserstack` | Run tests on BrowserStack, pull cross-browser reports |
-| `/pw:report` | Generate a test report in your preferred format |
+| Command               | What it does                                                                            |
+| --------------------- | --------------------------------------------------------------------------------------- |
+| `/pw:init`            | Set up Playwright in your project — detects framework, generates config, CI, first test |
+| `/pw:generate <spec>` | Generate tests from a user story, URL, or component name                                |
+| `/pw:review`          | Review existing tests for anti-patterns and coverage gaps                               |
+| `/pw:fix <test>`      | Diagnose and fix a failing or flaky test                                                |
+| `/pw:migrate`         | Migrate from Cypress or Selenium to Playwright                                          |
+| `/pw:coverage`        | Analyze what's tested vs. what's missing                                                |
+| `/pw:testrail`        | Sync with TestRail — read cases, push results, create runs                              |
+| `/pw:browserstack`    | Run tests on BrowserStack, pull cross-browser reports                                   |
+| `/pw:report`          | Generate a test report in your preferred format                                         |
 
 ## Quick Start
 
@@ -53,19 +53,19 @@ Slash commands that turn natural language into production-ready Playwright tests
 
 Ready-to-use, parametrizable templates covering:
 
-| Category | Count | Examples |
-|---|---|---|
-| Authentication | 8 | Login, logout, SSO, MFA, password reset, RBAC |
-| CRUD | 6 | Create, read, update, delete, bulk ops |
-| Checkout | 6 | Cart, payment, coupon, order history |
-| Search | 5 | Basic search, filters, sorting, pagination |
-| Forms | 6 | Multi-step, validation, file upload |
-| Dashboard | 5 | Data loading, charts, export |
-| Settings | 4 | Profile, password, notifications |
-| Onboarding | 4 | Registration, email verify, welcome tour |
-| Notifications | 3 | In-app, toast, notification center |
-| API | 5 | REST CRUD, GraphQL, error handling |
-| Accessibility | 3 | Keyboard nav, screen reader, contrast |
+| Category       | Count | Examples                                      |
+| -------------- | ----- | --------------------------------------------- |
+| Authentication | 8     | Login, logout, SSO, MFA, password reset, RBAC |
+| CRUD           | 6     | Create, read, update, delete, bulk ops        |
+| Checkout       | 6     | Cart, payment, coupon, order history          |
+| Search         | 5     | Basic search, filters, sorting, pagination    |
+| Forms          | 6     | Multi-step, validation, file upload           |
+| Dashboard      | 5     | Data loading, charts, export                  |
+| Settings       | 4     | Profile, password, notifications              |
+| Onboarding     | 4     | Registration, email verify, welcome tour      |
+| Notifications  | 3     | In-app, toast, notification center            |
+| API            | 5     | REST CRUD, GraphQL, error handling            |
+| Accessibility  | 3     | Keyboard nav, screen reader, contrast         |
 
 ### 2 MCP Integrations
 
@@ -103,11 +103,11 @@ Then use `/pw:browserstack` to run tests across browsers.
 
 ## Works With
 
-| Agent | How |
-|---|---|
+| Agent           | How                                                    |
+| --------------- | ------------------------------------------------------ |
 | **Claude Code** | Full plugin — slash commands, MCP tools, hooks, agents |
-| **Codex CLI** | Copy `CLAUDE.md` to your project root as `AGENTS.md` |
-| **OpenClaw** | Use as a skill with `SKILL.md` entry point |
+| **Codex CLI**   | Copy `CLAUDE.md` to your project root as `AGENTS.md`   |
+| **OpenClaw**    | Use as a skill with `SKILL.md` entry point             |
 
 ## Built-in Command Integration
 

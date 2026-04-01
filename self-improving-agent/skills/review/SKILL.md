@@ -64,6 +64,7 @@ Analyze each entry for:
 ### Step 3: Read topic files
 
 If `MEMORY.md` references or the directory contains additional files (`debugging.md`, `patterns.md`, etc.):
+
 - Read each one
 - Cross-reference with MEMORY.md for duplicates
 - Check for entries that belong in the main file (high value) vs. topic files (details)
@@ -71,6 +72,7 @@ If `MEMORY.md` references or the directory contains additional files (`debugging
 ### Step 4: Cross-reference with CLAUDE.md
 
 Read the project's `CLAUDE.md` (if it exists) and compare:
+
 - Are there MEMORY.md entries that duplicate CLAUDE.md rules? (→ remove from memory)
 - Are there MEMORY.md entries that contradict CLAUDE.md? (→ flag conflict)
 - Are there MEMORY.md patterns not yet in CLAUDE.md that should be? (→ promotion candidate)

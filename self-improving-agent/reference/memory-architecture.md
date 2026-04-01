@@ -19,6 +19,7 @@ A complete reference for how Claude Code's memory systems work together.
 **Loading:** Full file, every session. Files higher in the directory tree load first.
 
 **Key facts:**
+
 - Target under 200 lines per file
 - Use `@path/to/file` syntax to import additional files (max 5 hops deep)
 - More specific locations take precedence over broader ones
@@ -32,6 +33,7 @@ A complete reference for how Claude Code's memory systems work together.
 **Location:** `~/.claude/projects/<project-path>/memory/`
 
 **Structure:**
+
 ```
 ~/.claude/projects/<project-path>/memory/
 ├── MEMORY.md           # Main file (first 200 lines loaded)
@@ -41,6 +43,7 @@ A complete reference for how Claude Code's memory systems work together.
 ```
 
 **Key facts:**
+
 - Enabled by default (since v2.1.32)
 - Only the first 200 lines of MEMORY.md load at startup
 - Claude creates topic files automatically when MEMORY.md gets long
@@ -51,6 +54,7 @@ A complete reference for how Claude Code's memory systems work together.
 - Subagents can have their own auto memory
 
 **What it captures:**
+
 - Build commands and test conventions
 - Debugging solutions and error patterns
 - Code style preferences and architecture notes
@@ -63,6 +67,7 @@ A complete reference for how Claude Code's memory systems work together.
 **Location:** `~/.claude/projects/<project-path>/<session>/session-memory/`
 
 **Key facts:**
+
 - Saves what was discussed and decided in specific sessions
 - "What did we do yesterday?" context
 - Loaded contextually (relevant past sessions, not all)
@@ -75,6 +80,7 @@ A complete reference for how Claude Code's memory systems work together.
 **Location:** `.claude/rules/*.md`
 
 **Key facts:**
+
 - Uses YAML frontmatter with `paths` field for scoping
 - Only loads when Claude works with matching files
 - Recursive — can organize into subdirectories
@@ -114,12 +120,12 @@ MEMORY.md (raw notes)  →  /si:review (analyze)  →  /si:promote (graduate)
 
 ## Capacity Planning
 
-| File | Soft limit | Hard limit | What happens at limit |
-|------|-----------|------------|----------------------|
-| MEMORY.md | 150 lines | 200 lines | Lines after 200 not loaded at startup |
-| CLAUDE.md | 150 lines | No hard limit | Adherence decreases with length |
-| Topic files | No limit | No limit | Loaded on demand, not at startup |
-| Rules files | No limit per file | No limit | Only loaded when paths match |
+| File        | Soft limit        | Hard limit    | What happens at limit                 |
+| ----------- | ----------------- | ------------- | ------------------------------------- |
+| MEMORY.md   | 150 lines         | 200 lines     | Lines after 200 not loaded at startup |
+| CLAUDE.md   | 150 lines         | No hard limit | Adherence decreases with length       |
+| Topic files | No limit          | No limit      | Loaded on demand, not at startup      |
+| Rules files | No limit per file | No limit      | Only loaded when paths match          |
 
 ## Best Practices
 

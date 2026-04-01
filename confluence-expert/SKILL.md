@@ -37,6 +37,7 @@ add_label({ pageId: "789012", label: "archived" })
 ```
 
 **Integration Points**:
+
 - Create documentation for Senior PM projects
 - Support Scrum Master with ceremony templates
 - Link to Jira issues for Jira Expert
@@ -47,6 +48,7 @@ add_label({ pageId: "789012", label: "archived" })
 ## Workflows
 
 ### Space Creation
+
 1. Determine space type (Team, Project, Knowledge Base, Personal)
 2. Create space with clear name and description
 3. Set space homepage with overview
@@ -59,13 +61,16 @@ add_label({ pageId: "789012", label: "archived" })
 8. **HANDOFF TO**: Teams for content population
 
 ### Page Architecture
+
 **Best Practices**:
+
 - Use page hierarchy (parent-child relationships)
 - Maximum 3 levels deep for navigation
 - Consistent naming conventions
 - Date-stamp meeting notes
 
 **Recommended Structure**:
+
 ```
 Space Home
 ├── Overview & Getting Started
@@ -85,6 +90,7 @@ Space Home
 ```
 
 ### Template Creation
+
 1. Identify repeatable content pattern
 2. Create page with structure and placeholders
 3. Add instructions in placeholders
@@ -95,6 +101,7 @@ Space Home
 8. **USE**: References for advanced template patterns
 
 ### Documentation Strategy
+
 1. **Assess** current documentation state
 2. **Define** documentation goals and audience
 3. **Organize** content taxonomy and structure
@@ -105,7 +112,9 @@ Space Home
 8. **REPORT TO**: Senior PM on documentation health
 
 ### Knowledge Base Management
+
 **Article Types**:
+
 - How-to guides
 - Troubleshooting docs
 - FAQs
@@ -113,6 +122,7 @@ Space Home
 - Process documentation
 
 **Quality Standards**:
+
 - Clear title and description
 - Structured with headings
 - Updated date visible
@@ -124,7 +134,9 @@ Space Home
 > Full macro reference with all parameters: see `MACROS.md`.
 
 ### Content Macros
+
 **Info, Note, Warning, Tip**:
+
 ```
 {info}
 Important information here
@@ -132,6 +144,7 @@ Important information here
 ```
 
 **Expand**:
+
 ```
 {expand:title=Click to expand}
 Hidden content here
@@ -139,11 +152,13 @@ Hidden content here
 ```
 
 **Table of Contents**:
+
 ```
 {toc:maxLevel=3}
 ```
 
 **Excerpt & Excerpt Include**:
+
 ```
 {excerpt}
 Reusable content
@@ -153,33 +168,41 @@ Reusable content
 ```
 
 ### Dynamic Content
+
 **Jira Issues**:
+
 ```
 {jira:JQL=project = PROJ AND status = "In Progress"}
 ```
 
 **Jira Chart**:
+
 ```
 {jirachart:type=pie|jql=project = PROJ|statType=statuses}
 ```
 
 **Recently Updated**:
+
 ```
 {recently-updated:spaces=@all|max=10}
 ```
 
 **Content by Label**:
+
 ```
 {contentbylabel:label=meeting-notes|maxResults=20}
 ```
 
 ### Collaboration Macros
+
 **Status**:
+
 ```
 {status:colour=Green|title=Approved}
 ```
 
 **Task List**:
+
 ```
 {tasks}
 - [ ] Task 1
@@ -188,11 +211,13 @@ Reusable content
 ```
 
 **User Mention**:
+
 ```
 @username
 ```
 
 **Date**:
+
 ```
 {date:format=dd MMM yyyy}
 ```
@@ -200,6 +225,7 @@ Reusable content
 ## Page Layouts & Formatting
 
 **Two-Column Layout**:
+
 ```
 {section}
 {column:width=50%}
@@ -212,6 +238,7 @@ Right content
 ```
 
 **Panel**:
+
 ```
 {panel:title=Panel Title|borderColor=#ccc}
 Panel content
@@ -219,6 +246,7 @@ Panel content
 ```
 
 **Code Block**:
+
 ```
 {code:javascript}
 const example = "code here";
@@ -229,29 +257,33 @@ const example = "code here";
 
 > Full template library with complete markup: see `TEMPLATES.md`. Key templates summarised below.
 
-| Template | Purpose | Key Sections |
-|----------|---------|--------------|
-| **Meeting Notes** | Sprint/team meetings | Agenda, Discussion, Decisions, Action Items (tasks macro) |
-| **Project Overview** | Project kickoff & status | Quick Facts panel, Objectives, Stakeholders table, Milestones (Jira macro), Risks |
-| **Decision Log** | Architectural/strategic decisions | Context, Options Considered, Decision, Consequences, Next Steps |
-| **Sprint Retrospective** | Agile ceremony docs | What Went Well (info), What Didn't (warning), Action Items (tasks), Metrics |
+| Template                 | Purpose                           | Key Sections                                                                      |
+| ------------------------ | --------------------------------- | --------------------------------------------------------------------------------- |
+| **Meeting Notes**        | Sprint/team meetings              | Agenda, Discussion, Decisions, Action Items (tasks macro)                         |
+| **Project Overview**     | Project kickoff & status          | Quick Facts panel, Objectives, Stakeholders table, Milestones (Jira macro), Risks |
+| **Decision Log**         | Architectural/strategic decisions | Context, Options Considered, Decision, Consequences, Next Steps                   |
+| **Sprint Retrospective** | Agile ceremony docs               | What Went Well (info), What Didn't (warning), Action Items (tasks), Metrics       |
 
 ## Space Permissions
 
 > Full permission scheme details: see `PERMISSIONS.md`.
 
 ### Permission Schemes
+
 **Public Space**:
+
 - All users: View
 - Team members: Edit, Create
 - Space admins: Admin
 
 **Team Space**:
+
 - Team members: View, Edit, Create
 - Team leads: Admin
 - Others: No access
 
 **Project Space**:
+
 - Stakeholders: View
 - Project team: Edit, Create
 - PM: Admin
@@ -259,17 +291,20 @@ const example = "code here";
 ## Content Governance
 
 **Review Cycles**:
+
 - Critical docs: Monthly
 - Standard docs: Quarterly
 - Archive docs: Annually
 
 **Archiving Strategy**:
+
 - Move outdated content to Archive space
 - Label with "archived" and date
 - Maintain for 2 years, then delete
 - Keep audit trail
 
 **Content Quality Checklist**:
+
 - [ ] Clear, descriptive title
 - [ ] Owner/author identified
 - [ ] Last updated date visible
@@ -281,6 +316,7 @@ const example = "code here";
 ## Decision Framework
 
 **When to Escalate to Atlassian Admin**:
+
 - Need org-wide template
 - Require cross-space permissions
 - Blueprint configuration
@@ -288,18 +324,21 @@ const example = "code here";
 - Space export/import
 
 **When to Collaborate with Jira Expert**:
+
 - Embed Jira queries and charts
 - Link pages to Jira issues
 - Create Jira-based reports
 - Sync documentation with tickets
 
 **When to Support Scrum Master**:
+
 - Sprint documentation templates
 - Retrospective pages
 - Team working agreements
 - Process documentation
 
 **When to Support Senior PM**:
+
 - Executive report pages
 - Portfolio documentation
 - Stakeholder communication
@@ -308,30 +347,35 @@ const example = "code here";
 ## Handoff Protocols
 
 **FROM Senior PM**:
+
 - Documentation requirements
 - Space structure needs
 - Template requirements
 - Knowledge management strategy
 
 **TO Senior PM**:
+
 - Documentation coverage reports
 - Content usage analytics
 - Knowledge gaps identified
 - Template adoption metrics
 
 **FROM Scrum Master**:
+
 - Sprint ceremony templates
 - Team documentation needs
 - Meeting notes structure
 - Retrospective format
 
 **TO Scrum Master**:
+
 - Configured templates
 - Space for team docs
 - Training on best practices
 - Documentation guidelines
 
 **WITH Jira Expert**:
+
 - Jira-Confluence linking
 - Embedded Jira reports
 - Issue-to-page connections
@@ -340,6 +384,7 @@ const example = "code here";
 ## Best Practices
 
 **Organization**:
+
 - Consistent naming conventions
 - Meaningful labels
 - Logical page hierarchy
@@ -347,6 +392,7 @@ const example = "code here";
 - Clear navigation
 
 **Maintenance**:
+
 - Regular content audits
 - Remove duplication
 - Update outdated information
@@ -356,6 +402,7 @@ const example = "code here";
 ## Analytics & Metrics
 
 **Usage Metrics**:
+
 - Page views per space
 - Most visited pages
 - Search queries
@@ -363,6 +410,7 @@ const example = "code here";
 - Orphaned pages
 
 **Health Indicators**:
+
 - Pages without recent updates
 - Pages without owners
 - Duplicate content

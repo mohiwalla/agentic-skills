@@ -75,6 +75,7 @@ await page.goto("https://example.com", timeout=30000)                  # Custom 
 ```
 
 **`wait_until` options:**
+
 - `"load"` — wait for the `load` event (all resources loaded)
 - `"domcontentloaded"` — DOM is ready, images/styles may still load
 - `"networkidle"` — no network requests for 500ms (best for SPAs)
@@ -133,6 +134,7 @@ nth = locator.nth(2)
 ```
 
 **Locator vs query_selector:**
+
 - `query_selector` — returns an ElementHandle at a point in time. Can go stale if DOM changes.
 - `locator` — returns a Locator that re-queries each time you interact with it. Preferred for reliability.
 

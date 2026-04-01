@@ -38,6 +38,7 @@ python scripts/pr_analyzer.py /path/to/repo --json
 ```
 
 **What it detects:**
+
 - Hardcoded secrets (passwords, API keys, tokens)
 - SQL injection patterns (string concatenation in queries)
 - Debug statements (debugger, console.log)
@@ -46,6 +47,7 @@ python scripts/pr_analyzer.py /path/to/repo --json
 - TODO/FIXME comments
 
 **Output includes:**
+
 - Complexity score (1-10)
 - Risk categorization (critical, high, medium, low)
 - File prioritization for review order
@@ -69,6 +71,7 @@ python scripts/code_quality_checker.py /path/to/code --json
 ```
 
 **What it detects:**
+
 - Long functions (>50 lines)
 - Large files (>500 lines)
 - God classes (>20 methods)
@@ -81,13 +84,13 @@ python scripts/code_quality_checker.py /path/to/code --json
 
 **Thresholds:**
 
-| Issue | Threshold |
-|-------|-----------|
-| Long function | >50 lines |
-| Large file | >500 lines |
-| God class | >20 methods |
-| Too many params | >5 |
-| Deep nesting | >4 levels |
+| Issue           | Threshold    |
+| --------------- | ------------ |
+| Long function   | >50 lines    |
+| Large file      | >500 lines   |
+| God class       | >20 methods  |
+| Too many params | >5           |
+| Deep nesting    | >4 levels    |
 | High complexity | >10 branches |
 
 ---
@@ -110,6 +113,7 @@ python scripts/review_report_generator.py . \
 ```
 
 **Report includes:**
+
 - Review verdict (approve, request changes, block)
 - Score (0-100)
 - Prioritized action items
@@ -118,21 +122,23 @@ python scripts/review_report_generator.py . \
 
 **Verdicts:**
 
-| Score | Verdict |
-|-------|---------|
-| 90+ with no high issues | Approve |
+| Score                   | Verdict                  |
+| ----------------------- | ------------------------ |
+| 90+ with no high issues | Approve                  |
 | 75+ with ≤2 high issues | Approve with suggestions |
-| 50-74 | Request changes |
-| <50 or critical issues | Block |
+| 50-74                   | Request changes          |
+| <50 or critical issues  | Block                    |
 
 ---
 
 ## Reference Guides
 
 ### Code Review Checklist
+
 `references/code_review_checklist.md`
 
 Systematic checklists covering:
+
 - Pre-review checks (build, tests, PR hygiene)
 - Correctness (logic, data handling, error handling)
 - Security (input validation, injection prevention)
@@ -142,9 +148,11 @@ Systematic checklists covering:
 - Language-specific checks
 
 ### Coding Standards
+
 `references/coding_standards.md`
 
 Language-specific standards for:
+
 - TypeScript (type annotations, null safety, async/await)
 - JavaScript (declarations, patterns, modules)
 - Python (type hints, exceptions, class design)
@@ -153,9 +161,11 @@ Language-specific standards for:
 - Kotlin (null safety, data classes, coroutines)
 
 ### Common Antipatterns
+
 `references/common_antipatterns.md`
 
 Antipattern catalog with examples and fixes:
+
 - Structural (god class, long method, deep nesting)
 - Logic (boolean blindness, stringly typed code)
 - Security (SQL injection, hardcoded credentials)
@@ -167,11 +177,11 @@ Antipattern catalog with examples and fixes:
 
 ## Languages Supported
 
-| Language | Extensions |
-|----------|------------|
-| Python | `.py` |
-| TypeScript | `.ts`, `.tsx` |
+| Language   | Extensions            |
+| ---------- | --------------------- |
+| Python     | `.py`                 |
+| TypeScript | `.ts`, `.tsx`         |
 | JavaScript | `.js`, `.jsx`, `.mjs` |
-| Go | `.go` |
-| Swift | `.swift` |
-| Kotlin | `.kt`, `.kts` |
+| Go         | `.go`                 |
+| Swift      | `.swift`              |
+| Kotlin     | `.kt`, `.kts`         |

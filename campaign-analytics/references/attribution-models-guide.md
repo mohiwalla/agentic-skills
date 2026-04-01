@@ -140,19 +140,19 @@ Credit(channel) = Revenue * (Weight / Sum_of_all_weights)
 
 ### Configurable Parameters
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| half_life_days | 7 | Days for weight to decay by 50% |
+| Parameter      | Default | Description                     |
+| -------------- | ------- | ------------------------------- |
+| half_life_days | 7       | Days for weight to decay by 50% |
 
 ### Guidance on Half-Life Selection
 
-| Sales Cycle Length | Recommended Half-Life |
-|-------------------|----------------------|
-| 1-3 days (impulse) | 1-2 days |
-| 1-2 weeks (considered) | 5-7 days |
-| 1-3 months (B2B) | 14-21 days |
-| 3-6 months (enterprise) | 30-45 days |
-| 6-12 months (complex B2B) | 60-90 days |
+| Sales Cycle Length        | Recommended Half-Life |
+| ------------------------- | --------------------- |
+| 1-3 days (impulse)        | 1-2 days              |
+| 1-2 weeks (considered)    | 5-7 days              |
+| 1-3 months (B2B)          | 14-21 days            |
+| 3-6 months (enterprise)   | 30-45 days            |
+| 6-12 months (complex B2B) | 60-90 days            |
 
 ### When to Use
 
@@ -222,14 +222,14 @@ B2B and enterprise marketing teams running coordinated campaigns across the full
 
 ## Model Comparison Matrix
 
-| Criteria | First-Touch | Last-Touch | Linear | Time-Decay | Position-Based |
-|----------|------------|------------|--------|------------|----------------|
-| Complexity | Low | Low | Low | Medium | Medium |
-| Awareness bias | High | None | Neutral | Low | Medium |
-| Conversion bias | None | High | Neutral | High | Medium |
-| Multi-touch fairness | Poor | Poor | Good | Good | Good |
-| Best sales cycle | Any | Short | Long | Short-Medium | Any |
-| Stakeholder clarity | High | High | High | Medium | Medium |
+| Criteria             | First-Touch | Last-Touch | Linear  | Time-Decay   | Position-Based |
+| -------------------- | ----------- | ---------- | ------- | ------------ | -------------- |
+| Complexity           | Low         | Low        | Low     | Medium       | Medium         |
+| Awareness bias       | High        | None       | Neutral | Low          | Medium         |
+| Conversion bias      | None        | High       | Neutral | High         | Medium         |
+| Multi-touch fairness | Poor        | Poor       | Good    | Good         | Good           |
+| Best sales cycle     | Any         | Short      | Long    | Short-Medium | Any            |
+| Stakeholder clarity  | High        | High       | High    | Medium       | Medium         |
 
 ---
 
@@ -260,19 +260,19 @@ When models disagree significantly on a channel's value:
 
 ### Minimum Data
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| journey_id | Yes | Unique identifier for each customer journey |
-| touchpoints | Yes | Array of channel interactions with timestamps |
-| converted | Yes | Boolean indicating whether the journey converted |
-| revenue | Recommended | Conversion value for credit allocation |
+| Field       | Required    | Description                                      |
+| ----------- | ----------- | ------------------------------------------------ |
+| journey_id  | Yes         | Unique identifier for each customer journey      |
+| touchpoints | Yes         | Array of channel interactions with timestamps    |
+| converted   | Yes         | Boolean indicating whether the journey converted |
+| revenue     | Recommended | Conversion value for credit allocation           |
 
 ### Touchpoint Fields
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| channel | Yes | Marketing channel name |
-| timestamp | Yes | ISO-format timestamp of the interaction |
+| Field       | Required | Description                                   |
+| ----------- | -------- | --------------------------------------------- |
+| channel     | Yes      | Marketing channel name                        |
+| timestamp   | Yes      | ISO-format timestamp of the interaction       |
 | interaction | Optional | Type of interaction (click, view, open, etc.) |
 
 ---

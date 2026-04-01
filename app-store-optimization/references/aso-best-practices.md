@@ -29,34 +29,35 @@ Optimization strategies for improving app store visibility, conversion, and rank
 
 ### Keyword Selection Criteria
 
-| Factor | Weight | Evaluation Method |
-|--------|--------|-------------------|
-| Relevance | 40% | Does it describe app function? |
-| Search Volume | 30% | Monthly search estimates |
-| Competition | 20% | Number of ranking apps |
-| Conversion Potential | 10% | User intent alignment |
+| Factor               | Weight | Evaluation Method              |
+| -------------------- | ------ | ------------------------------ |
+| Relevance            | 40%    | Does it describe app function? |
+| Search Volume        | 30%    | Monthly search estimates       |
+| Competition          | 20%    | Number of ranking apps         |
+| Conversion Potential | 10%    | User intent alignment          |
 
 ### Keyword Placement Priority
 
-| Location | Search Weight | Example |
-|----------|---------------|---------|
-| App Title | Highest | "TaskMaster - Todo List Manager" |
-| Subtitle (iOS) | High | "Organize Your Daily Tasks" |
-| Keyword Field (iOS) | High | "planner,reminder,checklist" |
-| Short Description (Android) | High | "Simple task manager for busy professionals" |
-| Full Description | Medium | Natural keyword usage throughout |
+| Location                    | Search Weight | Example                                      |
+| --------------------------- | ------------- | -------------------------------------------- |
+| App Title                   | Highest       | "TaskMaster - Todo List Manager"             |
+| Subtitle (iOS)              | High          | "Organize Your Daily Tasks"                  |
+| Keyword Field (iOS)         | High          | "planner,reminder,checklist"                 |
+| Short Description (Android) | High          | "Simple task manager for busy professionals" |
+| Full Description            | Medium        | Natural keyword usage throughout             |
 
 ### Long-Tail Keyword Strategy
 
 Long-tail keywords have lower volume but higher conversion:
 
-| Type | Example | Volume | Competition | Conversion |
-|------|---------|--------|-------------|------------|
-| Short-tail | "todo app" | High | High | Low |
-| Mid-tail | "daily task manager" | Medium | Medium | Medium |
-| Long-tail | "free todo list with reminders" | Low | Low | High |
+| Type       | Example                         | Volume | Competition | Conversion |
+| ---------- | ------------------------------- | ------ | ----------- | ---------- |
+| Short-tail | "todo app"                      | High   | High        | Low        |
+| Mid-tail   | "daily task manager"            | Medium | Medium      | Medium     |
+| Long-tail  | "free todo list with reminders" | Low    | Low         | High       |
 
 **Formula for keyword priority:**
+
 ```
 Score = (Volume × 0.3) + (1/Competition × 0.3) + (Relevance × 0.4)
 ```
@@ -68,20 +69,22 @@ Score = (Volume × 0.3) + (1/Competition × 0.3) + (Relevance × 0.4)
 ### Title Optimization
 
 **Structure Formula:**
+
 ```
 [Brand Name] - [Primary Keyword] [Secondary Keyword/Benefit]
 ```
 
 **Examples by category:**
 
-| Category | Before | After |
-|----------|--------|-------|
-| Productivity | "MyTasks" | "MyTasks - Todo List & Planner" |
-| Fitness | "FitTrack" | "FitTrack: Workout & Gym Log" |
-| Finance | "MoneyApp" | "MoneyApp - Budget Tracker" |
-| Photo | "SnapEdit" | "SnapEdit: Photo Editor & AI" |
+| Category     | Before     | After                           |
+| ------------ | ---------- | ------------------------------- |
+| Productivity | "MyTasks"  | "MyTasks - Todo List & Planner" |
+| Fitness      | "FitTrack" | "FitTrack: Workout & Gym Log"   |
+| Finance      | "MoneyApp" | "MoneyApp - Budget Tracker"     |
+| Photo        | "SnapEdit" | "SnapEdit: Photo Editor & AI"   |
 
 **Title Optimization Checklist:**
+
 - [ ] Primary keyword within first 3 words
 - [ ] Brand name is memorable and unique
 - [ ] Character count matches platform limit
@@ -115,6 +118,7 @@ PARAGRAPH 5: Call to Action (25-50 words)
 ```
 
 **Keyword Density Target:**
+
 - Primary keyword: 2-3% (8-12 mentions in 4000 chars)
 - Secondary keywords: 1-2% each (4-8 mentions each)
 
@@ -122,12 +126,12 @@ PARAGRAPH 5: Call to Action (25-50 words)
 
 **Effective Subtitle Formulas:**
 
-| Formula | Example |
-|---------|---------|
-| [Verb] + [Benefit] | "Organize Your Life" |
-| [Adjective] + [Category] | "Smart Task Manager" |
-| [Feature] + [Feature] | "Lists, Reminders & Notes" |
-| [Audience] + [Solution] | "For Busy Professionals" |
+| Formula                  | Example                    |
+| ------------------------ | -------------------------- |
+| [Verb] + [Benefit]       | "Organize Your Life"       |
+| [Adjective] + [Category] | "Smart Task Manager"       |
+| [Feature] + [Feature]    | "Lists, Reminders & Notes" |
+| [Audience] + [Solution]  | "For Busy Professionals"   |
 
 ---
 
@@ -135,15 +139,16 @@ PARAGRAPH 5: Call to Action (25-50 words)
 
 ### App Icon Best Practices
 
-| Principle | Do | Don't |
-|-----------|-----|-------|
-| Simplicity | Single focal element | Multiple competing elements |
-| Recognizability | Works at 60x60px | Requires large size to read |
-| Uniqueness | Distinct from competitors | Generic category icon |
-| Color | Bold, contrasting colors | Muted or similar to background |
-| Text | None or single letter | Full words or app name |
+| Principle       | Do                        | Don't                          |
+| --------------- | ------------------------- | ------------------------------ |
+| Simplicity      | Single focal element      | Multiple competing elements    |
+| Recognizability | Works at 60x60px          | Requires large size to read    |
+| Uniqueness      | Distinct from competitors | Generic category icon          |
+| Color           | Bold, contrasting colors  | Muted or similar to background |
+| Text            | None or single letter     | Full words or app name         |
 
 **Icon Testing Questions:**
+
 1. Is it recognizable at 29x29px (smallest iOS size)?
 2. Does it stand out in search results?
 3. Does it communicate app function?
@@ -153,15 +158,16 @@ PARAGRAPH 5: Call to Action (25-50 words)
 
 **Screenshot Hierarchy:**
 
-| Position | Purpose | Content Strategy |
-|----------|---------|------------------|
-| Screenshot 1 | Hook/Hero | Main value proposition + key UI |
-| Screenshot 2 | Primary Feature | Most-used feature demonstration |
-| Screenshot 3 | Secondary Feature | Differentiating capability |
-| Screenshot 4 | Social Proof | Ratings, awards, user count |
-| Screenshot 5+ | Additional Features | Supporting functionality |
+| Position      | Purpose             | Content Strategy                |
+| ------------- | ------------------- | ------------------------------- |
+| Screenshot 1  | Hook/Hero           | Main value proposition + key UI |
+| Screenshot 2  | Primary Feature     | Most-used feature demonstration |
+| Screenshot 3  | Secondary Feature   | Differentiating capability      |
+| Screenshot 4  | Social Proof        | Ratings, awards, user count     |
+| Screenshot 5+ | Additional Features | Supporting functionality        |
 
 **Caption Best Practices:**
+
 - Maximum 5-7 words per caption
 - Action-oriented verbs ("Track", "Organize", "Discover")
 - Benefit-focused, not feature-focused
@@ -169,22 +175,22 @@ PARAGRAPH 5: Call to Action (25-50 words)
 
 **Example Caption Evolution:**
 
-| Weak | Better | Best |
-|------|--------|------|
+| Weak                | Better              | Best                        |
+| ------------------- | ------------------- | --------------------------- |
 | "Task List Feature" | "Create Task Lists" | "Never Forget a Task Again" |
-| "Calendar View" | "See Your Schedule" | "Plan Your Week in Seconds" |
-| "Notifications" | "Get Reminders" | "Stay on Top of Deadlines" |
+| "Calendar View"     | "See Your Schedule" | "Plan Your Week in Seconds" |
+| "Notifications"     | "Get Reminders"     | "Stay on Top of Deadlines"  |
 
 ### Video Preview Strategy
 
 **Video Structure (30 seconds):**
 
-| Seconds | Content |
-|---------|---------|
-| 0-5 | Hook: Show end result or main benefit |
-| 5-15 | Demo: Core feature in action |
-| 15-25 | Features: Quick feature montage |
-| 25-30 | CTA: Logo and download prompt |
+| Seconds | Content                               |
+| ------- | ------------------------------------- |
+| 0-5     | Hook: Show end result or main benefit |
+| 5-15    | Demo: Core feature in action          |
+| 15-25   | Features: Quick feature montage       |
+| 25-30   | CTA: Logo and download prompt         |
 
 ---
 
@@ -225,21 +231,23 @@ we'd love if you'd share it with friends who might benefit."
 
 ### Rating Improvement Tactics
 
-| Tactic | Implementation | Expected Impact |
-|--------|----------------|-----------------|
-| In-app prompt timing | After positive action (task completed, milestone reached) | +0.3 stars |
-| Bug fix velocity | Address 1-star issues within 7 days | +0.2 stars |
-| Response rate | Reply to 80%+ of reviews | +0.1 stars |
-| Feature requests | Implement top-requested features | +0.2 stars |
+| Tactic               | Implementation                                            | Expected Impact |
+| -------------------- | --------------------------------------------------------- | --------------- |
+| In-app prompt timing | After positive action (task completed, milestone reached) | +0.3 stars      |
+| Bug fix velocity     | Address 1-star issues within 7 days                       | +0.2 stars      |
+| Response rate        | Reply to 80%+ of reviews                                  | +0.1 stars      |
+| Feature requests     | Implement top-requested features                          | +0.2 stars      |
 
 ### Review Prompt Best Practices
 
 **When to prompt:**
+
 - After user completes 5+ successful sessions
 - After milestone achievement (first task completed, 7-day streak)
 - After positive in-app feedback ("Was this helpful? Yes")
 
 **When NOT to prompt:**
+
 - First session
 - After error or crash
 - During critical workflow
@@ -252,6 +260,7 @@ we'd love if you'd share it with friends who might benefit."
 ### Pre-Launch Checklist
 
 **4 Weeks Before Launch:**
+
 - [ ] Finalize app name and keywords
 - [ ] Complete all metadata fields
 - [ ] Prepare all visual assets
@@ -260,6 +269,7 @@ we'd love if you'd share it with friends who might benefit."
 - [ ] Build email list for launch notification
 
 **2 Weeks Before Launch:**
+
 - [ ] Submit for app review
 - [ ] Prepare social media content
 - [ ] Brief press and influencers
@@ -267,6 +277,7 @@ we'd love if you'd share it with friends who might benefit."
 - [ ] Configure in-app rating prompts
 
 **Launch Day:**
+
 - [ ] Verify app is live in stores
 - [ ] Announce across all channels
 - [ ] Monitor reviews and respond quickly
@@ -275,23 +286,23 @@ we'd love if you'd share it with friends who might benefit."
 
 ### Update Cadence
 
-| Update Type | Frequency | ASO Impact |
-|-------------|-----------|------------|
-| Bug fixes | As needed | Prevents rating drops |
-| Minor features | Every 2-4 weeks | Maintains freshness signal |
-| Major features | Every 4-8 weeks | Opportunity for "What's New" |
-| Metadata refresh | Every 4-6 weeks | Keyword optimization cycle |
+| Update Type      | Frequency       | ASO Impact                   |
+| ---------------- | --------------- | ---------------------------- |
+| Bug fixes        | As needed       | Prevents rating drops        |
+| Minor features   | Every 2-4 weeks | Maintains freshness signal   |
+| Major features   | Every 4-8 weeks | Opportunity for "What's New" |
+| Metadata refresh | Every 4-6 weeks | Keyword optimization cycle   |
 
 ### Seasonal Optimization
 
-| Season | Optimization Focus | Example Categories |
-|--------|--------------------|--------------------|
-| Jan (New Year) | Resolutions, goals | Fitness, Productivity |
-| Feb (Valentine's) | Dating, relationships | Dating, Photo |
-| Mar-Apr (Tax) | Finance, organization | Finance, Productivity |
-| May-Jun (Summer) | Travel, fitness | Travel, Health |
+| Season                   | Optimization Focus      | Example Categories      |
+| ------------------------ | ----------------------- | ----------------------- |
+| Jan (New Year)           | Resolutions, goals      | Fitness, Productivity   |
+| Feb (Valentine's)        | Dating, relationships   | Dating, Photo           |
+| Mar-Apr (Tax)            | Finance, organization   | Finance, Productivity   |
+| May-Jun (Summer)         | Travel, fitness         | Travel, Health          |
 | Aug-Sep (Back to School) | Education, organization | Education, Productivity |
-| Nov-Dec (Holidays) | Shopping, social | Shopping, Social |
+| Nov-Dec (Holidays)       | Shopping, social        | Shopping, Social        |
 
 ---
 
@@ -299,18 +310,19 @@ we'd love if you'd share it with friends who might benefit."
 
 ### Test Prioritization Matrix
 
-| Element | Impact | Ease | Priority |
-|---------|--------|------|----------|
-| App Icon | High | Medium | 1 |
-| Screenshot 1 | High | Medium | 2 |
-| Title | High | Easy | 3 |
-| Short Description | Medium | Easy | 4 |
-| Screenshots 2-5 | Medium | Medium | 5 |
-| Video | Medium | Hard | 6 |
+| Element           | Impact | Ease   | Priority |
+| ----------------- | ------ | ------ | -------- |
+| App Icon          | High   | Medium | 1        |
+| Screenshot 1      | High   | Medium | 2        |
+| Title             | High   | Easy   | 3        |
+| Short Description | Medium | Easy   | 4        |
+| Screenshots 2-5   | Medium | Medium | 5        |
+| Video             | Medium | Hard   | 6        |
 
 ### Sample Size Calculator
 
 **Formula:**
+
 ```
 Sample Size = (2 × (Z² × p × (1-p))) / E²
 
@@ -323,20 +335,20 @@ E = minimum detectable effect (usually 0.05)
 **Quick Reference:**
 
 | Baseline CVR | Min. Impressions for 5% Lift |
-|--------------|------------------------------|
-| 1% | 31,000 per variant |
-| 2% | 15,500 per variant |
-| 5% | 6,200 per variant |
-| 10% | 3,100 per variant |
+| ------------ | ---------------------------- |
+| 1%           | 31,000 per variant           |
+| 2%           | 15,500 per variant           |
+| 5%           | 6,200 per variant            |
+| 10%          | 3,100 per variant            |
 
 ### Test Duration Guidelines
 
 | Daily Impressions | Minimum Test Duration |
-|-------------------|----------------------|
-| 1,000+ | 7 days |
-| 500-1,000 | 14 days |
-| 100-500 | 30 days |
-| <100 | Not recommended |
+| ----------------- | --------------------- |
+| 1,000+            | 7 days                |
+| 500-1,000         | 14 days               |
+| 100-500           | 30 days               |
+| <100              | Not recommended       |
 
 ---
 
@@ -344,23 +356,23 @@ E = minimum detectable effect (usually 0.05)
 
 ### Conversion Funnel Metrics
 
-| Stage | Metric | Benchmark |
-|-------|--------|-----------|
-| Discovery | Impressions | Category dependent |
-| Consideration | Page Views | 30-50% of impressions |
-| Conversion | Installs | 3-8% of page views |
-| Activation | First Open | 70-90% of installs |
+| Stage         | Metric      | Benchmark             |
+| ------------- | ----------- | --------------------- |
+| Discovery     | Impressions | Category dependent    |
+| Consideration | Page Views  | 30-50% of impressions |
+| Conversion    | Installs    | 3-8% of page views    |
+| Activation    | First Open  | 70-90% of installs    |
 
 ### Conversion Optimization Levers
 
-| Lever | Typical Lift | Effort |
-|-------|--------------|--------|
-| Icon redesign | 10-25% | High |
-| Screenshot optimization | 15-35% | Medium |
-| Title keyword optimization | 5-15% | Low |
-| Description rewrite | 5-10% | Low |
-| Video addition | 10-20% | High |
-| Localization | 20-50% per market | Medium |
+| Lever                      | Typical Lift      | Effort |
+| -------------------------- | ----------------- | ------ |
+| Icon redesign              | 10-25%            | High   |
+| Screenshot optimization    | 15-35%            | Medium |
+| Title keyword optimization | 5-15%             | Low    |
+| Description rewrite        | 5-10%             | Low    |
+| Video addition             | 10-20%            | High   |
+| Localization               | 20-50% per market | Medium |
 
 ---
 
@@ -368,36 +380,36 @@ E = minimum detectable effect (usually 0.05)
 
 ### Keyword Mistakes
 
-| Mistake | Problem | Solution |
-|---------|---------|----------|
-| Keyword stuffing | Spam detection, rejection | Natural usage, 2-3% density |
-| Competitor names | Guideline violation | Focus on category terms |
-| Duplicate keywords | Wasted character space | Remove duplicates from keyword field |
-| Ignoring long-tail | Missing conversion | Include specific phrases |
+| Mistake            | Problem                   | Solution                             |
+| ------------------ | ------------------------- | ------------------------------------ |
+| Keyword stuffing   | Spam detection, rejection | Natural usage, 2-3% density          |
+| Competitor names   | Guideline violation       | Focus on category terms              |
+| Duplicate keywords | Wasted character space    | Remove duplicates from keyword field |
+| Ignoring long-tail | Missing conversion        | Include specific phrases             |
 
 ### Metadata Mistakes
 
-| Mistake | Problem | Solution |
-|---------|---------|----------|
-| Vague descriptions | Low conversion | Specific benefits and features |
-| Feature-focused copy | Doesn't resonate | Benefit-focused messaging |
-| Outdated information | Misleading users | Update with each release |
-| Missing localization | Lost global revenue | Prioritize top 5 markets |
+| Mistake              | Problem             | Solution                       |
+| -------------------- | ------------------- | ------------------------------ |
+| Vague descriptions   | Low conversion      | Specific benefits and features |
+| Feature-focused copy | Doesn't resonate    | Benefit-focused messaging      |
+| Outdated information | Misleading users    | Update with each release       |
+| Missing localization | Lost global revenue | Prioritize top 5 markets       |
 
 ### Visual Asset Mistakes
 
-| Mistake | Problem | Solution |
-|---------|---------|----------|
-| Text-heavy screenshots | Unreadable on phones | Minimal text, clear UI focus |
-| Inconsistent style | Unprofessional appearance | Design system for all assets |
-| Portrait-only screenshots | Missed tablet users | Include landscape variants |
-| No social proof | Lower trust | Add ratings, awards, press |
+| Mistake                   | Problem                   | Solution                     |
+| ------------------------- | ------------------------- | ---------------------------- |
+| Text-heavy screenshots    | Unreadable on phones      | Minimal text, clear UI focus |
+| Inconsistent style        | Unprofessional appearance | Design system for all assets |
+| Portrait-only screenshots | Missed tablet users       | Include landscape variants   |
+| No social proof           | Lower trust               | Add ratings, awards, press   |
 
 ### Launch Mistakes
 
-| Mistake | Problem | Solution |
-|---------|---------|----------|
-| Launching on Friday | No support over weekend | Launch Tuesday-Wednesday |
-| No analytics setup | Can't measure success | Firebase/Mixpanel before launch |
-| Immediate rating prompt | Negative ratings | Wait for positive experience |
-| Ignoring reviews | Declining ratings | Respond within 24-48 hours |
+| Mistake                 | Problem                 | Solution                        |
+| ----------------------- | ----------------------- | ------------------------------- |
+| Launching on Friday     | No support over weekend | Launch Tuesday-Wednesday        |
+| No analytics setup      | Can't measure success   | Firebase/Mixpanel before launch |
+| Immediate rating prompt | Negative ratings        | Wait for positive experience    |
+| Ignoring reviews        | Declining ratings       | Respond within 24-48 hours      |

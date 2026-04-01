@@ -62,11 +62,11 @@ function UserCardContainer({ userId }: { userId: string }) {
 
 **Server State vs Client State**
 
-| Type | Examples | Tools |
-|------|----------|-------|
+| Type         | Examples                 | Tools            |
+| ------------ | ------------------------ | ---------------- |
 | Server State | User data, API responses | React Query, SWR |
-| Client State | UI toggles, form inputs | Zustand, Jotai |
-| URL State | Filters, pagination | Next.js router |
+| Client State | UI toggles, form inputs  | Zustand, Jotai   |
+| URL State    | Filters, pagination      | Next.js router   |
 
 **React Query for Server State:**
 
@@ -76,31 +76,31 @@ function useUsers(filters: Filters) {
     queryKey: ["users", filters],
     queryFn: () => api.getUsers(filters),
     staleTime: 5 * 60 * 1000, // 5 minutes
-    gcTime: 30 * 60 * 1000,   // 30 minutes
-  });
+    gcTime: 30 * 60 * 1000, // 30 minutes
+  })
 }
 
 // Mutations with optimistic updates
 function useUpdateUser() {
-  const queryClient = useQueryClient();
+  const queryClient = useQueryClient()
 
   return useMutation({
     mutationFn: api.updateUser,
-    onMutate: async (newUser) => {
-      await queryClient.cancelQueries({ queryKey: ["users"] });
-      const previous = queryClient.getQueryData(["users"]);
-      queryClient.setQueryData(["users"], (old) =>
-        old.map(u => u.id === newUser.id ? newUser : u)
-      );
-      return { previous };
+    onMutate: async newUser => {
+      await queryClient.cancelQueries({ queryKey: ["users"] })
+      const previous = queryClient.getQueryData(["users"])
+      queryClient.setQueryData(["users"], old =>
+        old.map(u => (u.id === newUser.id ? newUser : u)),
+      )
+      return { previous }
     },
     onError: (err, newUser, context) => {
-      queryClient.setQueryData(["users"], context.previous);
+      queryClient.setQueryData(["users"], context.previous)
     },
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ["users"] });
+      queryClient.invalidateQueries({ queryKey: ["users"] })
     },
-  });
+  })
 }
 ```
 
@@ -134,10 +134,10 @@ src/
 ```typescript
 // Domain interface
 interface UserRepository {
-  findById(id: string): Promise<User | null>;
-  findByEmail(email: string): Promise<User | null>;
-  save(user: User): Promise<User>;
-  delete(id: string): Promise<void>;
+  findById(id: string): Promise<User | null>
+  findByEmail(email: string): Promise<User | null>
+  save(user: User): Promise<User>
+  delete(id: string): Promise<void>
 }
 
 // Infrastructure implementation
@@ -145,11 +145,8 @@ class PostgresUserRepository implements UserRepository {
   constructor(private db: Database) {}
 
   async findById(id: string): Promise<User | null> {
-    const row = await this.db.query(
-      "SELECT * FROM users WHERE id = $1",
-      [id]
-    );
-    return row ? this.toEntity(row) : null;
+    const row = await this.db.query("SELECT * FROM users WHERE id = $1", [id])
+    return row ? this.toEntity(row) : null
   }
 
   private toEntity(row: UserRow): User {
@@ -158,7 +155,7 @@ class PostgresUserRepository implements UserRepository {
       email: row.email,
       name: row.name,
       createdAt: row.created_at,
-    });
+    })
   }
 }
 ```
@@ -167,32 +164,32 @@ class PostgresUserRepository implements UserRepository {
 
 ```typescript
 // Express middleware chain
-app.use(cors());
-app.use(helmet());
-app.use(requestId());
-app.use(logger());
-app.use(authenticate());
-app.use(rateLimit());
-app.use("/api", routes);
-app.use(errorHandler());
+app.use(cors())
+app.use(helmet())
+app.use(requestId())
+app.use(logger())
+app.use(authenticate())
+app.use(rateLimit())
+app.use("/api", routes)
+app.use(errorHandler())
 
 // Custom middleware example
 function requestId() {
   return (req: Request, res: Response, next: NextFunction) => {
-    req.id = req.headers["x-request-id"] || crypto.randomUUID();
-    res.setHeader("x-request-id", req.id);
-    next();
-  };
+    req.id = req.headers["x-request-id"] || crypto.randomUUID()
+    res.setHeader("x-request-id", req.id)
+    next()
+  }
 }
 
 function errorHandler() {
   return (err: Error, req: Request, res: Response, next: NextFunction) => {
-    const status = err instanceof AppError ? err.status : 500;
-    const message = status === 500 ? "Internal Server Error" : err.message;
+    const status = err instanceof AppError ? err.status : 500
+    const message = status === 500 ? "Internal Server Error" : err.message
 
-    logger.error({ err, requestId: req.id });
-    res.status(status).json({ error: message, requestId: req.id });
-  };
+    logger.error({ err, requestId: req.id })
+    res.status(status).json({ error: message, requestId: req.id })
+  }
 }
 ```
 
@@ -203,19 +200,20 @@ function errorHandler() {
 ### REST Best Practices
 
 **Resource Naming:**
+
 - Use nouns, not verbs: `/users` not `/getUsers`
 - Use plural: `/users` not `/user`
 - Nest for relationships: `/users/{id}/orders`
 
 **HTTP Methods:**
 
-| Method | Purpose | Idempotent |
-|--------|---------|------------|
-| GET | Retrieve | Yes |
-| POST | Create | No |
-| PUT | Replace | Yes |
-| PATCH | Partial update | No |
-| DELETE | Remove | Yes |
+| Method | Purpose        | Idempotent |
+| ------ | -------------- | ---------- |
+| GET    | Retrieve       | Yes        |
+| POST   | Create         | No         |
+| PUT    | Replace        | Yes        |
+| PATCH  | Partial update | No         |
+| DELETE | Remove         | Yes        |
 
 **Response Envelope:**
 
@@ -287,29 +285,28 @@ type UserPayload {
 const resolvers = {
   Query: {
     user: async (_, { id }, { dataSources }) => {
-      return dataSources.userAPI.findById(id);
+      return dataSources.userAPI.findById(id)
     },
   },
   User: {
     // Field resolver for related data
     orders: async (user, { first, after }, { dataSources }) => {
-      return dataSources.orderAPI.findByUserId(user.id, { first, after });
+      return dataSources.orderAPI.findByUserId(user.id, { first, after })
     },
   },
-};
+}
 ```
 
 **DataLoader for N+1 Prevention:**
 
 ```typescript
 const userLoader = new DataLoader(async (userIds: string[]) => {
-  const users = await db.query(
-    "SELECT * FROM users WHERE id = ANY($1)",
-    [userIds]
-  );
+  const users = await db.query("SELECT * FROM users WHERE id = ANY($1)", [
+    userIds,
+  ])
   // Return in same order as input
-  return userIds.map(id => users.find(u => u.id === id));
-});
+  return userIds.map(id => users.find(u => u.id === id))
+})
 ```
 
 ---
@@ -325,10 +322,10 @@ const pool = new Pool({
   database: process.env.DB_NAME,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  max: 20,                    // Maximum connections
-  idleTimeoutMillis: 30000,   // Close idle connections
+  max: 20, // Maximum connections
+  idleTimeoutMillis: 30000, // Close idle connections
   connectionTimeoutMillis: 2000,
-});
+})
 
 // Prisma with connection pool
 const prisma = new PrismaClient({
@@ -337,7 +334,7 @@ const prisma = new PrismaClient({
       url: `${process.env.DATABASE_URL}?connection_limit=20&pool_timeout=10`,
     },
   },
-});
+})
 ```
 
 ### Transaction Patterns
@@ -345,25 +342,25 @@ const prisma = new PrismaClient({
 ```typescript
 // Unit of Work pattern
 async function transferFunds(from: string, to: string, amount: number) {
-  return await prisma.$transaction(async (tx) => {
+  return await prisma.$transaction(async tx => {
     const sender = await tx.account.update({
       where: { id: from },
       data: { balance: { decrement: amount } },
-    });
+    })
 
     if (sender.balance < 0) {
-      throw new InsufficientFundsError();
+      throw new InsufficientFundsError()
     }
 
     await tx.account.update({
       where: { id: to },
       data: { balance: { increment: amount } },
-    });
+    })
 
     return tx.transaction.create({
       data: { fromId: from, toId: to, amount },
-    });
-  });
+    })
+  })
 }
 ```
 
@@ -373,19 +370,19 @@ async function transferFunds(from: string, to: string, amount: number) {
 // Route reads to replica
 const readDB = new PrismaClient({
   datasources: { db: { url: process.env.READ_DATABASE_URL } },
-});
+})
 
 const writeDB = new PrismaClient({
   datasources: { db: { url: process.env.WRITE_DATABASE_URL } },
-});
+})
 
 class UserRepository {
   async findById(id: string) {
-    return readDB.user.findUnique({ where: { id } });
+    return readDB.user.findUnique({ where: { id } })
   }
 
   async create(data: CreateUserData) {
-    return writeDB.user.create({ data });
+    return writeDB.user.create({ data })
   }
 }
 ```
@@ -404,29 +401,29 @@ Request → CDN Cache → Application Cache → Database Cache → Database
 
 ```typescript
 async function getUser(id: string): Promise<User> {
-  const cacheKey = `user:${id}`;
+  const cacheKey = `user:${id}`
 
   // 1. Try cache
-  const cached = await redis.get(cacheKey);
+  const cached = await redis.get(cacheKey)
   if (cached) {
-    return JSON.parse(cached);
+    return JSON.parse(cached)
   }
 
   // 2. Fetch from database
-  const user = await db.user.findUnique({ where: { id } });
-  if (!user) throw new NotFoundError();
+  const user = await db.user.findUnique({ where: { id } })
+  if (!user) throw new NotFoundError()
 
   // 3. Store in cache
-  await redis.set(cacheKey, JSON.stringify(user), "EX", 3600);
+  await redis.set(cacheKey, JSON.stringify(user), "EX", 3600)
 
-  return user;
+  return user
 }
 
 // Invalidate on update
 async function updateUser(id: string, data: UpdateData): Promise<User> {
-  const user = await db.user.update({ where: { id }, data });
-  await redis.del(`user:${id}`);
-  return user;
+  const user = await db.user.update({ where: { id }, data })
+  await redis.del(`user:${id}`)
+  return user
 }
 ```
 
@@ -434,14 +431,17 @@ async function updateUser(id: string, data: UpdateData): Promise<User> {
 
 ```typescript
 // Immutable assets (hashed filenames)
-res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+res.setHeader("Cache-Control", "public, max-age=31536000, immutable")
 
 // API responses
-res.setHeader("Cache-Control", "private, max-age=0, must-revalidate");
-res.setHeader("ETag", generateETag(data));
+res.setHeader("Cache-Control", "private, max-age=0, must-revalidate")
+res.setHeader("ETag", generateETag(data))
 
 // Static pages
-res.setHeader("Cache-Control", "public, max-age=3600, stale-while-revalidate=86400");
+res.setHeader(
+  "Cache-Control",
+  "public, max-age=3600, stale-while-revalidate=86400",
+)
 ```
 
 ---
@@ -465,70 +465,72 @@ function generateTokens(user: User) {
   const accessToken = jwt.sign(
     { sub: user.id, email: user.email },
     process.env.JWT_SECRET,
-    { expiresIn: "15m" }
-  );
+    { expiresIn: "15m" },
+  )
 
   const refreshToken = jwt.sign(
     { sub: user.id, tokenVersion: user.tokenVersion },
     process.env.REFRESH_SECRET,
-    { expiresIn: "7d" }
-  );
+    { expiresIn: "7d" },
+  )
 
-  return { accessToken, refreshToken };
+  return { accessToken, refreshToken }
 }
 
 // Refresh endpoint
 app.post("/auth/refresh", async (req, res) => {
-  const refreshToken = req.cookies.refreshToken;
+  const refreshToken = req.cookies.refreshToken
 
   try {
-    const payload = jwt.verify(refreshToken, process.env.REFRESH_SECRET);
-    const user = await db.user.findUnique({ where: { id: payload.sub } });
+    const payload = jwt.verify(refreshToken, process.env.REFRESH_SECRET)
+    const user = await db.user.findUnique({ where: { id: payload.sub } })
 
     // Check token version (invalidation mechanism)
     if (user.tokenVersion !== payload.tokenVersion) {
-      throw new Error("Token revoked");
+      throw new Error("Token revoked")
     }
 
-    const tokens = generateTokens(user);
-    setRefreshCookie(res, tokens.refreshToken);
-    res.json({ accessToken: tokens.accessToken });
+    const tokens = generateTokens(user)
+    setRefreshCookie(res, tokens.refreshToken)
+    res.json({ accessToken: tokens.accessToken })
   } catch {
-    res.status(401).json({ error: "Invalid refresh token" });
+    res.status(401).json({ error: "Invalid refresh token" })
   }
-});
+})
 ```
 
 ### Session-Based Auth
 
 ```typescript
 // Redis session store
-app.use(session({
-  store: new RedisStore({ client: redisClient }),
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    secure: process.env.NODE_ENV === "production",
-    httpOnly: true,
-    sameSite: "lax",
-    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-  },
-}));
+app.use(
+  session({
+    store: new RedisStore({ client: redisClient }),
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    },
+  }),
+)
 
 // Login
 app.post("/auth/login", async (req, res) => {
-  const user = await authenticate(req.body.email, req.body.password);
-  req.session.userId = user.id;
-  res.json({ user });
-});
+  const user = await authenticate(req.body.email, req.body.password)
+  req.session.userId = user.id
+  res.json({ user })
+})
 
 // Middleware
 function requireAuth(req, res, next) {
   if (!req.session.userId) {
-    return res.status(401).json({ error: "Authentication required" });
+    return res.status(401).json({ error: "Authentication required" })
   }
-  next();
+  next()
 }
 ```
 
@@ -536,12 +538,12 @@ function requireAuth(req, res, next) {
 
 ## Decision Matrix
 
-| Pattern | Complexity | Scalability | When to Use |
-|---------|-----------|-------------|-------------|
-| Monolith | Low | Medium | MVPs, small teams |
-| Modular Monolith | Medium | High | Growing teams |
-| Microservices | High | Very High | Large orgs, diverse tech |
-| REST | Low | High | CRUD APIs, public APIs |
-| GraphQL | Medium | High | Complex data needs, mobile apps |
-| JWT Auth | Low | High | Stateless APIs, microservices |
-| Session Auth | Low | Medium | Traditional web apps |
+| Pattern          | Complexity | Scalability | When to Use                     |
+| ---------------- | ---------- | ----------- | ------------------------------- |
+| Monolith         | Low        | Medium      | MVPs, small teams               |
+| Modular Monolith | Medium     | High        | Growing teams                   |
+| Microservices    | High       | Very High   | Large orgs, diverse tech        |
+| REST             | Low        | High        | CRUD APIs, public APIs          |
+| GraphQL          | Medium     | High        | Complex data needs, mobile apps |
+| JWT Auth         | Low        | High        | Stateless APIs, microservices   |
+| Session Auth     | Low        | Medium      | Traditional web apps            |

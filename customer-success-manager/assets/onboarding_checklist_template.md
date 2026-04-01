@@ -33,6 +33,7 @@
 - [ ] Schedule recurring check-in meetings
 
 **Kickoff Meeting Notes:**
+
 > [Document key takeaways, concerns raised, decisions made]
 
 ### Technical Setup (Days 3-7)
@@ -47,6 +48,7 @@
 
 **Technical Setup Owner:** [SE / Implementation team name]
 **Technical Setup Notes:**
+
 > [Document configuration decisions, customizations, issues]
 
 ### Admin Training (Days 7-10)
@@ -199,15 +201,15 @@ The following criteria must be met to consider onboarding complete:
 
 ### Risks and Blockers
 
-| Risk/Blocker | Impact | Mitigation | Status |
-|-------------|--------|-----------|--------|
-| [Item] | [High/Med/Low] | [Action] | [Open/Resolved] |
+| Risk/Blocker | Impact         | Mitigation | Status          |
+| ------------ | -------------- | ---------- | --------------- |
+| [Item]       | [High/Med/Low] | [Action]   | [Open/Resolved] |
 
 ### Key Decisions
 
-| Date | Decision | Made By | Impact |
-|------|----------|---------|--------|
-| [Date] | [Decision] | [Name] | [Description] |
+| Date   | Decision   | Made By | Impact        |
+| ------ | ---------- | ------- | ------------- |
+| [Date] | [Decision] | [Name]  | [Description] |
 
 ---
 

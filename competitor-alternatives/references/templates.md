@@ -42,10 +42,12 @@ Go beyond checkmarks:
 ### [Feature Category]
 
 **[Competitor]**: [2-3 sentence description of how they handle this]
+
 - Strengths: [specific]
 - Limitations: [specific]
 
 **[Your product]**: [2-3 sentence description]
+
 - Strengths: [specific]
 - Limitations: [specific]
 
@@ -59,12 +61,12 @@ Go beyond checkmarks:
 ```markdown
 ## Pricing
 
-| | [Competitor] | [Your Product] |
-|---|---|---|
-| Free tier | [Details] | [Details] |
-| Starting price | $X/user/mo | $X/user/mo |
-| Business tier | $X/user/mo | $X/user/mo |
-| Enterprise | Custom | Custom |
+|                | [Competitor] | [Your Product] |
+| -------------- | ------------ | -------------- |
+| Free tier      | [Details]    | [Details]      |
+| Starting price | $X/user/mo   | $X/user/mo     |
+| Business tier  | $X/user/mo   | $X/user/mo     |
+| Enterprise     | Custom       | Custom         |
 
 **What's included**: [Competitor]'s $X plan includes [features], while
 [Your product]'s $X plan includes [features].
@@ -84,13 +86,13 @@ $X/year while [Your product] costs $Y/year, with [key differences in what you ge
 ```markdown
 ## Service & Support
 
-| | [Competitor] | [Your Product] |
-|---|---|---|
-| Documentation | [Quality assessment] | [Quality assessment] |
-| Response time | [SLA if known] | [Your SLA] |
-| Support channels | [List] | [List] |
-| Onboarding | [What they offer] | [What you offer] |
-| CSM included | [At what tier] | [At what tier] |
+|                  | [Competitor]         | [Your Product]       |
+| ---------------- | -------------------- | -------------------- |
+| Documentation    | [Quality assessment] | [Quality assessment] |
+| Response time    | [SLA if known]       | [Your SLA]           |
+| Support channels | [List]               | [List]               |
+| Onboarding       | [What they offer]    | [What you offer]     |
+| CSM included     | [At what tier]       | [At what tier]       |
 
 **Support quality**: Based on [G2/Capterra reviews, your research],
 [Competitor] support is described as [assessment]. Common feedback includes
@@ -108,6 +110,7 @@ response time, dedicated CSM, implementation help].
 ## Who Should Choose [Competitor]
 
 [Competitor] is the right choice if:
+
 - [Specific use case or need]
 - [Team type or size]
 - [Workflow or requirement]
@@ -118,6 +121,7 @@ response time, dedicated CSM, implementation help].
 ## Who Should Choose [Your Product]
 
 [Your product] is built for teams who:
+
 - [Specific use case or need]
 - [Team type or size]
 - [Workflow or requirement]
@@ -134,16 +138,19 @@ response time, dedicated CSM, implementation help].
 ## Switching from [Competitor]
 
 ### What transfers
+
 - [Data type]: [How easily, any caveats]
 - [Data type]: [How easily, any caveats]
 
 ### What needs reconfiguration
+
 - [Thing]: [Why and effort level]
 - [Thing]: [Why and effort level]
 
 ### Migration support
 
 We offer [migration support details]:
+
 - [Free data import tool / white-glove migration]
 - [Documentation / migration guide]
 - [Timeline expectation]
@@ -173,6 +180,7 @@ Focus on switchers:
 > — [Name], [Role] at [Company]
 
 ### Results after switching
+
 - [Company] saw [specific result]
 - [Company] reduced [metric] by [amount]
 ```
@@ -198,6 +206,7 @@ Do this:
 ### Organize by Category
 
 Group features into meaningful categories:
+
 - Core functionality
 - Collaboration
 - Integrations
@@ -206,7 +215,7 @@ Group features into meaningful categories:
 
 ### Include Ratings Where Useful
 
-| Category | You | Competitor | Notes |
-|----------|-----|-----------|-------|
-| Ease of use | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | [Brief note] |
-| Feature depth | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | [Brief note] |
+| Category      | You        | Competitor | Notes        |
+| ------------- | ---------- | ---------- | ------------ |
+| Ease of use   | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐   | [Brief note] |
+| Feature depth | ⭐⭐⭐⭐   | ⭐⭐⭐⭐⭐ | [Brief note] |

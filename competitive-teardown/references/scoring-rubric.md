@@ -6,17 +6,18 @@ This rubric provides a standardized framework for evaluating competitors across 
 
 ## Scoring Scale (1-10)
 
-| Score | Label | Definition |
-|-------|-------|-----------|
-| 1-2 | Poor | Significant gaps, major usability issues, or missing capability |
-| 3-4 | Below Average | Basic functionality with notable limitations |
-| 5-6 | Average | Meets market expectations, no standout qualities |
-| 7-8 | Above Average | Strong execution with clear advantages |
-| 9-10 | Exceptional | Industry-leading, sets the standard for others |
+| Score | Label         | Definition                                                      |
+| ----- | ------------- | --------------------------------------------------------------- |
+| 1-2   | Poor          | Significant gaps, major usability issues, or missing capability |
+| 3-4   | Below Average | Basic functionality with notable limitations                    |
+| 5-6   | Average       | Meets market expectations, no standout qualities                |
+| 7-8   | Above Average | Strong execution with clear advantages                          |
+| 9-10  | Exceptional   | Industry-leading, sets the standard for others                  |
 
 ## Dimension Categories
 
 ### 1. User Experience (UX) - Weight: 20%
+
 - **Onboarding**: Time to first value, setup complexity, guided flows
 - **Navigation**: Information architecture, discoverability, consistency
 - **Visual Design**: Modern aesthetics, brand coherence, accessibility
@@ -24,6 +25,7 @@ This rubric provides a standardized framework for evaluating competitors across 
 - **Mobile Experience**: Native app quality, responsive design, feature parity
 
 ### 2. Feature Completeness - Weight: 25%
+
 - **Core Features**: Coverage of essential use cases
 - **Advanced Features**: Power user capabilities, automation, customization
 - **Workflow Support**: End-to-end process coverage without workarounds
@@ -31,6 +33,7 @@ This rubric provides a standardized framework for evaluating competitors across 
 - **Innovation**: Unique capabilities not found in competitors
 
 ### 3. Pricing & Value - Weight: 15%
+
 - **Transparency**: Clear pricing without hidden costs
 - **Flexibility**: Plan options matching different customer sizes
 - **Value-to-Cost Ratio**: Feature access relative to price point
@@ -38,6 +41,7 @@ This rubric provides a standardized framework for evaluating competitors across 
 - **Contract Terms**: Lock-in requirements, cancellation ease
 
 ### 4. Integrations - Weight: 10%
+
 - **Native Integrations**: Number and quality of built-in connectors
 - **Marketplace**: Third-party app ecosystem breadth
 - **API Quality**: Documentation, reliability, rate limits
@@ -45,6 +49,7 @@ This rubric provides a standardized framework for evaluating competitors across 
 - **Workflow Automation**: Zapier, Make, native automation support
 
 ### 5. Support & Documentation - Weight: 10%
+
 - **Documentation Quality**: Completeness, searchability, freshness
 - **Support Channels**: Chat, email, phone, community availability
 - **Response Time**: SLA adherence, resolution speed
@@ -52,6 +57,7 @@ This rubric provides a standardized framework for evaluating competitors across 
 - **Onboarding Support**: Dedicated CSM, implementation assistance
 
 ### 6. Performance & Reliability - Weight: 10%
+
 - **Uptime**: Historical availability, SLA commitments
 - **Speed**: Application responsiveness under normal load
 - **Scalability**: Performance at high volume, enterprise readiness
@@ -59,6 +65,7 @@ This rubric provides a standardized framework for evaluating competitors across 
 - **Global Performance**: CDN, regional deployments, latency
 
 ### 7. Security & Compliance - Weight: 10%
+
 - **Authentication**: SSO, MFA, RBAC granularity
 - **Data Protection**: Encryption at rest and in transit, data residency
 - **Certifications**: SOC 2, ISO 27001, GDPR, HIPAA compliance
@@ -111,6 +118,7 @@ Total = 7.45 / 10
 ## Output Format
 
 Present results as a comparison matrix with color coding:
+
 - Green (8-10): Competitive advantage
 - Yellow (5-7): Market parity
 - Red (1-4): Competitive gap

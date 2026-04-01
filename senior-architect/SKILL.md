@@ -51,11 +51,13 @@ Generates architecture diagrams from project structure in multiple formats.
 **Output:** Diagram code (Mermaid, PlantUML, or ASCII)
 
 **Supported diagram types:**
+
 - `component` - Shows modules and their relationships
 - `layer` - Shows architectural layers (presentation, business, data)
 - `deployment` - Shows deployment topology
 
 **Usage:**
+
 ```bash
 # Mermaid format (default)
 python scripts/architecture_diagram_generator.py ./project --format mermaid --type component
@@ -71,6 +73,7 @@ python scripts/architecture_diagram_generator.py ./project -o architecture.md
 ```
 
 **Example output (Mermaid):**
+
 ```mermaid
 graph TD
     A[API Gateway] --> B[Auth Service]
@@ -91,18 +94,21 @@ Analyzes project dependencies for coupling, circular dependencies, and outdated 
 **Output:** Analysis report (JSON or human-readable)
 
 **Analyzes:**
+
 - Dependency tree (direct and transitive)
 - Circular dependencies between modules
 - Coupling score (0-100)
 - Outdated packages
 
 **Supported package managers:**
+
 - npm/yarn (`package.json`)
 - Python (`requirements.txt`, `pyproject.toml`)
 - Go (`go.mod`)
 - Rust (`Cargo.toml`)
 
 **Usage:**
+
 ```bash
 # Human-readable report
 python scripts/dependency_analyzer.py ./project
@@ -118,6 +124,7 @@ python scripts/dependency_analyzer.py ./project --verbose
 ```
 
 **Example output:**
+
 ```
 Dependency Analysis Report
 ==========================
@@ -145,12 +152,14 @@ Analyzes project structure and detects architectural patterns, code smells, and 
 **Output:** Architecture assessment report
 
 **Detects:**
+
 - Architectural patterns (MVC, layered, hexagonal, microservices indicators)
 - Code organization issues (god classes, mixed concerns)
 - Layer violations
 - Missing architectural components
 
 **Usage:**
+
 ```bash
 # Full assessment
 python scripts/project_architect.py ./project
@@ -166,6 +175,7 @@ python scripts/project_architect.py ./project --check layers
 ```
 
 **Example output:**
+
 ```
 Architecture Assessment
 =======================
@@ -205,23 +215,27 @@ Use when choosing a database for a new project or migrating existing data.
 | Time-series data | | ✓ (specialized) |
 
 **Step 2: Evaluate scale requirements**
+
 - <1M records, single region → PostgreSQL or MySQL
 - 1M-100M records, read-heavy → PostgreSQL with read replicas
-- >100M records, global distribution → CockroachDB, Spanner, or DynamoDB
+- > 100M records, global distribution → CockroachDB, Spanner, or DynamoDB
 - High write throughput (>10K/sec) → Cassandra or ScyllaDB
 
 **Step 3: Check consistency requirements**
+
 - Strong consistency required → SQL or CockroachDB
 - Eventual consistency acceptable → DynamoDB, Cassandra, MongoDB
 
 **Step 4: Document decision**
 Create an ADR (Architecture Decision Record) with:
+
 - Context and requirements
 - Options considered
 - Decision and rationale
 - Trade-offs accepted
 
 **Quick reference:**
+
 ```
 PostgreSQL → Default choice for most applications
 MongoDB    → Document store, flexible schema
@@ -244,25 +258,27 @@ Use when designing a new system or refactoring existing architecture.
 | 10+ developers | Consider microservices |
 
 **Step 2: Evaluate deployment requirements**
+
 - Single deployment unit acceptable → Monolith
 - Independent scaling needed → Microservices
 - Mixed (some services scale differently) → Hybrid
 
 **Step 3: Consider data boundaries**
+
 - Shared database acceptable → Monolith or modular monolith
 - Strict data isolation required → Microservices with separate DBs
 - Event-driven communication fits → Event-sourcing/CQRS
 
 **Step 4: Match pattern to requirements**
 
-| Requirement | Recommended Pattern |
-|-------------|-------------------|
-| Rapid MVP development | Modular Monolith |
-| Independent team deployment | Microservices |
-| Complex domain logic | Domain-Driven Design |
-| High read/write ratio difference | CQRS |
-| Audit trail required | Event Sourcing |
-| Third-party integrations | Hexagonal/Ports & Adapters |
+| Requirement                      | Recommended Pattern        |
+| -------------------------------- | -------------------------- |
+| Rapid MVP development            | Modular Monolith           |
+| Independent team deployment      | Microservices              |
+| Complex domain logic             | Domain-Driven Design       |
+| High read/write ratio difference | CQRS                       |
+| Audit trail required             | Event Sourcing             |
+| Third-party integrations         | Hexagonal/Ports & Adapters |
 
 See `references/architecture_patterns.md` for detailed pattern descriptions.
 
@@ -271,6 +287,7 @@ See `references/architecture_patterns.md` for detailed pattern descriptions.
 ### Monolith vs Microservices Decision
 
 **Choose Monolith when:**
+
 - [ ] Team is small (<10 developers)
 - [ ] Domain boundaries are unclear
 - [ ] Rapid iteration is priority
@@ -278,6 +295,7 @@ See `references/architecture_patterns.md` for detailed pattern descriptions.
 - [ ] Shared database is acceptable
 
 **Choose Microservices when:**
+
 - [ ] Teams can own services end-to-end
 - [ ] Independent deployment is critical
 - [ ] Different scaling requirements per component
@@ -286,6 +304,7 @@ See `references/architecture_patterns.md` for detailed pattern descriptions.
 
 **Hybrid approach:**
 Start with a modular monolith. Extract services only when:
+
 1. A module has significantly different scaling needs
 2. A team needs independent deployment
 3. Technology constraints require separation
@@ -296,11 +315,11 @@ Start with a modular monolith. Extract services only when:
 
 Load these files for detailed information:
 
-| File | Contains | Load when user asks about |
-|------|----------|--------------------------|
-| `references/architecture_patterns.md` | 9 architecture patterns with trade-offs, code examples, and when to use | "which pattern?", "microservices vs monolith", "event-driven", "CQRS" |
-| `references/system_design_workflows.md` | 6 step-by-step workflows for system design tasks | "how to design?", "capacity planning", "API design", "migration" |
-| `references/tech_decision_guide.md` | Decision matrices for technology choices | "which database?", "which framework?", "which cloud?", "which cache?" |
+| File                                    | Contains                                                                | Load when user asks about                                             |
+| --------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `references/architecture_patterns.md`   | 9 architecture patterns with trade-offs, code examples, and when to use | "which pattern?", "microservices vs monolith", "event-driven", "CQRS" |
+| `references/system_design_workflows.md` | 6 step-by-step workflows for system design tasks                        | "how to design?", "capacity planning", "API design", "migration"      |
+| `references/tech_decision_guide.md`     | Decision matrices for technology choices                                | "which database?", "which framework?", "which cloud?", "which cache?" |
 
 ---
 

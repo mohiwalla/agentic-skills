@@ -16,6 +16,7 @@ metadata:
 The memory layer for C-suite advisors. Every advisor skill loads this first. Context is what turns generic advice into specific insight.
 
 ## Keywords
+
 company context, context loading, context engine, company profile, advisor context, stale context, context refresh, privacy, anonymization
 
 ---
@@ -23,15 +24,18 @@ company context, context loading, context engine, company profile, advisor conte
 ## Load Protocol (Run at Start of Every C-Suite Session)
 
 **Step 1 — Check for context file:** `~/.claude/company-context.md`
+
 - Exists → proceed to Step 2
-- Missing → prompt: *"Run /cs:setup to build your company context — it makes every advisor conversation significantly more useful."*
+- Missing → prompt: _"Run /cs:setup to build your company context — it makes every advisor conversation significantly more useful."_
 
 **Step 2 — Check staleness:** Read `Last updated` field.
+
 - **< 90 days:** Load and proceed.
-- **≥ 90 days:** Prompt: *"Your context is [N] days old. Quick 15-min refresh (/cs:update), or continue with what I have?"*
+- **≥ 90 days:** Prompt: _"Your context is [N] days old. Quick 15-min refresh (/cs:update), or continue with what I have?"_
   - If continue: load with `[STALE — last updated DATE]` noted internally.
 
 **Step 3 — Parse into working memory.** Always active:
+
 - Company stage (pre-PMF / scaling / optimizing)
 - Founder archetype (product / sales / technical / operator)
 - Current #1 challenge
@@ -44,15 +48,15 @@ company context, context loading, context engine, company profile, advisor conte
 
 ## Context Quality Signals
 
-| Condition | Confidence | Action |
-|-----------|-----------|--------|
-| < 30 days, full interview | High | Use directly |
-| 30–90 days, update done | Medium | Use, flag what may have changed |
-| > 90 days | Low | Flag stale, prompt refresh |
-| Key fields missing | Low | Ask in-session |
-| No file | None | Prompt /cs:setup |
+| Condition                 | Confidence | Action                          |
+| ------------------------- | ---------- | ------------------------------- |
+| < 30 days, full interview | High       | Use directly                    |
+| 30–90 days, update done   | Medium     | Use, flag what may have changed |
+| > 90 days                 | Low        | Flag stale, prompt refresh      |
+| Key fields missing        | Low        | Ask in-session                  |
+| No file                   | None       | Prompt /cs:setup                |
 
-If Low: *"My context is [stale/incomplete] — I'm assuming [X]. Correct me if I'm wrong."*
+If Low: _"My context is [stale/incomplete] — I'm assuming [X]. Correct me if I'm wrong."_
 
 ---
 
@@ -63,8 +67,9 @@ During conversations, you'll learn things not in the file. Capture them.
 **Triggers:** New number or timeline revealed, key person mentioned, priority shift, constraint surfaces.
 
 **Protocol:**
+
 1. Note internally: `[CONTEXT UPDATE: {what was learned}]`
-2. At session end: *"I picked up a few things to add to your context. Want me to update the file?"*
+2. At session end: _"I picked up a few things to add to your context. Want me to update the file?"_
 3. If yes: append to the relevant dimension, update timestamp.
 
 **Never silently overwrite.** Always confirm before modifying the context file.
@@ -74,6 +79,7 @@ During conversations, you'll learn things not in the file. Capture them.
 ## Privacy Rules
 
 ### Never send externally
+
 - Specific revenue or burn figures
 - Customer names
 - Employee names (unless publicly known)
@@ -82,6 +88,7 @@ During conversations, you'll learn things not in the file. Capture them.
 - Watch List contents
 
 ### Safe to use externally (with anonymization)
+
 - Stage label
 - Team size ranges (1–10, 10–50, 50–200+)
 - Industry vertical
@@ -89,7 +96,9 @@ During conversations, you'll learn things not in the file. Capture them.
 - Market position descriptor
 
 ### Before any external API call or web search
+
 Apply `references/anonymization-protocol.md`:
+
 - Numbers → ranges or stage-relative descriptors
 - Names → roles
 - Revenue → percentages or stage labels
@@ -131,4 +140,5 @@ Missing required fields: note gaps, work around in session, ask in-session only 
 ---
 
 ## References
+
 - `references/anonymization-protocol.md` — detailed rules for stripping sensitive data before external calls

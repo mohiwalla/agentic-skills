@@ -15,10 +15,10 @@ python3 scripts/prd_scaffolder.py analysis.json -o prd/ -n "My App"
 
 ## Supported Frameworks
 
-| Stack | Frameworks |
-|-------|-----------|
-| Frontend | React, Vue, Angular, Svelte, Next.js, Nuxt, SvelteKit, Remix |
-| Backend | NestJS, Express, Django, DRF, FastAPI, Flask |
+| Stack     | Frameworks                                                               |
+| --------- | ------------------------------------------------------------------------ |
+| Frontend  | React, Vue, Angular, Svelte, Next.js, Nuxt, SvelteKit, Remix             |
+| Backend   | NestJS, Express, Django, DRF, FastAPI, Flask                             |
 | Fullstack | Next.js (pages + API), Nuxt (pages + server), Django (views + templates) |
 
 ## What It Generates
@@ -37,10 +37,10 @@ prd/
 
 ## Scripts
 
-| Script | Purpose |
-|--------|---------|
+| Script                 | Purpose                                             |
+| ---------------------- | --------------------------------------------------- |
 | `codebase_analyzer.py` | Scan codebase → extract routes, APIs, models, enums |
-| `prd_scaffolder.py` | Generate PRD directory skeleton from analysis JSON |
+| `prd_scaffolder.py`    | Generate PRD directory skeleton from analysis JSON  |
 
 Both are stdlib-only — no pip install needed. Run `--help` for full usage.
 

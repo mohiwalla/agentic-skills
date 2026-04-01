@@ -58,6 +58,7 @@ Map your week by energy, not tasks. Do this for one full work week.
 ### Step 1: Time block mapping
 
 For each 30-minute block in your week, record:
+
 - What you did
 - Energy level: 🟢 Energizing / 🟡 Neutral / 🔴 Draining
 
@@ -73,32 +74,34 @@ Monday:
 
 After one week, categorize activities:
 
-| Activity type | Energy level | Total hours | % of week |
-|--------------|-------------|-------------|-----------|
-| Customer calls | | | |
-| Investor meetings | | | |
-| Team 1:1s | | | |
-| Product decisions | | | |
-| Strategy/planning | | | |
-| Email/Slack | | | |
-| Recruiting | | | |
-| Financial review | | | |
-| External talks/events | | | |
-| Administrative tasks | | | |
-| Deep work/building | | | |
-| Recovery/breaks | | | |
+| Activity type         | Energy level | Total hours | % of week |
+| --------------------- | ------------ | ----------- | --------- |
+| Customer calls        |              |             |           |
+| Investor meetings     |              |             |           |
+| Team 1:1s             |              |             |           |
+| Product decisions     |              |             |           |
+| Strategy/planning     |              |             |           |
+| Email/Slack           |              |             |           |
+| Recruiting            |              |             |           |
+| Financial review      |              |             |           |
+| External talks/events |              |             |           |
+| Administrative tasks  |              |             |           |
+| Deep work/building    |              |             |           |
+| Recovery/breaks       |              |             |           |
 
 ### Step 3: Optimization plan
 
 **Green activities to protect (min 40% of week):**
-- _______________________________________________
+
+- ***
 
 **Red activities to eliminate or delegate (target: < 15% of week):**
-- Activity: __________________ → Delegate to: __________________
-- Activity: __________________ → Eliminate via: __________________
+
+- Activity: ********\_\_******** → Delegate to: ********\_\_********
+- Activity: ********\_\_******** → Eliminate via: ********\_\_********
 
 **Your personal energy peak hours:**
-I do my best thinking: _______ to _______
+I do my best thinking: **\_\_\_** to **\_\_\_**
 Schedule this time as: Protected deep work (no meetings)
 
 ---
@@ -109,22 +112,23 @@ For every task you regularly do, run it through this matrix.
 
 ### Assessment
 
-| Task | Skill level needed | My will to keep it | Decision |
-|------|-------------------|-------------------|----------|
-| | High / Med / Low | High / Med / Low | Keep / Coach / Delegate / Kill |
+| Task | Skill level needed | My will to keep it | Decision                       |
+| ---- | ------------------ | ------------------ | ------------------------------ |
+|      | High / Med / Low   | High / Med / Low   | Keep / Coach / Delegate / Kill |
 
 ### Delegation scoring
 
-| My Skill | My Will | Decision |
-|----------|---------|----------|
-| High | High | Keep — this is your zone of genius |
-| High | Low | Delegate — you can do it, but it drains you. Train someone. |
-| Low | High | Develop — learn it or hire for it |
-| Low | Low | Kill or outsource — why is this on your plate? |
+| My Skill | My Will | Decision                                                    |
+| -------- | ------- | ----------------------------------------------------------- |
+| High     | High    | Keep — this is your zone of genius                          |
+| High     | Low     | Delegate — you can do it, but it drains you. Train someone. |
+| Low      | High    | Develop — learn it or hire for it                           |
+| Low      | Low     | Kill or outsource — why is this on your plate?              |
 
 ### The 70% rule
 
 If someone can do a task 70% as well as you, delegate it. Trying to get to 100% is a trap:
+
 - Their 70% will grow to 90% with practice
 - Your 30% extra effort costs more than the quality gap
 - You free up time for things only you can do
@@ -224,16 +228,19 @@ Things I'm committing to stop doing this quarter:
 ### Personal OKR examples
 
 **Objective: Become a better coach, not just a decision-maker**
+
 - KR: 90% of my direct reports can make their top 3 recurring decisions without me by EoQ
 - KR: In 1:1 reviews, 80% of team rates me as "helps me think through problems" vs "tells me what to do"
 - KR: Conduct quarterly 360 feedback session with all direct reports
 
 **Objective: Build investor trust before I need it**
+
 - KR: Monthly investor updates sent within 5 days of month-end, every month this quarter
 - KR: 1:1 calls with each board member, once per quarter, outside of board meetings
 - KR: Create and share 3-year financial model with board by EoQ
 
 **Objective: Protect my energy and performance**
+
 - KR: 3+ hours of protected deep work time per day, 4+ days per week
 - KR: Complete weekly CEO reflection every Friday (track: 0/13 weeks → 13/13)
 - KR: Zero email after 8pm, zero weekends unless explicit crisis
@@ -249,6 +256,7 @@ Most founders have clear to-do lists. Few have stop-doing lists. The asymmetry i
 ### The stop-doing audit
 
 **Things to stop doing immediately (decision you can make today):**
+
 - Attending meetings you don't add value to
 - Being the default person for decisions that should be made by others
 - Redoing work that your team completed
@@ -256,11 +264,13 @@ Most founders have clear to-do lists. Few have stop-doing lists. The asymmetry i
 - Starting tasks you know you'll delegate partway through
 
 **Things to stop doing by delegating (need to train someone):**
-- _______________________________________________
-- _______________________________________________
-- _______________________________________________
+
+- ***
+- ***
+- ***
 
 **Things to stop doing by building systems:**
+
 - Recurring manual tasks → automate
 - Recurring decisions → write decision criteria so others can decide
 - Recurring explanations → document once, reference always
@@ -268,6 +278,7 @@ Most founders have clear to-do lists. Few have stop-doing lists. The asymmetry i
 ### The decision filter
 
 Before accepting new responsibilities, run through:
+
 1. Does this require something only I can do?
 2. Is this the highest and best use of my time?
 3. If I say yes to this, what am I saying no to?
@@ -281,15 +292,18 @@ If the answers are no, no, and something important — say no.
 For when imposter syndrome hits. Keep a running file of:
 
 **Wins** (monthly minimum)
+
 - Company milestones you led
 - Decisions that worked out well
 - Feedback you received that was genuinely positive
 
 **Quotes** (capture as they happen)
+
 - Direct quotes from team members, customers, investors about your impact
 - Emails or messages that reflect trust or appreciation
 
 **The hard calls that paid off**
+
 - Decisions you were scared to make that turned out well
 - Times you said no to something that would have hurt the company
 

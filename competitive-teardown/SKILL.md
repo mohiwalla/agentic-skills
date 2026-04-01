@@ -43,6 +43,7 @@ Follow these steps in sequence to produce a complete teardown:
 ### 1. Website Analysis
 
 Key things to capture:
+
 - Pricing tiers and price points
 - Feature lists per tier
 - Primary CTA and messaging
@@ -53,22 +54,26 @@ Key things to capture:
 ### 2. App Store Reviews
 
 Review sentiment categories:
+
 - **Praise** → what users love (defend / strengthen these)
 - **Feature requests** → unmet needs (opportunity gaps)
 - **Bugs** → quality signals
 - **UX complaints** → friction points you can beat them on
 
 **Sample App Store query (iTunes Search API):**
+
 ```
 GET https://itunes.apple.com/search?term=<competitor_name>&entity=software&limit=1
 # Extract trackId, then:
 GET https://itunes.apple.com/rss/customerreviews/id=<trackId>/sortBy=mostRecent/json?l=en&limit=50
 ```
+
 Parse `entry[].content.label` for review text and `entry[].im:rating.label` for star rating.
 
 ### 3. Job Postings (Team Size & Tech Stack Signals)
 
 Signals from job postings:
+
 - **Engineering volume** → scaling vs. consolidating
 - **Specific tech mentions** → stack (React/Vue, Postgres/Mongo, AWS/GCP)
 - **Sales/CS ratio** → product-led vs. sales-led motion
@@ -78,6 +83,7 @@ Signals from job postings:
 ### 4. SEO Analysis
 
 SEO signals to capture:
+
 - Top 20 organic keywords (intent: informational / navigational / commercial)
 - Domain Authority / backlink count
 - Blog publishing cadence and topics
@@ -91,26 +97,26 @@ Capture recent mentions via Twitter/X API v2, Reddit, or LinkedIn. Look for recu
 
 ## Scoring Rubric (12 Dimensions, 1-5)
 
-| # | Dimension | 1 (Weak) | 3 (Average) | 5 (Best-in-class) |
-|---|-----------|----------|-------------|-------------------|
-| 1 | **Features** | Core only, many gaps | Solid coverage | Comprehensive + unique |
-| 2 | **Pricing** | Confusing / overpriced | Market-rate, clear | Transparent, flexible, fair |
-| 3 | **UX** | Confusing, high friction | Functional | Delightful, minimal friction |
-| 4 | **Performance** | Slow, unreliable | Acceptable | Fast, high uptime |
-| 5 | **Docs** | Sparse, outdated | Decent coverage | Comprehensive, searchable |
-| 6 | **Support** | Email only, slow | Chat + email | 24/7, great response |
-| 7 | **Integrations** | 0-5 integrations | 6-25 | 26+ or deep ecosystem |
-| 8 | **Security** | No mentions | SOC2 claimed | SOC2 Type II, ISO 27001 |
-| 9 | **Scalability** | No enterprise tier | Mid-market ready | Enterprise-grade |
-| 10 | **Brand** | Generic, unmemorable | Decent positioning | Strong, differentiated |
-| 11 | **Community** | None | Forum / Slack | Active, vibrant community |
-| 12 | **Innovation** | No recent releases | Quarterly | Frequent, meaningful |
+| #   | Dimension        | 1 (Weak)                 | 3 (Average)        | 5 (Best-in-class)            |
+| --- | ---------------- | ------------------------ | ------------------ | ---------------------------- |
+| 1   | **Features**     | Core only, many gaps     | Solid coverage     | Comprehensive + unique       |
+| 2   | **Pricing**      | Confusing / overpriced   | Market-rate, clear | Transparent, flexible, fair  |
+| 3   | **UX**           | Confusing, high friction | Functional         | Delightful, minimal friction |
+| 4   | **Performance**  | Slow, unreliable         | Acceptable         | Fast, high uptime            |
+| 5   | **Docs**         | Sparse, outdated         | Decent coverage    | Comprehensive, searchable    |
+| 6   | **Support**      | Email only, slow         | Chat + email       | 24/7, great response         |
+| 7   | **Integrations** | 0-5 integrations         | 6-25               | 26+ or deep ecosystem        |
+| 8   | **Security**     | No mentions              | SOC2 claimed       | SOC2 Type II, ISO 27001      |
+| 9   | **Scalability**  | No enterprise tier       | Mid-market ready   | Enterprise-grade             |
+| 10  | **Brand**        | Generic, unmemorable     | Decent positioning | Strong, differentiated       |
+| 11  | **Community**    | None                     | Forum / Slack      | Active, vibrant community    |
+| 12  | **Innovation**   | No recent releases       | Quarterly          | Frequent, meaningful         |
 
 **Example completed row** (Competitor: Acme Corp, Dimension 3 – UX):
 
-| Dimension | Acme Corp Score | Evidence |
-|-----------|----------------|---------|
-| UX | 2 | App Store reviews cite "confusing navigation" (38 mentions); onboarding requires 7 steps before TTFV; no onboarding wizard; CC required at signup. |
+| Dimension | Acme Corp Score | Evidence                                                                                                                                           |
+| --------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| UX        | 2               | App Store reviews cite "confusing navigation" (38 mentions); onboarding requires 7 steps before TTFV; no onboarding wizard; CC required at signup. |
 
 Apply this pattern to all 12 dimensions for each competitor.
 
@@ -149,11 +155,11 @@ Navigation: global search, keyboard shortcuts, in-app help.
 
 ### Action Items
 
-| Horizon | Effort | Examples |
-|---------|--------|---------|
-| Quick wins (0–4 wks) | Low | Add review badges, publish comparison landing page |
+| Horizon              | Effort   | Examples                                                                 |
+| -------------------- | -------- | ------------------------------------------------------------------------ |
+| Quick wins (0–4 wks) | Low      | Add review badges, publish comparison landing page                       |
 | Medium-term (1–3 mo) | Moderate | Launch free tier, improve onboarding TTFV, add top-requested integration |
-| Strategic (3–12 mo) | High | Enter new market, build API v2, achieve SOC2 Type II |
+| Strategic (3–12 mo)  | High     | Enter new market, build API v2, achieve SOC2 Type II                     |
 
 ### Stakeholder Presentation (7 slides)
 

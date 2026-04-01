@@ -20,13 +20,13 @@ Decision criteria, templates, and implementation guidance for RCA techniques.
 
 ### When to Use Each Method
 
-| Method | Use When | Problem Type | Team Size | Time Required |
-|--------|----------|--------------|-----------|---------------|
-| 5 Why | Single-cause issues, process deviations | Linear causation | 1-3 people | 30-60 min |
-| Fishbone | Multi-factor problems, 3-6 contributing factors | Complex, systemic | 3-8 people | 2-4 hours |
-| Fault Tree | Safety-critical failures, reliability issues | System failures | 2-5 people | 4-8 hours |
-| Human Factors | Procedure/training-related issues | Human error | 3-6 people | 2-4 hours |
-| FMEA | Systematic risk assessment, design review | Potential failures | 4-10 people | 8-16 hours |
+| Method        | Use When                                        | Problem Type       | Team Size   | Time Required |
+| ------------- | ----------------------------------------------- | ------------------ | ----------- | ------------- |
+| 5 Why         | Single-cause issues, process deviations         | Linear causation   | 1-3 people  | 30-60 min     |
+| Fishbone      | Multi-factor problems, 3-6 contributing factors | Complex, systemic  | 3-8 people  | 2-4 hours     |
+| Fault Tree    | Safety-critical failures, reliability issues    | System failures    | 2-5 people  | 4-8 hours     |
+| Human Factors | Procedure/training-related issues               | Human error        | 3-6 people  | 2-4 hours     |
+| FMEA          | Systematic risk assessment, design review       | Potential failures | 4-10 people | 8-16 hours    |
 
 ### Quick Selection Decision Tree
 
@@ -135,14 +135,14 @@ Also called Ishikawa or cause-and-effect diagram. Organizes potential causes int
 
 ### Standard Categories (6M)
 
-| Category | Focus Areas | Typical Causes |
-|----------|-------------|----------------|
-| **Man** (People) | Training, competency, workload | Skill gaps, fatigue, communication |
-| **Machine** (Equipment) | Calibration, maintenance, age | Wear, malfunction, inadequate capacity |
-| **Method** (Process) | Procedures, work instructions | Unclear steps, missing controls |
-| **Material** | Specifications, suppliers, storage | Out-of-spec, degradation, contamination |
-| **Measurement** | Calibration, methods, interpretation | Instrument error, wrong method |
-| **Mother Nature** (Environment) | Temperature, humidity, cleanliness | Environmental excursions |
+| Category                        | Focus Areas                          | Typical Causes                          |
+| ------------------------------- | ------------------------------------ | --------------------------------------- |
+| **Man** (People)                | Training, competency, workload       | Skill gaps, fatigue, communication      |
+| **Machine** (Equipment)         | Calibration, maintenance, age        | Wear, malfunction, inadequate capacity  |
+| **Method** (Process)            | Procedures, work instructions        | Unclear steps, missing controls         |
+| **Material**                    | Specifications, suppliers, storage   | Out-of-spec, degradation, contamination |
+| **Measurement**                 | Calibration, methods, interpretation | Instrument error, wrong method          |
+| **Mother Nature** (Environment) | Temperature, humidity, cleanliness   | Environmental excursions                |
 
 ### Fishbone Template
 
@@ -207,13 +207,13 @@ Top-down, deductive analysis starting with undesired event and systematically id
 
 ### FTA Symbols
 
-| Symbol | Name | Meaning |
-|--------|------|---------|
-| Rectangle | Top Event / Intermediate Event | Undesired event or intermediate fault |
-| Circle | Basic Event | Primary fault requiring no further analysis |
-| Diamond | Undeveloped Event | Event not fully analyzed (data limitation) |
-| AND Gate | Requires all inputs | All child events must occur for parent |
-| OR Gate | Requires any input | Any child event causes parent |
+| Symbol    | Name                           | Meaning                                     |
+| --------- | ------------------------------ | ------------------------------------------- |
+| Rectangle | Top Event / Intermediate Event | Undesired event or intermediate fault       |
+| Circle    | Basic Event                    | Primary fault requiring no further analysis |
+| Diamond   | Undeveloped Event              | Event not fully analyzed (data limitation)  |
+| AND Gate  | Requires all inputs            | All child events must occur for parent      |
+| OR Gate   | Requires any input             | Any child event causes parent               |
 
 ### FTA Template
 
@@ -269,21 +269,21 @@ Systematic analysis of human error focusing on cognitive, physical, and organiza
 
 Human Factors Analysis and Classification System:
 
-| Level | Category | Examples |
-|-------|----------|----------|
-| **Unsafe Acts** | Errors, violations | Skill-based, decision, perceptual errors |
-| **Preconditions** | Conditions for unsafe acts | Fatigue, mental state, CRM, physical environment |
-| **Unsafe Supervision** | Supervisory failures | Inadequate supervision, planned inappropriate ops |
-| **Organizational Influences** | Organizational failures | Resource management, organizational climate |
+| Level                         | Category                   | Examples                                          |
+| ----------------------------- | -------------------------- | ------------------------------------------------- |
+| **Unsafe Acts**               | Errors, violations         | Skill-based, decision, perceptual errors          |
+| **Preconditions**             | Conditions for unsafe acts | Fatigue, mental state, CRM, physical environment  |
+| **Unsafe Supervision**        | Supervisory failures       | Inadequate supervision, planned inappropriate ops |
+| **Organizational Influences** | Organizational failures    | Resource management, organizational climate       |
 
 ### Human Error Types
 
-| Type | Description | Example | Mitigation |
-|------|-------------|---------|------------|
-| Slip | Execution error in routine task | Wrong button pressed | Error-proofing, forcing functions |
-| Lapse | Memory failure | Forgot step in procedure | Checklists, reminders |
-| Mistake | Planning/decision error | Wrong procedure selected | Training, decision aids |
-| Violation | Intentional deviation | Skipped step to save time | Culture change, supervision |
+| Type      | Description                     | Example                   | Mitigation                        |
+| --------- | ------------------------------- | ------------------------- | --------------------------------- |
+| Slip      | Execution error in routine task | Wrong button pressed      | Error-proofing, forcing functions |
+| Lapse     | Memory failure                  | Forgot step in procedure  | Checklists, reminders             |
+| Mistake   | Planning/decision error         | Wrong procedure selected  | Training, decision aids           |
+| Violation | Intentional deviation           | Skipped step to save time | Culture change, supervision       |
 
 ### Human Factors Investigation Template
 
@@ -346,11 +346,11 @@ Proactive, systematic technique identifying potential failure modes, their cause
 
 ### FMEA Types
 
-| Type | Application | Scope |
-|------|-------------|-------|
-| Design FMEA (DFMEA) | Product design | Component and system design failures |
-| Process FMEA (PFMEA) | Manufacturing process | Process step failures |
-| System FMEA | System-level analysis | System interaction failures |
+| Type                 | Application           | Scope                                |
+| -------------------- | --------------------- | ------------------------------------ |
+| Design FMEA (DFMEA)  | Product design        | Component and system design failures |
+| Process FMEA (PFMEA) | Manufacturing process | Process step failures                |
+| System FMEA          | System-level analysis | System interaction failures          |
 
 ### Risk Priority Number (RPN)
 
@@ -358,34 +358,34 @@ RPN = Severity (S) × Occurrence (O) × Detection (D)
 
 **Severity Scale (1-10):**
 
-| Rating | Effect | Criteria |
-|--------|--------|----------|
-| 10 | Hazardous | Failure affects safe operation, no warning |
-| 8-9 | Very High | Primary function lost, high impact |
-| 6-7 | High | Performance degraded, customer dissatisfied |
-| 4-5 | Moderate | Some performance loss, moderate impact |
-| 2-3 | Low | Minor effect, slight inconvenience |
-| 1 | None | No discernible effect |
+| Rating | Effect    | Criteria                                    |
+| ------ | --------- | ------------------------------------------- |
+| 10     | Hazardous | Failure affects safe operation, no warning  |
+| 8-9    | Very High | Primary function lost, high impact          |
+| 6-7    | High      | Performance degraded, customer dissatisfied |
+| 4-5    | Moderate  | Some performance loss, moderate impact      |
+| 2-3    | Low       | Minor effect, slight inconvenience          |
+| 1      | None      | No discernible effect                       |
 
 **Occurrence Scale (1-10):**
 
-| Rating | Likelihood | Failure Rate |
-|--------|------------|--------------|
-| 10 | Very High | >1 in 10 |
-| 7-9 | High | 1 in 20 - 1 in 100 |
-| 4-6 | Moderate | 1 in 400 - 1 in 2,000 |
-| 2-3 | Low | 1 in 15,000 - 1 in 150,000 |
-| 1 | Remote | <1 in 1,500,000 |
+| Rating | Likelihood | Failure Rate               |
+| ------ | ---------- | -------------------------- |
+| 10     | Very High  | >1 in 10                   |
+| 7-9    | High       | 1 in 20 - 1 in 100         |
+| 4-6    | Moderate   | 1 in 400 - 1 in 2,000      |
+| 2-3    | Low        | 1 in 15,000 - 1 in 150,000 |
+| 1      | Remote     | <1 in 1,500,000            |
 
 **Detection Scale (1-10):**
 
-| Rating | Detection | Criteria |
-|--------|-----------|----------|
-| 10 | Absolute Uncertainty | No inspection/control, defect will reach customer |
-| 7-9 | Very Remote to Remote | Controls unlikely to detect |
-| 4-6 | Moderate | Controls may detect |
-| 2-3 | High | Controls likely to detect |
-| 1 | Almost Certain | Controls will almost certainly detect |
+| Rating | Detection             | Criteria                                          |
+| ------ | --------------------- | ------------------------------------------------- |
+| 10     | Absolute Uncertainty  | No inspection/control, defect will reach customer |
+| 7-9    | Very Remote to Remote | Controls unlikely to detect                       |
+| 4-6    | Moderate              | Controls may detect                               |
+| 2-3    | High                  | Controls likely to detect                         |
+| 1      | Almost Certain        | Controls will almost certainly detect             |
 
 ### FMEA Template
 
@@ -446,10 +446,10 @@ For complex investigations, combine methods:
 
 ### Documentation Requirements
 
-| Method | Required Outputs | Retention |
-|--------|------------------|-----------|
-| 5 Why | Completed template with evidence | CAPA record |
-| Fishbone | Diagram + prioritized causes | CAPA record |
-| Fault Tree | FTA diagram + cut set analysis | DHF/CAPA record |
-| Human Factors | HFACS analysis + actions | CAPA record |
-| FMEA | FMEA worksheet + action tracking | Design file |
+| Method        | Required Outputs                 | Retention       |
+| ------------- | -------------------------------- | --------------- |
+| 5 Why         | Completed template with evidence | CAPA record     |
+| Fishbone      | Diagram + prioritized causes     | CAPA record     |
+| Fault Tree    | FTA diagram + cut set analysis   | DHF/CAPA record |
+| Human Factors | HFACS analysis + actions         | CAPA record     |
+| FMEA          | FMEA worksheet + action tracking | Design file     |

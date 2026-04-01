@@ -15,9 +15,9 @@ python3 scripts/contrast_checker.py "#1a1a2e" "#ffffff"
 
 ## Scripts
 
-| Script | Purpose |
-|--------|---------|
-| `a11y_scanner.py` | Scan HTML/JSX/TSX/Vue/Svelte/CSS for 20+ a11y violations |
+| Script                | Purpose                                                                |
+| --------------------- | ---------------------------------------------------------------------- |
+| `a11y_scanner.py`     | Scan HTML/JSX/TSX/Vue/Svelte/CSS for 20+ a11y violations               |
 | `contrast_checker.py` | WCAG contrast ratio calculator with AA/AAA checks and `--suggest` mode |
 
 Both are stdlib-only — no pip install needed. CI-friendly exit codes (0 = pass, 1 = blocking issues).

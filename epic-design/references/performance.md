@@ -19,23 +19,23 @@ Animating layout properties causes the browser to recalculate the entire page la
 Never put animation logic directly in event listeners. Always batch through rAF:
 
 ```javascript
-let rafId = null;
-let pendingScrollY = 0;
+let rafId = null
+let pendingScrollY = 0
 
 function onScroll() {
-  pendingScrollY = window.scrollY;
+  pendingScrollY = window.scrollY
   if (!rafId) {
-    rafId = requestAnimationFrame(processScroll);
+    rafId = requestAnimationFrame(processScroll)
   }
 }
 
 function processScroll() {
-  rafId = null;
-  document.documentElement.style.setProperty('--scroll-y', pendingScrollY);
+  rafId = null
+  document.documentElement.style.setProperty("--scroll-y", pendingScrollY)
   // update other values...
 }
 
-window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener("scroll", onScroll, { passive: true })
 // passive: true is CRITICAL — tells browser scroll handler won't preventDefault
 // allows browser to scroll on a separate thread
 ```
@@ -65,6 +65,7 @@ element.addEventListener('animationend', () => {
 ```
 
 ### GSAP handles this automatically
+
 GSAP applies `will-change` during animations and removes it after. If using GSAP, you generally don't need to manage `will-change` yourself.
 
 ---
@@ -76,42 +77,44 @@ Never animate all elements all the time. Only animate what's currently visible.
 ```javascript
 class AnimationManager {
   constructor() {
-    this.activeAnimations = new Set();
+    this.activeAnimations = new Set()
     this.observer = new IntersectionObserver(
       this.handleIntersection.bind(this),
-      { threshold: 0.1, rootMargin: '50px 0px' }
-    );
+      { threshold: 0.1, rootMargin: "50px 0px" },
+    )
   }
 
   observe(el) {
-    this.observer.observe(el);
+    this.observer.observe(el)
   }
 
   handleIntersection(entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        this.activateElement(entry.target);
+        this.activateElement(entry.target)
       } else {
-        this.deactivateElement(entry.target);
+        this.deactivateElement(entry.target)
       }
-    });
+    })
   }
 
   activateElement(el) {
     // Start GSAP animation / add floating class
-    el.classList.add('animate-active');
-    this.activeAnimations.add(el);
+    el.classList.add("animate-active")
+    this.activeAnimations.add(el)
   }
 
   deactivateElement(el) {
     // Pause or stop animation
-    el.classList.remove('animate-active');
-    this.activeAnimations.delete(el);
+    el.classList.remove("animate-active")
+    this.activeAnimations.delete(el)
   }
 }
 
-const animManager = new AnimationManager();
-document.querySelectorAll('.animated-layer').forEach(el => animManager.observe(el));
+const animManager = new AnimationManager()
+document
+  .querySelectorAll(".animated-layer")
+  .forEach(el => animManager.observe(el))
 ```
 
 ---
@@ -138,14 +141,14 @@ For pages with many off-screen sections, this dramatically improves initial load
 
 ### PNG File Size Targets (Maximum)
 
-| Depth Level | Element Type         | Max File Size | Max Dimensions |
-|-------------|---------------------|---------------|----------------|
-| Depth 0     | Background          | 150KB         | 1920×1080      |
-| Depth 1     | Glow layer          | 60KB          | 1000×1000      |
-| Depth 2     | Decorations         | 50KB          | 400×400        |
-| Depth 3     | Main product/hero   | 120KB         | 1200×1200      |
-| Depth 4     | UI components       | 40KB          | 800×800        |
-| Depth 5     | Particles           | 10KB          | 128×128        |
+| Depth Level | Element Type      | Max File Size | Max Dimensions |
+| ----------- | ----------------- | ------------- | -------------- |
+| Depth 0     | Background        | 150KB         | 1920×1080      |
+| Depth 1     | Glow layer        | 60KB          | 1000×1000      |
+| Depth 2     | Decorations       | 50KB          | 400×400        |
+| Depth 3     | Main product/hero | 120KB         | 1200×1200      |
+| Depth 4     | UI components     | 40KB          | 800×800        |
+| Depth 5     | Particles         | 10KB          | 128×128        |
 
 **Total page weight target: Under 2MB for all assets combined.**
 
@@ -153,22 +156,22 @@ For pages with many off-screen sections, this dramatically improves initial load
 
 ```html
 <!-- Hero image: preload immediately -->
-<link rel="preload" as="image" href="hero-product.png">
+<link rel="preload" as="image" href="hero-product.png" />
 
 <!-- Above-fold images: eager loading -->
-<img src="hero-bg.png" loading="eager" fetchpriority="high" alt="">
+<img src="hero-bg.png" loading="eager" fetchpriority="high" alt="" />
 
 <!-- Below-fold images: lazy loading -->
-<img src="section-2-bg.png" loading="lazy" alt="">
+<img src="section-2-bg.png" loading="lazy" alt="" />
 
 <!-- Use srcset for responsive images -->
-<img 
+<img
   src="product-800.png"
   srcset="product-400.png 400w, product-800.png 800w, product-1200.png 1200w"
   sizes="(max-width: 768px) 100vw, 50vw"
   alt="Product description"
   loading="eager"
->
+/>
 ```
 
 ---
@@ -178,23 +181,26 @@ For pages with many off-screen sections, this dramatically improves initial load
 Touch devices have less GPU power. Always detect and reduce effects:
 
 ```javascript
-const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
-const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const isLowPower = navigator.hardwareConcurrency <= 4; // heuristic for low-end devices
+const isTouchDevice = window.matchMedia("(pointer: coarse)").matches
+const prefersReduced = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches
+const isLowPower = navigator.hardwareConcurrency <= 4 // heuristic for low-end devices
 
-const performanceMode = (isTouchDevice || prefersReduced || isLowPower) ? 'lite' : 'full';
+const performanceMode =
+  isTouchDevice || prefersReduced || isLowPower ? "lite" : "full"
 
 function initForPerformanceMode() {
-  if (performanceMode === 'lite') {
+  if (performanceMode === "lite") {
     // Disable: mouse tracking, floating loops, particles, perspective zoom
-    document.documentElement.classList.add('perf-lite');
+    document.documentElement.classList.add("perf-lite")
     // Keep: basic scroll fade-ins, curtain reveals (CSS only)
   } else {
     // Full experience
-    initParallaxLayers();
-    initFloatingLoops();
-    initParticles();
-    initMouseTracking();
+    initParallaxLayers()
+    initFloatingLoops()
+    initParticles()
+    initMouseTracking()
   }
 }
 ```

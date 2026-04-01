@@ -5,6 +5,7 @@
 ### Common Issues and Fixes
 
 **Image alt text:**
+
 ```jsx
 // ❌ Bad
 <img src="/hero.jpg" />
@@ -19,6 +20,7 @@
 ```
 
 **Form labels:**
+
 ```jsx
 // ❌ Bad — placeholder as label
 <input placeholder="Email" type="email" />
@@ -32,6 +34,7 @@
 ```
 
 **Click handlers on divs:**
+
 ```jsx
 // ❌ Bad — not keyboard accessible
 <div onClick={handleClick}>Click me</div>
@@ -51,50 +54,53 @@
 ```
 
 **SPA route announcements (Next.js App Router):**
+
 ```jsx
 // Layout component — announce page changes
-'use client';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+"use client"
+import { usePathname } from "next/navigation"
+import { useEffect, useState } from "react"
 
 export function RouteAnnouncer() {
-  const pathname = usePathname();
-  const [announcement, setAnnouncement] = useState('');
+  const pathname = usePathname()
+  const [announcement, setAnnouncement] = useState("")
 
   useEffect(() => {
-    const title = document.title;
-    setAnnouncement(`Navigated to ${title}`);
-  }, [pathname]);
+    const title = document.title
+    setAnnouncement(`Navigated to ${title}`)
+  }, [pathname])
 
   return (
     <div aria-live="assertive" role="status" className="sr-only">
       {announcement}
     </div>
-  );
+  )
 }
 ```
 
 **Focus management after dynamic content:**
+
 ```jsx
 // After adding item to list, announce it
-const [items, setItems] = useState([]);
-const statusRef = useRef(null);
+const [items, setItems] = useState([])
+const statusRef = useRef(null)
 
-const addItem = (item) => {
-  setItems([...items, item]);
+const addItem = item => {
+  setItems([...items, item])
   // Announce to screen readers
-  statusRef.current.textContent = `${item.name} added to list`;
-};
+  statusRef.current.textContent = `${item.name} added to list`
+}
 
 return (
   <>
     <div ref={statusRef} aria-live="polite" className="sr-only" />
     {/* list content */}
   </>
-);
+)
 ```
 
 ### React-Specific Libraries
+
 - `@radix-ui/*` — accessible primitives (Dialog, Tabs, Select, etc.)
 - `@headlessui/react` — unstyled accessible components
 - `react-aria` — Adobe's accessibility hooks
@@ -105,6 +111,7 @@ return (
 ### Common Issues and Fixes
 
 **Dynamic content announcements:**
+
 ```vue
 <template>
   <div aria-live="polite" class="sr-only">
@@ -117,18 +124,19 @@ return (
 </template>
 
 <script setup>
-import { ref } from 'vue';
-const results = ref([]);
-const announcement = ref('');
+import { ref } from "vue"
+const results = ref([])
+const announcement = ref("")
 
 async function search() {
-  results.value = await fetchResults();
-  announcement.value = `${results.value.length} results found`;
+  results.value = await fetchResults()
+  announcement.value = `${results.value.length} results found`
 }
 </script>
 ```
 
 **Conditional rendering with focus:**
+
 ```vue
 <template>
   <button @click="showForm = true">Add Item</button>
@@ -139,20 +147,21 @@ async function search() {
 </template>
 
 <script setup>
-import { ref, nextTick } from 'vue';
-const showForm = ref(false);
-const nameInput = ref(null);
+import { ref, nextTick } from "vue"
+const showForm = ref(false)
+const nameInput = ref(null)
 
-watch(showForm, async (val) => {
+watch(showForm, async val => {
   if (val) {
-    await nextTick();
-    nameInput.value?.focus();
+    await nextTick()
+    nameInput.value?.focus()
   }
-});
+})
 </script>
 ```
 
 ### Vue-Specific Libraries
+
 - `vue-announcer` — route change announcements
 - `@headlessui/vue` — accessible components
 - `eslint-plugin-vuejs-accessibility` — lint rules
@@ -162,6 +171,7 @@ watch(showForm, async (val) => {
 ### Common Issues and Fixes
 
 **CDK accessibility utilities:**
+
 ```typescript
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { FocusTrapFactory } from '@angular/cdk/a11y';
@@ -186,21 +196,26 @@ export class MyComponent {
 ```
 
 **Template-driven forms:**
+
 ```html
 <!-- ❌ Bad -->
 <input [formControl]="email" placeholder="Email" />
 
 <!-- ✅ Good -->
 <label for="email">Email address</label>
-<input id="email" [formControl]="email"
-       [attr.aria-invalid]="email.invalid && email.touched"
-       [attr.aria-describedby]="email.invalid ? 'email-error' : null" />
+<input
+  id="email"
+  [formControl]="email"
+  [attr.aria-invalid]="email.invalid && email.touched"
+  [attr.aria-describedby]="email.invalid ? 'email-error' : null"
+/>
 <div id="email-error" *ngIf="email.invalid && email.touched" role="alert">
   Please enter a valid email address.
 </div>
 ```
 
 ### Angular-Specific Tools
+
 - `@angular/cdk/a11y` — `FocusTrap`, `LiveAnnouncer`, `FocusMonitor`
 - `codelyzer` — a11y lint rules for Angular templates
 
@@ -240,34 +255,34 @@ export class MyComponent {
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Descriptive Page Title</title>
-</head>
-<body>
-  <!-- Skip link -->
-  <a href="#main" class="skip-link">Skip to main content</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Descriptive Page Title</title>
+  </head>
+  <body>
+    <!-- Skip link -->
+    <a href="#main" class="skip-link">Skip to main content</a>
 
-  <header>
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about" aria-current="page">About</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about" aria-current="page">About</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <main id="main" tabindex="-1">
-    <h1>Page Heading</h1>
-    <!-- Only one h1 per page -->
-    <!-- Heading levels don't skip (h1 → h2 → h3, never h1 → h3) -->
-  </main>
+    <main id="main" tabindex="-1">
+      <h1>Page Heading</h1>
+      <!-- Only one h1 per page -->
+      <!-- Heading levels don't skip (h1 → h2 → h3, never h1 → h3) -->
+    </main>
 
-  <footer>
-    <p>&copy; 2026 Company Name</p>
-  </footer>
-</body>
+    <footer>
+      <p>&copy; 2026 Company Name</p>
+    </footer>
+  </body>
 </html>
 ```
 
@@ -277,7 +292,9 @@ export class MyComponent {
 
 ```css
 /* ❌ Bad — removes focus indicator entirely */
-:focus { outline: none; }
+:focus {
+  outline: none;
+}
 
 /* ✅ Good — custom focus indicator */
 :focus-visible {
@@ -298,7 +315,9 @@ export class MyComponent {
 ```css
 /* ✅ Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -357,51 +376,51 @@ export class MyComponent {
 ```tsx
 // BEFORE
 function Modal({ isOpen, onClose, children }) {
-  if (!isOpen) return null;
-  return <div className="modal-overlay">{children}</div>;
+  if (!isOpen) return null
+  return <div className="modal-overlay">{children}</div>
 }
 
 // AFTER
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react"
 
 function Modal({ isOpen, onClose, children, title }) {
-  const modalRef = useRef(null);
-  const previousFocus = useRef(null);
+  const modalRef = useRef(null)
+  const previousFocus = useRef(null)
 
   useEffect(() => {
     if (isOpen) {
-      previousFocus.current = document.activeElement;
-      modalRef.current?.focus();
+      previousFocus.current = document.activeElement
+      modalRef.current?.focus()
     } else {
-      previousFocus.current?.focus();
+      previousFocus.current?.focus()
     }
-  }, [isOpen]);
+  }, [isOpen])
 
   useEffect(() => {
-    if (!isOpen) return;
-    const handleKeydown = (e) => {
-      if (e.key === 'Escape') onClose();
-      if (e.key === 'Tab') {
+    if (!isOpen) return
+    const handleKeydown = e => {
+      if (e.key === "Escape") onClose()
+      if (e.key === "Tab") {
         const focusable = modalRef.current?.querySelectorAll(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        if (!focusable?.length) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        )
+        if (!focusable?.length) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
         if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
+          e.preventDefault()
+          last.focus()
         } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
+          e.preventDefault()
+          first.focus()
         }
       }
-    };
-    document.addEventListener('keydown', handleKeydown);
-    return () => document.removeEventListener('keydown', handleKeydown);
-  }, [isOpen, onClose]);
+    }
+    document.addEventListener("keydown", handleKeydown)
+    return () => document.removeEventListener("keydown", handleKeydown)
+  }, [isOpen, onClose])
 
-  if (!isOpen) return null;
+  if (!isOpen) return null
 
   return (
     <div className="modal-overlay" onClick={onClose} aria-hidden="true">
@@ -411,7 +430,7 @@ function Modal({ isOpen, onClose, children, title }) {
         aria-modal="true"
         aria-label={title}
         tabIndex={-1}
-        onClick={(e) => e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
       >
         <button
           onClick={onClose}
@@ -423,7 +442,7 @@ function Modal({ isOpen, onClose, children, title }) {
         {children}
       </div>
     </div>
-  );
+  )
 }
 ```
 
@@ -478,16 +497,16 @@ button:focus-visible {
 
 ```typescript
 // router/index.ts
-router.afterEach((to) => {
-  const title = to.meta.title || 'Page';
-  document.title = `${title} | My App`;
+router.afterEach(to => {
+  const title = to.meta.title || "Page"
+  document.title = `${title} | My App`
 
   // Announce route change to screen readers
-  const announcer = document.getElementById('route-announcer');
+  const announcer = document.getElementById("route-announcer")
   if (announcer) {
-    announcer.textContent = `Navigated to ${title}`;
+    announcer.textContent = `Navigated to ${title}`
   }
-});
+})
 ```
 
 ```vue
@@ -636,13 +655,23 @@ import { A11yModule } from '@angular/cdk/a11y';
 ```html
 <!-- BEFORE -->
 <table>
-  <tr><td>Name</td><td>Email</td><td>Role</td></tr>
-  <tr><td>Alice</td><td>alice@co.com</td><td>Admin</td></tr>
+  <tr>
+    <td>Name</td>
+    <td>Email</td>
+    <td>Role</td>
+  </tr>
+  <tr>
+    <td>Alice</td>
+    <td>alice@co.com</td>
+    <td>Admin</td>
+  </tr>
 </table>
 
 <!-- AFTER -->
 <table aria-label="Team members">
-  <caption class="sr-only">List of team members and their roles</caption>
+  <caption class="sr-only">
+    List of team members and their roles
+  </caption>
   <thead>
     <tr>
       <th scope="col">Name</th>

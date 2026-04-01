@@ -118,10 +118,10 @@ function processData(data) {
       if (data.items.length > 0) {
         for (const item of data.items) {
           if (item.isValid) {
-            if (item.type === 'premium') {
+            if (item.type === "premium") {
               if (item.price > 100) {
                 // Finally do something
-                processItem(item);
+                processItem(item)
               }
             }
           }
@@ -134,14 +134,14 @@ function processData(data) {
 // GOOD: Early returns and guard clauses
 function processData(data) {
   if (!data?.items?.length) {
-    return;
+    return
   }
 
   const premiumItems = data.items.filter(
-    item => item.isValid && item.type === 'premium' && item.price > 100
-  );
+    item => item.isValid && item.type === "premium" && item.price > 100,
+  )
 
-  premiumItems.forEach(processItem);
+  premiumItems.forEach(processItem)
 }
 ```
 
@@ -336,18 +336,18 @@ String concatenation in SQL queries.
 
 ```javascript
 // BAD: String concatenation
-const query = `SELECT * FROM users WHERE id = ${userId}`;
-db.query(query);
+const query = `SELECT * FROM users WHERE id = ${userId}`
+db.query(query)
 
 // BAD: String templates still vulnerable
-const query = `SELECT * FROM users WHERE name = '${userName}'`;
+const query = `SELECT * FROM users WHERE name = '${userName}'`
 
 // GOOD: Parameterized queries
-const query = 'SELECT * FROM users WHERE id = $1';
-db.query(query, [userId]);
+const query = "SELECT * FROM users WHERE id = $1"
+db.query(query, [userId])
 
 // GOOD: Using ORM safely
-User.findOne({ where: { id: userId } });
+User.findOne({ where: { id: userId } })
 ```
 
 **Detection:** String concatenation or template literals with SQL keywords.
@@ -411,32 +411,32 @@ Trusting user input without validation.
 
 ```typescript
 // BAD: No validation
-app.post('/user', (req, res) => {
+app.post("/user", (req, res) => {
   const user = db.create({
     name: req.body.name,
     email: req.body.email,
-    role: req.body.role  // User can set themselves as admin!
-  });
-  res.json(user);
-});
+    role: req.body.role, // User can set themselves as admin!
+  })
+  res.json(user)
+})
 
 // GOOD: Validate and sanitize
-import { z } from 'zod';
+import { z } from "zod"
 
 const CreateUserSchema = z.object({
   name: z.string().min(1).max(100),
   email: z.string().email(),
   // role is NOT accepted from input
-});
+})
 
-app.post('/user', (req, res) => {
-  const validated = CreateUserSchema.parse(req.body);
+app.post("/user", (req, res) => {
+  const validated = CreateUserSchema.parse(req.body)
   const user = db.create({
     ...validated,
-    role: 'user'  // Default role, not from input
-  });
-  res.json(user);
-});
+    role: "user", // Default role, not from input
+  })
+  res.json(user)
+})
 ```
 
 **Detection:** Request body/params used directly without validation schema.
@@ -523,27 +523,27 @@ Blocking operations in request handlers.
 
 ```javascript
 // BAD: Sync file read on every request
-app.get('/config', (req, res) => {
-  const config = fs.readFileSync('./config.json');  // Blocks event loop
-  res.json(JSON.parse(config));
-});
+app.get("/config", (req, res) => {
+  const config = fs.readFileSync("./config.json") // Blocks event loop
+  res.json(JSON.parse(config))
+})
 
 // GOOD: Load once at startup
-const config = JSON.parse(fs.readFileSync('./config.json'));
+const config = JSON.parse(fs.readFileSync("./config.json"))
 
-app.get('/config', (req, res) => {
-  res.json(config);
-});
+app.get("/config", (req, res) => {
+  res.json(config)
+})
 
 // GOOD: Async with caching
-let configCache = null;
+let configCache = null
 
-app.get('/config', async (req, res) => {
+app.get("/config", async (req, res) => {
   if (!configCache) {
-    configCache = JSON.parse(await fs.promises.readFile('./config.json'));
+    configCache = JSON.parse(await fs.promises.readFile("./config.json"))
   }
-  res.json(configCache);
-});
+  res.json(configCache)
+})
 ```
 
 **Detection:** `readFileSync`, `execSync`, or blocking calls in request handlers.
@@ -558,48 +558,48 @@ Repeating setup in every test.
 
 ```typescript
 // BAD: Duplicate setup
-describe('UserService', () => {
-  it('should create user', async () => {
-    const db = await createTestDatabase();
-    const userRepo = new UserRepository(db);
-    const emailService = new MockEmailService();
-    const service = new UserService(userRepo, emailService);
+describe("UserService", () => {
+  it("should create user", async () => {
+    const db = await createTestDatabase()
+    const userRepo = new UserRepository(db)
+    const emailService = new MockEmailService()
+    const service = new UserService(userRepo, emailService)
 
-    const user = await service.create({ name: 'Test' });
-    expect(user.name).toBe('Test');
-  });
+    const user = await service.create({ name: "Test" })
+    expect(user.name).toBe("Test")
+  })
 
-  it('should update user', async () => {
-    const db = await createTestDatabase();  // Duplicated
-    const userRepo = new UserRepository(db);  // Duplicated
-    const emailService = new MockEmailService();  // Duplicated
-    const service = new UserService(userRepo, emailService);  // Duplicated
+  it("should update user", async () => {
+    const db = await createTestDatabase() // Duplicated
+    const userRepo = new UserRepository(db) // Duplicated
+    const emailService = new MockEmailService() // Duplicated
+    const service = new UserService(userRepo, emailService) // Duplicated
 
     // ...
-  });
-});
+  })
+})
 
 // GOOD: Shared setup
-describe('UserService', () => {
-  let service: UserService;
-  let db: TestDatabase;
+describe("UserService", () => {
+  let service: UserService
+  let db: TestDatabase
 
   beforeEach(async () => {
-    db = await createTestDatabase();
-    const userRepo = new UserRepository(db);
-    const emailService = new MockEmailService();
-    service = new UserService(userRepo, emailService);
-  });
+    db = await createTestDatabase()
+    const userRepo = new UserRepository(db)
+    const emailService = new MockEmailService()
+    service = new UserService(userRepo, emailService)
+  })
 
   afterEach(async () => {
-    await db.cleanup();
-  });
+    await db.cleanup()
+  })
 
-  it('should create user', async () => {
-    const user = await service.create({ name: 'Test' });
-    expect(user.name).toBe('Test');
-  });
-});
+  it("should create user", async () => {
+    const user = await service.create({ name: "Test" })
+    expect(user.name).toBe("Test")
+  })
+})
 ```
 
 ---
@@ -640,27 +640,27 @@ Promises without await or catch.
 ```typescript
 // BAD: Floating promise
 async function saveUser(user: User) {
-  db.save(user);  // Not awaited, errors lost
-  logger.info('User saved');  // Logs before save completes
+  db.save(user) // Not awaited, errors lost
+  logger.info("User saved") // Logs before save completes
 }
 
 // BAD: Fire and forget in loop
 for (const item of items) {
-  processItem(item);  // All run in parallel, no error handling
+  processItem(item) // All run in parallel, no error handling
 }
 
 // GOOD: Await the promise
 async function saveUser(user: User) {
-  await db.save(user);
-  logger.info('User saved');
+  await db.save(user)
+  logger.info("User saved")
 }
 
 // GOOD: Process with proper handling
-await Promise.all(items.map(item => processItem(item)));
+await Promise.all(items.map(item => processItem(item)))
 
 // Or sequentially
 for (const item of items) {
-  await processItem(item);
+  await processItem(item)
 }
 ```
 
@@ -675,29 +675,29 @@ Deeply nested callbacks.
 ```javascript
 // BAD: Callback hell
 getUser(userId, (err, user) => {
-  if (err) return handleError(err);
+  if (err) return handleError(err)
   getOrders(user.id, (err, orders) => {
-    if (err) return handleError(err);
+    if (err) return handleError(err)
     getProducts(orders[0].productIds, (err, products) => {
-      if (err) return handleError(err);
-      renderPage(user, orders, products, (err) => {
-        if (err) return handleError(err);
-        console.log('Done');
-      });
-    });
-  });
-});
+      if (err) return handleError(err)
+      renderPage(user, orders, products, err => {
+        if (err) return handleError(err)
+        console.log("Done")
+      })
+    })
+  })
+})
 
 // GOOD: Async/await
 async function loadPage(userId) {
   try {
-    const user = await getUser(userId);
-    const orders = await getOrders(user.id);
-    const products = await getProducts(orders[0].productIds);
-    await renderPage(user, orders, products);
-    console.log('Done');
+    const user = await getUser(userId)
+    const orders = await getOrders(user.id)
+    const products = await getProducts(orders[0].productIds)
+    await renderPage(user, orders, products)
+    console.log("Done")
   } catch (err) {
-    handleError(err);
+    handleError(err)
   }
 }
 ```
@@ -714,11 +714,11 @@ Async operations in constructors.
 // BAD: Async in constructor
 class DatabaseConnection {
   constructor(url: string) {
-    this.connect(url);  // Fire-and-forget async
+    this.connect(url) // Fire-and-forget async
   }
 
   private async connect(url: string) {
-    this.client = await createClient(url);
+    this.client = await createClient(url)
   }
 }
 
@@ -727,13 +727,13 @@ class DatabaseConnection {
   private constructor(private client: Client) {}
 
   static async create(url: string): Promise<DatabaseConnection> {
-    const client = await createClient(url);
-    return new DatabaseConnection(client);
+    const client = await createClient(url)
+    return new DatabaseConnection(client)
   }
 }
 
 // Usage
-const db = await DatabaseConnection.create(url);
+const db = await DatabaseConnection.create(url)
 ```
 
 **Detection:** `async` calls or `.then()` in constructor.

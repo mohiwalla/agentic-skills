@@ -49,24 +49,24 @@ Conduct systematic CAPA investigation from initiation through closure:
 
 ### CAPA Necessity Determination
 
-| Trigger Type | CAPA Required | Criteria |
-|--------------|---------------|----------|
-| Customer complaint (safety) | Yes | Any complaint involving patient/user safety |
-| Customer complaint (quality) | Evaluate | Based on severity and frequency |
-| Internal audit finding (Major) | Yes | Systematic failure or absence of element |
-| Internal audit finding (Minor) | Recommended | Isolated lapse or partial implementation |
-| Nonconformance (recurring) | Yes | Same NC type occurring 3+ times |
-| Nonconformance (isolated) | Evaluate | Based on severity and risk |
-| External audit finding | Yes | All Major and Minor findings |
-| Trend analysis | Evaluate | Based on trend significance |
+| Trigger Type                   | CAPA Required | Criteria                                    |
+| ------------------------------ | ------------- | ------------------------------------------- |
+| Customer complaint (safety)    | Yes           | Any complaint involving patient/user safety |
+| Customer complaint (quality)   | Evaluate      | Based on severity and frequency             |
+| Internal audit finding (Major) | Yes           | Systematic failure or absence of element    |
+| Internal audit finding (Minor) | Recommended   | Isolated lapse or partial implementation    |
+| Nonconformance (recurring)     | Yes           | Same NC type occurring 3+ times             |
+| Nonconformance (isolated)      | Evaluate      | Based on severity and risk                  |
+| External audit finding         | Yes           | All Major and Minor findings                |
+| Trend analysis                 | Evaluate      | Based on trend significance                 |
 
 ### Investigation Team Composition
 
-| CAPA Severity | Required Team Members |
-|---------------|----------------------|
-| Critical | CAPA Officer, Process Owner, QA Manager, Subject Matter Expert, Management Rep |
-| Major | CAPA Officer, Process Owner, Subject Matter Expert |
-| Minor | CAPA Officer, Process Owner |
+| CAPA Severity | Required Team Members                                                          |
+| ------------- | ------------------------------------------------------------------------------ |
+| Critical      | CAPA Officer, Process Owner, QA Manager, Subject Matter Expert, Management Rep |
+| Major         | CAPA Officer, Process Owner, Subject Matter Expert                             |
+| Minor         | CAPA Officer, Process Owner                                                    |
 
 ### Evidence Collection Checklist
 
@@ -158,14 +158,14 @@ with organizational systems implemented after original procedure creation.
 
 ### Fishbone Diagram Categories (6M)
 
-| Category | Focus Areas | Typical Causes |
-|----------|-------------|----------------|
-| Man (People) | Training, competency, workload | Skill gaps, fatigue, communication |
-| Machine (Equipment) | Calibration, maintenance, age | Wear, malfunction, inadequate capacity |
-| Method (Process) | Procedures, work instructions | Unclear steps, missing controls |
-| Material | Specifications, suppliers, storage | Out-of-spec, degradation, contamination |
-| Measurement | Calibration, methods, interpretation | Instrument error, wrong method |
-| Mother Nature | Temperature, humidity, cleanliness | Environmental excursions |
+| Category            | Focus Areas                          | Typical Causes                          |
+| ------------------- | ------------------------------------ | --------------------------------------- |
+| Man (People)        | Training, competency, workload       | Skill gaps, fatigue, communication      |
+| Machine (Equipment) | Calibration, maintenance, age        | Wear, malfunction, inadequate capacity  |
+| Method (Process)    | Procedures, work instructions        | Unclear steps, missing controls         |
+| Material            | Specifications, suppliers, storage   | Out-of-spec, degradation, contamination |
+| Measurement         | Calibration, methods, interpretation | Instrument error, wrong method          |
+| Mother Nature       | Temperature, humidity, cleanliness   | Environmental excursions                |
 
 See `references/rca-methodologies.md` for complete method details and templates.
 
@@ -196,12 +196,12 @@ Develop effective actions addressing identified root causes:
 
 ### Action Types
 
-| Type | Purpose | Timeline | Example |
-|------|---------|----------|---------|
-| Containment | Stop immediate impact | 24-72 hours | Quarantine affected product |
-| Correction | Fix the specific occurrence | 1-2 weeks | Rework or replace affected items |
-| Corrective | Eliminate root cause | 30-90 days | Revise procedure, add controls |
-| Preventive | Prevent in other areas | 60-120 days | Extend solution to similar processes |
+| Type        | Purpose                     | Timeline    | Example                              |
+| ----------- | --------------------------- | ----------- | ------------------------------------ |
+| Containment | Stop immediate impact       | 24-72 hours | Quarantine affected product          |
+| Correction  | Fix the specific occurrence | 1-2 weeks   | Rework or replace affected items     |
+| Corrective  | Eliminate root cause        | 30-90 days  | Revise procedure, add controls       |
+| Preventive  | Prevent in other areas      | 60-120 days | Extend solution to similar processes |
 
 ### Action Plan Components
 
@@ -236,13 +236,13 @@ QA Manager: _____________ Date: _______
 
 ### Action Effectiveness Indicators
 
-| Indicator | Target | Red Flag |
-|-----------|--------|----------|
-| Action scope | Addresses root cause completely | Treats only symptoms |
-| Specificity | Measurable deliverables | Vague commitments |
-| Timeline | Aggressive but achievable | No due dates or unrealistic |
-| Resources | Identified and allocated | Not specified |
-| Sustainability | Permanent solution | Temporary fix |
+| Indicator      | Target                          | Red Flag                    |
+| -------------- | ------------------------------- | --------------------------- |
+| Action scope   | Addresses root cause completely | Treats only symptoms        |
+| Specificity    | Measurable deliverables         | Vague commitments           |
+| Timeline       | Aggressive but achievable       | No due dates or unrealistic |
+| Resources      | Identified and allocated        | Not specified               |
+| Sustainability | Permanent solution              | Temporary fix               |
 
 ---
 
@@ -261,21 +261,21 @@ Verify corrective actions achieved intended results:
 
 ### Verification Timeline Guidelines
 
-| CAPA Severity | Wait Period | Verification Window |
-|---------------|-------------|---------------------|
-| Critical | 30 days | 30-90 days post-implementation |
-| Major | 60 days | 60-180 days post-implementation |
-| Minor | 90 days | 90-365 days post-implementation |
+| CAPA Severity | Wait Period | Verification Window             |
+| ------------- | ----------- | ------------------------------- |
+| Critical      | 30 days     | 30-90 days post-implementation  |
+| Major         | 60 days     | 60-180 days post-implementation |
+| Minor         | 90 days     | 90-365 days post-implementation |
 
 ### Verification Methods
 
-| Method | Use When | Evidence Required |
-|--------|----------|-------------------|
-| Data trend analysis | Quantifiable issues | Pre/post comparison, trend charts |
-| Process audit | Procedure compliance issues | Audit checklist, interview notes |
-| Record review | Documentation issues | Sample records, compliance rate |
-| Testing/inspection | Product quality issues | Test results, pass/fail data |
-| Interview/observation | Training issues | Interview notes, observation records |
+| Method                | Use When                    | Evidence Required                    |
+| --------------------- | --------------------------- | ------------------------------------ |
+| Data trend analysis   | Quantifiable issues         | Pre/post comparison, trend charts    |
+| Process audit         | Procedure compliance issues | Audit checklist, interview notes     |
+| Record review         | Documentation issues        | Sample records, compliance rate      |
+| Testing/inspection    | Product quality issues      | Test results, pass/fail data         |
+| Interview/observation | Training issues             | Interview notes, observation records |
 
 ### Effectiveness Determination
 
@@ -299,26 +299,27 @@ Monitor CAPA program performance through key indicators.
 
 ### Key Performance Indicators
 
-| Metric | Target | Calculation |
-|--------|--------|-------------|
-| CAPA cycle time | <60 days average | (Close Date - Open Date) / Number of CAPAs |
-| Overdue rate | <10% | Overdue CAPAs / Total Open CAPAs |
-| First-time effectiveness | >90% | Effective on first verification / Total verified |
-| Recurrence rate | <5% | Recurred issues / Total closed CAPAs |
-| Investigation quality | 100% root cause validated | Root causes validated / Total CAPAs |
+| Metric                   | Target                    | Calculation                                      |
+| ------------------------ | ------------------------- | ------------------------------------------------ |
+| CAPA cycle time          | <60 days average          | (Close Date - Open Date) / Number of CAPAs       |
+| Overdue rate             | <10%                      | Overdue CAPAs / Total Open CAPAs                 |
+| First-time effectiveness | >90%                      | Effective on first verification / Total verified |
+| Recurrence rate          | <5%                       | Recurred issues / Total closed CAPAs             |
+| Investigation quality    | 100% root cause validated | Root causes validated / Total CAPAs              |
 
 ### Aging Analysis Categories
 
-| Age Bucket | Status | Action Required |
-|------------|--------|-----------------|
-| 0-30 days | On track | Monitor progress |
-| 31-60 days | Monitor | Review for delays |
-| 61-90 days | Warning | Escalate to management |
-| >90 days | Critical | Management intervention required |
+| Age Bucket | Status   | Action Required                  |
+| ---------- | -------- | -------------------------------- |
+| 0-30 days  | On track | Monitor progress                 |
+| 31-60 days | Monitor  | Review for delays                |
+| 61-90 days | Warning  | Escalate to management           |
+| >90 days   | Critical | Management intervention required |
 
 ### Management Review Inputs
 
 Monthly CAPA status report includes:
+
 - Open CAPA count by severity and status
 - Overdue CAPA list with owners
 - Cycle time trends
@@ -374,6 +375,7 @@ python scripts/capa_tracker.py --sample > sample_capas.json
 ```
 
 Calculates and reports:
+
 - Summary metrics (open, closed, overdue, cycle time, effectiveness)
 - Status distribution
 - Severity and source analysis
@@ -409,14 +411,15 @@ Calculates and reports:
 
 ### ISO 13485:2016 Clause 8.5
 
-| Sub-clause | Requirement | Key Activities |
-|------------|-------------|----------------|
-| 8.5.2 Corrective Action | Eliminate cause of nonconformity | NC review, cause determination, action evaluation, implementation, effectiveness review |
+| Sub-clause              | Requirement                       | Key Activities                                                                               |
+| ----------------------- | --------------------------------- | -------------------------------------------------------------------------------------------- |
+| 8.5.2 Corrective Action | Eliminate cause of nonconformity  | NC review, cause determination, action evaluation, implementation, effectiveness review      |
 | 8.5.3 Preventive Action | Eliminate potential nonconformity | Trend analysis, cause determination, action evaluation, implementation, effectiveness review |
 
 ### FDA 21 CFR 820.100
 
 Required CAPA elements:
+
 - Procedures for implementing corrective and preventive action
 - Analyzing quality data sources (complaints, NCs, audits, service records)
 - Investigating cause of nonconformities
@@ -426,9 +429,9 @@ Required CAPA elements:
 
 ### Common FDA 483 Observations
 
-| Observation | Root Cause Pattern |
-|-------------|-------------------|
-| CAPA not initiated for recurring issue | Trend analysis not performed |
-| Root cause analysis superficial | Inadequate investigation training |
-| Effectiveness not verified | No verification procedure |
-| Actions do not address root cause | Symptom treatment vs. cause elimination |
+| Observation                            | Root Cause Pattern                      |
+| -------------------------------------- | --------------------------------------- |
+| CAPA not initiated for recurring issue | Trend analysis not performed            |
+| Root cause analysis superficial        | Inadequate investigation training       |
+| Effectiveness not verified             | No verification procedure               |
+| Actions do not address root cause      | Symptom treatment vs. cause elimination |

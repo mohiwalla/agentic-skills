@@ -93,7 +93,7 @@ Vue:
   },
   "scaling_params": {
     "initial_users": 5000,
-    "annual_growth_rate": 0.40,
+    "annual_growth_rate": 0.4,
     "initial_servers": 3,
     "cost_per_server_monthly": 150
   }

@@ -37,6 +37,7 @@ python3 scripts/dashboard_generator.py --service-type web --name "Customer Porta
 Generates comprehensive SLO frameworks based on service characteristics.
 
 #### Features
+
 - **Automatic SLI Selection**: Recommends appropriate SLIs based on service type
 - **Target Setting**: Suggests SLO targets based on service criticality
 - **Error Budget Calculation**: Computes error budgets and burn rate thresholds
@@ -83,6 +84,7 @@ python3 scripts/slo_designer.py --input assets/sample_service_web.json --summary
 ```
 
 #### Supported Service Types
+
 - **api**: REST APIs, GraphQL services
 - **web**: Web applications, SPAs
 - **database**: Database services, data stores
@@ -91,6 +93,7 @@ python3 scripts/slo_designer.py --input assets/sample_service_web.json --summary
 - **ml**: Machine learning services
 
 #### Criticality Levels
+
 - **critical**: 99.99% availability, <100ms P95 latency, <0.1% error rate
 - **high**: 99.9% availability, <200ms P95 latency, <0.5% error rate
 - **medium**: 99.5% availability, <500ms P95 latency, <1% error rate
@@ -101,9 +104,10 @@ python3 scripts/slo_designer.py --input assets/sample_service_web.json --summary
 Analyzes existing alert configurations and provides optimization recommendations.
 
 #### Features
+
 - **Noise Detection**: Identifies alerts with high false positive rates
 - **Coverage Analysis**: Finds gaps in monitoring coverage
-- **Duplicate Detection**: Locates redundant or overlapping alerts  
+- **Duplicate Detection**: Locates redundant or overlapping alerts
 - **Threshold Analysis**: Reviews alert thresholds for appropriateness
 - **Fatigue Assessment**: Evaluates alert volume and routing
 
@@ -158,6 +162,7 @@ python3 scripts/alert_optimizer.py \
 ```
 
 #### Analysis Categories
+
 - **Golden Signals**: Latency, traffic, errors, saturation
 - **Resource Utilization**: CPU, memory, disk, network
 - **Business Metrics**: Revenue, conversion, user engagement
@@ -169,6 +174,7 @@ python3 scripts/alert_optimizer.py \
 Creates comprehensive dashboard specifications with role-based optimization.
 
 #### Features
+
 - **Role-Based Layouts**: Optimized for SRE, Developer, Executive, and Ops personas
 - **Golden Signals Coverage**: Automatic inclusion of key monitoring metrics
 - **Service-Type Specific Panels**: Tailored panels based on service characteristics
@@ -207,11 +213,12 @@ python3 scripts/dashboard_generator.py \
 #### Target Roles
 
 - **sre**: Focus on availability, latency, errors, resource utilization
-- **developer**: Emphasize latency, errors, throughput, business metrics  
+- **developer**: Emphasize latency, errors, throughput, business metrics
 - **executive**: Highlight availability, business metrics, user experience
 - **ops**: Priority on resource utilization, capacity, alerts, deployments
 
 #### Panel Types
+
 - **Stat**: Single value displays with thresholds
 - **Gauge**: Resource utilization and capacity metrics
 - **Timeseries**: Trend analysis and historical data
@@ -223,7 +230,7 @@ python3 scripts/dashboard_generator.py \
 The `assets/` directory contains sample configurations for testing:
 
 - `sample_service_api.json`: Critical API service definition
-- `sample_service_web.json`: High-priority web application definition  
+- `sample_service_web.json`: High-priority web application definition
 - `sample_alerts.json`: Alert configuration with optimization opportunities
 
 The `expected_outputs/` directory shows example outputs from each script:
@@ -235,18 +242,21 @@ The `expected_outputs/` directory shows example outputs from each script:
 ## Best Practices
 
 ### SLO Design
+
 - Start with 1-2 SLOs per service and iterate
 - Choose SLIs that directly impact user experience
 - Set targets based on user needs, not technical capabilities
 - Use error budgets to balance reliability and velocity
 
 ### Alert Optimization
+
 - Every alert must be actionable
 - Alert on symptoms, not causes
 - Use multi-window burn rate alerts for SLO protection
 - Implement proper escalation and routing policies
 
-### Dashboard Design  
+### Dashboard Design
+
 - Follow the F-pattern for visual hierarchy
 - Use consistent color semantics across dashboards
 - Include drill-down paths for effective troubleshooting
@@ -255,6 +265,7 @@ The `expected_outputs/` directory shows example outputs from each script:
 ## Integration Patterns
 
 ### CI/CD Integration
+
 ```bash
 # Generate SLOs during service onboarding
 python3 scripts/slo_designer.py --input service-config.json --output slos.json
@@ -267,12 +278,14 @@ python3 scripts/dashboard_generator.py --input service-config.json --format graf
 ```
 
 ### Monitoring Stack Integration
+
 - **Prometheus**: Generated alert rules and recording rules
 - **Grafana**: Dashboard JSON for direct import
 - **Alertmanager**: Routing and escalation policies
 - **PagerDuty**: Escalation configuration
 
 ### GitOps Workflow
+
 1. Store service definitions in version control
 2. Generate observability configurations in CI/CD
 3. Deploy configurations via GitOps
@@ -281,6 +294,7 @@ python3 scripts/dashboard_generator.py --input service-config.json --format graf
 ## Advanced Usage
 
 ### Custom SLO Targets
+
 Override default targets by including them in service definitions:
 
 ```json
@@ -297,6 +311,7 @@ Override default targets by including them in service definitions:
 ```
 
 ### Alert Rule Templates
+
 Use template variables for reusable alert rules:
 
 ```yaml
@@ -310,13 +325,14 @@ Use template variables for reusable alert rules:
 ```
 
 ### Dashboard Variants
+
 Generate multiple dashboard variants for different use cases:
 
 ```bash
 # SRE operational dashboard
 python3 scripts/dashboard_generator.py --input service.json --role sre --output sre-dashboard.json
 
-# Developer debugging dashboard  
+# Developer debugging dashboard
 python3 scripts/dashboard_generator.py --input service.json --role developer --output dev-dashboard.json
 
 # Executive business dashboard
@@ -328,21 +344,25 @@ python3 scripts/dashboard_generator.py --input service.json --role executive --o
 ### Common Issues
 
 #### Script Execution Errors
+
 - Ensure Python 3.7+ is installed
 - Check file paths and permissions
 - Validate JSON syntax in input files
 
 #### Invalid Service Definitions
+
 - Required fields: `name`, `type`, `criticality`
 - Valid service types: `api`, `web`, `database`, `queue`, `batch`, `ml`
 - Valid criticality levels: `critical`, `high`, `medium`, `low`
 
 #### Missing Historical Data
+
 - Alert historical data is optional but improves analysis
 - Include `fires_per_day` and `false_positive_rate` when available
 - Use monitoring system APIs to populate historical metrics
 
 ### Debug Mode
+
 Enable verbose logging by setting environment variable:
 
 ```bash
@@ -353,6 +373,7 @@ python3 scripts/slo_designer.py --input service.json
 ## Contributing
 
 ### Development Setup
+
 ```bash
 # Clone the repository
 git clone <repository-url>
@@ -366,14 +387,16 @@ python3 -m flake8 scripts/
 ```
 
 ### Adding New Features
+
 1. Follow existing code patterns and error handling
-2. Include comprehensive docstrings and type hints  
+2. Include comprehensive docstrings and type hints
 3. Add test cases for new functionality
 4. Update documentation and examples
 
 ## Support
 
 For questions, issues, or feature requests:
+
 - Check existing documentation and examples
 - Review the reference materials in `references/`
 - Open an issue with detailed reproduction steps
@@ -381,4 +404,4 @@ For questions, issues, or feature requests:
 
 ---
 
-*This skill is part of the Claude Skills marketplace. For more information about observability best practices, see the reference documentation in the `references/` directory.*
+_This skill is part of the Claude Skills marketplace. For more information about observability best practices, see the reference documentation in the `references/` directory._

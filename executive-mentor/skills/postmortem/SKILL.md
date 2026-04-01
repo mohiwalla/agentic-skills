@@ -43,6 +43,7 @@ Precision matters. "We missed Q3 revenue" is not precise enough. "We closed $420
 The goal: get from **what happened** (the symptom) to **why it happened** (the root cause).
 
 Standard bad 5 Whys:
+
 - Why did we miss revenue? Because deals slipped.
 - Why did deals slip? Because the sales cycle was longer than expected.
 - Why? Because the customer buying process is complex.
@@ -52,6 +53,7 @@ Standard bad 5 Whys:
 → Conclusion: Nothing to do. It's just enterprise.
 
 Real 5 Whys:
+
 - Why did we miss revenue? Three deals slipped out of quarter.
 - Why did those deals slip? None of them had identified a champion with budget authority.
 - Why did we progress deals without a champion? Our qualification criteria didn't require it.
@@ -72,6 +74,7 @@ Most events have multiple contributing factors. Not all are root causes.
 **Root cause:** The fundamental condition that made the outcome probable. Fix this, and this class of problem doesn't recur.
 
 Example — failed hire:
+
 - Contributing factors: rushed process, reference checks skipped, team under pressure to staff up
 - Root cause: No defined competency framework, so interview process varied by who happened to conduct interviews
 
@@ -82,12 +85,14 @@ Example — failed hire:
 Every failure has precursors. In hindsight, they're obvious. The value of this step is making them obvious prospectively.
 
 Ask:
+
 - At what point was the negative outcome predictable?
 - What signals were visible at that point?
 - Who saw them? What happened when they raised them?
 - Why weren't they acted on?
 
 **Common patterns:**
+
 - Signal was raised but dismissed by a senior person
 - Signal wasn't raised because nobody felt safe saying it
 - Signal was seen but no one had clear ownership to act on it
@@ -113,16 +118,19 @@ For things in control: what specifically needs to change?
 Every post-mortem ends with a change register — specific commitments, owned and dated.
 
 **Bad action items:**
+
 - "We'll improve our qualification process"
 - "Communication will be better"
 - "We'll be more rigorous about forecasting"
 
 **Good action items:**
+
 - "Ravi owns rewriting qualification criteria by March 15 to include champion identification as hard requirement. New criteria reviewed in weekly sales standup starting March 22."
 - "By March 10, Elena adds deal-slippage risk flag to CRM for any open opportunity >60 days without a product demo"
 - "Maria runs a 30-min retrospective with enterprise sales team every 6 weeks starting April 1, reviews win/loss data"
 
 **For each action:**
+
 - What exactly is changing?
 - Who owns it?
 - By when?

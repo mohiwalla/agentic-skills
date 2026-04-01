@@ -40,12 +40,15 @@ Before designing a programmatic SEO strategy, understand:
 ## Core Principles
 
 ### 1. Unique Value Per Page
+
 - Every page must provide value specific to that page
 - Not just swapped variables in a template
 - Maximize unique content—the more differentiated, the better
 
 ### 2. Proprietary Data Wins
+
 Hierarchy of data defensibility:
+
 1. Proprietary (you created it)
 2. Product-derived (from your users)
 3. User-generated (your community)
@@ -53,17 +56,22 @@ Hierarchy of data defensibility:
 5. Public (anyone can use—weakest)
 
 ### 3. Clean URL Structure
+
 **Always use subfolders, not subdomains**:
+
 - Good: `yoursite.com/templates/resume/`
 - Bad: `templates.yoursite.com/resume/`
 
 ### 4. Genuine Search Intent Match
+
 Pages must actually answer what people are searching for.
 
 ### 5. Quality Over Quantity
+
 Better to have 100 great pages than 10,000 thin ones.
 
 ### 6. Avoid Google Penalties
+
 - No doorway pages
 - No keyword stuffing
 - No duplicate content
@@ -73,20 +81,20 @@ Better to have 100 great pages than 10,000 thin ones.
 
 ## The 12 Playbooks (Overview)
 
-| Playbook | Pattern | Example |
-|----------|---------|---------|
-| Templates | "[Type] template" | "resume template" |
-| Curation | "best [category]" | "best website builders" |
-| Conversions | "[X] to [Y]" | "$10 USD to GBP" |
-| Comparisons | "[X] vs [Y]" | "webflow vs wordpress" |
-| Examples | "[type] examples" | "landing page examples" |
-| Locations | "[service] in [location]" | "dentists in austin" |
-| Personas | "[product] for [audience]" | "crm for real estate" |
+| Playbook     | Pattern                               | Example                   |
+| ------------ | ------------------------------------- | ------------------------- |
+| Templates    | "[Type] template"                     | "resume template"         |
+| Curation     | "best [category]"                     | "best website builders"   |
+| Conversions  | "[X] to [Y]"                          | "$10 USD to GBP"          |
+| Comparisons  | "[X] vs [Y]"                          | "webflow vs wordpress"    |
+| Examples     | "[type] examples"                     | "landing page examples"   |
+| Locations    | "[service] in [location]"             | "dentists in austin"      |
+| Personas     | "[product] for [audience]"            | "crm for real estate"     |
 | Integrations | "[product A] [product B] integration" | "slack asana integration" |
-| Glossary | "what is [term]" | "what is pSEO" |
-| Translations | Content in multiple languages | Localized content |
-| Directory | "[category] tools" | "ai copywriting tools" |
-| Profiles | "[entity name]" | "stripe ceo" |
+| Glossary     | "what is [term]"                      | "what is pSEO"            |
+| Translations | Content in multiple languages         | Localized content         |
+| Directory    | "[category] tools"                    | "ai copywriting tools"    |
+| Profiles     | "[entity name]"                       | "stripe ceo"              |
 
 **For detailed playbook implementation**: See [references/playbooks.md](references/playbooks.md)
 
@@ -94,16 +102,16 @@ Better to have 100 great pages than 10,000 thin ones.
 
 ## Choosing Your Playbook
 
-| If you have... | Consider... |
-|----------------|-------------|
-| Proprietary data | Directories, Profiles |
-| Product with integrations | Integrations |
-| Design/creative product | Templates, Examples |
-| Multi-segment audience | Personas |
-| Local presence | Locations |
-| Tool or utility product | Conversions |
-| Content/expertise | Glossary, Curation |
-| Competitor landscape | Comparisons |
+| If you have...            | Consider...           |
+| ------------------------- | --------------------- |
+| Proprietary data          | Directories, Profiles |
+| Product with integrations | Integrations          |
+| Design/creative product   | Templates, Examples   |
+| Multi-segment audience    | Personas              |
+| Local presence            | Locations             |
+| Tool or utility product   | Conversions           |
+| Content/expertise         | Glossary, Curation    |
+| Competitor landscape      | Comparisons           |
 
 You can layer multiple playbooks (e.g., "Best coworking spaces in San Diego").
 
@@ -114,11 +122,13 @@ You can layer multiple playbooks (e.g., "Best coworking spaces in San Diego").
 ### 1. Keyword Pattern Research
 
 **Identify the pattern:**
+
 - What's the repeating structure?
 - What are the variables?
 - How many unique combinations exist?
 
 **Validate demand:**
+
 - Aggregate search volume
 - Volume distribution (head vs. long tail)
 - Trend direction
@@ -126,6 +136,7 @@ You can layer multiple playbooks (e.g., "Best coworking spaces in San Diego").
 ### 2. Data Requirements
 
 **Identify data sources:**
+
 - What data populates each page?
 - Is it first-party, scraped, licensed, public?
 - How is it updated?
@@ -133,6 +144,7 @@ You can layer multiple playbooks (e.g., "Best coworking spaces in San Diego").
 ### 3. Template Design
 
 **Page structure:**
+
 - Header with target keyword
 - Unique intro (not just variables swapped)
 - Data-driven sections
@@ -140,6 +152,7 @@ You can layer multiple playbooks (e.g., "Best coworking spaces in San Diego").
 - CTAs appropriate to intent
 
 **Ensuring uniqueness:**
+
 - Each page needs unique value
 - Conditional content based on data
 - Original insights/analysis per page
@@ -147,11 +160,13 @@ You can layer multiple playbooks (e.g., "Best coworking spaces in San Diego").
 ### 4. Internal Linking Architecture
 
 **Hub and spoke model:**
+
 - Hub: Main category page
 - Spokes: Individual programmatic pages
 - Cross-links between related spokes
 
 **Avoid orphan pages:**
+
 - Every page reachable from main site
 - XML sitemap for all pages
 - Breadcrumbs with structured data
@@ -170,22 +185,26 @@ You can layer multiple playbooks (e.g., "Best coworking spaces in San Diego").
 ### Pre-Launch Checklist
 
 **Content quality:**
+
 - [ ] Each page provides unique value
 - [ ] Answers search intent
 - [ ] Readable and useful
 
 **Technical SEO:**
+
 - [ ] Unique titles and meta descriptions
 - [ ] Proper heading structure
 - [ ] Schema markup implemented
 - [ ] Page speed acceptable
 
 **Internal linking:**
+
 - [ ] Connected to site architecture
 - [ ] Related pages linked
 - [ ] No orphan pages
 
 **Indexation:**
+
 - [ ] In XML sitemap
 - [ ] Crawlable
 - [ ] No conflicting noindex
@@ -211,11 +230,13 @@ Watch for: Thin content warnings, Ranking drops, Manual actions, Crawl errors
 ## Output Format
 
 ### Strategy Document
+
 - Opportunity analysis
 - Implementation plan
 - Content guidelines
 
 ### Page Template
+
 - URL structure
 - Title/meta templates
 - Content outline
@@ -248,6 +269,7 @@ Watch for: Thin content warnings, Ranking drops, Manual actions, Crawl errors
 ## Communication
 
 All programmatic SEO output follows this quality standard:
+
 - Lead with the **Opportunity Analysis** — estimated page count, aggregate search volume, and data source feasibility
 - Strategy documents use the **Strategy → Template → Checklist** structure consistently
 - Every playbook recommendation is paired with a real-world example and a data source suggestion
@@ -271,10 +293,10 @@ Automatically surface programmatic-seo when:
 
 ## Output Artifacts
 
-| Artifact | Format | Description |
-|----------|--------|-------------|
-| Opportunity Analysis | Markdown table | Keyword patterns × estimated volume × data source × difficulty rating |
-| Playbook Selection Matrix | Table | If/then mapping of business context to recommended playbook with rationale |
-| Page Template Spec | Markdown with annotated sections | URL pattern, title/meta templates, content block structure, unique value rules |
-| Pre-Launch Checklist | Checkbox list | Content quality, technical SEO, internal linking, indexation gates |
-| Post-Launch Monitoring Plan | Table | Metrics to track × tools × alert thresholds × review cadence |
+| Artifact                    | Format                           | Description                                                                    |
+| --------------------------- | -------------------------------- | ------------------------------------------------------------------------------ |
+| Opportunity Analysis        | Markdown table                   | Keyword patterns × estimated volume × data source × difficulty rating          |
+| Playbook Selection Matrix   | Table                            | If/then mapping of business context to recommended playbook with rationale     |
+| Page Template Spec          | Markdown with annotated sections | URL pattern, title/meta templates, content block structure, unique value rules |
+| Pre-Launch Checklist        | Checkbox list                    | Content quality, technical SEO, internal linking, indexation gates             |
+| Post-Launch Monitoring Plan | Table                            | Metrics to track × tools × alert thresholds × review cadence                   |

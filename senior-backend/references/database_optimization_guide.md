@@ -43,6 +43,7 @@ SELECT * FROM orders WHERE user_id = 123;
 ```
 
 **Key metrics:**
+
 - `cost`: Estimated cost (startup..total)
 - `rows`: Estimated row count
 - `width`: Average row size in bytes
@@ -51,15 +52,15 @@ SELECT * FROM orders WHERE user_id = 123;
 
 ### Scan Types (Best to Worst)
 
-| Scan Type | Description | Performance |
-|-----------|-------------|-------------|
-| Index Only Scan | Data from index alone | Best |
-| Index Scan | Index lookup + heap fetch | Good |
-| Bitmap Index Scan | Multiple index conditions | Good |
-| Index Scan + Filter | Index + row filtering | Okay |
-| Seq Scan (small table) | Full table scan | Okay |
-| Seq Scan (large table) | Full table scan | Bad |
-| Nested Loop (large) | O(n*m) join | Very Bad |
+| Scan Type              | Description               | Performance |
+| ---------------------- | ------------------------- | ----------- |
+| Index Only Scan        | Data from index alone     | Best        |
+| Index Scan             | Index lookup + heap fetch | Good        |
+| Bitmap Index Scan      | Multiple index conditions | Good        |
+| Index Scan + Filter    | Index + row filtering     | Okay        |
+| Seq Scan (small table) | Full table scan           | Okay        |
+| Seq Scan (large table) | Full table scan           | Bad         |
+| Nested Loop (large)    | O(n\*m) join              | Very Bad    |
 
 ### Warning Signs
 
@@ -182,15 +183,14 @@ REINDEX INDEX CONCURRENTLY idx_orders_user_id;
 
 ```typescript
 // BAD: N+1 queries
-const users = await db.query('SELECT * FROM users LIMIT 100');
+const users = await db.query("SELECT * FROM users LIMIT 100")
 
 for (const user of users) {
   // This runs 100 times!
-  const orders = await db.query(
-    'SELECT * FROM orders WHERE user_id = $1',
-    [user.id]
-  );
-  user.orders = orders;
+  const orders = await db.query("SELECT * FROM orders WHERE user_id = $1", [
+    user.id,
+  ])
+  user.orders = orders
 }
 // Total queries: 1 + 100 = 101
 ```
@@ -204,7 +204,7 @@ const usersWithOrders = await db.query(`
   FROM users u
   LEFT JOIN orders o ON o.user_id = u.id
   LIMIT 100
-`);
+`)
 // Total queries: 1
 ```
 
@@ -212,19 +212,18 @@ const usersWithOrders = await db.query(`
 
 ```typescript
 // GOOD: Two queries with batch loading
-const users = await db.query('SELECT * FROM users LIMIT 100');
-const userIds = users.map(u => u.id);
+const users = await db.query("SELECT * FROM users LIMIT 100")
+const userIds = users.map(u => u.id)
 
-const orders = await db.query(
-  'SELECT * FROM orders WHERE user_id = ANY($1)',
-  [userIds]
-);
+const orders = await db.query("SELECT * FROM orders WHERE user_id = ANY($1)", [
+  userIds,
+])
 
 // Group orders by user_id
-const ordersByUser = groupBy(orders, 'user_id');
+const ordersByUser = groupBy(orders, "user_id")
 users.forEach(user => {
-  user.orders = ordersByUser[user.id] || [];
-});
+  user.orders = ordersByUser[user.id] || []
+})
 // Total queries: 2
 ```
 
@@ -234,37 +233,37 @@ users.forEach(user => {
 // Prisma
 const users = await prisma.user.findMany({
   take: 100,
-  include: { orders: true }
-});
+  include: { orders: true },
+})
 
 // TypeORM
 const users = await userRepository.find({
   take: 100,
-  relations: ['orders']
-});
+  relations: ["orders"],
+})
 
 // Sequelize
 const users = await User.findAll({
   limit: 100,
-  include: [{ model: Order }]
-});
+  include: [{ model: Order }],
+})
 ```
 
 ### Detecting N+1 in Production
 
 ```typescript
 // Query logging middleware
-let queryCount = 0;
-const originalQuery = db.query;
+let queryCount = 0
+const originalQuery = db.query
 
 db.query = async (...args) => {
-  queryCount++;
+  queryCount++
   if (queryCount > 10) {
-    console.warn(`High query count: ${queryCount} in single request`);
-    console.trace();
+    console.warn(`High query count: ${queryCount} in single request`)
+    console.trace()
   }
-  return originalQuery.apply(db, args);
-};
+  return originalQuery.apply(db, args)
+}
 ```
 
 ---
@@ -286,7 +285,7 @@ Request → Get connection from pool → Query → Return to pool
 ### pg-pool Configuration
 
 ```typescript
-import { Pool } from 'pg';
+import { Pool } from "pg"
 
 const pool = new Pool({
   host: process.env.DB_HOST,
@@ -296,19 +295,19 @@ const pool = new Pool({
   password: process.env.DB_PASSWORD,
 
   // Pool settings
-  min: 5,                    // Minimum connections
-  max: 20,                   // Maximum connections
-  idleTimeoutMillis: 30000,  // Close idle connections after 30s
+  min: 5, // Minimum connections
+  max: 20, // Maximum connections
+  idleTimeoutMillis: 30000, // Close idle connections after 30s
   connectionTimeoutMillis: 5000, // Fail if can't connect in 5s
 
   // Statement timeout (cancel long queries)
   statement_timeout: 30000,
-});
+})
 
 // Health check
-pool.on('error', (err, client) => {
-  console.error('Unexpected pool error', err);
-});
+pool.on("error", (err, client) => {
+  console.error("Unexpected pool error", err)
+})
 ```
 
 ### Pool Sizing Formula
@@ -384,7 +383,7 @@ FROM (VALUES
 WHERE o.id = v.id;
 ```
 
-### Avoiding SELECT *
+### Avoiding SELECT \*
 
 ```sql
 -- BAD: Fetches all columns including large text/blob
@@ -559,13 +558,13 @@ LIMIT 10;
 
 ### Alert Thresholds
 
-| Metric | Warning | Critical |
-|--------|---------|----------|
-| Connection usage | > 70% | > 90% |
-| Query time P95 | > 500ms | > 2s |
-| Replication lag | > 30s | > 5m |
-| Disk usage | > 70% | > 85% |
-| Cache hit ratio | < 95% | < 90% |
+| Metric           | Warning | Critical |
+| ---------------- | ------- | -------- |
+| Connection usage | > 70%   | > 90%    |
+| Query time P95   | > 500ms | > 2s     |
+| Replication lag  | > 30s   | > 5m     |
+| Disk usage       | > 70%   | > 85%    |
+| Cache hit ratio  | < 95%   | < 90%    |
 
 ---
 

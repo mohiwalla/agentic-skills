@@ -21,11 +21,11 @@ Not a Docker tutorial — a set of concrete decisions about how to build contain
 
 ## Slash Commands
 
-| Command | What it does |
-|---------|-------------|
+| Command            | What it does                                                         |
+| ------------------ | -------------------------------------------------------------------- |
 | `/docker:optimize` | Analyze and optimize a Dockerfile for size, speed, and layer caching |
-| `/docker:compose` | Generate or improve docker-compose.yml with best practices |
-| `/docker:security` | Audit a Dockerfile or running container for security issues |
+| `/docker:compose`  | Generate or improve docker-compose.yml with best practices           |
+| `/docker:security` | Audit a Dockerfile or running container for security issues          |
 
 ---
 
@@ -142,30 +142,31 @@ If the user has a Dockerfile or wants to containerize something → this skill a
 
 1. **Dockerfile audit**
 
-   | Check | Severity | Fix |
-   |-------|----------|-----|
-   | Running as root | Critical | Add `USER nonroot` after creating user |
-   | Using :latest tag | High | Pin to specific version |
-   | Secrets in ENV/ARG | Critical | Use BuildKit secrets: `--mount=type=secret` |
-   | COPY with broad glob | Medium | Use specific paths, add .dockerignore |
-   | Unnecessary EXPOSE | Low | Only expose ports the app uses |
-   | No HEALTHCHECK | Medium | Add HEALTHCHECK with appropriate interval |
-   | Privileged instructions | High | Avoid `--privileged`, drop capabilities |
-   | Package manager cache retained | Low | Clean in same RUN layer |
+   | Check                          | Severity | Fix                                         |
+   | ------------------------------ | -------- | ------------------------------------------- |
+   | Running as root                | Critical | Add `USER nonroot` after creating user      |
+   | Using :latest tag              | High     | Pin to specific version                     |
+   | Secrets in ENV/ARG             | Critical | Use BuildKit secrets: `--mount=type=secret` |
+   | COPY with broad glob           | Medium   | Use specific paths, add .dockerignore       |
+   | Unnecessary EXPOSE             | Low      | Only expose ports the app uses              |
+   | No HEALTHCHECK                 | Medium   | Add HEALTHCHECK with appropriate interval   |
+   | Privileged instructions        | High     | Avoid `--privileged`, drop capabilities     |
+   | Package manager cache retained | Low      | Clean in same RUN layer                     |
 
 2. **Runtime security checks**
 
-   | Check | Severity | Fix |
-   |-------|----------|-----|
-   | Container running as root | Critical | Set user in Dockerfile or compose |
-   | Writable root filesystem | Medium | Use `read_only: true` in compose |
-   | All capabilities retained | High | Drop all, add only needed: `cap_drop: [ALL]` |
-   | No resource limits | Medium | Set `mem_limit` and `cpus` |
-   | Host network mode | High | Use bridge or custom network |
-   | Sensitive mounts | Critical | Never mount /etc, /var/run/docker.sock in prod |
-   | No log driver configured | Low | Set `logging:` with size limits |
+   | Check                     | Severity | Fix                                            |
+   | ------------------------- | -------- | ---------------------------------------------- |
+   | Container running as root | Critical | Set user in Dockerfile or compose              |
+   | Writable root filesystem  | Medium   | Use `read_only: true` in compose               |
+   | All capabilities retained | High     | Drop all, add only needed: `cap_drop: [ALL]`   |
+   | No resource limits        | Medium   | Set `mem_limit` and `cpus`                     |
+   | Host network mode         | High     | Use bridge or custom network                   |
+   | Sensitive mounts          | Critical | Never mount /etc, /var/run/docker.sock in prod |
+   | No log driver configured  | Low      | Set `logging:` with size limits                |
 
 3. **Generate security report**
+
    ```
    SECURITY AUDIT — [Dockerfile/Image name]
    Date: [timestamp]
@@ -187,6 +188,7 @@ If the user has a Dockerfile or wants to containerize something → this skill a
 CLI utility for static analysis of Dockerfiles.
 
 **Features:**
+
 - Layer count and optimization suggestions
 - Base image analysis with size estimates
 - Anti-pattern detection (15+ rules)
@@ -195,6 +197,7 @@ CLI utility for static analysis of Dockerfiles.
 - JSON and text output
 
 **Usage:**
+
 ```bash
 # Analyze a Dockerfile
 python3 scripts/dockerfile_analyzer.py Dockerfile
@@ -214,6 +217,7 @@ python3 scripts/dockerfile_analyzer.py path/to/Dockerfile
 CLI utility for validating docker-compose files.
 
 **Features:**
+
 - Service dependency validation
 - Healthcheck presence detection
 - Network configuration analysis
@@ -223,6 +227,7 @@ CLI utility for validating docker-compose files.
 - Best practice scoring
 
 **Usage:**
+
 ```bash
 # Validate a compose file
 python3 scripts/compose_validator.py docker-compose.yml
@@ -341,17 +346,20 @@ Flag these without being asked:
 ## Installation
 
 ### One-liner (any tool)
+
 ```bash
 git clone https://github.com/alirezarezvani/claude-skills.git
 cp -r claude-skills/engineering/docker-development ~/.claude/skills/
 ```
 
 ### Multi-tool install
+
 ```bash
 ./scripts/convert.sh --skill docker-development --tool codex|gemini|cursor|windsurf|openclaw
 ```
 
 ### OpenClaw
+
 ```bash
 clawhub install cs-docker-development
 ```

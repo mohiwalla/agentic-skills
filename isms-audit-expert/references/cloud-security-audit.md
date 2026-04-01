@@ -18,30 +18,33 @@ Assessment framework for cloud service security verification.
 
 ### Responsibility Matrix
 
-| Layer | IaaS | PaaS | SaaS |
-|-------|------|------|------|
-| Data classification | Customer | Customer | Customer |
-| Identity management | Customer | Customer | Shared |
-| Application security | Customer | Shared | Provider |
-| Network controls | Shared | Provider | Provider |
-| Host infrastructure | Provider | Provider | Provider |
-| Physical security | Provider | Provider | Provider |
+| Layer                | IaaS     | PaaS     | SaaS     |
+| -------------------- | -------- | -------- | -------- |
+| Data classification  | Customer | Customer | Customer |
+| Identity management  | Customer | Customer | Shared   |
+| Application security | Customer | Shared   | Provider |
+| Network controls     | Shared   | Provider | Provider |
+| Host infrastructure  | Provider | Provider | Provider |
+| Physical security    | Provider | Provider | Provider |
 
 ### Audit Focus by Model
 
 **IaaS (AWS EC2, Azure VMs):**
+
 - Virtual network configuration
 - OS hardening and patching
 - Application deployment security
 - Data encryption implementation
 
 **PaaS (Azure App Service, AWS Lambda):**
+
 - Application code security
 - Data handling and encryption
 - Identity integration
 - Logging configuration
 
 **SaaS (Microsoft 365, Salesforce):**
+
 - User access management
 - Data classification and handling
 - Security configuration settings
@@ -54,6 +57,7 @@ Assessment framework for cloud service security verification.
 ### Certification Verification
 
 Check for current certifications:
+
 - [ ] ISO 27001 (Information Security)
 - [ ] ISO 27017 (Cloud Security)
 - [ ] ISO 27018 (Cloud Privacy)
@@ -61,6 +65,7 @@ Check for current certifications:
 - [ ] CSA STAR certification
 
 **Verification Steps:**
+
 1. Request current certificates from provider
 2. Verify certificate scope includes services used
 3. Check certification expiration dates
@@ -69,16 +74,17 @@ Check for current certifications:
 
 ### Data Residency Compliance
 
-| Requirement | Verification |
-|-------------|--------------|
-| GDPR (EU data) | Confirm EU region availability |
-| Data sovereignty | Verify no cross-border transfer |
-| Backup location | Confirm backup region |
-| Disaster recovery | Document DR site location |
+| Requirement       | Verification                    |
+| ----------------- | ------------------------------- |
+| GDPR (EU data)    | Confirm EU region availability  |
+| Data sovereignty  | Verify no cross-border transfer |
+| Backup location   | Confirm backup region           |
+| Disaster recovery | Document DR site location       |
 
 ### Provider Security Documentation
 
 Request and review:
+
 - Shared responsibility documentation
 - Security whitepapers
 - Incident notification procedures
@@ -92,13 +98,15 @@ Request and review:
 ### AWS Security Assessment
 
 **Identity and Access (IAM):**
+
 - [ ] Root account has MFA enabled
 - [ ] No access keys for root account
 - [ ] IAM policies follow least privilege
-- [ ] No wildcard (*) permissions on sensitive resources
+- [ ] No wildcard (\*) permissions on sensitive resources
 - [ ] Password policy meets requirements
 
 **Network Configuration (VPC):**
+
 - [ ] Default VPCs removed or secured
 - [ ] Security groups follow least privilege
 - [ ] No 0.0.0.0/0 ingress on management ports
@@ -106,6 +114,7 @@ Request and review:
 - [ ] Network ACLs configured appropriately
 
 **Storage (S3):**
+
 - [ ] No public buckets (unless intended)
 - [ ] Bucket policies restrict access
 - [ ] Encryption at rest enabled
@@ -113,6 +122,7 @@ Request and review:
 - [ ] Access logging enabled
 
 **Logging (CloudTrail):**
+
 - [ ] CloudTrail enabled in all regions
 - [ ] Log file validation enabled
 - [ ] Logs encrypted with KMS
@@ -122,6 +132,7 @@ Request and review:
 ### Azure Security Assessment
 
 **Identity (Azure AD):**
+
 - [ ] MFA enabled for all users
 - [ ] Privileged Identity Management (PIM) configured
 - [ ] Conditional Access policies defined
@@ -129,6 +140,7 @@ Request and review:
 - [ ] Password protection enabled
 
 **Network (Virtual Networks):**
+
 - [ ] NSG rules follow least privilege
 - [ ] No open management ports to internet
 - [ ] Network Watcher enabled
@@ -136,6 +148,7 @@ Request and review:
 - [ ] Private endpoints for PaaS services
 
 **Storage:**
+
 - [ ] No anonymous access to blob storage
 - [ ] Encryption at rest enabled
 - [ ] Shared access signatures time-limited
@@ -143,6 +156,7 @@ Request and review:
 - [ ] Soft delete enabled
 
 **Monitoring:**
+
 - [ ] Azure Monitor enabled
 - [ ] Activity log exported to SIEM
 - [ ] Alerts configured for security events
@@ -181,11 +195,11 @@ Request and review:
 
 ### Data Classification in Cloud
 
-| Classification | Cloud Requirements |
-|----------------|-------------------|
-| Confidential | CMK encryption, access logging, no public access |
-| Internal | Encryption enabled, network restrictions |
-| Public | Integrity protection, CDN appropriate |
+| Classification | Cloud Requirements                               |
+| -------------- | ------------------------------------------------ |
+| Confidential   | CMK encryption, access logging, no public access |
+| Internal       | Encryption enabled, network restrictions         |
+| Public         | Integrity protection, CDN appropriate            |
 
 ---
 
@@ -201,13 +215,13 @@ Request and review:
 
 ### Service Account Assessment
 
-| Check | Verification |
-|-------|--------------|
-| Inventory | All service accounts documented |
-| Permissions | Least privilege applied |
-| Credentials | Keys rotated per policy |
-| Monitoring | Activity logged and reviewed |
-| Ownership | Clear owner assigned |
+| Check       | Verification                    |
+| ----------- | ------------------------------- |
+| Inventory   | All service accounts documented |
+| Permissions | Least privilege applied         |
+| Credentials | Keys rotated per policy         |
+| Monitoring  | Activity logged and reviewed    |
+| Ownership   | Clear owner assigned            |
 
 ### Federation and SSO
 

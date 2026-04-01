@@ -14,16 +14,16 @@ Access control enforces policy so users cannot act outside their intended permis
 
 ### Test Procedures
 
-| # | Test | Method | Expected Result |
-|---|------|--------|-----------------|
-| 1 | Horizontal privilege escalation | Change user ID in API requests (`/users/123` to `/users/124`) | 403 Forbidden |
-| 2 | Vertical privilege escalation | Access admin endpoints with regular user token | 403 Forbidden |
-| 3 | CORS validation | Send request with `Origin: https://evil.com` | `Access-Control-Allow-Origin` must not reflect arbitrary origins |
-| 4 | Forced browsing | Request `/admin`, `/debug`, `/api/internal`, `/.env`, `/swagger.json` | 403 or 404 |
-| 5 | Method-based bypass | Try POST instead of GET, or PUT instead of PATCH | Authorization checks apply regardless of HTTP method |
-| 6 | JWT claim manipulation | Modify `role`, `is_admin`, `user_id` claims, re-sign with weak secret | 401 Unauthorized |
-| 7 | Path traversal in authorization | Request `/api/users/../admin/settings` | Canonical path check must reject traversal |
-| 8 | API endpoint enumeration | Fuzz API paths with wordlists | Only documented endpoints should respond |
+| #   | Test                            | Method                                                                | Expected Result                                                  |
+| --- | ------------------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| 1   | Horizontal privilege escalation | Change user ID in API requests (`/users/123` to `/users/124`)         | 403 Forbidden                                                    |
+| 2   | Vertical privilege escalation   | Access admin endpoints with regular user token                        | 403 Forbidden                                                    |
+| 3   | CORS validation                 | Send request with `Origin: https://evil.com`                          | `Access-Control-Allow-Origin` must not reflect arbitrary origins |
+| 4   | Forced browsing                 | Request `/admin`, `/debug`, `/api/internal`, `/.env`, `/swagger.json` | 403 or 404                                                       |
+| 5   | Method-based bypass             | Try POST instead of GET, or PUT instead of PATCH                      | Authorization checks apply regardless of HTTP method             |
+| 6   | JWT claim manipulation          | Modify `role`, `is_admin`, `user_id` claims, re-sign with weak secret | 401 Unauthorized                                                 |
+| 7   | Path traversal in authorization | Request `/api/users/../admin/settings`                                | Canonical path check must reject traversal                       |
+| 8   | API endpoint enumeration        | Fuzz API paths with wordlists                                         | Only documented endpoints should respond                         |
 
 ### Code Patterns to Detect
 
@@ -45,10 +45,12 @@ def get_document(doc_id):
 
 ```javascript
 // BAD: Client-side only access control
-{isAdmin && <AdminPanel />}  // Hidden but still accessible via API
+{
+  isAdmin && <AdminPanel />
+} // Hidden but still accessible via API
 
 // GOOD: Server-side middleware
-app.use('/admin/*', requireRole('admin'));
+app.use("/admin/*", requireRole("admin"))
 ```
 
 ### Remediation
@@ -80,16 +82,16 @@ Failures related to cryptography that often lead to sensitive data exposure. Thi
 
 ### Test Procedures
 
-| # | Test | Method | Expected Result |
-|---|------|--------|-----------------|
-| 1 | TLS version | `nmap --script ssl-enum-ciphers -p 443 target` | Only TLS 1.2+ accepted |
-| 2 | Certificate validity | `openssl s_client -connect target:443` | Valid cert, not self-signed |
-| 3 | HSTS header | Check response headers | `Strict-Transport-Security: max-age=31536000` |
-| 4 | Password storage | Review auth code | bcrypt/scrypt/argon2 with cost >= 10 |
-| 5 | Sensitive data in URLs | Review access logs | No tokens, passwords, or PII in query params |
-| 6 | Encryption at rest | Check database/storage config | Sensitive fields encrypted (AES-256-GCM) |
-| 7 | Key management | Review key storage | Keys in secrets manager, not in code/env files |
-| 8 | Random number generation | Review token generation code | Uses crypto-grade PRNG (secrets module, crypto.randomBytes) |
+| #   | Test                     | Method                                         | Expected Result                                             |
+| --- | ------------------------ | ---------------------------------------------- | ----------------------------------------------------------- |
+| 1   | TLS version              | `nmap --script ssl-enum-ciphers -p 443 target` | Only TLS 1.2+ accepted                                      |
+| 2   | Certificate validity     | `openssl s_client -connect target:443`         | Valid cert, not self-signed                                 |
+| 3   | HSTS header              | Check response headers                         | `Strict-Transport-Security: max-age=31536000`               |
+| 4   | Password storage         | Review auth code                               | bcrypt/scrypt/argon2 with cost >= 10                        |
+| 5   | Sensitive data in URLs   | Review access logs                             | No tokens, passwords, or PII in query params                |
+| 6   | Encryption at rest       | Check database/storage config                  | Sensitive fields encrypted (AES-256-GCM)                    |
+| 7   | Key management           | Review key storage                             | Keys in secrets manager, not in code/env files              |
+| 8   | Random number generation | Review token generation code                   | Uses crypto-grade PRNG (secrets module, crypto.randomBytes) |
 
 ### Code Patterns to Detect
 
@@ -138,16 +140,16 @@ Injection flaws occur when untrusted data is sent to an interpreter as part of a
 
 ### Test Procedures
 
-| # | Test | Method | Expected Result |
-|---|------|--------|-----------------|
-| 1 | SQL injection | Submit `' OR 1=1--` in input fields | No data leakage, proper error handling |
-| 2 | Blind SQL injection | Submit `' AND SLEEP(5)--` | No 5-second delay in response |
-| 3 | NoSQL injection | Submit `{"$gt":""}` in JSON fields | No data leakage |
-| 4 | XSS (reflected) | Submit `<script>alert(1)</script>` | Input is escaped/encoded in response |
-| 5 | XSS (stored) | Submit payload in persistent fields | Payload is sanitized before storage |
-| 6 | Command injection | Submit `; whoami` in fields | No command execution |
-| 7 | Template injection | Submit `{{7*7}}` | No "49" in response |
-| 8 | LDAP injection | Submit `*)(uid=*))(|(uid=*` | No directory enumeration |
+| #   | Test                | Method                              | Expected Result                        |
+| --- | ------------------- | ----------------------------------- | -------------------------------------- | ------------------------ |
+| 1   | SQL injection       | Submit `' OR 1=1--` in input fields | No data leakage, proper error handling |
+| 2   | Blind SQL injection | Submit `' AND SLEEP(5)--`           | No 5-second delay in response          |
+| 3   | NoSQL injection     | Submit `{"$gt":""}` in JSON fields  | No data leakage                        |
+| 4   | XSS (reflected)     | Submit `<script>alert(1)</script>`  | Input is escaped/encoded in response   |
+| 5   | XSS (stored)        | Submit payload in persistent fields | Payload is sanitized before storage    |
+| 6   | Command injection   | Submit `; whoami` in fields         | No command execution                   |
+| 7   | Template injection  | Submit `{{7*7}}`                    | No "49" in response                    |
+| 8   | LDAP injection      | Submit `_)(uid=_))(                 | (uid=\*`                               | No directory enumeration |
 
 ### Code Patterns to Detect
 
@@ -162,10 +164,10 @@ cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
 
 ```javascript
 // BAD: Template literal in SQL
-db.query(`SELECT * FROM users WHERE id = ${userId}`);
+db.query(`SELECT * FROM users WHERE id = ${userId}`)
 
 // GOOD: Parameterized query
-db.query('SELECT * FROM users WHERE id = $1', [userId]);
+db.query("SELECT * FROM users WHERE id = $1", [userId])
 ```
 
 ### Remediation
@@ -197,13 +199,13 @@ Insecure design represents weaknesses in the design and architecture of the appl
 
 ### Test Procedures
 
-| # | Test | Method | Expected Result |
-|---|------|--------|-----------------|
-| 1 | Rate limiting | Send 100 rapid requests to login | 429 after threshold (5-10 attempts) |
-| 2 | Business logic abuse | Submit negative quantities, skip payment | All calculations server-side |
-| 3 | Account lockout | 10+ failed login attempts | Account locked or CAPTCHA triggered |
-| 4 | Multi-step flow bypass | Skip steps via direct URL access | Server validates state at each step |
-| 5 | Password reset abuse | Request multiple reset tokens | Previous tokens invalidated |
+| #   | Test                   | Method                                   | Expected Result                     |
+| --- | ---------------------- | ---------------------------------------- | ----------------------------------- |
+| 1   | Rate limiting          | Send 100 rapid requests to login         | 429 after threshold (5-10 attempts) |
+| 2   | Business logic abuse   | Submit negative quantities, skip payment | All calculations server-side        |
+| 3   | Account lockout        | 10+ failed login attempts                | Account locked or CAPTCHA triggered |
+| 4   | Multi-step flow bypass | Skip steps via direct URL access         | Server validates state at each step |
+| 5   | Password reset abuse   | Request multiple reset tokens            | Previous tokens invalidated         |
 
 ### Remediation
 
@@ -230,15 +232,15 @@ The application is improperly configured, with default settings, unnecessary fea
 
 ### Test Procedures
 
-| # | Test | Method | Expected Result |
-|---|------|--------|-----------------|
-| 1 | Default credentials | Try admin:admin, root:root | Rejected |
-| 2 | Debug mode | Trigger application errors | No stack traces in response |
-| 3 | Security headers | Check response headers | CSP, X-Frame-Options, XCTO, HSTS present |
-| 4 | HTTP methods | Send OPTIONS request | Only required methods allowed |
-| 5 | Directory listing | Request directory without index | Listing disabled (403 or redirect) |
-| 6 | Server version disclosure | Check Server and X-Powered-By headers | Version info removed |
-| 7 | Error messages | Submit invalid data | Generic error messages, no internal details |
+| #   | Test                      | Method                                | Expected Result                             |
+| --- | ------------------------- | ------------------------------------- | ------------------------------------------- |
+| 1   | Default credentials       | Try admin:admin, root:root            | Rejected                                    |
+| 2   | Debug mode                | Trigger application errors            | No stack traces in response                 |
+| 3   | Security headers          | Check response headers                | CSP, X-Frame-Options, XCTO, HSTS present    |
+| 4   | HTTP methods              | Send OPTIONS request                  | Only required methods allowed               |
+| 5   | Directory listing         | Request directory without index       | Listing disabled (403 or redirect)          |
+| 6   | Server version disclosure | Check Server and X-Powered-By headers | Version info removed                        |
+| 7   | Error messages            | Submit invalid data                   | Generic error messages, no internal details |
 
 ### Remediation
 
@@ -267,13 +269,13 @@ Components (libraries, frameworks, software modules) with known vulnerabilities 
 
 ### Test Procedures
 
-| # | Test | Method | Expected Result |
-|---|------|--------|-----------------|
-| 1 | npm audit | `npm audit --json` | No critical or high vulnerabilities |
-| 2 | pip audit | `pip audit --desc` | No known CVEs |
-| 3 | Go vulncheck | `govulncheck ./...` | No reachable vulnerabilities |
-| 4 | EOL check | Compare framework versions to vendor EOL dates | No EOL components |
-| 5 | License audit | Check dependency licenses | No copyleft licenses in proprietary code |
+| #   | Test          | Method                                         | Expected Result                          |
+| --- | ------------- | ---------------------------------------------- | ---------------------------------------- |
+| 1   | npm audit     | `npm audit --json`                             | No critical or high vulnerabilities      |
+| 2   | pip audit     | `pip audit --desc`                             | No known CVEs                            |
+| 3   | Go vulncheck  | `govulncheck ./...`                            | No reachable vulnerabilities             |
+| 4   | EOL check     | Compare framework versions to vendor EOL dates | No EOL components                        |
+| 5   | License audit | Check dependency licenses                      | No copyleft licenses in proprietary code |
 
 ### Remediation
 
@@ -299,15 +301,15 @@ Weaknesses in authentication mechanisms that allow attackers to compromise passw
 
 ### Test Procedures
 
-| # | Test | Method | Expected Result |
-|---|------|--------|-----------------|
-| 1 | Brute force | 100 rapid login attempts | Account lockout or exponential backoff |
-| 2 | Session cookie flags | Inspect cookies in browser | HttpOnly, Secure, SameSite set |
-| 3 | Session invalidation | Logout, replay session cookie | 401 Unauthorized |
-| 4 | Username enumeration | Submit valid/invalid usernames | Identical error messages |
-| 5 | Password policy | Submit "12345" as password | Rejected (min 8 chars, complexity) |
-| 6 | Password reset token | Request reset, check token expiry | Token expires in 15-60 minutes |
-| 7 | MFA bypass | Skip MFA step via direct API call | Requires MFA completion |
+| #   | Test                 | Method                            | Expected Result                        |
+| --- | -------------------- | --------------------------------- | -------------------------------------- |
+| 1   | Brute force          | 100 rapid login attempts          | Account lockout or exponential backoff |
+| 2   | Session cookie flags | Inspect cookies in browser        | HttpOnly, Secure, SameSite set         |
+| 3   | Session invalidation | Logout, replay session cookie     | 401 Unauthorized                       |
+| 4   | Username enumeration | Submit valid/invalid usernames    | Identical error messages               |
+| 5   | Password policy      | Submit "12345" as password        | Rejected (min 8 chars, complexity)     |
+| 6   | Password reset token | Request reset, check token expiry | Token expires in 15-60 minutes         |
+| 7   | MFA bypass           | Skip MFA step via direct API call | Requires MFA completion                |
 
 ### Remediation
 
@@ -336,12 +338,12 @@ Code and infrastructure that does not protect against integrity violations, incl
 
 ### Test Procedures
 
-| # | Test | Method | Expected Result |
-|---|------|--------|-----------------|
-| 1 | Unsafe deserialization | Send crafted serialized objects | Rejected or safely handled |
-| 2 | SRI on CDN resources | Check script/link tags | Integrity attribute present |
-| 3 | CI/CD pipeline | Review pipeline config | Signed commits, protected branches |
-| 4 | Update integrity | Check update mechanism | Signed artifacts, hash verification |
+| #   | Test                   | Method                          | Expected Result                     |
+| --- | ---------------------- | ------------------------------- | ----------------------------------- |
+| 1   | Unsafe deserialization | Send crafted serialized objects | Rejected or safely handled          |
+| 2   | SRI on CDN resources   | Check script/link tags          | Integrity attribute present         |
+| 3   | CI/CD pipeline         | Review pipeline config          | Signed commits, protected branches  |
+| 4   | Update integrity       | Check update mechanism          | Signed artifacts, hash verification |
 
 ### Remediation
 
@@ -368,13 +370,13 @@ Without sufficient logging and monitoring, breaches cannot be detected. Logging 
 
 ### Test Procedures
 
-| # | Test | Method | Expected Result |
-|---|------|--------|-----------------|
-| 1 | Auth event logging | Attempt valid/invalid logins | Both logged with timestamp and IP |
-| 2 | Sensitive data in logs | Review log output | No passwords, tokens, PII, credit cards |
-| 3 | Alert thresholds | Trigger 50 failed logins | Alert generated |
-| 4 | Log integrity | Check log storage | Append-only or integrity-protected storage |
-| 5 | Admin action audit trail | Perform admin actions | All actions logged with user identity |
+| #   | Test                     | Method                       | Expected Result                            |
+| --- | ------------------------ | ---------------------------- | ------------------------------------------ |
+| 1   | Auth event logging       | Attempt valid/invalid logins | Both logged with timestamp and IP          |
+| 2   | Sensitive data in logs   | Review log output            | No passwords, tokens, PII, credit cards    |
+| 3   | Alert thresholds         | Trigger 50 failed logins     | Alert generated                            |
+| 4   | Log integrity            | Check log storage            | Append-only or integrity-protected storage |
+| 5   | Admin action audit trail | Perform admin actions        | All actions logged with user identity      |
 
 ### Remediation
 
@@ -400,14 +402,14 @@ SSRF occurs when a web application fetches a remote resource without validating 
 
 ### Test Procedures
 
-| # | Test | Method | Expected Result |
-|---|------|--------|-----------------|
-| 1 | Internal IP access | Submit `http://127.0.0.1` in URL fields | Request blocked |
-| 2 | Cloud metadata | Submit `http://169.254.169.254/latest/meta-data/` | Request blocked |
-| 3 | IPv6 localhost | Submit `http://[::1]` | Request blocked |
-| 4 | DNS rebinding | Use DNS rebinding service | Request blocked after resolution |
-| 5 | URL encoding bypass | Submit `http://0x7f000001` (hex localhost) | Request blocked |
-| 6 | Open redirect chain | Find open redirect, chain to internal URL | Request blocked |
+| #   | Test                | Method                                            | Expected Result                  |
+| --- | ------------------- | ------------------------------------------------- | -------------------------------- |
+| 1   | Internal IP access  | Submit `http://127.0.0.1` in URL fields           | Request blocked                  |
+| 2   | Cloud metadata      | Submit `http://169.254.169.254/latest/meta-data/` | Request blocked                  |
+| 3   | IPv6 localhost      | Submit `http://[::1]`                             | Request blocked                  |
+| 4   | DNS rebinding       | Use DNS rebinding service                         | Request blocked after resolution |
+| 5   | URL encoding bypass | Submit `http://0x7f000001` (hex localhost)        | Request blocked                  |
+| 6   | Open redirect chain | Find open redirect, chain to internal URL         | Request blocked                  |
 
 ### Code Patterns to Detect
 

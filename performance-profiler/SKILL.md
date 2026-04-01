@@ -7,7 +7,7 @@ description: "Performance Profiler"
 
 **Tier:** POWERFUL  
 **Category:** Engineering  
-**Domain:** Performance Engineering  
+**Domain:** Performance Engineering
 
 ---
 
@@ -65,6 +65,7 @@ python3 scripts/performance_profiler.py /path/to/project --large-file-threshold-
 ---
 
 ## Node.js Profiling
+
 → See references/profiling-recipes.md for details
 
 ## Before/After Measurement Template
@@ -74,40 +75,46 @@ python3 scripts/performance_profiler.py /path/to/project --large-file-threshold-
 
 **Date:** 2026-03-01  
 **Engineer:** @username  
-**Ticket:** PROJ-123  
+**Ticket:** PROJ-123
 
 ### Problem
+
 [1-2 sentences: what was slow, how was it observed]
 
 ### Root Cause
+
 [What the profiler revealed]
 
 ### Baseline (Before)
-| Metric | Value |
-|--------|-------|
-| P50 latency | 480ms |
-| P95 latency | 1,240ms |
-| P99 latency | 3,100ms |
-| RPS @ 50 VUs | 42 |
-| Error rate | 0.8% |
+
+| Metric         | Value    |
+| -------------- | -------- |
+| P50 latency    | 480ms    |
+| P95 latency    | 1,240ms  |
+| P99 latency    | 3,100ms  |
+| RPS @ 50 VUs   | 42       |
+| Error rate     | 0.8%     |
 | DB queries/req | 23 (N+1) |
 
 Profiler evidence: [link to flamegraph or screenshot]
 
 ### Fix Applied
+
 [What changed — code diff or description]
 
 ### After
-| Metric | Before | After | Delta |
-|--------|--------|-------|-------|
-| P50 latency | 480ms | 48ms | -90% |
-| P95 latency | 1,240ms | 120ms | -90% |
-| P99 latency | 3,100ms | 280ms | -91% |
-| RPS @ 50 VUs | 42 | 380 | +804% |
-| Error rate | 0.8% | 0% | -100% |
-| DB queries/req | 23 | 1 | -96% |
+
+| Metric         | Before  | After | Delta |
+| -------------- | ------- | ----- | ----- |
+| P50 latency    | 480ms   | 48ms  | -90%  |
+| P95 latency    | 1,240ms | 120ms | -90%  |
+| P99 latency    | 3,100ms | 280ms | -91%  |
+| RPS @ 50 VUs   | 42      | 380   | +804% |
+| Error rate     | 0.8%    | 0%    | -100% |
+| DB queries/req | 23      | 1     | -96%  |
 
 ### Verification
+
 Load test run: [link to k6 output]
 ```
 

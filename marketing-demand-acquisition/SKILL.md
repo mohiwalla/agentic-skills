@@ -58,11 +58,11 @@ Acquisition playbook for Series A+ startups scaling internationally (EU/US/Canad
 
 ### Funnel Stages
 
-| Stage | Tactics | Target |
-|-------|---------|--------|
-| TOFU | Paid social, display, content syndication, SEO | Brand awareness, traffic |
-| MOFU | Paid search, retargeting, gated content, email nurture | MQLs, demo requests |
-| BOFU | Brand search, direct outreach, case studies, trials | SQLs, pipeline $ |
+| Stage | Tactics                                                | Target                   |
+| ----- | ------------------------------------------------------ | ------------------------ |
+| TOFU  | Paid social, display, content syndication, SEO         | Brand awareness, traffic |
+| MOFU  | Paid search, retargeting, gated content, email nurture | MQLs, demo requests      |
+| BOFU  | Brand search, direct outreach, case studies, trials    | SQLs, pipeline $         |
 
 ### Campaign Planning Workflow
 
@@ -89,12 +89,12 @@ utm_term={keyword}         // [paid search only]
 
 ### Channel Selection Matrix
 
-| Channel | Best For | CAC Range | Series A Priority |
-|---------|----------|-----------|-------------------|
-| LinkedIn Ads | B2B, Enterprise, ABM | $150-400 | High |
-| Google Search | High-intent, BOFU | $80-250 | High |
-| Google Display | Retargeting | $50-150 | Medium |
-| Meta Ads | SMB, visual products | $60-200 | Medium |
+| Channel        | Best For             | CAC Range | Series A Priority |
+| -------------- | -------------------- | --------- | ----------------- |
+| LinkedIn Ads   | B2B, Enterprise, ABM | $150-400  | High              |
+| Google Search  | High-intent, BOFU    | $80-250   | High              |
+| Google Display | Retargeting          | $50-150   | Medium            |
+| Meta Ads       | SMB, visual products | $60-200   | Medium            |
 
 ### LinkedIn Ads Setup
 
@@ -116,13 +116,13 @@ utm_term={keyword}         // [paid search only]
 
 ### Budget Allocation (Series A, $40k/month)
 
-| Channel | Budget | Expected SQLs |
-|---------|--------|---------------|
-| LinkedIn | $15k | 10 |
-| Google Search | $12k | 20 |
-| Google Display | $5k | 5 |
-| Meta | $5k | 8 |
-| Partnerships | $3k | 5 |
+| Channel        | Budget | Expected SQLs |
+| -------------- | ------ | ------------- |
+| LinkedIn       | $15k   | 10            |
+| Google Search  | $12k   | 20            |
+| Google Display | $5k    | 5             |
+| Meta           | $5k    | 8             |
+| Partnerships   | $3k    | 5             |
 
 See [campaign-templates.md](references/campaign-templates.md) for detailed structures.
 
@@ -144,11 +144,11 @@ See [campaign-templates.md](references/campaign-templates.md) for detailed struc
 
 ### Keyword Strategy
 
-| Tier | Type | Volume | Priority |
-|------|------|--------|----------|
-| 1 | High-intent BOFU | 100-1k | First |
-| 2 | Solution-aware MOFU | 500-5k | Second |
-| 3 | Problem-aware TOFU | 1k-10k | Third |
+| Tier | Type                | Volume | Priority |
+| ---- | ------------------- | ------ | -------- |
+| 1    | High-intent BOFU    | 100-1k | First    |
+| 2    | Solution-aware MOFU | 500-5k | Second   |
+| 3    | Problem-aware TOFU  | 1k-10k | Third    |
 
 ### On-Page Optimization
 
@@ -173,12 +173,12 @@ See [campaign-templates.md](references/campaign-templates.md) for detailed struc
 
 ### Partnership Tiers
 
-| Tier | Type | Effort | ROI |
-|------|------|--------|-----|
-| 1 | Strategic integrations | High | Very high |
-| 2 | Affiliate partners | Medium | Medium-high |
-| 3 | Customer referrals | Low | Medium |
-| 4 | Marketplace listings | Medium | Low-medium |
+| Tier | Type                   | Effort | ROI         |
+| ---- | ---------------------- | ------ | ----------- |
+| 1    | Strategic integrations | High   | Very high   |
+| 2    | Affiliate partners     | Medium | Medium-high |
+| 3    | Customer referrals     | Low    | Medium      |
+| 4    | Marketplace listings   | Medium | Low-medium  |
 
 ### Partnership Workflow
 
@@ -205,10 +205,10 @@ See [international-playbooks.md](references/international-playbooks.md) for regi
 
 ### Model Selection
 
-| Model | Use Case |
-|-------|----------|
-| First-Touch | Awareness campaigns |
-| Last-Touch | Direct response |
+| Model               | Use Case                       |
+| ------------------- | ------------------------------ |
+| First-Touch         | Awareness campaigns            |
+| Last-Touch          | Direct response                |
 | W-Shaped (40-20-40) | Hybrid PLG/Sales (recommended) |
 
 ### HubSpot Attribution Setup
@@ -221,13 +221,13 @@ See [international-playbooks.md](references/international-playbooks.md) for regi
 
 ### Weekly Metrics Dashboard
 
-| Metric | Target |
-|--------|--------|
-| MQLs | Weekly target |
-| SQLs | Weekly target |
-| MQL→SQL Rate | >15% |
-| Blended CAC | <$300 |
-| Pipeline Velocity | <60 days |
+| Metric            | Target        |
+| ----------------- | ------------- |
+| MQLs              | Weekly target |
+| SQLs              | Weekly target |
+| MQL→SQL Rate      | >15%          |
+| Blended CAC       | <$300         |
+| Pipeline Velocity | <60 days      |
 
 See [attribution-guide.md](references/attribution-guide.md) for detailed setup.
 
@@ -237,8 +237,8 @@ See [attribution-guide.md](references/attribution-guide.md) for detailed setup.
 
 ### scripts/
 
-| Script | Purpose | Usage |
-|--------|---------|-------|
+| Script             | Purpose                           | Usage                                                          |
+| ------------------ | --------------------------------- | -------------------------------------------------------------- |
 | `calculate_cac.py` | Calculate blended and channel CAC | `python scripts/calculate_cac.py --spend 40000 --customers 50` |
 
 ### HubSpot Integration
@@ -254,23 +254,23 @@ See [hubspot-workflows.md](references/hubspot-workflows.md) for workflow templat
 
 ## References
 
-| File | Content |
-|------|---------|
-| [hubspot-workflows.md](references/hubspot-workflows.md) | Lead scoring, nurture, assignment workflows |
-| [campaign-templates.md](references/campaign-templates.md) | LinkedIn, Google, Meta campaign structures |
-| [international-playbooks.md](references/international-playbooks.md) | EU, US, Canada market tactics |
-| [attribution-guide.md](references/attribution-guide.md) | Multi-touch attribution, dashboards, A/B testing |
+| File                                                                | Content                                          |
+| ------------------------------------------------------------------- | ------------------------------------------------ |
+| [hubspot-workflows.md](references/hubspot-workflows.md)             | Lead scoring, nurture, assignment workflows      |
+| [campaign-templates.md](references/campaign-templates.md)           | LinkedIn, Google, Meta campaign structures       |
+| [international-playbooks.md](references/international-playbooks.md) | EU, US, Canada market tactics                    |
+| [attribution-guide.md](references/attribution-guide.md)             | Multi-touch attribution, dashboards, A/B testing |
 
 ---
 
 ## Channel Benchmarks (B2B SaaS Series A)
 
-| Metric | LinkedIn | Google Search | SEO | Email |
-|--------|----------|---------------|-----|-------|
-| CTR | 0.4-0.9% | 2-5% | 1-3% | 15-25% |
-| CVR | 1-3% | 3-7% | 2-5% | 2-5% |
-| CAC | $150-400 | $80-250 | $50-150 | $20-80 |
-| MQL→SQL | 10-20% | 15-25% | 12-22% | 8-15% |
+| Metric  | LinkedIn | Google Search | SEO     | Email  |
+| ------- | -------- | ------------- | ------- | ------ |
+| CTR     | 0.4-0.9% | 2-5%          | 1-3%    | 15-25% |
+| CVR     | 1-3%     | 3-7%          | 2-5%    | 2-5%   |
+| CAC     | $150-400 | $80-250       | $50-150 | $20-80 |
+| MQL→SQL | 10-20%   | 15-25%        | 12-22%  | 8-15%  |
 
 ---
 
@@ -289,11 +289,11 @@ Required:
 
 ### SLA
 
-| Handoff | Target |
-|---------|--------|
-| SDR responds to MQL | 4 hours |
-| AE books demo with SQL | 24 hours |
-| First demo scheduled | 3 business days |
+| Handoff                | Target          |
+| ---------------------- | --------------- |
+| SDR responds to MQL    | 4 hours         |
+| AE books demo with SQL | 24 hours        |
+| First demo scheduled   | 3 business days |
 
 **Validation:** Test lead through workflow, verify notifications and routing.
 

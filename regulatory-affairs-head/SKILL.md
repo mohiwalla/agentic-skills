@@ -61,14 +61,14 @@ Develop regulatory strategy aligned with business objectives and product charact
 
 ### Regulatory Pathway Selection Matrix
 
-| Factor | 510(k) | De Novo | PMA |
-|--------|--------|---------|-----|
-| Predicate Available | Yes | No | N/A |
-| Risk Level | Low-Moderate | Low-Moderate | High |
-| Clinical Data | Usually not required | May be required | Required |
-| Review Time | 90 days (MDUFA) | 150 days | 180 days |
-| User Fee | ~$22K (2024) | ~$135K | ~$440K |
-| Best For | Me-too devices | Novel low-risk | High-risk, novel |
+| Factor              | 510(k)               | De Novo         | PMA              |
+| ------------------- | -------------------- | --------------- | ---------------- |
+| Predicate Available | Yes                  | No              | N/A              |
+| Risk Level          | Low-Moderate         | Low-Moderate    | High             |
+| Clinical Data       | Usually not required | May be required | Required         |
+| Review Time         | 90 days (MDUFA)      | 150 days        | 180 days         |
+| User Fee            | ~$22K (2024)         | ~$135K          | ~$440K           |
+| Best For            | Me-too devices       | Novel low-risk  | High-risk, novel |
 
 ### Regulatory Strategy Document Template
 
@@ -139,13 +139,13 @@ Prepare and submit FDA regulatory applications.
 
 #### Substantial Equivalence Comparison Example
 
-| Characteristic | Predicate (K213456) | Subject Device | Same? | Notes |
-|----------------|---------------------|----------------|-------|-------|
-| Intended use | Wound measurement | Wound measurement | ✓ | Identical |
-| Technology | 2D camera | 2D + AI analysis | ✗ | New TC; address below |
-| Energy type | Non-energized | Non-energized | ✓ | |
-| Patient contact | No | No | ✓ | |
-| SE conclusion | New TC does not raise new safety/effectiveness questions; bench data demonstrates equivalent accuracy (±2mm vs ±3mm predicate) |
+| Characteristic  | Predicate (K213456)                                                                                                            | Subject Device    | Same? | Notes                 |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------- | ----- | --------------------- |
+| Intended use    | Wound measurement                                                                                                              | Wound measurement | ✓     | Identical             |
+| Technology      | 2D camera                                                                                                                      | 2D + AI analysis  | ✗     | New TC; address below |
+| Energy type     | Non-energized                                                                                                                  | Non-energized     | ✓     |                       |
+| Patient contact | No                                                                                                                             | No                | ✓     |                       |
+| SE conclusion   | New TC does not raise new safety/effectiveness questions; bench data demonstrates equivalent accuracy (±2mm vs ±3mm predicate) |
 
 ### Workflow: PMA Submission
 
@@ -170,23 +170,23 @@ Prepare and submit FDA regulatory applications.
 
 ### FDA Submission Timeline
 
-| Milestone | 510(k) | De Novo | PMA |
-|-----------|--------|---------|-----|
-| Pre-Sub Meeting | Day -90 | Day -90 | Day -120 |
-| Submission | Day 0 | Day 0 | Day 0 |
-| RTA Review | Day 15 | Day 15 | Day 45 |
+| Milestone          | 510(k)     | De Novo     | PMA         |
+| ------------------ | ---------- | ----------- | ----------- |
+| Pre-Sub Meeting    | Day -90    | Day -90     | Day -120    |
+| Submission         | Day 0      | Day 0       | Day 0       |
+| RTA Review         | Day 15     | Day 15      | Day 45      |
 | Substantive Review | Days 15–90 | Days 15–150 | Days 45–180 |
-| Decision | Day 90 | Day 150 | Day 180 |
+| Decision           | Day 90     | Day 150     | Day 180     |
 
 ### Common FDA Deficiencies and Prevention
 
-| Category | Common Issues | Prevention |
-|----------|---------------|------------|
-| Substantial Equivalence | Weak predicate comparison; no performance data | Build SE table with data column; cite recognized standards |
-| Performance Testing | Incomplete protocols; missing worst-case rationale | Follow FDA-recognized standards; document worst-case justification |
-| Biocompatibility | Missing endpoints; no ISO 10993-1 risk assessment | Complete ISO 10993-1 matrix before testing |
-| Software | Inadequate hazard analysis; no cybersecurity bill of materials | IEC 62304 compliance + FDA cybersecurity guidance checklist |
-| Labeling | Inconsistent claims vs. IFU; missing symbols standard | Cross-check label against IFU; cite ISO 15223-1 for symbols |
+| Category                | Common Issues                                                  | Prevention                                                         |
+| ----------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Substantial Equivalence | Weak predicate comparison; no performance data                 | Build SE table with data column; cite recognized standards         |
+| Performance Testing     | Incomplete protocols; missing worst-case rationale             | Follow FDA-recognized standards; document worst-case justification |
+| Biocompatibility        | Missing endpoints; no ISO 10993-1 risk assessment              | Complete ISO 10993-1 matrix before testing                         |
+| Software                | Inadequate hazard analysis; no cybersecurity bill of materials | IEC 62304 compliance + FDA cybersecurity guidance checklist        |
+| Labeling                | Inconsistent claims vs. IFU; missing symbols standard          | Cross-check label against IFU; cite ISO 15223-1 for symbols        |
 
 See: [references/fda-submission-guide.md](references/fda-submission-guide.md)
 
@@ -219,20 +219,20 @@ Achieve CE marking under EU MDR 2017/745.
 
 #### GSPR Checklist Row Example
 
-| GSPR Ref | Requirement | Standard / Guidance | Evidence Document | Status |
-|----------|-------------|---------------------|-------------------|--------|
-| Annex I §1 | Safe design and manufacture | ISO 14971:2019 | Risk Management File v2.1 | Complete |
-| Annex I §11.1 | Devices with measuring function ±accuracy | EN ISO 15223-1 | Performance Test Report PT-003 | Complete |
-| Annex I §17 | Cybersecurity | MDCG 2019-16 | Cybersecurity Assessment CS-001 | In progress |
+| GSPR Ref      | Requirement                               | Standard / Guidance | Evidence Document               | Status      |
+| ------------- | ----------------------------------------- | ------------------- | ------------------------------- | ----------- |
+| Annex I §1    | Safe design and manufacture               | ISO 14971:2019      | Risk Management File v2.1       | Complete    |
+| Annex I §11.1 | Devices with measuring function ±accuracy | EN ISO 15223-1      | Performance Test Report PT-003  | Complete    |
+| Annex I §17   | Cybersecurity                             | MDCG 2019-16        | Cybersecurity Assessment CS-001 | In progress |
 
 ### Clinical Evidence Requirements by Class
 
-| Class | Clinical Requirement | Documentation |
-|-------|---------------------|---------------|
-| I | Clinical evaluation (CE) | CE report |
-| IIa | CE with literature focus | CE report + PMCF plan |
-| IIb | CE with clinical data | CE report + PMCF + clinical study (some) |
-| III | CE with clinical investigation | CE report + PMCF + clinical investigation |
+| Class | Clinical Requirement           | Documentation                             |
+| ----- | ------------------------------ | ----------------------------------------- |
+| I     | Clinical evaluation (CE)       | CE report                                 |
+| IIa   | CE with literature focus       | CE report + PMCF plan                     |
+| IIb   | CE with clinical data          | CE report + PMCF + clinical study (some)  |
+| III   | CE with clinical investigation | CE report + PMCF + clinical investigation |
 
 ### Notified Body Selection Criteria
 
@@ -271,26 +271,26 @@ Coordinate regulatory approvals across international markets.
 
 ### Market Priority Matrix
 
-| Market | Size | Complexity | Recognition | Priority |
-|--------|------|------------|-------------|----------|
-| USA | Large | High | N/A | 1 |
-| EU | Large | High | N/A | 1–2 |
-| Canada | Medium | Medium | MDSAP | 2 |
-| Australia | Medium | Low | EU accepted | 2 |
-| Japan | Large | High | Local clinical | 3 |
-| China | Large | Very High | Local testing | 3 |
-| Brazil | Medium | High | GMP inspection | 3–4 |
+| Market    | Size   | Complexity | Recognition    | Priority |
+| --------- | ------ | ---------- | -------------- | -------- |
+| USA       | Large  | High       | N/A            | 1        |
+| EU        | Large  | High       | N/A            | 1–2      |
+| Canada    | Medium | Medium     | MDSAP          | 2        |
+| Australia | Medium | Low        | EU accepted    | 2        |
+| Japan     | Large  | High       | Local clinical | 3        |
+| China     | Large  | Very High  | Local testing  | 3        |
+| Brazil    | Medium | High       | GMP inspection | 3–4      |
 
 ### Documentation Efficiency Strategy
 
-| Document Type | Single Source | Localization Required |
-|---------------|---------------|----------------------|
-| Technical file core | Yes | Format adaptation |
-| Risk management | Yes | None |
-| Clinical data | Yes | Bridging assessment |
-| QMS certificate | Yes (ISO 13485) | Market-specific audit |
-| Labeling | Master label | Translation, local requirements |
-| IFU | Master content | Translation, local symbols |
+| Document Type       | Single Source   | Localization Required           |
+| ------------------- | --------------- | ------------------------------- |
+| Technical file core | Yes             | Format adaptation               |
+| Risk management     | Yes             | None                            |
+| Clinical data       | Yes             | Bridging assessment             |
+| QMS certificate     | Yes (ISO 13485) | Market-specific audit           |
+| Labeling            | Master label    | Translation, local requirements |
+| IFU                 | Master content  | Translation, local symbols      |
 
 See: [references/global-regulatory-pathways.md](references/global-regulatory-pathways.md)
 
@@ -320,14 +320,14 @@ Monitor and respond to regulatory changes affecting product portfolio.
 
 ### Regulatory Monitoring Sources
 
-| Source | Type | Frequency |
-|--------|------|-----------|
-| FDA Federal Register | Regulations, guidance | Daily |
-| FDA Device Database | 510(k), PMA, recalls | Weekly |
-| EU Official Journal | MDR/IVDR updates | Weekly |
-| MDCG Guidance | EU implementation | As published |
-| ISO/IEC | Standards updates | Quarterly |
-| Notified Body | Audit findings, trends | Per interaction |
+| Source               | Type                   | Frequency       |
+| -------------------- | ---------------------- | --------------- |
+| FDA Federal Register | Regulations, guidance  | Daily           |
+| FDA Device Database  | 510(k), PMA, recalls   | Weekly          |
+| EU Official Journal  | MDR/IVDR updates       | Weekly          |
+| MDCG Guidance        | EU implementation      | As published    |
+| ISO/IEC              | Standards updates      | Quarterly       |
+| Notified Body        | Audit findings, trends | Per interaction |
 
 ### Impact Assessment Template
 
@@ -400,26 +400,26 @@ III  IIb  Check   Class I
 
 ### Pre-Submission Meeting Decision
 
-| Factor | Schedule Pre-Sub | Skip Pre-Sub |
-|--------|------------------|--------------|
-| Novel Technology | ✓ | |
-| New Intended Use | ✓ | |
-| Complex Testing | ✓ | |
-| Uncertain Predicate | ✓ | |
-| Clinical Data Needed | ✓ | |
-| Well-established | | ✓ |
-| Clear Predicate | | ✓ |
-| Standard Testing | | ✓ |
+| Factor               | Schedule Pre-Sub | Skip Pre-Sub |
+| -------------------- | ---------------- | ------------ |
+| Novel Technology     | ✓                |              |
+| New Intended Use     | ✓                |              |
+| Complex Testing      | ✓                |              |
+| Uncertain Predicate  | ✓                |              |
+| Clinical Data Needed | ✓                |              |
+| Well-established     |                  | ✓            |
+| Clear Predicate      |                  | ✓            |
+| Standard Testing     |                  | ✓            |
 
 ### Regulatory Escalation Criteria
 
-| Situation | Escalation Level | Action |
-|-----------|------------------|--------|
-| Submission rejection | VP Regulatory | Root cause analysis, strategy revision |
-| Major deficiency | Director | Cross-functional response team |
-| Timeline at risk | Management | Resource reallocation review |
-| Regulatory change | VP Regulatory | Portfolio impact assessment |
-| Safety signal | Executive | Immediate containment and reporting |
+| Situation            | Escalation Level | Action                                 |
+| -------------------- | ---------------- | -------------------------------------- |
+| Submission rejection | VP Regulatory    | Root cause analysis, strategy revision |
+| Major deficiency     | Director         | Cross-functional response team         |
+| Timeline at risk     | Management       | Resource reallocation review           |
+| Regulatory change    | VP Regulatory    | Portfolio impact assessment            |
+| Safety signal        | Executive        | Immediate containment and reporting    |
 
 ---
 
@@ -427,17 +427,19 @@ III  IIb  Check   Class I
 
 ### Scripts
 
-| Tool | Purpose | Usage |
-|------|---------|-------|
+| Tool                                                   | Purpose                               | Usage                          |
+| ------------------------------------------------------ | ------------------------------------- | ------------------------------ |
 | [regulatory_tracker.py](scripts/regulatory_tracker.py) | Track submission status and timelines | `python regulatory_tracker.py` |
 
 **Regulatory Tracker Features:**
+
 - Track multiple submissions across markets
 - Monitor status and target dates
 - Identify overdue submissions
 - Generate status reports
 
 **Example usage:**
+
 ```bash
 $ python regulatory_tracker.py --report status
 Submission Status Report — 2024-11-01
@@ -453,29 +455,29 @@ Submission Status Report — 2024-11-01
 
 ### References
 
-| Document | Content |
-|----------|---------|
-| [fda-submission-guide.md](references/fda-submission-guide.md) | FDA pathways, requirements, review process |
-| [eu-mdr-submission-guide.md](references/eu-mdr-submission-guide.md) | MDR classification, technical documentation, clinical evidence |
-| [global-regulatory-pathways.md](references/global-regulatory-pathways.md) | Canada, Japan, China, Australia, Brazil requirements |
-| [iso-regulatory-requirements.md](references/iso-regulatory-requirements.md) | ISO 13485, 14971, 10993, IEC 62304, 62366 requirements |
+| Document                                                                    | Content                                                        |
+| --------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| [fda-submission-guide.md](references/fda-submission-guide.md)               | FDA pathways, requirements, review process                     |
+| [eu-mdr-submission-guide.md](references/eu-mdr-submission-guide.md)         | MDR classification, technical documentation, clinical evidence |
+| [global-regulatory-pathways.md](references/global-regulatory-pathways.md)   | Canada, Japan, China, Australia, Brazil requirements           |
+| [iso-regulatory-requirements.md](references/iso-regulatory-requirements.md) | ISO 13485, 14971, 10993, IEC 62304, 62366 requirements         |
 
 ### Key Performance Indicators
 
-| KPI | Target | Calculation |
-|-----|--------|-------------|
-| First-time approval rate | >85% | (Approved without major deficiency / Total submitted) × 100 |
-| On-time submission | >90% | (Submitted by target date / Total submissions) × 100 |
-| Review cycle compliance | >95% | (Responses within deadline / Total requests) × 100 |
-| Regulatory hold time | <20% | (Days on hold / Total review days) × 100 |
+| KPI                      | Target | Calculation                                                 |
+| ------------------------ | ------ | ----------------------------------------------------------- |
+| First-time approval rate | >85%   | (Approved without major deficiency / Total submitted) × 100 |
+| On-time submission       | >90%   | (Submitted by target date / Total submissions) × 100        |
+| Review cycle compliance  | >95%   | (Responses within deadline / Total requests) × 100          |
+| Regulatory hold time     | <20%   | (Days on hold / Total review days) × 100                    |
 
 ---
 
 ## Related Skills
 
-| Skill | Integration Point |
-|-------|-------------------|
-| [mdr-745-specialist](../mdr-745-specialist/) | Detailed EU MDR technical requirements |
-| [fda-consultant-specialist](../fda-consultant-specialist/) | FDA submission deep expertise |
-| [quality-manager-qms-iso13485](../quality-manager-qms-iso13485/) | QMS for regulatory compliance |
-| [risk-management-specialist](../risk-management-specialist/) | ISO 14971 risk management |
+| Skill                                                            | Integration Point                      |
+| ---------------------------------------------------------------- | -------------------------------------- |
+| [mdr-745-specialist](../mdr-745-specialist/)                     | Detailed EU MDR technical requirements |
+| [fda-consultant-specialist](../fda-consultant-specialist/)       | FDA submission deep expertise          |
+| [quality-manager-qms-iso13485](../quality-manager-qms-iso13485/) | QMS for regulatory compliance          |
+| [risk-management-specialist](../risk-management-specialist/)     | ISO 14971 risk management              |

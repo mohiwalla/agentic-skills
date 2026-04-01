@@ -14,18 +14,18 @@ This is not about trust. It is about risk. A clear spec means low risk of buildi
 
 ## Decision Matrix
 
-| Signal | Action | Rationale |
-|--------|--------|-----------|
-| Spec is Approved, requirement is clear, tests exist | **Continue** | Low risk. Build it. |
-| Requirement is clear but no test exists yet | **Continue** (write the test first) | You can infer the test from the requirement. |
-| Requirement uses SHOULD/MAY keywords | **Continue** with your best judgment | These are intentionally flexible. Document your choice. |
-| Requirement is ambiguous (multiple valid interpretations) | **STOP** if ambiguity > 30% of the task | Ask the spec author to clarify. |
-| Implementation requires changing an API contract | **STOP** always | Breaking changes need explicit approval. |
-| Implementation requires a new database migration | **STOP** if it changes existing columns/tables | New tables are lower risk than schema changes. |
-| Security-related change (auth, crypto, PII) | **STOP** always | Security changes need review regardless of spec clarity. |
-| Performance-critical path with no benchmark data | **STOP** | You cannot prove NFR compliance without measurement. |
-| Bug found in existing code unrelated to spec | **STOP** — file a separate issue | Do not fix unrelated bugs in a spec-scoped implementation. |
-| Spec says "N/A" for a section you think needs content | **STOP** | The author may have a reason, or they may have missed it. |
+| Signal                                                    | Action                                         | Rationale                                                  |
+| --------------------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------- |
+| Spec is Approved, requirement is clear, tests exist       | **Continue**                                   | Low risk. Build it.                                        |
+| Requirement is clear but no test exists yet               | **Continue** (write the test first)            | You can infer the test from the requirement.               |
+| Requirement uses SHOULD/MAY keywords                      | **Continue** with your best judgment           | These are intentionally flexible. Document your choice.    |
+| Requirement is ambiguous (multiple valid interpretations) | **STOP** if ambiguity > 30% of the task        | Ask the spec author to clarify.                            |
+| Implementation requires changing an API contract          | **STOP** always                                | Breaking changes need explicit approval.                   |
+| Implementation requires a new database migration          | **STOP** if it changes existing columns/tables | New tables are lower risk than schema changes.             |
+| Security-related change (auth, crypto, PII)               | **STOP** always                                | Security changes need review regardless of spec clarity.   |
+| Performance-critical path with no benchmark data          | **STOP**                                       | You cannot prove NFR compliance without measurement.       |
+| Bug found in existing code unrelated to spec              | **STOP** — file a separate issue               | Do not fix unrelated bugs in a spec-scoped implementation. |
+| Spec says "N/A" for a section you think needs content     | **STOP**                                       | The author may have a reason, or they may have missed it.  |
 
 ---
 
@@ -45,18 +45,19 @@ For each requirement you are implementing, ask:
 
 ### Threshold
 
-| Ambiguity Score | Action |
-|-----------------|--------|
-| 0-15% | Continue. Minor ambiguity is normal. Document your interpretation. |
-| 16-30% | Continue with caution. Add a comment explaining your interpretation. Flag in PR. |
-| 31-50% | STOP. Ask the spec author one specific question. Do not continue until answered. |
-| 51%+ | STOP. The spec is incomplete. Request a revision before proceeding. |
+| Ambiguity Score | Action                                                                           |
+| --------------- | -------------------------------------------------------------------------------- |
+| 0-15%           | Continue. Minor ambiguity is normal. Document your interpretation.               |
+| 16-30%          | Continue with caution. Add a comment explaining your interpretation. Flag in PR. |
+| 31-50%          | STOP. Ask the spec author one specific question. Do not continue until answered. |
+| 51%+            | STOP. The spec is incomplete. Request a revision before proceeding.              |
 
 ### Example
 
 **Requirement:** "FR-7: The system MUST notify the user when their order ships."
 
 Questions:
+
 1. Can I write a test? Partially — I know WHAT to test but not HOW (email? push? in-app?). +20%
 2. Multiple interpretations? Yes — notification channel is unclear. +20%
 3. Contradicts itself? No. +0%
@@ -81,13 +82,13 @@ Scope creep is implementing functionality not described in the spec. It includes
 
 ### Detection Patterns
 
-| Pattern | Example | Risk |
-|---------|---------|------|
-| "While I'm here..." | Refactoring a utility function unrelated to the spec | Medium — unreviewed changes |
-| "This would be easy to add..." | Adding a search filter the spec does not mention | High — untested, unspecified |
-| "Users will probably want..." | Building a feature based on assumption | High — may conflict with future specs |
-| "This is obviously needed..." | Adding logging, metrics, or caching not in NFRs | Medium — may be overkill or wrong approach |
-| "The spec forgot to mention..." | Building something the spec excluded | Critical — may be deliberately excluded |
+| Pattern                         | Example                                              | Risk                                       |
+| ------------------------------- | ---------------------------------------------------- | ------------------------------------------ |
+| "While I'm here..."             | Refactoring a utility function unrelated to the spec | Medium — unreviewed changes                |
+| "This would be easy to add..."  | Adding a search filter the spec does not mention     | High — untested, unspecified               |
+| "Users will probably want..."   | Building a feature based on assumption               | High — may conflict with future specs      |
+| "This is obviously needed..."   | Adding logging, metrics, or caching not in NFRs      | Medium — may be overkill or wrong approach |
+| "The spec forgot to mention..." | Building something the spec excluded                 | Critical — may be deliberately excluded    |
 
 ### Response Protocol
 
@@ -107,22 +108,22 @@ When you detect scope creep in your own work:
 
 A breaking change is any modification that could cause existing clients, tests, or integrations to fail.
 
-| Category | Breaking | Not Breaking |
-|----------|----------|--------------|
-| API endpoint removed | Yes | - |
-| API endpoint added | - | No |
-| Required field added to request | Yes | - |
-| Optional field added to request | - | No |
-| Field removed from response | Yes | - |
-| Field added to response | - | No (usually) |
-| Status code changed | Yes | - |
-| Error code string changed | Yes | - |
-| Database column removed | Yes | - |
-| Database column added (nullable) | - | No |
-| Database column added (not null, no default) | Yes | - |
-| Enum value removed | Yes | - |
-| Enum value added | - | No (usually) |
-| Behavior change for existing input | Yes | - |
+| Category                                     | Breaking | Not Breaking |
+| -------------------------------------------- | -------- | ------------ |
+| API endpoint removed                         | Yes      | -            |
+| API endpoint added                           | -        | No           |
+| Required field added to request              | Yes      | -            |
+| Optional field added to request              | -        | No           |
+| Field removed from response                  | Yes      | -            |
+| Field added to response                      | -        | No (usually) |
+| Status code changed                          | Yes      | -            |
+| Error code string changed                    | Yes      | -            |
+| Database column removed                      | Yes      | -            |
+| Database column added (nullable)             | -        | No           |
+| Database column added (not null, no default) | Yes      | -            |
+| Enum value removed                           | Yes      | -            |
+| Enum value added                             | -        | No (usually) |
+| Behavior change for existing input           | Yes      | -            |
 
 ### Breaking Change Protocol
 
@@ -179,9 +180,9 @@ Any change touching the following areas MUST be escalated, even if the spec seem
 **Ambiguity score:** 70%
 **Question:** What notification channel should be used?
 **Options considered:**
-  A. Email only — Pros: simple, reliable. Cons: not real-time.
-  B. Email + in-app notification — Pros: covers both async and real-time. Cons: more implementation effort.
-  C. Configurable per user — Pros: maximum flexibility. Cons: requires preference UI (not in spec).
+A. Email only — Pros: simple, reliable. Cons: not real-time.
+B. Email + in-app notification — Pros: covers both async and real-time. Cons: more implementation effort.
+C. Configurable per user — Pros: maximum flexibility. Cons: requires preference UI (not in spec).
 **My recommendation:** B (email + in-app). Covers most use cases without requiring new UI.
 **Impact of waiting:** Cannot implement FR-7 until resolved. No other work blocked.
 ```
@@ -195,8 +196,8 @@ Any change touching the following areas MUST be escalated, even if the spec seem
 **Scenario:** User clicks a reset link, but their account was deleted between requesting and clicking.
 **Not in spec:** Edge cases section does not cover this.
 **Options considered:**
-  A. Show generic "link invalid" error — Pros: secure (no info leak). Cons: confusing for deleted user.
-  B. Show "account not found" error — Pros: clear. Cons: confirms account deletion to link holder.
+A. Show generic "link invalid" error — Pros: secure (no info leak). Cons: confusing for deleted user.
+B. Show "account not found" error — Pros: clear. Cons: confirms account deletion to link holder.
 **My recommendation:** A. Security over clarity — do not reveal account existence.
 **Impact of waiting:** Can implement other ACs; this is blocking only AC-2 completion.
 ```
@@ -210,9 +211,9 @@ Any change touching the following areas MUST be escalated, even if the spec seem
 **Current behavior:** POST /api/users accepts {email, password, displayName}
 **Breaking:** Yes — existing clients will get 400 errors (missing required field)
 **Options considered:**
-  A. Make "role" required as spec says — Pros: matches spec. Cons: breaks mobile app v2.1.
-  B. Make "role" optional with default "user" — Pros: backward compatible. Cons: deviates from spec.
-  C. Version the API (v2) — Pros: clean separation. Cons: maintenance burden.
+A. Make "role" required as spec says — Pros: matches spec. Cons: breaks mobile app v2.1.
+B. Make "role" optional with default "user" — Pros: backward compatible. Cons: deviates from spec.
+C. Version the API (v2) — Pros: clean separation. Cons: maintenance burden.
 **My recommendation:** B. Default to "user" for backward compatibility. Update spec to reflect MAY instead of MUST.
 **Impact of waiting:** Frontend team is building against the new contract. Need answer within 2 days.
 ```
@@ -258,16 +259,21 @@ STOP if:
 ## Anti-Patterns in Autonomy
 
 ### 1. "I'll Ask Later"
+
 Continuing past an ambiguity checkpoint because asking feels slow. The rework from building the wrong thing is always slower.
 
 ### 2. "It's Obviously Needed"
+
 Assuming a missing feature was accidentally omitted. It may have been deliberately excluded. Check Out of Scope first.
 
 ### 3. "The Spec Is Wrong"
+
 Implementing what you think the spec SHOULD say instead of what it DOES say. If the spec is wrong, escalate. Do not silently "fix" it.
 
 ### 4. "Just This Once"
+
 Bypassing the escalation protocol for a "small" change. Small changes compound. The protocol exists because humans are bad at judging risk in the moment.
 
 ### 5. "I Already Built It"
+
 Presenting completed work that was never in the spec and hoping it gets accepted. This creates review pressure and wastes everyone's time if rejected. Ask BEFORE building.

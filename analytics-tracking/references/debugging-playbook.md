@@ -7,6 +7,7 @@ Step-by-step methodology for diagnosing and fixing analytics tracking issues.
 ## The Debug Mindset
 
 Analytics bugs are harder than code bugs because:
+
 1. They fail silently — no error thrown, just missing data
 2. They often only appear in production
 3. They can be caused by timing, consent, ad blockers, or just configuration
@@ -41,6 +42,7 @@ When something's missing at Layer 5, start at Layer 1 and verify each layer befo
 6. Check: did the expected tag fire?
 
 **Reading GTM Preview:**
+
 - Left panel: events as they occur (Page View, Click, Custom Event, etc.)
 - Middle panel: Tags fired / Tags NOT fired for selected event
 - Right panel: Variables values at the time of the event
@@ -98,21 +100,25 @@ When something's missing at Layer 5, start at Layer 1 and verify each layer befo
 **Diagnosis path:**
 
 **Step 1:** Check the trigger
+
 - Is the trigger for this tag listed under the action in GTM Preview?
 - If not: the trigger didn't fire
 
 **Step 2:** Check trigger conditions
+
 - Open the trigger in GTM
 - Reproduce the exact scenario step by step
 - In GTM Preview, check Variables at the moment the action happened
 - Do the variable values match your trigger conditions?
 
 **Step 3:** dataLayer issue (for Custom Event triggers)
+
 - In GTM Preview → select the relevant event in left panel → Variables tab
 - Scroll to find `event` — what's the value?
 - If event name doesn't match trigger exactly: it won't fire (case-sensitive, exact match)
 
 **Step 4:** Timing issue
+
 - If using "Page View" trigger and element doesn't exist yet: switch to "DOM Ready" or "Window Loaded"
 - If SPA: route changes may not trigger "Page View" — use History Change instead
 
@@ -121,20 +127,24 @@ When something's missing at Layer 5, start at Layer 1 and verify each layer befo
 ### Issue: Parameters showing as (not set) or undefined in GA4
 
 **Step 1:** Verify parameter is in the network request
+
 - DevTools → Network → find GA4 collect request → Payload
 - Search for the parameter name (e.g., `plan_name`)
 - If not there: GTM variable isn't resolving correctly
 
 **Step 2:** Check the GTM variable
+
 - GTM Preview → find the event → Variables tab
 - Find the variable for this parameter (e.g., `DLV - plan_name`)
 - What's its value? If `undefined`: the dataLayer push didn't include this key, or key name is wrong
 
 **Step 3:** Check dataLayer push in your app code
+
 - DevTools → Console → type: `dataLayer.filter(e => e.event === 'your_event_name')`
 - Inspect the object — is the parameter key present and spelled correctly?
 
 **Step 4:** Check GA4 custom dimension registration
+
 - Some parameters require a registered custom dimension in GA4 to appear in reports
 - GA4 → Admin → Custom Definitions → Custom Dimensions
 - If parameter isn't registered here: it'll exist in raw data but won't show in Explore reports
@@ -144,6 +154,7 @@ When something's missing at Layer 5, start at Layer 1 and verify each layer befo
 ### Issue: Duplicate events (event fires 2x per action)
 
 **Find the duplicates:**
+
 - GTM Preview → find the action → how many tags with the same name fired?
 - DevTools → Network → filter by `collect` → count hits for the action
 
@@ -168,16 +179,19 @@ When something's missing at Layer 5, start at Layer 1 and verify each layer befo
 ### Issue: Sessions/users look wrong (too high or too low)
 
 **Too many sessions:**
+
 - Multiple GA4 Configuration tags
 - History Change trigger firing + Enhanced Measurement pageview on SPA
 - Client ID not persisting (cookie being blocked or cleared)
 
 **Too few sessions / users:**
+
 - Consent blocking analytics for non-consenting users (expected under strict consent mode)
 - Bot filtering too aggressive
 - GA4 tags firing on wrong pages only
 
 **Sessions reset unexpectedly (user shows as new on every page):**
+
 - Cross-domain tracking not configured
 - Cookie domain mismatch
 - GTM cookie settings incorrect
@@ -187,20 +201,24 @@ When something's missing at Layer 5, start at Layer 1 and verify each layer befo
 ### Issue: Conversions not matching between GA4 and Google Ads
 
 **Check 1: Attribution window mismatch**
+
 - GA4 default: 30-day last click
 - Google Ads: check conversion action settings for window
 - These legitimately produce different numbers
 
 **Check 2: Conversion event names**
+
 - In Google Ads → Tools → Conversions → imported from GA4
 - Does the linked event name exactly match the GA4 event?
 
 **Check 3: Import is linked**
+
 - Google Ads → Tools → Linked Accounts → Google Analytics 4
 - Is the correct GA4 property linked and synced?
 - Sync can take 24-48 hours after changes
 
 **Check 4: Enhanced Conversions**
+
 - If GA4 uses a user_id or email parameter, Enhanced Conversions can improve matching
 - Google Ads → Conversions → Enhanced Conversions for Web → Enable
 

@@ -5,6 +5,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 ## Financial Due Diligence
 
 ### Revenue Quality
+
 - [ ] Revenue by customer (top 10 customer concentration)
 - [ ] Revenue by product line
 - [ ] Revenue by geography
@@ -16,6 +17,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 - [ ] Professional services vs product revenue
 
 ### Profitability
+
 - [ ] Gross margin by product line
 - [ ] Operating expenses breakdown
 - [ ] Burn rate trend (improving or worsening?)
@@ -23,6 +25,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 - [ ] Unit economics (LTV, CAC, payback by channel)
 
 ### Cash & Liabilities
+
 - [ ] Cash position and burn rate
 - [ ] Outstanding debt (terms, covenants)
 - [ ] Accounts receivable aging
@@ -32,6 +35,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 - [ ] Cap table (fully diluted, option pool)
 
 ### Financial Controls
+
 - [ ] Audit history (audited vs reviewed vs compiled)
 - [ ] Financial reporting cadence and quality
 - [ ] Budget vs actual variance history
@@ -40,6 +44,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 ## Technical Due Diligence
 
 ### Architecture
+
 - [ ] Architecture diagrams (current state)
 - [ ] Technology stack inventory
 - [ ] Infrastructure (cloud provider, regions, costs)
@@ -47,6 +52,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 - [ ] Security architecture (encryption, access controls)
 
 ### Code Quality
+
 - [ ] Test coverage (unit, integration, e2e)
 - [ ] CI/CD pipeline maturity
 - [ ] Technical debt inventory (estimated remediation cost)
@@ -54,6 +60,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 - [ ] Documentation quality
 
 ### Data
+
 - [ ] Data architecture and storage
 - [ ] Data privacy compliance (GDPR, CCPA)
 - [ ] Data portability (can you migrate it?)
@@ -61,6 +68,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 - [ ] Data retention policies
 
 ### Operational
+
 - [ ] Uptime history (SLA compliance)
 - [ ] Incident history (frequency, severity, resolution time)
 - [ ] Monitoring and alerting coverage
@@ -70,6 +78,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 ## Legal Due Diligence
 
 ### Intellectual Property
+
 - [ ] Patents (granted and pending)
 - [ ] Trademarks
 - [ ] Copyright registrations
@@ -78,6 +87,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 - [ ] Trade secrets protection measures
 
 ### Contracts
+
 - [ ] Customer contracts (terms, renewals, termination rights)
 - [ ] Vendor contracts (key dependencies, terms)
 - [ ] Partnership agreements
@@ -85,6 +95,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 - [ ] Employment agreements (non-competes, IP clauses)
 
 ### Compliance & Litigation
+
 - [ ] Pending or threatened litigation
 - [ ] Regulatory compliance status
 - [ ] Government investigations
@@ -94,6 +105,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 ## People Due Diligence
 
 ### Team Composition
+
 - [ ] Org chart with roles and tenure
 - [ ] Key person dependencies (bus factor)
 - [ ] Compensation details (salary, equity, bonuses)
@@ -101,6 +113,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 - [ ] Contractor vs employee classification
 
 ### Culture & Retention
+
 - [ ] Recent engagement survey results
 - [ ] Turnover rate (last 12-24 months)
 - [ ] Glassdoor/reputation assessment
@@ -108,6 +121,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 - [ ] Culture compatibility analysis
 
 ### HR Compliance
+
 - [ ] Employee handbook and policies
 - [ ] HR complaints or investigations
 - [ ] Benefits programs
@@ -116,6 +130,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 ## Market Due Diligence
 
 ### Market Position
+
 - [ ] Market size (TAM, SAM, SOM) with sources
 - [ ] Market share estimate
 - [ ] Growth rate (market and company)
@@ -123,6 +138,7 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 - [ ] Barriers to entry / competitive moat
 
 ### Customer Analysis
+
 - [ ] Customer segmentation
 - [ ] Win/loss analysis (why customers chose them)
 - [ ] NPS or satisfaction scores
@@ -131,18 +147,18 @@ Comprehensive due diligence organized by domain. Not every item applies to every
 
 ## Red Flag Severity Guide
 
-| Severity | Examples | Action |
-|----------|---------|--------|
-| **Deal killer** | IP not properly assigned, undisclosed litigation, fraud | Walk away |
+| Severity                | Examples                                                               | Action                          |
+| ----------------------- | ---------------------------------------------------------------------- | ------------------------------- |
+| **Deal killer**         | IP not properly assigned, undisclosed litigation, fraud                | Walk away                       |
 | **Major renegotiation** | Customer concentration >40%, key person risk, technical debt >6 months | Reduce price or add protections |
-| **Integration risk** | Culture mismatch, legacy systems, manual processes | Budget for remediation |
-| **Monitor** | High churn, declining NPS, aging tech stack | Track post-close |
+| **Integration risk**    | Culture mismatch, legacy systems, manual processes                     | Budget for remediation          |
+| **Monitor**             | High churn, declining NPS, aging tech stack                            | Track post-close                |
 
 ## Due Diligence Timeline
 
-| Phase | Duration | Focus |
-|-------|----------|-------|
-| Preliminary | 1-2 weeks | Public info, financials, high-level tech |
-| Deep dive | 4-6 weeks | All domains, interviews, code review |
-| Confirmation | 1-2 weeks | Verify claims, resolve open questions |
-| Final | 1 week | Legal review, final terms negotiation |
+| Phase        | Duration  | Focus                                    |
+| ------------ | --------- | ---------------------------------------- |
+| Preliminary  | 1-2 weeks | Public info, financials, high-level tech |
+| Deep dive    | 4-6 weeks | All domains, interviews, code review     |
+| Confirmation | 1-2 weeks | Verify claims, resolve open questions    |
+| Final        | 1 week    | Legal review, final terms negotiation    |

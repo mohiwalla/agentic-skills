@@ -45,23 +45,23 @@ Settings → Marketing → Lead Scoring
 
 ### Scoring Rules
 
-| Action | Points | Rationale |
-|--------|--------|-----------|
-| Content download | +10 to +20 | Based on content depth |
-| Demo request | +30 | High intent signal |
-| Pricing page visit | +15 | Commercial intent |
-| Webinar attendance | +20 | Engaged prospect |
-| Email open | +2 | Basic engagement |
-| Email click | +5 | Active interest |
+| Action             | Points     | Rationale              |
+| ------------------ | ---------- | ---------------------- |
+| Content download   | +10 to +20 | Based on content depth |
+| Demo request       | +30        | High intent signal     |
+| Pricing page visit | +15        | Commercial intent      |
+| Webinar attendance | +20        | Engaged prospect       |
+| Email open         | +2         | Basic engagement       |
+| Email click        | +5         | Active interest        |
 
 ### Channel Quality Modifiers
 
-| Source | Points | Rationale |
-|--------|--------|-----------|
-| LinkedIn | +5 | Professional context |
-| Google Search | +10 | Active search intent |
-| Organic | +15 | Self-discovery |
-| Referral | +20 | Pre-qualified |
+| Source        | Points | Rationale            |
+| ------------- | ------ | -------------------- |
+| LinkedIn      | +5     | Professional context |
+| Google Search | +10    | Active search intent |
+| Organic       | +15    | Self-discovery       |
+| Referral      | +20    | Pre-qualified        |
 
 **Validation:** Test lead scoring by creating a test contact and triggering each action.
 
@@ -91,11 +91,11 @@ Required (all must be true):
 
 ### SLA Configuration
 
-| Handoff | Target | Escalation |
-|---------|--------|------------|
-| SDR responds to MQL | 4 hours | Manager notification |
-| AE books demo with SQL | 24 hours | Director notification |
-| First demo scheduled | 3 business days | VP notification |
+| Handoff                | Target          | Escalation            |
+| ---------------------- | --------------- | --------------------- |
+| SDR responds to MQL    | 4 hours         | Manager notification  |
+| AE books demo with SQL | 24 hours        | Director notification |
+| First demo scheduled   | 3 business days | VP notification       |
 
 **Validation:** Test workflow with a sample lead. Verify notifications trigger correctly.
 
@@ -125,6 +125,7 @@ Partner links: ?utm_source=partner-name&utm_medium=referral
 ### Partner Reporting Dashboard
 
 Create custom report: Marketing → Reports → Create Report
+
 - Metrics: Leads, Pipeline, Revenue by Partner Source
 - Dimensions: Partner Name, Time Period
 
@@ -139,6 +140,7 @@ Create custom report: Marketing → Reports → Create Report
 **Trigger:** Deal stage = Closed Lost
 
 **Sequence:**
+
 1. Day 0: Add to nurture list, remove from active campaigns
 2. Day 30: Educational content email
 3. Day 60: Industry insights email
@@ -150,6 +152,7 @@ Create custom report: Marketing → Reports → Create Report
 **Trigger:** Contact downloads 2+ content pieces
 
 **Sequence:**
+
 1. Day 0: Thank you email with related content
 2. Day 3: Case study email
 3. Day 7: Webinar invitation
@@ -158,6 +161,7 @@ Create custom report: Marketing → Reports → Create Report
 ### Closed Lost Reason Tracking
 
 Configure deal properties to capture:
+
 - Price too high
 - Missing features
 - Chose competitor

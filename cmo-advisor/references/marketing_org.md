@@ -11,6 +11,7 @@ Team structure, hiring sequence, agency decisions, marketing ops, and cross-func
 Don't hire a marketing team yet. The founders are the marketing team.
 
 What to do instead:
+
 - Founders write content, do sales calls, go to events
 - The goal is learning the ICP and finding the channel that works, not scaling anything
 - One contractor or agency for specific output (design, SEO audit) is fine
@@ -22,6 +23,7 @@ First marketing hire trigger: You have a repeatable sales motion and need to sca
 ### Series A ($1M–$5M ARR, 10–30 people)
 
 **Org:**
+
 ```
 Founding Marketer (Head of Marketing or VP Marketing)
 ```
@@ -29,6 +31,7 @@ Founding Marketer (Head of Marketing or VP Marketing)
 One person. Generalist. Capable of writing, running ads, setting up HubSpot, producing a report. Their job is to find what works.
 
 **What they own:**
+
 - Content and SEO foundation
 - Paid channel experiments
 - Sales enablement basics (1-pager, deck, email sequences)
@@ -36,6 +39,7 @@ One person. Generalist. Capable of writing, running ads, setting up HubSpot, pro
 - Marketing attribution setup (get this right early)
 
 **What they don't own yet:**
+
 - Brand redesign
 - Analyst relations
 - Partner marketing
@@ -48,6 +52,7 @@ One person. Generalist. Capable of writing, running ads, setting up HubSpot, pro
 ### Series B ($5M–$20M ARR, 30–80 people)
 
 **PLG-first org:**
+
 ```
 VP Marketing
 ├── Growth Marketing (acquisition loops, activation, PLG analytics)
@@ -56,6 +61,7 @@ VP Marketing
 ```
 
 **SLG-first org:**
+
 ```
 VP Marketing
 ├── Demand Generation (pipeline creation, paid, digital)
@@ -65,6 +71,7 @@ VP Marketing
 ```
 
 **Community-led org:**
+
 ```
 VP Marketing
 ├── Community & Developer Relations
@@ -96,6 +103,7 @@ CMO
 ```
 
 **At this stage:**
+
 - The CMO is a board-level communicator, not a campaign manager
 - Each function has a dedicated leader (director or VP level)
 - Marketing ops owns the attribution model and reports to CMO directly
@@ -108,6 +116,7 @@ CMO
 Marketing becomes a portfolio of specialized functions. Each major channel has a team. Brand is a serious investment. Analyst relations is a dedicated role. International marketing teams form.
 
 The CMO's job shifts from building the machine to:
+
 - Setting marketing strategy across a complex portfolio
 - Representing marketing at the board level
 - Owning brand and category leadership
@@ -122,6 +131,7 @@ The CMO's job shifts from building the machine to:
 **The generalist content + demand gen marketer.**
 
 Must-haves:
+
 - Can write (blog posts, emails, landing pages — not just briefs)
 - Can run paid campaigns (Google, LinkedIn — not just "I've managed agencies")
 - Can operate a marketing automation platform (HubSpot, Marketo)
@@ -161,15 +171,15 @@ Marketing ops profile: HubSpot/Marketo certified, SQL capable, understands multi
 
 ### Hiring Decision Triggers
 
-| Hire | Trigger |
-|------|---------|
-| Generalist marketer #1 | Sales motion is repeatable, need to scale lead generation |
-| Specialist #2 | One channel is clearly outperforming — double down |
-| Product marketer | Sales team is losing deals to positioning confusion or competitor gaps |
-| Marketing ops | Running 3+ campaigns simultaneously with manual tracking |
-| Field marketer | Events are in the strategy and attendance > 2 conferences/quarter |
-| Head of Marketing / VP | Team is 3+ people and needs an org owner |
-| CMO | Company is Series B/C and marketing needs board-level representation |
+| Hire                   | Trigger                                                                |
+| ---------------------- | ---------------------------------------------------------------------- |
+| Generalist marketer #1 | Sales motion is repeatable, need to scale lead generation              |
+| Specialist #2          | One channel is clearly outperforming — double down                     |
+| Product marketer       | Sales team is losing deals to positioning confusion or competitor gaps |
+| Marketing ops          | Running 3+ campaigns simultaneously with manual tracking               |
+| Field marketer         | Events are in the strategy and attendance > 2 conferences/quarter      |
+| Head of Marketing / VP | Team is 3+ people and needs an org owner                               |
+| CMO                    | Company is Series B/C and marketing needs board-level representation   |
 
 ---
 
@@ -179,16 +189,16 @@ Marketing ops profile: HubSpot/Marketo certified, SQL capable, understands multi
 
 Keep in-house what compounds. Outsource what's episodic or specialized.
 
-| Function | Agency | In-House | Notes |
-|----------|--------|----------|-------|
-| Brand design | Early stage | Series B+ | Agency fine until redesigns become frequent |
-| Paid media | < $50K/month spend | > $50K/month | Agency margin eats returns at scale |
-| SEO strategy | Audit only | Ongoing execution | Strategy once, execution continuously |
-| Content production | Overflow only | Core writers | Your voice must be yours |
-| PR / comms | Almost always | $100M+ companies | Specialists required for media relationships |
-| Marketing ops / CRM | Never | Always | This is your data infrastructure |
-| Analyst relations | Initial strategy | Ongoing | Relationship-based — needs dedicated owner |
-| Video / creative production | Always | Rarely | Episodic, specialized equipment |
+| Function                    | Agency             | In-House          | Notes                                        |
+| --------------------------- | ------------------ | ----------------- | -------------------------------------------- |
+| Brand design                | Early stage        | Series B+         | Agency fine until redesigns become frequent  |
+| Paid media                  | < $50K/month spend | > $50K/month      | Agency margin eats returns at scale          |
+| SEO strategy                | Audit only         | Ongoing execution | Strategy once, execution continuously        |
+| Content production          | Overflow only      | Core writers      | Your voice must be yours                     |
+| PR / comms                  | Almost always      | $100M+ companies  | Specialists required for media relationships |
+| Marketing ops / CRM         | Never              | Always            | This is your data infrastructure             |
+| Analyst relations           | Initial strategy   | Ongoing           | Relationship-based — needs dedicated owner   |
+| Video / creative production | Always             | Rarely            | Episodic, specialized equipment              |
 
 ### Agency Red Flags
 
@@ -213,21 +223,22 @@ Keep in-house what compounds. Outsource what's episodic or specialized.
 
 ### The Minimum Viable Stack
 
-| Layer | Tool | Purpose |
-|-------|------|---------|
-| CRM | HubSpot / Salesforce | Contact database, pipeline, source of truth |
-| Marketing automation | HubSpot / Marketo / ActiveCampaign | Email, nurture, lead scoring |
-| Analytics | Google Analytics 4 + Segment | Traffic, behavior, event tracking |
-| Attribution | HubSpot / Attributer.io / Dreamdata | Multi-touch pipeline attribution |
-| Paid | Google Ads + LinkedIn Ads | Performance channels |
-| SEO | Ahrefs / Semrush | Keyword research, rank tracking |
-| Chat/conversion | Intercom / Drift | In-product + website conversion |
+| Layer                | Tool                                | Purpose                                     |
+| -------------------- | ----------------------------------- | ------------------------------------------- |
+| CRM                  | HubSpot / Salesforce                | Contact database, pipeline, source of truth |
+| Marketing automation | HubSpot / Marketo / ActiveCampaign  | Email, nurture, lead scoring                |
+| Analytics            | Google Analytics 4 + Segment        | Traffic, behavior, event tracking           |
+| Attribution          | HubSpot / Attributer.io / Dreamdata | Multi-touch pipeline attribution            |
+| Paid                 | Google Ads + LinkedIn Ads           | Performance channels                        |
+| SEO                  | Ahrefs / Semrush                    | Keyword research, rank tracking             |
+| Chat/conversion      | Intercom / Drift                    | In-product + website conversion             |
 
 **The integration that breaks most:** CRM ↔ Marketing automation ↔ Sales engagement. When these aren't synced properly, leads are lost, attribution is wrong, and marketing and sales fight about pipeline. Fix this first.
 
 ### Marketing Ops Ownership
 
 Marketing ops must own:
+
 - CRM data quality (field standardization, deduplication, routing)
 - Lead scoring model (and quarterly review against conversion data)
 - Attribution model (with documented assumptions)
@@ -235,6 +246,7 @@ Marketing ops must own:
 - Tech stack evaluation and contracts
 
 Marketing ops must NOT own:
+
 - Strategy (they enable it, not set it)
 - Content production
 - Campaign creative
@@ -247,14 +259,15 @@ Marketing ops must NOT own:
 
 The most important cross-functional relationship in a SLG company. Where it breaks:
 
-| Problem | Root Cause | Fix |
-|---------|-----------|-----|
-| "Marketing sends us bad leads" | MQL definition is unclear or wrong | Define MQL jointly, score against conversion data |
-| "Sales doesn't follow up on leads" | No SLA, no consequence | Define SLA (e.g., 24-hour response), track in CRM |
-| "Marketing doesn't understand what customers care about" | No win/loss sharing | Weekly call: sales shares 3 deal insights, marketing shares 3 content results |
-| "We don't know what's working" | Attribution is broken | Marketing ops fixes attribution before next budget cycle |
+| Problem                                                  | Root Cause                         | Fix                                                                           |
+| -------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------- |
+| "Marketing sends us bad leads"                           | MQL definition is unclear or wrong | Define MQL jointly, score against conversion data                             |
+| "Sales doesn't follow up on leads"                       | No SLA, no consequence             | Define SLA (e.g., 24-hour response), track in CRM                             |
+| "Marketing doesn't understand what customers care about" | No win/loss sharing                | Weekly call: sales shares 3 deal insights, marketing shares 3 content results |
+| "We don't know what's working"                           | Attribution is broken              | Marketing ops fixes attribution before next budget cycle                      |
 
 **The SLA agreement (document this):**
+
 - Marketing commits: X MQLs/week meeting defined criteria, 48-hour SLA from form fill to SDR outreach
 - Sales commits: All MQLs contacted within 24 hours, disposition logged in CRM within 5 days
 
@@ -262,12 +275,12 @@ The most important cross-functional relationship in a SLG company. Where it brea
 
 Where it breaks and how to fix it:
 
-| Problem | Fix |
-|---------|-----|
-| PMM learns about launches 2 weeks before ship | PMM joins the product planning process at the roadmap stage, not the sprint stage |
-| Feature launches with no messaging | Launch tiers: Tier 1 (major, full launch), Tier 2 (minor, release notes + 1 post), Tier 3 (internal only) |
-| Product doesn't use customer insights from marketing | Monthly session: PMM shares win/loss themes, competitive intel, ICP data |
-| No feedback loop on messaging in-product | PMM owns in-product copy review, not just external comms |
+| Problem                                              | Fix                                                                                                       |
+| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| PMM learns about launches 2 weeks before ship        | PMM joins the product planning process at the roadmap stage, not the sprint stage                         |
+| Feature launches with no messaging                   | Launch tiers: Tier 1 (major, full launch), Tier 2 (minor, release notes + 1 post), Tier 3 (internal only) |
+| Product doesn't use customer insights from marketing | Monthly session: PMM shares win/loss themes, competitive intel, ICP data                                  |
+| No feedback loop on messaging in-product             | PMM owns in-product copy review, not just external comms                                                  |
 
 ### Marketing + Customer Success
 

@@ -3,6 +3,7 @@
 Tests email/password login, social login, and remember me functionality.
 
 ## Prerequisites
+
 - Valid user account: `{{username}}` / `{{password}}`
 - Social provider configured (Google/GitHub)
 - App running at `{{baseUrl}}`
@@ -79,41 +80,46 @@ test.describe('Login', () => {
 ## JavaScript
 
 ```javascript
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require("@playwright/test")
 
-test.describe('Login', () => {
+test.describe("Login", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('{{baseUrl}}/login');
-  });
+    await page.goto("{{baseUrl}}/login")
+  })
 
-  test('logs in with valid credentials', async ({ page }) => {
-    await page.getByRole('textbox', { name: /email/i }).fill('{{username}}');
-    await page.getByRole('textbox', { name: /password/i }).fill('{{password}}');
-    await page.getByRole('button', { name: /sign in/i }).click();
-    await expect(page).toHaveURL('{{baseUrl}}/dashboard');
-    await expect(page.getByRole('heading', { name: /dashboard/i })).toBeVisible();
-  });
+  test("logs in with valid credentials", async ({ page }) => {
+    await page.getByRole("textbox", { name: /email/i }).fill("{{username}}")
+    await page.getByRole("textbox", { name: /password/i }).fill("{{password}}")
+    await page.getByRole("button", { name: /sign in/i }).click()
+    await expect(page).toHaveURL("{{baseUrl}}/dashboard")
+    await expect(
+      page.getByRole("heading", { name: /dashboard/i }),
+    ).toBeVisible()
+  })
 
-  test('shows error for wrong password', async ({ page }) => {
-    await page.getByRole('textbox', { name: /email/i }).fill('{{username}}');
-    await page.getByRole('textbox', { name: /password/i }).fill('wrong-password');
-    await page.getByRole('button', { name: /sign in/i }).click();
-    await expect(page.getByRole('alert')).toContainText(/invalid.*credentials/i);
-  });
+  test("shows error for wrong password", async ({ page }) => {
+    await page.getByRole("textbox", { name: /email/i }).fill("{{username}}")
+    await page
+      .getByRole("textbox", { name: /password/i })
+      .fill("wrong-password")
+    await page.getByRole("button", { name: /sign in/i }).click()
+    await expect(page.getByRole("alert")).toContainText(/invalid.*credentials/i)
+  })
 
-  test('shows validation for empty submission', async ({ page }) => {
-    await page.getByRole('button', { name: /sign in/i }).click();
-    await expect(page.getByText(/email is required/i)).toBeVisible();
-  });
-});
+  test("shows validation for empty submission", async ({ page }) => {
+    await page.getByRole("button", { name: /sign in/i }).click()
+    await expect(page.getByText(/email is required/i)).toBeVisible()
+  })
+})
 ```
 
 ## Variants
-| Variant | Description |
-|---------|-------------|
-| Happy path | Valid credentials → dashboard redirect |
-| Remember me | Long-lived cookie set |
-| Social login | OAuth redirect to provider |
-| Wrong password | Alert with error message |
-| Empty form | Inline validation shown |
-| Locked account | Lockout message after N failures |
+
+| Variant        | Description                            |
+| -------------- | -------------------------------------- |
+| Happy path     | Valid credentials → dashboard redirect |
+| Remember me    | Long-lived cookie set                  |
+| Social login   | OAuth redirect to provider             |
+| Wrong password | Alert with error message               |
+| Empty form     | Inline validation shown                |
+| Locked account | Lockout message after N failures       |

@@ -39,7 +39,7 @@ Effective communication about technical debt is crucial for securing resources, 
 **STRATEGIC RECOMMENDATIONS**
 
 1. **[Priority 1]**: [Action] - [Business justification] - [Timeline]
-2. **[Priority 2]**: [Action] - [Business justification] - [Timeline]  
+2. **[Priority 2]**: [Action] - [Business justification] - [Timeline]
 3. **[Priority 3]**: [Action] - [Business justification] - [Timeline]
 
 **TREND ANALYSIS**
@@ -66,12 +66,12 @@ Effective communication about technical debt is crucial for securing resources, 
 
 **KEY METRICS**
 
-| Metric | Current | Target | Trend |
-|--------|---------|--------|--------|
-| Health Score | [X]/100 | [X]/100 | [↑/↓/→] |
-| Velocity Impact | [X]% | <[X]% | [↑/↓/→] |
-| Critical Issues | [X] | 0 | [↑/↓/→] |
-| Security Risk | [LOW/MED/HIGH] | LOW | [↑/↓/→] |
+| Metric          | Current        | Target  | Trend   |
+| --------------- | -------------- | ------- | ------- |
+| Health Score    | [X]/100        | [X]/100 | [↑/↓/→] |
+| Velocity Impact | [X]%           | <[X]%   | [↑/↓/→] |
+| Critical Issues | [X]            | 0       | [↑/↓/→] |
+| Security Risk   | [LOW/MED/HIGH] | LOW     | [↑/↓/→] |
 
 **STRATEGIC CONTEXT**
 
@@ -132,25 +132,28 @@ Technical debt represents deferred investment in our technology platform. Our cu
 
 **DEBT AFFECTING THIS FEATURE**
 
-| Debt Item | Impact | Effort to Fix | Recommendation |
-|-----------|--------|---------------|----------------|
-| [Item 1] | [Description] | [X] points | Fix before/Work around/Accept |
-| [Item 2] | [Description] | [X] points | Fix before/Work around/Accept |
+| Debt Item | Impact        | Effort to Fix | Recommendation                |
+| --------- | ------------- | ------------- | ----------------------------- |
+| [Item 1]  | [Description] | [X] points    | Fix before/Work around/Accept |
+| [Item 2]  | [Description] | [X] points    | Fix before/Work around/Accept |
 
 **DELIVERY IMPACT**
 
 • **Timeline Risk**: [LOW/MEDIUM/HIGH]
-  - Base estimate: [X] points
-  - Debt-adjusted estimate: [X] points ([X]% increase)
-  - Risk factors: [Specific risks and probabilities]
+
+- Base estimate: [X] points
+- Debt-adjusted estimate: [X] points ([X]% increase)
+- Risk factors: [Specific risks and probabilities]
 
 • **Quality Risk**: [LOW/MEDIUM/HIGH]
-  - [Specific quality concerns from debt]
-  - Mitigation strategies: [Options for reducing risk]
 
-• **Future Feature Impact**:  
-  - This feature will [add to/reduce/not affect] debt burden
-  - Related future features will be [easier/harder/unaffected]
+- [Specific quality concerns from debt]
+- Mitigation strategies: [Options for reducing risk]
+
+• **Future Feature Impact**:
+
+- This feature will [add to/reduce/not affect] debt burden
+- Related future features will be [easier/harder/unaffected]
 
 **RECOMMENDATIONS**
 
@@ -212,14 +215,16 @@ Technical debt represents deferred investment in our technology platform. Our cu
 **TECHNICAL DEBT ANALYSIS**
 
 • **Debt Created by This Decision**:
-  - [Specific debt that will be introduced]
-  - [Estimated effort to resolve later: X points]
-  - [Interest rate: impact over time]
+
+- [Specific debt that will be introduced]
+- [Estimated effort to resolve later: X points]
+- [Interest rate: impact over time]
 
 • **Debt Resolved by This Decision**:
-  - [Existing debt this addresses]
-  - [Estimated effort saved: X points]
-  - [Risk reduction achieved]
+
+- [Existing debt this addresses]
+- [Estimated effort saved: X points]
+- [Risk reduction achieved]
 
 • **Net Debt Impact**: [Positive/Negative/Neutral]
 
@@ -307,7 +312,7 @@ This incident was [directly caused by / contributed to by / unrelated to] techni
 **IMMEDIATE ACTIONS**
 
 1. [Action 1 with timeline]
-2. [Action 2 with timeline]  
+2. [Action 2 with timeline]
 3. [Action 3 with timeline]
 
 **LONG-TERM IMPROVEMENTS**
@@ -331,27 +336,32 @@ We apologize for the inconvenience and appreciate your patience as we continue t
 ---
 
 **SLIDE 1: Current State**
+
 - Health Score: [X]/100 [Trend arrow]
 - Total Debt Items: [X] ([X]% of codebase)
 - High Priority: [X] items requiring immediate attention
 - Team Impact: [X]% velocity reduction
 
-**SLIDE 2: What We've Accomplished**  
+**SLIDE 2: What We've Accomplished**
+
 - Resolved [X] debt items ([X] hours of future work saved)
 - Improved health score by [X] points
 - Key wins: [2-3 specific examples with business impact]
 
 **SLIDE 3: Current Focus Areas**
+
 - [Category 1]: [X] items, [business impact]
-- [Category 2]: [X] items, [business impact]  
+- [Category 2]: [X] items, [business impact]
 - [Category 3]: [X] items, [business impact]
 
 **SLIDE 4: Success Stories**
+
 - [Specific example]: [Problem] → [Solution] → [Outcome]
 - Metrics: [Before/after comparison]
 - Team feedback: [Developer quotes]
 
 **SLIDE 5: Looking Forward**
+
 - Q[X] Goals: [Specific targets]
 - Major Initiatives: [2-3 big-picture improvements]
 - How You Can Help: [Specific asks of the team]

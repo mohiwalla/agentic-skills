@@ -22,6 +22,7 @@ Specific prompt techniques with example inputs and expected outputs.
 **When to use:** Simple, well-defined tasks where the model has sufficient training knowledge.
 
 **Pattern:**
+
 ```
 [Task instruction]
 [Input]
@@ -30,6 +31,7 @@ Specific prompt techniques with example inputs and expected outputs.
 **Example:**
 
 Input:
+
 ```
 Classify the following customer review as positive, negative, or neutral.
 
@@ -37,16 +39,19 @@ Review: "The shipping was fast but the product quality was disappointing."
 ```
 
 Expected Output:
+
 ```
 negative
 ```
 
 **Best practices:**
+
 - Be explicit about output format
 - Use clear, unambiguous verbs (classify, extract, summarize)
 - Specify constraints (word limits, format requirements)
 
 **When to avoid:**
+
 - Tasks requiring specific formatting the model hasn't seen
 - Domain-specific tasks requiring specialized knowledge
 - Tasks where consistency is critical
@@ -58,6 +63,7 @@ negative
 **When to use:** Tasks requiring consistent formatting or domain-specific patterns.
 
 **Pattern:**
+
 ```
 [Task description]
 
@@ -77,6 +83,7 @@ Output:
 **Example:**
 
 Input:
+
 ```
 Extract the company name and founding year from the text.
 
@@ -98,6 +105,7 @@ Output:
 ```
 
 Expected Output:
+
 ```
 {"company": "Tesla, Inc.", "year": 2003}
 ```
@@ -111,6 +119,7 @@ Expected Output:
 | **Total** | | **3-5** |
 
 **Common mistakes:**
+
 - Too many examples (wastes tokens, may confuse)
 - Inconsistent formatting between examples
 - Examples too similar (model doesn't learn variation)
@@ -122,6 +131,7 @@ Expected Output:
 **When to use:** Math problems, logical reasoning, multi-step analysis.
 
 **Pattern:**
+
 ```
 [Problem]
 
@@ -131,6 +141,7 @@ Think through this step by step:
 **Example:**
 
 Input:
+
 ```
 A store sells apples for $2 each. If you buy 5 or more, you get 20% off.
 How much do 7 apples cost?
@@ -139,6 +150,7 @@ Think through this step by step:
 ```
 
 Expected Output:
+
 ```
 Step 1: Calculate the regular price for 7 apples
 7 apples × $2 = $14
@@ -173,6 +185,7 @@ Simply append "Let's think step by step." to any prompt.
 **When to use:** Tasks requiring expertise, specific perspective, or consistent persona.
 
 **Pattern:**
+
 ```
 You are a [role/expert description].
 
@@ -184,7 +197,8 @@ You are a [role/expert description].
 **Example:**
 
 Input:
-```
+
+````
 You are a senior security engineer with 15 years of experience in web application security.
 
 Review the following code snippet for security vulnerabilities:
@@ -194,13 +208,15 @@ def login(username, password):
     query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
     result = db.execute(query)
     return result
-```
+````
 
 Identify vulnerabilities and provide specific fixes.
+
 ```
 
 Expected Output:
 ```
+
 Security Vulnerabilities Identified:
 
 1. SQL Injection (Critical)
@@ -209,6 +225,7 @@ Security Vulnerabilities Identified:
    - This bypasses authentication entirely
 
    Fix:
+
    ```python
    def login(username, password):
        query = "SELECT * FROM users WHERE username=? AND password=?"
@@ -223,6 +240,7 @@ Security Vulnerabilities Identified:
 3. Missing Rate Limiting (Medium)
    - No protection against brute force attacks
    - Fix: Implement login attempt throttling
+
 ```
 
 **Effective role descriptions:**
@@ -240,24 +258,29 @@ Security Vulnerabilities Identified:
 
 **Pattern:**
 ```
+
 [Task instruction]
 
 Respond in JSON format with exactly these fields:
+
 - field1 (type): description
 - field2 (type): description
 
 [Input]
 
 Return ONLY valid JSON, no markdown or explanation.
+
 ```
 
 **Example:**
 
 Input:
 ```
+
 Extract meeting details from this email.
 
 Respond in JSON format with exactly these fields:
+
 - date (string, ISO format): Meeting date
 - time (string, 24h format): Meeting time
 - attendees (array of strings): List of attendees
@@ -270,7 +293,8 @@ Sarah, Mike, and Lisa should attend. We'll use Conference Room B."
 Today's date is 2024-01-15.
 
 Return ONLY valid JSON, no markdown or explanation.
-```
+
+````
 
 Expected Output:
 ```json
@@ -281,9 +305,10 @@ Expected Output:
   "topic": "Q4 planning",
   "location": "Conference Room B"
 }
-```
+````
 
 **Format enforcement techniques:**
+
 ```
 # Strong enforcement
 "Return ONLY valid JSON. Start with { and end with }"
@@ -303,6 +328,7 @@ type Output = { name: string; age: number; active: boolean }"
 **When to use:** Complex reasoning where multiple valid paths exist.
 
 **Pattern:**
+
 1. Generate multiple reasoning paths (temperature > 0)
 2. Extract final answers from each path
 3. Select most common answer (majority vote)
@@ -323,6 +349,7 @@ What pet does each person have?
 ```
 
 **Implementation:**
+
 ```python
 # Pseudo-code for self-consistency
 answers = []
@@ -335,6 +362,7 @@ final_answer = majority_vote(answers)
 ```
 
 **When to use:**
+
 - Math word problems
 - Logic puzzles
 - Any task where you can verify consistency
@@ -346,6 +374,7 @@ final_answer = majority_vote(answers)
 **When to use:** Tasks requiring external tool use or information gathering.
 
 **Pattern:**
+
 ```
 Answer the question using the available tools.
 
@@ -368,11 +397,13 @@ Question: [user question]
 **Example:**
 
 Input:
+
 ```
 Question: What is the population of France divided by the population of Belgium?
 ```
 
 Expected Output:
+
 ```
 Thought: I need to find the population of France and Belgium, then calculate the ratio.
 
@@ -401,6 +432,7 @@ Final Answer: The population of France is approximately 5.79 times the populatio
 **When to use:** Complex problems requiring exploration of multiple solution paths.
 
 **Pattern:**
+
 ```
 Problem: [complex problem]
 
@@ -422,6 +454,7 @@ Solution using best approach: [detailed solution]
 **Example:**
 
 Input:
+
 ```
 Problem: Design a system to handle 10,000 concurrent user sessions with sub-100ms response times.
 
@@ -429,6 +462,7 @@ Generate 3 different architectural approaches:
 ```
 
 Expected Output:
+
 ```
 Approach 1: Horizontal scaling with load balancer
 - Multiple stateless app servers behind load balancer
@@ -458,6 +492,7 @@ Solution: [detailed architecture follows]
 **When to use:** Tasks requiring factual accuracy or current information.
 
 **Pattern:**
+
 ```
 Use the following context to answer the question. If the answer is not in the context, say "I don't have information about that."
 
@@ -472,6 +507,7 @@ Answer based only on the context provided:
 **Example:**
 
 Input:
+
 ```
 Use the following context to answer the question.
 
@@ -488,6 +524,7 @@ Answer based only on the context provided:
 ```
 
 Expected Output:
+
 ```
 The Acme Widget 3000 starts at $299 for the base model, with a Pro version
 available at $399. The standard model has a 12-hour battery life.
@@ -507,6 +544,7 @@ available at $399. The standard model has a 12-hour battery life.
 **When to use:** Generating or improving prompts programmatically.
 
 **Pattern:**
+
 ```
 You are a prompt engineering expert.
 
@@ -520,6 +558,7 @@ Generate an optimized prompt for this task.
 **Example:**
 
 Input:
+
 ```
 You are a prompt engineering expert.
 
@@ -534,6 +573,7 @@ Generate an optimized prompt for this task.
 ```
 
 Expected Output:
+
 ```
 Extract action items from the following meeting notes.
 
@@ -558,15 +598,15 @@ Return ONLY the JSON array, no additional text.
 
 ## Pattern Selection Guide
 
-| Task Type | Recommended Pattern |
-|-----------|---------------------|
-| Simple classification | Zero-shot |
-| Consistent formatting needed | Few-shot |
-| Math/logic problems | Chain-of-Thought |
-| Need expertise/perspective | Role Prompting |
-| API integration | Structured Output |
-| High-stakes decisions | Self-Consistency |
-| Tool use required | ReAct |
-| Complex problem solving | Tree of Thoughts |
-| Factual Q&A | RAG |
-| Prompt generation | Meta-Prompting |
+| Task Type                    | Recommended Pattern |
+| ---------------------------- | ------------------- |
+| Simple classification        | Zero-shot           |
+| Consistent formatting needed | Few-shot            |
+| Math/logic problems          | Chain-of-Thought    |
+| Need expertise/perspective   | Role Prompting      |
+| API integration              | Structured Output   |
+| High-stakes decisions        | Self-Consistency    |
+| Tool use required            | ReAct               |
+| Complex problem solving      | Tree of Thoughts    |
+| Factual Q&A                  | RAG                 |
+| Prompt generation            | Meta-Prompting      |

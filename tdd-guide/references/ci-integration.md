@@ -25,12 +25,12 @@ Integrating test coverage and quality gates into CI pipelines.
 
 ### Report Formats by Tool
 
-| Tool | Command | Output Format |
-|------|---------|---------------|
-| Jest | `jest --coverage --coverageReporters=lcov` | LCOV |
-| Pytest | `pytest --cov-report=xml` | Cobertura XML |
-| JUnit/JaCoCo | `mvn jacoco:report` | JaCoCo XML |
-| Vitest | `vitest --coverage` | LCOV/JSON |
+| Tool         | Command                                    | Output Format |
+| ------------ | ------------------------------------------ | ------------- |
+| Jest         | `jest --coverage --coverageReporters=lcov` | LCOV          |
+| Pytest       | `pytest --cov-report=xml`                  | Cobertura XML |
+| JUnit/JaCoCo | `mvn jacoco:report`                        | JaCoCo XML    |
+| Vitest       | `vitest --coverage`                        | LCOV/JSON     |
 
 ---
 
@@ -50,7 +50,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - run: npm ci
       - run: npm test -- --coverage
@@ -82,7 +82,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - run: pip install pytest pytest-cov
       - run: pytest --cov=src --cov-report=xml --cov-fail-under=80
@@ -106,8 +106,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: "temurin"
+          java-version: "17"
 
       - run: mvn test jacoco:check
 
@@ -123,6 +123,7 @@ jobs:
 ### Threshold Configuration
 
 **Jest (package.json):**
+
 ```json
 {
   "jest": {
@@ -139,12 +140,14 @@ jobs:
 ```
 
 **Pytest (pyproject.toml):**
+
 ```toml
 [tool.coverage.report]
 fail_under = 80
 ```
 
 **JaCoCo (pom.xml):**
+
 ```xml
 <rule>
   <element>BUNDLE</element>
@@ -171,25 +174,26 @@ fail_under = 80
 
 ### Metrics to Track
 
-| Metric | Purpose | Alert Threshold |
-|--------|---------|-----------------|
-| Overall line coverage | Baseline health | < 80% |
-| Branch coverage | Logic completeness | < 70% |
-| Coverage delta | Regression detection | < -2% per PR |
-| Test execution time | Performance | > 5 min |
-| Flaky test count | Reliability | > 0 |
+| Metric                | Purpose              | Alert Threshold |
+| --------------------- | -------------------- | --------------- |
+| Overall line coverage | Baseline health      | < 80%           |
+| Branch coverage       | Logic completeness   | < 70%           |
+| Coverage delta        | Regression detection | < -2% per PR    |
+| Test execution time   | Performance          | > 5 min         |
+| Flaky test count      | Reliability          | > 0             |
 
 ### Coverage Services
 
-| Service | Features | Integration |
-|---------|----------|-------------|
-| Codecov | PR comments, badges, graphs | GitHub, GitLab, Bitbucket |
-| Coveralls | History, trends, badges | GitHub, GitLab |
-| SonarCloud | Full code quality suite | Multiple CI platforms |
+| Service    | Features                    | Integration               |
+| ---------- | --------------------------- | ------------------------- |
+| Codecov    | PR comments, badges, graphs | GitHub, GitLab, Bitbucket |
+| Coveralls  | History, trends, badges     | GitHub, GitLab            |
+| SonarCloud | Full code quality suite     | Multiple CI platforms     |
 
 ### Badge Generation
 
 ```markdown
 <!-- README.md -->
+
 [![codecov](https://codecov.io/gh/org/repo/branch/main/graph/badge.svg)](https://codecov.io/gh/org/repo)
 ```

@@ -63,23 +63,23 @@ Identify and analyze security threats using STRIDE methodology.
 
 ### STRIDE Threat Categories
 
-| Category | Security Property | Mitigation Focus |
-|----------|-------------------|------------------|
-| Spoofing | Authentication | MFA, certificates, strong auth |
-| Tampering | Integrity | Signing, checksums, validation |
-| Repudiation | Non-repudiation | Audit logs, digital signatures |
-| Information Disclosure | Confidentiality | Encryption, access controls |
-| Denial of Service | Availability | Rate limiting, redundancy |
-| Elevation of Privilege | Authorization | RBAC, least privilege |
+| Category               | Security Property | Mitigation Focus               |
+| ---------------------- | ----------------- | ------------------------------ |
+| Spoofing               | Authentication    | MFA, certificates, strong auth |
+| Tampering              | Integrity         | Signing, checksums, validation |
+| Repudiation            | Non-repudiation   | Audit logs, digital signatures |
+| Information Disclosure | Confidentiality   | Encryption, access controls    |
+| Denial of Service      | Availability      | Rate limiting, redundancy      |
+| Elevation of Privilege | Authorization     | RBAC, least privilege          |
 
 ### STRIDE per Element Matrix
 
-| DFD Element | S | T | R | I | D | E |
-|-------------|---|---|---|---|---|---|
-| External Entity | X | | X | | | |
-| Process | X | X | X | X | X | X |
-| Data Store | | X | X | X | X | |
-| Data Flow | | X | | X | X | |
+| DFD Element     | S   | T   | R   | I   | D   | E   |
+| --------------- | --- | --- | --- | --- | --- | --- |
+| External Entity | X   |     | X   |     |     |     |
+| Process         | X   | X   | X   | X   | X   | X   |
+| Data Store      |     | X   | X   | X   | X   |     |
+| Data Flow       |     | X   |     | X   | X   |     |
 
 See: [references/threat-modeling-guide.md](references/threat-modeling-guide.md)
 
@@ -141,13 +141,13 @@ Layer 5: DATA
 
 ### Authentication Pattern Selection
 
-| Use Case | Recommended Pattern |
-|----------|---------------------|
-| Web application | OAuth 2.0 + PKCE with OIDC |
+| Use Case           | Recommended Pattern                        |
+| ------------------ | ------------------------------------------ |
+| Web application    | OAuth 2.0 + PKCE with OIDC                 |
 | API authentication | JWT with short expiration + refresh tokens |
-| Service-to-service | mTLS with certificate rotation |
-| CLI/Automation | API keys with IP allowlisting |
-| High security | FIDO2/WebAuthn hardware keys |
+| Service-to-service | mTLS with certificate rotation             |
+| CLI/Automation     | API keys with IP allowlisting              |
+| High security      | FIDO2/WebAuthn hardware keys               |
 
 See: [references/security-architecture-patterns.md](references/security-architecture-patterns.md)
 
@@ -193,12 +193,12 @@ For OWASP Top 10 vulnerability descriptions and testing guidance, refer to [owas
 
 ### Vulnerability Severity Matrix
 
-| Impact \ Exploitability | Easy | Moderate | Difficult |
-|-------------------------|------|----------|-----------|
-| Critical | Critical | Critical | High |
-| High | Critical | High | Medium |
-| Medium | High | Medium | Low |
-| Low | Medium | Low | Low |
+| Impact \ Exploitability | Easy     | Moderate | Difficult |
+| ----------------------- | -------- | -------- | --------- |
+| Critical                | Critical | Critical | High      |
+| High                    | Critical | High     | Medium    |
+| Medium                  | High     | Medium   | Low       |
+| Low                     | Medium   | Low      | Low       |
 
 ---
 
@@ -238,28 +238,28 @@ Review code for security vulnerabilities before deployment.
 
 ### Security Code Review Checklist
 
-| Category | Check | Risk |
-|----------|-------|------|
-| Input Validation | All user input validated and sanitized | Injection |
-| Output Encoding | Context-appropriate encoding applied | XSS |
-| Authentication | Passwords hashed with Argon2/bcrypt | Credential theft |
-| Session | Secure cookie flags set (HttpOnly, Secure, SameSite) | Session hijacking |
-| Authorization | Server-side permission checks on all endpoints | Privilege escalation |
-| SQL | Parameterized queries used exclusively | SQL injection |
-| File Access | Path traversal sequences rejected | Path traversal |
-| Secrets | No hardcoded credentials or keys | Information disclosure |
-| Dependencies | Known vulnerable packages updated | Supply chain |
-| Logging | Sensitive data not logged | Information disclosure |
+| Category         | Check                                                | Risk                   |
+| ---------------- | ---------------------------------------------------- | ---------------------- |
+| Input Validation | All user input validated and sanitized               | Injection              |
+| Output Encoding  | Context-appropriate encoding applied                 | XSS                    |
+| Authentication   | Passwords hashed with Argon2/bcrypt                  | Credential theft       |
+| Session          | Secure cookie flags set (HttpOnly, Secure, SameSite) | Session hijacking      |
+| Authorization    | Server-side permission checks on all endpoints       | Privilege escalation   |
+| SQL              | Parameterized queries used exclusively               | SQL injection          |
+| File Access      | Path traversal sequences rejected                    | Path traversal         |
+| Secrets          | No hardcoded credentials or keys                     | Information disclosure |
+| Dependencies     | Known vulnerable packages updated                    | Supply chain           |
+| Logging          | Sensitive data not logged                            | Information disclosure |
 
 ### Secure vs Insecure Patterns
 
-| Pattern | Issue | Secure Alternative |
-|---------|-------|-------------------|
-| SQL string formatting | SQL injection | Use parameterized queries with placeholders |
-| Shell command building | Command injection | Use subprocess with argument lists, no shell |
-| Path concatenation | Path traversal | Validate and canonicalize paths |
-| MD5/SHA1 for passwords | Weak hashing | Use Argon2id or bcrypt |
-| Math.random for tokens | Predictable values | Use crypto.getRandomValues |
+| Pattern                | Issue              | Secure Alternative                           |
+| ---------------------- | ------------------ | -------------------------------------------- |
+| SQL string formatting  | SQL injection      | Use parameterized queries with placeholders  |
+| Shell command building | Command injection  | Use subprocess with argument lists, no shell |
+| Path concatenation     | Path traversal     | Validate and canonicalize paths              |
+| MD5/SHA1 for passwords | Weak hashing       | Use Argon2id or bcrypt                       |
+| Math.random for tokens | Predictable values | Use crypto.getRandomValues                   |
 
 ### Inline Code Examples
 
@@ -347,22 +347,22 @@ Respond to and contain security incidents.
 
 ### Incident Severity Levels
 
-| Level | Response Time | Escalation |
-|-------|---------------|------------|
-| P1 - Critical (active breach/exfiltration) | Immediate | CISO, Legal, Executive |
-| P2 - High (confirmed, contained) | 1 hour | Security Lead, IT Director |
-| P3 - Medium (potential, under investigation) | 4 hours | Security Team |
-| P4 - Low (suspicious, low impact) | 24 hours | On-call engineer |
+| Level                                        | Response Time | Escalation                 |
+| -------------------------------------------- | ------------- | -------------------------- |
+| P1 - Critical (active breach/exfiltration)   | Immediate     | CISO, Legal, Executive     |
+| P2 - High (confirmed, contained)             | 1 hour        | Security Lead, IT Director |
+| P3 - Medium (potential, under investigation) | 4 hours       | Security Team              |
+| P4 - Low (suspicious, low impact)            | 24 hours      | On-call engineer           |
 
 ### Incident Response Checklist
 
-| Phase | Actions |
-|-------|---------|
-| Identification | Validate alert, assess scope, determine severity |
-| Containment | Isolate systems, preserve evidence, block access |
-| Eradication | Remove threat, patch vulnerabilities, reset credentials |
-| Recovery | Restore services, verify integrity, increase monitoring |
-| Lessons Learned | Document timeline, identify gaps, update procedures |
+| Phase           | Actions                                                 |
+| --------------- | ------------------------------------------------------- |
+| Identification  | Validate alert, assess scope, determine severity        |
+| Containment     | Isolate systems, preserve evidence, block access        |
+| Eradication     | Remove threat, patch vulnerabilities, reset credentials |
+| Recovery        | Restore services, verify integrity, increase monitoring |
+| Lessons Learned | Document timeline, identify gaps, update procedures     |
 
 ---
 
@@ -370,27 +370,27 @@ Respond to and contain security incidents.
 
 ### Recommended Security Tools
 
-| Category | Tools |
-|----------|-------|
-| SAST | Semgrep, CodeQL, Bandit (Python), ESLint security plugins |
-| DAST | OWASP ZAP, Burp Suite, Nikto |
-| Dependency Scanning | Snyk, Dependabot, npm audit, pip-audit |
-| Secret Detection | GitLeaks, TruffleHog, detect-secrets |
-| Container Security | Trivy, Clair, Anchore |
-| Infrastructure | Checkov, tfsec, ScoutSuite |
-| Network | Wireshark, Nmap, Masscan |
-| Penetration | Metasploit, sqlmap, Burp Suite Pro |
+| Category            | Tools                                                     |
+| ------------------- | --------------------------------------------------------- |
+| SAST                | Semgrep, CodeQL, Bandit (Python), ESLint security plugins |
+| DAST                | OWASP ZAP, Burp Suite, Nikto                              |
+| Dependency Scanning | Snyk, Dependabot, npm audit, pip-audit                    |
+| Secret Detection    | GitLeaks, TruffleHog, detect-secrets                      |
+| Container Security  | Trivy, Clair, Anchore                                     |
+| Infrastructure      | Checkov, tfsec, ScoutSuite                                |
+| Network             | Wireshark, Nmap, Masscan                                  |
+| Penetration         | Metasploit, sqlmap, Burp Suite Pro                        |
 
 ### Cryptographic Algorithm Selection
 
-| Use Case | Algorithm | Key Size |
-|----------|-----------|----------|
-| Symmetric encryption | AES-256-GCM | 256 bits |
-| Password hashing | Argon2id | N/A (use defaults) |
-| Message authentication | HMAC-SHA256 | 256 bits |
-| Digital signatures | Ed25519 | 256 bits |
-| Key exchange | X25519 | 256 bits |
-| TLS | TLS 1.3 | N/A |
+| Use Case               | Algorithm   | Key Size           |
+| ---------------------- | ----------- | ------------------ |
+| Symmetric encryption   | AES-256-GCM | 256 bits           |
+| Password hashing       | Argon2id    | N/A (use defaults) |
+| Message authentication | HMAC-SHA256 | 256 bits           |
+| Digital signatures     | Ed25519     | 256 bits           |
+| Key exchange           | X25519      | 256 bits           |
+| TLS                    | TLS 1.3     | N/A                |
 
 See: [references/cryptography-implementation.md](references/cryptography-implementation.md)
 
@@ -400,20 +400,20 @@ See: [references/cryptography-implementation.md](references/cryptography-impleme
 
 ### Scripts
 
-| Script | Purpose |
-|--------|---------|
+| Script                                         | Purpose                                                                                       |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | [threat_modeler.py](scripts/threat_modeler.py) | STRIDE threat analysis with DREAD risk scoring; JSON and text output; interactive guided mode |
-| [secret_scanner.py](scripts/secret_scanner.py) | Detect hardcoded secrets and credentials across 20+ patterns; CI/CD integration ready |
+| [secret_scanner.py](scripts/secret_scanner.py) | Detect hardcoded secrets and credentials across 20+ patterns; CI/CD integration ready         |
 
 For usage, see the inline code examples in [Secure Code Review Workflow](#inline-code-examples) and the script source files directly.
 
 ### References
 
-| Document | Content |
-|----------|---------|
+| Document                                                                          | Content                                                             |
+| --------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | [security-architecture-patterns.md](references/security-architecture-patterns.md) | Zero Trust, defense-in-depth, authentication patterns, API security |
-| [threat-modeling-guide.md](references/threat-modeling-guide.md) | STRIDE methodology, attack trees, DREAD scoring, DFD creation |
-| [cryptography-implementation.md](references/cryptography-implementation.md) | AES-GCM, RSA, Ed25519, password hashing, key management |
+| [threat-modeling-guide.md](references/threat-modeling-guide.md)                   | STRIDE methodology, attack trees, DREAD scoring, DFD creation       |
+| [cryptography-implementation.md](references/cryptography-implementation.md)       | AES-GCM, RSA, Ed25519, password hashing, key management             |
 
 ---
 
@@ -421,14 +421,14 @@ For usage, see the inline code examples in [Secure Code Review Workflow](#inline
 
 ### Security Headers Checklist
 
-| Header | Recommended Value |
-|--------|-------------------|
-| Content-Security-Policy | default-src self; script-src self |
-| X-Frame-Options | DENY |
-| X-Content-Type-Options | nosniff |
-| Strict-Transport-Security | max-age=31536000; includeSubDomains |
-| Referrer-Policy | strict-origin-when-cross-origin |
-| Permissions-Policy | geolocation=(), microphone=(), camera=() |
+| Header                    | Recommended Value                        |
+| ------------------------- | ---------------------------------------- |
+| Content-Security-Policy   | default-src self; script-src self        |
+| X-Frame-Options           | DENY                                     |
+| X-Content-Type-Options    | nosniff                                  |
+| Strict-Transport-Security | max-age=31536000; includeSubDomains      |
+| Referrer-Policy           | strict-origin-when-cross-origin          |
+| Permissions-Policy        | geolocation=(), microphone=(), camera=() |
 
 For compliance framework requirements (OWASP ASVS, CIS Benchmarks, NIST CSF, PCI-DSS, HIPAA, SOC 2), refer to the respective official documentation.
 
@@ -436,9 +436,9 @@ For compliance framework requirements (OWASP ASVS, CIS Benchmarks, NIST CSF, PCI
 
 ## Related Skills
 
-| Skill | Integration Point |
-|-------|-------------------|
-| [senior-devops](../senior-devops/) | CI/CD security, infrastructure hardening |
-| [senior-secops](../senior-secops/) | Security monitoring, incident response |
-| [senior-backend](../senior-backend/) | Secure API development |
-| [senior-architect](../senior-architect/) | Security architecture decisions |
+| Skill                                    | Integration Point                        |
+| ---------------------------------------- | ---------------------------------------- |
+| [senior-devops](../senior-devops/)       | CI/CD security, infrastructure hardening |
+| [senior-secops](../senior-secops/)       | Security monitoring, incident response   |
+| [senior-backend](../senior-backend/)     | Secure API development                   |
+| [senior-architect](../senior-architect/) | Security architecture decisions          |

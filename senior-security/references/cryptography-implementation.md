@@ -19,26 +19,26 @@ Practical cryptographic patterns for securing data at rest, in transit, and in u
 
 ### Algorithm Selection Guide
 
-| Use Case | Recommended Algorithm | Avoid |
-|----------|----------------------|-------|
-| Symmetric encryption | AES-256-GCM, ChaCha20-Poly1305 | DES, 3DES, AES-ECB, RC4 |
-| Asymmetric encryption | RSA-OAEP (2048+), ECIES | RSA-PKCS1v1.5 |
-| Digital signatures | Ed25519, ECDSA P-256, RSA-PSS | RSA-PKCS1v1.5 |
-| Key exchange | X25519, ECDH P-256 | RSA key transport |
-| Password hashing | Argon2id, bcrypt, scrypt | MD5, SHA-1, plain SHA-256 |
-| Message authentication | HMAC-SHA256, Poly1305 | MD5, SHA-1 |
-| Random generation | OS CSPRNG | Math.random(), time-based |
+| Use Case               | Recommended Algorithm          | Avoid                     |
+| ---------------------- | ------------------------------ | ------------------------- |
+| Symmetric encryption   | AES-256-GCM, ChaCha20-Poly1305 | DES, 3DES, AES-ECB, RC4   |
+| Asymmetric encryption  | RSA-OAEP (2048+), ECIES        | RSA-PKCS1v1.5             |
+| Digital signatures     | Ed25519, ECDSA P-256, RSA-PSS  | RSA-PKCS1v1.5             |
+| Key exchange           | X25519, ECDH P-256             | RSA key transport         |
+| Password hashing       | Argon2id, bcrypt, scrypt       | MD5, SHA-1, plain SHA-256 |
+| Message authentication | HMAC-SHA256, Poly1305          | MD5, SHA-1                |
+| Random generation      | OS CSPRNG                      | Math.random(), time-based |
 
 ### Security Strength Comparison
 
-| Key Size | Security Level | Equivalent Symmetric |
-|----------|----------------|---------------------|
-| RSA 2048 | 112 bits | AES-128 |
-| RSA 3072 | 128 bits | AES-128 |
-| RSA 4096 | 152 bits | AES-192 |
-| ECDSA P-256 | 128 bits | AES-128 |
-| ECDSA P-384 | 192 bits | AES-192 |
-| Ed25519 | 128 bits | AES-128 |
+| Key Size    | Security Level | Equivalent Symmetric |
+| ----------- | -------------- | -------------------- |
+| RSA 2048    | 112 bits       | AES-128              |
+| RSA 3072    | 128 bits       | AES-128              |
+| RSA 4096    | 152 bits       | AES-192              |
+| ECDSA P-256 | 128 bits       | AES-128              |
+| ECDSA P-384 | 192 bits       | AES-192              |
+| Ed25519     | 128 bits       | AES-128              |
 
 ---
 
@@ -763,13 +763,13 @@ def good_compare(a, b):
 
 ## Quick Reference Card
 
-| Operation | Algorithm | Key Size | Notes |
-|-----------|-----------|----------|-------|
-| Symmetric encryption | AES-256-GCM | 256 bits | Use random 96-bit nonce |
-| Alternative encryption | ChaCha20-Poly1305 | 256 bits | Faster on non-AES hardware |
-| Asymmetric encryption | RSA-OAEP | 2048+ bits | Only for small data/keys |
-| Key exchange | X25519 | 256 bits | Derive key with HKDF |
-| Digital signature | Ed25519 | 256 bits | Fast, deterministic |
-| Password hashing | Argon2id | - | 64MB memory, 3 iterations |
-| Message authentication | HMAC-SHA256 | 256 bits | Use for API signing |
-| Key derivation | PBKDF2-SHA256 | - | 600,000+ iterations |
+| Operation              | Algorithm         | Key Size   | Notes                      |
+| ---------------------- | ----------------- | ---------- | -------------------------- |
+| Symmetric encryption   | AES-256-GCM       | 256 bits   | Use random 96-bit nonce    |
+| Alternative encryption | ChaCha20-Poly1305 | 256 bits   | Faster on non-AES hardware |
+| Asymmetric encryption  | RSA-OAEP          | 2048+ bits | Only for small data/keys   |
+| Key exchange           | X25519            | 256 bits   | Derive key with HKDF       |
+| Digital signature      | Ed25519           | 256 bits   | Fast, deterministic        |
+| Password hashing       | Argon2id          | -          | 64MB memory, 3 iterations  |
+| Message authentication | HMAC-SHA256       | 256 bits   | Use for API signing        |
+| Key derivation         | PBKDF2-SHA256     | -          | 600,000+ iterations        |

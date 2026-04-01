@@ -39,18 +39,21 @@ Power is the probability of detecting a true effect of at least MDE.
 An effect can be statistically significant but too small to matter.
 
 Always ask:
+
 - Does the effect clear implementation cost?
 - Does it move strategic KPIs materially?
 
 ## Power Analysis Inputs
 
 For conversion experiments (two proportions):
+
 - Baseline conversion rate
 - MDE (absolute points or relative uplift)
 - Alpha (e.g., 0.05)
 - Power (e.g., 0.8)
 
 Output:
+
 - Required sample size per variant
 - Total sample size
 - Approximate runtime based on traffic volume

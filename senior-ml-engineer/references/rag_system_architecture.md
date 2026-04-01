@@ -100,14 +100,14 @@ Answer:"""
 
 ### Comparison Matrix
 
-| Database | Hosting | Scale | Latency | Cost | Best For |
-|----------|---------|-------|---------|------|----------|
-| Pinecone | Managed | High | Low | $$ | Production, managed |
-| Weaviate | Both | High | Low | $ | Hybrid search |
-| Qdrant | Both | High | Very Low | $ | Performance-critical |
-| Chroma | Self-hosted | Medium | Low | Free | Prototyping |
-| pgvector | Self-hosted | Medium | Medium | Free | Existing Postgres |
-| Milvus | Both | Very High | Low | $ | Large-scale |
+| Database | Hosting     | Scale     | Latency  | Cost | Best For             |
+| -------- | ----------- | --------- | -------- | ---- | -------------------- |
+| Pinecone | Managed     | High      | Low      | $$   | Production, managed  |
+| Weaviate | Both        | High      | Low      | $    | Hybrid search        |
+| Qdrant   | Both        | High      | Very Low | $    | Performance-critical |
+| Chroma   | Self-hosted | Medium    | Low      | Free | Prototyping          |
+| pgvector | Self-hosted | Medium    | Medium   | Free | Existing Postgres    |
+| Milvus   | Both        | Very High | Low      | $    | Large-scale          |
 
 ### Pinecone Integration
 
@@ -156,13 +156,13 @@ class PineconeVectorStore:
 
 ### Strategy Comparison
 
-| Strategy | Chunk Size | Overlap | Best For |
-|----------|------------|---------|----------|
-| Fixed | 500-1000 tokens | 50-100 | General text |
-| Sentence | 3-5 sentences | 1 sentence | Structured text |
-| Paragraph | Natural breaks | None | Documents with clear structure |
-| Semantic | Variable | Based on meaning | Research papers |
-| Recursive | Hierarchical | Parent-child | Long documents |
+| Strategy  | Chunk Size      | Overlap          | Best For                       |
+| --------- | --------------- | ---------------- | ------------------------------ |
+| Fixed     | 500-1000 tokens | 50-100           | General text                   |
+| Sentence  | 3-5 sentences   | 1 sentence       | Structured text                |
+| Paragraph | Natural breaks  | None             | Documents with clear structure |
+| Semantic  | Variable        | Based on meaning | Research papers                |
+| Recursive | Hierarchical    | Parent-child     | Long documents                 |
 
 ### Recursive Character Splitter
 
@@ -227,13 +227,13 @@ def semantic_chunk(
 
 ### Model Comparison
 
-| Model | Dimensions | Quality | Speed | Cost |
-|-------|------------|---------|-------|------|
-| text-embedding-3-large | 3072 | Excellent | Medium | $0.13/1M |
-| text-embedding-3-small | 1536 | Good | Fast | $0.02/1M |
-| BGE-large | 1024 | Excellent | Medium | Free |
-| all-MiniLM-L6-v2 | 384 | Good | Very Fast | Free |
-| Cohere embed-v3 | 1024 | Excellent | Medium | $0.10/1M |
+| Model                  | Dimensions | Quality   | Speed     | Cost     |
+| ---------------------- | ---------- | --------- | --------- | -------- |
+| text-embedding-3-large | 3072       | Excellent | Medium    | $0.13/1M |
+| text-embedding-3-small | 1536       | Good      | Fast      | $0.02/1M |
+| BGE-large              | 1024       | Excellent | Medium    | Free     |
+| all-MiniLM-L6-v2       | 384        | Good      | Very Fast | Free     |
+| Cohere embed-v3        | 1024       | Excellent | Medium    | $0.10/1M |
 
 ### Embedding with Caching
 

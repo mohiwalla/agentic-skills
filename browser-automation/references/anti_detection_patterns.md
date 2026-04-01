@@ -7,11 +7,13 @@ This reference covers techniques to make Playwright automation less detectable b
 Anti-bot systems detect automation through multiple signals. Understanding what they check helps you counter effectively.
 
 ### Tier 1: Trivial Detection (Every Site Checks These)
+
 1. **navigator.webdriver** — Set to `true` by all automation frameworks
 2. **User-Agent string** — Default headless UA contains "HeadlessChrome"
 3. **WebGL renderer** — Headless Chrome reports "SwiftShader" or "Google SwiftShader"
 
 ### Tier 2: Common Detection (Most Anti-Bot Services)
+
 4. **Viewport/screen dimensions** — Unusual sizes flag automation
 5. **Plugins array** — Empty in headless mode, populated in real browsers
 6. **Languages** — Missing or mismatched locale
@@ -19,6 +21,7 @@ Anti-bot systems detect automation through multiple signals. Understanding what 
 8. **Mouse movement** — No mouse events between clicks
 
 ### Tier 3: Advanced Detection (Cloudflare, DataDome, PerimeterX)
+
 9. **Canvas fingerprint** — Headless renders differently
 10. **WebGL fingerprint** — GPU-specific rendering variations
 11. **Audio fingerprint** — AudioContext processing differences
@@ -63,6 +66,7 @@ FIREFOX_WIN = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/2010010
 ```
 
 **Rules:**
+
 - Update UAs every 2-3 months as browser versions increment
 - Match UA platform to `navigator.platform` override
 - If using Chromium, use Chrome UAs. If Firefox, use Firefox UAs.
@@ -72,13 +76,13 @@ FIREFOX_WIN = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/2010010
 
 Common real-world screen resolutions (from analytics data):
 
-| Resolution | Market Share | Use For |
-|-----------|-------------|---------|
-| 1920x1080 | ~23% | Default choice |
-| 1366x768 | ~14% | Laptop simulation |
-| 1536x864 | ~9% | Scaled laptop |
-| 1440x900 | ~7% | MacBook |
-| 2560x1440 | ~5% | High-end desktop |
+| Resolution | Market Share | Use For           |
+| ---------- | ------------ | ----------------- |
+| 1920x1080  | ~23%         | Default choice    |
+| 1366x768   | ~14%         | Laptop simulation |
+| 1536x864   | ~9%          | Scaled laptop     |
+| 1440x900   | ~7%          | MacBook           |
+| 2560x1440  | ~5%          | High-end desktop  |
 
 ```python
 import random
@@ -347,6 +351,7 @@ browser = await p.chromium.launch(
 ### Avoiding Common Flags
 
 Do NOT pass these flags — they are headless-detection signals:
+
 - `--disable-gpu` (old headless workaround, not needed)
 - `--no-sandbox` (security risk, detectable)
 - `--disable-setuid-sandbox` (same as above)

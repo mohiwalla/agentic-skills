@@ -6,32 +6,32 @@ Comprehensive reference for the `gws` CLI covering 18 services, 22 helper comman
 
 ## Global Flags
 
-| Flag | Description |
-|------|-------------|
-| `--json` | Output as JSON |
-| `--format ndjson` | Output as newline-delimited JSON |
-| `--dry-run` | Show what would be done without executing |
-| `--limit <n>` | Maximum results to return |
-| `--page-all` | Fetch all pages of results |
-| `--fields <spec>` | Partial response field mask |
-| `--quiet` | Suppress non-error output |
-| `--verbose` | Verbose debug output |
-| `--timeout <ms>` | Request timeout in milliseconds |
+| Flag              | Description                               |
+| ----------------- | ----------------------------------------- |
+| `--json`          | Output as JSON                            |
+| `--format ndjson` | Output as newline-delimited JSON          |
+| `--dry-run`       | Show what would be done without executing |
+| `--limit <n>`     | Maximum results to return                 |
+| `--page-all`      | Fetch all pages of results                |
+| `--fields <spec>` | Partial response field mask               |
+| `--quiet`         | Suppress non-error output                 |
+| `--verbose`       | Verbose debug output                      |
+| `--timeout <ms>`  | Request timeout in milliseconds           |
 
 ---
 
 ## Environment Variables
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `GWS_CLIENT_ID` | OAuth client ID | — |
-| `GWS_CLIENT_SECRET` | OAuth client secret | — |
-| `GWS_TOKEN_PATH` | Token storage location | `~/.config/gws/token.json` |
-| `GWS_SERVICE_ACCOUNT_KEY` | Service account JSON key path | — |
-| `GWS_DELEGATED_USER` | User to impersonate (service accounts) | — |
-| `GWS_DEFAULT_FORMAT` | Default output format | `text` |
-| `GWS_PAGINATION_LIMIT` | Default pagination limit | `100` |
-| `GWS_LOG_LEVEL` | Logging level (debug/info/warn/error) | `warn` |
+| Variable                  | Description                            | Default                    |
+| ------------------------- | -------------------------------------- | -------------------------- |
+| `GWS_CLIENT_ID`           | OAuth client ID                        | —                          |
+| `GWS_CLIENT_SECRET`       | OAuth client secret                    | —                          |
+| `GWS_TOKEN_PATH`          | Token storage location                 | `~/.config/gws/token.json` |
+| `GWS_SERVICE_ACCOUNT_KEY` | Service account JSON key path          | —                          |
+| `GWS_DELEGATED_USER`      | User to impersonate (service accounts) | —                          |
+| `GWS_DEFAULT_FORMAT`      | Default output format                  | `text`                     |
+| `GWS_PAGINATION_LIMIT`    | Default pagination limit               | `100`                      |
+| `GWS_LOG_LEVEL`           | Logging level (debug/info/warn/error)  | `warn`                     |
 
 ---
 
@@ -232,30 +232,30 @@ gws admin activities list admin --json
 
 ## Helper Commands (22)
 
-| Helper | Description | Example |
-|--------|-------------|---------|
-| `send` | Quick send email | `gws helpers send --to a@b.com --subject Hi --body Hello` |
-| `reply` | Quick reply | `gws helpers reply --thread <id> --body Thanks` |
-| `forward` | Quick forward | `gws helpers forward --message <id> --to a@b.com` |
-| `upload` | Quick upload to Drive | `gws helpers upload file.pdf --folder <id>` |
-| `download` | Quick download | `gws helpers download <fileId> --output file.pdf` |
-| `share` | Quick share | `gws helpers share <fileId> --with a@b.com --role writer` |
-| `quick-event` | Natural language event | `gws helpers quick-event "Lunch tomorrow at noon"` |
-| `find-time` | Find free slots | `gws helpers find-time --attendees a,b --duration 60` |
-| `standup-report` | Daily standup | `gws helpers standup-report` |
-| `meeting-prep` | Prep for meeting | `gws helpers meeting-prep --event <id>` |
-| `weekly-summary` | Week summary | `gws helpers weekly-summary` |
-| `morning-briefing` | Morning overview | `gws helpers morning-briefing` |
-| `eod-wrap` | End of day wrap | `gws helpers eod-wrap` |
-| `inbox-zero` | Process inbox | `gws helpers inbox-zero` |
-| `search` | Cross-service search | `gws helpers search "quarterly report"` |
-| `create-task` | Quick task creation | `gws helpers create-task "Review PR" --due tomorrow` |
-| `list-tasks` | Quick task listing | `gws helpers list-tasks` |
-| `chat-send` | Quick chat message | `gws helpers chat-send --space <id> --text "Hello"` |
-| `export-pdf` | Export as PDF | `gws helpers export-pdf <fileId> --output file.pdf` |
-| `trash-old` | Trash old files | `gws helpers trash-old --older-than 365d` |
-| `audit-sharing` | Audit file sharing | `gws helpers audit-sharing --folder <id>` |
-| `backup-labels` | Backup Gmail labels | `gws helpers backup-labels --output labels.json` |
+| Helper             | Description            | Example                                                   |
+| ------------------ | ---------------------- | --------------------------------------------------------- |
+| `send`             | Quick send email       | `gws helpers send --to a@b.com --subject Hi --body Hello` |
+| `reply`            | Quick reply            | `gws helpers reply --thread <id> --body Thanks`           |
+| `forward`          | Quick forward          | `gws helpers forward --message <id> --to a@b.com`         |
+| `upload`           | Quick upload to Drive  | `gws helpers upload file.pdf --folder <id>`               |
+| `download`         | Quick download         | `gws helpers download <fileId> --output file.pdf`         |
+| `share`            | Quick share            | `gws helpers share <fileId> --with a@b.com --role writer` |
+| `quick-event`      | Natural language event | `gws helpers quick-event "Lunch tomorrow at noon"`        |
+| `find-time`        | Find free slots        | `gws helpers find-time --attendees a,b --duration 60`     |
+| `standup-report`   | Daily standup          | `gws helpers standup-report`                              |
+| `meeting-prep`     | Prep for meeting       | `gws helpers meeting-prep --event <id>`                   |
+| `weekly-summary`   | Week summary           | `gws helpers weekly-summary`                              |
+| `morning-briefing` | Morning overview       | `gws helpers morning-briefing`                            |
+| `eod-wrap`         | End of day wrap        | `gws helpers eod-wrap`                                    |
+| `inbox-zero`       | Process inbox          | `gws helpers inbox-zero`                                  |
+| `search`           | Cross-service search   | `gws helpers search "quarterly report"`                   |
+| `create-task`      | Quick task creation    | `gws helpers create-task "Review PR" --due tomorrow`      |
+| `list-tasks`       | Quick task listing     | `gws helpers list-tasks`                                  |
+| `chat-send`        | Quick chat message     | `gws helpers chat-send --space <id> --text "Hello"`       |
+| `export-pdf`       | Export as PDF          | `gws helpers export-pdf <fileId> --output file.pdf`       |
+| `trash-old`        | Trash old files        | `gws helpers trash-old --older-than 365d`                 |
+| `audit-sharing`    | Audit file sharing     | `gws helpers audit-sharing --folder <id>`                 |
+| `backup-labels`    | Backup Gmail labels    | `gws helpers backup-labels --output labels.json`          |
 
 ---
 

@@ -1,6 +1,7 @@
 # Text Animation Reference
 
 ## Table of Contents
+
 1. [Setup: SplitText & Dependencies](#setup)
 2. [Technique 1: Split Converge (Left+Right Merge)](#split-converge)
 3. [Technique 2: Masked Line Curtain Reveal](#masked-line)
@@ -25,7 +26,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/SplitText.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
-  gsap.registerPlugin(SplitText, ScrollTrigger);
+  gsap.registerPlugin(SplitText, ScrollTrigger)
 </script>
 ```
 
@@ -69,52 +70,68 @@ The signature effect: two halves of a title fly in from opposite sides, converge
 ```javascript
 function initSplitConverge(titleEl) {
   // Preserve accessibility
-  const fullText = titleEl.textContent;
-  titleEl.setAttribute('aria-label', fullText);
+  const fullText = titleEl.textContent
+  titleEl.setAttribute("aria-label", fullText)
 
-  const words = titleEl.querySelectorAll('.word');
-  const midpoint = Math.floor(words.length / 2);
+  const words = titleEl.querySelectorAll(".word")
+  const midpoint = Math.floor(words.length / 2)
 
-  const leftWords = Array.from(words).slice(0, midpoint);
-  const rightWords = Array.from(words).slice(midpoint);
+  const leftWords = Array.from(words).slice(0, midpoint)
+  const rightWords = Array.from(words).slice(midpoint)
 
   const tl = gsap.timeline({
     scrollTrigger: {
-      trigger: titleEl.closest('.scene'),
-      start: 'top top',
-      end: '+=250%',
+      trigger: titleEl.closest(".scene"),
+      start: "top top",
+      end: "+=250%",
       pin: true,
       scrub: 1.2,
-    }
-  });
+    },
+  })
 
   // Phase 1 — ENTER (0% → 25%): Words converge from sides
-  tl.fromTo(leftWords,
-    { x: '-120vw', opacity: 0 },
-    { x: 0, opacity: 1, duration: 0.25, ease: 'power3.out', stagger: 0.03 },
-    0
+  tl.fromTo(
+    leftWords,
+    { x: "-120vw", opacity: 0 },
+    { x: 0, opacity: 1, duration: 0.25, ease: "power3.out", stagger: 0.03 },
+    0,
   )
-  .fromTo(rightWords,
-    { x: '120vw', opacity: 0 },
-    { x: 0, opacity: 1, duration: 0.25, ease: 'power3.out', stagger: -0.03 },
-    0
-  )
+    .fromTo(
+      rightWords,
+      { x: "120vw", opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.25, ease: "power3.out", stagger: -0.03 },
+      0,
+    )
 
-  // Phase 2 — HOLD (25% → 70%): Nothing — words are readable, section pinned
-  // (empty duration keeps the scrub paused here)
-  .to({}, { duration: 0.45 }, 0.25)
+    // Phase 2 — HOLD (25% → 70%): Nothing — words are readable, section pinned
+    // (empty duration keeps the scrub paused here)
+    .to({}, { duration: 0.45 }, 0.25)
 
-  // Phase 3 — EXIT (70% → 100%): Words diverge back out
-  .to(leftWords,
-    { x: '-120vw', opacity: 0, duration: 0.28, ease: 'power3.in', stagger: 0.02 },
-    0.70
-  )
-  .to(rightWords,
-    { x: '120vw', opacity: 0, duration: 0.28, ease: 'power3.in', stagger: -0.02 },
-    0.70
-  );
+    // Phase 3 — EXIT (70% → 100%): Words diverge back out
+    .to(
+      leftWords,
+      {
+        x: "-120vw",
+        opacity: 0,
+        duration: 0.28,
+        ease: "power3.in",
+        stagger: 0.02,
+      },
+      0.7,
+    )
+    .to(
+      rightWords,
+      {
+        x: "120vw",
+        opacity: 0,
+        duration: 0.28,
+        ease: "power3.in",
+        stagger: -0.02,
+      },
+      0.7,
+    )
 
-  return tl;
+  return tl
 }
 ```
 
@@ -152,30 +169,30 @@ Lines slide upward from behind an invisible curtain. Each line is hidden in an `
 function initCurtainReveal(textEl) {
   // SplitText splits into lines automatically
   const split = new SplitText(textEl, {
-    type: 'lines',
-    linesClass: 'line-inner',
+    type: "lines",
+    linesClass: "line-inner",
     // Wraps each line in overflow:hidden container
     lineThreshold: 0.1,
-  });
+  })
 
   // Wrap each line in a mask container
   split.lines.forEach(line => {
-    const mask = document.createElement('div');
-    mask.className = 'line-mask';
-    line.parentNode.insertBefore(mask, line);
-    mask.appendChild(line);
-  });
+    const mask = document.createElement("div")
+    mask.className = "line-mask"
+    line.parentNode.insertBefore(mask, line)
+    mask.appendChild(line)
+  })
 
   gsap.from(split.lines, {
-    y: '110%',
+    y: "110%",
     duration: 0.9,
-    ease: 'power4.out',
+    ease: "power4.out",
     stagger: 0.12,
     scrollTrigger: {
       trigger: textEl,
-      start: 'top 80%',
-    }
-  });
+      start: "top 80%",
+    },
+  })
 }
 ```
 
@@ -198,22 +215,22 @@ Letters rotate in on a 3D cylinder axis — like a slot machine or odometer roll
 
 ```javascript
 function initCylinderRotation(titleEl) {
-  const split = new SplitText(titleEl, { type: 'chars' });
+  const split = new SplitText(titleEl, { type: "chars" })
 
   gsap.from(split.chars, {
     rotateX: -90,
     opacity: 0,
     duration: 0.6,
-    ease: 'back.out(1.5)',
+    ease: "back.out(1.5)",
     stagger: {
       each: 0.04,
-      from: 'start'
+      from: "start",
     },
     scrollTrigger: {
       trigger: titleEl,
-      start: 'top 75%',
-    }
-  });
+      start: "top 75%",
+    },
+  })
 }
 ```
 
@@ -233,31 +250,31 @@ Words appear to light up one at a time, driven by scroll position. Apple's signa
   transition: color 0.1s ease;
 }
 .scroll-lit-text .word.lit {
-  color: rgba(255, 255, 255, 1.0); /* bright lit state */
+  color: rgba(255, 255, 255, 1); /* bright lit state */
 }
 ```
 
 ```javascript
 function initWordScrollLighting(containerEl, textEl) {
-  const split = new SplitText(textEl, { type: 'words' });
-  const words = split.words;
-  const totalWords = words.length;
+  const split = new SplitText(textEl, { type: "words" })
+  const words = split.words
+  const totalWords = words.length
 
   // Pin the section and light words as user scrolls
   ScrollTrigger.create({
     trigger: containerEl,
-    start: 'top top',
+    start: "top top",
     end: `+=${totalWords * 80}px`, // ~80px per word
     pin: true,
     scrub: 0.5,
-    onUpdate: (self) => {
-      const progress = self.progress;
-      const litCount = Math.round(progress * totalWords);
+    onUpdate: self => {
+      const progress = self.progress
+      const litCount = Math.round(progress * totalWords)
       words.forEach((word, i) => {
-        word.classList.toggle('lit', i < litCount);
-      });
-    }
-  });
+        word.classList.toggle("lit", i < litCount)
+      })
+    },
+  })
 }
 ```
 
@@ -274,47 +291,48 @@ Characters cycle through random values before resolving to real text. Feels digi
 ```javascript
 // Custom scramble implementation (no plugin needed)
 function scrambleText(el, finalText, duration = 1.5) {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%';
-  let startTime = null;
-  const originalText = finalText;
+  const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%"
+  let startTime = null
+  const originalText = finalText
 
   function step(timestamp) {
-    if (!startTime) startTime = timestamp;
-    const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+    if (!startTime) startTime = timestamp
+    const progress = Math.min((timestamp - startTime) / (duration * 1000), 1)
 
-    let result = '';
+    let result = ""
     for (let i = 0; i < originalText.length; i++) {
-      if (originalText[i] === ' ') {
-        result += ' ';
+      if (originalText[i] === " ") {
+        result += " "
       } else if (i / originalText.length < progress) {
         // This character has resolved
-        result += originalText[i];
+        result += originalText[i]
       } else {
         // Still scrambling
-        result += chars[Math.floor(Math.random() * chars.length)];
+        result += chars[Math.floor(Math.random() * chars.length)]
       }
     }
-    el.textContent = result;
+    el.textContent = result
 
-    if (progress < 1) requestAnimationFrame(step);
+    if (progress < 1) requestAnimationFrame(step)
   }
 
-  requestAnimationFrame(step);
+  requestAnimationFrame(step)
 }
 
 // Trigger on scroll
 ScrollTrigger.create({
-  trigger: '.scramble-title',
-  start: 'top 80%',
+  trigger: ".scramble-title",
+  start: "top 80%",
   once: true,
   onEnter: () => {
     scrambleText(
-      document.querySelector('.scramble-title'),
-      document.querySelector('.scramble-title').dataset.text,
-      1.8
-    );
-  }
-});
+      document.querySelector(".scramble-title"),
+      document.querySelector(".scramble-title").dataset.text,
+      1.8,
+    )
+  },
+})
 ```
 
 ---
@@ -330,13 +348,13 @@ function initSkewBounce(elements) {
     skewY: 7,
     opacity: 0,
     duration: 0.9,
-    ease: 'back.out(1.7)',
+    ease: "back.out(1.7)",
     stagger: 0.1,
     scrollTrigger: {
       trigger: elements[0],
-      start: 'top 85%',
-    }
-  });
+      start: "top 85%",
+    },
+  })
 }
 ```
 
@@ -381,9 +399,13 @@ Element automatically animates in when entering the viewport AND animates out wh
 }
 
 .theatrical-with-exit {
-  animation: theatrical-enter linear both, theatrical-exit linear both;
+  animation:
+    theatrical-enter linear both,
+    theatrical-exit linear both;
   animation-timeline: view(), view();
-  animation-range: entry 0% entry 30%, exit 60% exit 100%;
+  animation-range:
+    entry 0% entry 30%,
+    exit 60% exit 100%;
 }
 ```
 
@@ -419,25 +441,25 @@ Lines of a title start at offset positions (one top-left, one lower-right), then
 
 ```javascript
 function initOffsetDiagonal(titleEl) {
-  const line1 = titleEl.querySelector('.line-1');
-  const line2 = titleEl.querySelector('.line-2');
+  const line1 = titleEl.querySelector(".line-1")
+  const line2 = titleEl.querySelector(".line-2")
 
   gsap.from(line1, {
-    x: '-15vw',
+    x: "-15vw",
     opacity: 0,
     duration: 1.0,
-    ease: 'power4.out',
-    scrollTrigger: { trigger: titleEl, start: 'top 75%' }
-  });
+    ease: "power4.out",
+    scrollTrigger: { trigger: titleEl, start: "top 75%" },
+  })
 
   gsap.from(line2, {
-    x: '15vw',
+    x: "15vw",
     opacity: 0,
     duration: 1.0,
-    ease: 'power4.out',
+    ease: "power4.out",
     delay: 0.15,
-    scrollTrigger: { trigger: titleEl, start: 'top 75%' }
-  });
+    scrollTrigger: { trigger: titleEl, start: "top 75%" },
+  })
 }
 ```
 
@@ -449,23 +471,24 @@ Each line of text reveals from left to right, like a typewriter but with a clean
 
 ```javascript
 function initLineClipWipe(textEl) {
-  const split = new SplitText(textEl, { type: 'lines' });
+  const split = new SplitText(textEl, { type: "lines" })
 
   split.lines.forEach((line, i) => {
-    gsap.fromTo(line,
-      { clipPath: 'inset(0 100% 0 0)' },
+    gsap.fromTo(
+      line,
+      { clipPath: "inset(0 100% 0 0)" },
       {
-        clipPath: 'inset(0 0% 0 0)',
+        clipPath: "inset(0 0% 0 0)",
         duration: 0.8,
-        ease: 'power3.out',
+        ease: "power3.out",
         delay: i * 0.12, // stagger between lines
         scrollTrigger: {
           trigger: textEl,
-          start: 'top 80%',
-        }
-      }
-    );
-  });
+          start: "top 80%",
+        },
+      },
+    )
+  })
 }
 ```
 
@@ -495,38 +518,43 @@ Infinite scrolling text. Speed scales with scroll velocity — fast scroll = fas
 
 ```javascript
 function initReactiveMarquee(wrapperEl) {
-  const track = wrapperEl.querySelector('.marquee-track');
-  let currentX = 0;
-  let velocity = 0;
-  let baseSpeed = 0.8; // px per frame base speed
-  let lastScrollY = window.scrollY;
-  let lastTime = performance.now();
+  const track = wrapperEl.querySelector(".marquee-track")
+  let currentX = 0
+  let velocity = 0
+  let baseSpeed = 0.8 // px per frame base speed
+  let lastScrollY = window.scrollY
+  let lastTime = performance.now()
 
   // Track scroll velocity
-  window.addEventListener('scroll', () => {
-    const now = performance.now();
-    const dt = now - lastTime;
-    const dy = window.scrollY - lastScrollY;
-    velocity = Math.abs(dy / dt) * 30; // scale to marquee speed
-    lastScrollY = window.scrollY;
-    lastTime = now;
-  }, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      const now = performance.now()
+      const dt = now - lastTime
+      const dy = window.scrollY - lastScrollY
+      velocity = Math.abs(dy / dt) * 30 // scale to marquee speed
+      lastScrollY = window.scrollY
+      lastTime = now
+    },
+    { passive: true },
+  )
 
   function animate() {
-    velocity = Math.max(0, velocity - 0.3); // decay
-    const speed = baseSpeed + velocity;
-    currentX -= speed;
+    velocity = Math.max(0, velocity - 0.3) // decay
+    const speed = baseSpeed + velocity
+    currentX -= speed
 
     // Reset when first copy exits viewport
-    const trackWidth = track.children[0].offsetWidth * track.children.length / 2;
+    const trackWidth =
+      (track.children[0].offsetWidth * track.children.length) / 2
     if (Math.abs(currentX) >= trackWidth) {
-      currentX += trackWidth;
+      currentX += trackWidth
     }
 
-    track.style.transform = `translateX(${currentX}px)`;
-    requestAnimationFrame(animate);
+    track.style.transform = `translateX(${currentX}px)`
+    requestAnimationFrame(animate)
   }
-  animate();
+  animate()
 }
 ```
 
@@ -538,19 +566,19 @@ If the font supports variable axes (weight, width), animate them per-character f
 
 ```javascript
 function initVariableFontWave(titleEl) {
-  const split = new SplitText(titleEl, { type: 'chars' });
+  const split = new SplitText(titleEl, { type: "chars" })
 
   // Wave through characters using weight axis
   gsap.to(split.chars, {
     fontVariationSettings: '"wght" 800',
     duration: 0.4,
-    ease: 'power2.inOut',
+    ease: "power2.inOut",
     stagger: {
       each: 0.06,
       yoyo: true,
       repeat: -1, // infinite loop
-    }
-  });
+    },
+  })
 }
 ```
 
@@ -598,16 +626,16 @@ Oversized headline that intentionally exceeds section boundaries. Creates drama,
 ```javascript
 // Parallax on the bleed title — moves at slightly different rate
 // to emphasize that it belongs to a different depth than content
-gsap.to('.bleed-title', {
-  y: '-12%',
-  ease: 'none',
+gsap.to(".bleed-title", {
+  y: "-12%",
+  ease: "none",
   scrollTrigger: {
-    trigger: '.bleed-section',
-    start: 'top bottom',
-    end: 'bottom top',
+    trigger: ".bleed-section",
+    start: "top bottom",
+    end: "bottom top",
     scrub: true,
-  }
-});
+  },
+})
 ```
 
 ---
@@ -638,32 +666,34 @@ with transparent fill. Supports the scene without competing with the content.
 ```javascript
 // Entrance: lines slide up from a masked overflow:hidden parent
 function initGhostTextEntrance(lines) {
-  gsap.set(lines, { y: '110%' });
+  gsap.set(lines, { y: "110%" })
   gsap.to(lines, {
-    y: '0%',
+    y: "0%",
     stagger: 0.1,
     duration: 1.1,
-    ease: 'power4.out',
+    ease: "power4.out",
     delay: 0.2,
-  });
+  })
 }
 
 // Exit: lines drift apart as hero scrolls out
 function addGhostTextExit(scrubTimeline, line1, line2) {
   scrubTimeline
-    .to(line1, { x: '-12vw', opacity: 0.06, duration: 0.3 }, 0)
-    .to(line2, { x:  '12vw', opacity: 0.06, duration: 0.3 }, 0)
-    .to(line1, { x: '-40vw', opacity: 0,    duration: 0.25 }, 0.4)
-    .to(line2, { x:  '40vw', opacity: 0,    duration: 0.25 }, 0.4);
+    .to(line1, { x: "-12vw", opacity: 0.06, duration: 0.3 }, 0)
+    .to(line2, { x: "12vw", opacity: 0.06, duration: 0.3 }, 0)
+    .to(line1, { x: "-40vw", opacity: 0, duration: 0.25 }, 0.4)
+    .to(line2, { x: "40vw", opacity: 0, duration: 0.25 }, 0.4)
 }
 ```
 
 Stroke opacity guide:
+
 - `0.08–0.12` → barely-there atmosphere
 - `0.15–0.22` → readable on inspection, still subtle
 - `0.25–0.35` → prominently visible — only if it IS the visual focus
 
 Rules:
+
 1. Always `aria-hidden="true"` — never the real heading
 2. A real `<h1>` must exist elsewhere for SEO/screen readers
 3. Only works on dark backgrounds — thin strokes vanish on light ones
@@ -681,29 +711,57 @@ The most premium results come from layering multiple text techniques in the same
 function initHeroTextSequence() {
   const tl = gsap.timeline({
     scrollTrigger: {
-      trigger: '.hero-scene',
-      start: 'top top',
-      end: '+=300%',
+      trigger: ".hero-scene",
+      start: "top top",
+      end: "+=300%",
       pin: true,
       scrub: 1,
-    }
-  });
+    },
+  })
 
   // 1. Bleed title already visible via CSS
   // 2. Subtitle curtain reveal
-  tl.from('.hero-sub .line-inner', {
-    y: '110%', duration: 0.2, stagger: 0.05
-  }, 0)
-  // 3. CTA skew bounce
-  .from('.hero-cta', {
-    y: 40, skewY: 5, opacity: 0, duration: 0.15, ease: 'back.out'
-  }, 0.15)
-  // 4. On scroll-through: title exits via split converge reverse
-  .to('.hero-title .word-left', {
-    x: '-80vw', opacity: 0, duration: 0.25, stagger: 0.03
-  }, 0.7)
-  .to('.hero-title .word-right', {
-    x: '80vw', opacity: 0, duration: 0.25, stagger: -0.03
-  }, 0.7);
+  tl.from(
+    ".hero-sub .line-inner",
+    {
+      y: "110%",
+      duration: 0.2,
+      stagger: 0.05,
+    },
+    0,
+  )
+    // 3. CTA skew bounce
+    .from(
+      ".hero-cta",
+      {
+        y: 40,
+        skewY: 5,
+        opacity: 0,
+        duration: 0.15,
+        ease: "back.out",
+      },
+      0.15,
+    )
+    // 4. On scroll-through: title exits via split converge reverse
+    .to(
+      ".hero-title .word-left",
+      {
+        x: "-80vw",
+        opacity: 0,
+        duration: 0.25,
+        stagger: 0.03,
+      },
+      0.7,
+    )
+    .to(
+      ".hero-title .word-right",
+      {
+        x: "80vw",
+        opacity: 0,
+        duration: 0.25,
+        stagger: -0.03,
+      },
+      0.7,
+    )
 }
 ```

@@ -37,11 +37,13 @@ Constraints:
 ```
 
 **Strategy assignment:** The coordinator assigns each agent a different strategy. For 3 agents optimizing latency, example strategies:
+
 - Agent 1: Caching — add memoization, HTTP caching headers, query result caching
 - Agent 2: Algorithm optimization — reduce complexity, better data structures, eliminate redundant work
 - Agent 3: I/O batching — batch database queries, parallel I/O, connection pooling
 
 **Cross-domain example** (3 agents writing landing page copy):
+
 - Agent 1: Benefit-led — open with the top 3 user benefits, feature details below
 - Agent 2: Social proof — lead with testimonials and case study stats, then features
 - Agent 3: Urgency/scarcity — limited-time offer framing, countdown CTA, FOMO triggers
@@ -83,11 +85,13 @@ Constraints:
 ```
 
 **Strategy assignment:** Example strategies for 3 refactoring agents:
+
 - Agent 1: Extract and simplify — break large functions into smaller ones, reduce nesting
 - Agent 2: Type safety — add type annotations, replace Any types, fix type errors
 - Agent 3: DRY — eliminate duplication, extract shared utilities, consolidate patterns
 
 **Cross-domain example** (restructuring a research report):
+
 - Agent 1: Executive summary first — lead with conclusions, supporting data below
 - Agent 2: Narrative flow — problem → analysis → findings → recommendations arc
 - Agent 3: Visual-first — diagrams and data tables up front, prose as annotation
@@ -130,6 +134,7 @@ Constraints:
 ```
 
 **Strategy assignment:** Example strategies for 3 test-writing agents:
+
 - Agent 1: Happy path coverage — cover main use cases and expected inputs
 - Agent 2: Edge cases — boundary values, empty inputs, error conditions
 - Agent 3: Integration tests — test module interactions, API endpoints, data flows
@@ -169,6 +174,7 @@ Constraints:
 ```
 
 **Strategy assignment:** Example strategies for 3 bug-fixing agents:
+
 - Agent 1: Top-down — trace from the error message/stack trace back to root cause
 - Agent 2: Bottom-up — examine recent changes, bisect commits, find the introducing change
 - Agent 3: Isolation — write a minimal reproduction, narrow down the failing component

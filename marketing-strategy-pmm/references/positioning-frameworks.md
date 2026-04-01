@@ -30,14 +30,15 @@ Execute positioning using April Dunford's "Obviously Awesome" methodology:
 
 Document what customers do without your product:
 
-| Alternative Type | Examples | How They Solve It |
-|------------------|----------|-------------------|
-| Direct competitor | Competitor A, B | Same category, different approach |
-| Adjacent solution | Spreadsheets, email | Manual workaround |
-| Build in-house | Custom development | Internal solution |
-| Do nothing | Ignore problem | Accept status quo |
+| Alternative Type  | Examples            | How They Solve It                 |
+| ----------------- | ------------------- | --------------------------------- |
+| Direct competitor | Competitor A, B     | Same category, different approach |
+| Adjacent solution | Spreadsheets, email | Manual workaround                 |
+| Build in-house    | Custom development  | Internal solution                 |
+| Do nothing        | Ignore problem      | Accept status quo                 |
 
 **Interview Questions:**
+
 - "Before using us, how did you handle this?"
 - "What alternatives did you evaluate?"
 - "What would you switch to if we disappeared?"
@@ -71,11 +72,11 @@ Attribute Audit:
 
 Connect features to business outcomes:
 
-| Attribute | Value Enabled | Customer Outcome |
-|-----------|--------------|------------------|
-| Real-time sync | No version conflicts | 50% fewer errors |
-| AI automation | Eliminates manual work | Save 10 hrs/week |
-| One-click deploy | Faster releases | Ship 2x faster |
+| Attribute        | Value Enabled          | Customer Outcome |
+| ---------------- | ---------------------- | ---------------- |
+| Real-time sync   | No version conflicts   | 50% fewer errors |
+| AI automation    | Eliminates manual work | Save 10 hrs/week |
+| One-click deploy | Faster releases        | Ship 2x faster   |
 
 **Value Statement Formula:**
 `[Feature] enables [Value] so customers achieve [Outcome]`
@@ -99,13 +100,14 @@ Best-Fit Profile:
 
 Choose competitive frame:
 
-| Strategy | When to Use | Risk Level |
-|----------|-------------|------------|
-| Head-to-head | Strong product, big budget | Medium |
-| Niche domination | Unique for segment | Low |
-| Category creation | True innovation, deep pockets | High |
+| Strategy          | When to Use                   | Risk Level |
+| ----------------- | ----------------------------- | ---------- |
+| Head-to-head      | Strong product, big budget    | Medium     |
+| Niche domination  | Unique for segment            | Low        |
+| Category creation | True innovation, deep pockets | High       |
 
 **Decision Framework:**
+
 - Can you win head-to-head? → Head-to-head
 - Can you dominate a niche? → Niche
 - Is the market undefined? → Category creation
@@ -137,6 +139,7 @@ OUR PRODUCT [primary differentiation]
 ```
 
 **Example:**
+
 ```
 FOR mid-market SaaS companies with distributed engineering teams
 WHO struggle with coordination across time zones
@@ -150,14 +153,15 @@ OUR PRODUCT provides unified project context with AI-powered summaries
 
 Define complete solution for target segment:
 
-| Layer | Components | Your Coverage |
-|-------|------------|---------------|
-| Generic | Core product | 100% |
-| Expected | Basic integrations, support | 90% |
-| Augmented | Training, consulting, custom work | 60% |
-| Potential | Future roadmap, ecosystem | 30% |
+| Layer     | Components                        | Your Coverage |
+| --------- | --------------------------------- | ------------- |
+| Generic   | Core product                      | 100%          |
+| Expected  | Basic integrations, support       | 90%           |
+| Augmented | Training, consulting, custom work | 60%           |
+| Potential | Future roadmap, ecosystem         | 30%           |
 
 **Gap Analysis:**
+
 - What's missing for complete solution?
 - Which partners can fill gaps?
 - What must you build vs. buy vs. partner?
@@ -198,13 +202,14 @@ Closing (3 min):
 
 Test messaging through A/B experiments:
 
-| Test | Control | Variant | Winner Criteria |
-|------|---------|---------|-----------------|
+| Test                  | Control         | Variant         | Winner Criteria |
+| --------------------- | --------------- | --------------- | --------------- |
 | Landing page headline | Old positioning | New positioning | +20% conversion |
-| Ad copy | Feature-focused | Value-focused | +15% CTR |
-| Email subject | Generic | Personalized | +25% open rate |
+| Ad copy               | Feature-focused | Value-focused   | +15% CTR        |
+| Email subject         | Generic         | Personalized    | +25% open rate  |
 
 **Sample Size Calculator:**
+
 - Baseline conversion: 3%
 - Minimum detectable effect: 20% relative lift
 - Statistical power: 80%
@@ -238,18 +243,18 @@ Create visual positioning map:
 
 Choose dimensions that highlight your advantage:
 
-| Good Axes | Why |
-|-----------|-----|
-| Ease of use vs. Power | If you're easiest to use |
-| Speed vs. Accuracy | If you're fastest |
-| Price vs. Features | If you're best value |
-| Specialization vs. Breadth | If you own a niche |
+| Good Axes                  | Why                      |
+| -------------------------- | ------------------------ |
+| Ease of use vs. Power      | If you're easiest to use |
+| Speed vs. Accuracy         | If you're fastest        |
+| Price vs. Features         | If you're best value     |
+| Specialization vs. Breadth | If you own a niche       |
 
-| Bad Axes | Why |
-|----------|-----|
-| Quality vs. Price | Everyone claims quality |
-| Innovation vs. Stability | Subjective, hard to prove |
-| Customer vs. Product focus | Not differentiating |
+| Bad Axes                   | Why                       |
+| -------------------------- | ------------------------- |
+| Quality vs. Price          | Everyone claims quality   |
+| Innovation vs. Stability   | Subjective, hard to prove |
+| Customer vs. Product focus | Not differentiating       |
 
 ### Positioning Map Template
 

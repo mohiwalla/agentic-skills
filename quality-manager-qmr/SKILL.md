@@ -39,34 +39,34 @@ Quality system accountability, management review leadership, and regulatory comp
 
 ### ISO 13485 Clause 5.5.2 Requirements
 
-| Responsibility | Scope | Evidence |
-|----------------|-------|----------|
-| QMS effectiveness | Monitor system performance and suitability | Management review records |
-| Reporting to management | Communicate QMS performance to top management | Quality reports, dashboards |
-| Quality awareness | Promote regulatory and quality requirements | Training records, communications |
-| Liaison with external parties | Interface with regulators, Notified Bodies | Meeting records, correspondence |
+| Responsibility                | Scope                                         | Evidence                         |
+| ----------------------------- | --------------------------------------------- | -------------------------------- |
+| QMS effectiveness             | Monitor system performance and suitability    | Management review records        |
+| Reporting to management       | Communicate QMS performance to top management | Quality reports, dashboards      |
+| Quality awareness             | Promote regulatory and quality requirements   | Training records, communications |
+| Liaison with external parties | Interface with regulators, Notified Bodies    | Meeting records, correspondence  |
 
 ### QMR Accountability Matrix
 
-| Domain | Accountable For | Reports To | Frequency |
-|--------|-----------------|------------|-----------|
-| Quality Policy | Policy adequacy and communication | CEO/Board | Annual review |
-| Quality Objectives | Objective achievement and relevance | Executive Team | Quarterly |
-| QMS Performance | System effectiveness metrics | Management | Monthly |
-| Regulatory Compliance | Compliance status across jurisdictions | CEO | Quarterly |
-| Audit Program | Audit schedule completion, findings closure | Management | Per audit |
-| CAPA Oversight | CAPA effectiveness and timeliness | Executive Team | Monthly |
+| Domain                | Accountable For                             | Reports To     | Frequency     |
+| --------------------- | ------------------------------------------- | -------------- | ------------- |
+| Quality Policy        | Policy adequacy and communication           | CEO/Board      | Annual review |
+| Quality Objectives    | Objective achievement and relevance         | Executive Team | Quarterly     |
+| QMS Performance       | System effectiveness metrics                | Management     | Monthly       |
+| Regulatory Compliance | Compliance status across jurisdictions      | CEO            | Quarterly     |
+| Audit Program         | Audit schedule completion, findings closure | Management     | Per audit     |
+| CAPA Oversight        | CAPA effectiveness and timeliness           | Executive Team | Monthly       |
 
 ### Authority Boundaries
 
-| Decision Type | QMR Authority | Escalation Required |
-|---------------|---------------|---------------------|
-| Process changes within QMS | Approve with owner | Major process redesign |
-| Document approval | Final QA approval | Policy-level changes |
-| Nonconformity disposition | Accept/reject with MRB | Product release decisions |
-| Supplier quality actions | Quality holds, audits | Supplier termination |
-| Audit scheduling | Adjust internal audit schedule | External audit timing |
-| Training requirements | Define quality training needs | Organization-wide training budget |
+| Decision Type              | QMR Authority                  | Escalation Required               |
+| -------------------------- | ------------------------------ | --------------------------------- |
+| Process changes within QMS | Approve with owner             | Major process redesign            |
+| Document approval          | Final QA approval              | Policy-level changes              |
+| Nonconformity disposition  | Accept/reject with MRB         | Product release decisions         |
+| Supplier quality actions   | Quality holds, audits          | Supplier termination              |
+| Audit scheduling           | Adjust internal audit schedule | External audit timing             |
+| Training requirements      | Define quality training needs  | Organization-wide training budget |
 
 ---
 
@@ -94,14 +94,14 @@ Conduct management reviews per ISO 13485 Clause 5.6 requirements.
 
 ### Required Attendees
 
-| Role | Requirement | Input Responsibility |
-|------|-------------|---------------------|
-| CEO/General Manager | Required | Strategic decisions |
-| QMR | Chair | Overall QMS status |
-| Department Heads | Required | Process performance |
-| RA Manager | Required | Regulatory changes |
-| Production Manager | Required | Product conformity |
-| Customer Quality | Required | Complaint data |
+| Role                | Requirement | Input Responsibility |
+| ------------------- | ----------- | -------------------- |
+| CEO/General Manager | Required    | Strategic decisions  |
+| QMR                 | Chair       | Overall QMS status   |
+| Department Heads    | Required    | Process performance  |
+| RA Manager          | Required    | Regulatory changes   |
+| Production Manager  | Required    | Product conformity   |
+| Customer Quality    | Required    | Complaint data       |
 
 ### Management Review Input Template
 
@@ -158,12 +158,12 @@ Prepared By: [QMR Name]
 
 ### Management Review Output Requirements
 
-| Output | Documentation | Owner |
-|--------|---------------|-------|
-| QMS improvement decisions | Action items with due dates | Assigned per item |
-| Resource needs | Resource plan updates | Department heads |
-| Quality objectives changes | Updated objectives document | QMR |
-| Process improvement needs | Improvement project charters | Process owners |
+| Output                     | Documentation                | Owner             |
+| -------------------------- | ---------------------------- | ----------------- |
+| QMS improvement decisions  | Action items with due dates  | Assigned per item |
+| Resource needs             | Resource plan updates        | Department heads  |
+| Quality objectives changes | Updated objectives document  | QMR               |
+| Process improvement needs  | Improvement project charters | Process owners    |
 
 See: [references/management-review-guide.md](references/management-review-guide.md)
 
@@ -191,35 +191,35 @@ Establish, monitor, and report quality performance indicators.
 
 ### Core Quality KPIs
 
-| Category | KPI | Target | Calculation |
-|----------|-----|--------|-------------|
-| Process | First Pass Yield | >95% | (Units passed first time / Total units) × 100 |
-| Process | Nonconformance Rate | <1% | (NC count / Total units) × 100 |
-| CAPA | CAPA Closure Rate | >90% | (On-time closures / Due closures) × 100 |
-| CAPA | CAPA Effectiveness | >85% | (Effective CAPAs / Verified CAPAs) × 100 |
-| Audit | Finding Closure Rate | >90% | (On-time closures / Due closures) × 100 |
-| Audit | Repeat Finding Rate | <10% | (Repeat findings / Total findings) × 100 |
-| Customer | Complaint Rate | <0.1% | (Complaints / Units sold) × 100 |
-| Customer | Satisfaction Score | >4.0/5.0 | Average of survey scores |
+| Category | KPI                  | Target   | Calculation                                   |
+| -------- | -------------------- | -------- | --------------------------------------------- |
+| Process  | First Pass Yield     | >95%     | (Units passed first time / Total units) × 100 |
+| Process  | Nonconformance Rate  | <1%      | (NC count / Total units) × 100                |
+| CAPA     | CAPA Closure Rate    | >90%     | (On-time closures / Due closures) × 100       |
+| CAPA     | CAPA Effectiveness   | >85%     | (Effective CAPAs / Verified CAPAs) × 100      |
+| Audit    | Finding Closure Rate | >90%     | (On-time closures / Due closures) × 100       |
+| Audit    | Repeat Finding Rate  | <10%     | (Repeat findings / Total findings) × 100      |
+| Customer | Complaint Rate       | <0.1%    | (Complaints / Units sold) × 100               |
+| Customer | Satisfaction Score   | >4.0/5.0 | Average of survey scores                      |
 
 ### KPI Review Frequency
 
-| KPI Type | Review Frequency | Trend Period | Audience |
-|----------|------------------|--------------|----------|
-| Safety/Compliance | Daily monitoring | Weekly | Operations |
-| Production Quality | Weekly | Monthly | Department heads |
-| Customer Quality | Monthly | Quarterly | Executive team |
-| Strategic Quality | Quarterly | Annual | Board/C-suite |
+| KPI Type           | Review Frequency | Trend Period | Audience         |
+| ------------------ | ---------------- | ------------ | ---------------- |
+| Safety/Compliance  | Daily monitoring | Weekly       | Operations       |
+| Production Quality | Weekly           | Monthly      | Department heads |
+| Customer Quality   | Monthly          | Quarterly    | Executive team   |
+| Strategic Quality  | Quarterly        | Annual       | Board/C-suite    |
 
 ### Performance Response Matrix
 
-| Performance Level | Status | Action Required |
-|-------------------|--------|-----------------|
-| >110% of target | Exceeding | Consider raising target |
-| 100-110% of target | Meeting | Maintain current approach |
-| 90-100% of target | Approaching | Monitor closely |
-| 80-90% of target | Below | Improvement plan required |
-| <80% of target | Critical | Immediate intervention |
+| Performance Level  | Status      | Action Required           |
+| ------------------ | ----------- | ------------------------- |
+| >110% of target    | Exceeding   | Consider raising target   |
+| 100-110% of target | Meeting     | Maintain current approach |
+| 90-100% of target  | Approaching | Monitor closely           |
+| 80-90% of target   | Below       | Improvement plan required |
+| <80% of target     | Critical    | Immediate intervention    |
 
 See: [references/quality-kpi-framework.md](references/quality-kpi-framework.md)
 
@@ -270,22 +270,22 @@ Resource Requirements:
 
 ### Objective Categories
 
-| Category | Example Objectives | Typical Targets |
-|----------|-------------------|-----------------|
-| Customer Quality | Reduce complaint rate | <0.1% of units sold |
-| Process Quality | Improve first pass yield | >96% |
-| Compliance | Maintain certification | Zero major NCs |
-| Efficiency | Reduce quality costs | <4% of revenue |
-| Culture | Increase training completion | >98% on-time |
+| Category         | Example Objectives           | Typical Targets     |
+| ---------------- | ---------------------------- | ------------------- |
+| Customer Quality | Reduce complaint rate        | <0.1% of units sold |
+| Process Quality  | Improve first pass yield     | >96%                |
+| Compliance       | Maintain certification       | Zero major NCs      |
+| Efficiency       | Reduce quality costs         | <4% of revenue      |
+| Culture          | Increase training completion | >98% on-time        |
 
 ### Quarterly Objective Review
 
-| Review Element | Assessment | Action |
-|----------------|------------|--------|
-| Progress vs. target | On track / Behind / Ahead | Adjust resources if behind |
-| Relevance | Still valid / Needs update | Modify if conditions changed |
-| Resources | Adequate / Insufficient | Request additional if needed |
-| Barriers | Identified obstacles | Escalate for resolution |
+| Review Element      | Assessment                 | Action                       |
+| ------------------- | -------------------------- | ---------------------------- |
+| Progress vs. target | On track / Behind / Ahead  | Adjust resources if behind   |
+| Relevance           | Still valid / Needs update | Modify if conditions changed |
+| Resources           | Adequate / Insufficient    | Request additional if needed |
+| Barriers            | Identified obstacles       | Escalate for resolution      |
 
 ---
 
@@ -306,34 +306,34 @@ Assess and improve organizational quality culture.
 
 ### Quality Culture Dimensions
 
-| Dimension | Indicators | Assessment Method |
-|-----------|------------|-------------------|
-| Leadership commitment | Management visible support for quality | Survey, observation |
-| Quality ownership | Employees feel responsible for quality | Survey |
-| Communication | Quality information flows effectively | Survey, audit |
-| Continuous improvement | Suggestions submitted and implemented | Metrics |
-| Training and competence | Employees feel adequately trained | Survey, records |
-| Problem solving | Issues addressed at root cause | CAPA analysis |
+| Dimension               | Indicators                             | Assessment Method   |
+| ----------------------- | -------------------------------------- | ------------------- |
+| Leadership commitment   | Management visible support for quality | Survey, observation |
+| Quality ownership       | Employees feel responsible for quality | Survey              |
+| Communication           | Quality information flows effectively  | Survey, audit       |
+| Continuous improvement  | Suggestions submitted and implemented  | Metrics             |
+| Training and competence | Employees feel adequately trained      | Survey, records     |
+| Problem solving         | Issues addressed at root cause         | CAPA analysis       |
 
 ### Culture Survey Categories
 
-| Category | Sample Questions |
-|----------|------------------|
-| Leadership | "Management demonstrates commitment to quality" |
-| Resources | "I have the tools and training to do quality work" |
-| Communication | "Quality expectations are clearly communicated" |
-| Empowerment | "I am encouraged to report quality issues" |
-| Recognition | "Quality achievements are recognized" |
+| Category      | Sample Questions                                   |
+| ------------- | -------------------------------------------------- |
+| Leadership    | "Management demonstrates commitment to quality"    |
+| Resources     | "I have the tools and training to do quality work" |
+| Communication | "Quality expectations are clearly communicated"    |
+| Empowerment   | "I am encouraged to report quality issues"         |
+| Recognition   | "Quality achievements are recognized"              |
 
 ### Culture Improvement Actions
 
-| Gap Identified | Potential Actions |
-|----------------|-------------------|
+| Gap Identified            | Potential Actions                              |
+| ------------------------- | ---------------------------------------------- |
 | Low leadership visibility | Quality gemba walks, all-hands quality updates |
-| Inadequate training | Competency-based training program |
-| Poor communication | Quality newsletters, department huddles |
-| Low reporting | Anonymous reporting system, no-blame culture |
-| Lack of recognition | Quality award program, team celebrations |
+| Inadequate training       | Competency-based training program              |
+| Poor communication        | Quality newsletters, department huddles        |
+| Low reporting             | Anonymous reporting system, no-blame culture   |
+| Lack of recognition       | Quality award program, team celebrations       |
 
 ---
 
@@ -343,12 +343,12 @@ Monitor and maintain regulatory compliance across jurisdictions.
 
 ### Multi-Jurisdictional Compliance Matrix
 
-| Jurisdiction | Regulation | Requirement | Status Tracking |
-|--------------|------------|-------------|-----------------|
-| EU | MDR 2017/745 | CE marking, Notified Body | Technical file, annual review |
-| USA | 21 CFR 820 | FDA registration, QSR compliance | Annual registration, inspections |
-| International | ISO 13485 | QMS certification | Surveillance audits |
-| Germany | MPG/MPDG | National implementation | Competent authority filings |
+| Jurisdiction  | Regulation   | Requirement                      | Status Tracking                  |
+| ------------- | ------------ | -------------------------------- | -------------------------------- |
+| EU            | MDR 2017/745 | CE marking, Notified Body        | Technical file, annual review    |
+| USA           | 21 CFR 820   | FDA registration, QSR compliance | Annual registration, inspections |
+| International | ISO 13485    | QMS certification                | Surveillance audits              |
+| Germany       | MPG/MPDG     | National implementation          | Competent authority filings      |
 
 ### Compliance Monitoring Workflow
 
@@ -363,25 +363,25 @@ Monitor and maintain regulatory compliance across jurisdictions.
 
 ### Regulatory Authority Interface
 
-| Activity | QMR Role | Preparation Required |
-|----------|----------|---------------------|
-| Notified Body audit | Primary contact | Audit package, personnel schedules |
-| FDA inspection | Host, escort coordinator | Inspection readiness review |
-| Competent Authority inquiry | Response coordinator | Technical file access |
-| Regulatory meeting | Attendee or delegate | Briefing materials |
+| Activity                    | QMR Role                 | Preparation Required               |
+| --------------------------- | ------------------------ | ---------------------------------- |
+| Notified Body audit         | Primary contact          | Audit package, personnel schedules |
+| FDA inspection              | Host, escort coordinator | Inspection readiness review        |
+| Competent Authority inquiry | Response coordinator     | Technical file access              |
+| Regulatory meeting          | Attendee or delegate     | Briefing materials                 |
 
 ### Inspection Readiness Checklist
 
-| Area | Ready | Action Needed |
-|------|-------|---------------|
-| Document control system current | ☐ | |
-| Training records complete | ☐ | |
-| CAPA system current, no overdue items | ☐ | |
-| Complaint files complete | ☐ | |
-| Equipment calibration current | ☐ | |
-| Supplier qualification files complete | ☐ | |
-| Management review records available | ☐ | |
-| Internal audit program current | ☐ | |
+| Area                                  | Ready | Action Needed |
+| ------------------------------------- | ----- | ------------- |
+| Document control system current       | ☐     |               |
+| Training records complete             | ☐     |               |
+| CAPA system current, no overdue items | ☐     |               |
+| Complaint files complete              | ☐     |               |
+| Equipment calibration current         | ☐     |               |
+| Supplier qualification files complete | ☐     |               |
+| Management review records available   | ☐     |               |
+| Internal audit program current        | ☐     |               |
 
 ---
 
@@ -415,22 +415,22 @@ immediately    Yes─┴─No
 
 ### Quality Investment Prioritization
 
-| Criteria | Weight | Score Method |
-|----------|--------|--------------|
-| Regulatory requirement | 30% | Required=10, Recommended=5, Optional=2 |
-| Customer impact | 25% | Direct=10, Indirect=5, None=0 |
-| Cost savings potential | 20% | >$100K=10, $50-100K=7, <$50K=3 |
-| Implementation complexity | 15% | Simple=10, Moderate=5, Complex=2 |
-| Strategic alignment | 10% | Core=10, Supporting=5, Peripheral=2 |
+| Criteria                  | Weight | Score Method                           |
+| ------------------------- | ------ | -------------------------------------- |
+| Regulatory requirement    | 30%    | Required=10, Recommended=5, Optional=2 |
+| Customer impact           | 25%    | Direct=10, Indirect=5, None=0          |
+| Cost savings potential    | 20%    | >$100K=10, $50-100K=7, <$50K=3         |
+| Implementation complexity | 15%    | Simple=10, Moderate=5, Complex=2       |
+| Strategic alignment       | 10%    | Core=10, Supporting=5, Peripheral=2    |
 
 ### Resource Allocation Matrix
 
-| Resource Type | Allocation Authority | Escalation Threshold |
-|---------------|---------------------|---------------------|
-| Quality personnel | QMR | >1 FTE addition |
-| Quality equipment | QMR | >$25K |
-| External consultants | QMR | >$50K or >30 days |
-| Quality systems | Executive approval | >$100K |
+| Resource Type        | Allocation Authority | Escalation Threshold |
+| -------------------- | -------------------- | -------------------- |
+| Quality personnel    | QMR                  | >1 FTE addition      |
+| Quality equipment    | QMR                  | >$25K                |
+| External consultants | QMR                  | >$50K or >30 days    |
+| Quality systems      | Executive approval   | >$100K               |
 
 ---
 
@@ -438,11 +438,12 @@ immediately    Yes─┴─No
 
 ### Scripts
 
-| Tool | Purpose | Usage |
-|------|---------|-------|
+| Tool                                                                 | Purpose                               | Usage                                        |
+| -------------------------------------------------------------------- | ------------------------------------- | -------------------------------------------- |
 | [management_review_tracker.py](scripts/management_review_tracker.py) | Track review inputs, actions, metrics | `python management_review_tracker.py --help` |
 
 **Management Review Tracker Features:**
+
 - Track input collection status from process owners
 - Monitor action item completion and aging
 - Generate metrics summary for review
@@ -450,39 +451,39 @@ immediately    Yes─┴─No
 
 ### References
 
-| Document | Content |
-|----------|---------|
+| Document                                                            | Content                                                                    |
+| ------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | [management-review-guide.md](references/management-review-guide.md) | ISO 13485 Clause 5.6 requirements, input/output templates, action tracking |
-| [quality-kpi-framework.md](references/quality-kpi-framework.md) | KPI categories, targets, calculations, dashboard templates |
+| [quality-kpi-framework.md](references/quality-kpi-framework.md)     | KPI categories, targets, calculations, dashboard templates                 |
 
 ### Quick Reference: Management Review Inputs (ISO 13485 Clause 5.6.2)
 
-| Input | Source | Required |
-|-------|--------|----------|
-| Feedback | Customer complaints, surveys | Yes |
-| Audit results | Internal and external audits | Yes |
-| Process performance | Process metrics | Yes |
-| Product conformity | Inspection, NC data | Yes |
-| CAPA status | CAPA system | Yes |
-| Previous actions | Prior review records | Yes |
-| Changes | Regulatory, organizational | Yes |
-| Recommendations | All sources | Yes |
+| Input               | Source                       | Required |
+| ------------------- | ---------------------------- | -------- |
+| Feedback            | Customer complaints, surveys | Yes      |
+| Audit results       | Internal and external audits | Yes      |
+| Process performance | Process metrics              | Yes      |
+| Product conformity  | Inspection, NC data          | Yes      |
+| CAPA status         | CAPA system                  | Yes      |
+| Previous actions    | Prior review records         | Yes      |
+| Changes             | Regulatory, organizational   | Yes      |
+| Recommendations     | All sources                  | Yes      |
 
 ### Quick Reference: Management Review Outputs (ISO 13485 Clause 5.6.3)
 
-| Output | Documentation Required |
-|--------|----------------------|
-| Improvement to QMS and processes | Action items with owners |
-| Improvement to product | Project initiation if needed |
-| Resource needs | Resource plan updates |
+| Output                           | Documentation Required       |
+| -------------------------------- | ---------------------------- |
+| Improvement to QMS and processes | Action items with owners     |
+| Improvement to product           | Project initiation if needed |
+| Resource needs                   | Resource plan updates        |
 
 ---
 
 ## Related Skills
 
-| Skill | Integration Point |
-|-------|-------------------|
-| [quality-manager-qms-iso13485](../quality-manager-qms-iso13485/) | QMS process management |
-| [capa-officer](../capa-officer/) | CAPA system oversight |
-| [qms-audit-expert](../qms-audit-expert/) | Internal audit program |
+| Skill                                                              | Integration Point          |
+| ------------------------------------------------------------------ | -------------------------- |
+| [quality-manager-qms-iso13485](../quality-manager-qms-iso13485/)   | QMS process management     |
+| [capa-officer](../capa-officer/)                                   | CAPA system oversight      |
+| [qms-audit-expert](../qms-audit-expert/)                           | Internal audit program     |
 | [quality-documentation-manager](../quality-documentation-manager/) | Document control oversight |

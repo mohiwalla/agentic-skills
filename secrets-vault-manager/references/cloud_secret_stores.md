@@ -4,41 +4,45 @@
 
 ### Feature Matrix
 
-| Feature | AWS Secrets Manager | Azure Key Vault | GCP Secret Manager |
-|---------|--------------------|-----------------|--------------------|
-| **Secret types** | String, binary | Secrets, keys, certificates | String, binary |
-| **Max secret size** | 64 KB | 25 KB (secret), 200 KB (cert) | 64 KB |
-| **Versioning** | Automatic (all versions) | Manual enable per secret | Automatic |
-| **Rotation** | Built-in Lambda rotation | Custom via Functions/Logic Apps | Custom via Cloud Functions |
-| **Encryption** | AWS KMS (default or CMK) | HSM-backed (FIPS 140-2 L2) | Google-managed or CMEK |
-| **Cross-region** | Replication to multiple regions | Geo-redundant by SKU | Replication supported |
-| **Access control** | IAM + resource-based policies | RBAC + access policies | IAM bindings |
-| **Audit** | CloudTrail | Azure Monitor + Diagnostics | Cloud Audit Logs |
-| **Secret references** | ARN | Vault URI + secret name | Resource name |
-| **Cost model** | $0.40/secret/mo + $0.05/10K calls | $0.03/10K ops (Standard) | $0.06/10K access ops |
-| **Free tier** | No | No | 6 active versions free |
+| Feature               | AWS Secrets Manager               | Azure Key Vault                 | GCP Secret Manager         |
+| --------------------- | --------------------------------- | ------------------------------- | -------------------------- |
+| **Secret types**      | String, binary                    | Secrets, keys, certificates     | String, binary             |
+| **Max secret size**   | 64 KB                             | 25 KB (secret), 200 KB (cert)   | 64 KB                      |
+| **Versioning**        | Automatic (all versions)          | Manual enable per secret        | Automatic                  |
+| **Rotation**          | Built-in Lambda rotation          | Custom via Functions/Logic Apps | Custom via Cloud Functions |
+| **Encryption**        | AWS KMS (default or CMK)          | HSM-backed (FIPS 140-2 L2)      | Google-managed or CMEK     |
+| **Cross-region**      | Replication to multiple regions   | Geo-redundant by SKU            | Replication supported      |
+| **Access control**    | IAM + resource-based policies     | RBAC + access policies          | IAM bindings               |
+| **Audit**             | CloudTrail                        | Azure Monitor + Diagnostics     | Cloud Audit Logs           |
+| **Secret references** | ARN                               | Vault URI + secret name         | Resource name              |
+| **Cost model**        | $0.40/secret/mo + $0.05/10K calls | $0.03/10K ops (Standard)        | $0.06/10K access ops       |
+| **Free tier**         | No                                | No                              | 6 active versions free     |
 
 ### Decision Guide
 
 **Choose AWS Secrets Manager when:**
+
 - Fully on AWS
 - Need native RDS/Aurora/Redshift rotation
 - Using ECS/EKS with native AWS IAM integration
 - Cross-account secret sharing via resource policies
 
 **Choose Azure Key Vault when:**
+
 - Azure-primary workloads
 - Certificate lifecycle management is critical (built-in CA integration)
 - Need HSM-backed key protection (Premium SKU)
 - Azure AD conditional access integration required
 
 **Choose GCP Secret Manager when:**
+
 - GCP-primary workloads
 - Using GKE with Workload Identity
 - Want simplest API surface (few concepts, fast to integrate)
 - Cost-sensitive (generous free tier)
 
 **Choose HashiCorp Vault when:**
+
 - Multi-cloud or hybrid environments
 - Dynamic secrets (database, cloud IAM, SSH) are primary use case
 - Need transit encryption, PKI, or SSH CA
@@ -135,7 +139,9 @@ def lambda_handler(event, context):
   "Statement": [
     {
       "Effect": "Allow",
-      "Principal": {"AWS": "arn:aws:iam::987654321098:role/shared-secret-reader"},
+      "Principal": {
+        "AWS": "arn:aws:iam::987654321098:role/shared-secret-reader"
+      },
       "Action": "secretsmanager:GetSecretValue",
       "Resource": "*",
       "Condition": {
@@ -175,11 +181,13 @@ def list_secrets(vault_url):
 ### RBAC vs Access Policies
 
 **RBAC (recommended):**
+
 - Uses Azure AD roles (`Key Vault Secrets User`, `Key Vault Secrets Officer`)
 - Managed at subscription/resource group/vault level
 - Audit via Azure AD activity logs
 
 **Access Policies (legacy):**
+
 - Per-vault configuration
 - Object ID based
 - No inheritance from resource group
@@ -345,10 +353,10 @@ All three cloud providers support caching SDKs:
 
 ## Compliance Mapping
 
-| Requirement | AWS SM | Azure KV | GCP SM | Vault |
-|------------|--------|----------|--------|-------|
-| SOC 2 audit trail | CloudTrail | Monitor logs | Audit Logs | Audit device |
-| HIPAA encryption | KMS (BAA) | HSM (BAA) | CMEK (BAA) | Auto-encrypt |
-| PCI DSS key mgmt | KMS compliance | Premium HSM | CMEK | Transit engine |
-| GDPR data residency | Region selection | Region selection | Region selection | Self-hosted |
-| ISO 27001 | Certified | Certified | Certified | Self-certify |
+| Requirement         | AWS SM           | Azure KV         | GCP SM           | Vault          |
+| ------------------- | ---------------- | ---------------- | ---------------- | -------------- |
+| SOC 2 audit trail   | CloudTrail       | Monitor logs     | Audit Logs       | Audit device   |
+| HIPAA encryption    | KMS (BAA)        | HSM (BAA)        | CMEK (BAA)       | Auto-encrypt   |
+| PCI DSS key mgmt    | KMS compliance   | Premium HSM      | CMEK             | Transit engine |
+| GDPR data residency | Region selection | Region selection | Region selection | Self-hosted    |
+| ISO 27001           | Certified        | Certified        | Certified        | Self-certify   |

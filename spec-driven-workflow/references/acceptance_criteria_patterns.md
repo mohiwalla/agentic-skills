@@ -17,8 +17,9 @@ And   [additional outcome — and this also happens]
 ```
 
 **Rules:**
+
 1. One scenario per AC. Multiple Given/When/Then blocks = multiple ACs.
-2. Every AC references at least one FR-* or NFR-*.
+2. Every AC references at least one FR-_ or NFR-_.
 3. Outcomes must be observable and testable — no subjective language.
 4. Preconditions must be achievable in a test setup.
 
@@ -30,6 +31,7 @@ And   [additional outcome — and this also happens]
 
 ```markdown
 ### AC-1: Successful login with valid credentials (FR-1)
+
 Given a registered user with email "user@example.com" and password "V@lidP4ss!"
 When they POST /api/auth/login with email "user@example.com" and password "V@lidP4ss!"
 Then the response status is 200
@@ -42,6 +44,7 @@ And the access token expires in 24 hours
 
 ```markdown
 ### AC-2: Login rejected with wrong password (FR-1)
+
 Given a registered user with email "user@example.com"
 When they POST /api/auth/login with email "user@example.com" and an incorrect password
 Then the response status is 401
@@ -54,6 +57,7 @@ And the failed attempt is logged
 
 ```markdown
 ### AC-3: Login rejected for locked account (FR-1, NFR-S2)
+
 Given a user whose account is locked due to 5 consecutive failed login attempts
 When they POST /api/auth/login with correct credentials
 Then the response status is 403
@@ -65,6 +69,7 @@ And the response includes a "retryAfter" field with seconds until unlock
 
 ```markdown
 ### AC-4: Token refresh with valid refresh token (FR-3)
+
 Given a user with a valid, non-expired refresh token
 When they POST /api/auth/refresh with that refresh token
 Then the response status is 200
@@ -77,6 +82,7 @@ And a new refresh token is issued (rotation)
 
 ```markdown
 ### AC-5: Logout invalidates session (FR-4)
+
 Given an authenticated user with a valid access token
 When they POST /api/auth/logout with that token
 Then the response status is 204
@@ -92,6 +98,7 @@ And the refresh token is invalidated
 
 ```markdown
 ### AC-6: Create resource with valid data (FR-1)
+
 Given an authenticated user with "editor" role
 When they POST /api/resources with valid payload {name: "Test", type: "A"}
 Then the response status is 201
@@ -104,6 +111,7 @@ And the resource's "createdBy" field matches the authenticated user's ID
 
 ```markdown
 ### AC-7: Create resource rejected with invalid data (FR-1)
+
 Given an authenticated user
 When they POST /api/resources with payload missing required field "name"
 Then the response status is 400
@@ -116,6 +124,7 @@ And no resource is created in the database
 
 ```markdown
 ### AC-8: Read resource by ID (FR-2)
+
 Given an existing resource with ID "abc-123"
 When an authenticated user GETs /api/resources/abc-123
 Then the response status is 200
@@ -126,6 +135,7 @@ And the response body contains the resource with all fields
 
 ```markdown
 ### AC-9: Read non-existent resource returns 404 (FR-2)
+
 Given no resource exists with ID "nonexistent-id"
 When an authenticated user GETs /api/resources/nonexistent-id
 Then the response status is 404
@@ -136,6 +146,7 @@ And the response body contains error code "NOT_FOUND"
 
 ```markdown
 ### AC-10: Update resource with valid data (FR-3)
+
 Given an existing resource with ID "abc-123" owned by the authenticated user
 When they PATCH /api/resources/abc-123 with {name: "Updated Name"}
 Then the response status is 200
@@ -148,6 +159,7 @@ And fields not included in the patch are unchanged
 
 ```markdown
 ### AC-11: Update rejected for non-owner (FR-3, FR-6)
+
 Given an existing resource with ID "abc-123" owned by user "other-user"
 When the authenticated user (not "other-user") PATCHes /api/resources/abc-123
 Then the response status is 403
@@ -159,6 +171,7 @@ And the resource is unchanged
 
 ```markdown
 ### AC-12: Soft delete resource (FR-5)
+
 Given an existing resource with ID "abc-123" owned by the authenticated user
 When they DELETE /api/resources/abc-123
 Then the response status is 204
@@ -171,6 +184,7 @@ And the resource still exists in the database (soft deleted)
 
 ```markdown
 ### AC-13: List resources with default pagination (FR-4)
+
 Given 50 resources exist for the authenticated user
 When they GET /api/resources without pagination parameters
 Then the response status is 200
@@ -185,6 +199,7 @@ And the response includes "hasNextPage: true"
 
 ```markdown
 ### AC-14: List resources with type filter (FR-4)
+
 Given 30 resources of type "A" and 20 resources of type "B" exist
 When the authenticated user GETs /api/resources?type=A
 Then the response status is 200
@@ -200,6 +215,7 @@ And the response "totalCount" is 30
 
 ```markdown
 ### AC-15: Search returns matching results (FR-7)
+
 Given resources with names "Alpha Report", "Beta Analysis", "Alpha Summary" exist
 When the user GETs /api/resources?q=Alpha
 Then the response contains "Alpha Report" and "Alpha Summary"
@@ -211,6 +227,7 @@ And results are ordered by relevance score (descending)
 
 ```markdown
 ### AC-16: Search with no matches returns empty list (FR-7)
+
 Given no resources match the query "xyznonexistent"
 When the user GETs /api/resources?q=xyznonexistent
 Then the response status is 200
@@ -222,6 +239,7 @@ And "totalCount" is 0
 
 ```markdown
 ### AC-17: Search handles special characters safely (FR-7, NFR-S1)
+
 Given resources exist in the database
 When the user GETs /api/resources?q="; DROP TABLE resources;--
 Then the response status is 200
@@ -237,6 +255,7 @@ And the search treats the input as a literal string
 
 ```markdown
 ### AC-18: Upload file within size limit (FR-8)
+
 Given an authenticated user
 When they POST /api/files with a 5MB PNG file
 Then the response status is 201
@@ -249,6 +268,7 @@ And the file is associated with the authenticated user
 
 ```markdown
 ### AC-19: Upload rejected for oversized file (FR-8)
+
 Given the maximum file size is 10MB
 When the user POSTs /api/files with a 15MB file
 Then the response status is 413
@@ -260,6 +280,7 @@ And no file is stored
 
 ```markdown
 ### AC-20: Upload rejected for disallowed file type (FR-8, NFR-S3)
+
 Given allowed file types are PNG, JPG, PDF
 When the user POSTs /api/files with an .exe file
 Then the response status is 415
@@ -275,6 +296,7 @@ And no file is stored
 
 ```markdown
 ### AC-21: Successful payment charge (FR-10)
+
 Given a user with a valid payment method on file
 When they POST /api/payments with amount 49.99 and currency "USD"
 Then the payment gateway is charged $49.99
@@ -288,6 +310,7 @@ And a receipt email is sent to the user
 
 ```markdown
 ### AC-22: Payment declined by gateway (FR-10)
+
 Given a user with an expired credit card on file
 When they POST /api/payments with amount 49.99
 Then the payment gateway returns a decline
@@ -301,6 +324,7 @@ And the user is prompted to update their payment method
 
 ```markdown
 ### AC-23: Duplicate payment request is idempotent (FR-10, NFR-R1)
+
 Given a payment was successfully processed with idempotency key "key-123"
 When the same request is sent again with idempotency key "key-123"
 Then the response status is 200
@@ -316,6 +340,7 @@ And the user is NOT charged a second time
 
 ```markdown
 ### AC-24: Email notification sent on event (FR-11)
+
 Given a user with notification preferences set to "email"
 When their order status changes to "shipped"
 Then an email is sent to their registered email address
@@ -328,6 +353,7 @@ And a notification record is created with status "sent"
 
 ```markdown
 ### AC-25: Failed notification is retried (FR-11, NFR-R2)
+
 Given the email service returns a 5xx error on first attempt
 When a notification is triggered
 Then the system retries up to 3 times with exponential backoff (1s, 4s, 16s)
@@ -343,6 +369,7 @@ And an alert is sent to the ops channel
 
 ```markdown
 ### AC-26: Unauthenticated request rejected (NFR-S1)
+
 Given no authentication token is provided
 When the user GETs /api/resources
 Then the response status is 401
@@ -354,6 +381,7 @@ And no resource data is returned
 
 ```markdown
 ### AC-27: String provided for numeric field (FR-1)
+
 Given the "quantity" field expects an integer
 When the user POSTs with quantity: "abc"
 Then the response status is 400
@@ -364,6 +392,7 @@ And the response body contains field error: {"quantity": "Must be an integer"}
 
 ```markdown
 ### AC-28: Rate limit enforced (NFR-S2)
+
 Given the rate limit is 100 requests per minute per API key
 When the user sends the 101st request within 60 seconds
 Then the response status is 429
@@ -375,6 +404,7 @@ And the response contains error code "RATE_LIMITED"
 
 ```markdown
 ### AC-29: Optimistic locking prevents lost updates (NFR-R1)
+
 Given a resource with version 5
 When user A PATCHes with version 5 and user B PATCHes with version 5 simultaneously
 Then one succeeds with status 200 (version becomes 6)
@@ -390,6 +420,7 @@ And the 409 response includes the current version number
 
 ```markdown
 ### AC-30: API response time under load (NFR-P1)
+
 Given the system is handling 1,000 concurrent users
 When a user GETs /api/dashboard
 Then the response is returned in < 500ms (p95)
@@ -400,6 +431,7 @@ And the response is returned in < 1000ms (p99)
 
 ```markdown
 ### AC-31: System handles target throughput (NFR-P2)
+
 Given normal production traffic patterns
 When the system receives 5,000 requests per second
 Then all requests are processed without queue overflow
@@ -410,6 +442,7 @@ And error rate remains below 0.1%
 
 ```markdown
 ### AC-32: Memory usage within bounds (NFR-P3)
+
 Given the service is processing normal traffic
 When measured over a 24-hour period
 Then memory usage does not exceed 512MB RSS
@@ -424,6 +457,7 @@ And no memory leaks are detected (RSS growth < 5% over 24h)
 
 ```markdown
 ### AC-33: Form is fully keyboard navigable (NFR-A1)
+
 Given the user is on the login page using only a keyboard
 When they press Tab
 Then focus moves through: email field -> password field -> submit button
@@ -435,6 +469,7 @@ And pressing Enter on the submit button submits the form
 
 ```markdown
 ### AC-34: Error messages announced to screen readers (NFR-A2)
+
 Given the user submits the form with invalid data
 When validation errors appear
 Then each error is associated with its form field via aria-describedby
@@ -446,6 +481,7 @@ And the first error field receives focus
 
 ```markdown
 ### AC-35: Text meets contrast requirements (NFR-A3)
+
 Given the default theme is active
 When measuring text against background colors
 Then all body text meets 4.5:1 contrast ratio (WCAG AA)
@@ -457,6 +493,7 @@ And all interactive element states (hover, focus, active) meet 3:1
 
 ```markdown
 ### AC-36: Animations respect user preference (NFR-A4)
+
 Given the user has enabled "prefers-reduced-motion" in their OS settings
 When they load any page with animations
 Then all non-essential animations are disabled
@@ -488,10 +525,10 @@ And no content is hidden behind animation-only interactions
 
 If your AC has any of these, rewrite it:
 
-| Smell | Example | Fix |
-|-------|---------|-----|
-| No Given clause | "When user clicks, then page loads" | Add "Given user is on the dashboard" |
-| Vague Then | "Then it works" | Specify status code, body, side effects |
-| Multiple Whens | "When user clicks A and then clicks B" | Split into two ACs |
-| Implementation detail | "Then the Redux store is updated" | Focus on user-observable outcome |
-| No requirement reference | "AC-5: Dashboard loads" | "AC-5: Dashboard loads (FR-7)" |
+| Smell                    | Example                                | Fix                                     |
+| ------------------------ | -------------------------------------- | --------------------------------------- |
+| No Given clause          | "When user clicks, then page loads"    | Add "Given user is on the dashboard"    |
+| Vague Then               | "Then it works"                        | Specify status code, body, side effects |
+| Multiple Whens           | "When user clicks A and then clicks B" | Split into two ACs                      |
+| Implementation detail    | "Then the Redux store is updated"      | Focus on user-observable outcome        |
+| No requirement reference | "AC-5: Dashboard loads"                | "AC-5: Dashboard loads (FR-7)"          |

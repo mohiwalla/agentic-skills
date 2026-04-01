@@ -12,29 +12,32 @@ A learning should be promoted when **all three** are true:
 
 ## Scoring Guide
 
-| Dimension | Score 0 | Score 1 | Score 2 | Score 3 |
-|-----------|---------|---------|---------|---------|
-| **Durability** | One-time fix | Temporary workaround | Stable pattern | Architectural truth |
-| **Impact** | Nice-to-know | Saves 1 minute | Prevents mistakes | Prevents breakage |
-| **Scope** | One file only | One directory | Entire project | All your projects |
+| Dimension      | Score 0       | Score 1              | Score 2           | Score 3             |
+| -------------- | ------------- | -------------------- | ----------------- | ------------------- |
+| **Durability** | One-time fix  | Temporary workaround | Stable pattern    | Architectural truth |
+| **Impact**     | Nice-to-know  | Saves 1 minute       | Prevents mistakes | Prevents breakage   |
+| **Scope**      | One file only | One directory        | Entire project    | All your projects   |
 
 **Promote when total ≥ 6.** Watch when total = 4-5. Ignore when total ≤ 3.
 
 ## Target Selection
 
 ### Use CLAUDE.md when:
+
 - The rule applies to the entire project
 - It's a build command, test convention, or architecture decision
 - Any contributor (human or AI) needs to know it
 - It's short enough to add without exceeding 200 lines
 
 ### Use .claude/rules/ when:
+
 - The rule only applies to specific file types
 - CLAUDE.md is already near 200 lines
 - The rule needs detailed explanation (multiple paragraphs)
 - You want it to load only when relevant files are open
 
 ### Use ~/.claude/CLAUDE.md when:
+
 - The rule applies to all your projects
 - It's a personal preference, not a project convention
 - Examples: "Prefer explicit returns over implicit", "Use descriptive variable names"
@@ -61,6 +64,7 @@ When promoting, transform the learning:
 ## Anti-Patterns
 
 ### Don't promote:
+
 - **One-time debugging notes** — "Fixed the CORS issue by adding header X" (unless it recurs)
 - **Session-specific context** — "We decided to use Approach A in today's meeting"
 - **Unstable patterns** — "Currently using v3 of the API" (will change)
@@ -68,6 +72,7 @@ When promoting, transform the learning:
 - **Credentials or secrets** — never store in any memory file
 
 ### Don't duplicate:
+
 - If CLAUDE.md already says "Use pnpm", don't also keep it in MEMORY.md
 - After promoting, remove the source entry to free space
 

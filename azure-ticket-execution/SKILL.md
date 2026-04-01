@@ -1,9 +1,9 @@
 ---
 name: azure-ticket-execution
 description: >-
-    Execute Azure DevOps ticket workflows with strict branch naming, semantic
-    commit messages, and pull request conventions. Use when implementing issue
-    fixes tied to ticket numbers or when the user asks for commit/PR discipline.
+  Execute Azure DevOps ticket workflows with strict branch naming, semantic
+  commit messages, and pull request conventions. Use when implementing issue
+  fixes tied to ticket numbers or when the user asks for commit/PR discipline.
 ---
 
 # Azure Ticket Execution

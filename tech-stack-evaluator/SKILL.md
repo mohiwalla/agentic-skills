@@ -20,14 +20,14 @@ Evaluate and compare technologies, frameworks, and cloud providers with data-dri
 
 ## Capabilities
 
-| Capability | Description |
-|------------|-------------|
-| Technology Comparison | Compare frameworks and libraries with weighted scoring |
-| TCO Analysis | Calculate 5-year total cost including hidden costs |
-| Ecosystem Health | Assess GitHub metrics, npm adoption, community strength |
-| Security Assessment | Evaluate vulnerabilities and compliance readiness |
-| Migration Analysis | Estimate effort, risks, and timeline for migrations |
-| Cloud Comparison | Compare AWS, Azure, GCP for specific workloads |
+| Capability            | Description                                             |
+| --------------------- | ------------------------------------------------------- |
+| Technology Comparison | Compare frameworks and libraries with weighted scoring  |
+| TCO Analysis          | Calculate 5-year total cost including hidden costs      |
+| Ecosystem Health      | Assess GitHub metrics, npm adoption, community strength |
+| Security Assessment   | Evaluate vulnerabilities and compliance readiness       |
+| Migration Analysis    | Estimate effort, risks, and timeline for migrations     |
+| Cloud Comparison      | Compare AWS, Azure, GCP for specific workloads          |
 
 ---
 
@@ -61,11 +61,13 @@ Codebase: 50,000 lines, 200 components. Team: 6 developers.
 The evaluator accepts three input formats:
 
 **Text** - Natural language queries
+
 ```
 Compare PostgreSQL vs MongoDB for our e-commerce platform.
 ```
 
 **YAML** - Structured input for automation
+
 ```yaml
 comparison:
   technologies: ["React", "Vue"]
@@ -77,6 +79,7 @@ comparison:
 ```
 
 **JSON** - Programmatic integration
+
 ```json
 {
   "technologies": ["React", "Vue"],
@@ -89,16 +92,19 @@ comparison:
 ## Analysis Types
 
 ### Quick Comparison (200-300 tokens)
+
 - Weighted scores and recommendation
 - Top 3 decision factors
 - Confidence level
 
 ### Standard Analysis (500-800 tokens)
+
 - Comparison matrix
 - TCO overview
 - Security summary
 
 ### Full Report (1200-1500 tokens)
+
 - All metrics and calculations
 - Migration analysis
 - Detailed recommendations
@@ -151,21 +157,21 @@ python scripts/migration_analyzer.py --from angular-1.x --to react
 
 ## References
 
-| Document | Content |
-|----------|---------|
-| `references/metrics.md` | Detailed scoring algorithms and calculation formulas |
-| `references/examples.md` | Input/output examples for all analysis types |
-| `references/workflows.md` | Step-by-step evaluation workflows |
+| Document                  | Content                                              |
+| ------------------------- | ---------------------------------------------------- |
+| `references/metrics.md`   | Detailed scoring algorithms and calculation formulas |
+| `references/examples.md`  | Input/output examples for all analysis types         |
+| `references/workflows.md` | Step-by-step evaluation workflows                    |
 
 ---
 
 ## Confidence Levels
 
-| Level | Score | Interpretation |
-|-------|-------|----------------|
-| High | 80-100% | Clear winner, strong data |
-| Medium | 50-79% | Trade-offs present, moderate uncertainty |
-| Low | < 50% | Close call, limited data |
+| Level  | Score   | Interpretation                           |
+| ------ | ------- | ---------------------------------------- |
+| High   | 80-100% | Clear winner, strong data                |
+| Medium | 50-79%  | Trade-offs present, moderate uncertainty |
+| Low    | < 50%   | Close call, limited data                 |
 
 ---
 

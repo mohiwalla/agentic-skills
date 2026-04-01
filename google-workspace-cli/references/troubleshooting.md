@@ -11,6 +11,7 @@ Common errors, fixes, and platform-specific guidance for the `gws` CLI.
 **Error:** `command not found: gws`
 
 **Fixes:**
+
 ```bash
 # Check if installed
 npm list -g @anthropic/gws 2>/dev/null || echo "Not installed via npm"
@@ -29,6 +30,7 @@ export PATH="$(npm config get prefix)/bin:$PATH"
 **Error:** `EACCES: permission denied`
 
 **Fixes:**
+
 ```bash
 # Option 1: Fix npm prefix (recommended)
 mkdir -p ~/.npm-global
@@ -44,6 +46,7 @@ npx @anthropic/gws --version
 **Error:** `error[E0463]: can't find crate`
 
 **Fixes:**
+
 ```bash
 # Ensure Rust is up to date
 rustup update stable
@@ -63,6 +66,7 @@ cargo clean && cargo install gws-cli
 **Cause:** OAuth tokens expire after 1 hour.
 
 **Fix:**
+
 ```bash
 gws auth refresh
 # If refresh fails:
@@ -74,6 +78,7 @@ gws auth setup  # Re-authenticate
 **Error:** `403 Forbidden: Request had insufficient authentication scopes`
 
 **Fix:**
+
 ```bash
 # Check current scopes
 gws auth status --json | grep scopes
@@ -90,6 +95,7 @@ python3 scripts/auth_setup_guide.py --scopes gmail,drive
 **Error:** `Failed to access keyring` or `SecKeychainFindGenericPassword failed`
 
 **Fixes:**
+
 ```bash
 # macOS: Unlock keychain
 security unlock-keychain ~/Library/Keychains/login.keychain-db
@@ -107,6 +113,7 @@ gws auth setup
 **Error:** `403: Not Authorized to access this resource/api`
 
 **Fix:**
+
 1. Verify domain-wide delegation is enabled on the service account
 2. Verify client ID is authorized in Admin Console > Security > API Controls
 3. Verify scopes match exactly (no trailing slashes)
@@ -130,6 +137,7 @@ gws auth status --json          # Check auth details
 **Cause:** Google Workspace APIs have per-user, per-service rate limits.
 
 **Fix:**
+
 ```bash
 # Add delays between bulk operations
 for id in $(cat file_ids.txt); do
@@ -157,6 +165,7 @@ gws drive files list --limit 100 --json
 **Error:** `403 Forbidden: The caller does not have permission`
 
 **Causes and fixes:**
+
 1. **Wrong scope** — Re-auth with correct scopes
 2. **Not the file owner** — Request access from the owner
 3. **Domain policy** — Check Admin Console sharing policies
@@ -175,6 +184,7 @@ gws schema --list
 **Error:** `404 Not Found: File not found`
 
 **Causes:**
+
 1. File was deleted or moved to trash
 2. File ID is incorrect
 3. No permission to see the file
@@ -243,6 +253,7 @@ gws drive about get --json
 ### macOS
 
 **Keychain access prompts:**
+
 ```bash
 # Allow gws to access keychain without repeated prompts
 # In Keychain Access.app, find "gws" entries and set "Allow all applications"
@@ -252,6 +263,7 @@ export GWS_TOKEN_PATH=~/.config/gws/token.json
 ```
 
 **Browser not opening for OAuth:**
+
 ```bash
 # If default browser doesn't open
 gws auth setup --no-browser
@@ -261,6 +273,7 @@ gws auth setup --no-browser
 ### Linux
 
 **Headless OAuth (no browser):**
+
 ```bash
 # Use out-of-band flow
 gws auth setup --no-browser
@@ -272,6 +285,7 @@ export GWS_DELEGATED_USER=admin@domain.com
 ```
 
 **Missing keyring backend:**
+
 ```bash
 # Install a keyring backend
 sudo apt install gnome-keyring libsecret-1-dev
@@ -283,6 +297,7 @@ export GWS_TOKEN_PATH=~/.config/gws/token.json
 ### Windows
 
 **PATH issues:**
+
 ```powershell
 # Add npm global bin to PATH
 $env:PATH += ";$(npm config get prefix)\bin"
@@ -292,6 +307,7 @@ npx @anthropic/gws --version
 ```
 
 **PowerShell quoting:**
+
 ```powershell
 # Use single quotes for JSON arguments
 gws gmail users.settings.filters create me `

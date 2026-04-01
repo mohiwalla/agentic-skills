@@ -18,17 +18,18 @@ Multi-touch attribution setup, analysis, and reporting.
 
 ### Model Comparison
 
-| Model | Credit Distribution | Best For |
-|-------|---------------------|----------|
-| First-Touch | 100% to first interaction | Awareness campaigns |
-| Last-Touch | 100% to last interaction | Direct response, BOFU |
-| Linear | Equal across all touchpoints | Simple full-funnel view |
-| Time Decay | More credit to recent touches | Long sales cycles |
-| W-Shaped | 40% first, 20% middle, 40% last | Hybrid PLG/Sales-Led |
+| Model       | Credit Distribution             | Best For                |
+| ----------- | ------------------------------- | ----------------------- |
+| First-Touch | 100% to first interaction       | Awareness campaigns     |
+| Last-Touch  | 100% to last interaction        | Direct response, BOFU   |
+| Linear      | Equal across all touchpoints    | Simple full-funnel view |
+| Time Decay  | More credit to recent touches   | Long sales cycles       |
+| W-Shaped    | 40% first, 20% middle, 40% last | Hybrid PLG/Sales-Led    |
 
 ### Recommended Model: W-Shaped
 
 For Series A hybrid motion:
+
 - 40% credit to first touch (awareness)
 - 20% distributed across middle touches
 - 40% credit to last touch (conversion)
@@ -48,23 +49,25 @@ For Series A hybrid motion:
 
 ### Attribution Report Types
 
-| Report | Purpose | Frequency |
-|--------|---------|-----------|
-| Revenue Attribution | Credit revenue to channels | Monthly |
-| Content Attribution | Credit to content assets | Weekly |
-| Campaign Attribution | Credit to campaigns | Per campaign |
+| Report               | Purpose                    | Frequency    |
+| -------------------- | -------------------------- | ------------ |
+| Revenue Attribution  | Credit revenue to channels | Monthly      |
+| Content Attribution  | Credit to content assets   | Weekly       |
+| Campaign Attribution | Credit to campaigns        | Per campaign |
 
 ### Custom Attribution Report
 
 Create: Marketing → Reports → Create Report
 
 **Metrics:**
+
 - Marketing-sourced pipeline $
 - Marketing-influenced revenue
 - CAC by channel
 - ROAS by campaign
 
 **Dimensions:**
+
 - Channel (Organic, Paid, Email, Social, Referral)
 - Campaign
 - Region (US, EU, Canada)
@@ -79,6 +82,7 @@ Create: Marketing → Reports → Create Report
 ### GA4 Events to Track
 
 **Engagement Events:**
+
 ```
 page_view        (auto-tracked)
 scroll           (75% depth)
@@ -87,6 +91,7 @@ file_download    (whitepapers, eBooks)
 ```
 
 **Conversion Events:**
+
 ```
 sign_up          (free trial, account)
 demo_request     (calendar booking)
@@ -96,12 +101,12 @@ pricing_view     (pricing page visit)
 
 ### Custom Dimensions
 
-| Dimension | Source | Purpose |
-|-----------|--------|---------|
-| User Type | CRM sync | Free vs Paid |
-| Plan Type | CRM sync | Starter, Pro, Enterprise |
-| Lead Status | HubSpot | MQL, SQL, Customer |
-| Campaign ID | UTM | HubSpot campaign |
+| Dimension   | Source   | Purpose                  |
+| ----------- | -------- | ------------------------ |
+| User Type   | CRM sync | Free vs Paid             |
+| Plan Type   | CRM sync | Starter, Pro, Enterprise |
+| Lead Status | HubSpot  | MQL, SQL, Customer       |
+| Campaign ID | UTM      | HubSpot campaign         |
 
 ### GA4 + HubSpot Integration
 
@@ -118,25 +123,25 @@ pricing_view     (pricing page visit)
 
 ### Weekly Performance Dashboard
 
-| Metric | Purpose | Target |
-|--------|---------|--------|
-| Visits | Traffic volume | +10% WoW |
-| Unique visitors | Reach | +5% WoW |
-| Bounce rate | Engagement | <50% |
-| MQLs | Lead volume | Weekly target |
-| SQLs | Pipeline | Weekly target |
-| Conversion rate | Efficiency | >2% |
+| Metric          | Purpose        | Target        |
+| --------------- | -------------- | ------------- |
+| Visits          | Traffic volume | +10% WoW      |
+| Unique visitors | Reach          | +5% WoW       |
+| Bounce rate     | Engagement     | <50%          |
+| MQLs            | Lead volume    | Weekly target |
+| SQLs            | Pipeline       | Weekly target |
+| Conversion rate | Efficiency     | >2%           |
 
 ### Monthly Executive Dashboard
 
-| KPI | Formula | Target |
-|-----|---------|--------|
-| Marketing-Sourced Pipeline | Sum of new pipeline $ | $X/month |
-| Marketing-Sourced Revenue | Closed-won from marketing | $Y/month |
-| Blended CAC | Total spend / customers | <$Z |
-| MQL→SQL Rate | SQLs / MQLs | >15% |
-| Pipeline Velocity | Avg days in pipeline | <60 days |
-| ROMI | Revenue / Marketing spend | >3:1 |
+| KPI                        | Formula                   | Target   |
+| -------------------------- | ------------------------- | -------- |
+| Marketing-Sourced Pipeline | Sum of new pipeline $     | $X/month |
+| Marketing-Sourced Revenue  | Closed-won from marketing | $Y/month |
+| Blended CAC                | Total spend / customers   | <$Z      |
+| MQL→SQL Rate               | SQLs / MQLs               | >15%     |
+| Pipeline Velocity          | Avg days in pipeline      | <60 days |
+| ROMI                       | Revenue / Marketing spend | >3:1     |
 
 ### Dashboard Build Process
 
@@ -156,11 +161,11 @@ pricing_view     (pricing page visit)
 
 **Formula:** ICE = (Impact × Confidence × Ease) ÷ 3
 
-| Factor | Rating | Description |
-|--------|--------|-------------|
-| Impact | 1-10 | Effect on primary metric |
-| Confidence | 1-10 | Certainty of success |
-| Ease | 1-10 | Implementation difficulty |
+| Factor     | Rating | Description               |
+| ---------- | ------ | ------------------------- |
+| Impact     | 1-10   | Effect on primary metric  |
+| Confidence | 1-10   | Certainty of success      |
+| Ease       | 1-10   | Implementation difficulty |
 
 ### Test Template
 
@@ -189,6 +194,7 @@ Tools: [HubSpot A/B test or Google Optimize]
 ### Common Test Categories
 
 **Landing Page:**
+
 - Headline variations
 - CTA copy and color
 - Form length
@@ -196,12 +202,14 @@ Tools: [HubSpot A/B test or Google Optimize]
 - Hero image type
 
 **Ad Creative:**
+
 - Format (static vs video)
 - Messaging angle
 - Audience targeting
 - Landing page destination
 
 **Email:**
+
 - Subject line length
 - Personalization depth
 - Send time
@@ -210,6 +218,7 @@ Tools: [HubSpot A/B test or Google Optimize]
 ### Test Velocity Target
 
 Series A: 4-6 tests per month
+
 - Realistic win rate: 30-40%
 - Document all results (wins and losses)
 - Build testing knowledge base

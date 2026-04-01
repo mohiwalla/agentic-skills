@@ -45,7 +45,7 @@ python velocity_analyzer.py sprint_data.json --format json > analysis.json
 
 **Outputs**: velocity trend (improving/stable/declining), coefficient of variation, 6-sprint Monte Carlo forecast at 50 / 70 / 85 / 95% confidence intervals, anomaly flags with root-cause suggestions.
 
-**Validation**: If fewer than 3 sprints are present in the input, stop and prompt the user: *"Velocity analysis needs at least 3 sprints. Please provide additional sprint data."* 6+ sprints are recommended for statistically significant Monte Carlo results.
+**Validation**: If fewer than 3 sprints are present in the input, stop and prompt the user: _"Velocity analysis needs at least 3 sprints. Please provide additional sprint data."_ 6+ sprints are recommended for statistically significant Monte Carlo results.
 
 ---
 
@@ -53,14 +53,14 @@ python velocity_analyzer.py sprint_data.json --format json > analysis.json
 
 Scores team health across 6 weighted dimensions, producing an overall 0–100 grade.
 
-| Dimension | Weight | Target |
-|---|---|---|
-| Commitment Reliability | 25% | >85% sprint goals met |
-| Scope Stability | 20% | <15% mid-sprint changes |
-| Blocker Resolution | 15% | <3 days average |
-| Ceremony Engagement | 15% | >90% participation |
-| Story Completion Distribution | 15% | High ratio of fully done stories |
-| Velocity Predictability | 10% | CV <20% |
+| Dimension                     | Weight | Target                           |
+| ----------------------------- | ------ | -------------------------------- |
+| Commitment Reliability        | 25%    | >85% sprint goals met            |
+| Scope Stability               | 20%    | <15% mid-sprint changes          |
+| Blocker Resolution            | 15%    | <3 days average                  |
+| Ceremony Engagement           | 15%    | >90% participation               |
+| Story Completion Distribution | 15%    | High ratio of fully done stories |
+| Velocity Predictability       | 10%    | CV <20%                          |
 
 ```bash
 python sprint_health_scorer.py sprint_data.json --format text
@@ -170,12 +170,12 @@ python retrospective_analyzer.py team_data.json > retro_insights.txt
 
 Apply stage-specific facilitation (details in `references/team-dynamics-framework.md`):
 
-| Stage | Focus |
-|---|---|
-| Forming | Structure, process education, trust building |
-| Storming | Conflict facilitation, psychological safety maintenance |
-| Norming | Autonomy building, process ownership transfer |
-| Performing | Challenge introduction, innovation support |
+| Stage      | Focus                                                   |
+| ---------- | ------------------------------------------------------- |
+| Forming    | Structure, process education, trust building            |
+| Storming   | Conflict facilitation, psychological safety maintenance |
+| Norming    | Autonomy building, process ownership transfer           |
+| Performing | Challenge introduction, innovation support              |
 
 ### Progress Measurement
 
@@ -188,16 +188,16 @@ Apply stage-specific facilitation (details in `references/team-dynamics-framewor
 
 ## Key Metrics & Targets
 
-| Metric | Target |
-|---|---|
-| Overall Health Score | >80/100 |
-| Psychological Safety Index | >4.0/5.0 |
-| Velocity CV (predictability) | <20% |
-| Commitment Reliability | >85% |
-| Scope Stability | <15% mid-sprint changes |
-| Blocker Resolution Time | <3 days |
-| Ceremony Engagement | >90% |
-| Retrospective Action Completion | >70% |
+| Metric                          | Target                  |
+| ------------------------------- | ----------------------- |
+| Overall Health Score            | >80/100                 |
+| Psychological Safety Index      | >4.0/5.0                |
+| Velocity CV (predictability)    | <20%                    |
+| Commitment Reliability          | >85%                    |
+| Scope Stability                 | <15% mid-sprint changes |
+| Blocker Resolution Time         | <3 days                 |
+| Ceremony Engagement             | >90%                    |
+| Retrospective Action Completion | >70%                    |
 
 ---
 
@@ -219,4 +219,4 @@ Apply stage-specific facilitation (details in `references/team-dynamics-framewor
 
 ---
 
-*For deep framework references see `references/velocity-forecasting-guide.md` and `references/team-dynamics-framework.md`. For template assets see `assets/sprint_report_template.md` and `assets/team_health_check_template.md`.*
+_For deep framework references see `references/velocity-forecasting-guide.md` and `references/team-dynamics-framework.md`. For template assets see `assets/sprint_report_template.md` and `assets/team_health_check_template.md`._

@@ -193,14 +193,14 @@ Normalized dimensions for reduced storage and update anomalies.
 
 **When to use Snowflake vs Star:**
 
-| Criteria | Star Schema | Snowflake Schema |
-|----------|-------------|------------------|
-| Query complexity | Simple JOINs | More JOINs required |
-| Query performance | Faster (fewer JOINs) | Slower |
-| Storage | Higher (denormalized) | Lower (normalized) |
-| ETL complexity | Higher | Lower |
-| Dimension updates | Multiple places | Single place |
-| Best for | BI/reporting | Storage-constrained |
+| Criteria          | Star Schema           | Snowflake Schema    |
+| ----------------- | --------------------- | ------------------- |
+| Query complexity  | Simple JOINs          | More JOINs required |
+| Query performance | Faster (fewer JOINs)  | Slower              |
+| Storage           | Higher (denormalized) | Lower (normalized)  |
+| ETL complexity    | Higher                | Lower               |
+| Dimension updates | Multiple places       | Single place        |
+| Best for          | BI/reporting          | Storage-constrained |
 
 ### One Big Table (OBT)
 
@@ -247,12 +247,12 @@ JOIN dim_date d ON s.date_key = d.date_key;
 
 **OBT Tradeoffs:**
 
-| Pros | Cons |
-|------|------|
-| Simple queries (no JOINs) | Storage bloat |
-| Fast for analytics | Harder to maintain |
-| Great with columnar storage | Stale data risk |
-| Self-documenting | Update anomalies |
+| Pros                        | Cons               |
+| --------------------------- | ------------------ |
+| Simple queries (no JOINs)   | Storage bloat      |
+| Fast for analytics          | Harder to maintain |
+| Great with columnar storage | Stale data risk    |
+| Self-documenting            | Update anomalies   |
 
 ---
 
@@ -509,6 +509,7 @@ CREATE TABLE dim_customer_scd6 (
 ### Core Concepts
 
 Data Vault provides:
+
 - Full historization
 - Parallel loading
 - Flexibility for changing business rules
@@ -908,11 +909,11 @@ WHERE user_id = '12345';  -- Scans all partitions
 
 **Partition Size Guidelines:**
 
-| Partition | Size Target | Notes |
-|-----------|-------------|-------|
-| Daily | 1-10 GB | Ideal for most cases |
-| Hourly | 100 MB - 1 GB | High-volume streaming |
-| Monthly | 10-100 GB | Infrequent access |
+| Partition | Size Target   | Notes                 |
+| --------- | ------------- | --------------------- |
+| Daily     | 1-10 GB       | Ideal for most cases  |
+| Hourly    | 100 MB - 1 GB | High-volume streaming |
+| Monthly   | 10-100 GB     | Infrequent access     |
 
 ### Clustering
 
@@ -939,12 +940,12 @@ OPTIMIZE events ZORDER BY (user_id, event_type);
 
 **When to Cluster:**
 
-| Column Type | Cluster? | Notes |
-|-------------|----------|-------|
-| High cardinality filter columns | Yes | customer_id, product_id |
-| Join keys | Yes | Improves join performance |
-| Low cardinality | Maybe | status, type (limited benefit) |
-| Frequently updated | No | Clustering breaks on updates |
+| Column Type                     | Cluster? | Notes                          |
+| ------------------------------- | -------- | ------------------------------ |
+| High cardinality filter columns | Yes      | customer_id, product_id        |
+| Join keys                       | Yes      | Improves join performance      |
+| Low cardinality                 | Maybe    | status, type (limited benefit) |
+| Frequently updated              | No       | Clustering breaks on updates   |
 
 ---
 
@@ -1053,6 +1054,6 @@ schema:
     migration: "Use order_status instead"
 
 compatibility:
-  backward: true   # v2 readers can read v1 data
-  forward: true    # v1 readers can read v2 data
+  backward: true # v2 readers can read v1 data
+  forward: true # v1 readers can read v2 data
 ```

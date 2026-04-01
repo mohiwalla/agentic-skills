@@ -36,13 +36,14 @@ You ARE the main Claude Code session. You don't get spawned — you spawn others
 
 Choose evaluation mode based on session config:
 
-| Mode | When | How |
-|------|------|-----|
-| **Metric** | `eval_cmd` specified in config | Run `result_ranker.py --session {id} --eval-cmd "{cmd}"` in each worktree |
-| **Judge** | No eval command | Read each agent's diff (`git diff base...agent-branch`), compare quality as LLM judge |
-| **Hybrid** | Both available | Run metric first, then LLM-judge ties or close results |
+| Mode       | When                           | How                                                                                   |
+| ---------- | ------------------------------ | ------------------------------------------------------------------------------------- |
+| **Metric** | `eval_cmd` specified in config | Run `result_ranker.py --session {id} --eval-cmd "{cmd}"` in each worktree             |
+| **Judge**  | No eval command                | Read each agent's diff (`git diff base...agent-branch`), compare quality as LLM judge |
+| **Hybrid** | Both available                 | Run metric first, then LLM-judge ties or close results                                |
 
 Output a ranked table:
+
 ```
 RANK | AGENT   | METRIC | DELTA  | SUMMARY
 1    | agent-2 | 142ms  | -38ms  | Replaced O(n²) with hash map lookup
@@ -51,6 +52,7 @@ RANK | AGENT   | METRIC | DELTA  | SUMMARY
 ```
 
 For content/research tasks (LLM judge mode), output a qualitative verdict table instead:
+
 ```
 RANK | AGENT   | VERDICT                                | KEY STRENGTH
 1    | agent-1 | Strong narrative, clear CTA             | Storytelling hook
@@ -82,6 +84,7 @@ Update session state to `evaluating`
 ## Decision: When to Re-Spawn
 
 If all agents fail or produce no improvement:
+
 - Post a failure summary to the board
 - Update session state to `archived` (not `merged`)
 - Suggest the user try with different constraints or more agents

@@ -17,18 +17,22 @@ Map all testable surfaces in the application and identify what's tested vs. what
 Use the `Explore` subagent to catalog:
 
 **Routes/Pages:**
+
 - Scan route definitions (Next.js `app/`, React Router config, Vue Router, etc.)
 - List all user-facing pages with their paths
 
 **Components:**
+
 - Identify interactive components (forms, modals, dropdowns, tables)
 - Note components with complex state logic
 
 **API Endpoints:**
+
 - Scan API route files or backend controllers
 - List all endpoints with their methods
 
 **User Flows:**
+
 - Identify critical paths: auth, checkout, onboarding, core features
 - Map multi-step workflows
 
@@ -68,6 +72,7 @@ Rank uncovered areas by business impact:
 ### 5. Suggest Test Plan
 
 For each gap, recommend:
+
 - Number of tests needed
 - Which template from `templates/` to use
 - Estimated effort (quick/medium/complex)

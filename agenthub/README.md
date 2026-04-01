@@ -33,15 +33,15 @@ Or step by step:
 
 ## Commands Reference
 
-| Command | Purpose | Example |
-|---------|---------|---------|
-| `/hub:init` | Create session with task, agents, eval criteria | `/hub:init --task "Optimize DB queries" --agents 4 --eval "python bench.py" --metric query_ms --direction lower` |
-| `/hub:spawn` | Launch all agents in parallel worktrees | `/hub:spawn` (uses latest session) |
-| `/hub:status` | Show DAG state, branches, progress posts | `/hub:status` |
-| `/hub:eval` | Rank results by metric or LLM judge | `/hub:eval --judge` (LLM judge mode) |
-| `/hub:merge` | Merge winner, archive losers, cleanup | `/hub:merge --agent agent-2` (force pick) |
-| `/hub:board` | Read/write the message board | `/hub:board --read progress` |
-| `/hub:run` | One-shot full lifecycle | `/hub:run --task "Reduce latency" --agents 3 --eval "pytest bench.py" --metric p50_ms --direction lower --template optimizer` |
+| Command       | Purpose                                         | Example                                                                                                                       |
+| ------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `/hub:init`   | Create session with task, agents, eval criteria | `/hub:init --task "Optimize DB queries" --agents 4 --eval "python bench.py" --metric query_ms --direction lower`              |
+| `/hub:spawn`  | Launch all agents in parallel worktrees         | `/hub:spawn` (uses latest session)                                                                                            |
+| `/hub:status` | Show DAG state, branches, progress posts        | `/hub:status`                                                                                                                 |
+| `/hub:eval`   | Rank results by metric or LLM judge             | `/hub:eval --judge` (LLM judge mode)                                                                                          |
+| `/hub:merge`  | Merge winner, archive losers, cleanup           | `/hub:merge --agent agent-2` (force pick)                                                                                     |
+| `/hub:board`  | Read/write the message board                    | `/hub:board --read progress`                                                                                                  |
+| `/hub:run`    | One-shot full lifecycle                         | `/hub:run --task "Reduce latency" --agents 3 --eval "pytest bench.py" --metric p50_ms --direction lower --template optimizer` |
 
 ## The Optimizer Pattern
 
@@ -78,12 +78,12 @@ The `optimizer` template embeds the iteration loop directly in each agent's disp
 
 Templates define the dispatch prompt pattern. Use `--template` with `/hub:spawn` or `/hub:run`:
 
-| Template | Pattern | Use Case |
-|----------|---------|----------|
-| `optimizer` | Edit → eval → keep/discard → repeat x10 | Performance, latency, size reduction, content quality, research depth |
-| `refactorer` | Restructure → test → iterate until green | Code quality, tech debt, document restructuring |
-| `test-writer` | Write tests → measure coverage → repeat | Test coverage gaps |
-| `bug-fixer` | Reproduce → diagnose → fix → verify | Bug fix with competing approaches |
+| Template      | Pattern                                  | Use Case                                                              |
+| ------------- | ---------------------------------------- | --------------------------------------------------------------------- |
+| `optimizer`   | Edit → eval → keep/discard → repeat x10  | Performance, latency, size reduction, content quality, research depth |
+| `refactorer`  | Restructure → test → iterate until green | Code quality, tech debt, document restructuring                       |
+| `test-writer` | Write tests → measure coverage → repeat  | Test coverage gaps                                                    |
+| `bug-fixer`   | Reproduce → diagnose → fix → verify      | Bug fix with competing approaches                                     |
 
 Templates live in `references/agent-templates.md`.
 
@@ -96,6 +96,7 @@ Templates live in `references/agent-templates.md`.
 ```
 
 AgentHub automatically:
+
 1. Captures baseline (e.g., `p50_ms = 180ms`)
 2. Assigns diverse strategies (caching, algorithm, I/O batching)
 3. Spawns 3 agents — each iterates up to 10 times in its worktree
@@ -158,7 +159,7 @@ Multiple rounds of fan-out/fan-in. Winners advance, losers are eliminated. Each 
 
 ### Ensemble (Combine All Agents' Work)
 
-Each agent works on a *different subtask* rather than competing on the same one. Results are combined rather than compared.
+Each agent works on a _different subtask_ rather than competing on the same one. Results are combined rather than compared.
 
 **Best for:** Large refactoring tasks, multi-file changes where work can be parallelized by module, multi-section reports or whitepapers.
 
@@ -170,13 +171,13 @@ Agent 1's output becomes Agent 2's input. Each phase builds on the previous resu
 
 ## Scripts
 
-| Script | Purpose | Example |
-|--------|---------|---------|
-| `hub_init.py` | Create session directory and config | `python scripts/hub_init.py --task "Optimize queries" --agents 3 --eval "python bench.py" --metric query_ms --direction lower` |
-| `board_manager.py` | Message board CRUD (dispatch, progress, results) | `python scripts/board_manager.py --post --channel progress --author agent-1 --message "Iteration 3: p50=145ms"` |
-| `session_manager.py` | Session state machine (init→running→evaluating→merged) | `python scripts/session_manager.py --list` |
-| `dag_analyzer.py` | Git DAG analysis — frontier detection, branch status | `python scripts/dag_analyzer.py --status --session 20260317-143022` |
-| `result_ranker.py` | Evaluate and rank agent results by metric or diff | `python scripts/result_ranker.py --session 20260317-143022 --eval-cmd "pytest bench.py --json" --metric p50_ms --direction lower` |
+| Script               | Purpose                                                | Example                                                                                                                           |
+| -------------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| `hub_init.py`        | Create session directory and config                    | `python scripts/hub_init.py --task "Optimize queries" --agents 3 --eval "python bench.py" --metric query_ms --direction lower`    |
+| `board_manager.py`   | Message board CRUD (dispatch, progress, results)       | `python scripts/board_manager.py --post --channel progress --author agent-1 --message "Iteration 3: p50=145ms"`                   |
+| `session_manager.py` | Session state machine (init→running→evaluating→merged) | `python scripts/session_manager.py --list`                                                                                        |
+| `dag_analyzer.py`    | Git DAG analysis — frontier detection, branch status   | `python scripts/dag_analyzer.py --status --session 20260317-143022`                                                               |
+| `result_ranker.py`   | Evaluate and rank agent results by metric or diff      | `python scripts/result_ranker.py --session 20260317-143022 --eval-cmd "pytest bench.py --json" --metric p50_ms --direction lower` |
 
 All scripts support `--help` for full usage and `--demo` for example output.
 
@@ -236,11 +237,11 @@ hub/20260317-143022/agent-3/attempt-1
 
 The message board uses three channels stored as YAML-frontmatter markdown files:
 
-| Channel | Direction | Purpose |
-|---------|-----------|---------|
+| Channel    | Direction            | Purpose                               |
+| ---------- | -------------------- | ------------------------------------- |
 | `dispatch` | coordinator → agents | Task assignments and strategy prompts |
-| `progress` | agents → coordinator | Status updates, iteration results |
-| `results` | bidirectional | Final metrics, merge summaries |
+| `progress` | agents → coordinator | Status updates, iteration results     |
+| `results`  | bidirectional        | Final metrics, merge summaries        |
 
 ### Immutability Rules
 

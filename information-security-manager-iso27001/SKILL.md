@@ -23,6 +23,7 @@ Implement and manage Information Security Management Systems (ISMS) aligned with
 ## Trigger Phrases
 
 Use this skill when you hear:
+
 - "implement ISO 27001"
 - "ISMS implementation"
 - "security risk assessment"
@@ -79,15 +80,16 @@ python scripts/risk_assessment.py --assets assets.csv --output risks.json
 
 **Parameters:**
 
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `--scope` | Yes | System or area to assess |
-| `--template` | No | Assessment template: `general`, `healthcare`, `cloud` |
-| `--assets` | No | CSV file with asset inventory |
-| `--output` | No | Output file (default: stdout) |
-| `--format` | No | Output format: `json`, `csv`, `markdown` |
+| Parameter    | Required | Description                                           |
+| ------------ | -------- | ----------------------------------------------------- |
+| `--scope`    | Yes      | System or area to assess                              |
+| `--template` | No       | Assessment template: `general`, `healthcare`, `cloud` |
+| `--assets`   | No       | CSV file with asset inventory                         |
+| `--output`   | No       | Output file (default: stdout)                         |
+| `--format`   | No       | Output format: `json`, `csv`, `markdown`              |
 
 **Output:**
+
 - Asset inventory with classification
 - Threat and vulnerability mapping
 - Risk scores (likelihood × impact)
@@ -116,15 +118,16 @@ python scripts/compliance_checker.py --standard iso27001 --output compliance_rep
 
 **Parameters:**
 
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `--standard` | Yes | Standard to check: `iso27001`, `iso27002`, `hipaa` |
-| `--controls-file` | No | CSV with current control status |
-| `--gap-analysis` | No | Include remediation recommendations |
-| `--domains` | No | Specific control domains to check |
-| `--output` | No | Output file path |
+| Parameter         | Required | Description                                        |
+| ----------------- | -------- | -------------------------------------------------- |
+| `--standard`      | Yes      | Standard to check: `iso27001`, `iso27002`, `hipaa` |
+| `--controls-file` | No       | CSV with current control status                    |
+| `--gap-analysis`  | No       | Include remediation recommendations                |
+| `--domains`       | No       | Specific control domains to check                  |
+| `--output`        | No       | Output file path                                   |
 
 **Output:**
+
 - Control implementation status
 - Compliance percentage by domain
 - Gap analysis with priorities
@@ -139,6 +142,7 @@ python scripts/compliance_checker.py --standard iso27001 --output compliance_rep
 **Step 1: Define Scope and Context**
 
 Document organizational context and ISMS boundaries:
+
 - Identify interested parties and requirements
 - Define ISMS scope and boundaries
 - Document internal/external issues
@@ -167,6 +171,7 @@ python scripts/compliance_checker.py --standard iso27002 --gap-analysis --output
 ```
 
 Control categories:
+
 - Organizational (policies, roles, responsibilities)
 - People (screening, awareness, training)
 - Physical (perimeters, equipment, media)
@@ -177,6 +182,7 @@ Control categories:
 **Step 4: Establish Monitoring**
 
 Define security metrics:
+
 - Incident count and severity trends
 - Control effectiveness scores
 - Training completion rates
@@ -190,13 +196,13 @@ Define security metrics:
 
 Create asset inventory:
 
-| Asset Type | Examples | Classification |
-|------------|----------|----------------|
-| Information | Patient records, source code | Confidential |
-| Software | EHR system, APIs | Critical |
-| Hardware | Servers, medical devices | High |
-| Services | Cloud hosting, backup | High |
-| People | Admin accounts, developers | Varies |
+| Asset Type  | Examples                     | Classification |
+| ----------- | ---------------------------- | -------------- |
+| Information | Patient records, source code | Confidential   |
+| Software    | EHR system, APIs             | Critical       |
+| Hardware    | Servers, medical devices     | High           |
+| Services    | Cloud hosting, backup        | High           |
+| People      | Admin accounts, developers   | Varies         |
 
 **Validation:** All assets have assigned owners and classifications.
 
@@ -204,12 +210,12 @@ Create asset inventory:
 
 Identify threats per asset category:
 
-| Asset | Threats | Likelihood |
-|-------|---------|------------|
-| Patient data | Unauthorized access, breach | High |
-| Medical devices | Malware, tampering | Medium |
-| Cloud services | Misconfiguration, outage | Medium |
-| Credentials | Phishing, brute force | High |
+| Asset           | Threats                     | Likelihood |
+| --------------- | --------------------------- | ---------- |
+| Patient data    | Unauthorized access, breach | High       |
+| Medical devices | Malware, tampering          | Medium     |
+| Cloud services  | Misconfiguration, outage    | Medium     |
+| Credentials     | Phishing, brute force       | High       |
 
 **Validation:** Threat model covers top-10 industry threats.
 
@@ -220,6 +226,7 @@ python scripts/risk_assessment.py --scope "network-infrastructure" --output vuln
 ```
 
 Document vulnerabilities:
+
 - Technical (unpatched systems, weak configs)
 - Process (missing procedures, gaps)
 - People (lack of training, insider risk)
@@ -230,13 +237,13 @@ Document vulnerabilities:
 
 Calculate risk: `Risk = Likelihood × Impact`
 
-| Risk Level | Score | Treatment |
-|------------|-------|-----------|
-| Critical | 20-25 | Immediate action required |
-| High | 15-19 | Treatment plan within 30 days |
-| Medium | 10-14 | Treatment plan within 90 days |
-| Low | 5-9 | Accept or monitor |
-| Minimal | 1-4 | Accept |
+| Risk Level | Score | Treatment                     |
+| ---------- | ----- | ----------------------------- |
+| Critical   | 20-25 | Immediate action required     |
+| High       | 15-19 | Treatment plan within 30 days |
+| Medium     | 10-14 | Treatment plan within 90 days |
+| Low        | 5-9   | Accept or monitor             |
+| Minimal    | 1-4   | Accept                        |
 
 **Validation:** All high/critical risks have approved treatment plans.
 
@@ -245,6 +252,7 @@ Calculate risk: `Risk = Likelihood × Impact`
 **Step 1: Detection and Reporting**
 
 Incident categories:
+
 - Security breach (unauthorized access)
 - Malware infection
 - Data leakage
@@ -255,18 +263,19 @@ Incident categories:
 
 **Step 2: Triage and Classification**
 
-| Severity | Criteria | Response Time |
-|----------|----------|---------------|
-| Critical | Data breach, system down | Immediate |
-| High | Active threat, significant risk | 1 hour |
-| Medium | Contained threat, limited impact | 4 hours |
-| Low | Minor violation, no impact | 24 hours |
+| Severity | Criteria                         | Response Time |
+| -------- | -------------------------------- | ------------- |
+| Critical | Data breach, system down         | Immediate     |
+| High     | Active threat, significant risk  | 1 hour        |
+| Medium   | Contained threat, limited impact | 4 hours       |
+| Low      | Minor violation, no impact       | 24 hours      |
 
 **Validation:** Severity assigned and escalation triggered if needed.
 
 **Step 3: Containment and Eradication**
 
 Immediate actions:
+
 1. Isolate affected systems
 2. Preserve evidence
 3. Block threat vectors
@@ -277,6 +286,7 @@ Immediate actions:
 **Step 4: Recovery and Lessons Learned**
 
 Post-incident activities:
+
 1. Restore systems from clean backups
 2. Verify integrity before reconnection
 3. Document timeline and actions
@@ -292,18 +302,21 @@ Post-incident activities:
 ### When to Use Each Reference
 
 **references/iso27001-controls.md**
+
 - Control selection for SoA
 - Implementation guidance
 - Evidence requirements
 - Audit preparation
 
 **references/risk-assessment-guide.md**
+
 - Risk methodology selection
 - Asset classification criteria
 - Threat modeling approaches
 - Risk calculation methods
 
 **references/incident-response.md**
+
 - Response procedures
 - Escalation matrices
 - Communication templates
@@ -315,17 +328,18 @@ Post-incident activities:
 
 ### ISMS Implementation Validation
 
-| Phase | Checkpoint | Evidence Required |
-|-------|------------|-------------------|
-| Scope | Scope approved | Signed scope document |
-| Risk | Register complete | Risk register with owners |
-| Controls | SoA approved | Statement of Applicability |
-| Operation | Metrics active | Dashboard screenshots |
-| Audit | Internal audit done | Audit report |
+| Phase     | Checkpoint          | Evidence Required          |
+| --------- | ------------------- | -------------------------- |
+| Scope     | Scope approved      | Signed scope document      |
+| Risk      | Register complete   | Risk register with owners  |
+| Controls  | SoA approved        | Statement of Applicability |
+| Operation | Metrics active      | Dashboard screenshots      |
+| Audit     | Internal audit done | Audit report               |
 
 ### Certification Readiness
 
 Before Stage 1 audit:
+
 - [ ] ISMS scope documented and approved
 - [ ] Information security policy published
 - [ ] Risk assessment completed
@@ -335,6 +349,7 @@ Before Stage 1 audit:
 - [ ] Nonconformities addressed
 
 Before Stage 2 audit:
+
 - [ ] Controls implemented and operational
 - [ ] Evidence of effectiveness available
 - [ ] Staff trained and aware
@@ -367,30 +382,30 @@ python scripts/risk_assessment.py --scope "patient-data-system" --template healt
 
 **Asset inventory output:**
 
-| Asset ID | Asset | Type | Owner | Classification |
-|----------|-------|------|-------|----------------|
-| A001 | Patient database | Information | DBA Team | Confidential |
-| A002 | EHR application | Software | App Team | Critical |
-| A003 | Database server | Hardware | Infra Team | High |
-| A004 | Admin credentials | Access | Security | Critical |
+| Asset ID | Asset             | Type        | Owner      | Classification |
+| -------- | ----------------- | ----------- | ---------- | -------------- |
+| A001     | Patient database  | Information | DBA Team   | Confidential   |
+| A002     | EHR application   | Software    | App Team   | Critical       |
+| A003     | Database server   | Hardware    | Infra Team | High           |
+| A004     | Admin credentials | Access      | Security   | Critical       |
 
 ### Step 2: Identify Risks
 
 **Risk register output:**
 
-| Risk ID | Asset | Threat | Vulnerability | L | I | Score |
-|---------|-------|--------|---------------|---|---|-------|
-| R001 | A001 | Data breach | Weak encryption | 3 | 5 | 15 |
-| R002 | A002 | SQL injection | Input validation | 4 | 4 | 16 |
-| R003 | A004 | Credential theft | No MFA | 4 | 5 | 20 |
+| Risk ID | Asset | Threat           | Vulnerability    | L   | I   | Score |
+| ------- | ----- | ---------------- | ---------------- | --- | --- | ----- |
+| R001    | A001  | Data breach      | Weak encryption  | 3   | 5   | 15    |
+| R002    | A002  | SQL injection    | Input validation | 4   | 4   | 16    |
+| R003    | A004  | Credential theft | No MFA           | 4   | 5   | 20    |
 
 ### Step 3: Determine Treatment
 
-| Risk | Treatment | Control | Timeline |
-|------|-----------|---------|----------|
-| R001 | Mitigate | Implement AES-256 encryption | 30 days |
-| R002 | Mitigate | Add input validation, WAF | 14 days |
-| R003 | Mitigate | Enforce MFA for all admins | 7 days |
+| Risk | Treatment | Control                      | Timeline |
+| ---- | --------- | ---------------------------- | -------- |
+| R001 | Mitigate  | Implement AES-256 encryption | 30 days  |
+| R002 | Mitigate  | Add input validation, WAF    | 14 days  |
+| R003 | Mitigate  | Enforce MFA for all admins   | 7 days   |
 
 ### Step 4: Verify Implementation
 

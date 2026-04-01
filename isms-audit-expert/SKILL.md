@@ -33,12 +33,12 @@ Internal and external ISMS audit management for ISO 27001 compliance verificatio
 
 ### Risk-Based Audit Schedule
 
-| Risk Level | Audit Frequency | Examples |
-|------------|-----------------|----------|
-| Critical | Quarterly | Privileged access, vulnerability management, logging |
-| High | Semi-annual | Access control, incident response, encryption |
-| Medium | Annual | Policies, awareness training, physical security |
-| Low | Annual | Documentation, asset inventory |
+| Risk Level | Audit Frequency | Examples                                             |
+| ---------- | --------------- | ---------------------------------------------------- |
+| Critical   | Quarterly       | Privileged access, vulnerability management, logging |
+| High       | Semi-annual     | Access control, incident response, encryption        |
+| Medium     | Annual          | Policies, awareness training, physical security      |
+| Low        | Annual          | Documentation, asset inventory                       |
 
 ### Annual Audit Planning Workflow
 
@@ -118,11 +118,11 @@ For detailed technical verification procedures by Annex A control, see [security
 
 ### Finding Classification
 
-| Severity | Definition | Response Time |
-|----------|------------|---------------|
-| Major Nonconformity | Control failure creating significant risk | 30 days |
-| Minor Nonconformity | Isolated deviation with limited impact | 90 days |
-| Observation | Improvement opportunity | Next audit cycle |
+| Severity            | Definition                                | Response Time    |
+| ------------------- | ----------------------------------------- | ---------------- |
+| Major Nonconformity | Control failure creating significant risk | 30 days          |
+| Minor Nonconformity | Isolated deviation with limited impact    | 90 days          |
+| Observation         | Improvement opportunity                   | Next audit cycle |
 
 ### Finding Documentation Template
 
@@ -163,6 +163,7 @@ Recommendation:
 ### Stage 1 Audit Preparation
 
 Ensure documentation is complete:
+
 - [ ] ISMS scope statement
 - [ ] Information security policy (management signed)
 - [ ] Statement of Applicability
@@ -174,6 +175,7 @@ Ensure documentation is complete:
 ### Stage 2 Audit Preparation
 
 Verify operational readiness:
+
 - [ ] All Stage 1 findings addressed
 - [ ] ISMS operational for minimum 3 months
 - [ ] Evidence of control implementation
@@ -183,12 +185,12 @@ Verify operational readiness:
 
 ### Surveillance Audit Cycle
 
-| Period | Focus |
-|--------|-------|
+| Period     | Focus                                          |
+| ---------- | ---------------------------------------------- |
 | Year 1, Q2 | High-risk controls, Stage 2 findings follow-up |
-| Year 1, Q4 | Continual improvement, control sample |
-| Year 2, Q2 | Full surveillance |
-| Year 2, Q4 | Re-certification preparation |
+| Year 1, Q4 | Continual improvement, control sample          |
+| Year 2, Q2 | Full surveillance                              |
+| Year 2, Q4 | Re-certification preparation                   |
 
 **Validation:** No major nonconformities at surveillance audits.
 
@@ -198,8 +200,8 @@ Verify operational readiness:
 
 ### scripts/
 
-| Script | Purpose | Usage |
-|--------|---------|-------|
+| Script                    | Purpose                         | Usage                                                                  |
+| ------------------------- | ------------------------------- | ---------------------------------------------------------------------- |
 | `isms_audit_scheduler.py` | Generate risk-based audit plans | `python scripts/isms_audit_scheduler.py --year 2025 --format markdown` |
 
 ### Audit Planning Example
@@ -216,19 +218,19 @@ python scripts/isms_audit_scheduler.py --controls controls.csv --format markdown
 
 ## References
 
-| File | Content |
-|------|---------|
+| File                                                                      | Content                                                         |
+| ------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | [iso27001-audit-methodology.md](references/iso27001-audit-methodology.md) | Audit program structure, pre-audit phase, certification support |
-| [security-control-testing.md](references/security-control-testing.md) | Technical verification procedures for ISO 27002 controls |
-| [cloud-security-audit.md](references/cloud-security-audit.md) | Cloud provider assessment, configuration security, IAM review |
+| [security-control-testing.md](references/security-control-testing.md)     | Technical verification procedures for ISO 27002 controls        |
+| [cloud-security-audit.md](references/cloud-security-audit.md)             | Cloud provider assessment, configuration security, IAM review   |
 
 ---
 
 ## Audit Performance Metrics
 
-| KPI | Target | Measurement |
-|-----|--------|-------------|
-| Audit plan completion | 100% | Audits completed vs. planned |
-| Finding closure rate | >90% within SLA | Closed on time vs. total |
-| Major nonconformities | 0 at certification | Count per certification cycle |
-| Audit effectiveness | Incidents prevented | Security improvements implemented |
+| KPI                   | Target              | Measurement                       |
+| --------------------- | ------------------- | --------------------------------- |
+| Audit plan completion | 100%                | Audits completed vs. planned      |
+| Finding closure rate  | >90% within SLA     | Closed on time vs. total          |
+| Major nonconformities | 0 at certification  | Count per certification cycle     |
+| Audit effectiveness   | Incidents prevented | Security improvements implemented |

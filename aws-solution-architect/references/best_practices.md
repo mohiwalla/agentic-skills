@@ -102,6 +102,7 @@ def handler(event, context):
 ```
 
 **Cold Start Reduction Techniques:**
+
 - Use provisioned concurrency for critical paths
 - Minimize package size (use layers for dependencies)
 - Choose interpreted languages (Python, Node.js) over compiled
@@ -113,15 +114,16 @@ def handler(event, context):
 # Lambda configuration
 Functions:
   ApiHandler:
-    Timeout: 10  # Shorter for synchronous APIs
+    Timeout: 10 # Shorter for synchronous APIs
     MemorySize: 512
 
   BackgroundProcessor:
-    Timeout: 300  # Longer for async processing
+    Timeout: 300 # Longer for async processing
     MemorySize: 1024
 ```
 
 **Timeout Guidelines:**
+
 - API handlers: 10-30 seconds
 - Event processors: 60-300 seconds
 - Use Step Functions for >15 minute workflows
@@ -145,17 +147,18 @@ aws cloudwatch get-metric-statistics \
 ```
 
 **Right-Sizing Rules:**
+
 - <10% CPU average: Downsize instance
-- >80% CPU average: Consider upgrade or horizontal scaling
+- > 80% CPU average: Consider upgrade or horizontal scaling
 - Review every month for the first 6 months
 
 ### 2. Savings Plans and Reserved Instances
 
-| Commitment | Savings | Best For |
-|------------|---------|----------|
-| No Upfront, 1-year | 20-30% | Unknown future |
-| Partial Upfront, 1-year | 30-40% | Moderate confidence |
-| All Upfront, 3-year | 50-60% | Stable workloads |
+| Commitment              | Savings | Best For            |
+| ----------------------- | ------- | ------------------- |
+| No Upfront, 1-year      | 20-30%  | Unknown future      |
+| Partial Upfront, 1-year | 30-40%  | Moderate confidence |
+| All Upfront, 3-year     | 50-60%  | Stable workloads    |
 
 ```bash
 # Check Savings Plans recommendations
@@ -222,10 +225,11 @@ LogGroup:
   Type: AWS::Logs::LogGroup
   Properties:
     LogGroupName: /aws/lambda/my-function
-    RetentionInDays: 14  # 7, 14, 30, 60, 90, etc.
+    RetentionInDays: 14 # 7, 14, 30, 60, 90, etc.
 ```
 
 **Retention Guidelines:**
+
 - Development: 7 days
 - Production non-critical: 30 days
 - Production critical: 90 days
@@ -596,36 +600,36 @@ ErrorAlarm:
 
 ### Technical Debt
 
-| Pitfall | Solution |
-|---------|----------|
-| Over-engineering early | Start simple, scale when needed |
-| Under-monitoring | Set up CloudWatch from day one |
-| Ignoring costs | Enable Cost Explorer and billing alerts |
-| Single region only | Plan for multi-region from start |
+| Pitfall                | Solution                                |
+| ---------------------- | --------------------------------------- |
+| Over-engineering early | Start simple, scale when needed         |
+| Under-monitoring       | Set up CloudWatch from day one          |
+| Ignoring costs         | Enable Cost Explorer and billing alerts |
+| Single region only     | Plan for multi-region from start        |
 
 ### Security Mistakes
 
-| Mistake | Prevention |
-|---------|------------|
-| Public S3 buckets | Block public access, use bucket policies |
-| Overly permissive IAM | Never use "*", specify resources |
-| Hardcoded credentials | Use Secrets Manager, IAM roles |
-| Unencrypted data | Enable encryption by default |
+| Mistake               | Prevention                               |
+| --------------------- | ---------------------------------------- |
+| Public S3 buckets     | Block public access, use bucket policies |
+| Overly permissive IAM | Never use "\*", specify resources        |
+| Hardcoded credentials | Use Secrets Manager, IAM roles           |
+| Unencrypted data      | Enable encryption by default             |
 
 ### Performance Issues
 
-| Issue | Solution |
-|-------|----------|
-| No caching | Add CloudFront, ElastiCache early |
-| Inefficient queries | Use indexes, avoid DynamoDB scans |
-| Large Lambda packages | Use layers, minimize dependencies |
-| N+1 queries | Implement DataLoader, batch operations |
+| Issue                 | Solution                               |
+| --------------------- | -------------------------------------- |
+| No caching            | Add CloudFront, ElastiCache early      |
+| Inefficient queries   | Use indexes, avoid DynamoDB scans      |
+| Large Lambda packages | Use layers, minimize dependencies      |
+| N+1 queries           | Implement DataLoader, batch operations |
 
 ### Cost Surprises
 
-| Surprise | Prevention |
-|----------|------------|
-| Undeleted resources | Tag everything, review weekly |
-| Data transfer costs | Keep traffic in same AZ/region |
+| Surprise            | Prevention                         |
+| ------------------- | ---------------------------------- |
+| Undeleted resources | Tag everything, review weekly      |
+| Data transfer costs | Keep traffic in same AZ/region     |
 | NAT Gateway charges | Use VPC endpoints for AWS services |
-| Log accumulation | Set CloudWatch retention policies |
+| Log accumulation    | Set CloudWatch retention policies  |

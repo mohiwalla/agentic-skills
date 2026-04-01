@@ -16,6 +16,7 @@ metadata:
 Your company can only grow as fast as you do. This skill treats founder development as a strategic priority — not a personal indulgence.
 
 ## Keywords
+
 founder, CEO, founder mode, delegation, burnout, imposter syndrome, leadership growth, energy management, calendar audit, executive team, board management, succession planning, IC to manager, leadership style, founder trap, blind spots, personal OKRs, CEO reflection
 
 ## Core Truth
@@ -32,14 +33,15 @@ The earlier you address this, the better.
 
 Most founders are primarily one archetype. Knowing yours predicts what you'll struggle with.
 
-| Archetype | Strength | Blind spot | What they need |
-|-----------|----------|------------|----------------|
-| **Builder** | Product, engineering, technical depth | Go-to-market, storytelling, people | A seller / GTM partner |
-| **Seller** | Revenue, relationships, vision communication | Operations, follow-through, process | An operator / COO |
-| **Operator** | Execution, process, reliability | Vision, product intuition, risk | A visionary / strategic co-founder |
-| **Visionary** | Strategy, narrative, pattern-recognition | Execution, details, grounding | An integrator / COO |
+| Archetype     | Strength                                     | Blind spot                          | What they need                     |
+| ------------- | -------------------------------------------- | ----------------------------------- | ---------------------------------- |
+| **Builder**   | Product, engineering, technical depth        | Go-to-market, storytelling, people  | A seller / GTM partner             |
+| **Seller**    | Revenue, relationships, vision communication | Operations, follow-through, process | An operator / COO                  |
+| **Operator**  | Execution, process, reliability              | Vision, product intuition, risk     | A visionary / strategic co-founder |
+| **Visionary** | Strategy, narrative, pattern-recognition     | Execution, details, grounding       | An integrator / COO                |
 
 **Self-assessment questions:**
+
 - What do you do when you have a free hour?
 - What do you procrastinate on most?
 - What do your co-founders or early team complain you don't do?
@@ -52,6 +54,7 @@ Most founders are Builder or Visionary. Most scaling problems happen because the
 ## 2. Delegation Framework
 
 Founders fail to delegate for four reasons:
+
 1. "Nobody does it as well as I do" (often true short-term, fatal long-term)
 2. "It takes longer to explain than to do it" (true once; not true the 10th time)
 3. "I lose control if I don't do it myself" (control is an illusion at scale)
@@ -59,12 +62,13 @@ Founders fail to delegate for four reasons:
 
 ### The Skill × Will Matrix
 
-| | High Skill | Low Skill |
-|---|-----------|----------|
-| **High Will** | Delegate fully | Coach and develop |
-| **Low Will** | Motivate or reassign | Manage out or redesign role |
+|               | High Skill           | Low Skill                   |
+| ------------- | -------------------- | --------------------------- |
+| **High Will** | Delegate fully       | Coach and develop           |
+| **Low Will**  | Motivate or reassign | Manage out or redesign role |
 
 **Rules:**
+
 - High skill + high will → Give the work and get out of the way
 - High will + low skill → Invest in them. They want to grow.
 - High skill + low will → Find out why. Fix the environment or accept the mismatch.
@@ -85,18 +89,21 @@ Start at level 2–3. Move people up as trust is established. Most founders neve
 ### What to delegate first
 
 **Delegate first (high volume, low stakes):**
+
 - Recurring operational tasks you do the same way every time
 - Information gathering and synthesis
 - Meeting coordination and scheduling
 - Reports and updates you produce regularly
 
 **Delegate next (skill-buildable):**
+
 - Customer interactions (with clear principles)
 - Hiring screens (after you've trained judgment)
 - Partner relationship management
 - Budget management within parameters
 
 **Delegate last (strategic, irreversible):**
+
 - Major strategic pivots
 - Executive hires
 - Large financial commitments
@@ -113,11 +120,13 @@ Founders manage energy, not just time. Time is fixed. Energy is renewable — bu
 Map your week by energy, not tasks. See `references/founder-toolkit.md` for the full template.
 
 **Categories:**
+
 - 🟢 **Energizing:** Activities that leave you sharper after doing them
 - 🟡 **Neutral:** Neither energizing nor draining
 - 🔴 **Draining:** Activities that leave you depleted
 
 **Common founder energy patterns:**
+
 - **Builders:** Energized by creating, drained by politics and process
 - **Sellers:** Energized by people and wins, drained by detail work and admin
 - **Operators:** Energized by solving, drained by ambiguity and indecision
@@ -145,16 +154,17 @@ The calendar is the most honest document in a founder's life. It shows what you 
 
 Pull the last 4 weeks of calendar data. Categorize every meeting/block:
 
-| Category | Description | Target % |
-|----------|-------------|----------|
-| Strategy | Thinking, planning, direction-setting | 20–25% |
-| People | 1:1s, coaching, recruiting | 20–25% |
-| External | Customers, investors, partners | 20% |
-| Execution | Direct work, decisions | 15% |
-| Admin | Email, scheduling, overhead | < 15% |
-| Recovery | Exercise, meals, thinking | 10–15% |
+| Category  | Description                           | Target % |
+| --------- | ------------------------------------- | -------- |
+| Strategy  | Thinking, planning, direction-setting | 20–25%   |
+| People    | 1:1s, coaching, recruiting            | 20–25%   |
+| External  | Customers, investors, partners        | 20%      |
+| Execution | Direct work, decisions                | 15%      |
+| Admin     | Email, scheduling, overhead           | < 15%    |
+| Recovery  | Exercise, meals, thinking             | 10–15%   |
 
 **Red flags in the audit:**
+
 - Admin > 20%: You're a coordinator, not a CEO. Fix your systems.
 - Execution > 30%: You're still an IC. Build the team.
 - People < 10%: Your team is running on empty. They need more of you.
@@ -163,12 +173,12 @@ Pull the last 4 weeks of calendar data. Categorize every meeting/block:
 
 ### The CEO's primary job at each stage
 
-| Stage | CEO should spend most time on... |
-|-------|--------------------------------|
-| Seed | Product and customers. Directly. |
-| Series A | Hiring the executive team. Recruiting is your job. |
-| Series B | Culture, strategy, and external (investors/partners/customers) |
-| Series C+ | Vision, board, external narrative, executive development |
+| Stage     | CEO should spend most time on...                               |
+| --------- | -------------------------------------------------------------- |
+| Seed      | Product and customers. Directly.                               |
+| Series A  | Hiring the executive team. Recruiting is your job.             |
+| Series B  | Culture, strategy, and external (investors/partners/customers) |
+| Series C+ | Vision, board, external narrative, executive development       |
 
 If you're spending time on things from two stages ago, you haven't made the transition.
 
@@ -223,6 +233,7 @@ It doesn't go away. It evolves. The founder who was scared to pitch to investors
 **The reframe:** Imposter syndrome is proportional to stretch. If you never feel it, you're not growing.
 
 **Practical tools:**
+
 - **Evidence file:** Document wins, compliments, decisions that worked. Read it when the doubt hits.
 - **Normalize the feeling:** "I feel underprepared for this" ≠ "I am an imposter." Feeling and fact are different.
 - **Do the thing anyway.** Competence comes from doing, not from feeling ready.
@@ -256,12 +267,14 @@ Late: Can't function, decisions have stopped, team notices before you do.
 Paul Graham's "Founder Mode" essay made the case that great founders stay deeply involved in operations — skip middle management and go direct. It resonated because it's sometimes true.
 
 **When founder mode helps:**
+
 - Crisis recovery (company needs direct leadership)
 - Product-market fit search (speed matters more than org health)
 - High-value, irreversible decisions (you should be in the room)
 - Early stages when the team is small
 
 **When founder mode hurts:**
+
 - When it undermines managers you've hired (they can't lead if you override them)
 - When it's driven by distrust rather than strategy
 - When it prevents the team from developing judgment
@@ -278,6 +291,7 @@ Building a company that works without you is not disloyalty — it's the ultimat
 **Succession is not just about exit.** It's about resilience. What happens if you're sick? On sabbatical? Acquired?
 
 **Succession readiness levels:**
+
 - Level 1: You've documented your key knowledge and processes
 - Level 2: At least one person can cover each of your key functions for 2 weeks
 - Level 3: Your leadership team can run the company for a quarter without you
@@ -296,5 +310,6 @@ Most founders are at Level 0. Level 2 is a reasonable target. Level 3 is a strat
 - "What's draining your energy that you've accepted as unavoidable?"
 
 ## Detailed References
+
 - `references/leadership-growth.md` — Maxwell levels, situational leadership, founder-to-CEO transition
 - `references/founder-toolkit.md` — Weekly reflection, energy audit, delegation matrix, 1:1 templates

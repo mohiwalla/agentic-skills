@@ -11,6 +11,7 @@ Techniques for cascading strategy, detecting drift, and maintaining alignment at
 Before cascading, compress strategy to one page. If it doesn't fit on one page, it's not clear enough to cascade.
 
 **Template:**
+
 ```
 Company Strategy — [Quarter/Year]
 ─────────────────────────────────
@@ -65,6 +66,7 @@ Each department lead runs the same workshop with their teams within 1 week.
 ### The problem
 
 A study by a leadership development firm found that:
+
 - 95% of employees can't name their company's top strategic priorities
 - Of those who can, 60% interpret them differently than leadership intended
 
@@ -101,6 +103,7 @@ Silos form when teams have no shared goals. The fix: design OKRs that require mu
 ### Shared ownership OKR
 
 **Format:**
+
 ```
 Objective: [What we'll achieve together]
 Primary owner: [Team A]
@@ -113,6 +116,7 @@ Key Results:
 ```
 
 **Example:**
+
 ```
 Objective: Launch the partner API and acquire first 3 integrations
 Primary owner: Engineering
@@ -128,6 +132,7 @@ KR 3 (Shared): First partner integration live and in production by EoQ
 When two teams' goals are potentially in conflict, add a shared guardrail metric:
 
 **Example:**
+
 - Sales goal: 15 new logos
 - CS goal: Churn < 2%
 - **Shared guardrail:** New customer 90-day churn < 5% (Sales can't close unqualified customers; CS can't blame Sales for their churn)
@@ -141,15 +146,18 @@ When two teams' goals are potentially in conflict, add a shared guardrail metric
 Run this before setting next quarter's OKRs:
 
 **Week −2 (2 weeks before quarter start):**
+
 - All teams review current OKRs: Which are we hitting? Which are we missing?
 - Run the alignment checker: Orphans? Gaps? Conflicts?
 
 **Week −1:**
+
 - Cascade workshop: Company sets next quarter's OKRs
 - Cross-functional conflict review
 - Coverage gap assignment
 
 **Week 1 of new quarter:**
+
 - All teams have finalized OKRs with documented parent company OKRs
 - Shared OKRs documented with co-owners
 - Guardrail metrics in place for known conflict areas

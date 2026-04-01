@@ -25,11 +25,11 @@
 
 For each company-level rock:
 
-| Rock | Owner | Status |
-|------|-------|--------|
+| Rock                 | Owner  | Status                             |
+| -------------------- | ------ | ---------------------------------- |
 | [Rock 1 description] | [Name] | ✅ Done / 🟡 On track / 🔴 At risk |
-| [Rock 2 description] | [Name] | |
-| [Rock 3 description] | [Name] | |
+| [Rock 2 description] | [Name] |                                    |
+| [Rock 3 description] | [Name] |                                    |
 
 For any 🔴 at-risk rock: one sentence on what changed and what we're doing about it.
 
@@ -76,12 +76,14 @@ If it's small: 2 sentences. If it's big: more time here, less elsewhere.
 **Format:** Live questions preferred. Anonymous submission option always available.
 
 **CEO rules for Q&A:**
+
 - Answer the question asked, not the one you wish they'd asked
 - "I don't know, but I'll find out and share by [date]" > vague answer
 - "I can't share that yet because [reason], but I will when I can" > "no comment"
 - If the same question has been asked three times across all-hands, it's a communication gap — fix it
 
 **Closing line:**
+
 > "Thanks for your time. If you have a question you didn't get to ask — Slack me directly, or use the anonymous form. I read every one."
 
 ---
@@ -89,15 +91,18 @@ If it's small: 2 sentences. If it's big: more time here, less elsewhere.
 ## Presenter Notes
 
 **Before every all-hands:**
+
 - [ ] Review last all-hands deck — anything promised that wasn't delivered?
 - [ ] Check: is there anything employees should have heard from us before this meeting?
 - [ ] Have 3–5 real Q&A answers prepared for the hardest questions you'd expect
 
 **During Q&A:**
+
 - [ ] Don't deflect hard questions — they remember
 - [ ] Don't over-explain — short answers signal confidence
 - [ ] Don't let one person dominate — "let's take that to a 1:1" is a valid response
 
 **After every all-hands:**
+
 - [ ] Send a written summary within 24 hours (key metrics, decisions, answers to top questions)
 - [ ] Follow up on any commitments made during Q&A within the stated timeframe

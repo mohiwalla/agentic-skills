@@ -71,18 +71,18 @@ Secondary: #CC6600 (H=30°, S=100%, V=80%)
 
 ### Color Scale Output
 
-| Step | Use Case | Brightness | Saturation |
-|------|----------|------------|------------|
-| 50 | Subtle backgrounds | 95% (fixed) | 30% |
-| 100 | Light backgrounds | 95% (fixed) | 38% |
-| 200 | Hover states | 95% (fixed) | 46% |
-| 300 | Borders | 95% (fixed) | 54% |
-| 400 | Disabled states | 95% (fixed) | 62% |
-| 500 | Base color | Original | 70% |
-| 600 | Hover (dark) | Original × 0.8 | 78% |
-| 700 | Active states | Original × 0.6 | 86% |
-| 800 | Text | Original × 0.4 | 94% |
-| 900 | Headings | Original × 0.2 | 100% |
+| Step | Use Case           | Brightness     | Saturation |
+| ---- | ------------------ | -------------- | ---------- |
+| 50   | Subtle backgrounds | 95% (fixed)    | 30%        |
+| 100  | Light backgrounds  | 95% (fixed)    | 38%        |
+| 200  | Hover states       | 95% (fixed)    | 46%        |
+| 300  | Borders            | 95% (fixed)    | 54%        |
+| 400  | Disabled states    | 95% (fixed)    | 62%        |
+| 500  | Base color         | Original       | 70%        |
+| 600  | Hover (dark)       | Original × 0.8 | 78%        |
+| 700  | Active states      | Original × 0.6 | 86%        |
+| 800  | Text               | Original × 0.4 | 94%        |
+| 900  | Headings           | Original × 0.2 | 100%       |
 
 ---
 
@@ -113,29 +113,29 @@ Result:
 
 ### Type Scale Ratios
 
-| Ratio | Name | Multiplier | Character |
-|-------|------|------------|-----------|
-| 1.067 | Minor Second | Tight | Compact UIs |
-| 1.125 | Major Second | Subtle | App interfaces |
-| 1.200 | Minor Third | Moderate | General use |
-| **1.250** | **Major Third** | **Balanced** | **Default** |
-| 1.333 | Perfect Fourth | Pronounced | Marketing |
-| 1.414 | Augmented Fourth | Bold | Editorial |
-| 1.618 | Golden Ratio | Dramatic | Headlines |
+| Ratio     | Name             | Multiplier   | Character      |
+| --------- | ---------------- | ------------ | -------------- |
+| 1.067     | Minor Second     | Tight        | Compact UIs    |
+| 1.125     | Major Second     | Subtle       | App interfaces |
+| 1.200     | Minor Third      | Moderate     | General use    |
+| **1.250** | **Major Third**  | **Balanced** | **Default**    |
+| 1.333     | Perfect Fourth   | Pronounced   | Marketing      |
+| 1.414     | Augmented Fourth | Bold         | Editorial      |
+| 1.618     | Golden Ratio     | Dramatic     | Headlines      |
 
 ### Pre-composed Text Styles
 
-| Style | Size | Weight | Line Height | Letter Spacing |
-|-------|------|--------|-------------|----------------|
-| h1 | 48px | 700 | 1.2 | -0.02em |
-| h2 | 36px | 700 | 1.3 | -0.01em |
-| h3 | 28px | 600 | 1.4 | 0 |
-| h4 | 24px | 600 | 1.4 | 0 |
-| h5 | 20px | 600 | 1.5 | 0 |
-| h6 | 16px | 600 | 1.5 | 0.01em |
-| body | 16px | 400 | 1.5 | 0 |
-| small | 14px | 400 | 1.5 | 0 |
-| caption | 12px | 400 | 1.5 | 0.01em |
+| Style   | Size | Weight | Line Height | Letter Spacing |
+| ------- | ---- | ------ | ----------- | -------------- |
+| h1      | 48px | 700    | 1.2         | -0.02em        |
+| h2      | 36px | 700    | 1.3         | -0.01em        |
+| h3      | 28px | 600    | 1.4         | 0              |
+| h4      | 24px | 600    | 1.4         | 0              |
+| h5      | 20px | 600    | 1.5         | 0              |
+| h6      | 16px | 600    | 1.5         | 0.01em         |
+| body    | 16px | 400    | 1.5         | 0              |
+| small   | 14px | 400    | 1.5         | 0              |
+| caption | 12px | 400    | 1.5         | 0.01em         |
 
 ---
 
@@ -163,15 +163,15 @@ Results:
 
 ### Semantic Spacing Mapping
 
-| Token | Numeric | Value | Use Case |
-|-------|---------|-------|----------|
-| xs | 1 | 4px | Inline icon margins |
-| sm | 2 | 8px | Button padding |
-| md | 4 | 16px | Card padding |
-| lg | 6 | 24px | Section spacing |
-| xl | 8 | 32px | Component gaps |
-| 2xl | 12 | 48px | Section margins |
-| 3xl | 16 | 64px | Page sections |
+| Token | Numeric | Value | Use Case            |
+| ----- | ------- | ----- | ------------------- |
+| xs    | 1       | 4px   | Inline icon margins |
+| sm    | 2       | 8px   | Button padding      |
+| md    | 4       | 16px  | Card padding        |
+| lg    | 6       | 24px  | Section spacing     |
+| xl    | 8       | 32px  | Component gaps      |
+| 2xl   | 12      | 48px  | Section margins     |
+| 3xl   | 16      | 64px  | Page sections       |
 
 ### Why 8pt Grid?
 
@@ -186,10 +186,10 @@ Results:
 
 ### WCAG Contrast Requirements
 
-| Level | Normal Text | Large Text | Definition |
-|-------|-------------|------------|------------|
-| AA | 4.5:1 | 3:1 | Minimum requirement |
-| AAA | 7:1 | 4.5:1 | Enhanced accessibility |
+| Level | Normal Text | Large Text | Definition             |
+| ----- | ----------- | ---------- | ---------------------- |
+| AA    | 4.5:1       | 3:1        | Minimum requirement    |
+| AAA   | 7:1         | 4.5:1      | Enhanced accessibility |
 
 **Large text**: ≥18pt regular or ≥14pt bold
 
@@ -209,14 +209,14 @@ Relative Luminance:
 
 ### Color Step Contrast Guide
 
-| Background | Minimum Text Step | For AA |
-|------------|-------------------|--------|
-| 50 | 700+ | Large text at 600 |
-| 100 | 700+ | Large text at 600 |
-| 200 | 800+ | Large text at 700 |
-| 300 | 900 | - |
-| 500 (base) | White or 50 | - |
-| 700+ | White or 50-100 | - |
+| Background | Minimum Text Step | For AA            |
+| ---------- | ----------------- | ----------------- |
+| 50         | 700+              | Large text at 600 |
+| 100        | 700+              | Large text at 600 |
+| 200        | 800+              | Large text at 700 |
+| 300        | 900               | -                 |
+| 500 (base) | White or 50       | -                 |
+| 700+       | White or 50-100   | -                 |
 
 ### Semantic Colors Accessibility
 
@@ -228,7 +228,7 @@ Generated semantic colors include contrast colors:
     "base": "#10B981",
     "light": "#34D399",
     "dark": "#059669",
-    "contrast": "#FFFFFF"  // For text on base
+    "contrast": "#FFFFFF" // For text on base
   }
 }
 ```
@@ -265,8 +265,8 @@ Best for: Web applications, CSS frameworks
 
 ```css
 :root {
-  --colors-primary-50: #E6F2FF;
-  --colors-primary-500: #0066CC;
+  --colors-primary-50: #e6f2ff;
+  --colors-primary-500: #0066cc;
   --colors-primary-900: #002855;
   --typography-fontSize-base: 16px;
   --typography-fontSize-lg: 20px;
@@ -278,8 +278,8 @@ Best for: Web applications, CSS frameworks
 Best for: SCSS/SASS projects, component libraries
 
 ```scss
-$colors-primary-50: #E6F2FF;
-$colors-primary-500: #0066CC;
+$colors-primary-50: #e6f2ff;
+$colors-primary-500: #0066cc;
 $colors-primary-900: #002855;
 $typography-fontSize-base: 16px;
 $typography-fontSize-lg: 20px;
@@ -287,12 +287,12 @@ $typography-fontSize-lg: 20px;
 
 ### Format Selection Guide
 
-| Format | When to Use |
-|--------|-------------|
-| JSON | Figma plugins, Storybook, JS/TS, design tool APIs |
-| CSS | Plain CSS projects, CSS-in-JS (some), web apps |
-| SCSS | SASS pipelines, component libraries, theming |
-| Summary | Quick verification, debugging |
+| Format  | When to Use                                       |
+| ------- | ------------------------------------------------- |
+| JSON    | Figma plugins, Storybook, JS/TS, design tool APIs |
+| CSS     | Plain CSS projects, CSS-in-JS (some), web apps    |
+| SCSS    | SASS pipelines, component libraries, theming      |
+| Summary | Quick verification, debugging                     |
 
 ---
 
@@ -313,12 +313,12 @@ python scripts/design_token_generator.py "#FF6B6B" playful summary
 
 ### Style Differences
 
-| Aspect | Modern | Classic | Playful |
-|--------|--------|---------|---------|
-| Fonts | Inter, Fira Code | Helvetica, Courier | Poppins, Source Code Pro |
-| Border Radius | 8px default | 4px default | 16px default |
-| Shadows | Layered, subtle | Single layer | Soft, pronounced |
+| Aspect        | Modern           | Classic            | Playful                  |
+| ------------- | ---------------- | ------------------ | ------------------------ |
+| Fonts         | Inter, Fira Code | Helvetica, Courier | Poppins, Source Code Pro |
+| Border Radius | 8px default      | 4px default        | 16px default             |
+| Shadows       | Layered, subtle  | Single layer       | Soft, pronounced         |
 
 ---
 
-*See also: `component-architecture.md` for component design patterns*
+_See also: `component-architecture.md` for component design patterns_

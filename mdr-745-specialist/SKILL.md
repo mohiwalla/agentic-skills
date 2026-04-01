@@ -47,35 +47,38 @@ Classify device under MDR Annex VIII:
 
 ### Classification Matrix
 
-| Factor | Class I | Class IIa | Class IIb | Class III |
-|--------|---------|-----------|-----------|-----------|
-| Duration | Any | Short-term | Long-term | Long-term |
-| Invasiveness | Non-invasive | Body orifice | Surgical | Implantable |
-| System | Any | Non-critical | Critical organs | CNS/cardiac |
-| Risk | Lowest | Low-medium | Medium-high | Highest |
+| Factor       | Class I      | Class IIa    | Class IIb       | Class III   |
+| ------------ | ------------ | ------------ | --------------- | ----------- |
+| Duration     | Any          | Short-term   | Long-term       | Long-term   |
+| Invasiveness | Non-invasive | Body orifice | Surgical        | Implantable |
+| System       | Any          | Non-critical | Critical organs | CNS/cardiac |
+| Risk         | Lowest       | Low-medium   | Medium-high     | Highest     |
 
 ### Software Classification (MDCG 2019-11)
 
-| Information Use | Condition Severity | Class |
-|-----------------|-------------------|-------|
-| Informs decision | Non-serious | IIa |
-| Informs decision | Serious | IIb |
-| Drives/treats | Critical | III |
+| Information Use  | Condition Severity | Class |
+| ---------------- | ------------------ | ----- |
+| Informs decision | Non-serious        | IIa   |
+| Informs decision | Serious            | IIb   |
+| Drives/treats    | Critical           | III   |
 
 ### Classification Examples
 
 **Example 1: Absorbable Surgical Suture**
+
 - Rule 8 (implantable, long-term)
 - Duration: > 30 days (absorbed)
 - Contact: General tissue
 - Classification: **Class IIb**
 
 **Example 2: AI Diagnostic Software**
+
 - Rule 11 + MDCG 2019-11
 - Function: Diagnoses serious condition
 - Classification: **Class IIb**
 
 **Example 3: Cardiac Pacemaker**
+
 - Rule 8 (implantable)
 - Contact: Central circulatory system
 - Classification: **Class III**
@@ -110,23 +113,23 @@ ANNEX II TECHNICAL DOCUMENTATION
 
 ### GSPR Compliance Checklist
 
-| Requirement | Evidence | Status |
-|-------------|----------|--------|
-| Safe design (GSPR 1-3) | Risk management file | ☐ |
-| Chemical properties (GSPR 10.1) | Biocompatibility report | ☐ |
-| Infection risk (GSPR 10.2) | Sterilization validation | ☐ |
-| Software requirements (GSPR 17) | IEC 62304 documentation | ☐ |
-| Labeling (GSPR 23) | Label artwork, IFU | ☐ |
+| Requirement                     | Evidence                 | Status |
+| ------------------------------- | ------------------------ | ------ |
+| Safe design (GSPR 1-3)          | Risk management file     | ☐      |
+| Chemical properties (GSPR 10.1) | Biocompatibility report  | ☐      |
+| Infection risk (GSPR 10.2)      | Sterilization validation | ☐      |
+| Software requirements (GSPR 17) | IEC 62304 documentation  | ☐      |
+| Labeling (GSPR 23)              | Label artwork, IFU       | ☐      |
 
 ### Conformity Assessment Routes
 
-| Class | Route | NB Involvement |
-|-------|-------|----------------|
-| I | Annex II self-declaration | None |
-| Is/Im | Annex II + IX/XI | Sterile/measuring aspects |
-| IIa | Annex II + IX or XI | Product or QMS |
-| IIb | Annex IX + X or X + XI | Type exam + production |
-| III | Annex IX + X | Full QMS + type exam |
+| Class | Route                     | NB Involvement            |
+| ----- | ------------------------- | ------------------------- |
+| I     | Annex II self-declaration | None                      |
+| Is/Im | Annex II + IX/XI          | Sterile/measuring aspects |
+| IIa   | Annex II + IX or XI       | Product or QMS            |
+| IIb   | Annex IX + X or X + XI    | Type exam + production    |
+| III   | Annex IX + X              | Full QMS + type exam      |
 
 ---
 
@@ -145,12 +148,12 @@ Develop clinical evidence strategy per Annex XIV:
 
 ### Evidence Requirements by Class
 
-| Class | Minimum Evidence | Investigation |
-|-------|------------------|---------------|
-| I | Risk-benefit analysis | Not typically required |
-| IIa | Literature + post-market | May be required |
-| IIb | Systematic literature review | Often required |
-| III | Comprehensive clinical data | Required (Article 61) |
+| Class | Minimum Evidence             | Investigation          |
+| ----- | ---------------------------- | ---------------------- |
+| I     | Risk-benefit analysis        | Not typically required |
+| IIa   | Literature + post-market     | May be required        |
+| IIb   | Systematic literature review | Often required         |
+| III   | Comprehensive clinical data  | Required (Article 61)  |
 
 ### Clinical Evaluation Report Structure
 
@@ -190,30 +193,30 @@ Establish PMS system per Chapter VII:
 
 ### PMS System Components
 
-| Component | Requirement | Frequency |
-|-----------|-------------|-----------|
-| PMS Plan | Article 84 | Maintain current |
-| PSUR | Class IIa and higher | Per class schedule |
-| PMCF Plan | Annex XIV Part B | Update with CER |
-| PMCF Report | Annex XIV Part B | Annual (Class III) |
-| Vigilance | Articles 87-92 | As events occur |
+| Component   | Requirement          | Frequency          |
+| ----------- | -------------------- | ------------------ |
+| PMS Plan    | Article 84           | Maintain current   |
+| PSUR        | Class IIa and higher | Per class schedule |
+| PMCF Plan   | Annex XIV Part B     | Update with CER    |
+| PMCF Report | Annex XIV Part B     | Annual (Class III) |
+| Vigilance   | Articles 87-92       | As events occur    |
 
 ### PSUR Schedule
 
-| Class | Frequency |
-|-------|-----------|
-| Class III | Annual |
-| Class IIb implantable | Annual |
-| Class IIb | Every 2 years |
-| Class IIa | When necessary |
+| Class                 | Frequency      |
+| --------------------- | -------------- |
+| Class III             | Annual         |
+| Class IIb implantable | Annual         |
+| Class IIb             | Every 2 years  |
+| Class IIa             | When necessary |
 
 ### Serious Incident Reporting
 
-| Timeline | Requirement |
-|----------|-------------|
-| 2 days | Serious public health threat |
-| 10 days | Death or serious deterioration |
-| 15 days | Other serious incidents |
+| Timeline | Requirement                    |
+| -------- | ------------------------------ |
+| 2 days   | Serious public health threat   |
+| 10 days  | Death or serious deterioration |
+| 15 days  | Other serious incidents        |
 
 ---
 
@@ -232,14 +235,14 @@ Implement UDI system per Article 27:
 
 ### EUDAMED Modules
 
-| Module | Content | Actor |
-|--------|---------|-------|
-| Actor | Company registration | Manufacturer, AR |
-| UDI/Device | Device and variant data | Manufacturer |
-| Certificates | NB certificates | Notified Body |
-| Clinical Investigation | Study registration | Sponsor |
-| Vigilance | Incident reports | Manufacturer |
-| Market Surveillance | Authority actions | Competent Authority |
+| Module                 | Content                 | Actor               |
+| ---------------------- | ----------------------- | ------------------- |
+| Actor                  | Company registration    | Manufacturer, AR    |
+| UDI/Device             | Device and variant data | Manufacturer        |
+| Certificates           | NB certificates         | Notified Body       |
+| Clinical Investigation | Study registration      | Sponsor             |
+| Vigilance              | Incident reports        | Manufacturer        |
+| Market Surveillance    | Authority actions       | Competent Authority |
 
 ### UDI Label Requirements
 
@@ -305,6 +308,7 @@ python scripts/mdr_gap_analyzer.py --interactive
 Analyzes device against MDR requirements, identifies compliance gaps, generates prioritized recommendations.
 
 **Output includes:**
+
 - Requirements checklist by category
 - Gap identification with priorities
 - Critical gap highlighting
@@ -316,13 +320,13 @@ Analyzes device against MDR requirements, identifies compliance gaps, generates 
 
 ### Selection Criteria
 
-| Factor | Considerations |
-|--------|----------------|
-| Designation scope | Covers your device type |
-| Capacity | Timeline for initial audit |
-| Geographic reach | Markets you need to access |
+| Factor              | Considerations                  |
+| ------------------- | ------------------------------- |
+| Designation scope   | Covers your device type         |
+| Capacity            | Timeline for initial audit      |
+| Geographic reach    | Markets you need to access      |
 | Technical expertise | Experience with your technology |
-| Fee structure | Transparency, predictability |
+| Fee structure       | Transparency, predictability    |
 
 ### Pre-Submission Checklist
 

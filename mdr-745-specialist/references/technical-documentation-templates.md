@@ -32,14 +32,14 @@ TECHNICAL DOCUMENTATION
 
 ### Documentation by Phase
 
-| Phase | Required Documents |
-|-------|-------------------|
-| Design Input | User needs, design requirements, regulatory requirements |
-| Design Development | Design specifications, drawings, BOM, software docs |
-| Verification | Test protocols, test reports, design review records |
-| Validation | Clinical data, usability data, biocompatibility |
-| Transfer | Manufacturing specs, process validations |
-| Post-Market | PMS plan, PMCF plan, vigilance procedures |
+| Phase              | Required Documents                                       |
+| ------------------ | -------------------------------------------------------- |
+| Design Input       | User needs, design requirements, regulatory requirements |
+| Design Development | Design specifications, drawings, BOM, software docs      |
+| Verification       | Test protocols, test reports, design review records      |
+| Validation         | Clinical data, usability data, biocompatibility          |
+| Transfer           | Manufacturing specs, process validations                 |
+| Post-Market        | PMS plan, PMCF plan, vigilance procedures                |
 
 ---
 
@@ -65,12 +65,12 @@ DEVICE IDENTIFICATION
 
 **1.2 Device Variants and Accessories**
 
-| Element | Description |
-|---------|-------------|
-| Variant listing | All variants with identifiers |
+| Element                   | Description                      |
+| ------------------------- | -------------------------------- |
+| Variant listing           | All variants with identifiers    |
 | Configuration differences | Technical differences by variant |
-| Accessories | Separate devices used together |
-| Spare parts | Replaceable components |
+| Accessories               | Separate devices used together   |
+| Spare parts               | Replaceable components           |
 
 **1.3 Reference to Previous Generations**
 
@@ -129,15 +129,15 @@ INSTRUCTIONS FOR USE
 
 **3.1 Design Process Documentation**
 
-| Document | Purpose |
-|----------|---------|
-| Design input | User needs, regulatory requirements |
-| Design output | Specifications, drawings, software |
-| Design review | Review records at key milestones |
-| Design verification | Test protocols and results |
-| Design validation | Clinical/usability evidence |
-| Design transfer | Manufacturing readiness |
-| Design changes | Change control records |
+| Document            | Purpose                             |
+| ------------------- | ----------------------------------- |
+| Design input        | User needs, regulatory requirements |
+| Design output       | Specifications, drawings, software  |
+| Design review       | Review records at key milestones    |
+| Design verification | Test protocols and results          |
+| Design validation   | Clinical/usability evidence         |
+| Design transfer     | Manufacturing readiness             |
+| Design changes      | Change control records              |
 
 **3.2 Manufacturing Process Description**
 
@@ -167,24 +167,24 @@ MANUFACTURING DOCUMENTATION
 
 **GSPR Compliance Checklist**
 
-| GSPR | Requirement | Evidence |
-|------|-------------|----------|
-| 1 | Safe design for intended use | Risk management file |
-| 2 | Risk acceptable when weighed against benefits | Benefit-risk analysis |
-| 3 | State of the art design | Literature review, standards |
-| 4 | No compromise of clinical condition | Clinical evaluation |
-| 5 | Transport and storage conditions | Shelf life testing |
-| 6 | Acceptable undesirable effects | Risk-benefit analysis |
-| 7 | CE marking conformity | Declaration of conformity |
-| ... | Continue for all applicable GSPRs | |
+| GSPR | Requirement                                   | Evidence                     |
+| ---- | --------------------------------------------- | ---------------------------- |
+| 1    | Safe design for intended use                  | Risk management file         |
+| 2    | Risk acceptable when weighed against benefits | Benefit-risk analysis        |
+| 3    | State of the art design                       | Literature review, standards |
+| 4    | No compromise of clinical condition           | Clinical evaluation          |
+| 5    | Transport and storage conditions              | Shelf life testing           |
+| 6    | Acceptable undesirable effects                | Risk-benefit analysis        |
+| 7    | CE marking conformity                         | Declaration of conformity    |
+| ...  | Continue for all applicable GSPRs             |                              |
 
 **GSPR Matrix Template**
 
-| GSPR # | Requirement Summary | Applicable? | Evidence Document | Status |
-|--------|---------------------|-------------|-------------------|--------|
-| 10.1 | Chemical properties | Yes/No/NA | Biocompatibility report | Complete |
-| 10.2 | Infection risk | Yes/No/NA | Sterilization validation | Complete |
-| 10.3 | Substances with carcinogenic risk | Yes/No/NA | Material specification | Complete |
+| GSPR # | Requirement Summary               | Applicable? | Evidence Document        | Status   |
+| ------ | --------------------------------- | ----------- | ------------------------ | -------- |
+| 10.1   | Chemical properties               | Yes/No/NA   | Biocompatibility report  | Complete |
+| 10.2   | Infection risk                    | Yes/No/NA   | Sterilization validation | Complete |
+| 10.3   | Substances with carcinogenic risk | Yes/No/NA   | Material specification   | Complete |
 
 ### Section 5: Benefit-Risk Analysis
 
@@ -213,16 +213,16 @@ BENEFIT-RISK ANALYSIS
 
 **6.1 Verification Testing**
 
-| Test Category | Standards | Documentation |
-|---------------|-----------|---------------|
-| Electrical safety | IEC 60601-1 | Test protocol + report |
-| EMC | IEC 60601-1-2 | EMC test report |
-| Biocompatibility | ISO 10993 series | Biocompatibility evaluation |
-| Software | IEC 62304 | Software verification report |
-| Sterilization | ISO 11135/11137 | Sterility assurance |
-| Packaging | ISO 11607 | Packaging validation |
-| Shelf life | Accelerated aging | Stability study report |
-| Usability | IEC 62366-1 | Usability engineering file |
+| Test Category     | Standards         | Documentation                |
+| ----------------- | ----------------- | ---------------------------- |
+| Electrical safety | IEC 60601-1       | Test protocol + report       |
+| EMC               | IEC 60601-1-2     | EMC test report              |
+| Biocompatibility  | ISO 10993 series  | Biocompatibility evaluation  |
+| Software          | IEC 62304         | Software verification report |
+| Sterilization     | ISO 11135/11137   | Sterility assurance          |
+| Packaging         | ISO 11607         | Packaging validation         |
+| Shelf life        | Accelerated aging | Stability study report       |
+| Usability         | IEC 62366-1       | Usability engineering file   |
 
 **6.2 Validation Evidence**
 
@@ -331,13 +331,13 @@ Name and function: [Name, Title]
 
 ### Common NB Findings
 
-| Finding Area | Common Issue | Prevention |
-|--------------|--------------|------------|
-| GSPR matrix | Incomplete, no evidence links | Complete matrix with references |
-| Risk management | Not integrated with design | Update throughout development |
-| Clinical evaluation | Insufficient literature search | Systematic search with PICO |
-| IFU | Missing warnings | Risk-based IFU content |
-| Traceability | Design to requirements gaps | Maintain traceability matrix |
+| Finding Area        | Common Issue                   | Prevention                      |
+| ------------------- | ------------------------------ | ------------------------------- |
+| GSPR matrix         | Incomplete, no evidence links  | Complete matrix with references |
+| Risk management     | Not integrated with design     | Update throughout development   |
+| Clinical evaluation | Insufficient literature search | Systematic search with PICO     |
+| IFU                 | Missing warnings               | Risk-based IFU content          |
+| Traceability        | Design to requirements gaps    | Maintain traceability matrix    |
 
 ### Pre-Submission Checklist
 

@@ -20,13 +20,13 @@ Market-by-market expansion guides for US, UK, DACH, France, and Canada.
 
 ### Expansion Sequence (Series A)
 
-| Phase | Market | Timeline | Budget % | Target ARR |
-|-------|--------|----------|----------|------------|
-| 1 | US | Months 1-6 | 50% | $1M |
-| 2 | UK | Months 4-9 | 20% | $500k |
-| 3 | DACH | Months 7-12 | 15% | $300k |
-| 4 | France | Months 10-15 | 10% | $200k |
-| 5 | Canada | Months 7-12 | 5% | $100k |
+| Phase | Market | Timeline     | Budget % | Target ARR |
+| ----- | ------ | ------------ | -------- | ---------- |
+| 1     | US     | Months 1-6   | 50%      | $1M        |
+| 2     | UK     | Months 4-9   | 20%      | $500k      |
+| 3     | DACH   | Months 7-12  | 15%      | $300k      |
+| 4     | France | Months 10-15 | 10%      | $200k      |
+| 5     | Canada | Months 7-12  | 5%       | $100k      |
 
 ### Market Readiness Checklist
 
@@ -46,13 +46,13 @@ Enter market when ALL true:
 
 ### Market Characteristics
 
-| Factor | US Approach |
-|--------|-------------|
-| Buying cycle | Fast (30-60 days average) |
-| Decision process | Individual empowerment, less consensus |
-| Pricing sensitivity | Value-focused, willing to pay premium |
-| Communication | Direct, results-oriented |
-| Relationship | Transaction > relationship (initially) |
+| Factor              | US Approach                            |
+| ------------------- | -------------------------------------- |
+| Buying cycle        | Fast (30-60 days average)              |
+| Decision process    | Individual empowerment, less consensus |
+| Pricing sensitivity | Value-focused, willing to pay premium  |
+| Communication       | Direct, results-oriented               |
+| Relationship        | Transaction > relationship (initially) |
 
 ### Entry Strategy
 
@@ -86,12 +86,12 @@ Enter market when ALL true:
 
 ### US Channel Mix
 
-| Channel | Budget % | Expected CPL | Notes |
-|---------|----------|--------------|-------|
-| Google Ads | 35% | $100-200 | High intent, competitive |
-| LinkedIn | 30% | $150-250 | B2B targeting |
-| SEO/Content | 20% | $50 (long-term) | Invest early |
-| Partnerships | 15% | Variable | Co-marketing |
+| Channel      | Budget % | Expected CPL    | Notes                    |
+| ------------ | -------- | --------------- | ------------------------ |
+| Google Ads   | 35%      | $100-200        | High intent, competitive |
+| LinkedIn     | 30%      | $150-250        | B2B targeting            |
+| SEO/Content  | 20%      | $50 (long-term) | Invest early             |
+| Partnerships | 15%      | Variable        | Co-marketing             |
 
 ### US Messaging
 
@@ -107,13 +107,13 @@ Enter market when ALL true:
 
 ### Market Characteristics
 
-| Factor | UK Approach |
-|--------|-------------|
-| Buying cycle | Medium (45-90 days) |
-| Decision process | Committee involvement |
-| Pricing sensitivity | Value-conscious, compare options |
-| Communication | Professional, less aggressive than US |
-| Relationship | Balance transaction and relationship |
+| Factor              | UK Approach                           |
+| ------------------- | ------------------------------------- |
+| Buying cycle        | Medium (45-90 days)                   |
+| Decision process    | Committee involvement                 |
+| Pricing sensitivity | Value-conscious, compare options      |
+| Communication       | Professional, less aggressive than US |
+| Relationship        | Balance transaction and relationship  |
 
 ### Entry Strategy
 
@@ -150,12 +150,12 @@ Enter market when ALL true:
 
 ### UK Channel Mix
 
-| Channel | Budget % | Expected CPL | Notes |
-|---------|----------|--------------|-------|
-| LinkedIn | 35% | $120-200 | Strong B2B presence |
-| Google UK | 30% | $80-150 | Less competitive than US |
-| SEO/Content | 20% | $40 | UK-targeted keywords |
-| Partnerships | 15% | Variable | Local credibility |
+| Channel      | Budget % | Expected CPL | Notes                    |
+| ------------ | -------- | ------------ | ------------------------ |
+| LinkedIn     | 35%      | $120-200     | Strong B2B presence      |
+| Google UK    | 30%      | $80-150      | Less competitive than US |
+| SEO/Content  | 20%      | $40          | UK-targeted keywords     |
+| Partnerships | 15%      | Variable     | Local credibility        |
 
 ### UK Messaging
 
@@ -171,13 +171,13 @@ Enter market when ALL true:
 
 ### Market Characteristics
 
-| Factor | DACH Approach |
-|--------|---------------|
-| Buying cycle | Long (90-180 days) |
-| Decision process | Consensus-driven, thorough evaluation |
-| Pricing sensitivity | Quality over price, long-term view |
-| Communication | Formal, detailed, precise |
-| Relationship | Trust built over time, essential |
+| Factor              | DACH Approach                         |
+| ------------------- | ------------------------------------- |
+| Buying cycle        | Long (90-180 days)                    |
+| Decision process    | Consensus-driven, thorough evaluation |
+| Pricing sensitivity | Quality over price, long-term view    |
+| Communication       | Formal, detailed, precise             |
+| Relationship        | Trust built over time, essential      |
 
 ### Entry Strategy
 
@@ -215,12 +215,12 @@ Enter market when ALL true:
 
 ### DACH Channel Mix
 
-| Channel | Budget % | Expected CPL | Notes |
-|---------|----------|--------------|-------|
-| LinkedIn | 40% | $150-250 | Strong professional network |
-| Google DE | 25% | $100-180 | German keywords |
-| SEO (German) | 20% | $60 | Long-term investment |
-| Partnerships | 15% | Variable | Critical for trust |
+| Channel      | Budget % | Expected CPL | Notes                       |
+| ------------ | -------- | ------------ | --------------------------- |
+| LinkedIn     | 40%      | $150-250     | Strong professional network |
+| Google DE    | 25%      | $100-180     | German keywords             |
+| SEO (German) | 20%      | $60          | Long-term investment        |
+| Partnerships | 15%      | Variable     | Critical for trust          |
 
 ### DACH Messaging
 
@@ -237,13 +237,13 @@ Enter market when ALL true:
 
 ### Market Characteristics
 
-| Factor | France Approach |
-|--------|-----------------|
-| Buying cycle | Long (90-180 days) |
-| Decision process | Hierarchical, formal process |
+| Factor              | France Approach                     |
+| ------------------- | ----------------------------------- |
+| Buying cycle        | Long (90-180 days)                  |
+| Decision process    | Hierarchical, formal process        |
 | Pricing sensitivity | Value-focused, negotiation expected |
-| Communication | Formal, relationship-focused |
-| Relationship | Critical, business built on trust |
+| Communication       | Formal, relationship-focused        |
+| Relationship        | Critical, business built on trust   |
 
 ### Entry Strategy
 
@@ -275,12 +275,12 @@ Enter market when ALL true:
 
 ### France Channel Mix
 
-| Channel | Budget % | Expected CPL | Notes |
-|---------|----------|--------------|-------|
-| LinkedIn | 35% | $130-220 | Professional network |
-| Google FR | 30% | $90-160 | French keywords |
-| SEO (French) | 20% | $50 | French content strategy |
-| Partnerships | 15% | Variable | Local partners essential |
+| Channel      | Budget % | Expected CPL | Notes                    |
+| ------------ | -------- | ------------ | ------------------------ |
+| LinkedIn     | 35%      | $130-220     | Professional network     |
+| Google FR    | 30%      | $90-160      | French keywords          |
+| SEO (French) | 20%      | $50          | French content strategy  |
+| Partnerships | 15%      | Variable     | Local partners essential |
 
 ### France Messaging
 
@@ -297,13 +297,13 @@ Enter market when ALL true:
 
 ### Market Characteristics
 
-| Factor | Canada Approach |
-|--------|-----------------|
-| Buying cycle | Medium (45-75 days) |
-| Decision process | Similar to US, slightly more conservative |
-| Pricing sensitivity | Value-conscious, compare to US prices |
-| Communication | Professional, friendly, less aggressive |
-| Language | English (except Quebec - French required) |
+| Factor              | Canada Approach                           |
+| ------------------- | ----------------------------------------- |
+| Buying cycle        | Medium (45-75 days)                       |
+| Decision process    | Similar to US, slightly more conservative |
+| Pricing sensitivity | Value-conscious, compare to US prices     |
+| Communication       | Professional, friendly, less aggressive   |
+| Language            | English (except Quebec - French required) |
 
 ### Entry Strategy
 
@@ -333,12 +333,12 @@ Enter market when ALL true:
 
 ### Canada Channel Mix
 
-| Channel | Budget % | Expected CPL | Notes |
-|---------|----------|--------------|-------|
-| Google CA | 35% | $80-150 | Canadian targeting |
-| LinkedIn | 30% | $100-180 | B2B focus |
-| SEO | 20% | $40 | Canadian content |
-| Partnerships | 15% | Variable | Local credibility |
+| Channel      | Budget % | Expected CPL | Notes              |
+| ------------ | -------- | ------------ | ------------------ |
+| Google CA    | 35%      | $80-150      | Canadian targeting |
+| LinkedIn     | 30%      | $100-180     | B2B focus          |
+| SEO          | 20%      | $40          | Canadian content   |
+| Partnerships | 15%      | Variable     | Local credibility  |
 
 ---
 

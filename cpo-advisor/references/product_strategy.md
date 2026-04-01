@@ -8,7 +8,7 @@ Frameworks for product vision, competitive positioning, portfolio management, an
 
 ### Jobs to Be Done (JTBD)
 
-JTBD is not a feature framework. It's a way to understand *why* customers hire your product and under what circumstances.
+JTBD is not a feature framework. It's a way to understand _why_ customers hire your product and under what circumstances.
 
 **The core insight:** People don't want your product. They want to make progress in their lives, and they hire your product to help. When you understand the job, you understand competition differently.
 
@@ -17,6 +17,7 @@ JTBD is not a feature framework. It's a way to understand *why* customers hire y
 **Who to interview:** Recent buyers and recent churners. Not power users — they're already converted.
 
 **The interview script (condensed):**
+
 ```
 1. "Walk me through the last time you [started using / stopped using] this product."
 2. "What were you doing the day before you decided?"
@@ -26,6 +27,7 @@ JTBD is not a feature framework. It's a way to understand *why* customers hire y
 ```
 
 **What you're extracting:**
+
 - **Functional job:** What task are they accomplishing?
 - **Emotional job:** How do they feel during and after?
 - **Social job:** How are they perceived?
@@ -44,6 +46,7 @@ So I can [expected outcome].
 ```
 
 **Example (healthcare scheduling):**
+
 ```
 When I'm trying to coordinate my parent's care from another city,
 I want to see their upcoming appointments and have someone confirm changes,
@@ -54,13 +57,13 @@ This is a different product than "schedule management software." The strategic i
 
 #### JTBD → Product Strategy
 
-| Job Insight | Strategic Implication |
-|-------------|----------------------|
-| Job is episodic (quarterly) | Engagement model must reach them before they need it |
-| Job is habitual (daily) | DAU/MAU matters; build for habit formation |
-| Job has high stakes | Trust and reliability > features; invest in onboarding + support |
-| Job is social | Network effects possible; virality is structural, not a campaign |
-| Job is delegated (done for someone else) | Two users: the buyer and the beneficiary. Design for both. |
+| Job Insight                              | Strategic Implication                                            |
+| ---------------------------------------- | ---------------------------------------------------------------- |
+| Job is episodic (quarterly)              | Engagement model must reach them before they need it             |
+| Job is habitual (daily)                  | DAU/MAU matters; build for habit formation                       |
+| Job has high stakes                      | Trust and reliability > features; invest in onboarding + support |
+| Job is social                            | Network effects possible; virality is structural, not a campaign |
+| Job is delegated (done for someone else) | Two users: the buyer and the beneficiary. Design for both.       |
 
 ---
 
@@ -73,19 +76,22 @@ If you're fighting for share in an existing category, you're playing defense on 
 #### The Category Design Process
 
 **Step 1: Name the problem, not the solution.**
+
 ```
 Wrong: "We make AI-powered customer support software."
 Right: "The support team doesn't need more tickets. They need fewer problems."
 ```
 
 **Step 2: Define the enemy.**
-The enemy is the *old way* of solving the problem, not a competitor.
+The enemy is the _old way_ of solving the problem, not a competitor.
+
 - Salesforce's enemy: spreadsheets and disconnected tools (not Siebel)
 - Slack's enemy: email overload (not HipChat)
-- Your enemy: ___________
+- Your enemy: ****\_\_\_****
 
 **Step 3: Create the category name.**
 It should be obvious in hindsight, not predictable in advance. Test it:
+
 - Does it describe the problem, not the solution?
 - Is it 2-3 words?
 - Could a journalist use it without quoting you?
@@ -113,6 +119,7 @@ The product becomes more valuable as more users join. Two subtypes:
 **Data network effects:** More users → more data → better product → more users.
 
 #### Network Effect Diagnostic
+
 ```
 Question 1: Does adding user N make the product better for user N-1?
   No  → You don't have direct network effects
@@ -128,6 +135,7 @@ Question 3: Does using the product generate data that improves the product?
 ```
 
 **Building network effects intentionally:**
+
 - Most products accidentally have weak network effects
 - Design for network effects from Day 1: sharing, notifications, collaboration, integrations
 - Measure network effect strength: "What % of new users were referred by existing users?"
@@ -136,13 +144,13 @@ Question 3: Does using the product generate data that improves the product?
 
 The cost — time, money, risk — of leaving your product. The highest switching costs are:
 
-| Switching Cost Type | Example | CPO Action |
-|--------------------|---------|-----------|
-| **Data lock-in** | Years of history, reports, trained models | Make data the experience, not just the storage |
-| **Workflow integration** | 23 integrations, custom automations | Every integration is a switching cost. Build them. |
-| **Team adoption** | Entire team trained on your tool | Multi-seat training investments pay switching cost dividends |
-| **Contractual** | Annual contracts, SLAs | Long contracts are not a moat — customers resent them |
-| **Process embedding** | Your product IS their process | Aim here. This is the deepest moat. |
+| Switching Cost Type      | Example                                   | CPO Action                                                   |
+| ------------------------ | ----------------------------------------- | ------------------------------------------------------------ |
+| **Data lock-in**         | Years of history, reports, trained models | Make data the experience, not just the storage               |
+| **Workflow integration** | 23 integrations, custom automations       | Every integration is a switching cost. Build them.           |
+| **Team adoption**        | Entire team trained on your tool          | Multi-seat training investments pay switching cost dividends |
+| **Contractual**          | Annual contracts, SLAs                    | Long contracts are not a moat — customers resent them        |
+| **Process embedding**    | Your product IS their process             | Aim here. This is the deepest moat.                          |
 
 **Warning:** Switching costs from data lock-in without value lock-in breed resentment, not loyalty. Customers who stay because they're trapped will leave the moment a migration tool appears.
 
@@ -157,6 +165,7 @@ Having data others can't easily get. Three subtypes:
 **Data variety:** Unique combination of data types. Not just usage data — usage + outcome data + external context.
 
 **Testing your data moat:**
+
 ```
 1. What data do we have that competitors don't?
 2. At what volume does our data create a meaningfully better product?
@@ -203,7 +212,7 @@ Total: __/27
 
 ## 3. Product Positioning
 
-Positioning is not messaging. Positioning is the choice of: *Who is this for, what does it replace, and on what dimension do we win?*
+Positioning is not messaging. Positioning is the choice of: _Who is this for, what does it replace, and on what dimension do we win?_
 
 ### The Positioning Canvas (after April Dunford)
 
@@ -237,6 +246,7 @@ Positioning is not messaging. Positioning is the choice of: *Who is this for, wh
 
 **Positioning vs. direct competitor:**
 Identify one dimension where you structurally win. "Better" is not a position.
+
 - Win on depth: more powerful in one scenario
 - Win on simplicity: fewer decisions, fewer steps
 - Win on integration: works with what they already use
@@ -244,25 +254,27 @@ Identify one dimension where you structurally win. "Better" is not a position.
 
 **Positioning vs. indirect alternative:**
 The customer's current solution (spreadsheet, manual process, point solution).
+
 - Make switching cost obvious (what are they giving up per week?)
 - Make the switch simple (migration, onboarding, no data loss)
 - Find the "aha moment" fast (value before they revert)
 
 **Positioning vs. doing nothing:**
 The hardest competitor. Status quo has zero switching cost.
+
 - Quantify the cost of inaction (time, risk, revenue, competitive risk)
 - Find the trigger event that makes inaction intolerable
 - Show the risk is higher than the switch cost
 
 ### Positioning Failure Modes
 
-| Failure | Description | Fix |
-|---------|-------------|-----|
-| **For everyone** | No segment. "Any company that needs X." | Name the best-fit customer. |
-| **Feature positioning** | "The only tool with [feature X]" | Features are table stakes. Lead with outcome. |
-| **Vague differentiation** | "Easier, faster, better" | Measurable, specific, or don't say it. |
-| **Category misfit** | In a category where you can't win | Either own the category or name a new one |
-| **Lagging positioning** | Positioned for who you were, not who you are | Reposition every 18-24 months or after major product change |
+| Failure                   | Description                                  | Fix                                                         |
+| ------------------------- | -------------------------------------------- | ----------------------------------------------------------- |
+| **For everyone**          | No segment. "Any company that needs X."      | Name the best-fit customer.                                 |
+| **Feature positioning**   | "The only tool with [feature X]"             | Features are table stakes. Lead with outcome.               |
+| **Vague differentiation** | "Easier, faster, better"                     | Measurable, specific, or don't say it.                      |
+| **Category misfit**       | In a category where you can't win            | Either own the category or name a new one                   |
+| **Lagging positioning**   | Positioned for who you were, not who you are | Reposition every 18-24 months or after major product change |
 
 ---
 
@@ -273,12 +285,14 @@ The hardest competitor. Status quo has zero switching cost.
 BCG matrix was designed for business units. Applied to product lines:
 
 **Inputs:**
+
 - Market growth rate (industry growth, not your growth)
 - Relative market share (your share vs. largest competitor)
 - Revenue contribution (absolute)
 - Investment level (engineering + sales + marketing per product)
 
 **Calculation:**
+
 ```
 Market share ratio = Your market share / Largest competitor's market share
 Growth rate = Market CAGR (next 3 years estimate)
@@ -292,24 +306,28 @@ Dogs:           share ratio < 1.0, growth < 10%
 ### Portfolio Allocation Rules
 
 **Star products:**
+
 - Invest at or above market growth rate
 - Goal: maintain share leadership as market grows
 - Don't extract cash — reinvest
 - Metrics: market share trend, NPS, retention, feature velocity
 
 **Cash Cow products:**
+
 - Minimum investment to maintain market position
 - Goal: maximize free cash flow
 - Resist the urge to innovate — incremental improvements only
 - Metrics: gross margin, churn rate, support cost per customer
 
 **Question Mark products:**
+
 - Binary decision: invest to win or exit
 - "Maintain" is not a strategy for question marks — you lose share every quarter you're neutral
 - Set a deadline (2 quarters) and a threshold for investment decision
 - Metrics: share gain rate, customer acquisition efficiency
 
 **Dog products:**
+
 - Decision: sell, sunset, or bundle
 - Never "fix" a dog with more investment
 - Timeline to sunset: 6-12 months, migration plan for existing customers
@@ -336,6 +354,7 @@ Decision required: [Yes/No] | [What decision?]
 ### The Honest Portfolio Conversation
 
 Questions CPOs avoid but boards ask:
+
 - "Which product would we kill if we had to? What's stopping us?"
 - "Are we funding dogs because the team is attached or because there's a real plan?"
 - "What would our margins look like if we stopped investing in the bottom 2 products?"
@@ -348,6 +367,7 @@ Questions CPOs avoid but boards ask:
 ### What Good Looks Like
 
 Board product updates fail in three ways:
+
 1. Too much roadmap detail (feature list masquerading as strategy)
 2. No trend context (showing a number without showing if it's getting better or worse)
 3. No risks (all good news = no credibility)
@@ -355,6 +375,7 @@ Board product updates fail in three ways:
 ### The 5-Slide Board Product Update
 
 **Slide 1: North Star Metric**
+
 ```
 Title: Product Health — [Quarter]
 
@@ -370,6 +391,7 @@ Drivers (2-3 bullets):
 ```
 
 **Slide 2: Retention and PMF**
+
 ```
 Title: Product-Market Fit Evidence
 
@@ -382,6 +404,7 @@ Weakest segment: [Describe — and what we're doing about it]
 ```
 
 **Slide 3: Portfolio Status**
+
 ```
 Title: Portfolio — Invest / Maintain / Kill
 
@@ -396,6 +419,7 @@ Decisions needed from board: ___
 ```
 
 **Slide 4: Strategic Bets**
+
 ```
 Title: Bets This Half — [H1/H2]
 
@@ -410,6 +434,7 @@ Bet 2: [Name]
 ```
 
 **Slide 5: Top Risks**
+
 ```
 Title: Product Risks — [Quarter]
 
@@ -444,11 +469,11 @@ Risk 3: [Name]
 
 ## Quick Reference: Framework Summary
 
-| Need | Framework |
-|------|----------|
-| Why do customers use us? | Jobs to Be Done |
-| How do we define our market? | Category Design |
-| What's our structural advantage? | Moat Scorecard |
-| How do we position? | April Dunford Positioning Canvas |
-| Which products to fund? | BCG Matrix + Invest/Maintain/Kill |
-| How to report to the board? | 5-Slide Board Update |
+| Need                             | Framework                         |
+| -------------------------------- | --------------------------------- |
+| Why do customers use us?         | Jobs to Be Done                   |
+| How do we define our market?     | Category Design                   |
+| What's our structural advantage? | Moat Scorecard                    |
+| How do we position?              | April Dunford Positioning Canvas  |
+| Which products to fund?          | BCG Matrix + Invest/Maintain/Kill |
+| How to report to the board?      | 5-Slide Board Update              |

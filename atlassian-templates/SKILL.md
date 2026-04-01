@@ -12,6 +12,7 @@ Specialist in creating, modifying, and managing reusable templates and files for
 ## Workflows
 
 ### Template Creation Process
+
 1. **Discover**: Interview stakeholders to understand needs
 2. **Analyze**: Review existing content patterns
 3. **Design**: Create template structure and placeholders
@@ -25,6 +26,7 @@ Specialist in creating, modifying, and managing reusable templates and files for
 11. **Iterate**: Refine based on usage
 
 ### Template Modification Process
+
 1. **Assess**: Review change request and impact
 2. **Version**: Create new version, keep old available
 3. **Modify**: Update template structure/content
@@ -35,6 +37,7 @@ Specialist in creating, modifying, and managing reusable templates and files for
 8. **Archive**: Deprecate old version after transition; confirm deprecated template is unlisted, not deleted
 
 ### Blueprint Development
+
 1. Define blueprint scope and purpose
 2. Design multi-page structure
 3. Create page templates for each section
@@ -51,15 +54,17 @@ Specialist in creating, modifying, and managing reusable templates and files for
 See **TEMPLATES.md** for full reference tables and copy-paste-ready template structures. The following summarises the standard types this skill creates and maintains.
 
 ### Confluence Template Types
-| Template | Purpose | Key Macros Used |
-|----------|---------|-----------------|
-| **Meeting Notes** | Structured meeting records with agenda, decisions, and action items | `{date}`, `{tasks}`, `{panel}`, `{info}`, `{note}` |
-| **Project Charter** | Org-level project scope, stakeholder RACI, timeline, and budget | `{panel}`, `{status}`, `{timeline}`, `{info}` |
-| **Sprint Retrospective** | Agile ceremony template with What Went Well / Didn't Go Well / Actions | `{panel}`, `{expand}`, `{tasks}`, `{status}` |
-| **PRD** | Feature definition with goals, user stories, functional/non-functional requirements, and release plan | `{panel}`, `{status}`, `{jira}`, `{warning}` |
-| **Decision Log** | Structured option analysis with decision matrix and implementation tracking | `{panel}`, `{status}`, `{info}`, `{tasks}` |
+
+| Template                 | Purpose                                                                                               | Key Macros Used                                    |
+| ------------------------ | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| **Meeting Notes**        | Structured meeting records with agenda, decisions, and action items                                   | `{date}`, `{tasks}`, `{panel}`, `{info}`, `{note}` |
+| **Project Charter**      | Org-level project scope, stakeholder RACI, timeline, and budget                                       | `{panel}`, `{status}`, `{timeline}`, `{info}`      |
+| **Sprint Retrospective** | Agile ceremony template with What Went Well / Didn't Go Well / Actions                                | `{panel}`, `{expand}`, `{tasks}`, `{status}`       |
+| **PRD**                  | Feature definition with goals, user stories, functional/non-functional requirements, and release plan | `{panel}`, `{status}`, `{jira}`, `{warning}`       |
+| **Decision Log**         | Structured option analysis with decision matrix and implementation tracking                           | `{panel}`, `{status}`, `{info}`, `{tasks}`         |
 
 **Standard Sections** included across all Confluence templates:
+
 - Header panel with metadata (owner, date, status)
 - Clearly labelled content sections with inline placeholder instructions
 - Action items block using `{tasks}` macro
@@ -111,13 +116,15 @@ h2. Next Steps & Related Links
 ## Jira Templates Library
 
 ### Jira Template Types
-| Template | Purpose | Key Sections |
-|----------|---------|--------------|
+
+| Template       | Purpose                                            | Key Sections                                                                             |
+| -------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | **User Story** | Feature requests in As a / I want / So that format | Acceptance Criteria (Given/When/Then), Design links, Technical Notes, Definition of Done |
-| **Bug Report** | Defect capture with reproduction steps | Environment, Steps to Reproduce, Expected vs Actual Behavior, Severity, Workaround |
-| **Epic** | High-level initiative scope | Vision, Goals, Success Metrics, Story Breakdown, Dependencies, Timeline |
+| **Bug Report** | Defect capture with reproduction steps             | Environment, Steps to Reproduce, Expected vs Actual Behavior, Severity, Workaround       |
+| **Epic**       | High-level initiative scope                        | Vision, Goals, Success Metrics, Story Breakdown, Dependencies, Timeline                  |
 
 **Standard Sections** included across all Jira templates:
+
 - Clear summary line
 - Acceptance or success criteria as checkboxes
 - Related issues and dependencies block
@@ -143,6 +150,7 @@ h2. Next Steps & Related Links
 All MCP calls below use the exact parameter names expected by the Atlassian MCP server. Replace angle-bracket placeholders with real values before executing.
 
 **Create a Confluence page template:**
+
 ```json
 {
   "tool": "confluence_create_page",
@@ -157,6 +165,7 @@ All MCP calls below use the exact parameter names expected by the Atlassian MCP 
 ```
 
 **Update an existing template:**
+
 ```json
 {
   "tool": "confluence_update_page",
@@ -171,6 +180,7 @@ All MCP calls below use the exact parameter names expected by the Atlassian MCP 
 ```
 
 **Create a Jira issue description template (via field configuration):**
+
 ```json
 {
   "tool": "jira_update_field_configuration",
@@ -183,6 +193,7 @@ All MCP calls below use the exact parameter names expected by the Atlassian MCP 
 ```
 
 **Deploy template to multiple spaces (batch):**
+
 ```json
 // Repeat for each target space key
 {
@@ -206,6 +217,7 @@ All MCP calls below use the exact parameter names expected by the Atlassian MCP 
 ```
 
 **Validation checkpoint after deployment:**
+
 - Retrieve the created/updated page and assert it renders without macro errors
 - Check that `{jira}` embeds resolve against the target Jira project
 - Confirm `{tasks}` blocks are interactive in the published view
@@ -216,18 +228,21 @@ All MCP calls below use the exact parameter names expected by the Atlassian MCP 
 ## Best Practices & Governance
 
 **Org-Specific Standards:**
+
 - Track template versions with version notes in the page header
 - Mark outdated templates with a `{warning}` banner before archiving; archive (do not delete)
 - Maintain usage guides linked from each template
 - Gather feedback on a quarterly review cycle; incorporate usage metrics before deprecating
 
 **Quality Gates (apply before every deployment):**
+
 - Example content provided for each section
 - Tested with sample data in preview
 - Version comment added to change log
 - Feedback mechanism in place (comments enabled or linked survey)
 
 **Governance Process**:
+
 1. Request and justification
 2. Design and review
 3. Testing with pilot users
@@ -243,10 +258,10 @@ All MCP calls below use the exact parameter names expected by the Atlassian MCP 
 
 See **HANDOFFS.md** for the full handoff matrix. Summary:
 
-| Partner | Receives FROM | Sends TO |
-|---------|--------------|---------|
-| **Senior PM** | Template requirements, reporting templates, executive formats | Completed templates, usage analytics, optimization suggestions |
-| **Scrum Master** | Sprint ceremony needs, team-specific requests, retro format preferences | Sprint-ready templates, agile ceremony structures, velocity tracking templates |
-| **Jira Expert** | Issue template requirements, custom field display needs | Issue description templates, field config templates, JQL query templates |
-| **Confluence Expert** | Space-specific needs, global template requests, blueprint requirements | Configured page templates, blueprint structures, deployment plans |
-| **Atlassian Admin** | Org-wide standards, global deployment requirements, compliance templates | Global templates for approval, usage reports, compliance status |
+| Partner               | Receives FROM                                                            | Sends TO                                                                       |
+| --------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| **Senior PM**         | Template requirements, reporting templates, executive formats            | Completed templates, usage analytics, optimization suggestions                 |
+| **Scrum Master**      | Sprint ceremony needs, team-specific requests, retro format preferences  | Sprint-ready templates, agile ceremony structures, velocity tracking templates |
+| **Jira Expert**       | Issue template requirements, custom field display needs                  | Issue description templates, field config templates, JQL query templates       |
+| **Confluence Expert** | Space-specific needs, global template requests, blueprint requirements   | Configured page templates, blueprint structures, deployment plans              |
+| **Atlassian Admin**   | Org-wide standards, global deployment requirements, compliance templates | Global templates for approval, usage reports, compliance status                |

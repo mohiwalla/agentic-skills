@@ -20,14 +20,14 @@ Complete implementation framework for medical device risk management per ISO 149
 
 ### Risk Management Plan Content
 
-| Element | Requirement | Documentation |
-|---------|-------------|---------------|
-| Scope | Medical device and lifecycle stages covered | Scope statement |
-| Responsibilities | Personnel and authority assignments | Organization chart, RACI |
-| Review Requirements | Timing and triggers for reviews | Review schedule |
-| Acceptability Criteria | Risk acceptance matrix and policy | Risk acceptability criteria |
-| Verification Activities | Methods for control verification | Verification plan |
-| Production/Post-Production | Activities for ongoing risk management | Surveillance plan |
+| Element                    | Requirement                                 | Documentation               |
+| -------------------------- | ------------------------------------------- | --------------------------- |
+| Scope                      | Medical device and lifecycle stages covered | Scope statement             |
+| Responsibilities           | Personnel and authority assignments         | Organization chart, RACI    |
+| Review Requirements        | Timing and triggers for reviews             | Review schedule             |
+| Acceptability Criteria     | Risk acceptance matrix and policy           | Risk acceptability criteria |
+| Verification Activities    | Methods for control verification            | Verification plan           |
+| Production/Post-Production | Activities for ongoing risk management      | Surveillance plan           |
 
 ### Risk Management Plan Template
 
@@ -76,23 +76,24 @@ Effective Date: [Date]
 
 ### Risk Acceptability Criteria Definition
 
-| Risk Level | Definition | Action Required |
-|------------|------------|-----------------|
-| Broadly Acceptable | Risk so low that no action needed | Document and monitor |
-| ALARP (Tolerable) | Risk reduced as low as reasonably practicable | Verify ALARP, consider benefit |
-| Unacceptable | Risk exceeds acceptable threshold | Risk control mandatory |
+| Risk Level         | Definition                                    | Action Required                |
+| ------------------ | --------------------------------------------- | ------------------------------ |
+| Broadly Acceptable | Risk so low that no action needed             | Document and monitor           |
+| ALARP (Tolerable)  | Risk reduced as low as reasonably practicable | Verify ALARP, consider benefit |
+| Unacceptable       | Risk exceeds acceptable threshold             | Risk control mandatory         |
 
 ### Risk Matrix Example (5x5)
 
-| Probability \ Severity | Negligible | Minor | Serious | Critical | Catastrophic |
-|------------------------|------------|-------|---------|----------|--------------|
-| Frequent | Medium | High | High | Unacceptable | Unacceptable |
-| Probable | Low | Medium | High | High | Unacceptable |
-| Occasional | Low | Medium | Medium | High | High |
-| Remote | Low | Low | Medium | Medium | High |
-| Improbable | Low | Low | Low | Medium | Medium |
+| Probability \ Severity | Negligible | Minor  | Serious | Critical     | Catastrophic |
+| ---------------------- | ---------- | ------ | ------- | ------------ | ------------ |
+| Frequent               | Medium     | High   | High    | Unacceptable | Unacceptable |
+| Probable               | Low        | Medium | High    | High         | Unacceptable |
+| Occasional             | Low        | Medium | Medium  | High         | High         |
+| Remote                 | Low        | Low    | Medium  | Medium       | High         |
+| Improbable             | Low        | Low    | Low     | Medium       | Medium       |
 
 **Risk Level Actions:**
+
 - **Low (Acceptable):** Document, no action required
 - **Medium (ALARP):** Consider risk reduction, document rationale
 - **High (ALARP):** Risk reduction required unless ALARP demonstrated
@@ -104,35 +105,35 @@ Effective Date: [Date]
 
 ### Hazard Identification Methods
 
-| Method | Application | Standard Reference |
-|--------|-------------|-------------------|
-| FMEA | Component/subsystem failures | IEC 60812 |
-| FTA | System-level failure analysis | IEC 61025 |
-| HAZOP | Process hazard identification | IEC 61882 |
-| PHA | Preliminary hazard assessment | - |
-| Use FMEA | Use-related hazards | IEC 62366-1 |
+| Method   | Application                   | Standard Reference |
+| -------- | ----------------------------- | ------------------ |
+| FMEA     | Component/subsystem failures  | IEC 60812          |
+| FTA      | System-level failure analysis | IEC 61025          |
+| HAZOP    | Process hazard identification | IEC 61882          |
+| PHA      | Preliminary hazard assessment | -                  |
+| Use FMEA | Use-related hazards           | IEC 62366-1        |
 
 ### Intended Use Analysis Checklist
 
-| Category | Questions to Address |
-|----------|---------------------|
-| Medical Purpose | What condition is treated/diagnosed? |
-| Patient Population | Age, health status, contraindications? |
-| User Population | Healthcare professional, patient, caregiver? |
-| Use Environment | Hospital, home, ambulatory? |
-| Duration | Single use, repeated, continuous? |
-| Body Contact | External, internal, implanted? |
+| Category           | Questions to Address                         |
+| ------------------ | -------------------------------------------- |
+| Medical Purpose    | What condition is treated/diagnosed?         |
+| Patient Population | Age, health status, contraindications?       |
+| User Population    | Healthcare professional, patient, caregiver? |
+| Use Environment    | Hospital, home, ambulatory?                  |
+| Duration           | Single use, repeated, continuous?            |
+| Body Contact       | External, internal, implanted?               |
 
 ### Hazard Categories (Informative Annex C)
 
-| Category | Examples |
-|----------|----------|
-| Energy | Electrical, thermal, mechanical, radiation |
-| Biological | Bioburden, pyrogens, biocompatibility |
-| Chemical | Residues, degradation products, leachables |
-| Operational | Incorrect output, delayed function, unexpected operation |
-| Information | Incomplete instructions, inadequate warnings |
-| Use Environment | Electromagnetic, mechanical stress |
+| Category        | Examples                                                 |
+| --------------- | -------------------------------------------------------- |
+| Energy          | Electrical, thermal, mechanical, radiation               |
+| Biological      | Bioburden, pyrogens, biocompatibility                    |
+| Chemical        | Residues, degradation products, leachables               |
+| Operational     | Incorrect output, delayed function, unexpected operation |
+| Information     | Incomplete instructions, inadequate warnings             |
+| Use Environment | Electromagnetic, mechanical stress                       |
 
 ### Hazardous Situation Documentation
 
@@ -156,23 +157,23 @@ Initial Risk = Risk before controls
 
 **Probability Categories:**
 
-| Level | Term | Definition | Frequency |
-|-------|------|------------|-----------|
-| 5 | Frequent | Expected to occur | >10⁻³ |
-| 4 | Probable | Likely to occur | 10⁻³ to 10⁻⁴ |
-| 3 | Occasional | May occur | 10⁻⁴ to 10⁻⁵ |
-| 2 | Remote | Unlikely to occur | 10⁻⁵ to 10⁻⁶ |
-| 1 | Improbable | Very unlikely | <10⁻⁶ |
+| Level | Term       | Definition        | Frequency    |
+| ----- | ---------- | ----------------- | ------------ |
+| 5     | Frequent   | Expected to occur | >10⁻³        |
+| 4     | Probable   | Likely to occur   | 10⁻³ to 10⁻⁴ |
+| 3     | Occasional | May occur         | 10⁻⁴ to 10⁻⁵ |
+| 2     | Remote     | Unlikely to occur | 10⁻⁵ to 10⁻⁶ |
+| 1     | Improbable | Very unlikely     | <10⁻⁶        |
 
 **Severity Categories:**
 
-| Level | Term | Definition | Patient Impact |
-|-------|------|------------|----------------|
-| 5 | Catastrophic | Results in death | Death |
-| 4 | Critical | Results in permanent impairment | Permanent impairment |
-| 3 | Serious | Results in injury requiring intervention | Injury requiring treatment |
-| 2 | Minor | Results in temporary injury | Temporary discomfort |
-| 1 | Negligible | Inconvenience or temporary discomfort | No injury |
+| Level | Term         | Definition                               | Patient Impact             |
+| ----- | ------------ | ---------------------------------------- | -------------------------- |
+| 5     | Catastrophic | Results in death                         | Death                      |
+| 4     | Critical     | Results in permanent impairment          | Permanent impairment       |
+| 3     | Serious      | Results in injury requiring intervention | Injury requiring treatment |
+| 2     | Minor        | Results in temporary injury              | Temporary discomfort       |
+| 1     | Negligible   | Inconvenience or temporary discomfort    | No injury                  |
 
 ---
 
@@ -189,22 +190,22 @@ Initial Risk = Risk before controls
 
 ### Risk Acceptability Decision
 
-| Initial Risk | Benefit Available | Decision |
-|--------------|-------------------|----------|
-| Acceptable | N/A | Accept, document |
-| ALARP | No | Verify ALARP |
-| ALARP | Yes | Include in benefit-risk |
-| Unacceptable | No | Design change required |
-| Unacceptable | Yes | Benefit-risk analysis |
+| Initial Risk | Benefit Available | Decision                |
+| ------------ | ----------------- | ----------------------- |
+| Acceptable   | N/A               | Accept, document        |
+| ALARP        | No                | Verify ALARP            |
+| ALARP        | Yes               | Include in benefit-risk |
+| Unacceptable | No                | Design change required  |
+| Unacceptable | Yes               | Benefit-risk analysis   |
 
 ### ALARP Demonstration
 
-| Criterion | Evidence Required |
-|-----------|-------------------|
-| Technical feasibility | Analysis of alternatives |
-| Economic proportionality | Cost-benefit assessment |
-| State of the art | Review of similar devices |
-| User acceptance | Stakeholder input |
+| Criterion                | Evidence Required         |
+| ------------------------ | ------------------------- |
+| Technical feasibility    | Analysis of alternatives  |
+| Economic proportionality | Cost-benefit assessment   |
+| State of the art         | Review of similar devices |
+| User acceptance          | Stakeholder input         |
 
 ---
 
@@ -212,11 +213,11 @@ Initial Risk = Risk before controls
 
 ### Risk Control Hierarchy
 
-| Priority | Control Type | Examples |
-|----------|--------------|----------|
-| 1 | Inherent safety by design | Remove hazard, substitute material |
-| 2 | Protective measures in device | Guards, alarms, software limits |
-| 3 | Information for safety | Warnings, training, IFU |
+| Priority | Control Type                  | Examples                           |
+| -------- | ----------------------------- | ---------------------------------- |
+| 1        | Inherent safety by design     | Remove hazard, substitute material |
+| 2        | Protective measures in device | Guards, alarms, software limits    |
+| 3        | Information for safety        | Warnings, training, IFU            |
 
 ### Risk Control Option Analysis
 
@@ -271,12 +272,12 @@ Approved By: _________________ Date: _______
 
 ### Risk Control Verification Methods
 
-| Method | Application | Evidence |
-|--------|-------------|----------|
-| Test | Quantifiable control effectiveness | Test report |
-| Inspection | Physical control presence | Inspection record |
-| Analysis | Design analysis confirmation | Analysis report |
-| Review | Document/drawing review | Review record |
+| Method     | Application                        | Evidence          |
+| ---------- | ---------------------------------- | ----------------- |
+| Test       | Quantifiable control effectiveness | Test report       |
+| Inspection | Physical control presence          | Inspection record |
+| Analysis   | Design analysis confirmation       | Analysis report   |
+| Review     | Document/drawing review            | Review record     |
 
 ---
 
@@ -293,13 +294,13 @@ Approved By: _________________ Date: _______
 
 ### Benefit-Risk Analysis
 
-| Factor | Assessment |
-|--------|------------|
-| Clinical Benefit | Documented therapeutic benefit |
-| State of the Art | Comparison to alternative treatments |
-| Patient Expectation | Benefit patient would accept |
-| Medical Opinion | Clinical expert input |
-| Risk Quantification | Residual risk characterization |
+| Factor              | Assessment                           |
+| ------------------- | ------------------------------------ |
+| Clinical Benefit    | Documented therapeutic benefit       |
+| State of the Art    | Comparison to alternative treatments |
+| Patient Expectation | Benefit patient would accept         |
+| Medical Opinion     | Clinical expert input                |
+| Risk Quantification | Residual risk characterization       |
 
 ### Benefit-Risk Documentation
 
@@ -345,13 +346,13 @@ Approved By: _________________ Date: _______
 
 ### Report Content Requirements
 
-| Section | Content |
-|---------|---------|
+| Section                  | Content                                 |
+| ------------------------ | --------------------------------------- |
 | Results of Risk Analysis | Summary of hazards and risks identified |
-| Risk Control Decisions | Controls selected and implemented |
-| Overall Residual Risk | Evaluation and acceptability conclusion |
-| Benefit-Risk Conclusion | If applicable |
-| Review and Approval | Formal sign-off |
+| Risk Control Decisions   | Controls selected and implemented       |
+| Overall Residual Risk    | Evaluation and acceptability conclusion |
+| Benefit-Risk Conclusion  | If applicable                           |
+| Review and Approval      | Formal sign-off                         |
 
 ### Risk Management Report Template
 
@@ -414,25 +415,25 @@ Date: [Date]
 
 ### Information Sources
 
-| Source | Information Type | Review Frequency |
-|--------|------------------|------------------|
-| Complaints | Use-related issues, failures | Continuous |
-| Service Reports | Field failures, repairs | Monthly |
-| Vigilance Reports | Serious incidents | Immediate |
-| Literature | Similar device issues | Quarterly |
-| Regulatory Feedback | Authority communications | As received |
-| Clinical Data | Post-market clinical follow-up | Per PMCF plan |
+| Source              | Information Type               | Review Frequency |
+| ------------------- | ------------------------------ | ---------------- |
+| Complaints          | Use-related issues, failures   | Continuous       |
+| Service Reports     | Field failures, repairs        | Monthly          |
+| Vigilance Reports   | Serious incidents              | Immediate        |
+| Literature          | Similar device issues          | Quarterly        |
+| Regulatory Feedback | Authority communications       | As received      |
+| Clinical Data       | Post-market clinical follow-up | Per PMCF plan    |
 
 ### Risk Management File Update Triggers
 
-| Trigger | Action Required |
-|---------|-----------------|
-| New hazard identified | Risk analysis update |
-| Control failure | Risk control reassessment |
-| Serious incident | Immediate risk review |
-| Design change | Impact assessment |
-| Standards update | Compliance review |
-| Regulatory feedback | Risk evaluation update |
+| Trigger               | Action Required           |
+| --------------------- | ------------------------- |
+| New hazard identified | Risk analysis update      |
+| Control failure       | Risk control reassessment |
+| Serious incident      | Immediate risk review     |
+| Design change         | Impact assessment         |
+| Standards update      | Compliance review         |
+| Regulatory feedback   | Risk evaluation update    |
 
 ### Risk Management Review Record
 

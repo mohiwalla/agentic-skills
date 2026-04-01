@@ -36,12 +36,12 @@ A spec has 8 mandatory sections. If a section does not apply, write "N/A — [re
 
 ### Status Lifecycle
 
-| Status | Meaning | Who Can Change |
-|--------|---------|----------------|
-| Draft | Author is still writing. Not ready for review. | Author |
-| In Review | Ready for feedback. Implementation blocked. | Author |
-| Approved | Reviewed and accepted. Implementation may begin. | Reviewer |
-| Superseded | Replaced by a newer spec. Link to replacement. | Author |
+| Status     | Meaning                                          | Who Can Change |
+| ---------- | ------------------------------------------------ | -------------- |
+| Draft      | Author is still writing. Not ready for review.   | Author         |
+| In Review  | Ready for feedback. Implementation blocked.      | Author         |
+| Approved   | Reviewed and accepted. Implementation may begin. | Reviewer       |
+| Superseded | Replaced by a newer spec. Link to replacement.   | Author         |
 
 **Rule:** Implementation MUST NOT begin until status is "Approved."
 
@@ -97,17 +97,18 @@ and need to reset them. We should build this.
 
 These keywords have precise meanings per [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt). Do not use them casually.
 
-| Keyword | Meaning | Testing Implication |
-|---------|---------|---------------------|
-| **MUST** | Absolute requirement. The implementation is non-conformant without this. | Must have a passing test. Failure = release blocker. |
-| **MUST NOT** | Absolute prohibition. Doing this = broken implementation. | Must have a test proving this cannot happen. |
-| **SHOULD** | Strongly recommended. Can be omitted only with documented justification. | Should have a test. Omission requires written rationale. |
-| **SHOULD NOT** | Strongly discouraged. Can be done only with documented justification. | Should have a test confirming the behavior does not occur. |
-| **MAY** | Truly optional. Implementer's discretion. | Test is optional. Document if implemented. |
+| Keyword        | Meaning                                                                  | Testing Implication                                        |
+| -------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| **MUST**       | Absolute requirement. The implementation is non-conformant without this. | Must have a passing test. Failure = release blocker.       |
+| **MUST NOT**   | Absolute prohibition. Doing this = broken implementation.                | Must have a test proving this cannot happen.               |
+| **SHOULD**     | Strongly recommended. Can be omitted only with documented justification. | Should have a test. Omission requires written rationale.   |
+| **SHOULD NOT** | Strongly discouraged. Can be done only with documented justification.    | Should have a test confirming the behavior does not occur. |
+| **MAY**        | Truly optional. Implementer's discretion.                                | Test is optional. Document if implemented.                 |
 
 ### Writing Good Requirements
 
 **Each requirement MUST be:**
+
 1. **Atomic** — One behavior per requirement. Not "The system MUST authenticate users and log them in."
 2. **Testable** — You can write a test that proves it works or does not.
 3. **Numbered** — Sequential FR-N format for traceability.
@@ -146,6 +147,7 @@ Non-functional requirements define quality attributes. Every requirement needs a
 ### Categories
 
 #### Performance
+
 ```markdown
 - NFR-P1: Login API MUST respond in < 500ms (p95) under 1,000 concurrent users.
 - NFR-P2: Dashboard page MUST achieve Largest Contentful Paint < 2.5s.
@@ -155,6 +157,7 @@ Non-functional requirements define quality attributes. Every requirement needs a
 **Bad:** "The system should be fast." (Not measurable.)
 
 #### Security
+
 ```markdown
 - NFR-S1: All API endpoints MUST require authentication except /health and /login.
 - NFR-S2: Failed login attempts MUST be rate-limited to 5 per minute per IP.
@@ -163,6 +166,7 @@ Non-functional requirements define quality attributes. Every requirement needs a
 ```
 
 #### Accessibility
+
 ```markdown
 - NFR-A1: All form inputs MUST have associated labels (WCAG 1.3.1).
 - NFR-A2: Color contrast MUST meet 4.5:1 ratio (WCAG 1.4.3).
@@ -170,12 +174,14 @@ Non-functional requirements define quality attributes. Every requirement needs a
 ```
 
 #### Scalability
+
 ```markdown
 - NFR-SC1: The system SHOULD handle 50,000 registered users.
 - NFR-SC2: Database queries MUST use indexes; no full table scans on tables > 10K rows.
 ```
 
 #### Reliability
+
 ```markdown
 - NFR-R1: The authentication service MUST maintain 99.9% uptime (< 8.77h downtime/year).
 - NFR-R2: Data MUST NOT be lost on service restart (durable storage required).
@@ -198,7 +204,7 @@ And   [additional outcome — and also this]
 
 ### Rules for Acceptance Criteria
 
-1. **Every AC MUST reference at least one FR-* or NFR-*.** Orphaned criteria indicate missing requirements.
+1. **Every AC MUST reference at least one FR-_ or NFR-_.** Orphaned criteria indicate missing requirements.
 2. **Every AC MUST be testable by a machine.** If you cannot write an automated test, rewrite the criterion.
 3. **No subjective language.** Not "should look good" but "MUST render within the design-system grid."
 4. **One scenario per AC.** If you have multiple Given/When/Then blocks, split into separate ACs.
@@ -207,6 +213,7 @@ And   [additional outcome — and also this]
 
 ```markdown
 ### AC-1: Successful login (FR-1, FR-3)
+
 Given a registered user with email "user@example.com" and password "P@ssw0rd123"
 When they POST /api/auth/login with those credentials
 Then they receive a 200 response with a valid JWT token
@@ -214,6 +221,7 @@ And the token expires in 24 hours
 And the response includes the user's display name
 
 ### AC-2: Invalid password (FR-1)
+
 Given a registered user with email "user@example.com"
 When they POST /api/auth/login with an incorrect password
 Then they receive a 401 response
@@ -221,6 +229,7 @@ And the response body contains error "INVALID_CREDENTIALS"
 And no token is issued
 
 ### AC-3: Short password rejected on registration (FR-2)
+
 Given a new user attempting to register
 When they submit a password with 7 characters
 Then they receive a 400 response
@@ -230,12 +239,12 @@ And the account is not created
 
 ### Common Mistakes
 
-| Mistake | Example | Fix |
-|---------|---------|-----|
-| Vague outcome | "Then the system works correctly" | "Then the response status is 200 and body contains {field: value}" |
+| Mistake              | Example                                   | Fix                                                                  |
+| -------------------- | ----------------------------------------- | -------------------------------------------------------------------- |
+| Vague outcome        | "Then the system works correctly"         | "Then the response status is 200 and body contains {field: value}"   |
 | Missing precondition | "When user logs in, then token is issued" | "Given a registered user, when they POST valid credentials, then..." |
-| Multiple scenarios | AC with 3 different When clauses | Split into 3 separate ACs |
-| No FR reference | "AC-5: User sees dashboard" | "AC-5: User sees dashboard (FR-7)" |
+| Multiple scenarios   | AC with 3 different When clauses          | Split into 3 separate ACs                                            |
+| No FR reference      | "AC-5: User sees dashboard"               | "AC-5: User sees dashboard (FR-7)"                                   |
 
 ---
 
@@ -262,6 +271,7 @@ And the account is not created
 ### Coverage Rule
 
 For every external dependency, specify at least one failure:
+
 - Database: connection lost, timeout, constraint violation
 - API: 4xx, 5xx, timeout, invalid response
 - File system: file not found, permission denied, disk full
@@ -277,16 +287,17 @@ Use TypeScript-style interfaces. They are readable by both frontend and backend 
 
 ```typescript
 interface CreateUserRequest {
-  email: string;         // MUST be valid email, max 255 chars
-  password: string;      // MUST be 8-128 chars
-  displayName: string;   // MUST be 1-100 chars, no HTML
-  role?: "user" | "admin"; // Default: "user"
+  email: string // MUST be valid email, max 255 chars
+  password: string // MUST be 8-128 chars
+  displayName: string // MUST be 1-100 chars, no HTML
+  role?: "user" | "admin" // Default: "user"
 }
 ```
 
 ### What to Define
 
 For each endpoint:
+
 1. **HTTP method and path** (e.g., POST /api/users)
 2. **Request body** (fields, types, constraints, defaults)
 3. **Success response** (status code, body shape)
@@ -297,13 +308,14 @@ For each endpoint:
 
 ```typescript
 interface ApiError {
-  error: string;         // Machine-readable code: "INVALID_CREDENTIALS"
-  message: string;       // Human-readable: "The email or password is incorrect."
-  details?: Record<string, string>;  // Field-level errors for validation
+  error: string // Machine-readable code: "INVALID_CREDENTIALS"
+  message: string // Human-readable: "The email or password is incorrect."
+  details?: Record<string, string> // Field-level errors for validation
 }
 ```
 
 Always include:
+
 - 400 for validation errors
 - 401 for authentication failures
 - 403 for authorization failures
@@ -320,16 +332,17 @@ Always include:
 
 ```markdown
 ### User
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | PK, auto-generated, immutable |
-| email | varchar(255) | Unique, not null, valid email |
-| passwordHash | varchar(60) | Not null, bcrypt, never in API responses |
-| displayName | varchar(100) | Not null |
-| role | enum('user','admin') | Default: 'user' |
-| createdAt | timestamp | UTC, immutable, auto-set |
-| updatedAt | timestamp | UTC, auto-updated |
-| deletedAt | timestamp | Null unless soft-deleted |
+
+| Field        | Type                 | Constraints                              |
+| ------------ | -------------------- | ---------------------------------------- |
+| id           | UUID                 | PK, auto-generated, immutable            |
+| email        | varchar(255)         | Unique, not null, valid email            |
+| passwordHash | varchar(60)          | Not null, bcrypt, never in API responses |
+| displayName  | varchar(100)         | Not null                                 |
+| role         | enum('user','admin') | Default: 'user'                          |
+| createdAt    | timestamp            | UTC, immutable, auto-set                 |
+| updatedAt    | timestamp            | UTC, auto-updated                        |
+| deletedAt    | timestamp            | Null unless soft-deleted                 |
 ```
 
 ### Rules
@@ -455,22 +468,26 @@ Support receives ~200 password reset requests per week, costing approximately
 ## Acceptance Criteria
 
 ### AC-1: Request reset (FR-1, FR-5)
+
 Given a user on the password reset page
 When they enter any email address and submit
 Then they see "If an account exists, a reset link has been sent"
 And the response is identical whether the email exists or not
 
 ### AC-2: Valid reset link (FR-2)
+
 Given a user who received a reset email 30 minutes ago
 When they click the reset link
 Then they see the password reset form
 
 ### AC-3: Expired reset link (FR-2)
+
 Given a user who received a reset email 2 hours ago
 When they click the reset link
 Then they see "This link has expired. Please request a new one."
 
 ### AC-4: Previous links invalidated (FR-3)
+
 Given a user who requested two reset emails
 When they click the link from the first email
 Then they see "This link is no longer valid."

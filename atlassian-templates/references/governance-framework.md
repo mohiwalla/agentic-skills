@@ -9,6 +9,7 @@ Operational framework for managing template lifecycle — creation, updates, dep
 ### Roles
 
 **Template Owner** (1 per template):
+
 - Reviews usage dashboard on the 1st of each quarter
 - Archives templates with <5 uses in the past 90 days
 - Responds to change requests within 14 calendar days
@@ -16,25 +17,27 @@ Operational framework for managing template lifecycle — creation, updates, dep
 - Escalates to committee if change affects >50 users
 
 **Template Steward** (1 per team/domain):
+
 - Runs monthly usage pull: `CQL: type = page AND label = "template-{name}" AND created >= "now-30d"`
 - Flags templates where >30% of users delete or heavily modify a section (indicates friction)
 - Collects and triages feedback — tags Jira tickets with `template-change` and links to template page
 
 **Template Committee** (3-5 people, for orgs with 20+ templates):
+
 - Meets quarterly (45 min max): reviews new proposals, resolves conflicts, flags duplicates
 - Decision rule: approve if template serves >1 team and doesn't duplicate existing template by >60% content overlap
 - Publishes quarterly "Template Health" Confluence page with adoption rates and actions taken
 
 ### Assignment Matrix
 
-| Template Category | Owner Role | Steward Role |
-|------------------|-----------|-------------|
-| Engineering templates | Engineering Manager | Senior Engineer |
-| Product templates | Head of Product | Senior PM |
-| Meeting templates | Operations Lead | EA/Admin |
-| Project templates | PMO Lead | Senior PM |
-| HR/People templates | HR Director | HR Coordinator |
-| Company-wide templates | Operations Lead | Template Committee |
+| Template Category      | Owner Role          | Steward Role       |
+| ---------------------- | ------------------- | ------------------ |
+| Engineering templates  | Engineering Manager | Senior Engineer    |
+| Product templates      | Head of Product     | Senior PM          |
+| Meeting templates      | Operations Lead     | EA/Admin           |
+| Project templates      | PMO Lead            | Senior PM          |
+| HR/People templates    | HR Director         | HR Coordinator     |
+| Company-wide templates | Operations Lead     | Template Committee |
 
 ## Approval Workflow
 
@@ -97,31 +100,35 @@ Operational framework for managing template lifecycle — creation, updates, dep
 ### Impact Categories
 
 **Low Impact (Owner decides):**
+
 - Typo fixes and formatting improvements
 - Clarifying existing instructions
 - Adding optional sections
 
 **Medium Impact (Owner + 1 reviewer):**
+
 - Adding new required sections
 - Changing variable names or structure
 - Updating macro usage
 
 **High Impact (Committee review):**
+
 - Removing sections from widely-used templates
 - Merging or splitting templates
 - Changing organizational template standards
 
 ### Communication Plan
 
-| Change Type | Communication | Timeline |
-|------------|---------------|----------|
-| Low impact | Changelog update | Same day |
-| Medium impact | Team channel announcement | 1 week notice |
-| High impact | Email + meeting + migration guide | 2-4 weeks notice |
+| Change Type   | Communication                     | Timeline         |
+| ------------- | --------------------------------- | ---------------- |
+| Low impact    | Changelog update                  | Same day         |
+| Medium impact | Team channel announcement         | 1 week notice    |
+| High impact   | Email + meeting + migration guide | 2-4 weeks notice |
 
 ## Deprecation Process
 
 ### When to Deprecate
+
 - Template replaced by a better alternative
 - Process the template supports has been retired
 - Template has zero usage in the past 6 months
@@ -150,12 +157,12 @@ Operational framework for managing template lifecycle — creation, updates, dep
 
 ### Metrics & Thresholds
 
-| Metric | Healthy | Flagged | Deprecate |
-|--------|---------|---------|-----------|
-| Pages created/month | >10 | 3-10 | <3 for 2 consecutive quarters |
-| Unique users/month | >5 | 2-5 | 0-1 for 90 days |
-| Section deletion rate | <10% | 10-30% | >30% (users removing sections = template mismatch) |
-| Time to first use (new templates) | <7 days | 7-30 days | >30 days (failed launch, re-announce or rethink) |
+| Metric                            | Healthy | Flagged   | Deprecate                                          |
+| --------------------------------- | ------- | --------- | -------------------------------------------------- |
+| Pages created/month               | >10     | 3-10      | <3 for 2 consecutive quarters                      |
+| Unique users/month                | >5      | 2-5       | 0-1 for 90 days                                    |
+| Section deletion rate             | <10%    | 10-30%    | >30% (users removing sections = template mismatch) |
+| Time to first use (new templates) | <7 days | 7-30 days | >30 days (failed launch, re-announce or rethink)   |
 
 ### Tracking via CQL
 
@@ -171,6 +178,7 @@ type = page AND label = "template-*" ORDER BY created DESC
 ```
 
 ### Reporting
+
 - **Monthly:** Top 10 templates by usage → auto-generated Confluence table
 - **Quarterly:** Flag templates below thresholds → owner action required within 14 days
 - **Annually:** Full catalog review — archive anything with 0 uses in 6 months
@@ -178,6 +186,7 @@ type = page AND label = "template-*" ORDER BY created DESC
 ## Quality Standards
 
 ### Content Checklist (pass/fail per template)
+
 - [ ] Every section has placeholder text showing expected content (not just a heading)
 - [ ] No section references a process, tool, or team that no longer exists
 - [ ] All Jira macro JQL filters return results (test quarterly)
@@ -187,12 +196,14 @@ type = page AND label = "template-*" ORDER BY created DESC
 **FAIL examples:** Template says "Update the JIRA board" but team uses Linear. Template has a "QA Sign-Off" section but team has no QA role. Placeholder text says "TODO: add content here" with no guidance on what content.
 
 ### Structural Checklist
+
 - [ ] Metadata header: owner name, version (semver), status (`active`/`deprecated`/`draft`), last-reviewed date
 - [ ] Table of Contents macro if template has 4+ sections
 - [ ] Change History table at bottom (date, author, change description)
 - [ ] Placeholder text uses `{placeholder}` syntax or ac:placeholder macro — visually distinct from real content
 
 ### Maintenance Triggers
+
 - Template not reviewed in 90+ days → owner gets Jira ticket auto-created via automation
 - 3+ unresolved feedback items → escalate to committee
 - Broken macro detected → owner notified same day via Slack/email automation
@@ -200,6 +211,7 @@ type = page AND label = "template-*" ORDER BY created DESC
 ## Review Cadence
 
 ### Quarterly Review (Template Owner)
+
 - Review usage metrics
 - Address pending feedback
 - Update content for accuracy
@@ -207,6 +219,7 @@ type = page AND label = "template-*" ORDER BY created DESC
 - Update version number if changed
 
 ### Semi-Annual Review (Template Committee)
+
 - Review full template catalog
 - Identify gaps (missing templates)
 - Identify overlaps (duplicate templates)
@@ -216,6 +229,7 @@ type = page AND label = "template-*" ORDER BY created DESC
 ### Annual Review (Leadership — 60 min meeting)
 
 **Agenda:**
+
 1. (10 min) Catalog stats: total templates, usage trend YoY, templates added/deprecated
 2. (15 min) Top 5 templates by adoption — what makes them work
 3. (15 min) Bottom 5 templates — deprecate, rework, or retrain?
@@ -227,6 +241,7 @@ type = page AND label = "template-*" ORDER BY created DESC
 ## Getting Started
 
 ### For New Organizations
+
 1. Start with 5-10 essential templates (meeting notes, decision record, project plan)
 2. Assign owners for each template
 3. Establish basic quality standards

@@ -9,10 +9,10 @@ name: Accessibility Audit
 on:
   pull_request:
     paths:
-      - 'src/**/*.tsx'
-      - 'src/**/*.vue'
-      - 'src/**/*.html'
-      - 'src/**/*.svelte'
+      - "src/**/*.tsx"
+      - "src/**/*.vue"
+      - "src/**/*.html"
+      - "src/**/*.svelte"
 
 jobs:
   a11y-audit:
@@ -23,7 +23,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Run A11y Scanner
         run: |
@@ -91,17 +91,17 @@ a11y-audit:
 ```yaml
 # azure-pipelines.yml
 - task: PythonScript@0
-  displayName: 'Run A11y Audit'
+  displayName: "Run A11y Audit"
   inputs:
-    scriptSource: 'filePath'
-    scriptPath: 'scripts/a11y_scanner.py'
-    arguments: './src --json --output $(Build.ArtifactStagingDirectory)/a11y-results.json'
+    scriptSource: "filePath"
+    scriptPath: "scripts/a11y_scanner.py"
+    arguments: "./src --json --output $(Build.ArtifactStagingDirectory)/a11y-results.json"
 
 - task: PublishBuildArtifacts@1
   condition: always()
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/a11y-results.json'
-    ArtifactName: 'a11y-audit-report'
+    PathtoPublish: "$(Build.ArtifactStagingDirectory)/a11y-results.json"
+    ArtifactName: "a11y-audit-report"
 ```
 
 ## Pre-Commit Hook

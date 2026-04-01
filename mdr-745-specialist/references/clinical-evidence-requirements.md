@@ -18,22 +18,22 @@ MDR Annex XIV clinical evaluation and post-market clinical follow-up guidance.
 
 ### Evidence Hierarchy
 
-| Evidence Type | Strength | When to Use |
-|---------------|----------|-------------|
-| Randomized Controlled Trial | Highest | Novel Class III, high-risk claims |
-| Prospective cohort study | High | New technology, performance claims |
-| Retrospective analysis | Medium | Established technology, equivalence |
-| Literature review | Medium | Well-characterized, equivalent devices |
-| Expert opinion | Low | Supportive only, not primary |
+| Evidence Type               | Strength | When to Use                            |
+| --------------------------- | -------- | -------------------------------------- |
+| Randomized Controlled Trial | Highest  | Novel Class III, high-risk claims      |
+| Prospective cohort study    | High     | New technology, performance claims     |
+| Retrospective analysis      | Medium   | Established technology, equivalence    |
+| Literature review           | Medium   | Well-characterized, equivalent devices |
+| Expert opinion              | Low      | Supportive only, not primary           |
 
 ### Evidence Requirements by Class
 
-| Class | Minimum Evidence | Clinical Investigation |
-|-------|------------------|------------------------|
-| I | Risk-benefit analysis | Not typically required |
-| IIa | Literature + post-market data | May be required for novel tech |
-| IIb | Systematic literature review | Often required for claims |
-| III | Comprehensive clinical data | Required unless equivalent |
+| Class | Minimum Evidence              | Clinical Investigation         |
+| ----- | ----------------------------- | ------------------------------ |
+| I     | Risk-benefit analysis         | Not typically required         |
+| IIa   | Literature + post-market data | May be required for novel tech |
+| IIb   | Systematic literature review  | Often required for claims      |
+| III   | Comprehensive clinical data   | Required unless equivalent     |
 
 ### Clinical Evidence Pathway
 
@@ -131,44 +131,47 @@ Execute systematic literature review:
 
 ### Database Selection
 
-| Database | Coverage | Best For |
-|----------|----------|----------|
-| PubMed/MEDLINE | Biomedical literature | Primary clinical data |
-| Embase | Drugs, devices, biomedical | European studies |
-| Cochrane Library | Systematic reviews | Meta-analyses |
-| CINAHL | Nursing, allied health | User studies |
-| IEEE Xplore | Engineering | Technical performance |
-| Manufacturer data | Proprietary | Direct device data |
+| Database          | Coverage                   | Best For              |
+| ----------------- | -------------------------- | --------------------- |
+| PubMed/MEDLINE    | Biomedical literature      | Primary clinical data |
+| Embase            | Drugs, devices, biomedical | European studies      |
+| Cochrane Library  | Systematic reviews         | Meta-analyses         |
+| CINAHL            | Nursing, allied health     | User studies          |
+| IEEE Xplore       | Engineering                | Technical performance |
+| Manufacturer data | Proprietary                | Direct device data    |
 
 ### Data Appraisal Criteria
 
 Evaluate each source:
 
-| Criterion | Assessment | Score |
-|-----------|------------|-------|
-| Study design | RCT > cohort > case series | 1-5 |
-| Sample size | Statistical power adequate | 1-5 |
-| Follow-up duration | Sufficient for outcomes | 1-5 |
-| Population relevance | Matches IFU population | 1-5 |
-| Device equivalence | Technical, biological, clinical | 1-5 |
-| Bias risk | Low/medium/high | 1-5 |
+| Criterion            | Assessment                      | Score |
+| -------------------- | ------------------------------- | ----- |
+| Study design         | RCT > cohort > case series      | 1-5   |
+| Sample size          | Statistical power adequate      | 1-5   |
+| Follow-up duration   | Sufficient for outcomes         | 1-5   |
+| Population relevance | Matches IFU population          | 1-5   |
+| Device equivalence   | Technical, biological, clinical | 1-5   |
+| Bias risk            | Low/medium/high                 | 1-5   |
 
 ### Equivalence Assessment
 
 Demonstrate equivalence per MDCG 2020-5:
 
 **Technical equivalence:**
+
 - Similar design
 - Same materials
 - Same specifications
 - Same manufacturing process
 
 **Biological equivalence:**
+
 - Same tissue contact
 - Same biocompatibility
 - Same sterilization method
 
 **Clinical equivalence:**
+
 - Same intended purpose
 - Same clinical condition
 - Same patient population
@@ -203,16 +206,16 @@ Conduct clinical investigation:
 
 ### Clinical Investigation Plan Elements
 
-| Section | Content |
-|---------|---------|
-| Objectives | Primary and secondary endpoints |
-| Design | Randomized, controlled, blinded |
-| Population | Inclusion/exclusion criteria |
-| Sample size | Statistical justification |
-| Procedures | Visit schedule, assessments |
-| Endpoints | Safety and performance measures |
-| Analysis | Statistical methods |
-| Safety | Adverse event definitions, reporting |
+| Section     | Content                              |
+| ----------- | ------------------------------------ |
+| Objectives  | Primary and secondary endpoints      |
+| Design      | Randomized, controlled, blinded      |
+| Population  | Inclusion/exclusion criteria         |
+| Sample size | Statistical justification            |
+| Procedures  | Visit schedule, assessments          |
+| Endpoints   | Safety and performance measures      |
+| Analysis    | Statistical methods                  |
+| Safety      | Adverse event definitions, reporting |
 
 ### Ethics Committee Submission
 
@@ -245,26 +248,26 @@ Develop PMCF Plan per Annex XIV Part B:
 
 ### PMCF Methods
 
-| Method | Description | Best For |
-|--------|-------------|----------|
-| Literature review | Ongoing systematic search | Mature devices |
-| Survey | User/patient questionnaire | Real-world experience |
-| Registry | Multi-site data collection | Long-term outcomes |
-| PMCF study | Prospective clinical study | Specific questions |
-| Complaint analysis | Structured complaint review | Safety signals |
-| Vigilance data | MAUDE, EUDAMED analysis | Comparative safety |
+| Method             | Description                 | Best For              |
+| ------------------ | --------------------------- | --------------------- |
+| Literature review  | Ongoing systematic search   | Mature devices        |
+| Survey             | User/patient questionnaire  | Real-world experience |
+| Registry           | Multi-site data collection  | Long-term outcomes    |
+| PMCF study         | Prospective clinical study  | Specific questions    |
+| Complaint analysis | Structured complaint review | Safety signals        |
+| Vigilance data     | MAUDE, EUDAMED analysis     | Comparative safety    |
 
 ### PMCF Evaluation Report
 
 Update frequency:
 
-| Device Class | Update Frequency |
-|--------------|------------------|
-| Class III | Annual |
-| Class IIb implantable | Annual |
-| Class IIb | Every 2 years |
-| Class IIa | Every 2-5 years |
-| Class I | When clinically relevant |
+| Device Class          | Update Frequency         |
+| --------------------- | ------------------------ |
+| Class III             | Annual                   |
+| Class IIb implantable | Annual                   |
+| Class IIb             | Every 2 years            |
+| Class IIa             | Every 2-5 years          |
+| Class I               | When clinically relevant |
 
 ### PMCF Report Structure
 

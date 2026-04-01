@@ -56,6 +56,7 @@ So that [benefit/value].
 ```
 
 **Example:**
+
 ```
 As a marketing manager,
 I want to export campaign reports to PDF,
@@ -64,21 +65,21 @@ So that I can share results with stakeholders who don't have system access.
 
 ### Story Types
 
-| Type | Template | Example |
-|------|----------|---------|
-| Feature | As a [persona], I want to [action] so that [benefit] | As a user, I want to filter search results so that I find items faster |
-| Improvement | As a [persona], I need [capability] to [goal] | As a user, I need faster page loads to complete tasks without frustration |
-| Bug Fix | As a [persona], I expect [behavior] when [condition] | As a user, I expect my cart to persist when I refresh the page |
-| Enabler | As a developer, I need to [technical task] to enable [capability] | As a developer, I need to implement caching to enable instant search |
+| Type        | Template                                                          | Example                                                                   |
+| ----------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Feature     | As a [persona], I want to [action] so that [benefit]              | As a user, I want to filter search results so that I find items faster    |
+| Improvement | As a [persona], I need [capability] to [goal]                     | As a user, I need faster page loads to complete tasks without frustration |
+| Bug Fix     | As a [persona], I expect [behavior] when [condition]              | As a user, I expect my cart to persist when I refresh the page            |
+| Enabler     | As a developer, I need to [technical task] to enable [capability] | As a developer, I need to implement caching to enable instant search      |
 
 ### Persona Reference
 
-| Persona | Typical Needs | Context |
-|---------|--------------|---------|
-| End User | Efficiency, simplicity, reliability | Daily feature usage |
-| Administrator | Control, visibility, security | System management |
-| Power User | Automation, customization, shortcuts | Expert workflows |
-| New User | Guidance, learning, safety | Onboarding |
+| Persona       | Typical Needs                        | Context             |
+| ------------- | ------------------------------------ | ------------------- |
+| End User      | Efficiency, simplicity, reliability  | Daily feature usage |
+| Administrator | Control, visibility, security        | System management   |
+| Power User    | Automation, customization, shortcuts | Expert workflows    |
+| New User      | Guidance, learning, safety           | Onboarding          |
 
 ---
 
@@ -95,6 +96,7 @@ Then [expected outcome].
 ```
 
 **Examples:**
+
 ```
 Given the user is logged in with valid credentials,
 When they click the "Export" button,
@@ -113,22 +115,22 @@ Then the cart contents remain unchanged.
 
 Each story should include criteria for:
 
-| Category | Example |
-|----------|---------|
-| Happy Path | Given valid input, When submitted, Then success message displayed |
-| Validation | Should reject input when required field is empty |
-| Error Handling | Must show user-friendly message when API fails |
-| Performance | Should complete operation within 2 seconds |
-| Accessibility | Must be navigable via keyboard only |
+| Category       | Example                                                           |
+| -------------- | ----------------------------------------------------------------- |
+| Happy Path     | Given valid input, When submitted, Then success message displayed |
+| Validation     | Should reject input when required field is empty                  |
+| Error Handling | Must show user-friendly message when API fails                    |
+| Performance    | Should complete operation within 2 seconds                        |
+| Accessibility  | Must be navigable via keyboard only                               |
 
 ### Minimum Criteria by Story Size
 
 | Story Points | Minimum AC Count |
-|--------------|------------------|
-| 1-2 | 3-4 criteria |
-| 3-5 | 4-6 criteria |
-| 8 | 5-8 criteria |
-| 13+ | Split the story |
+| ------------ | ---------------- |
+| 1-2          | 3-4 criteria     |
+| 3-5          | 4-6 criteria     |
+| 8            | 5-8 criteria     |
+| 13+          | Split the story  |
 
 See `references/user-story-templates.md` for complete template library.
 
@@ -149,19 +151,20 @@ Break epics into deliverable sprint-sized stories:
 
 ### Splitting Techniques
 
-| Technique | When to Use | Example |
-|-----------|-------------|---------|
-| By workflow step | Linear process | "Checkout" → "Add to cart" + "Enter payment" + "Confirm order" |
-| By persona | Multiple user types | "Dashboard" → "Admin dashboard" + "User dashboard" |
-| By data type | Multiple inputs | "Import" → "Import CSV" + "Import Excel" |
-| By operation | CRUD functionality | "Manage users" → "Create" + "Edit" + "Delete" |
-| Happy path first | Risk reduction | "Feature" → "Basic flow" + "Error handling" + "Edge cases" |
+| Technique        | When to Use         | Example                                                        |
+| ---------------- | ------------------- | -------------------------------------------------------------- |
+| By workflow step | Linear process      | "Checkout" → "Add to cart" + "Enter payment" + "Confirm order" |
+| By persona       | Multiple user types | "Dashboard" → "Admin dashboard" + "User dashboard"             |
+| By data type     | Multiple inputs     | "Import" → "Import CSV" + "Import Excel"                       |
+| By operation     | CRUD functionality  | "Manage users" → "Create" + "Edit" + "Delete"                  |
+| Happy path first | Risk reduction      | "Feature" → "Basic flow" + "Error handling" + "Edge cases"     |
 
 ### Epic Example
 
 **Epic:** User Dashboard
 
 **Breakdown:**
+
 ```
 Epic: User Dashboard (34 points total)
 ├── US-001: View key metrics (5 pts) - End User
@@ -205,12 +208,12 @@ Stretch: 4 points (15% of 27)
 
 ### Availability Factors
 
-| Scenario | Factor |
-|----------|--------|
-| Full sprint, no PTO | 1.0 |
-| One team member out 50% | 0.9 |
-| Holiday during sprint | 0.8 |
-| Multiple members out | 0.7 |
+| Scenario                | Factor |
+| ----------------------- | ------ |
+| Full sprint, no PTO     | 1.0    |
+| One team member out 50% | 0.9    |
+| Holiday during sprint   | 0.8    |
+| Multiple members out    | 0.7    |
 
 ### Sprint Loading Template
 
@@ -241,34 +244,34 @@ Prioritize backlog using value and effort assessment.
 
 ### Priority Levels
 
-| Priority | Definition | Sprint Target |
-|----------|------------|---------------|
-| Critical | Blocking users, security, data loss | Immediate |
-| High | Core functionality, key user needs | This sprint |
-| Medium | Improvements, enhancements | Next 2-3 sprints |
-| Low | Nice-to-have, minor improvements | Backlog |
+| Priority | Definition                          | Sprint Target    |
+| -------- | ----------------------------------- | ---------------- |
+| Critical | Blocking users, security, data loss | Immediate        |
+| High     | Core functionality, key user needs  | This sprint      |
+| Medium   | Improvements, enhancements          | Next 2-3 sprints |
+| Low      | Nice-to-have, minor improvements    | Backlog          |
 
 ### Prioritization Factors
 
-| Factor | Weight | Questions |
-|--------|--------|-----------|
-| Business Value | 40% | Revenue impact? User demand? Strategic alignment? |
-| User Impact | 30% | How many users? How frequently used? |
-| Risk/Dependencies | 15% | Technical risk? External dependencies? |
-| Effort | 15% | Size? Complexity? Uncertainty? |
+| Factor            | Weight | Questions                                         |
+| ----------------- | ------ | ------------------------------------------------- |
+| Business Value    | 40%    | Revenue impact? User demand? Strategic alignment? |
+| User Impact       | 30%    | How many users? How frequently used?              |
+| Risk/Dependencies | 15%    | Technical risk? External dependencies?            |
+| Effort            | 15%    | Size? Complexity? Uncertainty?                    |
 
 ### INVEST Criteria Validation
 
 Before adding to sprint, validate each story:
 
-| Criterion | Question | Pass If... |
-|-----------|----------|------------|
-| **I**ndependent | Can this be developed without other uncommitted stories? | No blocking dependencies |
-| **N**egotiable | Is the implementation flexible? | Multiple approaches possible |
-| **V**aluable | Does this deliver user or business value? | Clear benefit in "so that" |
-| **E**stimable | Can the team estimate this? | Understood well enough to size |
-| **S**mall | Can this complete in one sprint? | ≤8 story points |
-| **T**estable | Can we verify this is done? | Clear acceptance criteria |
+| Criterion       | Question                                                 | Pass If...                     |
+| --------------- | -------------------------------------------------------- | ------------------------------ |
+| **I**ndependent | Can this be developed without other uncommitted stories? | No blocking dependencies       |
+| **N**egotiable  | Is the implementation flexible?                          | Multiple approaches possible   |
+| **V**aluable    | Does this deliver user or business value?                | Clear benefit in "so that"     |
+| **E**stimable   | Can the team estimate this?                              | Understood well enough to size |
+| **S**mall       | Can this complete in one sprint?                         | ≤8 story points                |
+| **T**estable    | Can we verify this is done?                              | Clear acceptance criteria      |
 
 ---
 
@@ -312,6 +315,7 @@ python scripts/user_story_generator.py sprint 30
 ```
 
 Generates:
+
 - INVEST-compliant user stories
 - Given-When-Then acceptance criteria
 - Story point estimates (Fibonacci scale)
@@ -356,12 +360,12 @@ Track sprint health and team performance.
 
 ### Key Metrics
 
-| Metric | Formula | Target |
-|--------|---------|--------|
-| Velocity | Points completed / sprint | Stable ±10% |
-| Commitment Reliability | Completed / Committed | >85% |
-| Scope Change | Points added or removed mid-sprint | <10% |
-| Carryover | Points not completed | <15% |
+| Metric                 | Formula                            | Target      |
+| ---------------------- | ---------------------------------- | ----------- |
+| Velocity               | Points completed / sprint          | Stable ±10% |
+| Commitment Reliability | Completed / Committed              | >85%        |
+| Scope Change           | Points added or removed mid-sprint | <10%        |
+| Carryover              | Points not completed               | <15%        |
 
 ### Velocity Tracking
 

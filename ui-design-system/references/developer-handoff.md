@@ -65,9 +65,9 @@ Reference for integrating design tokens into development workflows and design to
 ```css
 :root {
   /* Colors */
-  --color-primary-50: #E6F2FF;
-  --color-primary-100: #CCE5FF;
-  --color-primary-500: #0066CC;
+  --color-primary-50: #e6f2ff;
+  --color-primary-100: #cce5ff;
+  --color-primary-500: #0066cc;
   --color-primary-900: #002855;
 
   /* Typography */
@@ -94,14 +94,16 @@ Reference for integrating design tokens into development workflows and design to
 
 ```scss
 // Colors
-$color-primary-50: #E6F2FF;
-$color-primary-100: #CCE5FF;
-$color-primary-500: #0066CC;
+$color-primary-50: #e6f2ff;
+$color-primary-100: #cce5ff;
+$color-primary-500: #0066cc;
 $color-primary-900: #002855;
 
 // Typography
 $font-family-sans: Inter, system-ui, sans-serif;
-$font-family-mono: Fira Code, monospace;
+$font-family-mono:
+  Fira Code,
+  monospace;
 $font-size-xs: 10px;
 $font-size-sm: 13px;
 $font-size-base: 16px;
@@ -115,10 +117,10 @@ $spacing-4: 16px;
 
 // Maps for programmatic access
 $colors-primary: (
-  '50': $color-primary-50,
-  '100': $color-primary-100,
-  '500': $color-primary-500,
-  '900': $color-primary-900
+  "50": $color-primary-50,
+  "100": $color-primary-100,
+  "500": $color-primary-500,
+  "900": $color-primary-900,
 );
 ```
 
@@ -134,7 +136,7 @@ Works with any framework or vanilla CSS.
 
 ```css
 /* Import tokens */
-@import 'design-tokens.css';
+@import "design-tokens.css";
 
 /* Use in styles */
 .button {
@@ -155,44 +157,45 @@ For CSS-in-JS libraries (styled-components, Emotion, etc.)
 
 ```typescript
 // theme.ts
-import tokens from './design-tokens.json';
+import tokens from "./design-tokens.json"
 
 export const theme = {
   colors: {
     primary: tokens.colors.primary,
     secondary: tokens.colors.secondary,
     neutral: tokens.colors.neutral,
-    semantic: tokens.colors.semantic
+    semantic: tokens.colors.semantic,
   },
   typography: {
     fontFamily: tokens.typography.fontFamily,
     fontSize: tokens.typography.fontSize,
-    fontWeight: tokens.typography.fontWeight
+    fontWeight: tokens.typography.fontWeight,
   },
   spacing: tokens.spacing,
   shadows: tokens.shadows,
-  radii: tokens.borders.radius
-};
+  radii: tokens.borders.radius,
+}
 
-export type Theme = typeof theme;
+export type Theme = typeof theme
 ```
 
 ```typescript
 // styled-components usage
-import styled from 'styled-components';
+import styled from "styled-components"
 
 const Button = styled.button`
-  background: ${({ theme }) => theme.colors.primary['500']};
-  padding: ${({ theme }) => theme.spacing['2']} ${({ theme }) => theme.spacing['4']};
+  background: ${({ theme }) => theme.colors.primary["500"]};
+  padding: ${({ theme }) => theme.spacing["2"]}
+    ${({ theme }) => theme.spacing["4"]};
   font-size: ${({ theme }) => theme.typography.fontSize.base};
-`;
+`
 ```
 
 ### Pattern 3: Tailwind Config
 
 ```javascript
 // tailwind.config.js
-const tokens = require('./design-tokens.json');
+const tokens = require("./design-tokens.json")
 
 module.exports = {
   theme: {
@@ -202,23 +205,23 @@ module.exports = {
       neutral: tokens.colors.neutral,
       success: tokens.colors.semantic.success,
       warning: tokens.colors.semantic.warning,
-      error: tokens.colors.semantic.error
+      error: tokens.colors.semantic.error,
     },
     fontFamily: {
       sans: [tokens.typography.fontFamily.sans],
       serif: [tokens.typography.fontFamily.serif],
-      mono: [tokens.typography.fontFamily.mono]
+      mono: [tokens.typography.fontFamily.mono],
     },
     spacing: {
-      0: tokens.spacing['0'],
-      1: tokens.spacing['1'],
-      2: tokens.spacing['2'],
+      0: tokens.spacing["0"],
+      1: tokens.spacing["1"],
+      2: tokens.spacing["2"],
       // ... etc
     },
     borderRadius: tokens.borders.radius,
-    boxShadow: tokens.shadows
-  }
-};
+    boxShadow: tokens.shadows,
+  },
+}
 ```
 
 ---
@@ -229,15 +232,11 @@ module.exports = {
 
 ```tsx
 // App.tsx
-import './design-tokens.css';
-import './styles.css';
+import "./design-tokens.css"
+import "./styles.css"
 
 function App() {
-  return (
-    <button className="btn btn-primary">
-      Click me
-    </button>
-  );
+  return <button className="btn btn-primary">Click me</button>
 }
 ```
 
@@ -265,36 +264,34 @@ function App() {
 
 ```tsx
 // ThemeProvider.tsx
-import { ThemeProvider } from 'styled-components';
-import { theme } from './theme';
+import { ThemeProvider } from "styled-components"
+import { theme } from "./theme"
 
 export function AppThemeProvider({ children }) {
-  return (
-    <ThemeProvider theme={theme}>
-      {children}
-    </ThemeProvider>
-  );
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }
 ```
 
 ```tsx
 // Button.tsx
-import styled from 'styled-components';
+import styled from "styled-components"
 
-export const Button = styled.button<{ variant?: 'primary' | 'secondary' }>`
-  padding: ${({ theme }) => `${theme.spacing['2']} ${theme.spacing['4']}`};
+export const Button = styled.button<{ variant?: "primary" | "secondary" }>`
+  padding: ${({ theme }) => `${theme.spacing["2"]} ${theme.spacing["4"]}`};
   font-size: ${({ theme }) => theme.typography.fontSize.base};
   border-radius: ${({ theme }) => theme.radii.md};
 
-  ${({ variant = 'primary', theme }) => variant === 'primary' && `
-    background: ${theme.colors.primary['500']};
+  ${({ variant = "primary", theme }) =>
+    variant === "primary" &&
+    `
+    background: ${theme.colors.primary["500"]};
     color: ${theme.colors.surface.background};
 
     &:hover {
-      background: ${theme.colors.primary['600']};
+      background: ${theme.colors.primary["600"]};
     }
   `}
-`;
+`
 ```
 
 ### Vue + CSS Variables
@@ -306,7 +303,7 @@ export const Button = styled.button<{ variant?: 'primary' | 'secondary' }>`
 </template>
 
 <style>
-@import './design-tokens.css';
+@import "./design-tokens.css";
 
 .btn {
   padding: var(--spacing-2) var(--spacing-4);
@@ -325,19 +322,19 @@ export const Button = styled.button<{ variant?: 'primary' | 'secondary' }>`
 
 ```javascript
 // tailwind.config.js
-const tokens = require('./design-tokens.json');
+const tokens = require("./design-tokens.json")
 
 module.exports = {
-  content: ['./app/**/*.{js,ts,jsx,tsx}'],
+  content: ["./app/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: tokens.colors,
       fontFamily: {
-        sans: tokens.typography.fontFamily.sans.split(', ')
-      }
-    }
-  }
-};
+        sans: tokens.typography.fontFamily.sans.split(", "),
+      },
+    },
+  },
+}
 ```
 
 ```tsx
@@ -347,7 +344,7 @@ export default function Page() {
     <button className="bg-primary-500 hover:bg-primary-600 px-4 py-2 rounded-md text-white">
       Click me
     </button>
-  );
+  )
 }
 ```
 
@@ -358,16 +355,19 @@ export default function Page() {
 ### Figma
 
 **Option 1: Tokens Studio Plugin**
+
 1. Install "Tokens Studio for Figma" plugin
 2. Import `design-tokens.json`
 3. Tokens sync automatically with Figma styles
 
 **Option 2: Figma Variables (Native)**
+
 1. Open Variables panel
 2. Create collections matching token structure
 3. Import JSON via plugin or API
 
 **Sync Workflow:**
+
 ```
 design_token_generator.py
         ↓
@@ -382,55 +382,55 @@ Figma Styles & Variables
 
 ```javascript
 // .storybook/preview.js
-import '../design-tokens.css';
+import "../design-tokens.css"
 
 export const parameters = {
   backgrounds: {
-    default: 'light',
+    default: "light",
     values: [
-      { name: 'light', value: '#FFFFFF' },
-      { name: 'dark', value: '#111827' }
-    ]
-  }
-};
+      { name: "light", value: "#FFFFFF" },
+      { name: "dark", value: "#111827" },
+    ],
+  },
+}
 ```
 
 ```javascript
 // Button.stories.tsx
-import { Button } from './Button';
+import { Button } from "./Button"
 
 export default {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
   argTypes: {
     variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'ghost']
+      control: "select",
+      options: ["primary", "secondary", "ghost"],
     },
     size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg']
-    }
-  }
-};
+      control: "select",
+      options: ["sm", "md", "lg"],
+    },
+  },
+}
 
 export const Primary = {
   args: {
-    variant: 'primary',
-    children: 'Button'
-  }
-};
+    variant: "primary",
+    children: "Button",
+  },
+}
 ```
 
 ### Design Tool Comparison
 
-| Tool | Token Format | Sync Method |
-|------|--------------|-------------|
-| Figma | JSON | Tokens Studio plugin / Variables |
-| Sketch | JSON | Craft / Shared Styles |
-| Adobe XD | JSON | Design Tokens plugin |
-| InVision DSM | JSON | Native import |
-| Zeroheight | JSON/CSS | Direct import |
+| Tool         | Token Format | Sync Method                      |
+| ------------ | ------------ | -------------------------------- |
+| Figma        | JSON         | Tokens Studio plugin / Variables |
+| Sketch       | JSON         | Craft / Shared Styles            |
+| Adobe XD     | JSON         | Design Tokens plugin             |
+| InVision DSM | JSON         | Native import                    |
+| Zeroheight   | JSON/CSS     | Direct import                    |
 
 ---
 
@@ -467,13 +467,13 @@ export const Primary = {
 
 ### Documentation Deliverables
 
-| Document | Contents |
-|----------|----------|
-| `design-tokens.json` | All tokens in JSON |
-| `design-tokens.css` | CSS custom properties |
-| `_design-tokens.scss` | SCSS variables |
-| `README.md` | Usage instructions |
-| `CHANGELOG.md` | Token version history |
+| Document              | Contents              |
+| --------------------- | --------------------- |
+| `design-tokens.json`  | All tokens in JSON    |
+| `design-tokens.css`   | CSS custom properties |
+| `_design-tokens.scss` | SCSS variables        |
+| `README.md`           | Usage instructions    |
+| `CHANGELOG.md`        | Token version history |
 
 ---
 
@@ -498,12 +498,12 @@ export const Primary = {
 
 ### Breaking Change Policy
 
-| Change Type | Version Bump | Migration |
-|-------------|--------------|-----------|
-| Add new token | Patch (1.0.x) | None |
-| Change token value | Minor (1.x.0) | Optional |
-| Rename/remove token | Major (x.0.0) | Required |
+| Change Type         | Version Bump  | Migration |
+| ------------------- | ------------- | --------- |
+| Add new token       | Patch (1.0.x) | None      |
+| Change token value  | Minor (1.x.0) | Optional  |
+| Rename/remove token | Major (x.0.0) | Required  |
 
 ---
 
-*See also: `token-generation.md` for generation options*
+_See also: `token-generation.md` for generation options_

@@ -13,6 +13,7 @@ This isn't a framework for feeling better about hard calls. It's a framework for
 Most leaders wait too long. By the time they act, everyone else on the team already knows the problem person isn't working out. The team watches the leader, waiting to see if they'll act.
 
 **Fire when:**
+
 - Performance isn't improving after clear, direct, documented feedback
 - The person is a culture or values problem, not just a skills problem
 - You find yourself routing around them (giving their work to others, excluding them from important discussions)
@@ -50,11 +51,13 @@ This isn't to talk yourself out of it. It's to make sure you can stand behind th
 Do it in person. Start of the week (not Friday — that's cruel). Private meeting. 30 minutes max.
 
 Three sentences:
+
 1. "I have difficult news — today is your last day."
 2. "The reason is [one clear sentence — not a list of grievances]."
 3. "Here's what the transition looks like [severance, references, timeline]."
 
 **Do not:**
+
 - Soften it so much that the person doesn't understand what's happening
 - Give a performance review at the end ("you're really good at X but...")
 - Apologize excessively (once is appropriate; more makes it about you)
@@ -110,11 +113,13 @@ This is the hardest part. A framework:
 ### The Layoff Conversation
 
 **Preparation:**
+
 - Legal review first. In Germany: Betriebsrat, social selection, proper notice periods. In the US: WARN Act for 50+ employees. Do not skip this.
 - Have severance paperwork ready before the conversation
 - Have IT ready to revoke access (dignity: after the conversation, not during)
 
 **The conversation:**
+
 - Private. Direct.
 - "We're restructuring the company and your role is being eliminated."
 - Don't blame the person. Don't say "we had to make hard choices" three times. Say it once and move on.
@@ -122,6 +127,7 @@ This is the hardest part. A framework:
 - Answer questions. "I don't know" is acceptable for some questions. "I can't tell you" is not.
 
 **All-hands same day:**
+
 - You, live, as soon as individual conversations are done
 - Be honest about why and what it means for the company
 - Answer hard questions. Don't hide behind PR language.
@@ -132,6 +138,7 @@ This is the hardest part. A framework:
 The people who didn't get cut will feel: relieved, guilty, scared, and angry — often all four. Don't underestimate this.
 
 Within 48 hours of the layoff:
+
 - Talk to every team lead individually
 - Hold a team meeting for each department
 - Be available for hard conversations
@@ -155,6 +162,7 @@ The question everyone is silently asking: "Am I next?" Answer it directly, even 
 ### How to Think About the Pivot
 
 Define what you're keeping vs. what you're changing:
+
 - **Team**: usually keeping — the team is the asset
 - **Technology**: partially keeping — usually can be reoriented
 - **Customers**: depends — some will follow, some won't
@@ -168,6 +176,7 @@ The cleanest pivots have a clear answer to: "Why are we better positioned to win
 Do not surprise the board in a board meeting. Have the conversation individually with key directors first.
 
 What to communicate:
+
 1. What changed — the new data or insight that's driving this
 2. What you're moving away from and why
 3. What you're moving to and why you can win there
@@ -181,6 +190,7 @@ Board members hate two things: surprises and not being consulted. Give them both
 Be direct. Don't spin it as "we're expanding our focus." If you're killing something they use, tell them clearly, with enough notice for them to plan.
 
 What customers need to know:
+
 - What's changing and when
 - What happens to their data / integrations / workflows
 - Who their contact is through the transition
@@ -211,6 +221,7 @@ Say the real thing. Not in anger. Clearly, directly, with respect.
 ### When It's Not Working
 
 Signs the co-founder relationship is unsalvageable:
+
 - You've had the real conversation and nothing changed
 - You don't trust their judgment anymore
 - You've stopped including them in important decisions
@@ -220,6 +231,7 @@ Signs the co-founder relationship is unsalvageable:
 ### The Separation
 
 Options in rough order of impact:
+
 1. **Role change** — they move to a different function where they can succeed
 2. **Advisor role** — they step out of operations, keep some equity, maintain relationship
 3. **Full exit** — they leave the company
@@ -244,6 +256,7 @@ How you treat the departing co-founder tells the team, the investors, and the ma
 ### What You're Protecting
 
 The customers who use it. They trusted you with their workflow. Give them:
+
 - Clear timeline (90 days minimum for anything with integration dependencies)
 - Migration path to alternatives or your other products
 - Data export

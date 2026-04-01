@@ -64,13 +64,13 @@ CMD ["uvicorn", "src.server:app", "--host", "0.0.0.0", "--port", "8080"]
 
 ### Serving Options
 
-| Option | Latency | Throughput | Use Case |
-|--------|---------|------------|----------|
-| FastAPI + Uvicorn | Low | Medium | REST APIs, small models |
-| Triton Inference Server | Very Low | Very High | GPU inference, batching |
-| TensorFlow Serving | Low | High | TensorFlow models |
-| TorchServe | Low | High | PyTorch models |
-| Ray Serve | Medium | High | Complex pipelines, multi-model |
+| Option                  | Latency  | Throughput | Use Case                       |
+| ----------------------- | -------- | ---------- | ------------------------------ |
+| FastAPI + Uvicorn       | Low      | Medium     | REST APIs, small models        |
+| Triton Inference Server | Very Low | Very High  | GPU inference, batching        |
+| TensorFlow Serving      | Low      | High       | TensorFlow models              |
+| TorchServe              | Low      | High       | PyTorch models                 |
+| Ray Serve               | Medium   | High       | Complex pipelines, multi-model |
 
 ---
 
@@ -109,12 +109,12 @@ user_features = FeatureView(
 
 ### Retraining Triggers
 
-| Trigger | Detection | Action |
-|---------|-----------|--------|
-| Scheduled | Cron (weekly/monthly) | Full retrain |
-| Performance drop | Accuracy < threshold | Immediate retrain |
-| Data drift | PSI > 0.2 | Evaluate, then retrain |
-| New data volume | X new samples | Incremental update |
+| Trigger          | Detection             | Action                 |
+| ---------------- | --------------------- | ---------------------- |
+| Scheduled        | Cron (weekly/monthly) | Full retrain           |
+| Performance drop | Accuracy < threshold  | Immediate retrain      |
+| Data drift       | PSI > 0.2             | Evaluate, then retrain |
+| New data volume  | X new samples         | Incremental update     |
 
 ---
 
@@ -149,11 +149,11 @@ def call_llm_with_retry(provider: LLMProvider, prompt: str) -> str:
 
 ### Cost Management
 
-| Provider | Input Cost | Output Cost |
-|----------|------------|-------------|
-| GPT-4 | $0.03/1K | $0.06/1K |
-| GPT-3.5 | $0.0005/1K | $0.0015/1K |
-| Claude 3 Opus | $0.015/1K | $0.075/1K |
+| Provider       | Input Cost  | Output Cost |
+| -------------- | ----------- | ----------- |
+| GPT-4          | $0.03/1K    | $0.06/1K    |
+| GPT-3.5        | $0.0005/1K  | $0.0015/1K  |
+| Claude 3 Opus  | $0.015/1K   | $0.075/1K   |
 | Claude 3 Haiku | $0.00025/1K | $0.00125/1K |
 
 ---
@@ -173,22 +173,22 @@ Build retrieval-augmented generation pipeline:
 
 ### Vector Database Selection
 
-| Database | Hosting | Scale | Latency | Best For |
-|----------|---------|-------|---------|----------|
-| Pinecone | Managed | High | Low | Production, managed |
-| Qdrant | Both | High | Very Low | Performance-critical |
-| Weaviate | Both | High | Low | Hybrid search |
-| Chroma | Self-hosted | Medium | Low | Prototyping |
-| pgvector | Self-hosted | Medium | Medium | Existing Postgres |
+| Database | Hosting     | Scale  | Latency  | Best For             |
+| -------- | ----------- | ------ | -------- | -------------------- |
+| Pinecone | Managed     | High   | Low      | Production, managed  |
+| Qdrant   | Both        | High   | Very Low | Performance-critical |
+| Weaviate | Both        | High   | Low      | Hybrid search        |
+| Chroma   | Self-hosted | Medium | Low      | Prototyping          |
+| pgvector | Self-hosted | Medium | Medium   | Existing Postgres    |
 
 ### Chunking Strategies
 
-| Strategy | Chunk Size | Overlap | Best For |
-|----------|------------|---------|----------|
-| Fixed | 500-1000 tokens | 50-100 | General text |
-| Sentence | 3-5 sentences | 1 sentence | Structured text |
-| Semantic | Variable | Based on meaning | Research papers |
-| Recursive | Hierarchical | Parent-child | Long documents |
+| Strategy  | Chunk Size      | Overlap          | Best For        |
+| --------- | --------------- | ---------------- | --------------- |
+| Fixed     | 500-1000 tokens | 50-100           | General text    |
+| Sentence  | 3-5 sentences   | 1 sentence       | Structured text |
+| Semantic  | Variable        | Based on meaning | Research papers |
+| Recursive | Hierarchical    | Parent-child     | Long documents  |
 
 ---
 
@@ -221,12 +221,12 @@ def detect_drift(reference, current, threshold=0.05):
 
 ### Alert Thresholds
 
-| Metric | Warning | Critical |
-|--------|---------|----------|
-| p95 latency | > 100ms | > 200ms |
-| Error rate | > 0.1% | > 1% |
-| PSI (drift) | > 0.1 | > 0.2 |
-| Accuracy drop | > 2% | > 5% |
+| Metric        | Warning | Critical |
+| ------------- | ------- | -------- |
+| p95 latency   | > 100ms | > 200ms  |
+| Error rate    | > 0.1%  | > 1%     |
+| PSI (drift)   | > 0.1   | > 0.2    |
+| Accuracy drop | > 2%    | > 5%     |
 
 ---
 
@@ -294,11 +294,11 @@ Sets up drift detection, alerting, and performance dashboards.
 
 ## Tech Stack
 
-| Category | Tools |
-|----------|-------|
-| ML Frameworks | PyTorch, TensorFlow, Scikit-learn, XGBoost |
-| LLM Frameworks | LangChain, LlamaIndex, DSPy |
-| MLOps | MLflow, Weights & Biases, Kubeflow |
-| Data | Spark, Airflow, dbt, Kafka |
-| Deployment | Docker, Kubernetes, Triton |
-| Databases | PostgreSQL, BigQuery, Pinecone, Redis |
+| Category       | Tools                                      |
+| -------------- | ------------------------------------------ |
+| ML Frameworks  | PyTorch, TensorFlow, Scikit-learn, XGBoost |
+| LLM Frameworks | LangChain, LlamaIndex, DSPy                |
+| MLOps          | MLflow, Weights & Biases, Kubeflow         |
+| Data           | Spark, Airflow, dbt, Kafka                 |
+| Deployment     | Docker, Kubernetes, Triton                 |
+| Databases      | PostgreSQL, BigQuery, Pinecone, Redis      |

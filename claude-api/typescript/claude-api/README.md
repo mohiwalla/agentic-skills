@@ -9,13 +9,13 @@ npm install @anthropic-ai/sdk
 ## Client Initialization
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from "@anthropic-ai/sdk"
 
 // Default (uses ANTHROPIC_API_KEY env var)
-const client = new Anthropic();
+const client = new Anthropic()
 
 // Explicit API key
-const client = new Anthropic({ apiKey: "your-api-key" });
+const client = new Anthropic({ apiKey: "your-api-key" })
 ```
 
 ---
@@ -27,12 +27,12 @@ const response = await client.messages.create({
   model: "claude-opus-4-6",
   max_tokens: 16000,
   messages: [{ role: "user", content: "What is the capital of France?" }],
-});
+})
 // response.content is ContentBlock[] — a discriminated union. Narrow by .type
 // before accessing .text (TypeScript will error on content[0].text without this).
 for (const block of response.content) {
   if (block.type === "text") {
-    console.log(block.text);
+    console.log(block.text)
   }
 }
 ```
@@ -48,7 +48,7 @@ const response = await client.messages.create({
   system:
     "You are a helpful coding assistant. Always provide examples in Python.",
   messages: [{ role: "user", content: "How do I read a JSON file?" }],
-});
+})
 ```
 
 ---
@@ -73,15 +73,15 @@ const response = await client.messages.create({
       ],
     },
   ],
-});
+})
 ```
 
 ### Base64
 
 ```typescript
-import fs from "fs";
+import fs from "fs"
 
-const imageData = fs.readFileSync("image.png").toString("base64");
+const imageData = fs.readFileSync("image.png").toString("base64")
 
 const response = await client.messages.create({
   model: "claude-opus-4-6",
@@ -98,7 +98,7 @@ const response = await client.messages.create({
       ],
     },
   ],
-});
+})
 ```
 
 ---
@@ -118,7 +118,7 @@ const response = await client.messages.create({
   cache_control: { type: "ephemeral" }, // auto-caches the last cacheable block
   system: "You are an expert on this large document...",
   messages: [{ role: "user", content: "Summarize the key points" }],
-});
+})
 ```
 
 ### Manual Cache Control
@@ -137,7 +137,7 @@ const response = await client.messages.create({
     },
   ],
   messages: [{ role: "user", content: "Summarize the key points" }],
-});
+})
 
 // With explicit TTL (time-to-live)
 const response2 = await client.messages.create({
@@ -151,15 +151,15 @@ const response2 = await client.messages.create({
     },
   ],
   messages: [{ role: "user", content: "Summarize the key points" }],
-});
+})
 ```
 
 ### Verifying Cache Hits
 
 ```typescript
-console.log(response.usage.cache_creation_input_tokens); // tokens written to cache (~1.25x cost)
-console.log(response.usage.cache_read_input_tokens);     // tokens served from cache (~0.1x cost)
-console.log(response.usage.input_tokens);                // uncached tokens (full cost)
+console.log(response.usage.cache_creation_input_tokens) // tokens written to cache (~1.25x cost)
+console.log(response.usage.cache_read_input_tokens) // tokens served from cache (~0.1x cost)
+console.log(response.usage.input_tokens) // uncached tokens (full cost)
 ```
 
 If `cache_read_input_tokens` is zero across repeated identical-prefix requests, a silent invalidator is at work — `Date.now()` or a UUID in the system prompt, non-deterministic key ordering, or a varying tool set. See `shared/prompt-caching.md` for the full audit table.
@@ -181,13 +181,13 @@ const response = await client.messages.create({
   messages: [
     { role: "user", content: "Solve this math problem step by step..." },
   ],
-});
+})
 
 for (const block of response.content) {
   if (block.type === "thinking") {
-    console.log("Thinking:", block.thinking);
+    console.log("Thinking:", block.thinking)
   } else if (block.type === "text") {
-    console.log("Response:", block.text);
+    console.log("Response:", block.text)
   }
 }
 ```
@@ -229,13 +229,13 @@ const messages: Anthropic.MessageParam[] = [
   { role: "user", content: "My name is Alice." },
   { role: "assistant", content: "Hello Alice! Nice to meet you." },
   { role: "user", content: "What's my name?" },
-];
+]
 
 const response = await client.messages.create({
   model: "claude-opus-4-6",
   max_tokens: 16000,
   messages: messages,
-});
+})
 ```
 
 **Rules:**
@@ -251,13 +251,13 @@ const response = await client.messages.create({
 > **Beta, Opus 4.6 and Sonnet 4.6.** When conversations approach the 200K context window, compaction automatically summarizes earlier context server-side. The API returns a `compaction` block; you must pass it back on subsequent requests — append `response.content`, not just the text.
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from "@anthropic-ai/sdk"
 
-const client = new Anthropic();
-const messages: Anthropic.Beta.BetaMessageParam[] = [];
+const client = new Anthropic()
+const messages: Anthropic.Beta.BetaMessageParam[] = []
 
 async function chat(userMessage: string): Promise<string> {
-  messages.push({ role: "user", content: userMessage });
+  messages.push({ role: "user", content: userMessage })
 
   const response = await client.beta.messages.create({
     betas: ["compact-2026-01-12"],
@@ -267,21 +267,21 @@ async function chat(userMessage: string): Promise<string> {
     context_management: {
       edits: [{ type: "compact_20260112" }],
     },
-  });
+  })
 
   // Append full content — compaction blocks must be preserved
-  messages.push({ role: "assistant", content: response.content });
+  messages.push({ role: "assistant", content: response.content })
 
   const textBlock = response.content.find(
     (b): b is Anthropic.Beta.BetaTextBlock => b.type === "text",
-  );
-  return textBlock?.text ?? "";
+  )
+  return textBlock?.text ?? ""
 }
 
 // Compaction triggers automatically when context grows large
-console.log(await chat("Help me build a Python web scraper"));
-console.log(await chat("Add support for JavaScript-rendered pages"));
-console.log(await chat("Now add rate limiting and error handling"));
+console.log(await chat("Help me build a Python web scraper"))
+console.log(await chat("Add support for JavaScript-rendered pages"))
+console.log(await chat("Now add rate limiting and error handling"))
 ```
 
 ---
@@ -313,7 +313,7 @@ const response = await client.messages.create({
   cache_control: { type: "ephemeral" },
   system: largeDocumentText, // e.g., 50KB of context
   messages: [{ role: "user", content: "Summarize the key points" }],
-});
+})
 
 // First request: full cost
 // Subsequent requests: ~90% cheaper for cached portion
@@ -326,8 +326,8 @@ const countResponse = await client.messages.countTokens({
   model: "claude-opus-4-6",
   messages: messages,
   system: system,
-});
+})
 
-const estimatedInputCost = countResponse.input_tokens * 0.000005; // $5/1M tokens
-console.log(`Estimated input cost: $${estimatedInputCost.toFixed(4)}`);
+const estimatedInputCost = countResponse.input_tokens * 0.000005 // $5/1M tokens
+console.log(`Estimated input cost: $${estimatedInputCost.toFixed(4)}`)
 ```

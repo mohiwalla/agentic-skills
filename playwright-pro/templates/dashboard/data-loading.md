@@ -3,6 +3,7 @@
 Tests loading state, skeleton screens, and data display after fetch.
 
 ## Prerequisites
+
 - Authenticated session via `{{authStorageStatePath}}`
 - Dashboard at `{{baseUrl}}/dashboard`
 
@@ -86,43 +87,46 @@ test.describe('Dashboard Data Loading', () => {
 ## JavaScript
 
 ```javascript
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require("@playwright/test")
 
-test.describe('Dashboard Data Loading', () => {
-  test.use({ storageState: '{{authStorageStatePath}}' });
+test.describe("Dashboard Data Loading", () => {
+  test.use({ storageState: "{{authStorageStatePath}}" })
 
-  test('renders metric cards after loading', async ({ page }) => {
-    await page.goto('{{baseUrl}}/dashboard');
-    await expect(page.getByTestId('skeleton')).toBeHidden();
-    await expect(page.getByRole('article', { name: /metric/i }).first()).toBeVisible();
-  });
+  test("renders metric cards after loading", async ({ page }) => {
+    await page.goto("{{baseUrl}}/dashboard")
+    await expect(page.getByTestId("skeleton")).toBeHidden()
+    await expect(
+      page.getByRole("article", { name: /metric/i }).first(),
+    ).toBeVisible()
+  })
 
-  test('shows error state on API failure', async ({ page }) => {
-    await page.route('{{baseUrl}}/api/dashboard*', route =>
-      route.fulfill({ status: 500, body: '{}' })
-    );
-    await page.goto('{{baseUrl}}/dashboard');
-    await expect(page.getByRole('alert')).toContainText(/failed to load|error/i);
-    await expect(page.getByRole('button', { name: /retry/i })).toBeVisible();
-  });
+  test("shows error state on API failure", async ({ page }) => {
+    await page.route("{{baseUrl}}/api/dashboard*", route =>
+      route.fulfill({ status: 500, body: "{}" }),
+    )
+    await page.goto("{{baseUrl}}/dashboard")
+    await expect(page.getByRole("alert")).toContainText(/failed to load|error/i)
+    await expect(page.getByRole("button", { name: /retry/i })).toBeVisible()
+  })
 
-  test('skeleton visible during slow response', async ({ page }) => {
-    await page.route('{{baseUrl}}/api/dashboard*', async route => {
-      await new Promise(r => setTimeout(r, 1500));
-      await route.continue();
-    });
-    await page.goto('{{baseUrl}}/dashboard');
-    await expect(page.getByTestId('skeleton')).toBeVisible();
-  });
-});
+  test("skeleton visible during slow response", async ({ page }) => {
+    await page.route("{{baseUrl}}/api/dashboard*", async route => {
+      await new Promise(r => setTimeout(r, 1500))
+      await route.continue()
+    })
+    await page.goto("{{baseUrl}}/dashboard")
+    await expect(page.getByTestId("skeleton")).toBeVisible()
+  })
+})
 ```
 
 ## Variants
-| Variant | Description |
-|---------|-------------|
+
+| Variant         | Description                                 |
+| --------------- | ------------------------------------------- |
 | Skeleton → data | Loading state resolves to populated widgets |
-| Metric cards | N cards each showing a numeric value |
-| Refresh | Data reloaded on button click |
-| API error | Error alert + retry button shown |
-| Retry success | Second request succeeds after failure |
-| Slow network | Skeleton persists during delay |
+| Metric cards    | N cards each showing a numeric value        |
+| Refresh         | Data reloaded on button click               |
+| API error       | Error alert + retry button shown            |
+| Retry success   | Second request succeeds after failure       |
+| Slow network    | Skeleton persists during delay              |

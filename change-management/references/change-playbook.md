@@ -16,9 +16,11 @@ Most change communications fail at awareness because they confuse informing with
 The explanation activates desire. The announcement just creates work.
 
 **Real example: Tool migration**
+
 > "We tried Asana, we tried Notion tasks, we tried spreadsheets. None of them stuck. After talking to 8 engineering leads at similar companies, the pattern was clear: teams that use Linear stick with it. We're going all-in. Here's why it will be different this time: [specific reasons]."
 
 **Real example: Reorg**
+
 > "The current structure has our customer success team reporting to Sales, which creates a conflict: Sales is measured on new logo count, CS is measured on retention. We've seen this play out in three recent customer losses where CS needed to raise concerns but felt the pressure to stay quiet. We're changing the reporting structure so CS reports directly to me. This is about removing a structural conflict, not about performance."
 
 ---
@@ -28,21 +30,25 @@ The explanation activates desire. The announcement just creates work.
 Every stakeholder group needs a different answer.
 
 **Individual contributor:**
+
 - "Will my job change significantly?"
 - "Will this make my day easier or harder?"
 - "Is my role at risk?"
 
 **Manager:**
+
 - "What new responsibilities do I take on?"
 - "How do I explain this to my team?"
 - "What happens if someone on my team doesn't adapt?"
 
 **Senior leader:**
+
 - "What does this change our strategic posture?"
 - "What resources are reallocated and to what?"
 - "How does this affect my relationships with other senior leaders?"
 
 **Resistance scenario: Senior leader whose team is most affected**
+
 > They're supportive in the room, silent or undermining outside it.
 > Fix: Give them a role in the change. Make them a named co-leader of the implementation. Invested people don't undermine.
 
@@ -53,12 +59,14 @@ Every stakeholder group needs a different answer.
 The reason most change documentation fails: it's written for the decision-maker, not the user.
 
 **Documentation that gets used:**
+
 - Short (< 2 pages for most changes)
 - Organized by role: "If you're in Sales, here's what changes for you"
 - Answers "what do I do when X happens?" with specific answers
 - Has a clear owner: "Questions? Ask [person] in #channel"
 
 **Documentation that doesn't get used:**
+
 - Long rationale sections the user doesn't need
 - "See the full policy document for details"
 - No named point of contact
@@ -70,21 +78,23 @@ The reason most change documentation fails: it's written for the decision-maker,
 
 Signs of a knowledge gap vs. an ability gap:
 
-| Symptom | Knowledge gap | Ability gap |
-|---------|-------------|------------|
-| People don't know what to do | ✅ | |
-| People know what to do but don't do it | | ✅ |
-| People do it wrong consistently | Could be either | |
-| People revert under pressure | | ✅ |
-| Training scores high, behavior unchanged | | ✅ |
+| Symptom                                  | Knowledge gap   | Ability gap |
+| ---------------------------------------- | --------------- | ----------- |
+| People don't know what to do             | ✅              |             |
+| People know what to do but don't do it   |                 | ✅          |
+| People do it wrong consistently          | Could be either |             |
+| People revert under pressure             |                 | ✅          |
+| Training scores high, behavior unchanged |                 | ✅          |
 
 **Ability gaps are fixed by:**
+
 1. Practice time (before being measured)
 2. Reduced cognitive load during transition
 3. Peer support (not just manager support)
 4. Feedback loops that are fast and low-stakes
 
 **What kills ability development:**
+
 - Measuring performance on the new way in week 1
 - Adding new work simultaneously with the change
 - Making it embarrassing to ask for help
@@ -97,14 +107,14 @@ Go-live is not success. Go-live is the beginning of adoption.
 
 **Reinforcement calendar (template):**
 
-| Week | Action |
-|------|--------|
-| Week 1 (go-live) | High-visibility support. Leadership visible. Point person responsive. |
-| Week 2 | First adoption check: who's using it? Who isn't? Targeted help to laggards. |
-| Week 4 | Celebrate early adopters publicly. Share a win story. |
-| Week 6 | Adoption metric reported to leadership. Decommission old way (if applicable). |
-| Week 8 | Full adoption expected. Non-adoption now a performance conversation. |
-| Month 3 | Retrospective: What's working? What needs adjustment? |
+| Week             | Action                                                                        |
+| ---------------- | ----------------------------------------------------------------------------- |
+| Week 1 (go-live) | High-visibility support. Leadership visible. Point person responsive.         |
+| Week 2           | First adoption check: who's using it? Who isn't? Targeted help to laggards.   |
+| Week 4           | Celebrate early adopters publicly. Share a win story.                         |
+| Week 6           | Adoption metric reported to leadership. Decommission old way (if applicable). |
+| Week 8           | Full adoption expected. Non-adoption now a performance conversation.          |
+| Month 3          | Retrospective: What's working? What needs adjustment?                         |
 
 ---
 
@@ -248,13 +258,14 @@ THINGS NOT TO SAY:
 
 **Run this before announcing any new change:**
 
-| Change | Status | Started | Expected complete |
-|--------|--------|---------|-----------------|
-| [Change 1] | In progress / Complete / Stalled | | |
-| [Change 2] | | | |
-| [Change 3] | | | |
+| Change     | Status                           | Started | Expected complete |
+| ---------- | -------------------------------- | ------- | ----------------- |
+| [Change 1] | In progress / Complete / Stalled |         |                   |
+| [Change 2] |                                  |         |                   |
+| [Change 3] |                                  |         |                   |
 
 **Rules:**
+
 - If > 2 significant changes are in progress, don't start a third
 - If any change is stalled, diagnose it before starting something new
 - Define "complete" for every change in progress
@@ -275,21 +286,25 @@ Most change leaders measure go-live, not adoption. These are different things.
 ### Adoption metrics by change type
 
 **Tool migration:**
+
 - % of team actively using the new tool (not just logged in)
 - % of relevant workflows completed in new tool vs. old tool
 - Support ticket volume in weeks 1-4 (high = knowledge gap; dropping = adoption)
 
 **Process change:**
+
 - % of relevant transactions following new process
 - Error rates in new process vs. old process (should converge over time)
 - Time-to-complete for new process (should improve by week 4)
 
 **Org change:**
+
 - Decision cycle time in new structure (should improve by month 2)
 - Escalation patterns (fewer cross-boundary escalations = alignment improving)
 - Employee sentiment (survey at months 1, 3, 6)
 
 **Culture change:**
+
 - Values referenced in 1:1 conversations (manager self-report)
 - Values-linked recognition events per month
 - Culture survey scores in relevant dimensions (quarterly)
@@ -302,6 +317,7 @@ Measuring adoption: "Did they use the new system because it's better, or because
 Compliance is unstable. It reverts when enforcement loosens. Adoption is self-sustaining.
 
 **Adoption diagnostic:** Ask a random sample: "Why do you use [new way] instead of [old way]?"
+
 - "Because I have to" = compliance
 - "Because it's faster/easier/better" = adoption
 

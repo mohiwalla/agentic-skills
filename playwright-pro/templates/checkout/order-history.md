@@ -3,6 +3,7 @@
 Tests listing orders, viewing order details, and pagination.
 
 ## Prerequisites
+
 - Authenticated session via `{{authStorageStatePath}}`
 - At least `{{orderCount}}` orders seeded for user
 - App running at `{{baseUrl}}`
@@ -82,38 +83,45 @@ test.describe('Order History', () => {
 ## JavaScript
 
 ```javascript
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require("@playwright/test")
 
-test.describe('Order History', () => {
-  test.use({ storageState: '{{authStorageStatePath}}' });
+test.describe("Order History", () => {
+  test.use({ storageState: "{{authStorageStatePath}}" })
 
-  test('displays orders with id, status, and total', async ({ page }) => {
-    await page.goto('{{baseUrl}}/orders');
-    const rows = page.getByRole('row').filter({ hasNot: page.getByRole('columnheader') });
-    await expect(rows.first()).toContainText('{{latestOrderId}}');
-  });
+  test("displays orders with id, status, and total", async ({ page }) => {
+    await page.goto("{{baseUrl}}/orders")
+    const rows = page
+      .getByRole("row")
+      .filter({ hasNot: page.getByRole("columnheader") })
+    await expect(rows.first()).toContainText("{{latestOrderId}}")
+  })
 
-  test('navigates to order detail', async ({ page }) => {
-    await page.goto('{{baseUrl}}/orders');
-    await page.getByRole('link', { name: new RegExp('{{latestOrderId}}') }).click();
-    await expect(page).toHaveURL(`{{baseUrl}}/orders/{{latestOrderId}}`);
-  });
+  test("navigates to order detail", async ({ page }) => {
+    await page.goto("{{baseUrl}}/orders")
+    await page
+      .getByRole("link", { name: new RegExp("{{latestOrderId}}") })
+      .click()
+    await expect(page).toHaveURL(`{{baseUrl}}/orders/{{latestOrderId}}`)
+  })
 
-  test('paginates through orders', async ({ page }) => {
-    await page.goto('{{baseUrl}}/orders');
-    await page.getByRole('button', { name: /next page|>/i }).click();
-    await expect(page.getByRole('button', { name: /previous page|</i })).toBeEnabled();
-  });
-});
+  test("paginates through orders", async ({ page }) => {
+    await page.goto("{{baseUrl}}/orders")
+    await page.getByRole("button", { name: /next page|>/i }).click()
+    await expect(
+      page.getByRole("button", { name: /previous page|</i }),
+    ).toBeEnabled()
+  })
+})
 ```
 
 ## Variants
-| Variant | Description |
-|---------|-------------|
-| Order list | ID, status, total visible per row |
-| Order detail | Clicking order → detail page |
-| Status badge | Correct badge per order state |
-| Pagination | Next page loads different orders |
-| Items per page | Selector changes row count |
-| Empty state | No-orders message with CTA |
-| Reorder | Previous order items added to cart |
+
+| Variant        | Description                        |
+| -------------- | ---------------------------------- |
+| Order list     | ID, status, total visible per row  |
+| Order detail   | Clicking order → detail page       |
+| Status badge   | Correct badge per order state      |
+| Pagination     | Next page loads different orders   |
+| Items per page | Selector changes row count         |
+| Empty state    | No-orders message with CTA         |
+| Reorder        | Previous order items added to cart |

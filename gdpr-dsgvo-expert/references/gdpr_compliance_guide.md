@@ -20,18 +20,19 @@ Practical implementation guidance for EU General Data Protection Regulation comp
 
 Processing is lawful only if at least one basis applies:
 
-| Legal Basis | Article | When to Use |
-|-------------|---------|-------------|
-| Consent | 6(1)(a) | Marketing, newsletters, cookies (non-essential) |
-| Contract | 6(1)(b) | Fulfilling customer orders, employment contracts |
-| Legal Obligation | 6(1)(c) | Tax records, employment law requirements |
-| Vital Interests | 6(1)(d) | Medical emergencies (rarely used) |
-| Public Interest | 6(1)(e) | Government functions, public health |
+| Legal Basis          | Article | When to Use                                                |
+| -------------------- | ------- | ---------------------------------------------------------- |
+| Consent              | 6(1)(a) | Marketing, newsletters, cookies (non-essential)            |
+| Contract             | 6(1)(b) | Fulfilling customer orders, employment contracts           |
+| Legal Obligation     | 6(1)(c) | Tax records, employment law requirements                   |
+| Vital Interests      | 6(1)(d) | Medical emergencies (rarely used)                          |
+| Public Interest      | 6(1)(e) | Government functions, public health                        |
 | Legitimate Interests | 6(1)(f) | Fraud prevention, network security, direct marketing (B2B) |
 
 ### Consent Requirements (Art. 7)
 
 Valid consent must be:
+
 - **Freely given**: No imbalance of power, no bundling
 - **Specific**: Separate consent for different purposes
 - **Informed**: Clear information about processing
@@ -39,6 +40,7 @@ Valid consent must be:
 - **Withdrawable**: Easy to withdraw as to give
 
 **Consent Checklist:**
+
 - [ ] Consent request is clear and plain language
 - [ ] Separate from other terms and conditions
 - [ ] Granular options for different processing purposes
@@ -50,6 +52,7 @@ Valid consent must be:
 ### Special Category Data (Art. 9)
 
 Additional safeguards required for:
+
 - Racial or ethnic origin
 - Political opinions
 - Religious or philosophical beliefs
@@ -60,6 +63,7 @@ Additional safeguards required for:
 - Sex life or sexual orientation
 
 **Processing Exceptions (Art. 9(2)):**
+
 1. Explicit consent
 2. Employment/social security obligations
 3. Vital interests (subject incapable of consent)
@@ -78,6 +82,7 @@ Additional safeguards required for:
 ### Right of Access (Art. 15)
 
 **What to provide:**
+
 1. Confirmation of processing (yes/no)
 2. Copy of personal data
 3. Supplementary information:
@@ -90,6 +95,7 @@ Additional safeguards required for:
    - Automated decision-making details
 
 **Process:**
+
 1. Receive request (any form acceptable)
 2. Verify identity (proportionate measures)
 3. Gather data from all systems
@@ -99,10 +105,12 @@ Additional safeguards required for:
 ### Right to Rectification (Art. 16)
 
 **When applicable:**
+
 - Data is inaccurate
 - Data is incomplete
 
 **Process:**
+
 1. Verify claimed inaccuracy
 2. Correct data in all systems
 3. Notify third parties of correction
@@ -111,6 +119,7 @@ Additional safeguards required for:
 ### Right to Erasure (Art. 17)
 
 **Grounds for erasure:**
+
 - Data no longer necessary for original purpose
 - Consent withdrawn
 - Objection to processing (no overriding grounds)
@@ -119,6 +128,7 @@ Additional safeguards required for:
 - Data collected from child for online services
 
 **Exceptions (erasure NOT required):**
+
 - Freedom of expression
 - Legal obligation to retain
 - Public health reasons
@@ -128,6 +138,7 @@ Additional safeguards required for:
 ### Right to Restriction (Art. 18)
 
 **Applicable when:**
+
 - Accuracy contested (during verification)
 - Processing unlawful but erasure opposed
 - Controller no longer needs data but subject needs for legal claims
@@ -138,6 +149,7 @@ Additional safeguards required for:
 ### Right to Data Portability (Art. 20)
 
 **Requirements:**
+
 - Processing based on consent or contract
 - Processing by automated means
 
@@ -148,10 +160,12 @@ Additional safeguards required for:
 ### Right to Object (Art. 21)
 
 **Processing based on legitimate interests/public interest:**
+
 - Subject can object at any time
 - Controller must demonstrate compelling legitimate grounds
 
 **Direct marketing:**
+
 - Absolute right to object
 - Processing must stop immediately
 - Must inform subject of right at first communication
@@ -159,15 +173,18 @@ Additional safeguards required for:
 ### Automated Decision-Making (Art. 22)
 
 **Right not to be subject to decisions:**
+
 - Based solely on automated processing
 - Producing legal or similarly significant effects
 
 **Exceptions:**
+
 - Necessary for contract
 - Authorized by law
 - Based on explicit consent
 
 **Safeguards required:**
+
 - Right to human intervention
 - Right to express point of view
 - Right to contest decision
@@ -179,6 +196,7 @@ Additional safeguards required for:
 ### Records of Processing Activities (Art. 30)
 
 **Controller must record:**
+
 - Controller name and contact
 - Purposes of processing
 - Categories of data subjects
@@ -189,6 +207,7 @@ Additional safeguards required for:
 - Technical and organizational measures
 
 **Processor must record:**
+
 - Processor name and contact
 - Categories of processing
 - Third country transfers
@@ -197,12 +216,14 @@ Additional safeguards required for:
 ### Data Protection by Design and Default (Art. 25)
 
 **By Design principles:**
+
 - Data minimization
 - Pseudonymization
 - Purpose limitation built into systems
 - Security measures from inception
 
 **By Default requirements:**
+
 - Only necessary data processed
 - Limited collection scope
 - Limited storage period
@@ -211,12 +232,14 @@ Additional safeguards required for:
 ### Data Protection Impact Assessment (Art. 35)
 
 **Required when:**
+
 - Systematic and extensive profiling with significant effects
 - Large-scale processing of special categories
 - Systematic monitoring of public areas
 - Two or more high-risk criteria from WP29 guidelines
 
 **DPIA must contain:**
+
 1. Systematic description of processing
 2. Assessment of necessity and proportionality
 3. Assessment of risks to rights and freedoms
@@ -225,6 +248,7 @@ Additional safeguards required for:
 ### Data Processing Agreements (Art. 28)
 
 **Required clauses:**
+
 - Process only on documented instructions
 - Confidentiality obligations
 - Security measures
@@ -241,6 +265,7 @@ Additional safeguards required for:
 ### Adequacy Decisions (Art. 45)
 
 Current adequate countries/territories:
+
 - Andorra, Argentina, Canada (commercial), Faroe Islands
 - Guernsey, Israel, Isle of Man, Japan, Jersey
 - New Zealand, Republic of Korea, Switzerland
@@ -250,12 +275,14 @@ Current adequate countries/territories:
 ### Standard Contractual Clauses (Art. 46)
 
 **New SCCs (2021) modules:**
+
 - Module 1: Controller to Controller
 - Module 2: Controller to Processor
 - Module 3: Processor to Processor
 - Module 4: Processor to Controller
 
 **Implementation requirements:**
+
 1. Complete relevant modules
 2. Conduct Transfer Impact Assessment
 3. Implement supplementary measures if needed
@@ -264,6 +291,7 @@ Current adequate countries/territories:
 ### Transfer Impact Assessment
 
 **Assess:**
+
 1. Circumstances of transfer
 2. Third country legal framework
 3. Contractual and technical safeguards
@@ -281,6 +309,7 @@ Current adequate countries/territories:
 **Required unless:** Unlikely to result in risk to rights and freedoms
 
 **Notification must include:**
+
 - Nature of breach
 - Categories and approximate numbers affected
 - DPO contact details
@@ -292,6 +321,7 @@ Current adequate countries/territories:
 **Required when:** High risk to rights and freedoms
 
 **Not required if:**
+
 - Appropriate technical measures in place (encryption)
 - Subsequent measures eliminate high risk
 - Disproportionate effort (public communication instead)
@@ -299,6 +329,7 @@ Current adequate countries/territories:
 ### Breach Documentation
 
 **Document ALL breaches:**
+
 - Facts of breach
 - Effects
 - Remedial action
@@ -309,12 +340,14 @@ Current adequate countries/territories:
 ## Compliance Checklist
 
 ### Governance
+
 - [ ] DPO appointed (if required)
 - [ ] Data protection policies in place
 - [ ] Staff training conducted
 - [ ] Privacy by design implemented
 
 ### Documentation
+
 - [ ] Records of processing activities
 - [ ] Privacy notices updated
 - [ ] Consent records maintained
@@ -322,6 +355,7 @@ Current adequate countries/territories:
 - [ ] Processor agreements in place
 
 ### Technical Measures
+
 - [ ] Encryption at rest and in transit
 - [ ] Access controls implemented
 - [ ] Audit logging enabled
@@ -329,6 +363,7 @@ Current adequate countries/territories:
 - [ ] Retention schedules automated
 
 ### Subject Rights
+
 - [ ] Access request process
 - [ ] Erasure capability
 - [ ] Portability capability

@@ -7,6 +7,7 @@ Run this before every piece goes live. Each section is a gate — fail a gate, f
 ## Gate 1: SEO Signals
 
 ### Title & Headers
+
 - [ ] H1 contains primary keyword (naturally, not forced)
 - [ ] H1 is ≤70 characters
 - [ ] At least 2 H2s contain secondary keywords or related phrases
@@ -14,12 +15,14 @@ Run this before every piece goes live. Each section is a gate — fail a gate, f
 - [ ] H1 differs from the title tag (they can overlap but shouldn't be identical)
 
 ### Keyword Presence
+
 - [ ] Primary keyword appears in the first 100 words
 - [ ] Primary keyword appears 3-5 times total (not more — stuffing tanks rankings)
 - [ ] Keyword variations appear naturally throughout
 - [ ] No keyword stuffing (reading it aloud sounds natural)
 
 ### Meta & Technical
+
 - [ ] Title tag: 50-60 characters, keyword-first where possible
 - [ ] Meta description: 150-160 characters, includes keyword, ends with hook or action
 - [ ] URL slug: short, keyword-first, lowercase, hyphens not underscores
@@ -27,6 +30,7 @@ Run this before every piece goes live. Each section is a gate — fail a gate, f
 - [ ] OG title and OG description written for social sharing
 
 ### Images & Media
+
 - [ ] At least one image present
 - [ ] All images have descriptive alt text (keyword included where natural)
 - [ ] Images are compressed (under 200KB each)
@@ -37,16 +41,19 @@ Run this before every piece goes live. Each section is a gate — fail a gate, f
 ## Gate 2: Readability
 
 ### Score
+
 - [ ] Flesch Reading Ease score ≥ 60 (aim for 60-70 for professional audience; 70+ for general)
 - [ ] Run `scripts/content_scorer.py` — overall score ≥ 70
 
 ### Sentence & Paragraph Structure
+
 - [ ] Average sentence length ≤ 20 words
 - [ ] No single paragraph exceeds 4 sentences
 - [ ] No sentence exceeds 35 words (check and break if found)
 - [ ] Sentence length varies — not all short, not all long
 
 ### Voice & Clarity
+
 - [ ] Active voice dominant (passive voice < 20% of sentences)
 - [ ] No weasel words ("very," "really," "quite," "somewhat")
 - [ ] No jargon without explanation (for non-expert audiences)
@@ -58,6 +65,7 @@ Run this before every piece goes live. Each section is a gate — fail a gate, f
 ## Gate 3: Structure & Content Quality
 
 ### Opening
+
 - [ ] Intro is ≤150 words
 - [ ] Intro does not start with "In today's..." or "Welcome to..."
 - [ ] Intro names the reader's problem or situation within the first 2 sentences
@@ -65,6 +73,7 @@ Run this before every piece goes live. Each section is a gate — fail a gate, f
 - [ ] No false promise in the intro (piece delivers what it hints at)
 
 ### Body
+
 - [ ] Every H2 section leads with its main point (buried leads = reader drop-off)
 - [ ] At least 2 concrete examples, case studies, or data points
 - [ ] All statistics and specific claims have citations or are labeled as estimates
@@ -72,6 +81,7 @@ Run this before every piece goes live. Each section is a gate — fail a gate, f
 - [ ] Visual break (table, list, callout, image) at least every 400 words
 
 ### Conclusion
+
 - [ ] Conclusion ≤150 words
 - [ ] Summarizes the core argument (not just "in conclusion...")
 - [ ] Includes one clear next step or CTA
@@ -124,15 +134,15 @@ Run a final read-aloud. Catch what scanning misses.
 
 ## Scoring Summary
 
-| Gate | Status | Notes |
-|---|---|---|
-| SEO Signals | ✅ / ❌ | |
-| Readability | ✅ / ❌ | |
-| Structure & Quality | ✅ / ❌ | |
-| Internal Linking | ✅ / ❌ | |
-| Factual Accuracy | ✅ / ❌ | |
-| Brand & Voice | ✅ / ❌ | |
-| Final Readthrough | ✅ / ❌ | |
+| Gate                | Status  | Notes |
+| ------------------- | ------- | ----- |
+| SEO Signals         | ✅ / ❌ |       |
+| Readability         | ✅ / ❌ |       |
+| Structure & Quality | ✅ / ❌ |       |
+| Internal Linking    | ✅ / ❌ |       |
+| Factual Accuracy    | ✅ / ❌ |       |
+| Brand & Voice       | ✅ / ❌ |       |
+| Final Readthrough   | ✅ / ❌ |       |
 
 **Publish only when all 7 gates are green.**
 

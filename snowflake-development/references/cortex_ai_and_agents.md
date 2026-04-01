@@ -15,41 +15,43 @@ Complete reference for Snowflake Cortex AI functions, Cortex Agents, Cortex Sear
 
 ### Complete Function Reference
 
-| Function | Signature | Returns |
-|----------|-----------|---------|
-| `AI_COMPLETE` | `AI_COMPLETE(model, prompt)` or `AI_COMPLETE(model, conversation, options)` | STRING or OBJECT |
-| `AI_CLASSIFY` | `AI_CLASSIFY(input, categories)` | OBJECT with `labels` array |
-| `AI_EXTRACT` | `AI_EXTRACT(input, fields)` | OBJECT with extracted fields |
-| `AI_FILTER` | `AI_FILTER(input, condition)` | BOOLEAN |
-| `AI_SENTIMENT` | `AI_SENTIMENT(text)` | FLOAT (-1 to 1) |
-| `AI_SUMMARIZE` | `AI_SUMMARIZE(text)` | STRING |
-| `AI_TRANSLATE` | `AI_TRANSLATE(text, source_lang, target_lang)` | STRING |
-| `AI_PARSE_DOCUMENT` | `AI_PARSE_DOCUMENT(file, options)` | OBJECT |
-| `AI_REDACT` | `AI_REDACT(text)` | STRING |
-| `AI_EMBED` | `AI_EMBED(model, text)` | ARRAY (vector) |
-| `AI_AGG` | `AI_AGG(column, instruction)` | STRING |
+| Function            | Signature                                                                   | Returns                      |
+| ------------------- | --------------------------------------------------------------------------- | ---------------------------- |
+| `AI_COMPLETE`       | `AI_COMPLETE(model, prompt)` or `AI_COMPLETE(model, conversation, options)` | STRING or OBJECT             |
+| `AI_CLASSIFY`       | `AI_CLASSIFY(input, categories)`                                            | OBJECT with `labels` array   |
+| `AI_EXTRACT`        | `AI_EXTRACT(input, fields)`                                                 | OBJECT with extracted fields |
+| `AI_FILTER`         | `AI_FILTER(input, condition)`                                               | BOOLEAN                      |
+| `AI_SENTIMENT`      | `AI_SENTIMENT(text)`                                                        | FLOAT (-1 to 1)              |
+| `AI_SUMMARIZE`      | `AI_SUMMARIZE(text)`                                                        | STRING                       |
+| `AI_TRANSLATE`      | `AI_TRANSLATE(text, source_lang, target_lang)`                              | STRING                       |
+| `AI_PARSE_DOCUMENT` | `AI_PARSE_DOCUMENT(file, options)`                                          | OBJECT                       |
+| `AI_REDACT`         | `AI_REDACT(text)`                                                           | STRING                       |
+| `AI_EMBED`          | `AI_EMBED(model, text)`                                                     | ARRAY (vector)               |
+| `AI_AGG`            | `AI_AGG(column, instruction)`                                               | STRING                       |
 
 ### Deprecated Function Mapping
 
-| Old Name (Do NOT Use) | New Name |
-|-----------------------|----------|
-| `COMPLETE` | `AI_COMPLETE` |
-| `CLASSIFY_TEXT` | `AI_CLASSIFY` |
-| `EXTRACT_ANSWER` | `AI_EXTRACT` |
-| `SUMMARIZE` | `AI_SUMMARIZE` |
-| `TRANSLATE` | `AI_TRANSLATE` |
-| `SENTIMENT` | `AI_SENTIMENT` |
-| `EMBED_TEXT_768` | `AI_EMBED` |
+| Old Name (Do NOT Use) | New Name       |
+| --------------------- | -------------- |
+| `COMPLETE`            | `AI_COMPLETE`  |
+| `CLASSIFY_TEXT`       | `AI_CLASSIFY`  |
+| `EXTRACT_ANSWER`      | `AI_EXTRACT`   |
+| `SUMMARIZE`           | `AI_SUMMARIZE` |
+| `TRANSLATE`           | `AI_TRANSLATE` |
+| `SENTIMENT`           | `AI_SENTIMENT` |
+| `EMBED_TEXT_768`      | `AI_EMBED`     |
 
 ### AI_COMPLETE Patterns
 
 **Simple completion:**
+
 ```sql
 SELECT AI_COMPLETE('claude-4-sonnet', 'Summarize this text: ' || article_text) AS summary
 FROM articles;
 ```
 
 **With system prompt (conversation format):**
+
 ```sql
 SELECT AI_COMPLETE(
     'claude-4-sonnet',
@@ -62,6 +64,7 @@ FROM flagged_records;
 ```
 
 **With document input (TO_FILE):**
+
 ```sql
 SELECT AI_COMPLETE(
     'claude-4-sonnet',

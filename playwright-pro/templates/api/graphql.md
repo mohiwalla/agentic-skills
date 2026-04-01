@@ -3,6 +3,7 @@
 Tests query, mutation, and subscription via Playwright's request API.
 
 ## Prerequisites
+
 - Valid auth token: `{{apiToken}}`
 - GraphQL endpoint: `{{graphqlEndpoint}}`
 - WebSocket endpoint for subscriptions: `{{graphqlWsEndpoint}}`
@@ -162,13 +163,14 @@ test.describe('GraphQL API', () => {
 ```
 
 ## Variants
-| Variant | Description |
-|---------|-------------|
-| List query | Returns array of entities |
-| Single query | Returns entity by ID |
-| Create mutation | Returns new entity with ID |
-| Update mutation | Returns updated field value |
-| Delete mutation | Returns success: true |
-| Invalid query | errors[] defined in response |
-| Unauthenticated | UNAUTHENTICATED extension code |
-| Subscription | Real-time message via WebSocket |
+
+| Variant         | Description                     |
+| --------------- | ------------------------------- |
+| List query      | Returns array of entities       |
+| Single query    | Returns entity by ID            |
+| Create mutation | Returns new entity with ID      |
+| Update mutation | Returns updated field value     |
+| Delete mutation | Returns success: true           |
+| Invalid query   | errors[] defined in response    |
+| Unauthenticated | UNAUTHENTICATED extension code  |
+| Subscription    | Real-time message via WebSocket |

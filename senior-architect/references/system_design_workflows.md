@@ -20,17 +20,20 @@ Use when designing a system from scratch or explaining architecture decisions.
 ### Step 1: Clarify Requirements (3-5 minutes)
 
 **Functional requirements:**
+
 - What are the core features?
 - Who are the users?
 - What actions can users take?
 
 **Non-functional requirements:**
+
 - Expected scale (users, requests/sec, data size)
 - Latency requirements
 - Availability requirements (99.9%? 99.99%?)
 - Consistency requirements (strong? eventual?)
 
 **Example questions to ask:**
+
 ```
 - How many users? Daily active users?
 - Read/write ratio?
@@ -42,6 +45,7 @@ Use when designing a system from scratch or explaining architecture decisions.
 ### Step 2: Estimate Scale (2-3 minutes)
 
 **Calculate key metrics:**
+
 ```
 Users:        10M monthly active users
 DAU:          1M daily active users
@@ -58,6 +62,7 @@ Bandwidth:    100GB/day = 1.2 MB/sec (avg)
 ### Step 3: Design High-Level Architecture (5-10 minutes)
 
 **Start with basic components:**
+
 ```
 ┌──────────┐     ┌──────────┐     ┌──────────┐
 │  Client  │────▶│   API    │────▶│ Database │
@@ -65,6 +70,7 @@ Bandwidth:    100GB/day = 1.2 MB/sec (avg)
 ```
 
 **Add components as needed:**
+
 - Load balancer for traffic distribution
 - Cache for read-heavy workloads
 - CDN for static content
@@ -74,6 +80,7 @@ Bandwidth:    100GB/day = 1.2 MB/sec (avg)
 ### Step 4: Deep Dive into Components (10-15 minutes)
 
 **For each major component, discuss:**
+
 - Why this technology choice?
 - How does it handle failures?
 - How does it scale?
@@ -82,12 +89,14 @@ Bandwidth:    100GB/day = 1.2 MB/sec (avg)
 ### Step 5: Address Bottlenecks (5 minutes)
 
 **Common bottlenecks:**
+
 - Database read/write capacity
 - Network bandwidth
 - Single points of failure
 - Hot spots in data distribution
 
 **Solutions:**
+
 - Caching (Redis, Memcached)
 - Database sharding
 - Read replicas
@@ -102,17 +111,18 @@ Use when estimating infrastructure requirements for a new system or feature.
 
 ### Step 1: Gather Requirements
 
-| Metric | Current | 6 months | 1 year |
-|--------|---------|----------|--------|
-| Monthly active users | | | |
-| Peak concurrent users | | | |
-| Requests per second | | | |
-| Data storage (GB) | | | |
-| Bandwidth (Mbps) | | | |
+| Metric                | Current | 6 months | 1 year |
+| --------------------- | ------- | -------- | ------ |
+| Monthly active users  |         |          |        |
+| Peak concurrent users |         |          |        |
+| Requests per second   |         |          |        |
+| Data storage (GB)     |         |          |        |
+| Bandwidth (Mbps)      |         |          |        |
 
 ### Step 2: Calculate Compute Requirements
 
 **Web/API servers:**
+
 ```
 Peak RPS:           3,600
 Requests per server: 500 (conservative)
@@ -122,6 +132,7 @@ With redundancy (N+2): 10 servers
 ```
 
 **CPU estimation:**
+
 ```
 Per request: 50ms CPU time
 Peak RPS:    3,600
@@ -135,6 +146,7 @@ With headroom (70% target utilization):
 ### Step 3: Calculate Storage Requirements
 
 **Database storage:**
+
 ```
 Records per day:    100,000
 Record size:        2KB
@@ -147,6 +159,7 @@ With replication (3x): 438GB
 ```
 
 **File storage:**
+
 ```
 Files per day:      10,000
 Average file size:  500KB
@@ -158,6 +171,7 @@ Retention (1 year): 1.8TB
 ### Step 4: Calculate Network Requirements
 
 **Bandwidth:**
+
 ```
 Response size:      10KB average
 Peak RPS:           3,600
@@ -169,6 +183,7 @@ With headroom (50%): 432 Mbps ≈ 500 Mbps connection
 ### Step 5: Document and Review
 
 **Create capacity plan document:**
+
 - Current requirements
 - Growth projections
 - Infrastructure recommendations
@@ -184,6 +199,7 @@ Use when designing new APIs or refactoring existing ones.
 ### Step 1: Identify Resources
 
 **List the nouns in your domain:**
+
 ```
 E-commerce example:
 - Users
@@ -207,6 +223,7 @@ E-commerce example:
 ### Step 3: Design Request/Response Formats
 
 **Request example:**
+
 ```json
 POST /api/v1/orders
 Content-Type: application/json
@@ -226,6 +243,7 @@ Content-Type: application/json
 ```
 
 **Response example:**
+
 ```json
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -247,6 +265,7 @@ Content-Type: application/json
 ### Step 4: Handle Errors Consistently
 
 **Error response format:**
+
 ```json
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
@@ -280,6 +299,7 @@ Content-Type: application/json
 ### Step 5: Document the API
 
 **Include:**
+
 - Authentication method
 - Base URL and versioning
 - Endpoints with examples
@@ -296,6 +316,7 @@ Use when designing a new database or major schema changes.
 ### Step 1: Identify Entities
 
 **List the things you need to store:**
+
 ```
 E-commerce:
 - User (id, email, name, created_at)
@@ -307,6 +328,7 @@ E-commerce:
 ### Step 2: Define Relationships
 
 **Relationship types:**
+
 ```
 User ──1:N──▶ Order       (one user, many orders)
 Order ──1:N──▶ OrderItem  (one order, many items)
@@ -325,6 +347,7 @@ Product ──1:N──▶ OrderItem (one product, many order items)
 ### Step 4: Add Indexes
 
 **Index selection rules:**
+
 ```sql
 -- Index columns used in WHERE clauses
 CREATE INDEX idx_orders_user_id ON orders(user_id);
@@ -343,6 +366,7 @@ CREATE INDEX idx_orders_user_status ON orders(user_id, status);
 ### Step 5: Plan for Scale
 
 **Partitioning strategies:**
+
 ```sql
 -- Partition by date (time-series data)
 CREATE TABLE events (
@@ -359,6 +383,7 @@ CREATE TABLE users (
 ```
 
 **Sharding considerations:**
+
 - Shard key selection (user_id, tenant_id, etc.)
 - Cross-shard query limitations
 - Rebalancing strategy
@@ -372,6 +397,7 @@ Use when evaluating if current architecture can handle growth.
 ### Step 1: Profile Current System
 
 **Metrics to collect:**
+
 ```
 Current load:
 - Average requests/sec: ___
@@ -401,6 +427,7 @@ Resource utilization:
 ### Step 3: Load Test
 
 **Test scenarios:**
+
 ```
 1. Baseline: Current production load
 2. 2x load: Expected growth in 6 months
@@ -409,6 +436,7 @@ Resource utilization:
 ```
 
 **Tools:**
+
 - k6, Locust, JMeter for HTTP
 - pgbench for PostgreSQL
 - redis-benchmark for Redis
@@ -416,11 +444,13 @@ Resource utilization:
 ### Step 4: Identify Scaling Strategy
 
 **Vertical scaling (scale up):**
+
 - Add more CPU, memory, disk
 - Simpler but has limits
 - Use when: Single server can handle more
 
 **Horizontal scaling (scale out):**
+
 - Add more servers
 - Requires stateless design
 - Use when: Need linear scaling
@@ -428,6 +458,7 @@ Resource utilization:
 ### Step 5: Create Scaling Plan
 
 **Document:**
+
 ```
 Trigger: When average CPU > 70% for 15 minutes
 
@@ -451,6 +482,7 @@ Use when migrating to new infrastructure, database, or architecture.
 ### Step 1: Assess Current State
 
 **Document:**
+
 - Current architecture diagram
 - Data volumes
 - Dependencies
@@ -460,6 +492,7 @@ Use when migrating to new infrastructure, database, or architecture.
 ### Step 2: Define Target State
 
 **Document:**
+
 - New architecture diagram
 - Technology changes
 - Expected improvements
@@ -469,14 +502,15 @@ Use when migrating to new infrastructure, database, or architecture.
 
 **Strategies:**
 
-| Strategy | Risk | Downtime | Complexity |
-|----------|------|----------|------------|
-| Big bang | High | Yes | Low |
-| Blue-green | Medium | Minimal | Medium |
-| Canary | Low | None | High |
-| Strangler fig | Low | None | High |
+| Strategy      | Risk   | Downtime | Complexity |
+| ------------- | ------ | -------- | ---------- |
+| Big bang      | High   | Yes      | Low        |
+| Blue-green    | Medium | Minimal  | Medium     |
+| Canary        | Low    | None     | High       |
+| Strangler fig | Low    | None     | High       |
 
 **Strangler fig pattern (recommended for large systems):**
+
 ```
 1. Add facade in front of old system
 2. Route small percentage of traffic to new system
@@ -487,6 +521,7 @@ Use when migrating to new infrastructure, database, or architecture.
 ### Step 4: Create Rollback Plan
 
 **For each step, define:**
+
 ```
 Step: Migrate user service to new database
 
@@ -506,6 +541,7 @@ Rollback time estimate: 15 minutes
 ### Step 5: Execute with Checkpoints
 
 **Migration checklist:**
+
 ```
 □ Backup current system
 □ Verify backup restoration works
@@ -526,11 +562,11 @@ Rollback time estimate: 15 minutes
 
 ## Quick Reference
 
-| Task | Start Here |
-|------|------------|
-| New system design | [System Design Interview Approach](#1-system-design-interview-approach) |
-| Infrastructure sizing | [Capacity Planning](#2-capacity-planning-workflow) |
-| New API | [API Design](#3-api-design-workflow) |
-| Database design | [Database Schema Design](#4-database-schema-design-workflow) |
-| Handle growth | [Scalability Assessment](#5-scalability-assessment-workflow) |
-| System migration | [Migration Planning](#6-migration-planning-workflow) |
+| Task                  | Start Here                                                              |
+| --------------------- | ----------------------------------------------------------------------- |
+| New system design     | [System Design Interview Approach](#1-system-design-interview-approach) |
+| Infrastructure sizing | [Capacity Planning](#2-capacity-planning-workflow)                      |
+| New API               | [API Design](#3-api-design-workflow)                                    |
+| Database design       | [Database Schema Design](#4-database-schema-design-workflow)            |
+| Handle growth         | [Scalability Assessment](#5-scalability-assessment-workflow)            |
+| System migration      | [Migration Planning](#6-migration-planning-workflow)                    |

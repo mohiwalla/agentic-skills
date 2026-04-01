@@ -48,6 +48,7 @@ Analyzes prompts for token efficiency, clarity, and structure. Generates optimiz
 **Output:** Analysis report with optimization suggestions
 
 **Usage:**
+
 ```bash
 # Analyze a prompt file
 python scripts/prompt_optimizer.py prompt.txt --analyze
@@ -85,6 +86,7 @@ Evaluates Retrieval-Augmented Generation quality by measuring context relevance 
 **Output:** Evaluation metrics and quality report
 
 **Usage:**
+
 ```bash
 # Evaluate retrieval quality
 python scripts/rag_evaluator.py --contexts retrieved.json --questions eval_set.json
@@ -129,6 +131,7 @@ Parses agent definitions and visualizes execution flows. Validates tool configur
 **Output:** Workflow visualization, validation report
 
 **Usage:**
+
 ```bash
 # Validate agent configuration
 python scripts/agent_orchestrator.py agent.yaml --validate
@@ -201,12 +204,14 @@ python scripts/agent_orchestrator.py agent.yaml --visualize --format mermaid
 Use when improving an existing prompt's performance or reducing token costs.
 
 **Step 1: Baseline current prompt**
+
 ```bash
 python scripts/prompt_optimizer.py current_prompt.txt --analyze --output baseline.json
 ```
 
 **Step 2: Identify issues**
 Review the analysis report for:
+
 - Token waste (redundant instructions, verbose examples)
 - Ambiguous instructions (unclear output format, vague verbs)
 - Missing constraints (no length limits, no format specification)
@@ -220,11 +225,13 @@ Review the analysis report for:
 | Missing edge cases | Add constraint boundaries |
 
 **Step 4: Generate optimized version**
+
 ```bash
 python scripts/prompt_optimizer.py current_prompt.txt --optimize --output optimized.txt
 ```
 
 **Step 5: Compare results**
+
 ```bash
 python scripts/prompt_optimizer.py optimized.txt --analyze --compare baseline.json
 # Shows: token reduction, clarity improvement, issues resolved
@@ -240,6 +247,7 @@ Run both prompts against your evaluation set and compare outputs.
 Use when creating examples for in-context learning.
 
 **Step 1: Define the task clearly**
+
 ```
 Task: Extract product entities from customer reviews
 Input: Review text
@@ -255,6 +263,7 @@ Output: JSON with {product_name, sentiment, features_mentioned}
 | Negative case | What NOT to extract |
 
 **Step 3: Format consistently**
+
 ```
 Example 1:
 Input: "Love my new iPhone 15, the camera is amazing!"
@@ -266,6 +275,7 @@ Output: {"product_name": "laptop", "sentiment": "mixed", "features_mentioned": [
 ```
 
 **Step 4: Validate example quality**
+
 ```bash
 python scripts/prompt_optimizer.py prompt_with_examples.txt --validate-examples
 # Checks: consistency, coverage, format alignment
@@ -281,19 +291,21 @@ Ensure model generalizes beyond your examples.
 Use when you need reliable JSON/XML/structured responses.
 
 **Step 1: Define schema**
+
 ```json
 {
   "type": "object",
   "properties": {
-    "summary": {"type": "string", "maxLength": 200},
-    "sentiment": {"enum": ["positive", "negative", "neutral"]},
-    "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+    "summary": { "type": "string", "maxLength": 200 },
+    "sentiment": { "enum": ["positive", "negative", "neutral"] },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
   },
   "required": ["summary", "sentiment"]
 }
 ```
 
 **Step 2: Include schema in prompt**
+
 ```
 Respond with JSON matching this schema:
 - summary (string, max 200 chars): Brief summary of the content
@@ -302,12 +314,14 @@ Respond with JSON matching this schema:
 ```
 
 **Step 3: Add format enforcement**
+
 ```
 IMPORTANT: Respond ONLY with valid JSON. No markdown, no explanation.
 Start your response with { and end with }
 ```
 
 **Step 4: Validate outputs**
+
 ```bash
 python scripts/prompt_optimizer.py structured_prompt.txt --validate-schema schema.json
 ```
@@ -316,23 +330,23 @@ python scripts/prompt_optimizer.py structured_prompt.txt --validate-schema schem
 
 ## Reference Documentation
 
-| File | Contains | Load when user asks about |
-|------|----------|---------------------------|
-| `references/prompt_engineering_patterns.md` | 10 prompt patterns with input/output examples | "which pattern?", "few-shot", "chain-of-thought", "role prompting" |
-| `references/llm_evaluation_frameworks.md` | Evaluation metrics, scoring methods, A/B testing | "how to evaluate?", "measure quality", "compare prompts" |
-| `references/agentic_system_design.md` | Agent architectures (ReAct, Plan-Execute, Tool Use) | "build agent", "tool calling", "multi-agent" |
+| File                                        | Contains                                            | Load when user asks about                                          |
+| ------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------------------ |
+| `references/prompt_engineering_patterns.md` | 10 prompt patterns with input/output examples       | "which pattern?", "few-shot", "chain-of-thought", "role prompting" |
+| `references/llm_evaluation_frameworks.md`   | Evaluation metrics, scoring methods, A/B testing    | "how to evaluate?", "measure quality", "compare prompts"           |
+| `references/agentic_system_design.md`       | Agent architectures (ReAct, Plan-Execute, Tool Use) | "build agent", "tool calling", "multi-agent"                       |
 
 ---
 
 ## Common Patterns Quick Reference
 
-| Pattern | When to Use | Example |
-|---------|-------------|---------|
-| **Zero-shot** | Simple, well-defined tasks | "Classify this email as spam or not spam" |
-| **Few-shot** | Complex tasks, consistent format needed | Provide 3-5 examples before the task |
-| **Chain-of-Thought** | Reasoning, math, multi-step logic | "Think step by step..." |
-| **Role Prompting** | Expertise needed, specific perspective | "You are an expert tax accountant..." |
-| **Structured Output** | Need parseable JSON/XML | Include schema + format enforcement |
+| Pattern               | When to Use                             | Example                                   |
+| --------------------- | --------------------------------------- | ----------------------------------------- |
+| **Zero-shot**         | Simple, well-defined tasks              | "Classify this email as spam or not spam" |
+| **Few-shot**          | Complex tasks, consistent format needed | Provide 3-5 examples before the task      |
+| **Chain-of-Thought**  | Reasoning, math, multi-step logic       | "Think step by step..."                   |
+| **Role Prompting**    | Expertise needed, specific perspective  | "You are an expert tax accountant..."     |
+| **Structured Output** | Need parseable JSON/XML                 | Include schema + format enforcement       |
 
 ---
 

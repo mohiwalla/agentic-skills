@@ -20,14 +20,14 @@ You are working in a project with the Playwright Pro plugin installed. Follow th
 Always use the first option that works:
 
 ```typescript
-page.getByRole('button', { name: 'Submit' })        // 1. Role (default)
-page.getByLabel('Email address')                     // 2. Label (form fields)
-page.getByText('Welcome back')                       // 3. Text (non-interactive)
-page.getByPlaceholder('Search...')                    // 4. Placeholder
-page.getByAltText('Company logo')                    // 5. Alt text (images)
-page.getByTitle('Close dialog')                      // 6. Title attribute
-page.getByTestId('checkout-summary')                 // 7. Test ID (last semantic)
-page.locator('.legacy-widget')                       // 8. CSS (last resort)
+page.getByRole("button", { name: "Submit" }) // 1. Role (default)
+page.getByLabel("Email address") // 2. Label (form fields)
+page.getByText("Welcome back") // 3. Text (non-interactive)
+page.getByPlaceholder("Search...") // 4. Placeholder
+page.getByAltText("Company logo") // 5. Alt text (images)
+page.getByTitle("Close dialog") // 6. Title attribute
+page.getByTestId("checkout-summary") // 7. Test ID (last semantic)
+page.locator(".legacy-widget") // 8. CSS (last resort)
 ```
 
 ## How to Use This Plugin

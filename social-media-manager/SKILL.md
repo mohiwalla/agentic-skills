@@ -21,16 +21,19 @@ If `marketing-context.md` exists, read it for brand voice, audience personas, an
 Gather this context (ask if not provided):
 
 ### 1. Current State
+
 - Which platforms are you active on?
 - Current follower counts and engagement rates?
 - How often are you posting? Who manages it?
 - What's working? What isn't?
 
 ### 2. Goals
+
 - Brand awareness, lead generation, community building, or thought leadership?
 - What does success look like in 90 days?
 
 ### 3. Resources
+
 - Who creates content? How much time per week?
 - Budget for paid social (if any)?
 - Tools you're using (scheduling, analytics)?
@@ -38,12 +41,15 @@ Gather this context (ask if not provided):
 ## How This Skill Works
 
 ### Mode 1: Build Strategy from Scratch
+
 No social presence or starting fresh on a platform. Define platforms, cadence, content pillars, and growth plan.
 
 ### Mode 2: Audit & Optimize
+
 Active social presence that's underperforming. Analyze what's working, identify gaps, and rebuild the approach.
 
 ### Mode 3: Scale & Systematize
+
 Growing social presence that needs structure — content calendars, workflows, team processes, and measurement frameworks.
 
 ---
@@ -54,13 +60,13 @@ Not every platform deserves your time. Choose based on where your audience alrea
 
 ### Platform-Audience Fit
 
-| Platform | Best For | Content Style | Posting Cadence |
-|----------|----------|---------------|-----------------|
-| **LinkedIn** | B2B, thought leadership, recruiting | Long-form posts, carousels, articles | 3-5x/week |
-| **Twitter/X** | Tech, media, real-time, community | Short takes, threads, engagement | 1-3x/day |
-| **Instagram** | B2C, visual brands, lifestyle | Reels, stories, carousels | 4-7x/week |
-| **TikTok** | Young audiences, viral potential | Short video, trends, authentic | 1-3x/day |
-| **YouTube** | Education, tutorials, long-form | Videos, shorts | 1-2x/week |
+| Platform      | Best For                            | Content Style                        | Posting Cadence |
+| ------------- | ----------------------------------- | ------------------------------------ | --------------- |
+| **LinkedIn**  | B2B, thought leadership, recruiting | Long-form posts, carousels, articles | 3-5x/week       |
+| **Twitter/X** | Tech, media, real-time, community   | Short takes, threads, engagement     | 1-3x/day        |
+| **Instagram** | B2C, visual brands, lifestyle       | Reels, stories, carousels            | 4-7x/week       |
+| **TikTok**    | Young audiences, viral potential    | Short video, trends, authentic       | 1-3x/day        |
+| **YouTube**   | Education, tutorials, long-form     | Videos, shorts                       | 1-2x/week       |
 
 **Rule of thumb:** Do 1-2 platforms exceptionally well before adding a third. Half-hearted presence on 5 platforms beats zero engagement on all of them.
 
@@ -70,13 +76,13 @@ Every social strategy needs 3-5 content pillars that balance value delivery with
 
 ### Pillar Structure
 
-| Pillar Type | Purpose | Mix | Example |
-|-------------|---------|-----|---------|
-| **Educational** | Teach your audience something useful | 40% | How-tos, tips, frameworks |
-| **Behind the Scenes** | Build trust through transparency | 20% | Process, team, journey |
-| **Social Proof** | Demonstrate results and credibility | 15% | Case studies, testimonials, wins |
-| **Engagement** | Start conversations and build community | 15% | Questions, polls, debates |
-| **Promotional** | Drive business outcomes | 10% | Product features, launches, offers |
+| Pillar Type           | Purpose                                 | Mix | Example                            |
+| --------------------- | --------------------------------------- | --- | ---------------------------------- |
+| **Educational**       | Teach your audience something useful    | 40% | How-tos, tips, frameworks          |
+| **Behind the Scenes** | Build trust through transparency        | 20% | Process, team, journey             |
+| **Social Proof**      | Demonstrate results and credibility     | 15% | Case studies, testimonials, wins   |
+| **Engagement**        | Start conversations and build community | 15% | Questions, polls, debates          |
+| **Promotional**       | Drive business outcomes                 | 10% | Product features, launches, offers |
 
 The 10% promotional cap is intentional. If your feed feels like an ad channel, people unfollow.
 
@@ -84,13 +90,13 @@ The 10% promotional cap is intentional. If your feed feels like an ad channel, p
 
 ### Weekly Template
 
-| Day | Pillar | Format | Notes |
-|-----|--------|--------|-------|
-| Mon | Educational | Long post or carousel | High-value start to the week |
-| Tue | Engagement | Question or poll | Drive comments for algorithm boost |
-| Wed | Behind the Scenes | Photo or short video | Humanize the brand |
-| Thu | Educational | Thread or how-to | Deep-dive content |
-| Fri | Social Proof or Promo | Case study or launch | End-of-week conversion focus |
+| Day | Pillar                | Format                | Notes                              |
+| --- | --------------------- | --------------------- | ---------------------------------- |
+| Mon | Educational           | Long post or carousel | High-value start to the week       |
+| Tue | Engagement            | Question or poll      | Drive comments for algorithm boost |
+| Wed | Behind the Scenes     | Photo or short video  | Humanize the brand                 |
+| Thu | Educational           | Thread or how-to      | Deep-dive content                  |
+| Fri | Social Proof or Promo | Case study or launch  | End-of-week conversion focus       |
 
 ### Batch Creation Workflow
 
@@ -106,9 +112,11 @@ Week +1: Review analytics, adjust next week (30 min)
 Posting without engaging is broadcasting, not social media. Engagement is half the game.
 
 ### The 1:1 Rule
+
 For every post you publish, spend equal time engaging with others' content. Comment, share, respond.
 
 ### Response Framework
+
 - **Questions about your product** → Answer within 2 hours during business hours
 - **Complaints** → Acknowledge publicly, resolve privately, follow up publicly
 - **Praise** → Thank them, amplify with a reshare or quote
@@ -128,13 +136,13 @@ For every post you publish, spend equal time engaging with others' content. Comm
 
 ### Metrics That Matter
 
-| Metric | What It Tells You | Target |
-|--------|-------------------|--------|
-| Engagement rate | Content resonance | >3% (LinkedIn), >1% (Twitter), >2% (Instagram) |
-| Follower growth rate | Audience building momentum | >5% monthly |
-| Click-through rate | Content driving action | >1% |
-| Share/save rate | Content worth keeping | Higher = content is genuinely useful |
-| DM conversations | Real relationship building | Growing month-over-month |
+| Metric               | What It Tells You          | Target                                         |
+| -------------------- | -------------------------- | ---------------------------------------------- |
+| Engagement rate      | Content resonance          | >3% (LinkedIn), >1% (Twitter), >2% (Instagram) |
+| Follower growth rate | Audience building momentum | >5% monthly                                    |
+| Click-through rate   | Content driving action     | >1%                                            |
+| Share/save rate      | Content worth keeping      | Higher = content is genuinely useful           |
+| DM conversations     | Real relationship building | Growing month-over-month                       |
 
 **Vanity metrics to deprioritize:** Raw follower count, impressions (without engagement), reach (without action).
 
@@ -143,18 +151,21 @@ For every post you publish, spend equal time engaging with others' content. Comm
 ## Social Media Audit Checklist
 
 ### Profile Audit
+
 - [ ] Profile photo: recognizable, consistent across platforms
 - [ ] Bio: clear value proposition, not job title listing
 - [ ] Link: drives to relevant landing page (not just homepage)
 - [ ] Pinned post: best-performing or most important content
 
 ### Content Audit
+
 - [ ] Posting consistency: regular cadence or sporadic?
 - [ ] Content mix: balanced across pillars or all promotional?
 - [ ] Format variety: text, images, video, carousels?
 - [ ] Voice consistency: matches brand across all posts?
 
 ### Engagement Audit
+
 - [ ] Response time: within 2 hours or days later?
 - [ ] Comment quality: genuine replies or "thanks!"?
 - [ ] Outbound engagement: engaging with others' content?
@@ -172,17 +183,18 @@ For every post you publish, spend equal time engaging with others' content. Comm
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|---------------------|------------|
-| "Social media strategy" | Platform selection + content pillars + posting cadence + 90-day growth plan |
-| "Content calendar" | 4-week calendar with topics, formats, pillars, and posting times |
-| "Social media audit" | Full audit: profile, content, engagement, growth with prioritized actions |
-| "Grow my LinkedIn" | Platform-specific growth plan with content examples and engagement tactics |
-| "Community management plan" | Response framework + engagement workflow + escalation rules |
+| When you ask for...         | You get...                                                                  |
+| --------------------------- | --------------------------------------------------------------------------- |
+| "Social media strategy"     | Platform selection + content pillars + posting cadence + 90-day growth plan |
+| "Content calendar"          | 4-week calendar with topics, formats, pillars, and posting times            |
+| "Social media audit"        | Full audit: profile, content, engagement, growth with prioritized actions   |
+| "Grow my LinkedIn"          | Platform-specific growth plan with content examples and engagement tactics  |
+| "Community management plan" | Response framework + engagement workflow + escalation rules                 |
 
 ## Communication
 
 All output passes quality verification:
+
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Output format: Bottom Line → What (with confidence) → Why → How to Act
 - Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.

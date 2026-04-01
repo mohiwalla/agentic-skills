@@ -16,17 +16,18 @@ Paste it into the conversation or save it as `memory/board-meetings/agenda-YYYY-
 
 ## Standing Items (always included)
 
-| Item | Owner | Time |
-|------|-------|------|
-| Layer 2 decisions review (what changed since last meeting) | Chief of Staff | 5 min |
-| Open action items from last meeting | All | 10 min |
-| Blockers requiring founder decision | All | 5 min |
+| Item                                                       | Owner          | Time   |
+| ---------------------------------------------------------- | -------------- | ------ |
+| Layer 2 decisions review (what changed since last meeting) | Chief of Staff | 5 min  |
+| Open action items from last meeting                        | All            | 10 min |
+| Blockers requiring founder decision                        | All            | 5 min  |
 
 ---
 
 ## Agenda Items
 
 ### Item 1: [Title]
+
 **Type:** Decision required / Exploration / Update
 **Lead role(s):** [e.g., CEO + CFO]
 **Context:** [1-2 sentences on why this is on the agenda now]
@@ -38,6 +39,7 @@ Paste it into the conversation or save it as `memory/board-meetings/agenda-YYYY-
 ---
 
 ### Item 2: [Title]
+
 **Type:** Decision required / Exploration / Update
 **Lead role(s):**
 **Context:**
@@ -49,6 +51,7 @@ Paste it into the conversation or save it as `memory/board-meetings/agenda-YYYY-
 ---
 
 ### Item 3: [Title]
+
 **Type:** Decision required / Exploration / Update
 **Lead role(s):**
 **Context:**
@@ -62,6 +65,7 @@ Paste it into the conversation or save it as `memory/board-meetings/agenda-YYYY-
 ## Out of Scope (explicitly excluded)
 
 List topics that might come up but are NOT on today's agenda:
+
 - [Topic] — defer to [date or next meeting]
 - [Topic] — owner to handle async
 
@@ -70,6 +74,7 @@ List topics that might come up but are NOT on today's agenda:
 ## Pre-Read
 
 Materials all participants should review before the meeting:
+
 - [ ] `memory/board-meetings/decisions.md` (Chief of Staff loads automatically)
 - [ ] [Link or filename]
 - [ ] [Link or filename]

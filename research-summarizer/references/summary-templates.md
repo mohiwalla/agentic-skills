@@ -5,6 +5,7 @@
 Use for peer-reviewed journal articles, conference papers, and research studies.
 
 ### Structure
+
 1. **Introduction** — What problem does the paper address? Why does it matter?
 2. **Methods** — How was the study conducted? What data, what approach?
 3. **Results** — What did they find? Key numbers, key patterns.
@@ -12,6 +13,7 @@ Use for peer-reviewed journal articles, conference papers, and research studies.
 5. **Discussion** — What are the implications? Limitations? Future work?
 
 ### Quality Signals
+
 - Published in a peer-reviewed venue
 - Clear methodology section with reproducible steps
 - Statistical significance reported (p-values, confidence intervals)
@@ -19,6 +21,7 @@ Use for peer-reviewed journal articles, conference papers, and research studies.
 - Conflicts of interest disclosed
 
 ### Red Flags
+
 - No methodology section
 - Claims without supporting data
 - Funded by an entity that benefits from specific results
@@ -31,11 +34,13 @@ Use for peer-reviewed journal articles, conference papers, and research studies.
 Use for blog posts, news articles, opinion pieces, and online publications.
 
 ### Structure
+
 1. **Claim** — What is the author arguing or reporting?
 2. **Evidence** — What data, examples, or sources support the claim?
 3. **Implication** — So what? What should the reader do or think differently?
 
 ### Quality Signals
+
 - Author has relevant expertise or credentials
 - Sources are linked and verifiable
 - Multiple perspectives acknowledged
@@ -43,6 +48,7 @@ Use for blog posts, news articles, opinion pieces, and online publications.
 - Date of publication is clear
 
 ### Red Flags
+
 - No author attribution
 - No sources or citations
 - Sensationalist headline vs. measured content
@@ -55,6 +61,7 @@ Use for blog posts, news articles, opinion pieces, and online publications.
 Use for industry reports, whitepapers, market research, and internal documents.
 
 ### Structure
+
 1. **Executive Summary** — Bottom line in 2-3 sentences
 2. **Scope** — What does this report cover?
 3. **Key Data** — Most important numbers and findings
@@ -63,12 +70,14 @@ Use for industry reports, whitepapers, market research, and internal documents.
 6. **Relevance** — Why does this matter for our specific context?
 
 ### Quality Signals
+
 - Clear methodology for data collection
 - Sample size and composition disclosed
 - Published by a recognized research firm or organization
 - Methodology section available (even if separate document)
 
 ### Red Flags
+
 - "Report" is actually a marketing piece for a product
 - Data from a single, small, unrepresentative sample
 - No methodology disclosure
@@ -81,6 +90,7 @@ Use for industry reports, whitepapers, market research, and internal documents.
 Use when evaluating 2-5 sources on the same topic.
 
 ### Comparison Dimensions
+
 - **Central thesis** — What is each source's main argument?
 - **Methodology** — How did each source arrive at its conclusions?
 - **Key finding** — What is the headline result?
@@ -89,6 +99,7 @@ Use when evaluating 2-5 sources on the same topic.
 - **Recency** — When was it published?
 
 ### Synthesis Framework
+
 1. **Convergent findings** — Where sources agree (stronger signal)
 2. **Divergent findings** — Where sources disagree (investigate further)
 3. **Gaps** — What no source addresses
@@ -101,11 +112,13 @@ Use when evaluating 2-5 sources on the same topic.
 Use when synthesizing 5+ sources into a research overview.
 
 ### Organization Approaches
+
 - **Thematic** — Group by topic (preferred for most use cases)
 - **Chronological** — Group by time period (good for showing evolution)
 - **Methodological** — Group by research approach (good for methods papers)
 
 ### Per-Theme Structure
+
 1. Theme name and scope
 2. Key sources that address this theme
 3. What the sources say (points of agreement)
@@ -113,6 +126,7 @@ Use when synthesizing 5+ sources into a research overview.
 5. Strength of evidence for each position
 
 ### Synthesis Checklist
+
 - [ ] All sources categorized into themes
 - [ ] Gaps in literature identified
 - [ ] Contradictions highlighted (not hidden)

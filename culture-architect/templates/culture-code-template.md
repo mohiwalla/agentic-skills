@@ -16,7 +16,7 @@
 
 ## What We Value
 
-*Values are behaviors, not adjectives. Each one has a "this is what it looks like" and a "this is what it doesn't look like."*
+_Values are behaviors, not adjectives. Each one has a "this is what it looks like" and a "this is what it doesn't look like."_
 
 ### [Value 1]
 
@@ -48,13 +48,13 @@
 
 ---
 
-*(Repeat for each value. 3–5 total. Never more than 5.)*
+_(Repeat for each value. 3–5 total. Never more than 5.)_
 
 ---
 
 ## Who Thrives Here
 
-*These are specific, observable behaviors — not personality traits or adjectives.*
+_These are specific, observable behaviors — not personality traits or adjectives._
 
 - You raise problems early, not after they've grown. You don't complain privately and stay silent publicly.
 - You own decisions even when the outcome isn't what you expected.
@@ -67,7 +67,7 @@
 
 ## Who Doesn't Thrive Here
 
-*This is the most useful section. Read it carefully.*
+_This is the most useful section. Read it carefully._
 
 - People who need clear instructions before taking action. We provide context; you figure out the path.
 - People who optimize for credit over outcomes. We care what got done, not who gets the headline.
@@ -80,6 +80,7 @@
 ## How We Make Decisions
 
 **Decision types:**
+
 - **Reversible, small scope:** Make it yourself. Don't ask. Tell us what you decided.
 - **Reversible, larger scope:** Tell relevant people, move forward unless you hear an objection within 24 hours.
 - **Irreversible or high-stakes:** Bring the right people into the room. Write it down. Decide together.
@@ -134,4 +135,4 @@ This document is descriptive, not aspirational. It describes how we operate toda
 
 We update this annually. When the update happens, we'll tell you what changed and why.
 
-*Last updated: [Date] | Version: [X.X]*
+_Last updated: [Date] | Version: [X.X]_

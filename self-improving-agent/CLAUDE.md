@@ -21,27 +21,35 @@ This plugin reads that directory — it never creates its own storage.
 ## When to use each command
 
 ### After completing a feature or debugging session
+
 ```
 /si:review
 ```
+
 Check if anything Claude learned should become a permanent rule.
 
 ### When a pattern keeps coming up
+
 ```
 /si:promote "Always run migrations before tests in this project"
 ```
+
 Moves it from MEMORY.md (background note) to CLAUDE.md (enforced rule).
 
 ### When you solved something non-obvious that could help other projects
+
 ```
 /si:extract "Docker build fix for ARM64 platform mismatch"
 ```
+
 Creates a standalone skill with SKILL.md, ready to install elsewhere.
 
 ### To check memory capacity
+
 ```
 /si:status
 ```
+
 Shows line counts, topic files, stale entries, and recommendations.
 
 ## Key principle
@@ -63,17 +71,22 @@ Shows line counts, topic files, stale entries, and recommendations.
 The `error-capture.sh` hook fires on `PostToolUse` (Bash only). It detects command failures and appends structured entries to auto-memory. Zero overhead on successful commands.
 
 To enable:
+
 ```json
 // .claude/settings.json
 {
   "hooks": {
-    "PostToolUse": [{
-      "matcher": "Bash",
-      "hooks": [{
-        "type": "command",
-        "command": "./skills/self-improving-agent/hooks/error-capture.sh"
-      }]
-    }]
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./skills/self-improving-agent/hooks/error-capture.sh"
+          }
+        ]
+      }
+    ]
   }
 }
 ```

@@ -5,12 +5,14 @@
 Purpose: continuously connect product outcomes to validated opportunities and tested solutions.
 
 Core structure:
+
 - Outcome (metric)
 - Opportunity nodes (needs/pains)
 - Solution ideas
 - Experiments
 
 OST practice tips:
+
 - Keep tree live; update after each interview or test.
 - Separate opportunity evidence from solution proposals.
 - Avoid single-branch trees that force one solution.
@@ -23,6 +25,7 @@ JTBD template:
 "When [situation], I want to [motivation], so I can [expected outcome]."
 
 JTBD interview focus:
+
 - Trigger moments
 - Current alternatives and workarounds
 - Purchase/adoption anxieties
@@ -31,6 +34,7 @@ JTBD interview focus:
 ## Kano Model
 
 Classify features by impact on satisfaction:
+
 - Must-be: expected baseline features
 - Performance: more is better
 - Delighters: unexpected value multipliers
@@ -42,6 +46,7 @@ Use Kano when prioritizing solution concepts after problem validation.
 ## Design Sprint Methodology
 
 Typical phases:
+
 1. Understand
 2. Sketch
 3. Decide
@@ -49,16 +54,19 @@ Typical phases:
 5. Test
 
 Discovery usage:
+
 - Compress learning cycle into one week.
 - Best for high-ambiguity opportunities requiring cross-functional alignment.
 
 ## Assumption Prioritization Matrix
 
 Map assumptions on two axes:
+
 - Risk if wrong (low -> high)
 - Certainty (low -> high)
 
 Priority order:
+
 1. High risk, low certainty (test first)
 2. High risk, high certainty (validate quickly)
 3. Low risk, low certainty (defer)

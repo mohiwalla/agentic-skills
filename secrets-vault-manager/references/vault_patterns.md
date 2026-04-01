@@ -27,12 +27,12 @@ Vault operates as a centralized secret management service with a client-server m
 
 ### Storage Backend Selection
 
-| Backend | HA Support | Operational Complexity | Recommendation |
-|---------|-----------|----------------------|----------------|
-| Integrated Raft | Yes | Low | **Default choice** — no external dependencies |
-| Consul | Yes | Medium | Legacy — use Raft unless already running Consul |
-| S3/GCS/Azure Blob | No | Low | Dev/test only — no HA |
-| PostgreSQL/MySQL | No | Medium | Not recommended — no HA, added dependency |
+| Backend           | HA Support | Operational Complexity | Recommendation                                  |
+| ----------------- | ---------- | ---------------------- | ----------------------------------------------- |
+| Integrated Raft   | Yes        | Low                    | **Default choice** — no external dependencies   |
+| Consul            | Yes        | Medium                 | Legacy — use Raft unless already running Consul |
+| S3/GCS/Azure Blob | No         | Low                    | Dev/test only — no HA                           |
+| PostgreSQL/MySQL  | No         | Medium                 | Not recommended — no HA, added dependency       |
 
 ## High Availability Setup
 
@@ -76,6 +76,7 @@ seal "awskms" {
 ```
 
 **Requirements:**
+
 - IAM role with `kms:Encrypt`, `kms:Decrypt`, `kms:DescribeKey` permissions
 - KMS key must be in the same region or accessible cross-region
 - KMS key should have restricted access — only Vault nodes
@@ -288,14 +289,14 @@ For high-throughput workloads (Lambda, serverless), use batch tokens instead of 
 
 ### Key Metrics
 
-| Metric | Alert Threshold | Source |
-|--------|----------------|--------|
-| `vault.core.unsealed` | 0 (sealed) | Telemetry |
-| `vault.expire.num_leases` | >10,000 | Telemetry |
-| `vault.audit.log_response` | Error rate >1% | Telemetry |
-| `vault.runtime.alloc_bytes` | >80% memory | Telemetry |
-| `vault.raft.leader.lastContact` | >500ms | Telemetry |
-| `vault.token.count` | >50,000 | Telemetry |
+| Metric                          | Alert Threshold | Source    |
+| ------------------------------- | --------------- | --------- |
+| `vault.core.unsealed`           | 0 (sealed)      | Telemetry |
+| `vault.expire.num_leases`       | >10,000         | Telemetry |
+| `vault.audit.log_response`      | Error rate >1%  | Telemetry |
+| `vault.runtime.alloc_bytes`     | >80% memory     | Telemetry |
+| `vault.raft.leader.lastContact` | >500ms          | Telemetry |
+| `vault.token.count`             | >50,000         | Telemetry |
 
 ### Health Check Endpoint
 

@@ -4,12 +4,12 @@
 
 ### Severity Classification
 
-| Severity | Definition | Response Time | Example |
-|----------|-----------|---------------|---------|
-| **P0 — Critical** | Production credentials exposed publicly | Immediate (15 min) | Database password in public GitHub repo |
-| **P1 — High** | Internal credentials exposed beyond intended scope | 1 hour | API key in build logs accessible to wider org |
-| **P2 — Medium** | Non-production credentials exposed | 4 hours | Staging DB password in internal wiki |
-| **P3 — Low** | Expired or limited-scope credential exposed | 24 hours | Rotated API key found in old commit history |
+| Severity          | Definition                                         | Response Time      | Example                                       |
+| ----------------- | -------------------------------------------------- | ------------------ | --------------------------------------------- |
+| **P0 — Critical** | Production credentials exposed publicly            | Immediate (15 min) | Database password in public GitHub repo       |
+| **P1 — High**     | Internal credentials exposed beyond intended scope | 1 hour             | API key in build logs accessible to wider org |
+| **P2 — Medium**   | Non-production credentials exposed                 | 4 hours            | Staging DB password in internal wiki          |
+| **P3 — Low**      | Expired or limited-scope credential exposed        | 24 hours           | Rotated API key found in old commit history   |
 
 ### P0/P1 Response Procedure
 
@@ -123,12 +123,14 @@ Unsealed State:
 ### When to Seal Vault (Emergency Only)
 
 Seal Vault when:
+
 - Active intrusion on Vault infrastructure is confirmed
 - Vault server compromise is suspected (unauthorized root access)
 - Encryption key material may have been extracted
 - Regulatory/legal hold requires immediate data access prevention
 
 **Do NOT seal for:**
+
 - Routine maintenance (use graceful shutdown instead)
 - Single-node issues in HA cluster (let standby take over)
 - Suspected secret leak (revoke the secret, don't seal Vault)
@@ -147,6 +149,7 @@ vault operator seal -address=https://vault-leader:8200
 ```
 
 **Impact of sealing:**
+
 - All active client connections dropped immediately
 - All token and lease timers paused
 - Applications lose secret access — prepare for cascading failures
@@ -165,6 +168,7 @@ vault operator unseal <key-3>
 ```
 
 **Operational checklist after unseal:**
+
 1. Verify health: `vault status` shows `Sealed: false`
 2. Check audit devices: `vault audit list` — confirm all enabled
 3. Check auth methods: `vault auth list`
@@ -185,6 +189,7 @@ vault status
 ```
 
 **If auto-unseal fails:**
+
 - Check cloud KMS key permissions (IAM role may have been modified)
 - Check network connectivity to cloud KMS endpoint
 - Check KMS key status (not disabled, not scheduled for deletion)
@@ -214,6 +219,7 @@ When a broad compromise requires rotating many credentials simultaneously.
 ### Rollback Plan
 
 For each credential, document:
+
 - Previous value (store in sealed emergency envelope or HSM)
 - How to revert (specific command or API call)
 - Verification step (how to confirm old credential works)
@@ -232,6 +238,7 @@ If unseal keys are lost and auto-unseal is not configured:
 ### Raft Cluster Recovery
 
 **Single node failure (cluster still has quorum):**
+
 ```bash
 # Remove failed peer
 vault operator raft remove-peer <failed-node-id>
@@ -241,6 +248,7 @@ vault operator raft remove-peer <failed-node-id>
 ```
 
 **Loss of quorum (majority of nodes failed):**
+
 ```bash
 # On a surviving node with recent data
 vault operator raft join -leader-ca-cert=@ca.crt https://surviving-node:8200
@@ -263,18 +271,19 @@ vault operator generate-root -decode=<encoded-token> -otp=<otp>
 ```
 
 **Best practice:** Generate a root token only when needed, complete the task, then revoke it:
+
 ```bash
 vault token revoke <root-token>
 ```
 
 ## Incident Severity Escalation Matrix
 
-| Signal | Escalation |
-|--------|-----------|
-| Single secret exposed in internal log | P2 — Rotate secret, add log masking |
-| Secret in public repository (no evidence of use) | P1 — Immediate rotation, history scrub |
-| Secret in public repository (evidence of unauthorized use) | P0 — Full incident response, legal notification |
-| Vault node compromised | P0 — Seal cluster, rotate all accessible secrets |
-| Cloud KMS key compromised | P0 — Create new key, re-encrypt all secrets, rotate all credentials |
-| Audit log gap detected | P1 — Investigate cause, assume worst case for gap period |
-| Multiple failed auth attempts from unknown source | P2 — Block source, investigate, rotate targeted credentials |
+| Signal                                                     | Escalation                                                          |
+| ---------------------------------------------------------- | ------------------------------------------------------------------- |
+| Single secret exposed in internal log                      | P2 — Rotate secret, add log masking                                 |
+| Secret in public repository (no evidence of use)           | P1 — Immediate rotation, history scrub                              |
+| Secret in public repository (evidence of unauthorized use) | P0 — Full incident response, legal notification                     |
+| Vault node compromised                                     | P0 — Seal cluster, rotate all accessible secrets                    |
+| Cloud KMS key compromised                                  | P0 — Create new key, re-encrypt all secrets, rotate all credentials |
+| Audit log gap detected                                     | P1 — Investigate cause, assume worst case for gap period            |
+| Multiple failed auth attempts from unknown source          | P2 — Block source, investigate, rotate targeted credentials         |

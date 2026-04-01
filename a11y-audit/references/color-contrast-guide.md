@@ -25,25 +25,25 @@ python scripts/contrast_checker.py --tailwind src/components/
 
 ## Common Contrast Fixes
 
-| Original Color | Contrast on White | Fix | New Contrast |
-|----------------|------------------|-----|--------------|
-| `#aaaaaa` | 2.32:1 | `#767676` | 4.54:1 (AA) |
-| `#999999` | 2.85:1 | `#767676` | 4.54:1 (AA) |
-| `#888888` | 3.54:1 | `#767676` | 4.54:1 (AA) |
-| `#777777` | 4.48:1 | `#757575` | 4.60:1 (AA) |
-| `#66bb6a` | 3.06:1 | `#2e7d32` | 5.87:1 (AA) |
-| `#42a5f5` | 2.81:1 | `#1565c0` | 6.08:1 (AA) |
-| `#ef5350` | 3.13:1 | `#c62828` | 5.57:1 (AA) |
+| Original Color | Contrast on White | Fix       | New Contrast |
+| -------------- | ----------------- | --------- | ------------ |
+| `#aaaaaa`      | 2.32:1            | `#767676` | 4.54:1 (AA)  |
+| `#999999`      | 2.85:1            | `#767676` | 4.54:1 (AA)  |
+| `#888888`      | 3.54:1            | `#767676` | 4.54:1 (AA)  |
+| `#777777`      | 4.48:1            | `#757575` | 4.60:1 (AA)  |
+| `#66bb6a`      | 3.06:1            | `#2e7d32` | 5.87:1 (AA)  |
+| `#42a5f5`      | 2.81:1            | `#1565c0` | 6.08:1 (AA)  |
+| `#ef5350`      | 3.13:1            | `#c62828` | 5.57:1 (AA)  |
 
 ## Tailwind CSS Accessible Palette Mapping
 
 | Inaccessible Class | Contrast on White | Accessible Alternative | Contrast |
-|---------------------|------------------|----------------------|----------|
-| `text-gray-400` | 2.68:1 | `text-gray-600` | 5.74:1 |
-| `text-blue-400` | 2.81:1 | `text-blue-700` | 5.96:1 |
-| `text-green-400` | 2.12:1 | `text-green-700` | 5.18:1 |
-| `text-red-400` | 3.04:1 | `text-red-700` | 6.05:1 |
-| `text-yellow-500` | 1.47:1 | `text-yellow-800` | 7.34:1 |
+| ------------------ | ----------------- | ---------------------- | -------- |
+| `text-gray-400`    | 2.68:1            | `text-gray-600`        | 5.74:1   |
+| `text-blue-400`    | 2.81:1            | `text-blue-700`        | 5.96:1   |
+| `text-green-400`   | 2.12:1            | `text-green-700`       | 5.18:1   |
+| `text-red-400`     | 3.04:1            | `text-red-700`         | 6.05:1   |
+| `text-yellow-500`  | 1.47:1            | `text-yellow-800`      | 7.34:1   |
 
 ## Screen Reader Utility Class
 
@@ -78,6 +78,7 @@ Every project should include this utility class for visually hiding content whil
 ```
 
 Tailwind CSS includes this as `sr-only` by default. For other frameworks:
+
 - **Angular**: Add to `styles.scss`
 - **Vue**: Add to `assets/global.css`
 - **Svelte**: Add to `app.css`

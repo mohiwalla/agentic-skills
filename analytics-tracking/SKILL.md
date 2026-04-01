@@ -23,17 +23,20 @@ If `marketing-context.md` exists, read it before asking questions. Use that cont
 Gather this context:
 
 ### 1. Current State
+
 - Do you have GA4 and/or GTM already set up? If so, what's broken or missing?
 - What's your tech stack? (React SPA, Next.js, WordPress, custom, etc.)
 - Do you have a consent management platform (CMP)? Which one?
 - What events are you currently tracking (if any)?
 
 ### 2. Business Context
+
 - What are your primary conversion actions? (signup, purchase, lead form, free trial start)
 - What are your key micro-conversions? (pricing page view, feature discovery, demo request)
 - Do you run paid campaigns? (Google Ads, Meta, LinkedIn — affects conversion tracking needs)
 
 ### 3. Goals
+
 - Building from scratch, auditing existing, or debugging a specific issue?
 - Do you need cross-domain tracking? Multiple properties or subdomains?
 - Server-side tagging requirement? (GDPR-sensitive markets, performance concerns)
@@ -41,12 +44,15 @@ Gather this context:
 ## How This Skill Works
 
 ### Mode 1: Set Up From Scratch
+
 No analytics in place — we'll build the tracking plan, implement GA4 and GTM, define the event taxonomy, and configure conversions.
 
 ### Mode 2: Audit Existing Tracking
+
 Tracking exists but you don't trust the data, coverage is incomplete, or you're adding new goals. We'll audit what's there, gap-fill, and clean up.
 
 ### Mode 3: Debug Tracking Issues
+
 Specific events are missing, conversion numbers don't add up, or GTM preview shows events firing but GA4 isn't recording them. Structured debugging workflow.
 
 ---
@@ -59,14 +65,15 @@ Get this right before touching GA4 or GTM. Retrofitting taxonomy is painful.
 
 **Format:** `object_action` (snake_case, verb at the end)
 
-| ✅ Good | ❌ Bad |
-|--------|--------|
-| `form_submit` | `submitForm`, `FormSubmitted`, `form-submit` |
-| `plan_selected` | `clickPricingPlan`, `selected_plan`, `PlanClick` |
-| `video_started` | `videoPlay`, `StartVideo`, `VideoStart` |
-| `checkout_completed` | `purchase`, `buy_complete`, `checkoutDone` |
+| ✅ Good              | ❌ Bad                                           |
+| -------------------- | ------------------------------------------------ |
+| `form_submit`        | `submitForm`, `FormSubmitted`, `form-submit`     |
+| `plan_selected`      | `clickPricingPlan`, `selected_plan`, `PlanClick` |
+| `video_started`      | `videoPlay`, `StartVideo`, `VideoStart`          |
+| `checkout_completed` | `purchase`, `buy_complete`, `checkoutDone`       |
 
 **Rules:**
+
 - Always `noun_verb` not `verb_noun`
 - Lowercase + underscores only — no camelCase, no hyphens
 - Be specific enough to be unambiguous, not so verbose it's a sentence
@@ -76,20 +83,21 @@ Get this right before touching GA4 or GTM. Retrofitting taxonomy is painful.
 
 Every event should include these where applicable:
 
-| Parameter | Type | Example | Purpose |
-|-----------|------|---------|---------|
-| `page_location` | string | `https://app.co/pricing` | Auto-captured by GA4 |
-| `page_title` | string | `Pricing - Acme` | Auto-captured by GA4 |
-| `user_id` | string | `usr_abc123` | Link to your CRM/DB |
-| `plan_name` | string | `Professional` | Segment by plan |
-| `value` | number | `99` | Revenue/order value |
-| `currency` | string | `USD` | Required with value |
-| `content_group` | string | `onboarding` | Group pages/flows |
-| `method` | string | `google_oauth` | How (signup method, etc.) |
+| Parameter       | Type   | Example                  | Purpose                   |
+| --------------- | ------ | ------------------------ | ------------------------- |
+| `page_location` | string | `https://app.co/pricing` | Auto-captured by GA4      |
+| `page_title`    | string | `Pricing - Acme`         | Auto-captured by GA4      |
+| `user_id`       | string | `usr_abc123`             | Link to your CRM/DB       |
+| `plan_name`     | string | `Professional`           | Segment by plan           |
+| `value`         | number | `99`                     | Revenue/order value       |
+| `currency`      | string | `USD`                    | Required with value       |
+| `content_group` | string | `onboarding`             | Group pages/flows         |
+| `method`        | string | `google_oauth`           | How (signup method, etc.) |
 
 ### Event Taxonomy for SaaS
 
 **Core funnel events:**
+
 ```
 visitor_arrived         (page view — automatic in GA4)
 signup_started          (user clicked "Sign up")
@@ -104,6 +112,7 @@ subscription_cancelled  (param: cancel_reason, plan_name)
 ```
 
 **Micro-conversion events:**
+
 ```
 pricing_viewed
 demo_requested          (param: source)
@@ -139,32 +148,36 @@ See [references/event-taxonomy-guide.md](references/event-taxonomy-guide.md) for
 For any event not auto-collected, create it in GTM (preferred) or via gtag directly:
 
 **Via gtag:**
+
 ```javascript
-gtag('event', 'signup_completed', {
-  method: 'email',
-  user_id: 'usr_abc123',
-  plan_name: "trial"
-});
+gtag("event", "signup_completed", {
+  method: "email",
+  user_id: "usr_abc123",
+  plan_name: "trial",
+})
 ```
 
 **Via GTM data layer (preferred — see GTM section):**
+
 ```javascript
 window.dataLayer.push({
-  event: 'signup_completed',
-  signup_method: 'email',
-  user_id: 'usr_abc123'
-});
+  event: "signup_completed",
+  signup_method: "email",
+  user_id: "usr_abc123",
+})
 ```
 
 ### Conversions Configuration
 
 Mark these events as conversions in GA4 → Admin → Conversions:
+
 - `signup_completed`
 - `checkout_completed`
 - `demo_requested`
 - `trial_started` (if separate from signup)
 
 **Rules:**
+
 - Max 30 conversion events per property — curate, don't mark everything
 - Conversions are retroactive in GA4 — turning one on applies to 6 months of history
 - Don't mark micro-conversions as conversions unless you're optimizing ad campaigns for them
@@ -201,13 +214,13 @@ Your app pushes to dataLayer → GTM picks it up → sends to GA4.
 
 ```javascript
 // In your app code (on event):
-window.dataLayer = window.dataLayer || [];
+window.dataLayer = window.dataLayer || []
 window.dataLayer.push({
-  event: 'signup_completed',
-  signup_method: 'email',
+  event: "signup_completed",
+  signup_method: "email",
   user_id: userId,
-  plan_name: "trial"
-});
+  plan_name: "trial",
+})
 ```
 
 ```
@@ -228,7 +241,7 @@ For events triggered by UI elements without app-level hooks.
 GTM Trigger:
   Type: Click - All Elements
   Conditions: Click Element matches CSS selector [data-track="demo-cta"]
-  
+
 GTM Tag: GA4 Event
   Event Name: demo_requested
   Parameters:
@@ -263,24 +276,24 @@ See [references/gtm-patterns.md](references/gtm-patterns.md) for full configurat
 
 Enforce strict UTM conventions or your channel data becomes noise.
 
-| Parameter | Convention | Example |
-|-----------|-----------|---------|
-| `utm_source` | Platform name (lowercase) | `google`, `linkedin`, `newsletter` |
-| `utm_medium` | Traffic type | `cpc`, `email`, `social`, `organic` |
-| `utm_campaign` | Campaign ID or name | `q1-trial-push`, `brand-awareness` |
-| `utm_content` | Ad/creative variant | `hero-cta-blue`, `text-link` |
-| `utm_term` | Paid keyword | `saas-analytics` |
+| Parameter      | Convention                | Example                             |
+| -------------- | ------------------------- | ----------------------------------- |
+| `utm_source`   | Platform name (lowercase) | `google`, `linkedin`, `newsletter`  |
+| `utm_medium`   | Traffic type              | `cpc`, `email`, `social`, `organic` |
+| `utm_campaign` | Campaign ID or name       | `q1-trial-push`, `brand-awareness`  |
+| `utm_content`  | Ad/creative variant       | `hero-cta-blue`, `text-link`        |
+| `utm_term`     | Paid keyword              | `saas-analytics`                    |
 
 **Rule:** Never tag organic or direct traffic with UTMs. UTMs override GA4's automatic source/medium attribution.
 
 ### Attribution Windows
 
-| Platform | Default Window | Recommended for SaaS |
-|---------|---------------|---------------------|
-| GA4 | 30 days | 30-90 days depending on sales cycle |
-| Google Ads | 30 days | 30 days (trial), 90 days (enterprise) |
-| Meta | 7-day click, 1-day view | 7-day click only |
-| LinkedIn | 30 days | 30 days |
+| Platform   | Default Window          | Recommended for SaaS                  |
+| ---------- | ----------------------- | ------------------------------------- |
+| GA4        | 30 days                 | 30-90 days depending on sales cycle   |
+| Google Ads | 30 days                 | 30 days (trial), 90 days (enterprise) |
+| Meta       | 7-day click, 1-day view | 7-day click only                      |
+| LinkedIn   | 30 days                 | 30 days                               |
 
 ### Cross-Domain Tracking
 
@@ -297,6 +310,7 @@ For funnels that cross domains (e.g., `acme.com` → `app.acme.com`):
 ### Deduplication
 
 **Events firing twice?** Common causes:
+
 - GTM tag + hardcoded gtag both firing
 - Enhanced Measurement + custom GTM tag for same event
 - SPA router firing pageview on every route change AND GTM page view tag
@@ -306,6 +320,7 @@ Fix: Audit GTM Preview for double-fires. Check Network tab in DevTools for dupli
 ### Bot Filtering
 
 GA4 filters known bots automatically. For internal traffic:
+
 1. GA4 → Admin → Data Filters → Internal Traffic
 2. Add your office IPs and developer IPs
 3. Enable filter (starts as testing mode — activate it)
@@ -314,10 +329,10 @@ GA4 filters known bots automatically. For internal traffic:
 
 Under GDPR/ePrivacy, analytics may require consent. Plan for this:
 
-| Consent Mode setting | Impact |
-|---------------------|--------|
-| **No consent mode** | Visitors who decline cookies → zero data |
-| **Basic consent mode** | Visitors who decline → zero data |
+| Consent Mode setting      | Impact                                                                    |
+| ------------------------- | ------------------------------------------------------------------------- |
+| **No consent mode**       | Visitors who decline cookies → zero data                                  |
+| **Basic consent mode**    | Visitors who decline → zero data                                          |
 | **Advanced consent mode** | Visitors who decline → modeled data (GA4 estimates using consented users) |
 
 **Recommendation:** Implement Advanced Consent Mode via GTM. Requires CMP integration (Cookiebot, OneTrust, Usercentrics, etc.).
@@ -341,20 +356,21 @@ Surface these without being asked:
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|--------------------|-----------|
-| "Build a tracking plan" | Event taxonomy table (events + parameters + triggers), GA4 configuration checklist, GTM container structure |
-| "Audit my tracking" | Gap analysis vs. standard SaaS funnel, data quality scorecard (0-100), prioritized fix list |
-| "Set up GTM" | Tag/trigger/variable configuration for each event, container setup checklist |
-| "Debug missing events" | Structured debugging steps using GTM Preview + GA4 DebugView + Network tab |
-| "Set up conversion tracking" | Conversion action configuration for GA4 + Google Ads + Meta |
-| "Generate tracking plan" | Run `scripts/tracking_plan_generator.py` with your inputs |
+| When you ask for...          | You get...                                                                                                  |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| "Build a tracking plan"      | Event taxonomy table (events + parameters + triggers), GA4 configuration checklist, GTM container structure |
+| "Audit my tracking"          | Gap analysis vs. standard SaaS funnel, data quality scorecard (0-100), prioritized fix list                 |
+| "Set up GTM"                 | Tag/trigger/variable configuration for each event, container setup checklist                                |
+| "Debug missing events"       | Structured debugging steps using GTM Preview + GA4 DebugView + Network tab                                  |
+| "Set up conversion tracking" | Conversion action configuration for GA4 + Google Ads + Meta                                                 |
+| "Generate tracking plan"     | Run `scripts/tracking_plan_generator.py` with your inputs                                                   |
 
 ---
 
 ## Communication
 
 All output follows the structured communication standard:
+
 - **Bottom line first** — what's broken or what needs building before methodology
 - **What + Why + How** — every finding has all three
 - **Actions have owners and deadlines** — no vague "consider implementing"

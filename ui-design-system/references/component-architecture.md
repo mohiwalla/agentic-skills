@@ -46,15 +46,15 @@ Reference for design system component organization, naming conventions, and docu
 
 ### Component Categories
 
-| Category | Description | Examples |
-|----------|-------------|----------|
-| **Primitives** | Base HTML wrapper | Box, Text, Flex, Grid |
-| **Inputs** | User interaction | Button, Input, Select, Checkbox |
-| **Display** | Content presentation | Card, Badge, Avatar, Icon |
-| **Feedback** | User feedback | Alert, Toast, Progress, Skeleton |
-| **Navigation** | Route management | Link, Menu, Tabs, Breadcrumb |
-| **Overlay** | Layer above content | Modal, Drawer, Popover, Tooltip |
-| **Layout** | Structure | Stack, Container, Divider |
+| Category       | Description          | Examples                         |
+| -------------- | -------------------- | -------------------------------- |
+| **Primitives** | Base HTML wrapper    | Box, Text, Flex, Grid            |
+| **Inputs**     | User interaction     | Button, Input, Select, Checkbox  |
+| **Display**    | Content presentation | Card, Badge, Avatar, Icon        |
+| **Feedback**   | User feedback        | Alert, Toast, Progress, Skeleton |
+| **Navigation** | Route management     | Link, Menu, Tabs, Breadcrumb     |
+| **Overlay**    | Layer above content  | Modal, Drawer, Popover, Tooltip  |
+| **Layout**     | Structure            | Stack, Container, Divider        |
 
 ---
 
@@ -139,22 +139,25 @@ import { Button } from '@design-system/components'
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| variant | 'primary' \| 'secondary' \| 'ghost' | 'primary' | Visual style |
-| size | 'sm' \| 'md' \| 'lg' | 'md' | Component size |
-| disabled | boolean | false | Disabled state |
-| onClick | () => void | - | Click handler |
+| Prop     | Type                                | Default   | Description    |
+| -------- | ----------------------------------- | --------- | -------------- |
+| variant  | 'primary' \| 'secondary' \| 'ghost' | 'primary' | Visual style   |
+| size     | 'sm' \| 'md' \| 'lg'                | 'md'      | Component size |
+| disabled | boolean                             | false     | Disabled state |
+| onClick  | () => void                          | -         | Click handler  |
 
 ## Variants
 
 ### Primary
+
 Use for main actions.
 
 ### Secondary
+
 Use for secondary actions.
 
 ### Ghost
+
 Use for tertiary or inline actions.
 
 ## Accessibility
@@ -176,28 +179,28 @@ Use for tertiary or inline actions.
 ```typescript
 interface ButtonProps {
   /** Visual variant of the button */
-  variant?: 'primary' | 'secondary' | 'ghost' | 'danger';
+  variant?: "primary" | "secondary" | "ghost" | "danger"
 
   /** Size of the button */
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg"
 
   /** Whether button is disabled */
-  disabled?: boolean;
+  disabled?: boolean
 
   /** Whether button shows loading state */
-  loading?: boolean;
+  loading?: boolean
 
   /** Left icon element */
-  leftIcon?: React.ReactNode;
+  leftIcon?: React.ReactNode
 
   /** Right icon element */
-  rightIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode
 
   /** Click handler */
-  onClick?: () => void;
+  onClick?: () => void
 
   /** Button content */
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 ```
 
@@ -210,24 +213,24 @@ interface ButtonProps {
 ```typescript
 const sizeTokens = {
   sm: {
-    height: 'sizing-button-sm-height',    // 32px
-    paddingX: 'sizing-button-sm-paddingX', // 12px
-    fontSize: 'fontSize-sm',               // 14px
-    iconSize: 'sizing-icon-sm'             // 16px
+    height: "sizing-button-sm-height", // 32px
+    paddingX: "sizing-button-sm-paddingX", // 12px
+    fontSize: "fontSize-sm", // 14px
+    iconSize: "sizing-icon-sm", // 16px
   },
   md: {
-    height: 'sizing-button-md-height',    // 40px
-    paddingX: 'sizing-button-md-paddingX', // 16px
-    fontSize: 'fontSize-base',             // 16px
-    iconSize: 'sizing-icon-md'             // 20px
+    height: "sizing-button-md-height", // 40px
+    paddingX: "sizing-button-md-paddingX", // 16px
+    fontSize: "fontSize-base", // 16px
+    iconSize: "sizing-icon-md", // 20px
   },
   lg: {
-    height: 'sizing-button-lg-height',    // 48px
-    paddingX: 'sizing-button-lg-paddingX', // 20px
-    fontSize: 'fontSize-lg',               // 18px
-    iconSize: 'sizing-icon-lg'             // 24px
-  }
-};
+    height: "sizing-button-lg-height", // 48px
+    paddingX: "sizing-button-lg-paddingX", // 20px
+    fontSize: "fontSize-lg", // 18px
+    iconSize: "sizing-icon-lg", // 24px
+  },
+}
 ```
 
 ### Color Variants
@@ -235,34 +238,34 @@ const sizeTokens = {
 ```typescript
 const variantTokens = {
   primary: {
-    background: 'color-primary-500',
-    backgroundHover: 'color-primary-600',
-    backgroundActive: 'color-primary-700',
-    text: 'color-white',
-    border: 'transparent'
+    background: "color-primary-500",
+    backgroundHover: "color-primary-600",
+    backgroundActive: "color-primary-700",
+    text: "color-white",
+    border: "transparent",
   },
   secondary: {
-    background: 'color-neutral-100',
-    backgroundHover: 'color-neutral-200',
-    backgroundActive: 'color-neutral-300',
-    text: 'color-neutral-900',
-    border: 'transparent'
+    background: "color-neutral-100",
+    backgroundHover: "color-neutral-200",
+    backgroundActive: "color-neutral-300",
+    text: "color-neutral-900",
+    border: "transparent",
   },
   outline: {
-    background: 'transparent',
-    backgroundHover: 'color-primary-50',
-    backgroundActive: 'color-primary-100',
-    text: 'color-primary-500',
-    border: 'color-primary-500'
+    background: "transparent",
+    backgroundHover: "color-primary-50",
+    backgroundActive: "color-primary-100",
+    text: "color-primary-500",
+    border: "color-primary-500",
   },
   ghost: {
-    background: 'transparent',
-    backgroundHover: 'color-neutral-100',
-    backgroundActive: 'color-neutral-200',
-    text: 'color-neutral-700',
-    border: 'transparent'
-  }
-};
+    background: "transparent",
+    backgroundHover: "color-neutral-100",
+    backgroundActive: "color-neutral-200",
+    text: "color-neutral-700",
+    border: "transparent",
+  },
+}
 ```
 
 ### State Variants
@@ -270,30 +273,30 @@ const variantTokens = {
 ```typescript
 const stateStyles = {
   default: {
-    cursor: 'pointer',
-    opacity: 1
+    cursor: "pointer",
+    opacity: 1,
   },
   hover: {
     // Uses variantTokens backgroundHover
   },
   active: {
     // Uses variantTokens backgroundActive
-    transform: 'scale(0.98)'
+    transform: "scale(0.98)",
   },
   focus: {
-    outline: 'none',
-    boxShadow: '0 0 0 2px color-primary-200'
+    outline: "none",
+    boxShadow: "0 0 0 2px color-primary-200",
   },
   disabled: {
-    cursor: 'not-allowed',
+    cursor: "not-allowed",
     opacity: 0.5,
-    pointerEvents: 'none'
+    pointerEvents: "none",
   },
   loading: {
-    cursor: 'wait',
-    pointerEvents: 'none'
-  }
-};
+    cursor: "wait",
+    pointerEvents: "none",
+  },
+}
 ```
 
 ---
@@ -326,43 +329,43 @@ const stateStyles = {
 **JavaScript/TypeScript:**
 
 ```typescript
-import tokens from './design-tokens.json';
+import tokens from "./design-tokens.json"
 
 const buttonStyles = {
   height: tokens.sizing.components.button.md.height,
   paddingLeft: tokens.sizing.components.button.md.paddingX,
-  backgroundColor: tokens.colors.primary['500'],
-  borderRadius: tokens.borders.radius.md
-};
+  backgroundColor: tokens.colors.primary["500"],
+  borderRadius: tokens.borders.radius.md,
+}
 ```
 
 **Styled Components:**
 
 ```typescript
-import styled from 'styled-components';
+import styled from "styled-components"
 
 const Button = styled.button`
   height: ${({ theme }) => theme.sizing.components.button.md.height};
   padding: 0 ${({ theme }) => theme.sizing.components.button.md.paddingX};
-  background: ${({ theme }) => theme.colors.primary['500']};
+  background: ${({ theme }) => theme.colors.primary["500"]};
   border-radius: ${({ theme }) => theme.borders.radius.md};
 
   &:hover {
-    background: ${({ theme }) => theme.colors.primary['600']};
+    background: ${({ theme }) => theme.colors.primary["600"]};
   }
-`;
+`
 ```
 
 ### Token-to-Component Mapping
 
-| Component | Token Categories Used |
-|-----------|----------------------|
-| Button | colors, sizing, borders, shadows, typography |
-| Input | colors, sizing, borders, spacing |
-| Card | colors, borders, shadows, spacing |
-| Typography | typography (all), colors |
-| Icon | sizing, colors |
-| Modal | colors, shadows, spacing, z-index, animation |
+| Component  | Token Categories Used                        |
+| ---------- | -------------------------------------------- |
+| Button     | colors, sizing, borders, shadows, typography |
+| Input      | colors, sizing, borders, spacing             |
+| Card       | colors, borders, shadows, spacing            |
+| Typography | typography (all), colors                     |
+| Icon       | sizing, colors                               |
+| Modal      | colors, shadows, spacing, z-index, animation |
 
 ---
 
@@ -393,4 +396,4 @@ const Button = styled.button`
 
 ---
 
-*See also: `token-generation.md` for token creation*
+_See also: `token-generation.md` for token creation_

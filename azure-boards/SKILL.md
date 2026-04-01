@@ -46,29 +46,29 @@ az boards work-item create \
 
 ### Key Arguments
 
-| Arg | Required | Notes |
-|-----|----------|-------|
-| `--type` | Yes | `Task`, `Bug`, `User Story`, `Issue`, `Epic`, `Feature` |
-| `--title` | Yes | Title of the work item |
-| `--description` | No | HTML or plain text |
-| `--iteration` | No | Full iteration path: `Project\Sprint N` |
-| `--area` | No | Full area path: `Project\Area` |
-| `--assigned-to` | No | Display name or email |
-| `--fields` | No | Space-separated `"field=value"` pairs |
-| `--discussion` | No | Adds a comment |
-| `--reason` | No | Reason for the state |
+| Arg             | Required | Notes                                                   |
+| --------------- | -------- | ------------------------------------------------------- |
+| `--type`        | Yes      | `Task`, `Bug`, `User Story`, `Issue`, `Epic`, `Feature` |
+| `--title`       | Yes      | Title of the work item                                  |
+| `--description` | No       | HTML or plain text                                      |
+| `--iteration`   | No       | Full iteration path: `Project\Sprint N`                 |
+| `--area`        | No       | Full area path: `Project\Area`                          |
+| `--assigned-to` | No       | Display name or email                                   |
+| `--fields`      | No       | Space-separated `"field=value"` pairs                   |
+| `--discussion`  | No       | Adds a comment                                          |
+| `--reason`      | No       | Reason for the state                                    |
 
 ### Common Fields (`--fields`)
 
-| Field | Purpose | Example |
-|-------|---------|---------|
-| `Microsoft.VSTS.Scheduling.OriginalEstimate` | Estimate in hours | `0.5` = 30 min |
-| `Microsoft.VSTS.Scheduling.RemainingWork` | Remaining hours | `4` |
-| `Microsoft.VSTS.Scheduling.CompletedWork` | Completed hours | `2` |
-| `Microsoft.VSTS.Common.Priority` | Priority (1-4) | `1` = critical |
-| `Microsoft.VSTS.Common.Severity` | Bug severity | `2 - High` |
-| `System.Tags` | Tags | `"frontend; urgent"` |
-| `System.State` | State | `Active`, `Closed` |
+| Field                                        | Purpose           | Example              |
+| -------------------------------------------- | ----------------- | -------------------- |
+| `Microsoft.VSTS.Scheduling.OriginalEstimate` | Estimate in hours | `0.5` = 30 min       |
+| `Microsoft.VSTS.Scheduling.RemainingWork`    | Remaining hours   | `4`                  |
+| `Microsoft.VSTS.Scheduling.CompletedWork`    | Completed hours   | `2`                  |
+| `Microsoft.VSTS.Common.Priority`             | Priority (1-4)    | `1` = critical       |
+| `Microsoft.VSTS.Common.Severity`             | Bug severity      | `2 - High`           |
+| `System.Tags`                                | Tags              | `"frontend; urgent"` |
+| `System.State`                               | State             | `Active`, `Closed`   |
 
 > **NOTE:** `--parent` is NOT a valid argument on `az boards work-item create`. You must create the item first, then add a parent relation separately.
 
@@ -86,13 +86,13 @@ az boards work-item relation add \
 
 ### Relation Types
 
-| Type | Meaning |
-|------|---------|
-| `parent` | Target is the parent of `--id` |
-| `child` | Target is a child of `--id` |
-| `related` | General related link |
+| Type          | Meaning                            |
+| ------------- | ---------------------------------- |
+| `parent`      | Target is the parent of `--id`     |
+| `child`       | Target is a child of `--id`        |
+| `related`     | General related link               |
 | `predecessor` | Target must complete before `--id` |
-| `successor` | `--id` must complete before target |
+| `successor`   | `--id` must complete before target |
 
 Multiple targets: `--target-id 100,101,102`
 

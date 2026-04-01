@@ -24,7 +24,7 @@ The Release Manager skill provides three powerful Python scripts and comprehensi
 # Generate changelog from recent commits
 git log --oneline --since="1 month ago" | python changelog_generator.py
 
-# Determine version bump from commits since last tag  
+# Determine version bump from commits since last tag
 git log --oneline $(git describe --tags --abbrev=0)..HEAD | python version_bumper.py -c "1.2.3"
 
 # Assess release readiness
@@ -38,11 +38,13 @@ python release_planner.py --input assets/sample_release_plan.json
 Parses conventional commits and generates structured changelogs in multiple formats.
 
 **Input Options:**
+
 - Git log text (oneline or full format)
 - JSON array of commits
 - Stdin or file input
 
 **Output Formats:**
+
 - Markdown (Keep a Changelog format)
 - JSON structured data
 - Both with release statistics
@@ -68,6 +70,7 @@ git log --format="%h %s" v1.0.0..HEAD | python changelog_generator.py \
 ```
 
 **Features:**
+
 - Parses conventional commit types (feat, fix, docs, etc.)
 - Groups commits by changelog categories (Added, Fixed, Changed, etc.)
 - Extracts issue references (#123, fixes #456)
@@ -80,6 +83,7 @@ git log --format="%h %s" v1.0.0..HEAD | python changelog_generator.py \
 Analyzes commits to determine semantic version bumps according to conventional commits.
 
 **Bump Rules:**
+
 - **MAJOR:** Breaking changes (`feat!:` or `BREAKING CHANGE:`)
 - **MINOR:** New features (`feat:`)
 - **PATCH:** Bug fixes (`fix:`, `perf:`, `security:`)
@@ -106,6 +110,7 @@ git log --oneline $(git describe --tags --abbrev=0)..HEAD | \
 ```
 
 **Features:**
+
 - Supports pre-release versions (alpha, beta, rc)
 - Generates bump commands for npm, Python, Rust, Git
 - Provides file update snippets
@@ -134,6 +139,7 @@ python release_planner.py \
 ```
 
 **Features:**
+
 - Feature readiness assessment with approval tracking
 - Quality gate validation and reporting
 - Stakeholder communication planning
@@ -181,32 +187,32 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0  # Need full history
-        
-    - name: Determine version bump
-      id: version
-      run: |
-        CURRENT=$(git describe --tags --abbrev=0)
-        git log --oneline $CURRENT..HEAD | \
-          python scripts/version_bumper.py -c $CURRENT --output-format json > bump.json
-        echo "new_version=$(jq -r '.recommended_version' bump.json)" >> $GITHUB_OUTPUT
-        
-    - name: Generate changelog
-      run: |
-        git log --oneline ${{ steps.version.outputs.current_version }}..HEAD | \
-          python scripts/changelog_generator.py \
-          --version "${{ steps.version.outputs.new_version }}" \
-          --base-url "https://github.com/${{ github.repository }}" \
-          --output CHANGELOG_ENTRY.md
-          
-    - name: Create release
-      uses: actions/create-release@v1
-      with:
-        tag_name: v${{ steps.version.outputs.new_version }}
-        release_name: Release ${{ steps.version.outputs.new_version }}
-        body_path: CHANGELOG_ENTRY.md
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Need full history
+
+      - name: Determine version bump
+        id: version
+        run: |
+          CURRENT=$(git describe --tags --abbrev=0)
+          git log --oneline $CURRENT..HEAD | \
+            python scripts/version_bumper.py -c $CURRENT --output-format json > bump.json
+          echo "new_version=$(jq -r '.recommended_version' bump.json)" >> $GITHUB_OUTPUT
+
+      - name: Generate changelog
+        run: |
+          git log --oneline ${{ steps.version.outputs.current_version }}..HEAD | \
+            python scripts/changelog_generator.py \
+            --version "${{ steps.version.outputs.new_version }}" \
+            --base-url "https://github.com/${{ github.repository }}" \
+            --output CHANGELOG_ENTRY.md
+
+      - name: Create release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.new_version }}
+          release_name: Release ${{ steps.version.outputs.new_version }}
+          body_path: CHANGELOG_ENTRY.md
 ```
 
 ### Git Hooks Integration
@@ -245,22 +251,22 @@ from datetime import datetime, timedelta
 
 def generate_release_plan_from_github(repo, milestone):
     """Generate release plan from GitHub milestone and PRs."""
-    
+
     # Fetch milestone details
     milestone_url = f"https://api.github.com/repos/{repo}/milestones/{milestone}"
     milestone_data = requests.get(milestone_url).json()
-    
+
     # Fetch associated issues/PRs
     issues_url = f"https://api.github.com/repos/{repo}/issues?milestone={milestone}&state=all"
     issues = requests.get(issues_url).json()
-    
+
     release_plan = {
         "release_name": milestone_data["title"],
         "version": "TBD",  # Fill in manually or extract from milestone
         "target_date": milestone_data["due_on"],
         "features": []
     }
-    
+
     for issue in issues:
         if issue.get("pull_request"):  # It's a PR
             feature = {
@@ -277,7 +283,7 @@ def generate_release_plan_from_github(repo, milestone):
                 "pm_approved": "pm-approved" in [label["name"] for label in issue["labels"]]
             }
             release_plan["features"].append(feature)
-    
+
     return release_plan
 
 # Usage
@@ -285,7 +291,7 @@ if __name__ == "__main__":
     plan = generate_release_plan_from_github("yourorg/yourrepo", "5")
     with open("release_plan.json", "w") as f:
         json.dump(plan, f, indent=2)
-    
+
     print("Generated release_plan.json")
     print("Run: python release_planner.py --input release_plan.json")
 ```
@@ -314,18 +320,18 @@ base_version="2.1.0"
 for repo in "${repos[@]}"; do
     echo "Processing $repo..."
     cd "$repo"
-    
+
     # Generate changelog for this repo
     git log --oneline --since="1 month ago" | \
         python ../scripts/changelog_generator.py \
         --version "$base_version" \
         --output "CHANGELOG_$repo.md"
-    
+
     # Determine version bump
     git log --oneline $(git describe --tags --abbrev=0)..HEAD | \
         python ../scripts/version_bumper.py \
         --current-version "$(git describe --tags --abbrev=0)" > "VERSION_$repo.txt"
-    
+
     cd ..
 done
 
@@ -383,7 +389,7 @@ elif status["assessment"]["overall_status"] == "ready":
 4. **Document rollback procedures** before deployment
 5. **Communicate clearly** with both internal teams and external users
 
-### Version Management  
+### Version Management
 
 1. **Follow semantic versioning** strictly for predictable releases
 2. **Use pre-release versions** for beta testing and gradual rollouts
@@ -396,15 +402,18 @@ elif status["assessment"]["overall_status"] == "ready":
 ### Common Issues
 
 **"No valid commits found"**
+
 - Ensure git log contains commit messages
 - Check that commits follow conventional format
 - Verify input format (git-log vs json)
 
 **"Invalid version format"**
+
 - Use semantic versioning: 1.2.3, not 1.2 or v1.2.3.beta
 - Pre-release format: 1.2.3-alpha.1
 
 **"Missing required approvals"**
+
 - Check feature risk levels in release plan
 - High/critical risk features require additional approvals
 - Update approval status in JSON file
@@ -418,7 +427,7 @@ All scripts support verbose output for debugging:
 python changelog_generator.py --input sample.txt --debug
 
 # Validate input data
-python -c "import json; print(json.load(open('release_plan.json')))" 
+python -c "import json; print(json.load(open('release_plan.json')))"
 
 # Test with sample data first
 python release_planner.py --input assets/sample_release_plan.json

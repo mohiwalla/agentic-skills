@@ -39,16 +39,17 @@ ls .claude/rules/*.md 2>/dev/null | wc -l
 
 ### Step 2: Analyze capacity
 
-| Metric | Healthy | Warning | Critical |
-|--------|---------|---------|----------|
-| MEMORY.md lines | < 120 | 120-180 | > 180 |
-| CLAUDE.md lines | < 150 | 150-200 | > 200 |
-| Topic files | 0-3 | 4-6 | > 6 |
-| Stale entries | 0 | 1-3 | > 3 |
+| Metric          | Healthy | Warning | Critical |
+| --------------- | ------- | ------- | -------- |
+| MEMORY.md lines | < 120   | 120-180 | > 180    |
+| CLAUDE.md lines | < 150   | 150-200 | > 200    |
+| Topic files     | 0-3     | 4-6     | > 6      |
+| Stale entries   | 0       | 1-3     | > 3      |
 
 ### Step 3: Quick stale check
 
 For each MEMORY.md entry that references a file path:
+
 ```bash
 # Verify referenced files still exist
 grep -oE '[a-zA-Z0-9_/.-]+\.(ts|js|py|md|json|yaml|yml)' "$MEMORY_DIR/MEMORY.md" | while read f; do

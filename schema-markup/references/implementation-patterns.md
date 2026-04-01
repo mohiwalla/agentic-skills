@@ -181,6 +181,7 @@ Copy-paste JSON-LD patterns for every common schema type. Replace ALL_CAPS place
 ```
 
 **Availability options:**
+
 - `https://schema.org/InStock`
 - `https://schema.org/OutOfStock`
 - `https://schema.org/PreOrder`
@@ -245,7 +246,7 @@ Copy-paste JSON-LD patterns for every common schema type. Replace ALL_CAPS place
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": 40.7128,
-    "longitude": -74.0060
+    "longitude": -74.006
   },
   "openingHoursSpecification": [
     {
@@ -348,20 +349,20 @@ Use two separate `<script>` tags on the same page:
 
 ```html
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "ARTICLE_TITLE",
-  ...full Article schema...
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "ARTICLE_TITLE",
+    ...full Article schema...
+  }
 </script>
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  ...full BreadcrumbList schema...
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    ...full BreadcrumbList schema...
+  }
 </script>
 ```
 
@@ -369,19 +370,19 @@ Or combine into a single `@graph` array:
 
 ```html
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BlogPosting",
-      ...
-    },
-    {
-      "@type": "BreadcrumbList",
-      ...
-    }
-  ]
-}
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        ...
+      },
+      {
+        "@type": "BreadcrumbList",
+        ...
+      }
+    ]
+  }
 </script>
 ```
 
@@ -414,24 +415,24 @@ Both approaches are valid. `@graph` is cleaner for sites with many schema types 
 
 ## Duration Format Reference (ISO 8601)
 
-| Duration | ISO 8601 |
-|----------|----------|
-| 30 minutes | `PT30M` |
-| 1 hour | `PT1H` |
-| 1 hour 30 minutes | `PT1H30M` |
-| 2 hours 15 minutes | `PT2H15M` |
-| 5 minutes 30 seconds | `PT5M30S` |
+| Duration              | ISO 8601   |
+| --------------------- | ---------- |
+| 30 minutes            | `PT30M`    |
+| 1 hour                | `PT1H`     |
+| 1 hour 30 minutes     | `PT1H30M`  |
+| 2 hours 15 minutes    | `PT2H15M`  |
+| 5 minutes 30 seconds  | `PT5M30S`  |
 | 12 minutes 30 seconds | `PT12M30S` |
 
 ## Availability Values Reference
 
 Always use the full schema.org URL — not just the word.
 
-| Status | Value |
-|--------|-------|
-| In stock | `https://schema.org/InStock` |
-| Out of stock | `https://schema.org/OutOfStock` |
-| Pre-order | `https://schema.org/PreOrder` |
-| Back order | `https://schema.org/BackOrder` |
+| Status               | Value                                    |
+| -------------------- | ---------------------------------------- |
+| In stock             | `https://schema.org/InStock`             |
+| Out of stock         | `https://schema.org/OutOfStock`          |
+| Pre-order            | `https://schema.org/PreOrder`            |
+| Back order           | `https://schema.org/BackOrder`           |
 | Limited availability | `https://schema.org/LimitedAvailability` |
-| Discontinued | `https://schema.org/Discontinued` |
+| Discontinued         | `https://schema.org/Discontinued`        |

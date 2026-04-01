@@ -12,18 +12,21 @@ Strategic project management for enterprise software, SaaS, and digital transfor
 ### Core Expertise Areas
 
 **Portfolio Management & Strategic Alignment**
+
 - Multi-project portfolio optimization using advanced prioritization models (WSJF, RICE, ICE, MoSCoW)
 - Strategic roadmap development aligned with business objectives and market conditions
 - Resource capacity planning and allocation optimization across portfolio
 - Portfolio health monitoring with multi-dimensional scoring frameworks
 
 **Quantitative Risk Management**
+
 - Expected Monetary Value (EMV) analysis for financial risk quantification
 - Monte Carlo simulation for schedule risk modeling and confidence intervals
 - Risk appetite framework implementation with enterprise-level thresholds
 - Portfolio risk correlation analysis and diversification strategies
 
 **Executive Communication & Governance**
+
 - Board-ready executive reports with RAG status and strategic recommendations
 - Stakeholder alignment through sophisticated RACI matrices and escalation paths
 - Financial performance tracking with risk-adjusted ROI and NPV calculations
@@ -41,6 +44,7 @@ python3 scripts/project_health_dashboard.py assets/sample_project_data.json
 ```
 
 **Health Dimensions (Weighted Scoring):**
+
 - **Timeline Performance** (25% weight): Schedule adherence, milestone achievement, critical path analysis
 - **Budget Management** (25% weight): Spend variance, forecast accuracy, cost efficiency metrics
 - **Scope Delivery** (20% weight): Feature completion rates, requirement satisfaction, change control
@@ -48,6 +52,7 @@ python3 scripts/project_health_dashboard.py assets/sample_project_data.json
 - **Risk Exposure** (10% weight): Risk score, mitigation effectiveness, exposure trends
 
 **RAG Status Calculation:**
+
 - 🟢 Green: Composite score >80, all dimensions >60
 - 🟡 Amber: Composite score 60-80, or any dimension 40-60
 - 🔴 Red: Composite score <60, or any dimension <40
@@ -60,6 +65,7 @@ python3 scripts/risk_matrix_analyzer.py assets/sample_project_data.json
 ```
 
 **Risk Quantification Process:**
+
 1. **Probability Assessment** (1-5 scale): Historical data, expert judgment, Monte Carlo inputs
 2. **Impact Analysis** (1-5 scale): Financial, schedule, quality, and strategic impact vectors
 3. **Category Weighting**: Technical (1.2x), Resource (1.1x), Financial (1.4x), Schedule (1.0x)
@@ -83,6 +89,7 @@ def risk_adjusted_budget(base_budget, portfolio_risk_score, risk_tolerance_facto
 ```
 
 **Risk Response Strategies (by score threshold):**
+
 - **Avoid** (>18): Eliminate through scope/approach changes
 - **Mitigate** (12-18): Reduce probability or impact through active intervention
 - **Transfer** (8-12): Insurance, contracts, partnerships
@@ -96,6 +103,7 @@ python3 scripts/resource_capacity_planner.py assets/sample_project_data.json
 ```
 
 **Capacity Analysis Framework:**
+
 - **Utilization Optimization**: Target 70-85% for sustainable productivity
 - **Skill Matching**: Algorithm-based resource allocation to maximize efficiency
 - **Bottleneck Identification**: Critical path resource constraints across portfolio
@@ -106,24 +114,28 @@ python3 scripts/resource_capacity_planner.py assets/sample_project_data.json
 Apply each model in the specific context where it provides the most signal:
 
 **Weighted Shortest Job First (WSJF)** — Resource-constrained agile portfolios with quantifiable cost-of-delay
+
 ```python
 def wsjf(user_value, time_criticality, risk_reduction, job_size):
     return (user_value + time_criticality + risk_reduction) / job_size
 ```
 
 **RICE** — Customer-facing initiatives where reach metrics are quantifiable
+
 ```python
 def rice(reach, impact, confidence_pct, effort_person_months):
     return (reach * impact * (confidence_pct / 100)) / effort_person_months
 ```
 
 **ICE** — Rapid prioritization during brainstorming or when analysis time is limited
+
 ```python
 def ice(impact, confidence, ease):
     return (impact + confidence + ease) / 3
 ```
 
 **Model Selection — Use this decision logic:**
+
 ```
 if resource_constrained and agile_methodology and cost_of_delay_quantifiable:
     → WSJF
@@ -144,6 +156,7 @@ Reference: `references/portfolio-prioritization-models.md`
 Reference: `references/risk-management-framework.md`
 
 **Step 1: Risk Classification by Category**
+
 - Technical: Architecture, integration, performance
 - Resource: Availability, skills, retention
 - Schedule: Dependencies, critical path, external factors
@@ -151,6 +164,7 @@ Reference: `references/risk-management-framework.md`
 - Business: Market changes, competitive pressure, strategic shifts
 
 **Step 2: Three-Point Estimation for Monte Carlo Inputs**
+
 ```python
 def three_point_estimate(optimistic, most_likely, pessimistic):
     expected = (optimistic + 4 * most_likely + pessimistic) / 6
@@ -159,6 +173,7 @@ def three_point_estimate(optimistic, most_likely, pessimistic):
 ```
 
 **Step 3: Portfolio Risk Correlation**
+
 ```python
 import math
 
@@ -172,6 +187,7 @@ def portfolio_risk(individual_risks, correlations):
 ```
 
 **Risk Appetite Framework:**
+
 - **Conservative**: Risk scores 0-8, 25-30% contingency reserves
 - **Moderate**: Risk scores 8-15, 15-20% contingency reserves
 - **Aggressive**: Risk scores 15+, 10-15% contingency reserves
@@ -179,9 +195,11 @@ def portfolio_risk(individual_risks, correlations):
 ## Assets & Templates
 
 ### Project Charter Template
+
 Reference: `assets/project_charter_template.md`
 
 **Comprehensive 12-section charter including:**
+
 - Executive summary with strategic alignment
 - Success criteria with KPIs and quality gates
 - RACI matrix with decision authority levels
@@ -190,9 +208,11 @@ Reference: `assets/project_charter_template.md`
 - Timeline with critical path dependencies
 
 ### Executive Report Template
+
 Reference: `assets/executive_report_template.md`
 
 **Board-level portfolio reporting with:**
+
 - RAG status dashboard with trend analysis
 - Financial performance vs. strategic objectives
 - Risk heat map with mitigation status
@@ -200,9 +220,11 @@ Reference: `assets/executive_report_template.md`
 - Forward-looking recommendations with ROI projections
 
 ### RACI Matrix Template
+
 Reference: `assets/raci_matrix_template.md`
 
 **Enterprise-grade responsibility assignment featuring:**
+
 - Detailed stakeholder roster with decision authority
 - Phase-based RACI assignments (initiation through deployment)
 - Escalation paths with timeline and authority levels
@@ -210,9 +232,11 @@ Reference: `assets/raci_matrix_template.md`
 - Conflict resolution processes with governance integration
 
 ### Sample Portfolio Data
+
 Reference: `assets/sample_project_data.json`
 
 **Realistic multi-project portfolio including:**
+
 - 4 projects across different phases and priorities
 - Complete financial data (budgets, actuals, forecasts)
 - Resource allocation with utilization metrics
@@ -221,9 +245,11 @@ Reference: `assets/sample_project_data.json`
 - Dependencies and milestone tracking
 
 ### Expected Output Examples
+
 Reference: `assets/expected_output.json`
 
 **Demonstrates script capabilities with:**
+
 - Portfolio health scores and RAG status
 - Risk matrix visualization and mitigation priorities
 - Resource capacity analysis with optimization recommendations
@@ -234,21 +260,27 @@ Reference: `assets/expected_output.json`
 ### Portfolio Health Review (Weekly)
 
 1. **Data Collection & Validation**
+
    ```bash
    python3 scripts/project_health_dashboard.py current_portfolio.json
    ```
+
    ⚠️ If any project composite score <60 or a critical data field is missing, STOP and resolve data integrity issues before proceeding.
 
 2. **Risk Assessment Update**
+
    ```bash
    python3 scripts/risk_matrix_analyzer.py current_portfolio.json
    ```
+
    ⚠️ If any risk score >18 (Avoid threshold), STOP and initiate escalation to project sponsor before proceeding.
 
 3. **Capacity Analysis**
+
    ```bash
    python3 scripts/resource_capacity_planner.py current_portfolio.json
    ```
+
    ⚠️ If any team utilization >90% or <60%, flag for immediate reallocation discussion before step 4.
 
 4. **Executive Summary Generation**
@@ -303,16 +335,19 @@ Reference: `assets/expected_output.json`
 ## Integration Strategies
 
 ### Atlassian Integration
+
 - **Jira**: Portfolio dashboards, cross-project metrics, risk tracking
 - **Confluence**: Strategic documentation, executive reports, knowledge management
 - Use MCP integrations to automate data collection and report generation
 
 ### Financial Systems Integration
+
 - **Budget Tracking**: Real-time spend data for variance analysis
 - **Resource Costing**: Hourly rates and utilization for capacity planning
 - **ROI Measurement**: Value realization tracking against projections
 
 ### Stakeholder Management
+
 - **Executive Dashboards**: Real-time portfolio health visualization
 - **Team Scorecards**: Individual project performance metrics
 - **Risk Registers**: Collaborative risk management with automated escalation
@@ -320,39 +355,48 @@ Reference: `assets/expected_output.json`
 ## Handoff Protocols
 
 ### TO Scrum Master
+
 **Context Transfer:**
+
 - Strategic priorities and success criteria
 - Resource allocation and team composition
 - Risk factors requiring sprint-level attention
 - Quality standards and acceptance criteria
 
 **Ongoing Collaboration:**
+
 - Weekly velocity and health metrics review
 - Sprint retrospective insights for portfolio learning
 - Impediment escalation and resolution support
 - Team capacity and utilization feedback
 
 ### TO Product Owner
+
 **Strategic Context:**
+
 - Market prioritization and competitive analysis
 - User value frameworks and measurement criteria
 - Feature prioritization aligned with portfolio objectives
 - Resource and timeline constraints
 
 **Decision Support:**
+
 - ROI analysis for feature investments
 - Risk assessment for product decisions
 - Market intelligence and customer feedback integration
 - Strategic roadmap alignment and dependencies
 
 ### FROM Executive Team
+
 **Strategic Direction:**
+
 - Business objective updates and priority changes
 - Budget allocation and resource approval decisions
 - Risk appetite and tolerance level adjustments
 - Market strategy and competitive response decisions
 
 **Performance Expectations:**
+
 - Portfolio health and value delivery targets
 - Timeline and milestone commitment expectations
 - Quality standards and compliance requirements
@@ -363,6 +407,7 @@ Reference: `assets/expected_output.json`
 Reference: `references/portfolio-kpis.md` for full definitions and measurement guidance.
 
 ### Portfolio Performance
+
 - On-time Delivery Rate: >80% within 10% of planned timeline
 - Budget Variance: <5% average across portfolio
 - Quality Score: >85 composite rating
@@ -370,6 +415,7 @@ Reference: `references/portfolio-kpis.md` for full definitions and measurement g
 - Resource Utilization: 75-85% average
 
 ### Strategic Value
+
 - ROI Achievement: >90% projects meeting projections within 12 months
 - Strategic Alignment: >95% investment aligned with business priorities
 - Innovation Balance: 70% operational / 20% growth / 10% transformational
@@ -377,6 +423,7 @@ Reference: `references/portfolio-kpis.md` for full definitions and measurement g
 - Time-to-Value: <6 months average post-completion
 
 ### Risk Management
+
 - Risk Exposure: Maintain within approved appetite ranges
 - Resolution Time: <30 days (medium), <7 days (high)
 - Mitigation Cost Efficiency: <20% of total portfolio risk EMV
@@ -385,18 +432,21 @@ Reference: `references/portfolio-kpis.md` for full definitions and measurement g
 ## Continuous Improvement Framework
 
 ### Portfolio Learning Integration
+
 - Capture lessons learned from completed projects
 - Update risk probability assessments based on historical data
 - Refine estimation accuracy through retrospective analysis
 - Share best practices across project teams
 
 ### Methodology Evolution
+
 - Regular review of prioritization model effectiveness
 - Update risk frameworks based on industry best practices
 - Integrate new tools and technologies for analysis efficiency
 - Benchmark against industry portfolio performance standards
 
 ### Stakeholder Feedback Integration
+
 - Quarterly stakeholder satisfaction surveys
 - Executive interview feedback on decision support quality
 - Team feedback on process efficiency and effectiveness

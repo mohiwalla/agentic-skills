@@ -3,21 +3,25 @@
 ## Core Principles
 
 ### 1. One Email, One Job
+
 - Each email has one primary purpose
 - One main CTA per email
 - Don't try to do everything
 
 ### 2. Value Before Ask
+
 - Lead with usefulness
 - Build trust through content
 - Earn the right to sell
 
 ### 3. Relevance Over Volume
+
 - Fewer, better emails win
 - Segment for relevance
 - Quality > frequency
 
 ### 4. Clear Path Forward
+
 - Every email moves them somewhere
 - Links should do something useful
 - Make next steps obvious
@@ -27,28 +31,33 @@
 ## Email Sequence Strategy
 
 ### Sequence Length
+
 - Welcome: 3-7 emails
 - Lead nurture: 5-10 emails
 - Onboarding: 5-10 emails
 - Re-engagement: 3-5 emails
 
 Depends on:
+
 - Sales cycle length
 - Product complexity
 - Relationship stage
 
 ### Timing/Delays
+
 - Welcome email: Immediately
 - Early sequence: 1-2 days apart
 - Nurture: 2-4 days apart
 - Long-term: Weekly or bi-weekly
 
 Consider:
+
 - B2B: Avoid weekends
 - B2C: Test weekends
 - Time zones: Send at local time
 
 ### Subject Line Strategy
+
 - Clear > Clever
 - Specific > Vague
 - Benefit or curiosity-driven
@@ -56,6 +65,7 @@ Consider:
 - Test emoji (they're polarizing)
 
 **Patterns that work:**
+
 - Question: "Still struggling with X?"
 - How-to: "How to [achieve outcome] in [timeframe]"
 - Number: "3 ways to [benefit]"
@@ -63,6 +73,7 @@ Consider:
 - Story tease: "The mistake I made with [topic]"
 
 ### Preview Text
+
 - Extends the subject line
 - ~90-140 characters
 - Don't repeat subject line
@@ -73,10 +84,12 @@ Consider:
 ## Sequence Types Overview
 
 ### Welcome Sequence (Post-Signup)
+
 **Length**: 5-7 emails over 12-14 days
 **Goal**: Activate, build trust, convert
 
 Key emails:
+
 1. Welcome + deliver promised value (immediate)
 2. Quick win (day 1-2)
 3. Story/Why (day 3-4)
@@ -86,10 +99,12 @@ Key emails:
 7. Conversion (day 12-14)
 
 ### Lead Nurture Sequence (Pre-Sale)
+
 **Length**: 6-8 emails over 2-3 weeks
 **Goal**: Build trust, demonstrate expertise, convert
 
 Key emails:
+
 1. Deliver lead magnet + intro (immediate)
 2. Expand on topic (day 2-3)
 3. Problem deep-dive (day 4-5)
@@ -100,22 +115,26 @@ Key emails:
 8. Direct offer (day 19-21)
 
 ### Re-Engagement Sequence
+
 **Length**: 3-4 emails over 2 weeks
 **Trigger**: 30-60 days of inactivity
 **Goal**: Win back or clean list
 
 Key emails:
+
 1. Check-in (genuine concern)
 2. Value reminder (what's new)
 3. Incentive (special offer)
 4. Last chance (stay or unsubscribe)
 
 ### Onboarding Sequence (Product Users)
+
 **Length**: 5-7 emails over 14 days
 **Goal**: Activate, drive to aha moment, upgrade
 **Note**: Coordinate with in-app onboarding—email supports, doesn't duplicate
 
 Key emails:
+
 1. Welcome + first step (immediate)
 2. Getting started help (day 1)
 3. Feature highlight (day 2-3)
@@ -131,12 +150,14 @@ Key emails:
 ## Email Types by Category
 
 ### Onboarding Emails
+
 - New users series
 - New customers series
 - Key onboarding step reminders
 - New user invites
 
 ### Retention Emails
+
 - Upgrade to paid
 - Upgrade to higher plan
 - Ask for review
@@ -146,21 +167,25 @@ Key emails:
 - Referral program
 
 ### Billing Emails
+
 - Switch to annual
 - Failed payment recovery
 - Cancellation survey
 - Upcoming renewal reminders
 
 ### Usage Emails
+
 - Daily/weekly/monthly summaries
 - Key event notifications
 - Milestone celebrations
 
 ### Win-Back Emails
+
 - Expired trials
 - Cancelled customers
 
 ### Campaign Emails
+
 - Monthly roundup / newsletter
 - Seasonal promotions
 - Product updates
@@ -174,6 +199,7 @@ Key emails:
 ## Email Copy Guidelines
 
 ### Structure
+
 1. **Hook**: First line grabs attention
 2. **Context**: Why this matters to them
 3. **Value**: The useful content
@@ -181,6 +207,7 @@ Key emails:
 5. **Sign-off**: Human, warm close
 
 ### Formatting
+
 - Short paragraphs (1-3 sentences)
 - White space between sections
 - Bullet points for scanability
@@ -188,17 +215,20 @@ Key emails:
 - Mobile-first (most read on phone)
 
 ### Tone
+
 - Conversational, not formal
 - First-person (I/we) and second-person (you)
 - Active voice
 - Read it out loud—does it sound human?
 
 ### Length
+
 - 50-125 words for transactional
 - 150-300 words for educational
 - 300-500 words for story-driven
 
 ### CTA Guidelines
+
 - Buttons for primary actions
 - Links for secondary actions
 - One clear primary CTA per email

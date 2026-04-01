@@ -13,6 +13,7 @@ Run Playwright tests on BrowserStack's cloud grid for cross-browser and cross-de
 ## Prerequisites
 
 Environment variables must be set:
+
 - `BROWSERSTACK_USERNAME` — your BrowserStack username
 - `BROWSERSTACK_ACCESS_KEY` — your access key
 
@@ -27,67 +28,76 @@ If not set, inform the user how to get them from [browserstack.com/accounts/sett
 ```
 
 Steps:
+
 1. Check current `playwright.config.ts`
 2. Add BrowserStack connect options:
 
 ```typescript
 // Add to playwright.config.ts
-import { defineConfig } from '@playwright/test';
+import { defineConfig } from "@playwright/test"
 
-const isBS = !!process.env.BROWSERSTACK_USERNAME;
+const isBS = !!process.env.BROWSERSTACK_USERNAME
 
 export default defineConfig({
   // ... existing config
-  projects: isBS ? [
-    {
-      name: "chromelatestwindows-11",
-      use: {
-        connectOptions: {
-          wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify({
-            'browser': 'chrome',
-            'browser_version': 'latest',
-            'os': 'Windows',
-            'os_version': '11',
-            'browserstack.username': process.env.BROWSERSTACK_USERNAME,
-            'browserstack.accessKey': process.env.BROWSERSTACK_ACCESS_KEY,
-          }))}`,
+  projects: isBS
+    ? [
+        {
+          name: "chromelatestwindows-11",
+          use: {
+            connectOptions: {
+              wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(
+                JSON.stringify({
+                  browser: "chrome",
+                  browser_version: "latest",
+                  os: "Windows",
+                  os_version: "11",
+                  "browserstack.username": process.env.BROWSERSTACK_USERNAME,
+                  "browserstack.accessKey": process.env.BROWSERSTACK_ACCESS_KEY,
+                }),
+              )}`,
+            },
+          },
         },
-      },
-    },
-    {
-      name: "firefoxlatestwindows-11",
-      use: {
-        connectOptions: {
-          wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify({
-            'browser': 'playwright-firefox',
-            'browser_version': 'latest',
-            'os': 'Windows',
-            'os_version': '11',
-            'browserstack.username': process.env.BROWSERSTACK_USERNAME,
-            'browserstack.accessKey': process.env.BROWSERSTACK_ACCESS_KEY,
-          }))}`,
+        {
+          name: "firefoxlatestwindows-11",
+          use: {
+            connectOptions: {
+              wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(
+                JSON.stringify({
+                  browser: "playwright-firefox",
+                  browser_version: "latest",
+                  os: "Windows",
+                  os_version: "11",
+                  "browserstack.username": process.env.BROWSERSTACK_USERNAME,
+                  "browserstack.accessKey": process.env.BROWSERSTACK_ACCESS_KEY,
+                }),
+              )}`,
+            },
+          },
         },
-      },
-    },
-    {
-      name: "webkitlatestos-x-ventura",
-      use: {
-        connectOptions: {
-          wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify({
-            'browser': 'playwright-webkit',
-            'browser_version': 'latest',
-            'os': 'OS X',
-            'os_version': 'Ventura',
-            'browserstack.username': process.env.BROWSERSTACK_USERNAME,
-            'browserstack.accessKey': process.env.BROWSERSTACK_ACCESS_KEY,
-          }))}`,
+        {
+          name: "webkitlatestos-x-ventura",
+          use: {
+            connectOptions: {
+              wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(
+                JSON.stringify({
+                  browser: "playwright-webkit",
+                  browser_version: "latest",
+                  os: "OS X",
+                  os_version: "Ventura",
+                  "browserstack.username": process.env.BROWSERSTACK_USERNAME,
+                  "browserstack.accessKey": process.env.BROWSERSTACK_ACCESS_KEY,
+                }),
+              )}`,
+            },
+          },
         },
-      },
-    },
-  ] : [
-    // ... local projects fallback
-  ],
-});
+      ]
+    : [
+        // ... local projects fallback
+      ],
+})
 ```
 
 3. Add npm script: `"test:e2e:cloud": "npx playwright test --project='chrome@*' --project='firefox@*' --project='webkit@*'"`
@@ -99,6 +109,7 @@ export default defineConfig({
 ```
 
 Steps:
+
 1. Verify credentials are set
 2. Run tests with BrowserStack projects:
    ```bash
@@ -116,6 +127,7 @@ Steps:
 ```
 
 Steps:
+
 1. Call `browserstack_get_builds` MCP tool
 2. Get latest build's sessions
 3. For each session:
@@ -133,6 +145,7 @@ Steps:
 ```
 
 Steps:
+
 1. Call `browserstack_get_browsers` MCP tool
 2. Filter for Playwright-compatible browsers
 3. Display available browser/OS combinations
@@ -144,21 +157,22 @@ Steps:
 ```
 
 For testing localhost or staging behind firewall:
+
 1. Install BrowserStack Local: `npm install -D browserstack-local`
 2. Add local tunnel to config
 3. Provide setup instructions
 
 ## MCP Tools Used
 
-| Tool | When |
-|---|---|
-| `browserstack_get_plan` | Check account limits |
-| `browserstack_get_browsers` | List available browsers |
-| `browserstack_get_builds` | List recent builds |
-| `browserstack_get_sessions` | Get sessions in a build |
-| `browserstack_get_session` | Get session details (video, logs) |
-| `browserstack_update_session` | Mark pass/fail |
-| `browserstack_get_logs` | Get text/network logs |
+| Tool                          | When                              |
+| ----------------------------- | --------------------------------- |
+| `browserstack_get_plan`       | Check account limits              |
+| `browserstack_get_browsers`   | List available browsers           |
+| `browserstack_get_builds`     | List recent builds                |
+| `browserstack_get_sessions`   | Get sessions in a build           |
+| `browserstack_get_session`    | Get session details (video, logs) |
+| `browserstack_update_session` | Mark pass/fail                    |
+| `browserstack_get_logs`       | Get text/network logs             |
 
 ## Output
 

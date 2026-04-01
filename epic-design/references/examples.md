@@ -3,6 +3,7 @@
 Five complete implementation blueprints. Each describes exactly which techniques to combine, in what order, with key code patterns.
 
 ## Table of Contents
+
 1. [Juice/Beverage Brand Launch](#juice-brand)
 2. [Tech SaaS Landing Page](#saas)
 3. [Creative Portfolio](#portfolio)
@@ -16,6 +17,7 @@ Five complete implementation blueprints. Each describes exactly which techniques
 **Brief:** Premium juice brand. Hero has floating glass. Sections transition smoothly with the product "rising" between them.
 
 **Techniques Used:**
+
 - Loading screen curtain lift
 - 6-layer depth parallax in hero
 - Floating product between sections (THE signature move)
@@ -48,7 +50,7 @@ Five complete implementation blueprints. Each describes exactly which techniques
 
 [FLAVORS — cascading card stack, 3 cards]
   Card 1: Orange — scales down as Card 2 arrives
-  Card 2: Mango — scales down as Card 3 arrives  
+  Card 2: Mango — scales down as Card 3 arrives
   Card 3: Berry — stays full screen
   Each card: full-bleed color + depth-3 bottle + depth-4 title
 
@@ -59,26 +61,25 @@ Five complete implementation blueprints. Each describes exactly which techniques
 ```
 
 **Key Code Pattern — The Glass Journey:**
+
 ```javascript
 // Glass starts in hero depth-3, floats between sections,
 // then descends into ingredients section
-initFloatingProduct(); // from inter-section-effects.md
+initFloatingProduct() // from inter-section-effects.md
 
 // On arrival in ingredients section, glass triggers
 // the ingredient words to light up one by one
 ScrollTrigger.create({
-  trigger: '.ingredients-section',
-  start: 'top 50%',
+  trigger: ".ingredients-section",
+  start: "top 50%",
   onEnter: () => {
-    initWordScrollLighting(
-      '.ingredients-section',
-      '.ingredients-tagline'
-    );
-  }
-});
+    initWordScrollLighting(".ingredients-section", ".ingredients-tagline")
+  },
+})
 ```
 
 **Color Palette:**
+
 - Hero: `#0a0014` (deep purple) → `#2d0b4e`
 - Glow: `#ff6b00` (orange), `#ff9900` (amber)
 - Ingredients: `#fdf4e7` (warm cream)
@@ -92,6 +93,7 @@ ScrollTrigger.create({
 **Brief:** B2B SaaS product — analytics dashboard. Premium, modern, tech-forward. Animated product screenshots.
 
 **Techniques Used:**
+
 - Window pane iris open (hero reveals from keyhole)
 - DJI-style scale-in pin (dashboard screenshot fills viewport)
 - Scrub timeline (features appear one by one)
@@ -117,7 +119,7 @@ ScrollTrigger.create({
   DJI-style: Dashboard screenshot starts small, expands to full viewport
   Scrub timeline reveals 3 features as user scrolls through pin:
     - Feature 1: "Real-time insights" fades in left
-    - Feature 2: "AI-powered" fades in right  
+    - Feature 2: "AI-powered" fades in right
     - Feature 3: "Zero setup" fades in center
   Each feature: line clip wipe on description text
 
@@ -148,6 +150,7 @@ ScrollTrigger.create({
 **Brief:** Designer/developer portfolio. Bold, experimental, Awwwards-worthy. The work is the hero.
 
 **Techniques Used:**
+
 - Offset diagonal layout for name/title
 - Theatrical enter+exit for all section content
 - Horizontal scroll for project showcase
@@ -208,6 +211,7 @@ ScrollTrigger.create({
 **Brief:** Game launch page. Dark, cinematic, intense. Character reveals, environment depth.
 
 **Techniques Used:**
+
 - Curved path travel (character moves across page)
 - Perspective zoom fly-through (fly into the game world)
 - Full layered parallax (6 levels deep)
@@ -272,6 +276,7 @@ ScrollTrigger.create({
 **Brief:** High-end watch/jewelry brand. Understated elegance. Every animation whispers, not shouts. The product is the hero.
 
 **Techniques Used:**
+
 - DJI-style scale-in (product fills viewport, slowly)
 - GSAP Flip (watch travels from hero to detail view)
 - Section peel reveal (product details peel open)

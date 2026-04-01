@@ -10,11 +10,13 @@ Master-level expertise in Jira configuration, project management, JQL, workflows
 ## Quick Start — Most Common Operations
 
 **Create a project**:
+
 ```
 mcp jira create_project --name "My Project" --key "MYPROJ" --type scrum --lead "user@example.com"
 ```
 
 **Run a JQL query**:
+
 ```
 mcp jira search_issues --jql "project = MYPROJ AND status != Done AND dueDate < now()" --maxResults 50
 ```
@@ -26,6 +28,7 @@ For full command reference, see [Atlassian MCP Integration](#atlassian-mcp-integ
 ## Workflows
 
 ### Project Creation
+
 1. Determine project type (Scrum, Kanban, Bug Tracking, etc.)
 2. Create project with appropriate template
 3. Configure project settings:
@@ -39,6 +42,7 @@ For full command reference, see [Atlassian MCP Integration](#atlassian-mcp-integ
 7. **HANDOFF TO**: Scrum Master for team onboarding
 
 ### Workflow Design
+
 1. Map out process states (To Do → In Progress → Done)
 2. Define transitions and conditions
 3. Add validators, post-functions, and conditions
@@ -48,9 +52,11 @@ For full command reference, see [Atlassian MCP Integration](#atlassian-mcp-integ
 7. Test workflow with sample issues
 
 ### JQL Query Building
+
 **Basic Structure**: `field operator value`
 
 **Common Operators**:
+
 - `=, !=` : equals, not equals
 - `~, !~` : contains, not contains
 - `>, <, >=, <=` : comparison
@@ -62,36 +68,43 @@ For full command reference, see [Atlassian MCP Integration](#atlassian-mcp-integ
 **Powerful JQL Examples**:
 
 Find overdue issues:
+
 ```jql
 dueDate < now() AND status != Done
 ```
 
 Sprint burndown issues:
+
 ```jql
 sprint = 23 AND status changed TO "Done" DURING (startOfSprint(), endOfSprint())
 ```
 
 Find stale issues:
+
 ```jql
 updated < -30d AND status != Done
 ```
 
 Cross-project epic tracking:
+
 ```jql
 "Epic Link" = PROJ-123 ORDER BY rank
 ```
 
 Velocity calculation:
+
 ```jql
 sprint in closedSprints() AND resolution = Done
 ```
 
 Team capacity:
+
 ```jql
 assignee in (user1, user2) AND sprint in openSprints()
 ```
 
 ### Dashboard Creation
+
 1. Create new dashboard (personal or shared)
 2. Add relevant gadgets:
    - Filter Results (JQL-based)
@@ -105,6 +118,7 @@ assignee in (user1, user2) AND sprint in openSprints()
 6. **HANDOFF TO**: Senior PM or Scrum Master for use
 
 ### Automation Rules
+
 1. Define trigger (issue created, field changed, scheduled)
 2. Add conditions (if applicable)
 3. Define actions:
@@ -119,7 +133,9 @@ assignee in (user1, user2) AND sprint in openSprints()
 ## Advanced Features
 
 ### Custom Fields
+
 **When to Create**:
+
 - Track data not in standard fields
 - Capture process-specific information
 - Enable advanced reporting
@@ -127,13 +143,16 @@ assignee in (user1, user2) AND sprint in openSprints()
 **Field Types**: Text, Numeric, Date, Select (single/multi/cascading), User picker
 
 **Configuration**:
+
 1. Create custom field
 2. Configure field context (which projects/issue types)
 3. Add to appropriate screens
 4. Update search templates if needed
 
 ### Issue Linking
+
 **Link Types**:
+
 - Blocks / Is blocked by
 - Relates to
 - Duplicates / Is duplicated by
@@ -141,6 +160,7 @@ assignee in (user1, user2) AND sprint in openSprints()
 - Epic-Story relationship
 
 **Best Practices**:
+
 - Use Epic linking for feature grouping
 - Use blocking links to show dependencies
 - Document link reasons in comments
@@ -148,18 +168,22 @@ assignee in (user1, user2) AND sprint in openSprints()
 ### Permissions & Security
 
 **Permission Schemes**:
+
 - Browse Projects
 - Create/Edit/Delete Issues
 - Administer Projects
 - Manage Sprints
 
 **Security Levels**:
+
 - Define confidential issue visibility
 - Control access to sensitive data
 - Audit security changes
 
 ### Bulk Operations
+
 **Bulk Change**:
+
 1. Use JQL to find target issues
 2. Select bulk change operation
 3. Choose fields to update
@@ -168,6 +192,7 @@ assignee in (user1, user2) AND sprint in openSprints()
 6. Monitor background task
 
 **Bulk Transitions**:
+
 - Move multiple issues through workflow
 - Useful for sprint cleanup
 - Requires appropriate permissions
@@ -189,16 +214,17 @@ assignee in (user1, user2) AND sprint in openSprints()
 
 > **Tip**: These JQL snippets can be saved as shared filters or wired directly into Dashboard gadgets (see [Dashboard Creation](#dashboard-creation)).
 
-| Report | JQL |
-|---|---|
-| Sprint Report | `project = PROJ AND sprint = 23` |
-| Team Velocity | `assignee in (team) AND sprint in closedSprints() AND resolution = Done` |
-| Bug Trend | `type = Bug AND created >= -30d` |
-| Blocker Analysis | `priority = Blocker AND status != Done` |
+| Report           | JQL                                                                      |
+| ---------------- | ------------------------------------------------------------------------ |
+| Sprint Report    | `project = PROJ AND sprint = 23`                                         |
+| Team Velocity    | `assignee in (team) AND sprint in closedSprints() AND resolution = Done` |
+| Bug Trend        | `type = Bug AND created >= -30d`                                         |
+| Blocker Analysis | `priority = Blocker AND status != Done`                                  |
 
 ## Decision Framework
 
 **When to Escalate to Atlassian Admin**:
+
 - Need new project permission scheme
 - Require custom workflow scheme across org
 - User provisioning or deprovisioning
@@ -206,12 +232,14 @@ assignee in (user1, user2) AND sprint in openSprints()
 - System-wide configuration changes
 
 **When to Collaborate with Scrum Master**:
+
 - Sprint board configuration
 - Backlog prioritization views
 - Team-specific filters
 - Sprint reporting needs
 
 **When to Collaborate with Senior PM**:
+
 - Portfolio-level reporting
 - Cross-project dashboards
 - Executive visibility needs
@@ -220,24 +248,28 @@ assignee in (user1, user2) AND sprint in openSprints()
 ## Handoff Protocols
 
 **FROM Senior PM**:
+
 - Project structure requirements
 - Workflow and field needs
 - Reporting requirements
 - Integration needs
 
 **TO Senior PM**:
+
 - Cross-project metrics
 - Issue trends and patterns
 - Workflow bottlenecks
 - Data quality insights
 
 **FROM Scrum Master**:
+
 - Sprint board configuration requests
 - Workflow optimization needs
 - Backlog filtering requirements
 - Velocity tracking setup
 
 **TO Scrum Master**:
+
 - Configured sprint boards
 - Velocity reports
 - Burndown charts
@@ -246,17 +278,20 @@ assignee in (user1, user2) AND sprint in openSprints()
 ## Best Practices
 
 **Data Quality**:
+
 - Enforce required fields with field validation rules
 - Use consistent issue key naming conventions per project type
 - Schedule regular cleanup of stale/orphaned issues
 
 **Performance**:
+
 - Avoid leading wildcards in JQL (`~` on large text fields is expensive)
 - Use saved filters instead of re-running complex JQL ad hoc
 - Limit dashboard gadgets to reduce page load time
 - Archive completed projects rather than deleting to preserve history
 
 **Governance**:
+
 - Document rationale for custom workflow states and transitions
 - Version-control permission/workflow schemes before making changes
 - Require change management review for org-wide scheme updates
@@ -269,31 +304,37 @@ assignee in (user1, user2) AND sprint in openSprints()
 **Key Operations with Example Commands**:
 
 Create a project:
+
 ```
 mcp jira create_project --name "My Project" --key "MYPROJ" --type scrum --lead "user@example.com"
 ```
 
 Execute a JQL query:
+
 ```
 mcp jira search_issues --jql "project = MYPROJ AND status != Done AND dueDate < now()" --maxResults 50
 ```
 
 Update an issue field:
+
 ```
 mcp jira update_issue --issue "MYPROJ-42" --field "status" --value "In Progress"
 ```
 
 Create a sprint:
+
 ```
 mcp jira create_sprint --board 10 --name "Sprint 5" --startDate "2024-06-01" --endDate "2024-06-14"
 ```
 
 Create a board filter:
+
 ```
 mcp jira create_filter --name "Open Blockers" --jql "priority = Blocker AND status != Done" --shareWith "project-team"
 ```
 
 **Integration Points**:
+
 - Pull metrics for Senior PM reporting
 - Configure sprint boards for Scrum Master
 - Create documentation pages for Confluence Expert

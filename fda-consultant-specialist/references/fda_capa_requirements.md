@@ -57,13 +57,13 @@ include requirements for:
 
 ### Definitions
 
-| Term | Definition |
-|------|------------|
-| **Correction** | Action to eliminate a detected nonconformity |
-| **Corrective Action** | Action to eliminate the cause of a detected nonconformity to prevent recurrence |
+| Term                  | Definition                                                                       |
+| --------------------- | -------------------------------------------------------------------------------- |
+| **Correction**        | Action to eliminate a detected nonconformity                                     |
+| **Corrective Action** | Action to eliminate the cause of a detected nonconformity to prevent recurrence  |
 | **Preventive Action** | Action to eliminate the cause of a potential nonconformity to prevent occurrence |
-| **Root Cause** | The fundamental reason for the occurrence of a problem |
-| **Effectiveness** | Confirmation that actions achieved intended results |
+| **Root Cause**        | The fundamental reason for the occurrence of a problem                           |
+| **Effectiveness**     | Confirmation that actions achieved intended results                              |
 
 ### CAPA vs. Correction
 
@@ -85,6 +85,7 @@ Problem Detected
 ### Data Sources for CAPA Input
 
 **Internal Sources:**
+
 - Nonconforming product reports (NCRs)
 - Internal audit findings
 - Process deviations
@@ -94,6 +95,7 @@ Problem Detected
 - Training deficiencies
 
 **External Sources:**
+
 - Customer complaints
 - Service records
 - Returned product
@@ -105,22 +107,22 @@ Problem Detected
 
 **Mandatory CAPA Triggers:**
 
-| Source | Threshold |
-|--------|-----------|
-| Audit findings | All major/critical findings |
-| Customer complaints | Any safety-related |
-| NCRs | Recurring (3+ occurrences) |
-| Regulatory feedback | All observations |
-| MDR/vigilance | All reportable events |
+| Source              | Threshold                   |
+| ------------------- | --------------------------- |
+| Audit findings      | All major/critical findings |
+| Customer complaints | Any safety-related          |
+| NCRs                | Recurring (3+ occurrences)  |
+| Regulatory feedback | All observations            |
+| MDR/vigilance       | All reportable events       |
 
 **Discretionary CAPA Evaluation:**
 
-| Source | Consideration |
-|--------|---------------|
-| Trend data | Statistical significance |
-| Process deviations | Impact assessment |
-| Minor audit findings | Risk-based |
-| Supplier issues | Frequency and severity |
+| Source               | Consideration            |
+| -------------------- | ------------------------ |
+| Trend data           | Statistical significance |
+| Process deviations   | Impact assessment        |
+| Minor audit findings | Risk-based               |
+| Supplier issues      | Frequency and severity   |
 
 ### Trend Analysis
 
@@ -130,23 +132,26 @@ Problem Detected
 ## Monthly CAPA Trend Review
 
 ### Complaint Trending
+
 - [ ] Complaints by product
 - [ ] Complaints by failure mode
 - [ ] Geographic distribution
 - [ ] Customer type analysis
 
 ### NCR Trending
+
 - [ ] NCRs by product/process
 - [ ] NCRs by cause code
 - [ ] NCRs by supplier
 - [ ] Scrap/rework rates
 
 ### Threshold Monitoring
-| Metric | Threshold | Current | Status |
-|--------|-----------|---------|--------|
-| Complaints/month | <10 | | |
-| NCR rate | <2% | | |
-| Recurring issues | 0 | | |
+
+| Metric           | Threshold | Current | Status |
+| ---------------- | --------- | ------- | ------ |
+| Complaints/month | <10       |         |        |
+| NCR rate         | <2%       |         |        |
+| Recurring issues | 0         |         |        |
 ```
 
 ---
@@ -193,65 +198,73 @@ Problem Detected
 ## CAPA Record
 
 ### Section 1: Identification
-CAPA Number: ________________
-Initiated By: ________________
-Date Initiated: ______________
+
+CAPA Number: ******\_\_\_\_******
+Initiated By: ******\_\_\_\_******
+Date Initiated: ******\_\_******
 Priority: ☐ Critical ☐ Major ☐ Minor
 
 Source:
-☐ Audit Finding     ☐ Complaint        ☐ NCR
-☐ Service Record    ☐ MDR              ☐ Trend Data
-☐ Regulatory        ☐ Other: ____________
+☐ Audit Finding ☐ Complaint ☐ NCR
+☐ Service Record ☐ MDR ☐ Trend Data
+☐ Regulatory ☐ Other: ****\_\_\_\_****
 
 ### Section 2: Problem Description
-Products Affected: _______________________
-Processes Affected: _____________________
-Quantity/Scope: _________________________
+
+Products Affected: **********\_\_\_**********
+Processes Affected: **********\_**********
+Quantity/Scope: ************\_************
 
 Problem Statement:
 [Clear, specific description of the nonconformity or potential problem]
 
 ### Section 3: Immediate Correction
-Correction Taken: _______________________
-Date Completed: _________________________
-Verified By: ____________________________
+
+Correction Taken: **********\_\_\_**********
+Date Completed: ************\_************
+Verified By: ************\_\_\_\_************
 
 ### Section 4: Investigation
-Investigation Lead: _____________________
-Investigation Start Date: _______________
+
+Investigation Lead: **********\_**********
+Investigation Start Date: ******\_\_\_******
 
 Data Collected:
-☐ Complaint records      ☐ Production records
-☐ Test data              ☐ Training records
-☐ Process documentation  ☐ Supplier data
+☐ Complaint records ☐ Production records
+☐ Test data ☐ Training records
+☐ Process documentation ☐ Supplier data
 
 Root Cause Analysis Method:
-☐ 5 Whys    ☐ Fishbone    ☐ Fault Tree    ☐ Other
+☐ 5 Whys ☐ Fishbone ☐ Fault Tree ☐ Other
 
 Root Cause Statement:
 [Specific, factual statement of the root cause]
 
 Contributing Factors:
-1. _____________________________________
-2. _____________________________________
+
+1. ***
+2. ***
 
 ### Section 5: Action Plan
 
 #### Corrective Actions
+
 | Action | Owner | Target Date | Status |
-|--------|-------|-------------|--------|
+| ------ | ----- | ----------- | ------ |
 |        |       |             |        |
 
 #### Preventive Actions
+
 | Action | Owner | Target Date | Status |
-|--------|-------|-------------|--------|
+| ------ | ----- | ----------- | ------ |
 |        |       |             |        |
 
 ### Section 6: Verification
-Verification Method: ____________________
-Verification Criteria: __________________
-Verification Date: _____________________
-Verified By: ___________________________
+
+Verification Method: ********\_\_\_\_********
+Verification Criteria: ********\_\_********
+Verification Date: **********\_**********
+Verified By: ************\_\_\_************
 
 Verification Results:
 ☐ Actions implemented as planned
@@ -259,9 +272,10 @@ Verification Results:
 ☐ Documentation updated
 
 ### Section 7: Effectiveness Review
-Effectiveness Review Date: ______________
-Review Period: ________________________
-Reviewer: _____________________________
+
+Effectiveness Review Date: ******\_\_******
+Review Period: **********\_\_\_\_**********
+Reviewer: **************\_**************
 
 Effectiveness Criteria:
 [Specific, measurable criteria for success]
@@ -274,11 +288,12 @@ Evidence:
 [Reference to data showing effectiveness]
 
 ### Section 8: Closure
-Closure Date: _________________________
-Approved By: __________________________
+
+Closure Date: ************\_************
+Approved By: ************\_\_************
 
 Management Review Submitted: ☐ Yes ☐ No
-Date: ________________________________
+Date: **************\_\_\_\_**************
 ```
 
 ---
@@ -306,27 +321,28 @@ Root Cause: Risk classification process did not include design change trigger
 ```markdown
 ## 5 Whys Analysis
 
-Problem Statement: _________________________________
+Problem Statement: ****************\_****************
 
-Why 1: _____________________________________________
-Evidence: __________________________________________
+Why 1: **********************\_**********************
+Evidence: ********************\_\_********************
 
-Why 2: _____________________________________________
-Evidence: __________________________________________
+Why 2: **********************\_**********************
+Evidence: ********************\_\_********************
 
-Why 3: _____________________________________________
-Evidence: __________________________________________
+Why 3: **********************\_**********************
+Evidence: ********************\_\_********************
 
-Why 4: _____________________________________________
-Evidence: __________________________________________
+Why 4: **********************\_**********************
+Evidence: ********************\_\_********************
 
-Why 5: _____________________________________________
-Evidence: __________________________________________
+Why 5: **********************\_**********************
+Evidence: ********************\_\_********************
 
-Root Cause: ________________________________________
+Root Cause: ******************\_\_\_\_******************
 
 Verification: How do we know this is the root cause?
-________________________________________________
+
+---
 ```
 
 ### Fishbone (Ishikawa) Diagram
@@ -380,15 +396,15 @@ ________________________________________________
 
 ### Root Cause Categories
 
-| Category | Examples | Evidence Sources |
-|----------|----------|------------------|
-| Design | Specification error, tolerance stack-up | DHF, design review records |
-| Process | Procedure inadequate, sequence error | Process validation, work instructions |
-| Personnel | Training gap, human error | Training records, interviews |
-| Equipment | Calibration drift, maintenance | Calibration records, logs |
-| Material | Supplier quality, storage | Incoming inspection, COCs |
-| Environment | Temperature, contamination | Environmental monitoring |
-| Management | Resource allocation, priorities | Management review records |
+| Category    | Examples                                | Evidence Sources                      |
+| ----------- | --------------------------------------- | ------------------------------------- |
+| Design      | Specification error, tolerance stack-up | DHF, design review records            |
+| Process     | Procedure inadequate, sequence error    | Process validation, work instructions |
+| Personnel   | Training gap, human error               | Training records, interviews          |
+| Equipment   | Calibration drift, maintenance          | Calibration records, logs             |
+| Material    | Supplier quality, storage               | Incoming inspection, COCs             |
+| Environment | Temperature, contamination              | Environmental monitoring              |
+| Management  | Resource allocation, priorities         | Management review records             |
 
 ---
 
@@ -397,6 +413,7 @@ ________________________________________________
 ### Corrective Action Requirements
 
 **Effective Corrective Actions:**
+
 1. Address identified root cause
 2. Are specific and measurable
 3. Have assigned ownership
@@ -406,14 +423,14 @@ ________________________________________________
 
 **Action Types:**
 
-| Type | Description | Example |
-|------|-------------|---------|
-| Process change | Modify procedure or method | Update SOP with additional step |
-| Design change | Modify product design | Add tolerance specification |
-| Training | Improve personnel capability | Conduct retraining |
-| Equipment | Modify or replace equipment | Upgrade inspection equipment |
-| Supplier | Address supplier quality | Audit supplier, add requirements |
-| Documentation | Improve or add documentation | Create work instruction |
+| Type           | Description                  | Example                          |
+| -------------- | ---------------------------- | -------------------------------- |
+| Process change | Modify procedure or method   | Update SOP with additional step  |
+| Design change  | Modify product design        | Add tolerance specification      |
+| Training       | Improve personnel capability | Conduct retraining               |
+| Equipment      | Modify or replace equipment  | Upgrade inspection equipment     |
+| Supplier       | Address supplier quality     | Audit supplier, add requirements |
+| Documentation  | Improve or add documentation | Create work instruction          |
 
 ### Change Control Integration
 
@@ -447,6 +464,7 @@ CAPA Verification
 ### Training Requirements
 
 **When Training is Required:**
+
 - New or revised procedures
 - New equipment or tools
 - Process changes
@@ -457,24 +475,25 @@ CAPA Verification
 ```markdown
 ## CAPA-Related Training Record
 
-CAPA Number: _______________
-Training Subject: ___________
-Training Date: ______________
-Trainer: ___________________
+CAPA Number: ******\_\_\_******
+Training Subject: ****\_\_\_****
+Training Date: ******\_\_******
+Trainer: ********\_\_\_********
 
 Attendees:
 | Name | Signature | Date |
 |------|-----------|------|
-|      |           |      |
+| | | |
 
 Training Content:
+
 - [ ] Root cause explanation
 - [ ] Process/procedure changes
 - [ ] New requirements
 - [ ] Competency verification
 
-Competency Verified By: _______________
-Date: _______________
+Competency Verified By: ******\_\_\_******
+Date: ******\_\_\_******
 ```
 
 ---
@@ -483,15 +502,16 @@ Date: _______________
 
 ### Verification vs. Validation
 
-| Verification | Validation |
-|--------------|------------|
+| Verification                  | Validation                        |
+| ----------------------------- | --------------------------------- |
 | Actions implemented correctly | Actions achieved intended results |
-| Short-term check | Long-term monitoring |
-| Process-focused | Outcome-focused |
+| Short-term check              | Long-term monitoring              |
+| Process-focused               | Outcome-focused                   |
 
 ### Effectiveness Criteria
 
 **SMART Criteria:**
+
 - **S**pecific: Clearly defined outcome
 - **M**easurable: Quantifiable metrics
 - **A**chievable: Realistic expectations
@@ -500,60 +520,67 @@ Date: _______________
 
 **Examples:**
 
-| Problem | Root Cause | Action | Effectiveness Criteria |
-|---------|------------|--------|----------------------|
-| 5% test failures | Inadequate sampling | Increase sampling | <1% failure rate for 3 months |
-| Customer complaints | Unclear instructions | Revise IFU | Zero complaints on topic for 6 months |
-| NCRs from supplier | No incoming inspection | Add inspection | Zero supplier NCRs for 90 days |
+| Problem             | Root Cause             | Action            | Effectiveness Criteria                |
+| ------------------- | ---------------------- | ----------------- | ------------------------------------- |
+| 5% test failures    | Inadequate sampling    | Increase sampling | <1% failure rate for 3 months         |
+| Customer complaints | Unclear instructions   | Revise IFU        | Zero complaints on topic for 6 months |
+| NCRs from supplier  | No incoming inspection | Add inspection    | Zero supplier NCRs for 90 days        |
 
 ### Effectiveness Review Template
 
 ```markdown
 ## CAPA Effectiveness Review
 
-CAPA Number: _______________
-Review Date: _______________
-Reviewer: __________________
+CAPA Number: ******\_\_\_******
+Review Date: ******\_\_\_******
+Reviewer: ********\_\_********
 
 ### Review Criteria
-Original Problem: _________________
-Effectiveness Metric: ______________
-Success Threshold: ________________
-Review Period: ____________________
+
+Original Problem: ********\_********
+Effectiveness Metric: ******\_\_******
+Success Threshold: ******\_\_\_\_******
+Review Period: ********\_\_\_\_********
 
 ### Data Analysis
-| Period | Metric Value | Threshold | Pass/Fail |
-|--------|--------------|-----------|-----------|
-| Month 1 |             |           |           |
-| Month 2 |             |           |           |
-| Month 3 |             |           |           |
+
+| Period  | Metric Value | Threshold | Pass/Fail |
+| ------- | ------------ | --------- | --------- |
+| Month 1 |              |           |           |
+| Month 2 |              |           |           |
+| Month 3 |              |           |           |
 
 ### Conclusion
+
 ☐ Effective - Criteria met, CAPA may be closed
 ☐ Partially Effective - Additional monitoring required
 ☐ Not Effective - Additional actions required
 
 ### Evidence
+
 [Reference to supporting data: complaint logs, NCR reports, audit results, etc.]
 
 ### Next Steps (if not effective)
-___________________________________
-___________________________________
+
+---
+
+---
 
 ### Approval
-Reviewer Signature: _______________ Date: _______
-Quality Approval: _________________ Date: _______
+
+Reviewer Signature: ******\_\_\_****** Date: **\_\_\_**
+Quality Approval: ********\_******** Date: **\_\_\_**
 ```
 
 ### Monitoring Period Guidelines
 
-| CAPA Type | Minimum Monitoring |
-|-----------|-------------------|
+| CAPA Type       | Minimum Monitoring           |
+| --------------- | ---------------------------- |
 | Product quality | 3 production lots or 90 days |
-| Process | 3 months of production |
-| Complaints | 6 months |
-| Audit findings | Until next audit |
-| Supplier | 3 lots or 90 days |
+| Process         | 3 months of production       |
+| Complaints      | 6 months                     |
+| Audit findings  | Until next audit             |
+| Supplier        | 3 lots or 90 days            |
 
 ---
 
@@ -584,10 +611,12 @@ CAPA File Structure:
 ### Record Retention
 
 Per 21 CFR 820.180:
+
 - Records shall be retained for the design and expected life of the device
 - Minimum of 2 years from date of release for commercial distribution
 
 **CAPA Record Retention:**
+
 - Retain for lifetime of product + 2 years
 - Include all supporting documentation
 - Maintain audit trail for changes
@@ -595,6 +624,7 @@ Per 21 CFR 820.180:
 ### Traceability
 
 **Required Traceability:**
+
 - CAPA to source (complaint, NCR, audit finding)
 - CAPA to affected products/lots
 - CAPA to corrective actions taken
@@ -607,14 +637,14 @@ Per 21 CFR 820.180:
 
 ### Common 483 Observations
 
-| Observation | Prevention |
-|-------------|------------|
-| CAPA not initiated when required | Define clear CAPA triggers |
-| Root cause analysis inadequate | Use structured RCA methods |
-| Actions don't address root cause | Verify action-cause linkage |
-| Effectiveness not verified | Define measurable criteria |
-| CAPA not timely | Set and track target dates |
-| Trend analysis not performed | Implement monthly trending |
+| Observation                          | Prevention                          |
+| ------------------------------------ | ----------------------------------- |
+| CAPA not initiated when required     | Define clear CAPA triggers          |
+| Root cause analysis inadequate       | Use structured RCA methods          |
+| Actions don't address root cause     | Verify action-cause linkage         |
+| Effectiveness not verified           | Define measurable criteria          |
+| CAPA not timely                      | Set and track target dates          |
+| Trend analysis not performed         | Implement monthly trending          |
 | Management review missing CAPA input | Include in management review agenda |
 
 ### Inspection Preparation
@@ -625,6 +655,7 @@ Per 21 CFR 820.180:
 ## FDA Inspection CAPA Preparation
 
 ### Documentation Review
+
 - [ ] All CAPAs have complete documentation
 - [ ] No overdue CAPAs
 - [ ] Root cause documented with evidence
@@ -632,6 +663,7 @@ Per 21 CFR 820.180:
 - [ ] All open CAPAs have current status
 
 ### Metrics Available
+
 - [ ] CAPA by source
 - [ ] CAPA cycle time
 - [ ] Overdue CAPA trend
@@ -639,12 +671,14 @@ Per 21 CFR 820.180:
 - [ ] Recurring issues
 
 ### Process Evidence
+
 - [ ] CAPA procedure current
 - [ ] Training records complete
 - [ ] Trend analysis documented
 - [ ] Management review records show CAPA input
 
 ### Common Questions Prepared
+
 - How do you initiate a CAPA?
 - How do you determine root cause?
 - How do you verify effectiveness?
@@ -654,14 +688,14 @@ Per 21 CFR 820.180:
 
 ### CAPA Metrics Dashboard
 
-| Metric | Target | Calculation |
-|--------|--------|-------------|
-| On-time initiation | 100% | CAPAs initiated within 30 days |
-| On-time closure | >90% | CAPAs closed by target date |
-| Effectiveness rate | >85% | Effective at first review / Total |
-| Average cycle time | <90 days | Average days to closure |
-| Overdue CAPAs | 0 | CAPAs past target date |
-| Recurring issues | <5% | Repeat CAPAs / Total |
+| Metric             | Target   | Calculation                       |
+| ------------------ | -------- | --------------------------------- |
+| On-time initiation | 100%     | CAPAs initiated within 30 days    |
+| On-time closure    | >90%     | CAPAs closed by target date       |
+| Effectiveness rate | >85%     | Effective at first review / Total |
+| Average cycle time | <90 days | Average days to closure           |
+| Overdue CAPAs      | 0        | CAPAs past target date            |
+| Recurring issues   | <5%      | Repeat CAPAs / Total              |
 
 ---
 
@@ -688,31 +722,31 @@ Is it an isolated incident?
 
 ### Root Cause vs. Symptom
 
-| Symptom (NOT root cause) | Root Cause (Address this) |
-|--------------------------|---------------------------|
-| "Operator made error" | Training inadequate for task |
-| "Component was defective" | Incoming inspection ineffective |
-| "SOP not followed" | SOP unclear or impractical |
-| "Equipment malfunctioned" | Maintenance schedule inadequate |
+| Symptom (NOT root cause)      | Root Cause (Address this)       |
+| ----------------------------- | ------------------------------- |
+| "Operator made error"         | Training inadequate for task    |
+| "Component was defective"     | Incoming inspection ineffective |
+| "SOP not followed"            | SOP unclear or impractical      |
+| "Equipment malfunctioned"     | Maintenance schedule inadequate |
 | "Supplier shipped wrong part" | Purchasing requirements unclear |
 
 ### Action Effectiveness Verification
 
-| Action Type | Verification Method | Timeframe |
-|-------------|---------------------|-----------|
-| Procedure change | Audit for compliance | 30-60 days |
-| Training | Competency assessment | Immediate |
-| Design change | Product testing | Per protocol |
-| Supplier action | Incoming inspection data | 3 lots |
-| Equipment | Calibration/performance | Per schedule |
+| Action Type      | Verification Method      | Timeframe    |
+| ---------------- | ------------------------ | ------------ |
+| Procedure change | Audit for compliance     | 30-60 days   |
+| Training         | Competency assessment    | Immediate    |
+| Design change    | Product testing          | Per protocol |
+| Supplier action  | Incoming inspection data | 3 lots       |
+| Equipment        | Calibration/performance  | Per schedule |
 
 ### Integration with Other Systems
 
-| System | CAPA Integration Point |
-|--------|------------------------|
-| Complaints | Trigger for CAPA, complaint closure after CAPA |
-| NCR | Trend to CAPA, NCR references CAPA |
-| Audit | Findings generate CAPA, CAPA closure audit |
-| Design Control | Design change via CAPA, DHF update |
-| Supplier | Supplier CAPA, supplier audit findings |
-| Risk Management | Risk file update post-CAPA |
+| System          | CAPA Integration Point                         |
+| --------------- | ---------------------------------------------- |
+| Complaints      | Trigger for CAPA, complaint closure after CAPA |
+| NCR             | Trend to CAPA, NCR references CAPA             |
+| Audit           | Findings generate CAPA, CAPA closure audit     |
+| Design Control  | Design change via CAPA, DHF update             |
+| Supplier        | Supplier CAPA, supplier audit findings         |
+| Risk Management | Risk file update post-CAPA                     |

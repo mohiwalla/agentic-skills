@@ -1,8 +1,5 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(npx playwright*)",
-      "Bash(npx tsx*)"
-    ]
-  }
+	"permissions": {
+		"allow": ["Bash(npx playwright*)", "Bash(npx tsx*)"]
+	}
 }

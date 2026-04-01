@@ -22,14 +22,14 @@ These apply across all languages.
 
 ### Naming Conventions
 
-| Element | Convention | Example |
-|---------|------------|---------|
-| Variables | camelCase (JS/TS), snake_case (Python/Go) | `userName`, `user_name` |
-| Constants | SCREAMING_SNAKE_CASE | `MAX_RETRY_COUNT` |
-| Functions | camelCase (JS/TS), snake_case (Python) | `getUserById`, `get_user_by_id` |
-| Classes | PascalCase | `UserRepository` |
-| Interfaces | PascalCase, optionally prefixed | `IUserService` or `UserService` |
-| Private members | Prefix with underscore or use access modifiers | `_internalState` |
+| Element         | Convention                                     | Example                         |
+| --------------- | ---------------------------------------------- | ------------------------------- |
+| Variables       | camelCase (JS/TS), snake_case (Python/Go)      | `userName`, `user_name`         |
+| Constants       | SCREAMING_SNAKE_CASE                           | `MAX_RETRY_COUNT`               |
+| Functions       | camelCase (JS/TS), snake_case (Python)         | `getUserById`, `get_user_by_id` |
+| Classes         | PascalCase                                     | `UserRepository`                |
+| Interfaces      | PascalCase, optionally prefixed                | `IUserService` or `UserService` |
+| Private members | Prefix with underscore or use access modifiers | `_internalState`                |
 
 ### Function Design
 
@@ -63,24 +63,21 @@ Good error handling:
 // Avoid 'any' - use unknown for truly unknown types
 function processData(data: unknown): ProcessedResult {
   if (isValidData(data)) {
-    return transform(data);
+    return transform(data)
   }
-  throw new Error('Invalid data format');
+  throw new Error("Invalid data format")
 }
 
 // Use explicit return types for public APIs
 export function calculateTotal(items: CartItem[]): number {
-  return items.reduce((sum, item) => sum + item.price, 0);
+  return items.reduce((sum, item) => sum + item.price, 0)
 }
 
 // Use type guards for runtime checks
 function isUser(obj: unknown): obj is User {
   return (
-    typeof obj === 'object' &&
-    obj !== null &&
-    'id' in obj &&
-    'email' in obj
-  );
+    typeof obj === "object" && obj !== null && "id" in obj && "email" in obj
+  )
 }
 ```
 
@@ -88,19 +85,19 @@ function isUser(obj: unknown): obj is User {
 
 ```typescript
 // Use optional chaining and nullish coalescing
-const userName = user?.profile?.name ?? 'Anonymous';
+const userName = user?.profile?.name ?? "Anonymous"
 
 // Be explicit about nullable types
 interface Config {
-  timeout: number;
-  retries?: number;  // Optional
-  fallbackUrl: string | null;  // Explicitly nullable
+  timeout: number
+  retries?: number // Optional
+  fallbackUrl: string | null // Explicitly nullable
 }
 
 // Use assertion functions for validation
 function assertDefined<T>(value: T | null | undefined): asserts value is T {
   if (value === null || value === undefined) {
-    throw new Error('Value is not defined');
+    throw new Error("Value is not defined")
   }
 }
 ```
@@ -111,11 +108,11 @@ function assertDefined<T>(value: T | null | undefined): asserts value is T {
 // Always handle errors in async functions
 async function fetchUser(id: string): Promise<User> {
   try {
-    const response = await api.get(`/users/${id}`);
-    return response.data;
+    const response = await api.get(`/users/${id}`)
+    return response.data
   } catch (error) {
-    logger.error('Failed to fetch user', { id, error });
-    throw new UserFetchError(id, error);
+    logger.error("Failed to fetch user", { id, error })
+    throw new UserFetchError(id, error)
   }
 }
 
@@ -124,9 +121,9 @@ async function loadDashboard(userId: string): Promise<Dashboard> {
   const [profile, stats, notifications] = await Promise.all([
     fetchProfile(userId),
     fetchStats(userId),
-    fetchNotifications(userId)
-  ]);
-  return { profile, stats, notifications };
+    fetchNotifications(userId),
+  ])
+  return { profile, stats, notifications }
 }
 ```
 
@@ -175,8 +172,8 @@ function useDebounce<T>(value: T, delay: number): T {
 
 ```javascript
 // Use const by default, let when reassignment needed
-const MAX_ITEMS = 100;
-let currentCount = 0;
+const MAX_ITEMS = 100
+let currentCount = 0
 
 // Never use var
 // var is function-scoped and hoisted, leading to bugs
@@ -186,16 +183,16 @@ let currentCount = 0;
 
 ```javascript
 // Use object destructuring
-const { name, email, role = 'user' } = user;
+const { name, email, role = "user" } = user
 
 // Use spread for immutable updates
-const updatedUser = { ...user, lastLogin: new Date() };
-const updatedList = [...items, newItem];
+const updatedUser = { ...user, lastLogin: new Date() }
+const updatedList = [...items, newItem]
 
 // Use array methods over loops
-const activeUsers = users.filter(u => u.isActive);
-const emails = users.map(u => u.email);
-const total = orders.reduce((sum, o) => sum + o.amount, 0);
+const activeUsers = users.filter(u => u.isActive)
+const emails = users.map(u => u.email)
+const total = orders.reduce((sum, o) => sum + o.amount, 0)
 ```
 
 ### Module Patterns

@@ -9,6 +9,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 ### Next.js (React)
 
 **Strengths:**
+
 - Largest ecosystem and community
 - Excellent developer tooling and documentation
 - Server-side rendering (SSR) and static generation (SSG) built in
@@ -17,6 +18,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 - Rich component library ecosystem (shadcn/ui, Radix, Chakra)
 
 **Weaknesses:**
+
 - React learning curve (hooks, state management, rendering model)
 - Bundle size can grow without discipline
 - Vercel lock-in concerns for advanced features
@@ -27,6 +29,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 ### Remix (React)
 
 **Strengths:**
+
 - Web standards focused (forms, HTTP, progressive enhancement)
 - Excellent data loading patterns (loaders/actions)
 - Built-in error boundaries and optimistic UI
@@ -35,6 +38,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 - Deployable anywhere (not tied to specific platform)
 
 **Weaknesses:**
+
 - Smaller ecosystem than Next.js
 - Fewer deployment guides and hosting templates
 - Less community content and tutorials
@@ -45,6 +49,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 ### SvelteKit (Svelte)
 
 **Strengths:**
+
 - Smallest bundle sizes (compiler-based, no virtual DOM)
 - Simplest learning curve among frameworks
 - Built-in state management (reactive declarations)
@@ -53,6 +58,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 - First-class TypeScript support
 
 **Weaknesses:**
+
 - Smaller ecosystem and component library selection
 - Fewer developers in hiring pool
 - Less enterprise adoption (harder to find case studies)
@@ -62,22 +68,23 @@ Choosing the right technology stack is one of the most impactful early decisions
 
 ### Frontend Decision Criteria
 
-| Criterion | Next.js | Remix | SvelteKit |
-|-----------|---------|-------|-----------|
-| Ecosystem Size | Large | Medium | Growing |
-| Learning Curve | Medium | Medium | Low |
-| Performance | Good | Good | Excellent |
-| SSR/SSG | Excellent | Good | Good |
-| Hiring Pool | Large | Small | Small |
-| Bundle Size | Medium | Small | Smallest |
-| TypeScript | Excellent | Excellent | Excellent |
-| Deployment Flexibility | Medium | High | High |
+| Criterion              | Next.js   | Remix     | SvelteKit |
+| ---------------------- | --------- | --------- | --------- |
+| Ecosystem Size         | Large     | Medium    | Growing   |
+| Learning Curve         | Medium    | Medium    | Low       |
+| Performance            | Good      | Good      | Excellent |
+| SSR/SSG                | Excellent | Good      | Good      |
+| Hiring Pool            | Large     | Small     | Small     |
+| Bundle Size            | Medium    | Small     | Smallest  |
+| TypeScript             | Excellent | Excellent | Excellent |
+| Deployment Flexibility | Medium    | High      | High      |
 
 ## Backend Frameworks
 
 ### Node.js (Express / Fastify / NestJS)
 
 **Strengths:**
+
 - Same language as frontend (JavaScript/TypeScript full-stack)
 - Massive npm ecosystem
 - NestJS provides enterprise patterns (DI, modules, decorators)
@@ -86,6 +93,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 - Great for real-time features (WebSockets)
 
 **Weaknesses:**
+
 - Single-threaded (CPU-intensive tasks require workers)
 - Callback/async complexity
 - npm dependency security concerns
@@ -96,6 +104,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 ### Python (FastAPI / Django)
 
 **Strengths:**
+
 - FastAPI: Modern, fast, automatic OpenAPI docs, async support
 - Django: Batteries included (admin, ORM, auth, migrations)
 - Excellent for data processing and ML integration
@@ -104,6 +113,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 - Large hiring pool across web and data roles
 
 **Weaknesses:**
+
 - Slower runtime than Go/Rust (mitigated by async in FastAPI)
 - GIL limits true parallelism (multiprocessing required)
 - Django can feel heavyweight for microservices
@@ -114,6 +124,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 ### Go (Gin / Echo / Fiber)
 
 **Strengths:**
+
 - Excellent performance (compiled, concurrent by design)
 - Low memory footprint
 - Simple deployment (single binary, no runtime)
@@ -122,6 +133,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 - Fast compilation
 
 **Weaknesses:**
+
 - Smaller web ecosystem than Node.js or Python
 - More verbose for CRUD operations
 - Error handling verbosity
@@ -132,22 +144,23 @@ Choosing the right technology stack is one of the most impactful early decisions
 
 ### Backend Decision Criteria
 
-| Criterion | Node.js | Python | Go |
-|-----------|---------|--------|-----|
-| Performance | Good | Moderate | Excellent |
-| Developer Productivity | High | High | Medium |
-| Ecosystem | Largest | Large | Medium |
-| Hiring Pool | Large | Large | Medium |
-| Full-Stack Synergy | Excellent | None | None |
-| Data/ML Integration | Medium | Excellent | Low |
-| Concurrency | Event Loop | Async/Threads | Goroutines |
-| Deployment Simplicity | Medium | Medium | High |
+| Criterion              | Node.js    | Python        | Go         |
+| ---------------------- | ---------- | ------------- | ---------- |
+| Performance            | Good       | Moderate      | Excellent  |
+| Developer Productivity | High       | High          | Medium     |
+| Ecosystem              | Largest    | Large         | Medium     |
+| Hiring Pool            | Large      | Large         | Medium     |
+| Full-Stack Synergy     | Excellent  | None          | None       |
+| Data/ML Integration    | Medium     | Excellent     | Low        |
+| Concurrency            | Event Loop | Async/Threads | Goroutines |
+| Deployment Simplicity  | Medium     | Medium        | High       |
 
 ## Database
 
 ### PostgreSQL
 
 **Strengths:**
+
 - ACID compliant with excellent reliability
 - Rich feature set (JSON, full-text search, GIS, arrays)
 - Extensible (custom types, functions, extensions like PostGIS, pgvector)
@@ -156,6 +169,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 - Free and open source with managed options (AWS RDS, Supabase, Neon)
 
 **Weaknesses:**
+
 - Horizontal scaling requires effort (Citus, partitioning)
 - More complex initial setup than MySQL
 - VACUUM maintenance at high write volumes
@@ -166,6 +180,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 ### MySQL
 
 **Strengths:**
+
 - Proven at massive scale (Meta, Uber, Shopify)
 - Simpler replication setup
 - Faster for simple read-heavy workloads
@@ -173,6 +188,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 - Wide hosting support
 
 **Weaknesses:**
+
 - Fewer advanced features than PostgreSQL
 - Weaker JSON support
 - Less extensible
@@ -182,22 +198,23 @@ Choosing the right technology stack is one of the most impactful early decisions
 
 ### Database Decision Criteria
 
-| Criterion | PostgreSQL | MySQL |
-|-----------|-----------|-------|
-| Feature Richness | Excellent | Good |
-| JSON Support | Excellent | Moderate |
-| Replication | Good | Good |
-| Horizontal Scale | Moderate | Good (PlanetScale) |
-| Community | Excellent | Excellent |
-| Managed Options | Many | Many |
-| Learning Curve | Medium | Low |
-| Default Choice | Yes | Situational |
+| Criterion        | PostgreSQL | MySQL              |
+| ---------------- | ---------- | ------------------ |
+| Feature Richness | Excellent  | Good               |
+| JSON Support     | Excellent  | Moderate           |
+| Replication      | Good       | Good               |
+| Horizontal Scale | Moderate   | Good (PlanetScale) |
+| Community        | Excellent  | Excellent          |
+| Managed Options  | Many       | Many               |
+| Learning Curve   | Medium     | Low                |
+| Default Choice   | Yes        | Situational        |
 
 ## Caching Layer
 
 ### Redis
 
 **Strengths:**
+
 - Rich data structures (strings, hashes, lists, sets, sorted sets, streams)
 - Pub/Sub for real-time messaging
 - Lua scripting for atomic operations
@@ -206,6 +223,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 - Used for caching, sessions, queues, rate limiting, leaderboards
 
 **Weaknesses:**
+
 - Memory-bound (dataset must fit in RAM)
 - Single-threaded command processing
 - Licensing changes (Redis 7.4+ source-available)
@@ -216,6 +234,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 ### Memcached
 
 **Strengths:**
+
 - Simplest possible key-value cache
 - Multi-threaded (better CPU utilization for simple operations)
 - Lower memory overhead per key
@@ -223,6 +242,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 - Battle-tested at scale
 
 **Weaknesses:**
+
 - No data structures (strings only)
 - No persistence
 - No pub/sub or scripting
@@ -233,19 +253,20 @@ Choosing the right technology stack is one of the most impactful early decisions
 
 ### Cache Decision Criteria
 
-| Criterion | Redis | Memcached |
-|-----------|-------|-----------|
-| Data Structures | Rich | Strings Only |
-| Persistence | Yes | No |
-| Pub/Sub | Yes | No |
-| Multi-Threading | No (I/O threads in v6) | Yes |
-| Use Cases | Many | Caching Only |
-| Memory Efficiency | Good | Better |
-| Default Choice | Yes | Rarely |
+| Criterion         | Redis                  | Memcached    |
+| ----------------- | ---------------------- | ------------ |
+| Data Structures   | Rich                   | Strings Only |
+| Persistence       | Yes                    | No           |
+| Pub/Sub           | Yes                    | No           |
+| Multi-Threading   | No (I/O threads in v6) | Yes          |
+| Use Cases         | Many                   | Caching Only |
+| Memory Efficiency | Good                   | Better       |
+| Default Choice    | Yes                    | Rarely       |
 
 ## Recommended Stacks by Product Type
 
 ### B2B SaaS (Most Common)
+
 - **Frontend:** Next.js + TypeScript + shadcn/ui
 - **Backend:** Node.js (NestJS) or Python (FastAPI)
 - **Database:** PostgreSQL
@@ -254,6 +275,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 - **Payments:** Stripe
 
 ### Developer Tool / API Product
+
 - **Frontend:** Next.js or SvelteKit
 - **Backend:** Go (Gin) or Node.js (Fastify)
 - **Database:** PostgreSQL
@@ -262,6 +284,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 - **Docs:** Mintlify or ReadMe
 
 ### Data-Heavy / Analytics Product
+
 - **Frontend:** Next.js
 - **Backend:** Python (FastAPI)
 - **Database:** PostgreSQL + ClickHouse (analytics)
@@ -270,6 +293,7 @@ Choosing the right technology stack is one of the most impactful early decisions
 - **Visualization:** Custom or embedded (Metabase)
 
 ### Real-Time / Collaboration Product
+
 - **Frontend:** Next.js or SvelteKit
 - **Backend:** Node.js (Fastify) + WebSockets
 - **Database:** PostgreSQL + Redis (pub/sub)

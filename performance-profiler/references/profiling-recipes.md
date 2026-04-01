@@ -39,11 +39,11 @@ node --inspect dist/server.js
 
 ```javascript
 // Add to your server for on-demand heap snapshots
-import v8 from 'v8'
-import fs from 'fs'
+import v8 from "v8"
+import fs from "fs"
 
 // Endpoint: POST /debug/heap-snapshot (protect with auth!)
-app.post('/debug/heap-snapshot', (req, res) => {
+app.post("/debug/heap-snapshot", (req, res) => {
   const filename = `heap-${Date.now()}.heapsnapshot`
   const snapshot = v8.writeHeapSnapshot(filename)
   res.json({ snapshot })
@@ -62,12 +62,15 @@ curl -X POST http://localhost:3000/debug/heap-snapshot
 
 ```javascript
 // Add blocked-at to detect synchronous blocking
-import blocked from 'blocked-at'
+import blocked from "blocked-at"
 
-blocked((time, stack) => {
-  console.warn(`Event loop blocked for ${time}ms`)
-  console.warn(stack.join('\n'))
-}, { threshold: 100 }) // Alert if blocked > 100ms
+blocked(
+  (time, stack) => {
+    console.warn(`Event loop blocked for ${time}ms`)
+    console.warn(stack.join("\n"))
+  },
+  { threshold: 100 },
+) // Alert if blocked > 100ms
 ```
 
 ### Node.js Memory Profiling Script
@@ -76,11 +79,11 @@ blocked((time, stack) => {
 // scripts/memory-profile.mjs
 // Run: node --experimental-vm-modules scripts/memory-profile.mjs
 
-import { createRequire } from 'module'
+import { createRequire } from "module"
 const require = createRequire(import.meta.url)
 
 function formatBytes(bytes) {
-  return (bytes / 1024 / 1024).toFixed(2) + ' MB'
+  return (bytes / 1024 / 1024).toFixed(2) + " MB"
 }
 
 function measureMemory(label) {
@@ -93,7 +96,7 @@ function measureMemory(label) {
   return mem
 }
 
-const baseline = measureMemory('Baseline')
+const baseline = measureMemory("Baseline")
 
 // Simulate your operation
 for (let i = 0; i < 1000; i++) {
@@ -101,16 +104,16 @@ for (let i = 0; i < 1000; i++) {
   const result = await someOperation()
 }
 
-const after = measureMemory('After 1000 operations')
+const after = measureMemory("After 1000 operations")
 
 console.log(`\n[Delta]`)
 console.log(`  Heap Used: +${formatBytes(after.heapUsed - baseline.heapUsed)}`)
 
 // If heap keeps growing across GC cycles, you have a leak
 global.gc?.() // Run with --expose-gc flag
-const afterGC = measureMemory('After GC')
+const afterGC = measureMemory("After GC")
 if (afterGC.heapUsed > baseline.heapUsed * 1.1) {
-  console.warn('⚠️  Possible memory leak detected (>10% growth after GC)')
+  console.warn("⚠️  Possible memory leak detected (>10% growth after GC)")
 }
 ```
 
@@ -338,19 +341,19 @@ LIMIT 20;
 
 ```typescript
 // Add query logging in dev
-import { db } from './client'
+import { db } from "./client"
 
 // Drizzle: enable logging
 const db = drizzle(pool, { logger: true })
 
 // Or use a query counter middleware
 let queryCount = 0
-db.$on('query', () => queryCount++)
+db.$on("query", () => queryCount++)
 
 // In tests:
 queryCount = 0
 const tasks = await getTasksWithAssignees(projectId)
-expect(queryCount).toBe(1)  // Fail if it's 21 (1 + 20 N+1s)
+expect(queryCount).toBe(1) // Fail if it's 21 (1 + 20 N+1s)
 ```
 
 ```python
@@ -366,7 +369,9 @@ NPLUSONE_RAISE = True  # Raise exception on N+1 in tests
 // Before: N+1 (1 query for tasks + N queries for assignees)
 const tasks = await db.select().from(tasksTable)
 for (const task of tasks) {
-  task.assignee = await db.select().from(usersTable)
+  task.assignee = await db
+    .select()
+    .from(usersTable)
     .where(eq(usersTable.id, task.assigneeId))
     .then(r => r[0])
 }
@@ -390,71 +395,78 @@ const tasks = await db
 
 ```javascript
 // tests/load/api-load-test.js
-import http from 'k6/http'
-import { check, sleep } from 'k6'
-import { Rate, Trend } from 'k6/metrics'
+import http from "k6/http"
+import { check, sleep } from "k6"
+import { Rate, Trend } from "k6/metrics"
 
-const errorRate = new Rate('errors')
-const taskListDuration = new Trend('task_list_duration')
+const errorRate = new Rate("errors")
+const taskListDuration = new Trend("task_list_duration")
 
 export const options = {
   stages: [
-    { duration: '30s', target: 10 },   // Ramp up to 10 VUs
-    { duration: '1m',  target: 50 },   // Ramp to 50 VUs
-    { duration: '2m',  target: 50 },   // Sustain 50 VUs
-    { duration: '30s', target: 100 },  // Spike to 100 VUs
-    { duration: '1m',  target: 50 },   // Back to 50
-    { duration: '30s', target: 0 },    // Ramp down
+    { duration: "30s", target: 10 }, // Ramp up to 10 VUs
+    { duration: "1m", target: 50 }, // Ramp to 50 VUs
+    { duration: "2m", target: 50 }, // Sustain 50 VUs
+    { duration: "30s", target: 100 }, // Spike to 100 VUs
+    { duration: "1m", target: 50 }, // Back to 50
+    { duration: "30s", target: 0 }, // Ramp down
   ],
   thresholds: {
-    http_req_duration: ['p(95)<500'],   // 95% of requests < 500ms
-    http_req_duration: ['p(99)<1000'],  // 99% < 1s
-    errors: ['rate<0.01'],              // Error rate < 1%
-    task_list_duration: ['p(95)<200'],  // Task list specifically < 200ms
+    http_req_duration: ["p(95)<500"], // 95% of requests < 500ms
+    http_req_duration: ["p(99)<1000"], // 99% < 1s
+    errors: ["rate<0.01"], // Error rate < 1%
+    task_list_duration: ["p(95)<200"], // Task list specifically < 200ms
   },
 }
 
-const BASE_URL = __ENV.BASE_URL || 'http://localhost:3000'
+const BASE_URL = __ENV.BASE_URL || "http://localhost:3000"
 
 export function setup() {
   // Get auth token once
-  const loginRes = http.post(`${BASE_URL}/api/auth/login`, JSON.stringify({
-    email: 'loadtest@example.com',
-    password: 'loadtest123',
-  }), { headers: { 'Content-Type': 'application/json' } })
-  
-  return { token: loginRes.json('token') }
+  const loginRes = http.post(
+    `${BASE_URL}/api/auth/login`,
+    JSON.stringify({
+      email: "loadtest@example.com",
+      password: "loadtest123",
+    }),
+    { headers: { "Content-Type": "application/json" } },
+  )
+
+  return { token: loginRes.json("token") }
 }
 
-export default function(data) {
+export default function (data) {
   const headers = {
-    'Authorization': `Bearer ${data.token}`,
-    'Content-Type': 'application/json',
+    Authorization: `Bearer ${data.token}`,
+    "Content-Type": "application/json",
   }
-  
+
   // Scenario 1: List tasks
   const start = Date.now()
   const listRes = http.get(`${BASE_URL}/api/tasks?limit=20`, { headers })
   taskListDuration.add(Date.now() - start)
-  
+
   check(listRes, {
-    'list tasks: status 200': (r) => r.status === 200,
-    'list tasks: has items': (r) => r.json('items') !== undefined,
+    "list tasks: status 200": r => r.status === 200,
+    "list tasks: has items": r => r.json("items") !== undefined,
   }) || errorRate.add(1)
-  
+
   sleep(0.5)
-  
+
   // Scenario 2: Create task
   const createRes = http.post(
     `${BASE_URL}/api/tasks`,
-    JSON.stringify({ title: `Load test task ${Date.now()}`, priority: 'medium' }),
-    { headers }
+    JSON.stringify({
+      title: `Load test task ${Date.now()}`,
+      priority: "medium",
+    }),
+    { headers },
   )
-  
+
   check(createRes, {
-    'create task: status 201': (r) => r.status === 201,
+    "create task: status 201": r => r.status === 201,
   }) || errorRate.add(1)
-  
+
   sleep(1)
 }
 

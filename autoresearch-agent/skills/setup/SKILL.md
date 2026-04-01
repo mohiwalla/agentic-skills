@@ -58,20 +58,21 @@ python {skill_path}/scripts/setup_experiment.py --list-evaluators
 
 ## Built-in Evaluators
 
-| Name | Metric | Use Case |
-|------|--------|----------|
-| `benchmark_speed` | `p50_ms` (lower) | Function/API execution time |
-| `benchmark_size` | `size_bytes` (lower) | File, bundle, Docker image size |
-| `test_pass_rate` | `pass_rate` (higher) | Test suite pass percentage |
-| `build_speed` | `build_seconds` (lower) | Build/compile/Docker build time |
-| `memory_usage` | `peak_mb` (lower) | Peak memory during execution |
-| `llm_judge_content` | `ctr_score` (higher) | Headlines, titles, descriptions |
-| `llm_judge_prompt` | `quality_score` (higher) | System prompts, agent instructions |
-| `llm_judge_copy` | `engagement_score` (higher) | Social posts, ad copy, emails |
+| Name                | Metric                      | Use Case                           |
+| ------------------- | --------------------------- | ---------------------------------- |
+| `benchmark_speed`   | `p50_ms` (lower)            | Function/API execution time        |
+| `benchmark_size`    | `size_bytes` (lower)        | File, bundle, Docker image size    |
+| `test_pass_rate`    | `pass_rate` (higher)        | Test suite pass percentage         |
+| `build_speed`       | `build_seconds` (lower)     | Build/compile/Docker build time    |
+| `memory_usage`      | `peak_mb` (lower)           | Peak memory during execution       |
+| `llm_judge_content` | `ctr_score` (higher)        | Headlines, titles, descriptions    |
+| `llm_judge_prompt`  | `quality_score` (higher)    | System prompts, agent instructions |
+| `llm_judge_copy`    | `engagement_score` (higher) | Social posts, ad copy, emails      |
 
 ## After Setup
 
 Report to the user:
+
 - Experiment path and branch name
 - Whether the eval command worked and the baseline metric
 - Suggest: "Run `/ar:run {domain}/{name}` to start iterating, or `/ar:loop {domain}/{name}` for autonomous mode."

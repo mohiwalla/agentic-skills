@@ -40,6 +40,7 @@ def get_user(user_id):
 ```
 
 **Checklist:**
+
 - [ ] Deny access by default (allowlist approach)
 - [ ] Implement RBAC or ABAC consistently
 - [ ] Validate object-level authorization (IDOR prevention)
@@ -74,6 +75,7 @@ except argon2.exceptions.VerifyMismatchError:
 ```
 
 **Checklist:**
+
 - [ ] Use TLS 1.2+ for all data in transit
 - [ ] Use AES-256-GCM for encryption at rest
 - [ ] Use Argon2id, bcrypt, or scrypt for passwords
@@ -189,13 +191,13 @@ spec:
     runAsUser: 1000
     fsGroup: 1000
   containers:
-  - name: app
-    securityContext:
-      allowPrivilegeEscalation: false
-      readOnlyRootFilesystem: true
-      capabilities:
-        drop:
-          - ALL
+    - name: app
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop:
+            - ALL
 ```
 
 ```python
@@ -693,26 +695,26 @@ app.after_request(add_security_headers)
 
 ### Security Checklist
 
-| Category | Check | Priority |
-|----------|-------|----------|
-| Authentication | MFA enabled | Critical |
+| Category       | Check                    | Priority |
+| -------------- | ------------------------ | -------- |
+| Authentication | MFA enabled              | Critical |
 | Authentication | Password policy enforced | Critical |
-| Authorization | RBAC implemented | Critical |
-| Input | All inputs validated | Critical |
-| Injection | Parameterized queries | Critical |
-| Crypto | TLS 1.2+ enforced | Critical |
-| Secrets | No hardcoded secrets | Critical |
-| Headers | Security headers set | High |
-| Logging | Security events logged | High |
-| Dependencies | No known vulnerabilities | High |
+| Authorization  | RBAC implemented         | Critical |
+| Input          | All inputs validated     | Critical |
+| Injection      | Parameterized queries    | Critical |
+| Crypto         | TLS 1.2+ enforced        | Critical |
+| Secrets        | No hardcoded secrets     | Critical |
+| Headers        | Security headers set     | High     |
+| Logging        | Security events logged   | High     |
+| Dependencies   | No known vulnerabilities | High     |
 
 ### Tool Recommendations
 
-| Purpose | Tool | Usage |
-|---------|------|-------|
-| SAST | Semgrep | `semgrep --config auto .` |
-| SAST | Bandit (Python) | `bandit -r src/` |
-| Secrets | Gitleaks | `gitleaks detect --source .` |
-| Dependencies | Snyk | `snyk test` |
-| Container | Trivy | `trivy image myapp:latest` |
-| DAST | OWASP ZAP | Dynamic scanning |
+| Purpose      | Tool            | Usage                        |
+| ------------ | --------------- | ---------------------------- |
+| SAST         | Semgrep         | `semgrep --config auto .`    |
+| SAST         | Bandit (Python) | `bandit -r src/`             |
+| Secrets      | Gitleaks        | `gitleaks detect --source .` |
+| Dependencies | Snyk            | `snyk test`                  |
+| Container    | Trivy           | `trivy image myapp:latest`   |
+| DAST         | OWASP ZAP       | Dynamic scanning             |

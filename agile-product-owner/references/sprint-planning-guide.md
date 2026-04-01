@@ -31,17 +31,18 @@ Sprint planning workflows, capacity calculation, and backlog management.
 
 **Agenda:**
 
-| Time | Activity | Participants |
-|------|----------|--------------|
-| 0:00-0:15 | Review sprint goal and priorities | PO presents |
-| 0:15-0:45 | Discuss top backlog items | Team asks questions |
-| 0:45-1:15 | Team selects stories for sprint | Team decides |
-| 1:15-1:45 | Break down stories into tasks | Team collaborates |
-| 1:45-2:00 | Confirm commitment and identify risks | All |
+| Time      | Activity                              | Participants        |
+| --------- | ------------------------------------- | ------------------- |
+| 0:00-0:15 | Review sprint goal and priorities     | PO presents         |
+| 0:15-0:45 | Discuss top backlog items             | Team asks questions |
+| 0:45-1:15 | Team selects stories for sprint       | Team decides        |
+| 1:15-1:45 | Break down stories into tasks         | Team collaborates   |
+| 1:45-2:00 | Confirm commitment and identify risks | All                 |
 
 ### Planning Checklist
 
 **Before Planning:**
+
 - [ ] Backlog groomed with top items refined
 - [ ] Previous sprint retrospective actions reviewed
 - [ ] Team capacity calculated
@@ -49,6 +50,7 @@ Sprint planning workflows, capacity calculation, and backlog management.
 - [ ] Sprint goal drafted
 
 **During Planning:**
+
 - [ ] Sprint goal agreed
 - [ ] Stories selected fit within capacity
 - [ ] Acceptance criteria reviewed for each story
@@ -56,6 +58,7 @@ Sprint planning workflows, capacity calculation, and backlog management.
 - [ ] Risks and blockers discussed
 
 **After Planning:**
+
 - [ ] Sprint backlog visible to all
 - [ ] Sprint goal communicated
 - [ ] Calendar blocked for ceremonies
@@ -77,21 +80,21 @@ Sprint Capacity = Average Velocity × Availability Factor
 
 ### Availability Factors
 
-| Scenario | Factor | Example |
-|----------|--------|---------|
-| Full sprint, no PTO | 1.0 | 30 points if velocity = 30 |
-| 1 team member out 50% | 0.9 | 27 points |
-| Holiday during sprint | 0.8 | 24 points |
-| Multiple team members out | 0.7 | 21 points |
-| Major release/on-call | 0.75 | 22-23 points |
+| Scenario                  | Factor | Example                    |
+| ------------------------- | ------ | -------------------------- |
+| Full sprint, no PTO       | 1.0    | 30 points if velocity = 30 |
+| 1 team member out 50%     | 0.9    | 27 points                  |
+| Holiday during sprint     | 0.8    | 24 points                  |
+| Multiple team members out | 0.7    | 21 points                  |
+| Major release/on-call     | 0.75   | 22-23 points               |
 
 ### Capacity Buffer Rules
 
-| Commitment Level | % of Velocity | Purpose |
-|------------------|---------------|---------|
-| Committed | 80-85% | High confidence delivery |
-| Stretch | 10-15% | Optional if things go well |
-| Buffer | 5-10% | Unplanned work, bugs |
+| Commitment Level | % of Velocity | Purpose                    |
+| ---------------- | ------------- | -------------------------- |
+| Committed        | 80-85%        | High confidence delivery   |
+| Stretch          | 10-15%        | Optional if things go well |
+| Buffer           | 5-10%         | Unplanned work, bugs       |
 
 ### Sprint Loading Example
 
@@ -127,21 +130,21 @@ Stretch Total: 4 points
 
 ### Priority Framework
 
-| Priority | Definition | SLA |
-|----------|------------|-----|
-| Critical | Blocking users, security, data loss | Immediate |
-| High | Core functionality, key user needs | This sprint |
-| Medium | Improvements, enhancements | Next 2-3 sprints |
-| Low | Nice-to-have, minor improvements | Backlog |
+| Priority | Definition                          | SLA              |
+| -------- | ----------------------------------- | ---------------- |
+| Critical | Blocking users, security, data loss | Immediate        |
+| High     | Core functionality, key user needs  | This sprint      |
+| Medium   | Improvements, enhancements          | Next 2-3 sprints |
+| Low      | Nice-to-have, minor improvements    | Backlog          |
 
 ### Prioritization Factors
 
-| Factor | Weight | Questions |
-|--------|--------|-----------|
-| Business Value | 40% | Revenue impact? User demand? Strategic? |
-| User Impact | 30% | How many users? How often used? |
-| Risk/Dependencies | 15% | Technical risk? External dependencies? |
-| Effort | 15% | Size? Complexity? Uncertainty? |
+| Factor            | Weight | Questions                               |
+| ----------------- | ------ | --------------------------------------- |
+| Business Value    | 40%    | Revenue impact? User demand? Strategic? |
+| User Impact       | 30%    | How many users? How often used?         |
+| Risk/Dependencies | 15%    | Technical risk? External dependencies?  |
+| Effort            | 15%    | Size? Complexity? Uncertainty?          |
 
 ### WSJF (Weighted Shortest Job First)
 
@@ -161,13 +164,13 @@ Feature B: CoD = 8, Duration = 2 → WSJF = 4.0 ← Higher priority
 
 ### Backlog Organization
 
-| Section | Content | Review Frequency |
-|---------|---------|------------------|
-| Sprint Backlog | Committed for current sprint | Daily |
-| Ready | Refined, estimated, prioritized | Each planning |
-| Grooming | Needs refinement | Weekly |
-| Icebox | Future consideration | Monthly |
-| Archive | Completed or obsolete | Quarterly |
+| Section        | Content                         | Review Frequency |
+| -------------- | ------------------------------- | ---------------- |
+| Sprint Backlog | Committed for current sprint    | Daily            |
+| Ready          | Refined, estimated, prioritized | Each planning    |
+| Grooming       | Needs refinement                | Weekly           |
+| Icebox         | Future consideration            | Monthly          |
+| Archive        | Completed or obsolete           | Quarterly        |
 
 ---
 
@@ -183,6 +186,7 @@ Feature B: CoD = 8, Duration = 2 → WSJF = 4.0 ← Higher priority
 3. What blockers do I have?
 
 **Product Owner Role:**
+
 - Listen for blockers needing PO action
 - Answer clarifying questions
 - Note scope concerns for offline discussion
@@ -195,14 +199,15 @@ Feature B: CoD = 8, Duration = 2 → WSJF = 4.0 ← Higher priority
 
 **Agenda:**
 
-| Time | Activity |
-|------|----------|
-| 0:00-0:15 | Review upcoming priorities |
+| Time      | Activity                                 |
+| --------- | ---------------------------------------- |
+| 0:00-0:15 | Review upcoming priorities               |
 | 0:15-0:45 | Detail acceptance criteria for top items |
-| 0:45-1:15 | Estimate new stories |
-| 1:15-1:30 | Split large stories |
+| 0:45-1:15 | Estimate new stories                     |
+| 1:15-1:30 | Split large stories                      |
 
 **Readiness Criteria:**
+
 - [ ] Clear user story format (As a... I want... So that...)
 - [ ] Acceptance criteria defined (Given-When-Then)
 - [ ] Story point estimate agreed
@@ -215,14 +220,15 @@ Feature B: CoD = 8, Duration = 2 → WSJF = 4.0 ← Higher priority
 
 **Agenda:**
 
-| Time | Activity | Lead |
-|------|----------|------|
-| 0:00-0:05 | Sprint goal recap | PO |
-| 0:05-0:40 | Demo completed work | Team |
+| Time      | Activity             | Lead         |
+| --------- | -------------------- | ------------ |
+| 0:00-0:05 | Sprint goal recap    | PO           |
+| 0:05-0:40 | Demo completed work  | Team         |
 | 0:40-0:50 | Stakeholder feedback | Stakeholders |
-| 0:50-1:00 | Roadmap update | PO |
+| 0:50-1:00 | Roadmap update       | PO           |
 
 **Demo Checklist:**
+
 - [ ] Only demo completed (done-done) stories
 - [ ] Use production or production-like environment
 - [ ] Show user perspective, not technical details
@@ -235,14 +241,15 @@ Feature B: CoD = 8, Duration = 2 → WSJF = 4.0 ← Higher priority
 
 **Format Options:**
 
-| Format | Structure |
-|--------|-----------|
-| Start-Stop-Continue | What to begin, end, keep doing |
-| 4Ls | Liked, Learned, Lacked, Longed for |
-| Sailboat | Wind (helpers), Anchors (blockers), Rocks (risks) |
-| Mad-Sad-Glad | Emotional state about sprint events |
+| Format              | Structure                                         |
+| ------------------- | ------------------------------------------------- |
+| Start-Stop-Continue | What to begin, end, keep doing                    |
+| 4Ls                 | Liked, Learned, Lacked, Longed for                |
+| Sailboat            | Wind (helpers), Anchors (blockers), Rocks (risks) |
+| Mad-Sad-Glad        | Emotional state about sprint events               |
 
 **Action Items:**
+
 - Maximum 2-3 improvement actions per retro
 - Assign owner and due date
 - Review previous actions at start of next retro
@@ -253,13 +260,13 @@ Feature B: CoD = 8, Duration = 2 → WSJF = 4.0 ← Higher priority
 
 ### Sprint Metrics
 
-| Metric | Formula | Target |
-|--------|---------|--------|
-| Velocity | Points completed / sprint | Stable ±10% |
-| Commitment Reliability | Completed / Committed | >85% |
-| Scope Change | Points added or removed | <10% |
-| Carryover | Points not completed | <15% |
-| Bug Ratio | Bug points / Total points | <20% |
+| Metric                 | Formula                   | Target      |
+| ---------------------- | ------------------------- | ----------- |
+| Velocity               | Points completed / sprint | Stable ±10% |
+| Commitment Reliability | Completed / Committed     | >85%        |
+| Scope Change           | Points added or removed   | <10%        |
+| Carryover              | Points not completed      | <15%        |
+| Bug Ratio              | Bug points / Total points | <20%        |
 
 ### Velocity Tracking
 
@@ -294,12 +301,12 @@ Day   Ideal    Actual   Status
 
 **Burndown Patterns:**
 
-| Pattern | Meaning | Action |
-|---------|---------|--------|
-| Flat start | No progress early | Check blockers |
-| Late drop | Last-minute completion | Improve WIP limits |
-| Scope increase | Line moves up | Address scope creep |
-| Early completion | Done before sprint end | Pull stretch items |
+| Pattern          | Meaning                | Action              |
+| ---------------- | ---------------------- | ------------------- |
+| Flat start       | No progress early      | Check blockers      |
+| Late drop        | Last-minute completion | Improve WIP limits  |
+| Scope increase   | Line moves up          | Address scope creep |
+| Early completion | Done before sprint end | Pull stretch items  |
 
 ### Definition of Done
 
@@ -316,9 +323,9 @@ Story is complete when:
 
 ### Release Metrics
 
-| Metric | Definition | Target |
-|--------|------------|--------|
-| Lead Time | Idea to production | <2 sprints |
-| Cycle Time | Development start to done | <1 sprint |
-| Throughput | Stories completed/sprint | Increasing |
-| Defect Escape | Bugs found in production | Decreasing |
+| Metric        | Definition                | Target     |
+| ------------- | ------------------------- | ---------- |
+| Lead Time     | Idea to production        | <2 sprints |
+| Cycle Time    | Development start to done | <1 sprint  |
+| Throughput    | Stories completed/sprint  | Increasing |
+| Defect Escape | Bugs found in production  | Decreasing |

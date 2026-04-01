@@ -58,6 +58,7 @@ FREE_TRIAL ──paid──► ACTIVE ──cancel──► CANCEL_PENDING ─�
 ```
 
 ### DB subscription status values:
+
 `trialing | active | past_due | canceled | cancel_pending | paused | unpaid`
 
 ---
@@ -149,7 +150,7 @@ export async function POST(req: Request) {
 export async function changeSubscriptionPlan(
   subscriptionId: string,
   newPriceId: string,
-  immediate = false
+  immediate = false,
 ) {
   const subscription = await stripe.subscriptions.retrieve(subscriptionId)
   const currentItem = subscription.items.data[0]
@@ -172,14 +173,19 @@ export async function changeSubscriptionPlan(
 }
 
 // Preview proration before confirming upgrade
-export async function previewProration(subscriptionId: string, newPriceId: string) {
+export async function previewProration(
+  subscriptionId: string,
+  newPriceId: string,
+) {
   const subscription = await stripe.subscriptions.retrieve(subscriptionId)
   const prorationDate = Math.floor(Date.now() / 1000)
 
   const invoice = await stripe.invoices.retrieveUpcoming({
     customer: subscription.customer as string,
     subscription: subscriptionId,
-    subscription_items: [{ id: subscription.items.data[0].id, price: newPriceId }],
+    subscription_items: [
+      { id: subscription.items.data[0].id, price: newPriceId },
+    ],
     subscription_proration_date: prorationDate,
   })
 
@@ -210,7 +216,9 @@ async function hasProcessedEvent(eventId: string): Promise<boolean> {
 }
 
 async function markEventProcessed(eventId: string, type: string) {
-  await db.stripeEvent.create({ data: { id: eventId, type, processedAt: new Date() } })
+  await db.stripeEvent.create({
+    data: { id: eventId, type, processedAt: new Date() },
+  })
 }
 
 export async function POST(req: Request) {
@@ -219,7 +227,11 @@ export async function POST(req: Request) {
 
   let event: Stripe.Event
   try {
-    event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_WEBHOOK_SECRET!)
+    event = stripe.webhooks.constructEvent(
+      body,
+      signature,
+      process.env.STRIPE_WEBHOOK_SECRET!,
+    )
   } catch (err) {
     console.error("Webhook signature verification failed:", err)
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 })
@@ -233,16 +245,22 @@ export async function POST(req: Request) {
   try {
     switch (event.type) {
       case "checkout.session.completed":
-        await handleCheckoutCompleted(event.data.object as Stripe.Checkout.Session)
+        await handleCheckoutCompleted(
+          event.data.object as Stripe.Checkout.Session,
+        )
         break
 
       case "customer.subscription.created":
       case "customer.subscription.updated":
-        await handleSubscriptionUpdated(event.data.object as Stripe.Subscription)
+        await handleSubscriptionUpdated(
+          event.data.object as Stripe.Subscription,
+        )
         break
 
       case "customer.subscription.deleted":
-        await handleSubscriptionDeleted(event.data.object as Stripe.Subscription)
+        await handleSubscriptionDeleted(
+          event.data.object as Stripe.Subscription,
+        )
         break
 
       case "invoice.payment_succeeded":
@@ -268,12 +286,14 @@ export async function POST(req: Request) {
 
 async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   if (session.mode !== "subscription") return
-  
+
   const userId = session.metadata?.userId
   if (!userId) throw new Error("No userId in checkout session metadata")
 
-  const subscription = await stripe.subscriptions.retrieve(session.subscription as string)
-  
+  const subscription = await stripe.subscriptions.retrieve(
+    session.subscription as string,
+  )
+
   await db.user.update({
     where: { id: userId },
     data: {
@@ -296,7 +316,8 @@ async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
     const customer = await db.user.findUnique({
       where: { stripeCustomerId: subscription.customer as string },
     })
-    if (!customer) throw new Error(`No user found for subscription ${subscription.id}`)
+    if (!customer)
+      throw new Error(`No user found for subscription ${subscription.id}`)
   }
 
   await db.user.update({
@@ -325,7 +346,7 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
 async function handleInvoicePaymentFailed(invoice: Stripe.Invoice) {
   if (!invoice.subscription) return
   const attemptCount = invoice.attempt_count
-  
+
   await db.user.update({
     where: { stripeSubscriptionId: invoice.subscription as string },
     data: { subscriptionStatus: "past_due" },
@@ -358,7 +379,10 @@ async function handleInvoicePaymentSucceeded(invoice: Stripe.Invoice) {
 
 ```typescript
 // Report usage for metered subscriptions
-export async function reportUsage(subscriptionItemId: string, quantity: number) {
+export async function reportUsage(
+  subscriptionItemId: string,
+  quantity: number,
+) {
   await stripe.subscriptionItems.createUsageRecord(subscriptionItemId, {
     quantity,
     timestamp: Math.floor(Date.now() / 1000),
@@ -370,9 +394,11 @@ export async function reportUsage(subscriptionItemId: string, quantity: number) 
 export async function trackApiCall(userId: string) {
   const user = await db.user.findUnique({ where: { id: userId } })
   if (user?.stripeSubscriptionId) {
-    const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId)
+    const subscription = await stripe.subscriptions.retrieve(
+      user.stripeSubscriptionId,
+    )
     const meteredItem = subscription.items.data.find(
-      (item) => item.price.recurring?.usage_type === "metered"
+      item => item.price.recurring?.usage_type === "metered",
     )
     if (meteredItem) {
       await reportUsage(meteredItem.id, 1)
@@ -445,9 +471,16 @@ stripe events list --limit 10
 
 ```typescript
 // lib/subscription.ts
-export function isSubscriptionActive(user: { subscriptionStatus: string | null, stripeCurrentPeriodEnd: Date | null }) {
+export function isSubscriptionActive(user: {
+  subscriptionStatus: string | null
+  stripeCurrentPeriodEnd: Date | null
+}) {
   if (!user.subscriptionStatus) return false
-  if (user.subscriptionStatus === "active" || user.subscriptionStatus === "trialing") return true
+  if (
+    user.subscriptionStatus === "active" ||
+    user.subscriptionStatus === "trialing"
+  )
+    return true
   // Grace period: past_due but not yet expired
   if (user.subscriptionStatus === "past_due" && user.stripeCurrentPeriodEnd) {
     return user.stripeCurrentPeriodEnd > new Date()

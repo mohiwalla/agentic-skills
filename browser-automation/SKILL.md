@@ -10,6 +10,7 @@ description: "Use when the user asks to automate browser tasks, scrape websites,
 The Browser Automation skill provides comprehensive tools and knowledge for building production-grade web automation workflows using Playwright. This skill covers data extraction, form filling, screenshot capture, session management, and anti-detection patterns for reliable browser automation at scale.
 
 **When to use this skill:**
+
 - Scraping structured data from websites (tables, listings, search results)
 - Automating multi-step browser workflows (login, fill forms, download files)
 - Capturing screenshots or PDFs of web pages
@@ -17,11 +18,13 @@ The Browser Automation skill provides comprehensive tools and knowledge for buil
 - Building repeatable browser-based data pipelines
 
 **When NOT to use this skill:**
+
 - Writing browser tests or E2E test suites — use **playwright-pro** instead
 - Testing API endpoints — use **api-test-suite-builder** instead
 - Load testing or performance benchmarking — use **performance-profiler** instead
 
 **Why Playwright over Selenium or Puppeteer:**
+
 - **Auto-wait built in** — no explicit `sleep()` or `waitForElement()` needed for most actions
 - **Multi-browser from one API** — Chromium, Firefox, WebKit with zero config changes
 - **Network interception** — block ads, mock responses, capture API calls natively
@@ -34,6 +37,7 @@ The Browser Automation skill provides comprehensive tools and knowledge for buil
 ### 1. Web Scraping Patterns
 
 **Selector priority (most to least reliable):**
+
 1. `data-testid`, `data-id`, or custom data attributes — stable across redesigns
 2. `#id` selectors — unique but may change between deploys
 3. Semantic selectors: `article`, `nav`, `main`, `section` — resilient to CSS changes
@@ -62,6 +66,7 @@ See [playwright_browser_api.md](references/playwright_browser_api.md) for full s
 ### 4. Structured Data Extraction
 
 Core extraction patterns:
+
 - **Tables to JSON** — Extract `<thead>` headers and `<tbody>` rows into dictionaries
 - **Listings to arrays** — Map repeating card elements using a field-selector map (supports `::attr()` for attributes)
 - **Nested/threaded data** — Recursive extraction for comments with replies, category trees
@@ -112,6 +117,7 @@ See [anti_detection_patterns.md](references/anti_detection_patterns.md) for the 
 **Scenario:** Extract product data from a single page with JavaScript-rendered content.
 
 **Steps:**
+
 1. Launch browser in headed mode during development (`headless=False`), switch to headless for production
 2. Navigate to URL and wait for content selector
 3. Extract data using `query_selector_all` with field mapping
@@ -138,6 +144,7 @@ async def extract_single_page(url, selectors):
 **Scenario:** Scrape search results across 50+ pages.
 
 **Steps:**
+
 1. Launch browser with anti-detection settings
 2. Navigate to first page
 3. Extract data from current page
@@ -176,6 +183,7 @@ async def scrape_paginated(base_url, selectors, max_pages=100):
 **Scenario:** Log into a portal, navigate a multi-step form, download a report.
 
 **Steps:**
+
 1. Check for existing session state file
 2. If no session, perform login and save state
 3. Navigate to target page using saved session
@@ -216,45 +224,53 @@ async def authenticated_workflow(credentials, form_data, download_dir):
 
 ## Tools Reference
 
-| Script | Purpose | Key Flags | Output |
-|--------|---------|-----------|--------|
-| `scraping_toolkit.py` | Generate Playwright scraping script skeleton | `--url`, `--selectors`, `--paginate`, `--output` | Python script or JSON config |
-| `form_automation_builder.py` | Generate form-fill automation script from field spec | `--fields`, `--url`, `--output` | Python automation script |
-| `anti_detection_checker.py` | Audit a Playwright script for detection vectors | `--file`, `--verbose` | Risk report with score |
+| Script                       | Purpose                                              | Key Flags                                        | Output                       |
+| ---------------------------- | ---------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
+| `scraping_toolkit.py`        | Generate Playwright scraping script skeleton         | `--url`, `--selectors`, `--paginate`, `--output` | Python script or JSON config |
+| `form_automation_builder.py` | Generate form-fill automation script from field spec | `--fields`, `--url`, `--output`                  | Python automation script     |
+| `anti_detection_checker.py`  | Audit a Playwright script for detection vectors      | `--file`, `--verbose`                            | Risk report with score       |
 
 All scripts are stdlib-only. Run `python3 <script> --help` for full usage.
 
 ## Anti-Patterns
 
 ### Hardcoded Waits
+
 **Bad:** `await page.wait_for_timeout(5000)` before every action.
 **Good:** Use `wait_for_selector`, `wait_for_url`, `expect_response`, or `wait_for_load_state`. Hardcoded waits are flaky and slow.
 
 ### No Error Recovery
+
 **Bad:** Linear script that crashes on first failure.
 **Good:** Wrap each page interaction in try/except. Take error-state screenshots. Implement retry with exponential backoff.
 
 ### Ignoring robots.txt
+
 **Bad:** Scraping without checking robots.txt directives.
 **Good:** Fetch and parse robots.txt before scraping. Respect `Crawl-delay`. Skip disallowed paths. Add your bot name to User-Agent if running at scale.
 
 ### Storing Credentials in Scripts
+
 **Bad:** Hardcoding usernames and passwords in Python files.
 **Good:** Use environment variables, `.env` files (gitignored), or a secrets manager. Pass credentials via CLI arguments.
 
 ### No Rate Limiting
+
 **Bad:** Hammering a site with 100 requests/second.
 **Good:** Add random delays between requests (1-3s for polite scraping). Monitor for 429 responses. Implement exponential backoff.
 
 ### Selector Fragility
+
 **Bad:** Relying on auto-generated class names (`.css-1a2b3c`) or deep nesting (`div > div > div > span:nth-child(3)`).
 **Good:** Use data attributes, semantic HTML, or text-based locators. Test selectors in browser DevTools first.
 
 ### Not Cleaning Up Browser Instances
+
 **Bad:** Launching browsers without closing them, leading to resource leaks.
 **Good:** Always use `try/finally` or async context managers to ensure `browser.close()` is called.
 
 ### Running Headed in Production
+
 **Bad:** Using `headless=False` in production/CI.
 **Good:** Develop with headed mode for debugging, deploy with `headless=True`. Use environment variable to toggle: `headless = os.environ.get("HEADLESS", "true") == "true"`.
 

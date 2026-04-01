@@ -11,17 +11,17 @@ Production-grade Playwright testing toolkit for AI coding agents.
 
 When installed as a Claude Code plugin, these are available as `/pw:` commands:
 
-| Command | What it does |
-|---|---|
-| `/pw:init` | Set up Playwright — detects framework, generates config, CI, first test |
-| `/pw:generate <spec>` | Generate tests from user story, URL, or component |
-| `/pw:review` | Review tests for anti-patterns and coverage gaps |
-| `/pw:fix <test>` | Diagnose and fix failing or flaky tests |
-| `/pw:migrate` | Migrate from Cypress or Selenium to Playwright |
-| `/pw:coverage` | Analyze what's tested vs. what's missing |
-| `/pw:testrail` | Sync with TestRail — read cases, push results |
-| `/pw:browserstack` | Run on BrowserStack, pull cross-browser reports |
-| `/pw:report` | Generate test report in your preferred format |
+| Command               | What it does                                                            |
+| --------------------- | ----------------------------------------------------------------------- |
+| `/pw:init`            | Set up Playwright — detects framework, generates config, CI, first test |
+| `/pw:generate <spec>` | Generate tests from user story, URL, or component                       |
+| `/pw:review`          | Review tests for anti-patterns and coverage gaps                        |
+| `/pw:fix <test>`      | Diagnose and fix failing or flaky tests                                 |
+| `/pw:migrate`         | Migrate from Cypress or Selenium to Playwright                          |
+| `/pw:coverage`        | Analyze what's tested vs. what's missing                                |
+| `/pw:testrail`        | Sync with TestRail — read cases, push results                           |
+| `/pw:browserstack`    | Run on BrowserStack, pull cross-browser reports                         |
+| `/pw:report`          | Generate test report in your preferred format                           |
 
 ## Quick Start Workflow
 
@@ -35,6 +35,7 @@ The recommended sequence for most projects:
 ```
 
 **Validation checkpoints:**
+
 - After `/pw:generate` — always run `/pw:review` before committing; it catches locator anti-patterns and missing assertions automatically.
 - After `/pw:fix` — re-run the full suite locally (`npx playwright test`) to confirm the fix doesn't introduce regressions.
 - After `/pw:migrate` — run `/pw:coverage` to confirm parity with the old suite before decommissioning Cypress/Selenium tests.
@@ -99,6 +100,7 @@ npx playwright test tests/auth/login.spec.ts --headed
 ## Integration Setup
 
 ### TestRail (Optional)
+
 ```bash
 export TESTRAIL_URL="https://your-instance.testrail.io"
 export TESTRAIL_USER="your@email.com"
@@ -106,6 +108,7 @@ export TESTRAIL_API_KEY="your-api-key"
 ```
 
 ### BrowserStack (Optional)
+
 ```bash
 export BROWSERSTACK_USERNAME="your-username"
 export BROWSERSTACK_ACCESS_KEY="your-access-key"
@@ -114,6 +117,7 @@ export BROWSERSTACK_ACCESS_KEY="your-access-key"
 ## Quick Reference
 
 See `reference/` directory for:
+
 - `golden-rules.md` — The 10 non-negotiable rules
 - `locators.md` — Complete locator priority with cheat sheet
 - `assertions.md` — Web-first assertions reference

@@ -3,28 +3,31 @@
 ## Ranking Factors by Weight
 
 ### Tier 1 — Strongest Signals
-| Signal | Impact | How to Optimize |
-|--------|--------|----------------|
-| Replies received | Very high | Ask questions, make controversial/insightful points |
-| Dwell time (time reading) | Very high | Threads, longer tweets with line breaks |
-| Profile clicks from tweet | High | Create curiosity gaps, tease expertise |
-| Bookmarks | High | Tactical content (lists, frameworks, templates) |
+
+| Signal                    | Impact    | How to Optimize                                     |
+| ------------------------- | --------- | --------------------------------------------------- |
+| Replies received          | Very high | Ask questions, make controversial/insightful points |
+| Dwell time (time reading) | Very high | Threads, longer tweets with line breaks             |
+| Profile clicks from tweet | High      | Create curiosity gaps, tease expertise              |
+| Bookmarks                 | High      | Tactical content (lists, frameworks, templates)     |
 
 ### Tier 2 — Moderate Signals
-| Signal | Impact | How to Optimize |
-|--------|--------|----------------|
-| Retweets/Quotes | Medium | Shareable insights, bold takes, data |
-| Likes | Medium-low | Easy agreement, relatable content |
-| Follows from tweet | Medium | Thread CTAs, high-value niche content |
+
+| Signal             | Impact     | How to Optimize                       |
+| ------------------ | ---------- | ------------------------------------- |
+| Retweets/Quotes    | Medium     | Shareable insights, bold takes, data  |
+| Likes              | Medium-low | Easy agreement, relatable content     |
+| Follows from tweet | Medium     | Thread CTAs, high-value niche content |
 
 ### Tier 3 — Negative Signals
-| Signal | Impact | How to Avoid |
-|--------|--------|-------------|
-| Link in tweet body | Reach penalty | Put links in first reply |
-| Edit within 30 min | Suppresses | Don't edit — delete and repost if needed |
-| Low early engagement | Decay | Stay online 30 min after posting, engage with replies |
-| Hashtag spam (3+) | Spam signal | Max 1-2 hashtags, or zero |
-| Tagging non-engagers | Negative | Only tag people likely to engage |
+
+| Signal               | Impact        | How to Avoid                                          |
+| -------------------- | ------------- | ----------------------------------------------------- |
+| Link in tweet body   | Reach penalty | Put links in first reply                              |
+| Edit within 30 min   | Suppresses    | Don't edit — delete and repost if needed              |
+| Low early engagement | Decay         | Stay online 30 min after posting, engage with replies |
+| Hashtag spam (3+)    | Spam signal   | Max 1-2 hashtags, or zero                             |
+| Tagging non-engagers | Negative      | Only tag people likely to engage                      |
 
 ## Content Format Performance (ranked)
 
@@ -37,12 +40,12 @@
 
 ## Optimal Timing
 
-| Time Slot (UTC) | Why |
-|----------------|-----|
-| 12:00-14:00 | US East Coast morning, EU afternoon |
-| 16:00-18:00 | US afternoon peak |
-| 21:00-23:00 | US evening, high scroll time |
-| 07:00-08:00 | EU morning, commute scrolling |
+| Time Slot (UTC) | Why                                 |
+| --------------- | ----------------------------------- |
+| 12:00-14:00     | US East Coast morning, EU afternoon |
+| 16:00-18:00     | US afternoon peak                   |
+| 21:00-23:00     | US evening, high scroll time        |
+| 07:00-08:00     | EU morning, commute scrolling       |
 
 Best days: Tuesday-Thursday for B2B. Saturday-Sunday for consumer/lifestyle.
 

@@ -19,6 +19,7 @@ terraform {
 ```
 
 **Prerequisites:**
+
 ```hcl
 # Bootstrap these resources manually or with a separate Terraform config
 resource "aws_s3_bucket" "state" {
@@ -79,6 +80,7 @@ terraform {
 ```
 
 **Key features:**
+
 - Native locking (no separate lock table needed)
 - Object versioning for state history
 - IAM-based access control
@@ -100,6 +102,7 @@ terraform {
 ```
 
 **Key features:**
+
 - Native blob locking
 - Encryption at rest with Microsoft-managed or customer-managed keys
 - RBAC-based access control
@@ -120,6 +123,7 @@ terraform {
 ```
 
 **Key features:**
+
 - Built-in state locking, encryption, and versioning
 - RBAC and team-based access control
 - Remote execution (plan/apply run in TF Cloud)
@@ -152,12 +156,14 @@ infrastructure/
 ```
 
 **Pros:**
+
 - Complete isolation — a mistake in dev can't affect prod
 - Different provider versions per environment
 - Different module versions per environment (pin prod, iterate in dev)
 - Clear audit trail — who changed what, where
 
 **Cons:**
+
 - Some duplication across environment directories
 - Must update modules in each environment separately
 
@@ -188,11 +194,13 @@ terraform plan -var-file="env/dev.tfvars"
 ```
 
 **Pros:**
+
 - Less duplication — single set of .tf files
 - Quick to switch between environments
 - Built-in workspace support in backends
 
 **Cons:**
+
 - Shared code means a bug affects all environments simultaneously
 - Can't have different provider versions per workspace
 - Easy to accidentally apply to wrong workspace
@@ -247,12 +255,14 @@ inputs = {
 ```
 
 **Pros:**
+
 - Maximum DRY — define module once, parameterize per environment
 - Automatic state key generation from directory structure
 - Dependency management between modules (`dependency` blocks)
 - `run-all` for applying multiple modules at once
 
 **Cons:**
+
 - Additional tool dependency (Terragrunt)
 - Learning curve
 - Debugging can be harder (generated files)
@@ -322,18 +332,19 @@ terraform state mv -state-out=other.tfstate aws_instance.web aws_instance.web
 ## State Locking
 
 ### Why Locking Matters
+
 Without locking, two concurrent `terraform apply` runs can corrupt state. The second apply reads stale state and may create duplicate resources or lose track of existing ones.
 
 ### Lock Behavior by Backend
 
-| Backend | Lock Mechanism | Auto-Lock | Force Unlock |
-|---------|---------------|-----------|--------------|
-| S3 | DynamoDB table | Yes (if table configured) | `terraform force-unlock LOCK_ID` |
-| GCS | Native blob locking | Yes | `terraform force-unlock LOCK_ID` |
-| Azure Blob | Native blob lease | Yes | `terraform force-unlock LOCK_ID` |
-| TF Cloud | Built-in | Always | Via UI or API |
-| Consul | Key-value lock | Yes | `terraform force-unlock LOCK_ID` |
-| Local | `.terraform.lock.hcl` | Yes (single user) | Delete lock file |
+| Backend    | Lock Mechanism        | Auto-Lock                 | Force Unlock                     |
+| ---------- | --------------------- | ------------------------- | -------------------------------- |
+| S3         | DynamoDB table        | Yes (if table configured) | `terraform force-unlock LOCK_ID` |
+| GCS        | Native blob locking   | Yes                       | `terraform force-unlock LOCK_ID` |
+| Azure Blob | Native blob lease     | Yes                       | `terraform force-unlock LOCK_ID` |
+| TF Cloud   | Built-in              | Always                    | Via UI or API                    |
+| Consul     | Key-value lock        | Yes                       | `terraform force-unlock LOCK_ID` |
+| Local      | `.terraform.lock.hcl` | Yes (single user)         | Delete lock file                 |
 
 ### Force Unlock (Emergency Only)
 
@@ -352,6 +363,7 @@ terraform force-unlock LOCK_ID
 ## State Security Best Practices
 
 ### 1. Encrypt at Rest
+
 ```hcl
 # S3 — server-side encryption
 backend "s3" {
@@ -361,17 +373,14 @@ backend "s3" {
 ```
 
 ### 2. Restrict Access
+
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": [
-        "s3:GetObject",
-        "s3:PutObject",
-        "s3:DeleteObject"
-      ],
+      "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
       "Resource": "arn:aws:s3:::mycompany-terraform-state/project/*",
       "Condition": {
         "StringEquals": {
@@ -381,11 +390,7 @@ backend "s3" {
     },
     {
       "Effect": "Allow",
-      "Action": [
-        "dynamodb:GetItem",
-        "dynamodb:PutItem",
-        "dynamodb:DeleteItem"
-      ],
+      "Action": ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:DeleteItem"],
       "Resource": "arn:aws:dynamodb:us-east-1:ACCOUNT:table/terraform-locks"
     }
   ]
@@ -393,6 +398,7 @@ backend "s3" {
 ```
 
 ### 3. Enable Versioning (State History)
+
 ```hcl
 resource "aws_s3_bucket_versioning" "state" {
   bucket = aws_s3_bucket.state.id
@@ -405,12 +411,15 @@ resource "aws_s3_bucket_versioning" "state" {
 Versioning lets you recover from state corruption by restoring a previous version.
 
 ### 4. Audit Access
+
 - Enable S3 access logging or CloudTrail data events
 - Monitor for unexpected state reads (potential secret extraction)
 - State files contain sensitive values — treat them like credentials
 
 ### 5. Sensitive Values in State
+
 Terraform stores all resource attributes in state, including passwords, private keys, and tokens. This is unavoidable. Mitigate by:
+
 - Encrypting state at rest (KMS)
 - Restricting state file access (IAM)
 - Using `sensitive = true` on variables and outputs (prevents display, not storage)
@@ -421,6 +430,7 @@ Terraform stores all resource attributes in state, including passwords, private 
 ## Drift Detection and Reconciliation
 
 ### Detect Drift
+
 ```bash
 # Plan with detailed exit code
 terraform plan -detailed-exitcode
@@ -430,14 +440,16 @@ terraform plan -detailed-exitcode
 ```
 
 ### Common Drift Sources
-| Source | Example | Prevention |
-|--------|---------|------------|
-| Console changes | Someone edits SG rules in AWS Console | SCPs to restrict console access, or accept and reconcile |
-| Auto-scaling | ASG launches instances not in state | Don't manage individual instances; manage ASG |
-| External tools | Ansible modifies EC2 tags | Agree on ownership boundaries |
-| Dependent resource changes | AMI deregistered | Use data sources to detect, lifecycle ignore_changes |
+
+| Source                     | Example                               | Prevention                                               |
+| -------------------------- | ------------------------------------- | -------------------------------------------------------- |
+| Console changes            | Someone edits SG rules in AWS Console | SCPs to restrict console access, or accept and reconcile |
+| Auto-scaling               | ASG launches instances not in state   | Don't manage individual instances; manage ASG            |
+| External tools             | Ansible modifies EC2 tags             | Agree on ownership boundaries                            |
+| Dependent resource changes | AMI deregistered                      | Use data sources to detect, lifecycle ignore_changes     |
 
 ### Reconciliation Options
+
 ```hcl
 # Option 1: Apply to restore desired state
 terraform apply
@@ -460,13 +472,13 @@ terraform import aws_security_group_rule.new sg-12345_ingress_tcp_443_443_0.0.0.
 
 ## Troubleshooting Checklist
 
-| Symptom | Likely Cause | Fix |
-|---------|-------------|-----|
-| "Error acquiring state lock" | Concurrent run or crashed process | Wait for other run to finish, or `force-unlock` |
-| "Backend configuration changed" | Backend config modified | Run `terraform init -reconfigure` or `-migrate-state` |
-| "Resource already exists" | Resource created outside Terraform | `terraform import` the resource |
-| "No matching resource found" | Resource deleted outside Terraform | `terraform state rm` the resource |
-| State file growing very large | Too many resources in one state | Split into smaller state files using modules |
-| Slow plan/apply | Large state file, many resources | Split state, use `-target` for urgent changes |
-| "Provider produced inconsistent result" | Provider bug or API race condition | Retry, or pin provider version |
-| Workspace confusion | Applied to wrong workspace | Always check `terraform workspace show` before apply |
+| Symptom                                 | Likely Cause                       | Fix                                                   |
+| --------------------------------------- | ---------------------------------- | ----------------------------------------------------- |
+| "Error acquiring state lock"            | Concurrent run or crashed process  | Wait for other run to finish, or `force-unlock`       |
+| "Backend configuration changed"         | Backend config modified            | Run `terraform init -reconfigure` or `-migrate-state` |
+| "Resource already exists"               | Resource created outside Terraform | `terraform import` the resource                       |
+| "No matching resource found"            | Resource deleted outside Terraform | `terraform state rm` the resource                     |
+| State file growing very large           | Too many resources in one state    | Split into smaller state files using modules          |
+| Slow plan/apply                         | Large state file, many resources   | Split state, use `-target` for urgent changes         |
+| "Provider produced inconsistent result" | Provider bug or API race condition | Retry, or pin provider version                        |
+| Workspace confusion                     | Applied to wrong workspace         | Always check `terraform workspace show` before apply  |

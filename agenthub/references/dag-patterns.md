@@ -5,11 +5,13 @@
 ### Directed Acyclic Graph (DAG)
 
 Git's commit history is a DAG where:
+
 - Each commit points to one or more parents
 - No cycles exist (you can't be your own ancestor)
 - Branches are just pointers to commit nodes
 
 In AgentHub, the DAG represents all approaches ever tried:
+
 - Base commit = task starting point
 - Each agent creates a branch from the base
 - Commits on each branch = incremental progress
@@ -20,6 +22,7 @@ In AgentHub, the DAG represents all approaches ever tried:
 The **frontier** is the set of commits (branch tips) that have no children. These are the "leaves" of the DAG — the latest state of each agent's work.
 
 Algorithm:
+
 ```
 1. Collect all branch tips: T = {tip(b) for b in hub_branches}
 2. For each tip t in T:
@@ -30,6 +33,7 @@ Algorithm:
 ```
 
 Git command equivalent:
+
 ```bash
 # For each branch, check if it's an ancestor of any other
 git merge-base --is-ancestor <commit-a> <commit-b>
@@ -42,11 +46,13 @@ hub/{session-id}/agent-{N}/attempt-{M}
 ```
 
 Components:
+
 - `session-id`: YYYYMMDD-HHMMSS timestamp (unique per session)
 - `agent-N`: Sequential agent number (1 to agent-count)
 - `attempt-M`: Retry counter (starts at 1, increments on re-spawn)
 
 This creates a natural namespace:
+
 - `hub/*` — all AgentHub work
 - `hub/{session}/*` — all work for one session
 - `hub/{session}/agent-{N}/*` — all attempts by one agent
@@ -60,6 +66,7 @@ git merge --no-ff hub/{session}/agent-{N}/attempt-1
 ```
 
 Creates a merge commit that:
+
 - Preserves the branch topology in the DAG
 - Makes it clear which commits came from which agent
 - Allows `git log --first-parent` to show only merge points
@@ -71,6 +78,7 @@ git merge --squash hub/{session}/agent-{N}/attempt-1
 ```
 
 Use when:
+
 - Agent made many small commits that aren't individually meaningful
 - Clean history is preferred over detailed history
 - The approach matters, not the journey
@@ -82,6 +90,7 @@ git cherry-pick <specific-commits>
 ```
 
 Use when:
+
 - Only some of an agent's commits are wanted
 - Combining work from multiple agents
 - The agent solved a bonus problem along the way
@@ -99,6 +108,7 @@ git branch -D hub/{session}/agent-{N}/attempt-1
 ```
 
 Why tags instead of branches:
+
 - Tags are immutable (can't be moved or accidentally pushed to)
 - Tags don't clutter `git branch --list` output
 - Tags are still reachable by `git log` and `git show`
@@ -143,6 +153,7 @@ git worktree remove /tmp/hub-agent-1
 ```
 
 Key properties:
+
 - Each worktree has its own working directory and index
 - All worktrees share the same `.git` object store
 - Commits in one worktree are immediately visible in another

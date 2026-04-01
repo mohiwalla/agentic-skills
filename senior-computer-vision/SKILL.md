@@ -46,16 +46,16 @@ This skill provides guidance on:
 
 ## Tech Stack
 
-| Category | Technologies |
-|----------|--------------|
-| Frameworks | PyTorch, torchvision, timm |
-| Detection | Ultralytics (YOLO), Detectron2, MMDetection |
-| Segmentation | segment-anything, mmsegmentation |
-| Optimization | ONNX, TensorRT, OpenVINO, torch.compile |
-| Image Processing | OpenCV, Pillow, albumentations |
-| Annotation | CVAT, Label Studio, Roboflow |
-| Experiment Tracking | MLflow, Weights & Biases |
-| Serving | Triton Inference Server, TorchServe |
+| Category            | Technologies                                |
+| ------------------- | ------------------------------------------- |
+| Frameworks          | PyTorch, torchvision, timm                  |
+| Detection           | Ultralytics (YOLO), Detectron2, MMDetection |
+| Segmentation        | segment-anything, mmsegmentation            |
+| Optimization        | ONNX, TensorRT, OpenVINO, torch.compile     |
+| Image Processing    | OpenCV, Pillow, albumentations              |
+| Annotation          | CVAT, Label Studio, Roboflow                |
+| Experiment Tracking | MLflow, Weights & Biases                    |
+| Serving             | Triton Inference Server, TorchServe         |
 
 ## Workflow 1: Object Detection Pipeline
 
@@ -78,13 +78,13 @@ Detection Requirements Analysis:
 
 Choose architecture based on requirements:
 
-| Requirement | Recommended Architecture | Why |
-|-------------|-------------------------|-----|
-| Real-time (>30 FPS) | YOLOv8/v11, RT-DETR | Single-stage, optimized for speed |
-| High accuracy | Faster R-CNN, DINO | Two-stage, better localization |
-| Small objects | YOLO + SAHI, Faster R-CNN + FPN | Multi-scale detection |
-| Edge deployment | YOLOv8n, MobileNetV3-SSD | Lightweight architectures |
-| Transformer-based | DETR, DINO, RT-DETR | End-to-end, no NMS required |
+| Requirement         | Recommended Architecture        | Why                               |
+| ------------------- | ------------------------------- | --------------------------------- |
+| Real-time (>30 FPS) | YOLOv8/v11, RT-DETR             | Single-stage, optimized for speed |
+| High accuracy       | Faster R-CNN, DINO              | Two-stage, better localization    |
+| Small objects       | YOLO + SAHI, Faster R-CNN + FPN | Multi-scale detection             |
+| Edge deployment     | YOLOv8n, MobileNetV3-SSD        | Lightweight architectures         |
+| Transformer-based   | DETR, DINO, RT-DETR             | End-to-end, no NMS required       |
 
 ### Step 3: Prepare Dataset
 
@@ -141,13 +141,13 @@ yolo detect val model=runs/detect/train/weights/best.pt data=data.yaml
 
 Key metrics to analyze:
 
-| Metric | Target | Description |
-|--------|--------|-------------|
-| mAP@50 | >0.7 | Mean Average Precision at IoU 0.5 |
-| mAP@50:95 | >0.5 | COCO primary metric |
-| Precision | >0.8 | Low false positives |
-| Recall | >0.8 | Low missed detections |
-| Inference time | <33ms | For 30 FPS real-time |
+| Metric         | Target | Description                       |
+| -------------- | ------ | --------------------------------- |
+| mAP@50         | >0.7   | Mean Average Precision at IoU 0.5 |
+| mAP@50:95      | >0.5   | COCO primary metric               |
+| Precision      | >0.8   | Low false positives               |
+| Recall         | >0.8   | Low missed detections             |
+| Inference time | <33ms  | For 30 FPS real-time              |
 
 ## Workflow 2: Model Optimization and Deployment
 
@@ -178,14 +178,14 @@ Baseline Performance (PyTorch FP32):
 
 ### Step 2: Select Optimization Strategy
 
-| Deployment Target | Optimization Path |
-|-------------------|-------------------|
-| NVIDIA GPU (cloud) | PyTorch → ONNX → TensorRT FP16 |
-| NVIDIA GPU (edge) | PyTorch → TensorRT INT8 |
-| Intel CPU | PyTorch → ONNX → OpenVINO |
-| Apple Silicon | PyTorch → CoreML |
-| Generic CPU | PyTorch → ONNX Runtime |
-| Mobile | PyTorch → TFLite or ONNX Mobile |
+| Deployment Target  | Optimization Path               |
+| ------------------ | ------------------------------- |
+| NVIDIA GPU (cloud) | PyTorch → ONNX → TensorRT FP16  |
+| NVIDIA GPU (edge)  | PyTorch → TensorRT INT8         |
+| Intel CPU          | PyTorch → ONNX → OpenVINO       |
+| Apple Silicon      | PyTorch → CoreML                |
+| Generic CPU        | PyTorch → ONNX Runtime          |
+| Mobile             | PyTorch → TFLite or ONNX Mobile |
 
 ### Step 3: Export to ONNX
 
@@ -217,11 +217,11 @@ python scripts/inference_optimizer.py model.onnx \
 
 Quantization impact analysis:
 
-| Precision | Size | Speed | Accuracy Drop |
-|-----------|------|-------|---------------|
-| FP32 | 100% | 1x | 0% |
-| FP16 | 50% | 1.5-2x | <0.5% |
-| INT8 | 25% | 2-4x | 1-3% |
+| Precision | Size | Speed  | Accuracy Drop |
+| --------- | ---- | ------ | ------------- |
+| FP32      | 100% | 1x     | 0%            |
+| FP16      | 50%  | 1.5-2x | <0.5%         |
+| INT8      | 25%  | 2-4x   | 1-3%          |
 
 ### Step 5: Convert to Target Runtime
 
@@ -310,13 +310,13 @@ python scripts/dataset_pipeline_builder.py data/cleaned/ \
 
 Supported format conversions:
 
-| From | To |
-|------|-----|
+| From           | To        |
+| -------------- | --------- |
 | Pascal VOC XML | COCO JSON |
-| YOLO TXT | COCO JSON |
-| COCO JSON | YOLO TXT |
-| LabelMe JSON | COCO JSON |
-| CVAT XML | COCO JSON |
+| YOLO TXT       | COCO JSON |
+| COCO JSON      | YOLO TXT  |
+| LabelMe JSON   | COCO JSON |
+| CVAT XML       | COCO JSON |
 
 ### Step 4: Apply Augmentations
 
@@ -335,18 +335,19 @@ Recommended augmentations for detection:
 augmentations:
   geometric:
     - horizontal_flip: { p: 0.5 }
-    - vertical_flip: { p: 0.1 }  # Only if orientation invariant
+    - vertical_flip: { p: 0.1 } # Only if orientation invariant
     - rotate: { limit: 15, p: 0.3 }
     - scale: { scale_limit: 0.2, p: 0.5 }
 
   color:
-    - brightness_contrast: { brightness_limit: 0.2, contrast_limit: 0.2, p: 0.5 }
+    - brightness_contrast:
+        { brightness_limit: 0.2, contrast_limit: 0.2, p: 0.5 }
     - hue_saturation: { hue_shift_limit: 20, sat_shift_limit: 30, p: 0.3 }
     - blur: { blur_limit: 3, p: 0.1 }
 
   advanced:
-    - mosaic: { p: 0.5 }  # YOLO-style mosaic
-    - mixup: { p: 0.1 }   # Image mixing
+    - mosaic: { p: 0.5 } # YOLO-style mosaic
+    - mixup: { p: 0.1 } # Image mixing
     - cutout: { num_holes: 8, max_h_size: 32, max_w_size: 32, p: 0.3 }
 ```
 
@@ -362,11 +363,11 @@ python scripts/dataset_pipeline_builder.py data/augmented/ \
 
 Split strategy guidelines:
 
-| Dataset Size | Train | Val | Test |
-|--------------|-------|-----|------|
-| <1,000 images | 70% | 15% | 15% |
-| 1,000-10,000 | 80% | 10% | 10% |
-| >10,000 | 90% | 5% | 5% |
+| Dataset Size  | Train | Val | Test |
+| ------------- | ----- | --- | ---- |
+| <1,000 images | 70%   | 15% | 15%  |
+| 1,000-10,000  | 80%   | 10% | 10%  |
+| >10,000       | 90%   | 5%  | 5%   |
 
 ### Step 6: Generate Dataset Configuration
 
@@ -386,50 +387,51 @@ python scripts/dataset_pipeline_builder.py data/final/ \
 
 ### Object Detection Architectures
 
-| Architecture | Speed | Accuracy | Best For |
-|--------------|-------|----------|----------|
-| YOLOv8n | 1.2ms | 37.3 mAP | Edge, mobile, real-time |
-| YOLOv8s | 2.1ms | 44.9 mAP | Balanced speed/accuracy |
-| YOLOv8m | 4.2ms | 50.2 mAP | General purpose |
-| YOLOv8l | 6.8ms | 52.9 mAP | High accuracy |
-| YOLOv8x | 10.1ms | 53.9 mAP | Maximum accuracy |
-| RT-DETR-L | 5.3ms | 53.0 mAP | Transformer, no NMS |
-| Faster R-CNN R50 | 46ms | 40.2 mAP | Two-stage, high quality |
-| DINO-4scale | 85ms | 49.0 mAP | SOTA transformer |
+| Architecture     | Speed  | Accuracy | Best For                |
+| ---------------- | ------ | -------- | ----------------------- |
+| YOLOv8n          | 1.2ms  | 37.3 mAP | Edge, mobile, real-time |
+| YOLOv8s          | 2.1ms  | 44.9 mAP | Balanced speed/accuracy |
+| YOLOv8m          | 4.2ms  | 50.2 mAP | General purpose         |
+| YOLOv8l          | 6.8ms  | 52.9 mAP | High accuracy           |
+| YOLOv8x          | 10.1ms | 53.9 mAP | Maximum accuracy        |
+| RT-DETR-L        | 5.3ms  | 53.0 mAP | Transformer, no NMS     |
+| Faster R-CNN R50 | 46ms   | 40.2 mAP | Two-stage, high quality |
+| DINO-4scale      | 85ms   | 49.0 mAP | SOTA transformer        |
 
 ### Segmentation Architectures
 
-| Architecture | Type | Speed | Best For |
-|--------------|------|-------|----------|
-| YOLOv8-seg | Instance | 4.5ms | Real-time instance seg |
-| Mask R-CNN | Instance | 67ms | High-quality masks |
-| SAM | Promptable | 50ms | Zero-shot segmentation |
-| DeepLabV3+ | Semantic | 25ms | Scene parsing |
-| SegFormer | Semantic | 15ms | Efficient semantic seg |
+| Architecture | Type       | Speed | Best For               |
+| ------------ | ---------- | ----- | ---------------------- |
+| YOLOv8-seg   | Instance   | 4.5ms | Real-time instance seg |
+| Mask R-CNN   | Instance   | 67ms  | High-quality masks     |
+| SAM          | Promptable | 50ms  | Zero-shot segmentation |
+| DeepLabV3+   | Semantic   | 25ms  | Scene parsing          |
+| SegFormer    | Semantic   | 15ms  | Efficient semantic seg |
 
 ### CNN vs Vision Transformer Trade-offs
 
-| Aspect | CNN (YOLO, R-CNN) | ViT (DETR, DINO) |
-|--------|-------------------|------------------|
-| Training data needed | 1K-10K images | 10K-100K+ images |
-| Training time | Fast | Slow (needs more epochs) |
-| Inference speed | Faster | Slower |
-| Small objects | Good with FPN | Needs multi-scale |
-| Global context | Limited | Excellent |
-| Positional encoding | Implicit | Explicit |
+| Aspect               | CNN (YOLO, R-CNN) | ViT (DETR, DINO)         |
+| -------------------- | ----------------- | ------------------------ |
+| Training data needed | 1K-10K images     | 10K-100K+ images         |
+| Training time        | Fast              | Slow (needs more epochs) |
+| Inference speed      | Faster            | Slower                   |
+| Small objects        | Good with FPN     | Needs multi-scale        |
+| Global context       | Limited           | Excellent                |
+| Positional encoding  | Implicit          | Explicit                 |
 
 ## Reference Documentation
+
 → See references/reference-docs-and-commands.md for details
 
 ## Performance Targets
 
-| Metric | Real-time | High Accuracy | Edge |
-|--------|-----------|---------------|------|
-| FPS | >30 | >10 | >15 |
-| mAP@50 | >0.6 | >0.8 | >0.5 |
-| Latency P99 | <50ms | <150ms | <100ms |
-| GPU Memory | <4GB | <8GB | <2GB |
-| Model Size | <50MB | <200MB | <20MB |
+| Metric      | Real-time | High Accuracy | Edge   |
+| ----------- | --------- | ------------- | ------ |
+| FPS         | >30       | >10           | >15    |
+| mAP@50      | >0.6      | >0.8          | >0.5   |
+| Latency P99 | <50ms     | <150ms        | <100ms |
+| GPU Memory  | <4GB      | <8GB          | <2GB   |
+| Model Size  | <50MB     | <200MB        | <20MB  |
 
 ## Resources
 

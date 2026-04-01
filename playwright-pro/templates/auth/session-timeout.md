@@ -3,6 +3,7 @@
 Tests auto-logout after inactivity and session refresh behaviour.
 
 ## Prerequisites
+
 - Authenticated session via `{{authStorageStatePath}}`
 - Session timeout configured to `{{sessionTimeoutMs}}` ms in test env
 - App running at `{{baseUrl}}`
@@ -104,10 +105,11 @@ test.describe('Session Timeout', () => {
 ```
 
 ## Variants
-| Variant | Description |
-|---------|-------------|
-| Session refresh | Activity before timeout resets the clock |
-| Warning dialog | Shown N ms before timeout |
-| Extend session | "Stay signed in" dismisses warning |
-| Auto-logout | Inactivity past timeout → /login |
-| 401 from API | Re-auth dialog shown when backend rejects request |
+
+| Variant         | Description                                       |
+| --------------- | ------------------------------------------------- |
+| Session refresh | Activity before timeout resets the clock          |
+| Warning dialog  | Shown N ms before timeout                         |
+| Extend session  | "Stay signed in" dismisses warning                |
+| Auto-logout     | Inactivity past timeout → /login                  |
+| 401 from API    | Re-auth dialog shown when backend rejects request |

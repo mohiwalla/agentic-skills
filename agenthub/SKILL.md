@@ -15,32 +15,33 @@ Spawn N parallel AI agents that compete on the same task. Each agent works in an
 
 ## Slash Commands
 
-| Command | Description |
-|---------|-------------|
-| `/hub:init` | Create a new collaboration session — task, agent count, eval criteria |
-| `/hub:spawn` | Launch N parallel subagents in isolated worktrees |
-| `/hub:status` | Show DAG state, agent progress, branch status |
-| `/hub:eval` | Rank agent results by metric or LLM judge |
-| `/hub:merge` | Merge winning branch, archive losers |
-| `/hub:board` | Read/write the agent message board |
-| `/hub:run` | One-shot lifecycle: init → baseline → spawn → eval → merge |
+| Command       | Description                                                           |
+| ------------- | --------------------------------------------------------------------- |
+| `/hub:init`   | Create a new collaboration session — task, agent count, eval criteria |
+| `/hub:spawn`  | Launch N parallel subagents in isolated worktrees                     |
+| `/hub:status` | Show DAG state, agent progress, branch status                         |
+| `/hub:eval`   | Rank agent results by metric or LLM judge                             |
+| `/hub:merge`  | Merge winning branch, archive losers                                  |
+| `/hub:board`  | Read/write the agent message board                                    |
+| `/hub:run`    | One-shot lifecycle: init → baseline → spawn → eval → merge            |
 
 ## Agent Templates
 
 When spawning with `--template`, agents follow a predefined iteration pattern:
 
-| Template | Pattern | Use Case |
-|----------|---------|----------|
-| `optimizer` | Edit → eval → keep/discard → repeat x10 | Performance, latency, size |
-| `refactorer` | Restructure → test → iterate until green | Code quality, tech debt |
-| `test-writer` | Write tests → measure coverage → repeat | Test coverage gaps |
-| `bug-fixer` | Reproduce → diagnose → fix → verify | Bug fix approaches |
+| Template      | Pattern                                  | Use Case                   |
+| ------------- | ---------------------------------------- | -------------------------- |
+| `optimizer`   | Edit → eval → keep/discard → repeat x10  | Performance, latency, size |
+| `refactorer`  | Restructure → test → iterate until green | Code quality, tech debt    |
+| `test-writer` | Write tests → measure coverage → repeat  | Test coverage gaps         |
+| `bug-fixer`   | Reproduce → diagnose → fix → verify      | Bug fix approaches         |
 
 Templates are defined in `references/agent-templates.md`.
 
 ## When This Skill Activates
 
 Trigger phrases:
+
 - "try multiple approaches"
 - "have agents compete"
 - "parallel optimization"
@@ -63,6 +64,7 @@ INIT → DISPATCH → MONITOR → EVALUATE → MERGE
 ### 1. Init
 
 Run `/hub:init` to create a session. This generates:
+
 - `.agenthub/sessions/{session-id}/config.yaml` — task config
 - `.agenthub/sessions/{session-id}/state.json` — state machine
 - `.agenthub/board/` — message board channels
@@ -70,6 +72,7 @@ Run `/hub:init` to create a session. This generates:
 ### 2. Dispatch
 
 Run `/hub:spawn` to launch agents. For each agent 1..N:
+
 - Post task assignment to `.agenthub/board/dispatch/`
 - Spawn via Agent tool with `isolation: "worktree"`
 - All agents launched in a single message (parallel)
@@ -77,12 +80,14 @@ Run `/hub:spawn` to launch agents. For each agent 1..N:
 ### 3. Monitor
 
 Run `/hub:status` to check progress:
+
 - `dag_analyzer.py --status --session {id}` shows branch state
 - Board `progress/` channel has agent updates
 
 ### 4. Evaluate
 
 Run `/hub:eval` to rank results:
+
 - **Metric mode**: run eval command in each worktree, parse numeric result
 - **Judge mode**: read diffs, coordinator ranks by quality
 - **Hybrid**: metric first, LLM-judge for ties
@@ -90,6 +95,7 @@ Run `/hub:eval` to rank results:
 ### 5. Merge
 
 Run `/hub:merge` to finalize:
+
 - `git merge --no-ff` winner into base branch
 - Tag losers: `git tag hub/archive/{session}/agent-{i}`
 - Clean up worktrees
@@ -136,6 +142,7 @@ python scripts/dag_analyzer.py --frontier --session {id}
 ### Immutability
 
 The DAG is append-only:
+
 - Never rebase or force-push agent branches
 - Never delete commits (only branch refs after archival)
 - Every approach preserved via git tags
@@ -146,11 +153,11 @@ Location: `.agenthub/board/`
 
 ### Channels
 
-| Channel | Writer | Reader | Purpose |
-|---------|--------|--------|---------|
-| `dispatch/` | Coordinator | Agents | Task assignments |
-| `progress/` | Agents | Coordinator | Status updates |
-| `results/` | Agents + Coordinator | All | Final results + merge summary |
+| Channel     | Writer               | Reader      | Purpose                       |
+| ----------- | -------------------- | ----------- | ----------------------------- |
+| `dispatch/` | Coordinator          | Agents      | Task assignments              |
+| `progress/` | Agents               | Coordinator | Status updates                |
+| `results/`  | Agents + Coordinator | All         | Final results + merge summary |
 
 ### Post Format
 
@@ -195,6 +202,7 @@ The ranker runs the eval command in each agent's worktree directory and parses t
 Best for: code quality, readability, architecture decisions.
 
 The coordinator reads each agent's diff (`git diff base...agent-branch`) and ranks by:
+
 1. Correctness (does it solve the task?)
 2. Simplicity (fewer lines changed preferred)
 3. Quality (clean execution, good structure)
@@ -212,23 +220,23 @@ init → running → evaluating → merged
 
 State transitions managed by `session_manager.py`:
 
-| From | To | Trigger |
-|------|----|---------|
-| `init` | `running` | `/hub:spawn` completes |
-| `running` | `evaluating` | All agents return |
-| `evaluating` | `merged` | `/hub:merge` completes |
-| `evaluating` | `archived` | No winner / all failed |
+| From         | To           | Trigger                |
+| ------------ | ------------ | ---------------------- |
+| `init`       | `running`    | `/hub:spawn` completes |
+| `running`    | `evaluating` | All agents return      |
+| `evaluating` | `merged`     | `/hub:merge` completes |
+| `evaluating` | `archived`   | No winner / all failed |
 
 ## Proactive Triggers
 
 The coordinator should act when:
 
-| Signal | Action |
-|--------|--------|
-| All agents crashed | Post failure summary, suggest retry with different constraints |
-| No improvement over baseline | Archive session, suggest different approaches |
-| Orphan worktrees detected | Run `session_manager.py --cleanup {id}` |
-| Session stuck in `running` | Check board for progress, consider timeout |
+| Signal                       | Action                                                         |
+| ---------------------------- | -------------------------------------------------------------- |
+| All agents crashed           | Post failure summary, suggest retry with different constraints |
+| No improvement over baseline | Archive session, suggest different approaches                  |
+| Orphan worktrees detected    | Run `session_manager.py --cleanup {id}`                        |
+| Session stuck in `running`   | Check board for progress, consider timeout                     |
 
 ## Installation
 
@@ -242,13 +250,13 @@ clawhub install agenthub
 
 ## Scripts
 
-| Script | Purpose |
-|--------|---------|
-| `hub_init.py` | Initialize `.agenthub/` structure and session |
-| `dag_analyzer.py` | Frontier detection, DAG graph, branch status |
-| `board_manager.py` | Message board CRUD (channels, posts, threads) |
-| `result_ranker.py` | Rank agents by metric or diff quality |
-| `session_manager.py` | Session state machine and cleanup |
+| Script               | Purpose                                       |
+| -------------------- | --------------------------------------------- |
+| `hub_init.py`        | Initialize `.agenthub/` structure and session |
+| `dag_analyzer.py`    | Frontier detection, DAG graph, branch status  |
+| `board_manager.py`   | Message board CRUD (channels, posts, threads) |
+| `result_ranker.py`   | Rank agents by metric or diff quality         |
+| `session_manager.py` | Session state machine and cleanup             |
 
 ## Related Skills
 

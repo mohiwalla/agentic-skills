@@ -7,6 +7,7 @@ This checklist covers the complete user lifecycle in Atlassian Cloud products, f
 ## Onboarding Steps
 
 ### Pre-Provisioning
+
 - [ ] Receive approved access request (ticket or HR system trigger)
 - [ ] Verify employee record in HR system
 - [ ] Determine role-based access level (see Role Templates below)
@@ -14,6 +15,7 @@ This checklist covers the complete user lifecycle in Atlassian Cloud products, f
 - [ ] Identify required project/space access
 
 ### Account Creation
+
 - [ ] User account auto-provisioned via SCIM (preferred) or manually created
 - [ ] Email domain matches verified organization domain
 - [ ] SSO authentication verified (user can log in via IdP)
@@ -21,6 +23,7 @@ This checklist covers the complete user lifecycle in Atlassian Cloud products, f
 - [ ] Correct product access assigned (Jira, Confluence, Bitbucket)
 
 ### Group Membership
+
 - [ ] Add to organization-level groups (e.g., `all-employees`)
 - [ ] Add to department group (e.g., `engineering`, `product`, `marketing`)
 - [ ] Add to team-specific groups (e.g., `team-platform`, `team-mobile`)
@@ -28,6 +31,7 @@ This checklist covers the complete user lifecycle in Atlassian Cloud products, f
 - [ ] Verify group membership grants correct permissions
 
 ### Product Configuration
+
 - [ ] **Jira:** Add to correct project roles (Developer, User, Admin)
 - [ ] **Jira:** Assign to correct board(s)
 - [ ] **Jira:** Set default dashboard if applicable
@@ -37,6 +41,7 @@ This checklist covers the complete user lifecycle in Atlassian Cloud products, f
 - [ ] **Bitbucket:** Configure branch permissions
 
 ### Welcome & Training
+
 - [ ] Send welcome email with access details and key links
 - [ ] Share Confluence onboarding page (getting started guide)
 - [ ] Assign onboarding buddy for Atlassian tool questions
@@ -46,31 +51,37 @@ This checklist covers the complete user lifecycle in Atlassian Cloud products, f
 ## Role-Based Access Templates
 
 ### Developer
+
 - **Jira:** Project Developer role (create, edit, transition issues)
 - **Confluence:** Team space editor, documentation spaces viewer
 - **Bitbucket:** Repository write access for team repos
 
 ### Product Manager
+
 - **Jira:** Project Admin role (manage boards, workflows, components)
 - **Confluence:** Product spaces editor, all team spaces viewer
 - **Bitbucket:** Repository read access (optional)
 
 ### Designer
+
 - **Jira:** Project User role (view, comment, transition)
 - **Confluence:** Design space editor, product spaces editor
 - **Bitbucket:** No access (unless needed)
 
 ### Engineering Manager
+
 - **Jira:** Project Admin for managed projects, viewer for others
 - **Confluence:** Team space admin, all spaces viewer
 - **Bitbucket:** Repository admin for team repos
 
 ### Executive / Stakeholder
+
 - **Jira:** Viewer role on strategic projects, dashboard access
 - **Confluence:** Viewer on relevant spaces
 - **Bitbucket:** No access
 
 ### Contractor / External
+
 - **Jira:** Project User role, limited to specific projects
 - **Confluence:** Viewer on specific spaces only (no edit)
 - **Bitbucket:** Repository read access, specific repos only
@@ -79,6 +90,7 @@ This checklist covers the complete user lifecycle in Atlassian Cloud products, f
 ## Group Membership Standards
 
 ### Naming Convention
+
 ```
 org-{company}          # Organization-wide groups
 dept-{department}      # Department groups
@@ -88,19 +100,21 @@ role-{role}            # Role-based groups (role-admin, role-viewer)
 ```
 
 ### Standard Groups
-| Group | Purpose | Products |
-|-------|---------|----------|
-| `org-all-employees` | All full-time employees | Jira, Confluence |
-| `dept-engineering` | All engineers | Jira, Confluence, Bitbucket |
-| `dept-product` | All product team | Jira, Confluence |
-| `dept-marketing` | All marketing team | Confluence |
-| `role-jira-admins` | Jira administrators | Jira |
-| `role-confluence-admins` | Confluence administrators | Confluence |
-| `role-org-admins` | Organization administrators | All |
+
+| Group                    | Purpose                     | Products                    |
+| ------------------------ | --------------------------- | --------------------------- |
+| `org-all-employees`      | All full-time employees     | Jira, Confluence            |
+| `dept-engineering`       | All engineers               | Jira, Confluence, Bitbucket |
+| `dept-product`           | All product team            | Jira, Confluence            |
+| `dept-marketing`         | All marketing team          | Confluence                  |
+| `role-jira-admins`       | Jira administrators         | Jira                        |
+| `role-confluence-admins` | Confluence administrators   | Confluence                  |
+| `role-org-admins`        | Organization administrators | All                         |
 
 ## Offboarding Procedure
 
 ### Immediate Actions (Day of Departure)
+
 - [ ] Deactivate user account in Atlassian (or via IdP/SCIM)
 - [ ] Revoke all API tokens associated with the user
 - [ ] Revoke all OAuth app authorizations
@@ -110,6 +124,7 @@ role-{role}            # Role-based groups (role-admin, role-viewer)
 - [ ] Document access removal in offboarding ticket
 
 ### Within 24 Hours
+
 - [ ] Verify account is fully deactivated (cannot log in)
 - [ ] Check for shared credentials or service accounts
 - [ ] Review audit log for recent activity
@@ -118,6 +133,7 @@ role-{role}            # Role-based groups (role-admin, role-viewer)
 - [ ] Remove from any Atlassian Marketplace vendor accounts
 
 ### Within 7 Days
+
 - [ ] Verify no lingering sessions or cached access
 - [ ] Review integrations the user may have set up
 - [ ] Check for automation rules owned by the user
@@ -125,6 +141,7 @@ role-{role}            # Role-based groups (role-admin, role-viewer)
 - [ ] Confirm with manager that all transfers are complete
 
 ### Data Retention
+
 - [ ] User content (pages, issues, comments) retained per policy
 - [ ] Personal spaces archived or transferred
 - [ ] Account marked as deactivated (not deleted) for audit trail
@@ -133,6 +150,7 @@ role-{role}            # Role-based groups (role-admin, role-viewer)
 ## Quarterly Access Reviews
 
 ### Review Process
+
 1. Generate user access report from Atlassian Admin
 2. Distribute to managers for team verification
 3. Managers confirm or flag each user's access level
@@ -140,6 +158,7 @@ role-{role}            # Role-based groups (role-admin, role-viewer)
 5. Document review completion for compliance
 
 ### Review Checklist
+
 - [ ] All active accounts match current employee list
 - [ ] No accounts for departed employees
 - [ ] Group memberships align with current roles
@@ -149,6 +168,7 @@ role-{role}            # Role-based groups (role-admin, role-viewer)
 - [ ] Unused accounts (no login in 90 days) flagged for review
 
 ### Compliance Documentation
+
 - [ ] Access review completion date recorded
 - [ ] Manager sign-off captured (email or ticket)
 - [ ] Changes made during review documented
@@ -159,18 +179,21 @@ role-{role}            # Role-based groups (role-admin, role-viewer)
 ## Automation Opportunities
 
 ### SCIM Provisioning
+
 - Automatically create/deactivate accounts based on IdP changes
 - Sync group membership from IdP groups
 - Reduce manual provisioning errors
 - Ensure immediate deactivation on termination
 
 ### Workflow Automation
+
 - Trigger onboarding checklist from HR system event
 - Auto-assign to groups based on department/role attributes
 - Send welcome messages via Confluence automation
 - Schedule access reviews via Jira recurring tickets
 
 ### Monitoring
+
 - Alert on accounts without 2FA after 7 days
 - Alert on admin group changes
 - Weekly report of new and deactivated accounts

@@ -20,14 +20,14 @@ Quick reference for choosing the right AWS service based on requirements.
 
 ### Decision Matrix
 
-| Requirement | Recommended Service |
-|-------------|---------------------|
-| Event-driven, short tasks (<15 min) | Lambda |
-| Containerized apps, predictable traffic | ECS Fargate |
-| Custom configs, GPU/FPGA | EC2 |
-| Simple container from source | App Runner |
-| Kubernetes workloads | EKS |
-| Batch processing | AWS Batch |
+| Requirement                             | Recommended Service |
+| --------------------------------------- | ------------------- |
+| Event-driven, short tasks (<15 min)     | Lambda              |
+| Containerized apps, predictable traffic | ECS Fargate         |
+| Custom configs, GPU/FPGA                | EC2                 |
+| Simple container from source            | App Runner          |
+| Kubernetes workloads                    | EKS                 |
+| Batch processing                        | AWS Batch           |
 
 ### Lambda
 
@@ -44,12 +44,14 @@ Pricing: $0.20 per 1M requests + compute time
 ```
 
 **Use when:**
+
 - Variable/unpredictable traffic
 - Pay-per-use is important
 - No server management desired
 - Short-duration operations
 
 **Avoid when:**
+
 - Long-running processes (>15 min)
 - Low-latency requirements (<50ms)
 - Heavy compute (consider Fargate)
@@ -68,6 +70,7 @@ Pricing: Per vCPU-hour + GB-hour
 ```
 
 **Use when:**
+
 - Containerized applications
 - Predictable traffic patterns
 - Long-running processes
@@ -87,6 +90,7 @@ Instance Types:
 ```
 
 **Use when:**
+
 - Need GPU/FPGA
 - Windows applications
 - Specific instance configurations
@@ -98,14 +102,14 @@ Instance Types:
 
 ### Decision Matrix
 
-| Data Type | Query Pattern | Scale | Recommended |
-|-----------|--------------|-------|-------------|
-| Key-value | Simple lookups | Any | DynamoDB |
-| Document | Flexible queries | <1TB | DocumentDB |
-| Relational | Complex joins | Variable | Aurora Serverless |
-| Relational | High volume | Fixed | Aurora Standard |
-| Time-series | Time-based | Any | Timestream |
-| Graph | Relationships | Any | Neptune |
+| Data Type   | Query Pattern    | Scale    | Recommended       |
+| ----------- | ---------------- | -------- | ----------------- |
+| Key-value   | Simple lookups   | Any      | DynamoDB          |
+| Document    | Flexible queries | <1TB     | DocumentDB        |
+| Relational  | Complex joins    | Variable | Aurora Serverless |
+| Relational  | High volume      | Fixed    | Aurora Standard   |
+| Time-series | Time-based       | Any      | Timestream        |
+| Graph       | Relationships    | Any      | Neptune           |
 
 ### DynamoDB
 
@@ -138,11 +142,11 @@ PRODUCT#789         METADATA            {name, price, ...}
 
 **Best for:** Relational data with complex queries
 
-| Edition | Use Case | Scaling |
-|---------|----------|---------|
-| Aurora Serverless v2 | Variable workloads | 0.5-128 ACUs, auto |
-| Aurora Standard | Predictable workloads | Instance-based |
-| Aurora Global | Multi-region | Cross-region replication |
+| Edition              | Use Case              | Scaling                  |
+| -------------------- | --------------------- | ------------------------ |
+| Aurora Serverless v2 | Variable workloads    | 0.5-128 ACUs, auto       |
+| Aurora Standard      | Predictable workloads | Instance-based           |
+| Aurora Global        | Multi-region          | Cross-region replication |
 
 ```
 Limits:
@@ -157,13 +161,13 @@ Pricing:
 
 ### Comparison: DynamoDB vs Aurora
 
-| Factor | DynamoDB | Aurora |
-|--------|----------|--------|
-| Query flexibility | Limited (key-based) | Full SQL |
-| Scaling | Instant, unlimited | Minutes, up to limits |
-| Consistency | Eventually/Strong | ACID |
-| Cost model | Per-request | Per-hour |
-| Operational | Zero management | Some management |
+| Factor            | DynamoDB            | Aurora                |
+| ----------------- | ------------------- | --------------------- |
+| Query flexibility | Limited (key-based) | Full SQL              |
+| Scaling           | Instant, unlimited  | Minutes, up to limits |
+| Consistency       | Eventually/Strong   | ACID                  |
+| Cost model        | Per-request         | Per-hour              |
+| Operational       | Zero management     | Some management       |
 
 ---
 
@@ -171,15 +175,15 @@ Pricing:
 
 ### S3 Storage Classes
 
-| Class | Access Pattern | Retrieval | Cost (GB/mo) |
-|-------|---------------|-----------|--------------|
-| Standard | Frequent | Instant | $0.023 |
-| Intelligent-Tiering | Unknown | Instant | $0.023 + monitoring |
-| Standard-IA | Infrequent (30+ days) | Instant | $0.0125 |
-| One Zone-IA | Infrequent, single AZ | Instant | $0.01 |
-| Glacier Instant | Archive, instant access | Instant | $0.004 |
-| Glacier Flexible | Archive | Minutes-hours | $0.0036 |
-| Glacier Deep Archive | Long-term archive | 12-48 hours | $0.00099 |
+| Class                | Access Pattern          | Retrieval     | Cost (GB/mo)        |
+| -------------------- | ----------------------- | ------------- | ------------------- |
+| Standard             | Frequent                | Instant       | $0.023              |
+| Intelligent-Tiering  | Unknown                 | Instant       | $0.023 + monitoring |
+| Standard-IA          | Infrequent (30+ days)   | Instant       | $0.0125             |
+| One Zone-IA          | Infrequent, single AZ   | Instant       | $0.01               |
+| Glacier Instant      | Archive, instant access | Instant       | $0.004              |
+| Glacier Flexible     | Archive                 | Minutes-hours | $0.0036             |
+| Glacier Deep Archive | Long-term archive       | 12-48 hours   | $0.00099            |
 
 ### Lifecycle Policy Example
 
@@ -213,12 +217,12 @@ Pricing:
 
 ### Block and File Storage
 
-| Service | Use Case | Access |
-|---------|----------|--------|
-| EBS | EC2 block storage | Single instance |
-| EFS | Shared file system | Multiple instances |
-| FSx for Lustre | HPC workloads | High throughput |
-| FSx for Windows | Windows apps | SMB protocol |
+| Service         | Use Case           | Access             |
+| --------------- | ------------------ | ------------------ |
+| EBS             | EC2 block storage  | Single instance    |
+| EFS             | Shared file system | Multiple instances |
+| FSx for Lustre  | HPC workloads      | High throughput    |
+| FSx for Windows | Windows apps       | SMB protocol       |
 
 ---
 
@@ -226,13 +230,13 @@ Pricing:
 
 ### Decision Matrix
 
-| Pattern | Service | Use Case |
-|---------|---------|----------|
-| Event routing | EventBridge | Microservices, SaaS integration |
-| Pub/sub | SNS | Fan-out notifications |
-| Queue | SQS | Decoupling, buffering |
-| Streaming | Kinesis | Real-time analytics |
-| Message broker | Amazon MQ | Legacy migrations |
+| Pattern        | Service     | Use Case                        |
+| -------------- | ----------- | ------------------------------- |
+| Event routing  | EventBridge | Microservices, SaaS integration |
+| Pub/sub        | SNS         | Fan-out notifications           |
+| Queue          | SQS         | Decoupling, buffering           |
+| Streaming      | Kinesis     | Real-time analytics             |
+| Message broker | Amazon MQ   | Legacy migrations               |
 
 ### EventBridge
 
@@ -253,12 +257,12 @@ Pricing:
 
 **Best for:** Decoupling services, handling load spikes
 
-| Feature | Standard | FIFO |
-|---------|----------|------|
-| Throughput | Unlimited | 3000 msg/sec |
-| Ordering | Best effort | Guaranteed |
-| Delivery | At least once | Exactly once |
-| Deduplication | No | Yes |
+| Feature       | Standard      | FIFO         |
+| ------------- | ------------- | ------------ |
+| Throughput    | Unlimited     | 3000 msg/sec |
+| Ordering      | Best effort   | Guaranteed   |
+| Delivery      | At least once | Exactly once |
+| Deduplication | No            | Yes          |
 
 ```python
 # SQS with dead letter queue
@@ -290,12 +294,12 @@ def process_with_dlq(queue_url, dlq_url, max_retries=3):
 
 **Best for:** Real-time streaming data, analytics
 
-| Service | Use Case |
-|---------|----------|
-| Data Streams | Custom processing |
-| Data Firehose | Direct to S3/Redshift |
-| Data Analytics | SQL on streams |
-| Video Streams | Video ingestion |
+| Service        | Use Case              |
+| -------------- | --------------------- |
+| Data Streams   | Custom processing     |
+| Data Firehose  | Direct to S3/Redshift |
+| Data Analytics | SQL on streams        |
+| Video Streams  | Video ingestion       |
 
 ---
 
@@ -303,13 +307,13 @@ def process_with_dlq(queue_url, dlq_url, max_retries=3):
 
 ### API Gateway vs AppSync
 
-| Factor | API Gateway | AppSync |
-|--------|-------------|---------|
-| Protocol | REST, WebSocket | GraphQL |
-| Real-time | WebSocket setup | Built-in subscriptions |
-| Caching | Response caching | Field-level caching |
+| Factor      | API Gateway       | AppSync                |
+| ----------- | ----------------- | ---------------------- |
+| Protocol    | REST, WebSocket   | GraphQL                |
+| Real-time   | WebSocket setup   | Built-in subscriptions |
+| Caching     | Response caching  | Field-level caching    |
 | Integration | Lambda, HTTP, AWS | Lambda, DynamoDB, HTTP |
-| Pricing | Per request | Per request + data |
+| Pricing     | Per request       | Per request + data     |
 
 ### API Gateway Configuration
 
@@ -378,14 +382,14 @@ Resources:
 
 ### VPC Components
 
-| Component | Purpose |
-|-----------|---------|
-| VPC | Isolated network |
-| Subnet | Network segment (public/private) |
-| Internet Gateway | Public internet access |
-| NAT Gateway | Private subnet outbound |
-| VPC Endpoint | Private AWS service access |
-| Transit Gateway | VPC interconnection |
+| Component        | Purpose                          |
+| ---------------- | -------------------------------- |
+| VPC              | Isolated network                 |
+| Subnet           | Network segment (public/private) |
+| Internet Gateway | Public internet access           |
+| NAT Gateway      | Private subnet outbound          |
+| VPC Endpoint     | Private AWS service access       |
+| Transit Gateway  | VPC interconnection              |
 
 ### VPC Design Pattern
 
@@ -433,11 +437,7 @@ SecretsManagerEndpoint:
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": [
-        "dynamodb:GetItem",
-        "dynamodb:PutItem",
-        "dynamodb:Query"
-      ],
+      "Action": ["dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:Query"],
       "Resource": "arn:aws:dynamodb:us-east-1:123456789:table/users",
       "Condition": {
         "ForAllValues:StringEquals": {
@@ -451,12 +451,12 @@ SecretsManagerEndpoint:
 
 ### Secrets Manager vs Parameter Store
 
-| Factor | Secrets Manager | Parameter Store |
-|--------|-----------------|-----------------|
-| Auto-rotation | Built-in | Manual |
-| Cross-account | Yes | Limited |
-| Pricing | $0.40/secret/month | Free (standard) |
-| Use case | Credentials, API keys | Config, non-secrets |
+| Factor        | Secrets Manager       | Parameter Store     |
+| ------------- | --------------------- | ------------------- |
+| Auto-rotation | Built-in              | Manual              |
+| Cross-account | Yes                   | Limited             |
+| Pricing       | $0.40/secret/month    | Free (standard)     |
+| Use case      | Credentials, API keys | Config, non-secrets |
 
 ### Cognito Configuration
 

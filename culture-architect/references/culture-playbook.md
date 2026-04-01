@@ -29,6 +29,7 @@ Reed Hastings published this in 2009. 125 slides. 20M+ views. It changed how tec
 **Radical transparency on compensation** — Netflix publishes pay bands. This works in high-trust, high-fairness environments. In environments with existing pay inequities, it creates problems before it fixes them.
 
 ### Key lesson
+
 The Netflix culture deck works because it's honest about tradeoffs. Your culture code should be equally honest. "We move fast, which sometimes means decisions get revisited" is more credible than "we move fast AND we get it right the first time."
 
 ---
@@ -58,14 +59,14 @@ Format: "[Subject] does NOT [specific opposite action] even when [temptation/pre
 
 ### Example mapping: "Customer Obsession"
 
-| Component | Content |
-|-----------|---------|
-| Value | Customer Obsession |
-| Example 1 | PM delayed a sprint to fix a bug a customer reported on a call, even though it wasn't on the roadmap |
-| Example 2 | Support rep escalated a technical issue directly to engineering at 9pm, resolved within 2 hours |
-| Example 3 | Sales declined a deal that would have required features that would hurt existing customers |
-| Behavioral anchor | "We resolve customer-reported critical issues within 24 hours, regardless of roadmap priority" |
-| Counter-example | "We do not close a customer issue as 'resolved' until the customer confirms it's resolved" |
+| Component         | Content                                                                                              |
+| ----------------- | ---------------------------------------------------------------------------------------------------- |
+| Value             | Customer Obsession                                                                                   |
+| Example 1         | PM delayed a sprint to fix a bug a customer reported on a call, even though it wasn't on the roadmap |
+| Example 2         | Support rep escalated a technical issue directly to engineering at 9pm, resolved within 2 hours      |
+| Example 3         | Sales declined a deal that would have required features that would hurt existing customers           |
+| Behavioral anchor | "We resolve customer-reported critical issues within 24 hours, regardless of roadmap priority"       |
+| Counter-example   | "We do not close a customer issue as 'resolved' until the customer confirms it's resolved"           |
 
 ### Common mapping mistakes
 
@@ -90,18 +91,18 @@ Most culture surveys are useless because they measure satisfaction, not health. 
 
 ### The 10-question core survey
 
-| # | Question | Area measured |
-|---|----------|---------------|
-| 1 | I can raise concerns or disagreements with my manager without fear of negative consequences. | Psychological safety |
-| 2 | I know how my work connects to the company's most important goals. | Clarity/alignment |
-| 3 | When I make a mistake, I can be honest about it without hiding it. | Psychological safety |
-| 4 | Decisions here are made based on merit and data, not politics or relationships. | Fairness |
-| 5 | I trust that leadership tells us the truth, even when it's bad news. | Trust in leadership |
-| 6 | I am growing and being challenged in my current role. | Growth |
-| 7 | When someone underperforms and nothing happens, I feel that's handled appropriately. | Accountability |
-| 8 | I feel comfortable being myself at work. | Inclusion |
-| 9 | My manager recognizes my contributions in ways that feel meaningful. | Recognition |
-| 10 | I would recommend this company as a great place to work to someone I respect. | Overall health (eNPS) |
+| #   | Question                                                                                     | Area measured         |
+| --- | -------------------------------------------------------------------------------------------- | --------------------- |
+| 1   | I can raise concerns or disagreements with my manager without fear of negative consequences. | Psychological safety  |
+| 2   | I know how my work connects to the company's most important goals.                           | Clarity/alignment     |
+| 3   | When I make a mistake, I can be honest about it without hiding it.                           | Psychological safety  |
+| 4   | Decisions here are made based on merit and data, not politics or relationships.              | Fairness              |
+| 5   | I trust that leadership tells us the truth, even when it's bad news.                         | Trust in leadership   |
+| 6   | I am growing and being challenged in my current role.                                        | Growth                |
+| 7   | When someone underperforms and nothing happens, I feel that's handled appropriately.         | Accountability        |
+| 8   | I feel comfortable being myself at work.                                                     | Inclusion             |
+| 9   | My manager recognizes my contributions in ways that feel meaningful.                         | Recognition           |
+| 10  | I would recommend this company as a great place to work to someone I respect.                | Overall health (eNPS) |
 
 ### Follow-up open text questions (pick 2–3)
 
@@ -127,16 +128,19 @@ Most culture surveys are useless because they measure satisfaction, not health. 
 ### Seed (< 15 people)
 
 **Weekly "Wins and Learnings" (15 min, Fridays)**
+
 - Each person shares one win (however small) and one learning (failure, insight, mistake)
 - No slides. No prep. Just talking.
 - Purpose: normalizes imperfection, builds psychological safety early
 
 **"Open book" financials**
+
 - Share revenue, burn, runway with the whole team monthly
 - Builds owners, not employees
 - Requires trust that people won't misuse the data
 
 **"Postmortem as celebration"**
+
 - When something goes wrong, celebrate the post-mortem publicly
 - "We learned X, here's how we'll do it differently"
 - Prevents a blame culture from forming early
@@ -144,31 +148,37 @@ Most culture surveys are useless because they measure satisfaction, not health. 
 ### Early growth (15–50 people)
 
 **Monthly "Founder's Letter"**
+
 - CEO writes an unfiltered update: what we're winning, what's hard, what's changed
 - Not polished. Not PR. Real.
 - Distributed internally before it goes external
 
 **Values spotlight in team meetings**
+
 - One agenda item: "Who exemplified [value] this week? What did they do?"
 - Takes 3 minutes. Trains the muscle for values-linked recognition.
 
 **New hire "30-day truth sessions"**
+
 - At day 30, every new hire meets with a senior leader (not their manager) and answers: "What surprised you? What's different from what you expected? What would you fix?"
 - Captures culture signal while the new hire's eyes are still fresh
 
 ### Scaling (50–200 people)
 
 **Quarterly culture review**
+
 - Culture committee reviews survey results, names top issues, proposes 2–3 concrete actions
 - Results shared with all-hands within 2 weeks of survey close
 - 30-day action accountability check-in
 
 **Manager calibration on culture fit**
+
 - Quarterly: managers share one team member who exemplifies culture, one who struggles
 - Group discussion on patterns, not individuals
 - Identifies culture outliers early before they become retention or performance crises
 
 **"Culture at the edges" audit**
+
 - Review last 10 performance issues, 10 terminations, 10 promotions
 - Ask: "Is the pattern consistent with our stated values?"
 - This is the reality check. The data doesn't lie.
@@ -176,11 +186,13 @@ Most culture surveys are useless because they measure satisfaction, not health. 
 ### Large (200+ people)
 
 **Subculture alignment mapping**
+
 - Each department articulates its micro-culture
 - Cross-reference with company core values
 - Identify deviations: healthy variation vs. value violation
 
 **Culture ambassador program**
+
 - Peer-nominated, rotating, not HR
 - Run culture rituals, surface issues, connect remote/distributed teams
 - Budget: small (recognition, team events), influence: large
@@ -221,11 +233,13 @@ Never let culture evolution look like hypocrisy. Proactively name it:
 ### M&A culture integration
 
 **Before signing:**
+
 - Culture due diligence is as important as financial DD
 - Questions to answer: How do they make decisions? What gets people fired? What gets them promoted? What do they celebrate?
 - Red flag: "We have a great culture" with no supporting evidence
 
 **First 90 days:**
+
 - Don't impose culture; conduct a bilateral audit
 - Identify: what do they do that we should adopt? What do we do that they should adopt? What conflicts must be resolved?
 - Assign an integration lead on each side. Give them actual authority.

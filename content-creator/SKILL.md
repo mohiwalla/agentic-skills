@@ -14,13 +14,13 @@ metadata:
 
 > **This skill has been split into two specialist skills.** Use the one that matches your intent:
 
-| You want to... | Use this instead |
-|----------------|-----------------|
-| **Write** a blog post, article, or guide | [content-production](../content-production/) |
-| **Plan** what content to create, topic clusters, calendar | [content-strategy](../content-strategy/) |
-| **Analyze brand voice** | [content-production](../content-production/) (includes `brand_voice_analyzer.py`) |
-| **Optimize SEO** for existing content | [content-production](../content-production/) (includes `seo_optimizer.py`) |
-| **Create social media content** | [social-content](../social-content/) |
+| You want to...                                            | Use this instead                                                                  |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| **Write** a blog post, article, or guide                  | [content-production](../content-production/)                                      |
+| **Plan** what content to create, topic clusters, calendar | [content-strategy](../content-strategy/)                                          |
+| **Analyze brand voice**                                   | [content-production](../content-production/) (includes `brand_voice_analyzer.py`) |
+| **Optimize SEO** for existing content                     | [content-production](../content-production/) (includes `seo_optimizer.py`)        |
+| **Create social media content**                           | [social-content](../social-content/)                                              |
 
 ## Why the Change
 
@@ -36,12 +36,12 @@ The original `content-creator` tried to do everything: planning, writing, SEO, s
 
 ## Output Artifacts
 
-| When you ask for... | Routed to... |
-|---------------------|-------------|
-| "Write a blog post" | content-production |
-| "Content calendar" | content-strategy |
+| When you ask for...    | Routed to...                                   |
+| ---------------------- | ---------------------------------------------- |
+| "Write a blog post"    | content-production                             |
+| "Content calendar"     | content-strategy                               |
 | "Brand voice analysis" | content-production (`brand_voice_analyzer.py`) |
-| "SEO optimization" | content-production (`seo_optimizer.py`) |
+| "SEO optimization"     | content-production (`seo_optimizer.py`)        |
 
 ## Communication
 

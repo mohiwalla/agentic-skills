@@ -13,6 +13,7 @@ Diagnose and fix a Playwright test that fails or passes intermittently using a s
 ## Input
 
 `$ARGUMENTS` contains:
+
 - A test file path: `e2e/login.spec.ts`
 - A test name: ""should redirect after login"`
 - A description: `"the checkout test fails in CI but passes locally"`
@@ -55,34 +56,38 @@ Load `flaky-taxonomy.md` from this skill directory.
 
 Every failing test falls into one of four categories:
 
-| Category | Symptom | Diagnosis |
-|---|---|---|
-| **Timing/Async** | Fails intermittently everywhere | `--repeat-each=20` reproduces locally |
-| **Test Isolation** | Fails in suite, passes alone | `--workers=1 --grep "test name"` passes |
-| **Environment** | Fails in CI, passes locally | Compare CI vs local screenshots/traces |
-| **Infrastructure** | Random, no pattern | Error references browser internals |
+| Category           | Symptom                         | Diagnosis                               |
+| ------------------ | ------------------------------- | --------------------------------------- |
+| **Timing/Async**   | Fails intermittently everywhere | `--repeat-each=20` reproduces locally   |
+| **Test Isolation** | Fails in suite, passes alone    | `--workers=1 --grep "test name"` passes |
+| **Environment**    | Fails in CI, passes locally     | Compare CI vs local screenshots/traces  |
+| **Infrastructure** | Random, no pattern              | Error references browser internals      |
 
 ### 4. Apply Targeted Fix
 
 **Timing/Async:**
+
 - Replace `waitForTimeout()` with web-first assertions
 - Add `await` to missing Playwright calls
 - Wait for specific network responses before asserting
 - Use `toBeVisible()` before interacting with elements
 
 **Test Isolation:**
+
 - Remove shared mutable state between tests
 - Create test data per-test via API or fixtures
 - Use unique identifiers (timestamps, random strings) for test data
 - Check for database state leaks
 
 **Environment:**
+
 - Match viewport sizes between local and CI
 - Account for font rendering differences in screenshots
 - Use `docker` locally to match CI environment
 - Check for timezone-dependent assertions
 
 **Infrastructure:**
+
 - Increase timeout for slow CI runners
 - Add retries in CI config (`retries: 2`)
 - Check for browser OOM (reduce parallel workers)
@@ -101,6 +106,7 @@ All 10 must pass. If any fail, go back to step 3.
 ### 6. Prevent Recurrence
 
 Suggest:
+
 - Add to CI with `retries: 2` if not already
 - Enable `trace: 'on-first-retry'` in config
 - Add the fix pattern to project's test conventions doc

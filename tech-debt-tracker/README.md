@@ -17,12 +17,14 @@ Technical debt is like financial debt - it compounds over time and reduces team 
 Scans codebases to automatically detect technical debt signals using AST parsing for Python and regex patterns for other languages.
 
 **Features:**
+
 - Detects 15+ types of technical debt (large functions, complexity, duplicates, security issues, etc.)
 - Multi-language support (Python, JavaScript, Java, C#, Go, etc.)
 - Configurable thresholds and rules
 - Dual output: JSON for tools, human-readable for reports
 
 **Usage:**
+
 ```bash
 # Basic scan
 python scripts/debt_scanner.py /path/to/codebase
@@ -39,13 +41,15 @@ python scripts/debt_scanner.py /path/to/codebase --format both
 Takes debt inventory and creates prioritized backlog using proven prioritization frameworks.
 
 **Features:**
+
 - Multiple prioritization frameworks (Cost of Delay, WSJF, RICE)
-- Business impact analysis with ROI calculations  
+- Business impact analysis with ROI calculations
 - Sprint allocation recommendations
 - Effort estimation with risk adjustment
 - Executive and engineering reports
 
 **Usage:**
+
 ```bash
 # Basic prioritization
 python scripts/debt_prioritizer.py debt_inventory.json
@@ -62,6 +66,7 @@ python scripts/debt_prioritizer.py inventory.json --sprint-capacity 80 --output 
 Analyzes historical debt data to provide trend analysis, health scoring, and executive reporting.
 
 **Features:**
+
 - Health score trending over time
 - Debt velocity analysis (accumulation vs resolution)
 - Executive summary with business impact
@@ -69,6 +74,7 @@ Analyzes historical debt data to provide trend analysis, health scoring, and exe
 - Strategic recommendations
 
 **Usage:**
+
 ```bash
 # Single directory of scans
 python scripts/debt_dashboard.py --input-dir ./debt_scans/
@@ -154,7 +160,7 @@ Try the tools on sample data:
 # Test scanner
 python scripts/debt_scanner.py assets/sample_codebase
 
-# Test prioritizer  
+# Test prioritizer
 python scripts/debt_prioritizer.py assets/sample_debt_inventory.json
 
 # Test dashboard

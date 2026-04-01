@@ -13,7 +13,7 @@ The Migration Architect skill provides comprehensive tools and methodologies for
 ### Core Scripts
 
 1. **migration_planner.py** - Automated migration plan generation
-2. **compatibility_checker.py** - Schema and API compatibility analysis  
+2. **compatibility_checker.py** - Schema and API compatibility analysis
 3. **rollback_generator.py** - Comprehensive rollback procedure generation
 
 ### Reference Documentation
@@ -82,6 +82,7 @@ Generates comprehensive migration plans with:
 - **Stakeholder communication** templates
 
 **Usage:**
+
 ```bash
 python3 scripts/migration_planner.py [OPTIONS]
 
@@ -93,12 +94,13 @@ Options:
 ```
 
 **Input Format:**
+
 ```json
 {
   "type": "database|service|infrastructure",
   "pattern": "schema_change|strangler_fig|blue_green",
   "source": "Source system description",
-  "target": "Target system description", 
+  "target": "Target system description",
   "constraints": {
     "max_downtime_minutes": 30,
     "data_volume_gb": 2500,
@@ -118,6 +120,7 @@ Analyzes compatibility between schema versions:
 - **Risk assessment** for each change
 
 **Usage:**
+
 ```bash
 python3 scripts/compatibility_checker.py [OPTIONS]
 
@@ -130,6 +133,7 @@ Options:
 ```
 
 **Exit Codes:**
+
 - `0`: No compatibility issues
 - `1`: Potentially breaking changes found
 - `2`: Breaking changes found
@@ -140,11 +144,12 @@ Creates comprehensive rollback procedures:
 
 - **Phase-by-phase rollback** steps
 - **Automated trigger conditions** for rollback
-- **Data recovery procedures** 
+- **Data recovery procedures**
 - **Communication templates** for different audiences
 - **Validation checklists** for rollback success
 
 **Usage:**
+
 ```bash
 python3 scripts/rollback_generator.py [OPTIONS]
 
@@ -253,7 +258,7 @@ python3 scripts/rollback_generator.py \
   "potentially_breaking_count": 3,
   "issues": [
     {
-      "type": "required_column_added", 
+      "type": "required_column_added",
       "severity": "breaking",
       "description": "Required column 'email_verified_at' added",
       "suggested_migration": "Add default value initially"
@@ -273,18 +278,21 @@ python3 scripts/rollback_generator.py \
 ## Best Practices
 
 ### Planning Phase
+
 1. **Start with risk assessment** - Identify failure modes before planning
 2. **Design for rollback** - Every step should have a tested rollback procedure
 3. **Validate in staging** - Execute full migration in production-like environment
 4. **Plan gradual rollout** - Use feature flags and traffic routing
 
 ### Execution Phase
+
 1. **Monitor continuously** - Track technical and business metrics
 2. **Communicate proactively** - Keep stakeholders informed
 3. **Document everything** - Maintain detailed logs for analysis
 4. **Stay flexible** - Be prepared to adjust based on real-world performance
 
 ### Validation Phase
+
 1. **Automate validation** - Use automated consistency and performance checks
 2. **Test business logic** - Validate critical business processes end-to-end
 3. **Load test** - Verify performance under expected production load
@@ -320,6 +328,7 @@ jobs:
 ### Monitoring Integration
 
 The tools generate metrics and alerts that can be integrated with:
+
 - **Prometheus** - For metrics collection
 - **Grafana** - For visualization and dashboards
 - **PagerDuty** - For incident management
@@ -328,16 +337,19 @@ The tools generate metrics and alerts that can be integrated with:
 ## Advanced Features
 
 ### Machine Learning Integration
+
 - Anomaly detection for data consistency issues
 - Predictive analysis for migration success probability
 - Automated pattern recognition for migration optimization
 
 ### Performance Optimization
+
 - Parallel processing for large-scale migrations
 - Incremental reconciliation strategies
 - Statistical sampling for validation
 
 ### Compliance Support
+
 - GDPR compliance tracking
 - SOX audit trail generation
 - HIPAA security validation
@@ -347,16 +359,19 @@ The tools generate metrics and alerts that can be integrated with:
 ### Common Issues
 
 **"Migration plan validation failed"**
+
 - Check JSON syntax in migration specification
 - Ensure all required fields are present
 - Validate constraint values are realistic
 
 **"Compatibility checker reports false positives"**
+
 - Review excluded fields configuration
 - Check data type mapping compatibility
 - Adjust tolerance settings for numerical comparisons
 
 **"Rollback procedures seem incomplete"**
+
 - Ensure migration plan includes all phases
 - Verify database backup locations are specified
 - Check that all dependencies are documented

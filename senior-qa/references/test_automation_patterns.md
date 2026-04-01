@@ -24,39 +24,39 @@ The Page Object Model (POM) encapsulates page interactions into reusable classes
 
 ```typescript
 // e2e/pages/LoginPage.ts
-import { Page, Locator, expect } from '@playwright/test';
+import { Page, Locator, expect } from "@playwright/test"
 
 export class LoginPage {
-  readonly page: Page;
-  readonly emailInput: Locator;
-  readonly passwordInput: Locator;
-  readonly submitButton: Locator;
-  readonly errorMessage: Locator;
+  readonly page: Page
+  readonly emailInput: Locator
+  readonly passwordInput: Locator
+  readonly submitButton: Locator
+  readonly errorMessage: Locator
 
   constructor(page: Page) {
-    this.page = page;
-    this.emailInput = page.getByLabel('Email');
-    this.passwordInput = page.getByLabel('Password');
-    this.submitButton = page.getByRole('button', { name: 'Sign in' });
-    this.errorMessage = page.getByRole('alert');
+    this.page = page
+    this.emailInput = page.getByLabel("Email")
+    this.passwordInput = page.getByLabel("Password")
+    this.submitButton = page.getByRole("button", { name: "Sign in" })
+    this.errorMessage = page.getByRole("alert")
   }
 
   async goto() {
-    await this.page.goto('/login');
+    await this.page.goto("/login")
   }
 
   async login(email: string, password: string) {
-    await this.emailInput.fill(email);
-    await this.passwordInput.fill(password);
-    await this.submitButton.click();
+    await this.emailInput.fill(email)
+    await this.passwordInput.fill(password)
+    await this.submitButton.click()
   }
 
   async expectError(message: string) {
-    await expect(this.errorMessage).toContainText(message);
+    await expect(this.errorMessage).toContainText(message)
   }
 
   async expectRedirectToDashboard() {
-    await expect(this.page).toHaveURL('/dashboard');
+    await expect(this.page).toHaveURL("/dashboard")
   }
 }
 ```
@@ -65,87 +65,87 @@ export class LoginPage {
 
 ```typescript
 // e2e/auth.spec.ts
-import { test, expect } from '@playwright/test';
-import { LoginPage } from './pages/LoginPage';
+import { test, expect } from "@playwright/test"
+import { LoginPage } from "./pages/LoginPage"
 
-test.describe('Authentication', () => {
-  let loginPage: LoginPage;
+test.describe("Authentication", () => {
+  let loginPage: LoginPage
 
   test.beforeEach(async ({ page }) => {
-    loginPage = new LoginPage(page);
-    await loginPage.goto();
-  });
+    loginPage = new LoginPage(page)
+    await loginPage.goto()
+  })
 
-  test('successful login redirects to dashboard', async () => {
-    await loginPage.login('user@example.com', 'password123');
-    await loginPage.expectRedirectToDashboard();
-  });
+  test("successful login redirects to dashboard", async () => {
+    await loginPage.login("user@example.com", "password123")
+    await loginPage.expectRedirectToDashboard()
+  })
 
-  test('invalid credentials show error', async () => {
-    await loginPage.login('user@example.com', 'wrongpassword');
-    await loginPage.expectError('Invalid credentials');
-  });
-});
+  test("invalid credentials show error", async () => {
+    await loginPage.login("user@example.com", "wrongpassword")
+    await loginPage.expectError("Invalid credentials")
+  })
+})
 ```
 
 ### Component Object Model (React Testing Library)
 
 ```typescript
 // __tests__/objects/LoginFormObject.ts
-import { screen, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { screen, fireEvent, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 
 export class LoginFormObject {
   get emailInput() {
-    return screen.getByLabelText(/email/i);
+    return screen.getByLabelText(/email/i)
   }
 
   get passwordInput() {
-    return screen.getByLabelText(/password/i);
+    return screen.getByLabelText(/password/i)
   }
 
   get submitButton() {
-    return screen.getByRole('button', { name: /sign in/i });
+    return screen.getByRole("button", { name: /sign in/i })
   }
 
   get errorMessage() {
-    return screen.queryByRole('alert');
+    return screen.queryByRole("alert")
   }
 
   async fillEmail(email: string) {
-    await userEvent.type(this.emailInput, email);
+    await userEvent.type(this.emailInput, email)
   }
 
   async fillPassword(password: string) {
-    await userEvent.type(this.passwordInput, password);
+    await userEvent.type(this.passwordInput, password)
   }
 
   async submit() {
-    await userEvent.click(this.submitButton);
+    await userEvent.click(this.submitButton)
   }
 
   async login(email: string, password: string) {
-    await this.fillEmail(email);
-    await this.fillPassword(password);
-    await this.submit();
+    await this.fillEmail(email)
+    await this.fillPassword(password)
+    await this.submit()
   }
 
   async expectError(message: string) {
     await waitFor(() => {
-      expect(this.errorMessage).toHaveTextContent(message);
-    });
+      expect(this.errorMessage).toHaveTextContent(message)
+    })
   }
 }
 ```
 
 ### When to Use POM
 
-| Scenario | Use POM? |
-|----------|----------|
-| Complex pages with many interactions | Yes |
-| Reusable components tested across suites | Yes |
-| Simple single-use tests | No (overkill) |
-| E2E tests with shared flows | Yes |
+| Scenario                                 | Use POM?      |
+| ---------------------------------------- | ------------- |
+| Complex pages with many interactions     | Yes           |
+| Reusable components tested across suites | Yes           |
+| Simple single-use tests                  | No (overkill) |
+| E2E tests with shared flows              | Yes           |
 
 ---
 
@@ -158,52 +158,52 @@ Factories create test data with sensible defaults, reducing boilerplate and impr
 ```typescript
 // __tests__/factories/userFactory.ts
 interface User {
-  id: string;
-  email: string;
-  name: string;
-  role: 'admin' | 'user' | 'guest';
-  createdAt: Date;
+  id: string
+  email: string
+  name: string
+  role: "admin" | "user" | "guest"
+  createdAt: Date
   preferences: {
-    theme: 'light' | 'dark';
-    notifications: boolean;
-  };
+    theme: "light" | "dark"
+    notifications: boolean
+  }
 }
 
-let idCounter = 0;
+let idCounter = 0
 
 export function createUser(overrides: Partial<User> = {}): User {
   return {
     id: `user-${++idCounter}`,
     email: `user${idCounter}@example.com`,
     name: `Test User ${idCounter}`,
-    role: 'user',
-    createdAt: new Date('2024-01-01'),
+    role: "user",
+    createdAt: new Date("2024-01-01"),
     preferences: {
-      theme: 'light',
+      theme: "light",
       notifications: true,
     },
     ...overrides,
     // Deep merge preferences if provided
     preferences: {
-      theme: 'light',
+      theme: "light",
       notifications: true,
       ...overrides.preferences,
     },
-  };
+  }
 }
 
 // Specialized builders
 export function createAdmin(overrides: Partial<User> = {}): User {
-  return createUser({ role: 'admin', ...overrides });
+  return createUser({ role: "admin", ...overrides })
 }
 
 export function createGuest(overrides: Partial<User> = {}): User {
   return createUser({
-    role: 'guest',
-    name: 'Guest',
-    email: '',
+    role: "guest",
+    name: "Guest",
+    email: "",
     ...overrides,
-  });
+  })
 }
 ```
 
@@ -212,91 +212,91 @@ export function createGuest(overrides: Partial<User> = {}): User {
 ```typescript
 // __tests__/factories/orderBuilder.ts
 interface OrderItem {
-  productId: string;
-  quantity: number;
-  price: number;
+  productId: string
+  quantity: number
+  price: number
 }
 
 interface Order {
-  id: string;
-  userId: string;
-  items: OrderItem[];
-  status: 'pending' | 'processing' | 'shipped' | 'delivered';
-  total: number;
-  shippingAddress: Address;
-  createdAt: Date;
+  id: string
+  userId: string
+  items: OrderItem[]
+  status: "pending" | "processing" | "shipped" | "delivered"
+  total: number
+  shippingAddress: Address
+  createdAt: Date
 }
 
 export class OrderBuilder {
-  private order: Partial<Order> = {};
-  private items: OrderItem[] = [];
+  private order: Partial<Order> = {}
+  private items: OrderItem[] = []
 
   withId(id: string): this {
-    this.order.id = id;
-    return this;
+    this.order.id = id
+    return this
   }
 
   forUser(userId: string): this {
-    this.order.userId = userId;
-    return this;
+    this.order.userId = userId
+    return this
   }
 
   withItem(productId: string, quantity: number, price: number): this {
-    this.items.push({ productId, quantity, price });
-    return this;
+    this.items.push({ productId, quantity, price })
+    return this
   }
 
-  withStatus(status: Order['status']): this {
-    this.order.status = status;
-    return this;
+  withStatus(status: Order["status"]): this {
+    this.order.status = status
+    return this
   }
 
   shippedTo(address: Address): this {
-    this.order.shippingAddress = address;
-    return this;
+    this.order.shippingAddress = address
+    return this
   }
 
   build(): Order {
     const total = this.items.reduce(
       (sum, item) => sum + item.price * item.quantity,
-      0
-    );
+      0,
+    )
 
     return {
       id: this.order.id || `order-${Date.now()}`,
-      userId: this.order.userId || 'user-1',
+      userId: this.order.userId || "user-1",
       items: this.items,
-      status: this.order.status || 'pending',
+      status: this.order.status || "pending",
       total,
       shippingAddress: this.order.shippingAddress || createAddress(),
       createdAt: new Date(),
-    };
+    }
   }
 }
 
 // Usage
 const order = new OrderBuilder()
-  .forUser('user-123')
-  .withItem('product-1', 2, 29.99)
-  .withItem('product-2', 1, 49.99)
-  .withStatus('processing')
-  .build();
+  .forUser("user-123")
+  .withItem("product-1", 2, 29.99)
+  .withItem("product-2", 1, 49.99)
+  .withStatus("processing")
+  .build()
 ```
 
 ### Factory with Faker
 
 ```typescript
 // __tests__/factories/productFactory.ts
-import { faker } from '@faker-js/faker';
+import { faker } from "@faker-js/faker"
 
 interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  category: string;
-  inStock: boolean;
-  imageUrl: string;
+  id: string
+  name: string
+  description: string
+  price: number
+  category: string
+  inStock: boolean
+  imageUrl: string
 }
 
 export function createProduct(overrides: Partial<Product> = {}): Product {
@@ -309,11 +309,11 @@ export function createProduct(overrides: Partial<Product> = {}): Product {
     inStock: faker.datatype.boolean({ probability: 0.8 }),
     imageUrl: faker.image.url(),
     ...overrides,
-  };
+  }
 }
 
 export function createProducts(count: number): Product[] {
-  return Array.from({ length: count }, () => createProduct());
+  return Array.from({ length: count }, () => createProduct())
 }
 ```
 
@@ -327,89 +327,89 @@ Fixtures provide consistent test data and setup across test suites.
 
 ```typescript
 // e2e/fixtures/auth.ts
-import { test as base, Page } from '@playwright/test';
-import { createUser } from '../factories/userFactory';
+import { test as base, Page } from "@playwright/test"
+import { createUser } from "../factories/userFactory"
 
 interface AuthFixtures {
-  authenticatedPage: Page;
-  adminPage: Page;
-  testUser: ReturnType<typeof createUser>;
+  authenticatedPage: Page
+  adminPage: Page
+  testUser: ReturnType<typeof createUser>
 }
 
 export const test = base.extend<AuthFixtures>({
   testUser: async ({}, use) => {
-    const user = createUser();
-    await use(user);
+    const user = createUser()
+    await use(user)
   },
 
   authenticatedPage: async ({ page, testUser }, use) => {
     // Login via API to skip UI
-    await page.request.post('/api/auth/login', {
+    await page.request.post("/api/auth/login", {
       data: {
         email: testUser.email,
-        password: 'testpassword',
+        password: "testpassword",
       },
-    });
+    })
 
     // Get session cookie
-    const cookies = await page.context().cookies();
-    await page.context().addCookies(cookies);
+    const cookies = await page.context().cookies()
+    await page.context().addCookies(cookies)
 
-    await use(page);
+    await use(page)
   },
 
   adminPage: async ({ page }, use) => {
-    const admin = createUser({ role: 'admin' });
+    const admin = createUser({ role: "admin" })
 
-    await page.request.post('/api/auth/login', {
+    await page.request.post("/api/auth/login", {
       data: {
         email: admin.email,
-        password: 'adminpassword',
+        password: "adminpassword",
       },
-    });
+    })
 
-    await use(page);
+    await use(page)
   },
-});
+})
 
-export { expect } from '@playwright/test';
+export { expect } from "@playwright/test"
 ```
 
 **Using Custom Fixtures:**
 
 ```typescript
 // e2e/dashboard.spec.ts
-import { test, expect } from './fixtures/auth';
+import { test, expect } from "./fixtures/auth"
 
-test('dashboard shows user name', async ({ authenticatedPage, testUser }) => {
-  await authenticatedPage.goto('/dashboard');
-  await expect(authenticatedPage.getByText(testUser.name)).toBeVisible();
-});
+test("dashboard shows user name", async ({ authenticatedPage, testUser }) => {
+  await authenticatedPage.goto("/dashboard")
+  await expect(authenticatedPage.getByText(testUser.name)).toBeVisible()
+})
 
-test('admin sees admin panel', async ({ adminPage }) => {
-  await adminPage.goto('/dashboard');
-  await expect(adminPage.getByText('Admin Panel')).toBeVisible();
-});
+test("admin sees admin panel", async ({ adminPage }) => {
+  await adminPage.goto("/dashboard")
+  await expect(adminPage.getByText("Admin Panel")).toBeVisible()
+})
 ```
 
 ### Jest Test Setup
 
 ```typescript
 // jest.setup.ts
-import '@testing-library/jest-dom';
-import { server } from './__tests__/mocks/server';
+import "@testing-library/jest-dom"
+import { server } from "./__tests__/mocks/server"
 
 // Start MSW server before all tests
-beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
+beforeAll(() => server.listen({ onUnhandledRequest: "error" }))
 
 // Reset handlers after each test
-afterEach(() => server.resetHandlers());
+afterEach(() => server.resetHandlers())
 
 // Clean up after all tests
-afterAll(() => server.close());
+afterAll(() => server.close())
 
 // Mock window.matchMedia
-Object.defineProperty(window, 'matchMedia', {
+Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: jest.fn().mockImplementation(query => ({
     matches: false,
@@ -421,7 +421,7 @@ Object.defineProperty(window, 'matchMedia', {
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn(),
   })),
-});
+})
 
 // Mock IntersectionObserver
 global.IntersectionObserver = class IntersectionObserver {
@@ -429,7 +429,7 @@ global.IntersectionObserver = class IntersectionObserver {
   observe() {}
   unobserve() {}
   disconnect() {}
-};
+}
 ```
 
 ### Shared Test Data Files
@@ -475,59 +475,56 @@ MSW intercepts network requests at the service worker level, working in both bro
 
 ```typescript
 // __tests__/mocks/handlers.ts
-import { rest } from 'msw';
-import { createUser } from '../factories/userFactory';
-import { createProduct } from '../factories/productFactory';
+import { rest } from "msw"
+import { createUser } from "../factories/userFactory"
+import { createProduct } from "../factories/productFactory"
 
 export const handlers = [
   // GET /api/users/:id
-  rest.get('/api/users/:id', (req, res, ctx) => {
-    const { id } = req.params;
-    const user = createUser({ id: id as string });
-    return res(ctx.json(user));
+  rest.get("/api/users/:id", (req, res, ctx) => {
+    const { id } = req.params
+    const user = createUser({ id: id as string })
+    return res(ctx.json(user))
   }),
 
   // GET /api/products
-  rest.get('/api/products', (req, res, ctx) => {
-    const category = req.url.searchParams.get('category');
-    const products = Array.from({ length: 10 }, () => createProduct());
+  rest.get("/api/products", (req, res, ctx) => {
+    const category = req.url.searchParams.get("category")
+    const products = Array.from({ length: 10 }, () => createProduct())
     const filtered = category
       ? products.filter(p => p.category === category)
-      : products;
-    return res(ctx.json(filtered));
+      : products
+    return res(ctx.json(filtered))
   }),
 
   // POST /api/orders
-  rest.post('/api/orders', async (req, res, ctx) => {
-    const body = await req.json();
+  rest.post("/api/orders", async (req, res, ctx) => {
+    const body = await req.json()
     return res(
       ctx.status(201),
       ctx.json({
         id: `order-${Date.now()}`,
         ...body,
-        status: 'pending',
-      })
-    );
+        status: "pending",
+      }),
+    )
   }),
 
   // Error simulation
-  rest.get('/api/error', (req, res, ctx) => {
-    return res(
-      ctx.status(500),
-      ctx.json({ error: 'Internal Server Error' })
-    );
+  rest.get("/api/error", (req, res, ctx) => {
+    return res(ctx.status(500), ctx.json({ error: "Internal Server Error" }))
   }),
-];
+]
 ```
 
 **Server Setup:**
 
 ```typescript
 // __tests__/mocks/server.ts
-import { setupServer } from 'msw/node';
-import { handlers } from './handlers';
+import { setupServer } from "msw/node"
+import { handlers } from "./handlers"
 
-export const server = setupServer(...handlers);
+export const server = setupServer(...handlers)
 ```
 
 **Overriding Handlers in Tests:**
@@ -584,77 +581,77 @@ describe('ProductList', () => {
 
 ```typescript
 // Mocking a module
-jest.mock('../../src/services/analytics', () => ({
+jest.mock("../../src/services/analytics", () => ({
   trackEvent: jest.fn(),
   trackPageView: jest.fn(),
   setUser: jest.fn(),
-}));
+}))
 
 // Mocking with implementation
-jest.mock('next/router', () => ({
+jest.mock("next/router", () => ({
   useRouter: jest.fn().mockReturnValue({
-    pathname: '/test',
+    pathname: "/test",
     push: jest.fn(),
     replace: jest.fn(),
     query: {},
   }),
-}));
+}))
 
 // Partial mock (keep some real implementations)
-jest.mock('../../src/utils/helpers', () => ({
-  ...jest.requireActual('../../src/utils/helpers'),
+jest.mock("../../src/utils/helpers", () => ({
+  ...jest.requireActual("../../src/utils/helpers"),
   sendEmail: jest.fn().mockResolvedValue({ success: true }),
-}));
+}))
 ```
 
 ### Mocking Hooks
 
 ```typescript
 // __tests__/hooks/useAuth.test.tsx
-import { renderHook, act } from '@testing-library/react';
-import { useAuth } from '../../src/hooks/useAuth';
-import * as authService from '../../src/services/auth';
+import { renderHook, act } from "@testing-library/react"
+import { useAuth } from "../../src/hooks/useAuth"
+import * as authService from "../../src/services/auth"
 
-jest.mock('../../src/services/auth');
+jest.mock("../../src/services/auth")
 
-const mockAuthService = authService as jest.Mocked<typeof authService>;
+const mockAuthService = authService as jest.Mocked<typeof authService>
 
-describe('useAuth', () => {
+describe("useAuth", () => {
   beforeEach(() => {
-    jest.clearAllMocks();
-  });
+    jest.clearAllMocks()
+  })
 
-  it('logs in user successfully', async () => {
-    const mockUser = { id: '1', email: 'test@example.com' };
-    mockAuthService.login.mockResolvedValue(mockUser);
+  it("logs in user successfully", async () => {
+    const mockUser = { id: "1", email: "test@example.com" }
+    mockAuthService.login.mockResolvedValue(mockUser)
 
-    const { result } = renderHook(() => useAuth());
+    const { result } = renderHook(() => useAuth())
 
     await act(async () => {
-      await result.current.login('test@example.com', 'password');
-    });
+      await result.current.login("test@example.com", "password")
+    })
 
-    expect(result.current.user).toEqual(mockUser);
-    expect(result.current.isAuthenticated).toBe(true);
-  });
+    expect(result.current.user).toEqual(mockUser)
+    expect(result.current.isAuthenticated).toBe(true)
+  })
 
-  it('handles login error', async () => {
-    mockAuthService.login.mockRejectedValue(new Error('Invalid credentials'));
+  it("handles login error", async () => {
+    mockAuthService.login.mockRejectedValue(new Error("Invalid credentials"))
 
-    const { result } = renderHook(() => useAuth());
+    const { result } = renderHook(() => useAuth())
 
     await act(async () => {
       try {
-        await result.current.login('test@example.com', 'wrong');
+        await result.current.login("test@example.com", "wrong")
       } catch (e) {
         // Expected
       }
-    });
+    })
 
-    expect(result.current.user).toBeNull();
-    expect(result.current.error).toBe('Invalid credentials');
-  });
-});
+    expect(result.current.user).toBeNull()
+    expect(result.current.error).toBe("Invalid credentials")
+  })
+})
 ```
 
 ---
@@ -746,41 +743,39 @@ describe('Dashboard', () => {
 
 ```typescript
 // __tests__/utils/customMatchers.ts
-import { expect } from '@playwright/test';
+import { expect } from "@playwright/test"
 
 expect.extend({
   async toHaveLoadedSuccessfully(page) {
     const hasNoErrors = await page.evaluate(() => {
-      return !document.querySelector('[data-error]');
-    });
+      return !document.querySelector("[data-error]")
+    })
     const isLoaded = await page.evaluate(() => {
-      return document.readyState === 'complete';
-    });
+      return document.readyState === "complete"
+    })
 
     return {
       pass: hasNoErrors && isLoaded,
       message: () =>
-        hasNoErrors
-          ? 'Page loaded with errors'
-          : 'Page did not finish loading',
-    };
+        hasNoErrors ? "Page loaded with errors" : "Page did not finish loading",
+    }
   },
 
   toBeWithinRange(received, floor, ceiling) {
-    const pass = received >= floor && received <= ceiling;
+    const pass = received >= floor && received <= ceiling
     return {
       pass,
       message: () =>
-        `expected ${received} ${pass ? 'not ' : ''}to be within range ${floor} - ${ceiling}`,
-    };
+        `expected ${received} ${pass ? "not " : ""}to be within range ${floor} - ${ceiling}`,
+    }
   },
-});
+})
 
 // Type declarations
 declare global {
   namespace PlaywrightTest {
     interface Matchers<R> {
-      toHaveLoadedSuccessfully(): Promise<R>;
+      toHaveLoadedSuccessfully(): Promise<R>
     }
   }
 }
@@ -794,23 +789,23 @@ declare global {
 
 ```typescript
 // Preferred: Use findBy* (waits automatically)
-const element = await screen.findByText('Loaded');
+const element = await screen.findByText("Loaded")
 
 // Wait for element to appear
 await waitFor(() => {
-  expect(screen.getByText('Loaded')).toBeInTheDocument();
-});
+  expect(screen.getByText("Loaded")).toBeInTheDocument()
+})
 
 // Wait for element to disappear
-await waitForElementToBeRemoved(() => screen.queryByText('Loading...'));
+await waitForElementToBeRemoved(() => screen.queryByText("Loading..."))
 
 // Wait with custom timeout
 await waitFor(
   () => {
-    expect(mockFn).toHaveBeenCalled();
+    expect(mockFn).toHaveBeenCalled()
   },
-  { timeout: 5000 }
-);
+  { timeout: 5000 },
+)
 ```
 
 ### Testing Async State Changes
@@ -886,32 +881,32 @@ describe('SearchInput', () => {
 
 ```typescript
 // e2e/async-patterns.spec.ts
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test"
 
-test('waits for API response', async ({ page }) => {
+test("waits for API response", async ({ page }) => {
   // Wait for specific response
-  const responsePromise = page.waitForResponse('/api/data');
-  await page.click('button.load-data');
-  const response = await responsePromise;
-  expect(response.status()).toBe(200);
-});
+  const responsePromise = page.waitForResponse("/api/data")
+  await page.click("button.load-data")
+  const response = await responsePromise
+  expect(response.status()).toBe(200)
+})
 
-test('waits for navigation', async ({ page }) => {
-  await page.goto('/');
+test("waits for navigation", async ({ page }) => {
+  await page.goto("/")
   await Promise.all([
-    page.waitForURL('/dashboard'),
-    page.click('a.dashboard-link'),
-  ]);
-});
+    page.waitForURL("/dashboard"),
+    page.click("a.dashboard-link"),
+  ])
+})
 
-test('waits for network idle', async ({ page }) => {
-  await page.goto('/', { waitUntil: 'networkidle' });
-});
+test("waits for network idle", async ({ page }) => {
+  await page.goto("/", { waitUntil: "networkidle" })
+})
 
-test('retries assertion until pass', async ({ page }) => {
+test("retries assertion until pass", async ({ page }) => {
   // Auto-retrying assertion
-  await expect(page.locator('.counter')).toHaveText('10', { timeout: 5000 });
-});
+  await expect(page.locator(".counter")).toHaveText("10", { timeout: 5000 })
+})
 ```
 
 ---
@@ -920,12 +915,12 @@ test('retries assertion until pass', async ({ page }) => {
 
 ### When to Use Snapshots
 
-| Good Use Cases | Bad Use Cases |
-|----------------|---------------|
-| Static UI components | Dynamic content |
-| Error messages | Timestamps/IDs |
-| Configuration objects | Large component trees |
-| Serializable data | Interactive components |
+| Good Use Cases        | Bad Use Cases          |
+| --------------------- | ---------------------- |
+| Static UI components  | Dynamic content        |
+| Error messages        | Timestamps/IDs         |
+| Configuration objects | Large component trees  |
+| Serializable data     | Interactive components |
 
 ### Component Snapshots
 
@@ -962,17 +957,17 @@ describe('Button snapshots', () => {
 
 ```typescript
 // Good for small, stable outputs
-it('formats date correctly', () => {
-  const result = formatDate(new Date('2024-01-15'));
-  expect(result).toMatchInlineSnapshot(`"January 15, 2024"`);
-});
+it("formats date correctly", () => {
+  const result = formatDate(new Date("2024-01-15"))
+  expect(result).toMatchInlineSnapshot(`"January 15, 2024"`)
+})
 
-it('generates expected error message', () => {
-  const error = new ValidationError('email', 'Invalid format');
+it("generates expected error message", () => {
+  const error = new ValidationError("email", "Invalid format")
   expect(error.message).toMatchInlineSnapshot(
-    `"Validation failed for 'email': Invalid format"`
-  );
-});
+    `"Validation failed for 'email': Invalid format"`,
+  )
+})
 ```
 
 ### Snapshot Best Practices

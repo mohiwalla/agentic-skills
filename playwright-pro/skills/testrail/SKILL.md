@@ -13,6 +13,7 @@ Bidirectional sync between Playwright tests and TestRail test management.
 ## Prerequisites
 
 Environment variables must be set:
+
 - `TESTRAIL_URL` — e.g., `https://your-instance.testrail.io`
 - `TESTRAIL_USER` — your email
 - `TESTRAIL_API_KEY` — API key from TestRail
@@ -28,6 +29,7 @@ If not set, inform the user how to configure them and stop.
 ```
 
 Steps:
+
 1. Call `testrail_get_cases` MCP tool to fetch test cases
 2. For each test case:
    - Read title, preconditions, steps, expected results
@@ -43,6 +45,7 @@ Steps:
 ```
 
 Steps:
+
 1. Run Playwright tests with JSON reporter:
    ```bash
    npx playwright test --reporter=json > test-results.json
@@ -61,6 +64,7 @@ Steps:
 ```
 
 Steps:
+
 1. Call `testrail_add_run` MCP tool
 2. Include all test case IDs found in Playwright test annotations
 3. Return run ID for result pushing
@@ -72,6 +76,7 @@ Steps:
 ```
 
 Steps:
+
 1. Fetch test cases from TestRail
 2. Scan local Playwright tests for TestRail annotations
 3. Report coverage:
@@ -89,35 +94,36 @@ Steps:
 ```
 
 Steps:
+
 1. Read the Playwright test for this case ID
 2. Extract steps and expected results from test code
 3. Call `testrail_update_case` MCP tool to update steps
 
 ## MCP Tools Used
 
-| Tool | When |
-|---|---|
+| Tool                    | When                    |
+| ----------------------- | ----------------------- |
 | `testrail_get_projects` | List available projects |
-| `testrail_get_suites` | List suites in project |
-| `testrail_get_cases` | Read test cases |
-| `testrail_add_case` | Create new test case |
-| `testrail_update_case` | Update existing case |
-| `testrail_add_run` | Create test run |
-| `testrail_add_result` | Push individual result |
-| `testrail_get_results` | Read historical results |
+| `testrail_get_suites`   | List suites in project  |
+| `testrail_get_cases`    | Read test cases         |
+| `testrail_add_case`     | Create new test case    |
+| `testrail_update_case`  | Update existing case    |
+| `testrail_add_run`      | Create test run         |
+| `testrail_add_result`   | Push individual result  |
+| `testrail_get_results`  | Read historical results |
 
 ## Test Annotation Format
 
 All Playwright tests linked to TestRail include:
 
 ```typescript
-test('should login successfully', async ({ page }) => {
+test("should login successfully", async ({ page }) => {
   test.info().annotations.push({
-    type: 'testrail',
-    description: 'C12345',
-  });
+    type: "testrail",
+    description: "C12345",
+  })
   // ... test code
-});
+})
 ```
 
 This annotation is the bridge between Playwright and TestRail.

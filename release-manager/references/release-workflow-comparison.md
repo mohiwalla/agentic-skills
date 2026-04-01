@@ -7,22 +7,25 @@ This document compares the three most popular branching and release workflows: G
 ## Git Flow
 
 ### Structure
+
 ```
 main (production)
   ↑
 release/1.2.0 ← develop (integration) ← feature/user-auth
-                    ↑                ← feature/payment-api  
+                    ↑                ← feature/payment-api
                  hotfix/critical-fix
 ```
 
 ### Branch Types
+
 - **main**: Production-ready code, tagged releases
 - **develop**: Integration branch for next release
-- **feature/***: Individual features, merged to develop
+- **feature/\***: Individual features, merged to develop
 - **release/X.Y.Z**: Release preparation, branched from develop
-- **hotfix/***: Critical fixes, branched from main
+- **hotfix/\***: Critical fixes, branched from main
 
 ### Typical Flow
+
 1. Create feature branch from develop: `git checkout -b feature/login develop`
 2. Work on feature, commit changes
 3. Merge feature to develop when complete
@@ -33,6 +36,7 @@ release/1.2.0 ← develop (integration) ← feature/user-auth
 8. Deploy from main branch
 
 ### Advantages
+
 - **Clear separation** between production and development code
 - **Stable main branch** always represents production state
 - **Parallel development** of features without interference
@@ -41,6 +45,7 @@ release/1.2.0 ← develop (integration) ← feature/user-auth
 - **Good for scheduled releases** and traditional release cycles
 
 ### Disadvantages
+
 - **Complex workflow** with many branch types
 - **Merge overhead** from multiple integration points
 - **Delayed feedback** from long-lived feature branches
@@ -49,6 +54,7 @@ release/1.2.0 ← develop (integration) ← feature/user-auth
 - **Not ideal for continuous deployment**
 
 ### Best For
+
 - Large teams (10+ developers)
 - Products with scheduled release cycles
 - Enterprise software with formal testing phases
@@ -56,6 +62,7 @@ release/1.2.0 ← develop (integration) ← feature/user-auth
 - Teams comfortable with complex Git workflows
 
 ### Example Commands
+
 ```bash
 # Start new feature
 git checkout develop
@@ -76,7 +83,7 @@ git commit -am "Bump version to 1.2.0"
 git checkout main
 git merge --no-ff release/1.2.0
 git tag -a v1.2.0 -m "Release version 1.2.0"
-git checkout develop  
+git checkout develop
 git merge --no-ff release/1.2.0
 git branch -d release/1.2.0
 
@@ -95,6 +102,7 @@ git merge --no-ff hotfix/security-patch
 ## GitHub Flow
 
 ### Structure
+
 ```
 main ← feature/user-auth
     ← feature/payment-api
@@ -102,10 +110,12 @@ main ← feature/user-auth
 ```
 
 ### Branch Types
+
 - **main**: Production-ready code, deployed automatically
-- **feature/***: All changes, regardless of size or type
+- **feature/\***: All changes, regardless of size or type
 
 ### Typical Flow
+
 1. Create feature branch from main: `git checkout -b feature/login main`
 2. Work on feature with regular commits and pushes
 3. Open pull request when ready for feedback
@@ -115,6 +125,7 @@ main ← feature/user-auth
 7. Delete feature branch
 
 ### Advantages
+
 - **Simple workflow** with only two branch types
 - **Fast deployment** with minimal process overhead
 - **Continuous integration** with frequent merges to main
@@ -123,6 +134,7 @@ main ← feature/user-auth
 - **Good for continuous deployment**
 
 ### Disadvantages
+
 - **Main can be unstable** if testing is insufficient
 - **No release branches** for coordinating multiple features
 - **Limited hotfix process** requires careful coordination
@@ -131,6 +143,7 @@ main ← feature/user-auth
 - **Can be chaotic** with many simultaneous features
 
 ### Best For
+
 - Small to medium teams (2-10 developers)
 - Web applications with continuous deployment
 - Products with rapid iteration cycles
@@ -138,8 +151,9 @@ main ← feature/user-auth
 - Projects where main is always deployable
 
 ### Example Commands
+
 ```bash
-# Start new feature  
+# Start new feature
 git checkout main
 git pull origin main
 git checkout -b feature/user-authentication
@@ -166,6 +180,7 @@ git branch -d feature/user-authentication
 ## Trunk-based Development
 
 ### Structure
+
 ```
 main ← short-feature-branch (1-3 days max)
     ← another-short-branch
@@ -173,10 +188,12 @@ main ← short-feature-branch (1-3 days max)
 ```
 
 ### Branch Types
+
 - **main**: The single source of truth, always deployable
 - **Short-lived branches**: Optional, for changes taking >1 day
 
 ### Typical Flow
+
 1. Commit directly to main for small changes
 2. Create short-lived branch for larger changes (max 2-3 days)
 3. Merge to main frequently (multiple times per day)
@@ -185,6 +202,7 @@ main ← short-feature-branch (1-3 days max)
 6. Release by enabling feature flags, not code deployment
 
 ### Advantages
+
 - **Simplest workflow** with minimal branching
 - **Fastest integration** with continuous merges
 - **Reduced merge conflicts** from short-lived branches
@@ -193,6 +211,7 @@ main ← short-feature-branch (1-3 days max)
 - **Excellent for CI/CD** and DevOps practices
 
 ### Disadvantages
+
 - **Requires discipline** to keep main stable
 - **Needs feature flags** for incomplete features
 - **Limited code review** for direct commits
@@ -201,6 +220,7 @@ main ← short-feature-branch (1-3 days max)
 - **Not suitable for teams** uncomfortable with frequent changes
 
 ### Best For
+
 - Expert teams with strong DevOps culture
 - Products requiring very fast iteration
 - Microservices architectures
@@ -208,6 +228,7 @@ main ← short-feature-branch (1-3 days max)
 - Organizations with mature testing practices
 
 ### Example Commands
+
 ```bash
 # Small change - direct to main
 git checkout main
@@ -236,30 +257,31 @@ git branch -d payment-integration
 if (featureFlags.enabled('stripe_payments', userId)) {
     return renderStripePayment();
 } else {
-    return renderLegacyPayment();  
+    return renderLegacyPayment();
 }
 ```
 
 ## Feature Comparison Matrix
 
-| Aspect | Git Flow | GitHub Flow | Trunk-based |
-|--------|----------|-------------|-------------|
-| **Complexity** | High | Medium | Low |
-| **Learning Curve** | Steep | Moderate | Gentle |
-| **Deployment Frequency** | Weekly/Monthly | Daily | Multiple/day |
-| **Branch Lifetime** | Weeks/Months | Days/Weeks | Hours/Days |
-| **Main Stability** | Very High | High | High* |
-| **Release Coordination** | Excellent | Limited | Feature Flags |
-| **Hotfix Support** | Built-in | Manual | Direct |
-| **Merge Conflicts** | High | Medium | Low |
-| **Team Size** | 10+ | 3-10 | Any |
-| **CI/CD Requirements** | Medium | High | Very High |
+| Aspect                   | Git Flow       | GitHub Flow | Trunk-based   |
+| ------------------------ | -------------- | ----------- | ------------- |
+| **Complexity**           | High           | Medium      | Low           |
+| **Learning Curve**       | Steep          | Moderate    | Gentle        |
+| **Deployment Frequency** | Weekly/Monthly | Daily       | Multiple/day  |
+| **Branch Lifetime**      | Weeks/Months   | Days/Weeks  | Hours/Days    |
+| **Main Stability**       | Very High      | High        | High\*        |
+| **Release Coordination** | Excellent      | Limited     | Feature Flags |
+| **Hotfix Support**       | Built-in       | Manual      | Direct        |
+| **Merge Conflicts**      | High           | Medium      | Low           |
+| **Team Size**            | 10+            | 3-10        | Any           |
+| **CI/CD Requirements**   | Medium         | High        | Very High     |
 
-*With proper feature flags and testing
+\*With proper feature flags and testing
 
 ## Release Strategies by Workflow
 
 ### Git Flow Releases
+
 ```bash
 # Scheduled release every 2 weeks
 git checkout develop
@@ -287,6 +309,7 @@ kubectl set image deployment/app app=app:2.3.0
 ```
 
 ### GitHub Flow Releases
+
 ```bash
 # Deploy every merge to main
 git checkout main
@@ -304,6 +327,7 @@ git push origin main  # Triggers automatic rollback deployment
 ```
 
 ### Trunk-based Releases
+
 ```bash
 # Continuous deployment with feature flags
 git checkout main
@@ -315,7 +339,7 @@ git push origin main
 curl -X POST api/feature-flags/payment-v2/rollout/25  # 25% of users
 # Monitor metrics...
 curl -X POST api/feature-flags/payment-v2/rollout/50  # 50% of users
-# Monitor metrics...  
+# Monitor metrics...
 curl -X POST api/feature-flags/payment-v2/rollout/100 # Full rollout
 
 # Remove flag after successful rollout
@@ -328,6 +352,7 @@ git commit -m "cleanup: remove legacy payment code"
 ### Decision Matrix
 
 **Choose Git Flow if:**
+
 - ✅ Team size > 10 developers
 - ✅ Scheduled release cycles (weekly/monthly)
 - ✅ Multiple versions supported simultaneously
@@ -337,6 +362,7 @@ git commit -m "cleanup: remove legacy payment code"
 - ❌ Small team or startup
 
 **Choose GitHub Flow if:**
+
 - ✅ Team size 3-10 developers
 - ✅ Web applications or APIs
 - ✅ Strong CI/CD and testing
@@ -346,6 +372,7 @@ git commit -m "cleanup: remove legacy payment code"
 - ❌ Multiple release branches required
 
 **Choose Trunk-based Development if:**
+
 - ✅ Expert development team
 - ✅ Mature DevOps practices
 - ✅ Microservices architecture
@@ -358,6 +385,7 @@ git commit -m "cleanup: remove legacy payment code"
 ### Migration Strategies
 
 #### From Git Flow to GitHub Flow
+
 1. **Simplify branching**: Eliminate develop branch, work directly with main
 2. **Increase deployment frequency**: Move from scheduled to continuous releases
 3. **Strengthen testing**: Improve automated test coverage and CI/CD
@@ -365,6 +393,7 @@ git commit -m "cleanup: remove legacy payment code"
 5. **Train team**: Educate on simpler workflow and increased responsibility
 
 #### From GitHub Flow to Trunk-based
+
 1. **Implement feature flags**: Add feature toggle infrastructure
 2. **Improve CI/CD**: Ensure all tests run in <10 minutes
 3. **Increase commit frequency**: Encourage multiple commits per day
@@ -372,6 +401,7 @@ git commit -m "cleanup: remove legacy payment code"
 5. **Monitor stability**: Ensure main remains deployable at all times
 
 #### From Trunk-based to Git Flow
+
 1. **Add structure**: Introduce develop and release branches
 2. **Reduce deployment frequency**: Move to scheduled release cycles
 3. **Extend branch lifetime**: Allow longer feature development cycles
@@ -381,6 +411,7 @@ git commit -m "cleanup: remove legacy payment code"
 ## Anti-patterns to Avoid
 
 ### Git Flow Anti-patterns
+
 - **Long-lived feature branches** (>2 weeks)
 - **Skipping release branches** for small releases
 - **Direct commits to main** bypassing develop
@@ -388,6 +419,7 @@ git commit -m "cleanup: remove legacy payment code"
 - **Complex merge conflicts** from delayed integration
 
 ### GitHub Flow Anti-patterns
+
 - **Unstable main branch** due to insufficient testing
 - **Long-lived feature branches** defeating the purpose
 - **Skipping pull request reviews** for speed
@@ -395,6 +427,7 @@ git commit -m "cleanup: remove legacy payment code"
 - **No rollback plan** when deployments fail
 
 ### Trunk-based Anti-patterns
+
 - **Committing broken code** to main branch
 - **Feature branches lasting weeks** defeating the philosophy
 - **No feature flags** for incomplete features

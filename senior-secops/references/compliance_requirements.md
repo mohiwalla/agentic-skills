@@ -19,13 +19,13 @@ Comprehensive guide for SOC 2, PCI-DSS, HIPAA, and GDPR compliance requirements.
 
 ### Trust Service Criteria
 
-| Criteria | Description | Key Controls |
-|----------|-------------|--------------|
-| Security | Protection against unauthorized access | Access controls, encryption, monitoring |
-| Availability | System uptime and performance | SLAs, redundancy, disaster recovery |
-| Processing Integrity | Accurate and complete processing | Data validation, error handling |
-| Confidentiality | Protection of confidential information | Encryption, access controls |
-| Privacy | Personal information handling | Consent, data minimization |
+| Criteria             | Description                            | Key Controls                            |
+| -------------------- | -------------------------------------- | --------------------------------------- |
+| Security             | Protection against unauthorized access | Access controls, encryption, monitoring |
+| Availability         | System uptime and performance          | SLAs, redundancy, disaster recovery     |
+| Processing Integrity | Accurate and complete processing       | Data validation, error handling         |
+| Confidentiality      | Protection of confidential information | Encryption, access controls             |
+| Privacy              | Personal information handling          | Consent, data minimization              |
 
 ### Security Controls Checklist
 
@@ -33,6 +33,7 @@ Comprehensive guide for SOC 2, PCI-DSS, HIPAA, and GDPR compliance requirements.
 ## SOC 2 Security Controls
 
 ### CC1: Control Environment
+
 - [ ] Security policies documented and approved
 - [ ] Organizational structure defined
 - [ ] Security roles and responsibilities assigned
@@ -40,12 +41,14 @@ Comprehensive guide for SOC 2, PCI-DSS, HIPAA, and GDPR compliance requirements.
 - [ ] Security awareness training completed annually
 
 ### CC2: Communication and Information
+
 - [ ] Security policies communicated to employees
 - [ ] Security incidents reported and tracked
 - [ ] External communications about security controls
 - [ ] Service level agreements documented
 
 ### CC3: Risk Assessment
+
 - [ ] Annual risk assessment performed
 - [ ] Risk register maintained
 - [ ] Risk treatment plans documented
@@ -53,6 +56,7 @@ Comprehensive guide for SOC 2, PCI-DSS, HIPAA, and GDPR compliance requirements.
 - [ ] Business impact analysis current
 
 ### CC4: Monitoring Activities
+
 - [ ] Security monitoring implemented
 - [ ] Log aggregation and analysis
 - [ ] Vulnerability scanning (weekly)
@@ -60,6 +64,7 @@ Comprehensive guide for SOC 2, PCI-DSS, HIPAA, and GDPR compliance requirements.
 - [ ] Security metrics reviewed monthly
 
 ### CC5: Control Activities
+
 - [ ] Access control policies enforced
 - [ ] MFA enabled for all users
 - [ ] Password policy enforced (12+ chars)
@@ -67,6 +72,7 @@ Comprehensive guide for SOC 2, PCI-DSS, HIPAA, and GDPR compliance requirements.
 - [ ] Least privilege principle applied
 
 ### CC6: Logical and Physical Access
+
 - [ ] Identity management system
 - [ ] Role-based access control
 - [ ] Physical access controls
@@ -74,6 +80,7 @@ Comprehensive guide for SOC 2, PCI-DSS, HIPAA, and GDPR compliance requirements.
 - [ ] Data center security
 
 ### CC7: System Operations
+
 - [ ] Change management process
 - [ ] Incident management process
 - [ ] Problem management process
@@ -81,6 +88,7 @@ Comprehensive guide for SOC 2, PCI-DSS, HIPAA, and GDPR compliance requirements.
 - [ ] Backup and recovery tested
 
 ### CC8: Change Management
+
 - [ ] Change control board
 - [ ] Change approval workflow
 - [ ] Testing requirements documented
@@ -88,6 +96,7 @@ Comprehensive guide for SOC 2, PCI-DSS, HIPAA, and GDPR compliance requirements.
 - [ ] Emergency change process
 
 ### CC9: Risk Mitigation
+
 - [ ] Insurance coverage
 - [ ] Business continuity plan
 - [ ] Disaster recovery plan tested
@@ -139,20 +148,20 @@ def collect_soc2_evidence(period_start: str, period_end: str) -> dict:
 
 ### PCI-DSS v4.0 Requirements
 
-| Requirement | Description |
-|-------------|-------------|
-| 1 | Install and maintain network security controls |
-| 2 | Apply secure configurations |
-| 3 | Protect stored account data |
-| 4 | Protect cardholder data with cryptography during transmission |
-| 5 | Protect all systems from malware |
-| 6 | Develop and maintain secure systems and software |
-| 7 | Restrict access to cardholder data by business need-to-know |
-| 8 | Identify users and authenticate access |
-| 9 | Restrict physical access to cardholder data |
-| 10 | Log and monitor all access to network resources |
-| 11 | Test security of systems and networks regularly |
-| 12 | Support information security with organizational policies |
+| Requirement | Description                                                   |
+| ----------- | ------------------------------------------------------------- |
+| 1           | Install and maintain network security controls                |
+| 2           | Apply secure configurations                                   |
+| 3           | Protect stored account data                                   |
+| 4           | Protect cardholder data with cryptography during transmission |
+| 5           | Protect all systems from malware                              |
+| 6           | Develop and maintain secure systems and software              |
+| 7           | Restrict access to cardholder data by business need-to-know   |
+| 8           | Identify users and authenticate access                        |
+| 9           | Restrict physical access to cardholder data                   |
+| 10          | Log and monitor all access to network resources               |
+| 11          | Test security of systems and networks regularly               |
+| 12          | Support information security with organizational policies     |
 
 ### Cardholder Data Protection
 
@@ -260,7 +269,7 @@ spec:
     # Only allow to payment processor
     - to:
         - ipBlock:
-            cidr: 10.0.100.0/24  # Payment processor network
+            cidr: 10.0.100.0/24 # Payment processor network
       ports:
         - protocol: TCP
           port: 443
@@ -281,21 +290,21 @@ spec:
 
 ### HIPAA Security Rule Requirements
 
-| Safeguard | Standard | Implementation |
-|-----------|----------|----------------|
-| Administrative | Security Management | Risk analysis, sanctions, activity review |
-| Administrative | Workforce Security | Authorization, clearance, termination |
-| Administrative | Information Access | Access authorization, workstation use |
-| Administrative | Security Awareness | Training, login monitoring, password management |
-| Administrative | Security Incident | Response and reporting procedures |
-| Administrative | Contingency Plan | Backup, disaster recovery, emergency mode |
-| Physical | Facility Access | Access controls, maintenance records |
-| Physical | Workstation | Use policies, security |
-| Physical | Device and Media | Disposal, media re-use, accountability |
-| Technical | Access Control | Unique user ID, emergency access, encryption |
-| Technical | Audit Controls | Hardware, software, procedural mechanisms |
-| Technical | Integrity | Mechanisms to ensure PHI not altered |
-| Technical | Transmission | Encryption of PHI in transit |
+| Safeguard      | Standard            | Implementation                                  |
+| -------------- | ------------------- | ----------------------------------------------- |
+| Administrative | Security Management | Risk analysis, sanctions, activity review       |
+| Administrative | Workforce Security  | Authorization, clearance, termination           |
+| Administrative | Information Access  | Access authorization, workstation use           |
+| Administrative | Security Awareness  | Training, login monitoring, password management |
+| Administrative | Security Incident   | Response and reporting procedures               |
+| Administrative | Contingency Plan    | Backup, disaster recovery, emergency mode       |
+| Physical       | Facility Access     | Access controls, maintenance records            |
+| Physical       | Workstation         | Use policies, security                          |
+| Physical       | Device and Media    | Disposal, media re-use, accountability          |
+| Technical      | Access Control      | Unique user ID, emergency access, encryption    |
+| Technical      | Audit Controls      | Hardware, software, procedural mechanisms       |
+| Technical      | Integrity           | Mechanisms to ensure PHI not altered            |
+| Technical      | Transmission        | Encryption of PHI in transit                    |
 
 ### PHI Handling
 
@@ -426,15 +435,15 @@ class HIPAACompliantStorage:
 
 ### GDPR Principles
 
-| Principle | Description | Implementation |
-|-----------|-------------|----------------|
-| Lawfulness | Legal basis for processing | Consent management, contract basis |
-| Purpose Limitation | Specific, explicit purposes | Data use policies, access controls |
-| Data Minimization | Adequate, relevant, limited | Collection limits, retention policies |
-| Accuracy | Keep data accurate | Update procedures, validation |
-| Storage Limitation | Time-limited retention | Retention schedules, deletion |
-| Integrity & Confidentiality | Secure processing | Encryption, access controls |
-| Accountability | Demonstrate compliance | Documentation, DPO, DPIA |
+| Principle                   | Description                 | Implementation                        |
+| --------------------------- | --------------------------- | ------------------------------------- |
+| Lawfulness                  | Legal basis for processing  | Consent management, contract basis    |
+| Purpose Limitation          | Specific, explicit purposes | Data use policies, access controls    |
+| Data Minimization           | Adequate, relevant, limited | Collection limits, retention policies |
+| Accuracy                    | Keep data accurate          | Update procedures, validation         |
+| Storage Limitation          | Time-limited retention      | Retention schedules, deletion         |
+| Integrity & Confidentiality | Secure processing           | Encryption, access controls           |
+| Accountability              | Demonstrate compliance      | Documentation, DPO, DPIA              |
 
 ### Data Subject Rights Implementation
 
@@ -669,7 +678,7 @@ on:
     branches: [main]
   pull_request:
   schedule:
-    - cron: '0 0 * * *'  # Daily
+    - cron: "0 0 * * *" # Daily
 
 jobs:
   soc2-checks:
@@ -739,6 +748,7 @@ jobs:
 ## Pre-Audit Checklist
 
 ### 60 Days Before Audit
+
 - [ ] Confirm audit scope and timeline
 - [ ] Identify control owners
 - [ ] Begin evidence collection
@@ -746,6 +756,7 @@ jobs:
 - [ ] Update policies and procedures
 
 ### 30 Days Before Audit
+
 - [ ] Complete evidence collection
 - [ ] Perform internal control testing
 - [ ] Remediate any gaps identified
@@ -753,6 +764,7 @@ jobs:
 - [ ] Brief stakeholders
 
 ### 7 Days Before Audit
+
 - [ ] Finalize evidence package
 - [ ] Prepare interview schedules
 - [ ] Set up secure evidence sharing
@@ -760,6 +772,7 @@ jobs:
 - [ ] Final gap assessment
 
 ### During Audit
+
 - [ ] Daily status meetings
 - [ ] Timely evidence delivery
 - [ ] Document all requests

@@ -60,12 +60,12 @@ Copy framework: PAS | AIDA | BAB
 
 ## Design Style Reference
 
-| Style | Background | Accent | Cards | CTA Button |
-|---|---|---|---|---|
-| **Dark SaaS** | `bg-gray-950 text-white` | `violet-500/400` | `bg-gray-900 border border-gray-800` | `bg-violet-600 hover:bg-violet-500` |
-| **Clean Minimal** | `bg-white text-gray-900` | `blue-600` | `bg-gray-50 border border-gray-200 rounded-2xl` | `bg-blue-600 hover:bg-blue-700` |
-| **Bold Startup** | `bg-white text-gray-900` | `orange-500` | `shadow-xl rounded-3xl` | `bg-orange-500 hover:bg-orange-600 text-white` |
-| **Enterprise** | `bg-slate-50 text-slate-900` | `slate-700` | `bg-white border border-slate-200 shadow-sm` | `bg-slate-900 hover:bg-slate-800 text-white` |
+| Style             | Background                   | Accent           | Cards                                           | CTA Button                                     |
+| ----------------- | ---------------------------- | ---------------- | ----------------------------------------------- | ---------------------------------------------- |
+| **Dark SaaS**     | `bg-gray-950 text-white`     | `violet-500/400` | `bg-gray-900 border border-gray-800`            | `bg-violet-600 hover:bg-violet-500`            |
+| **Clean Minimal** | `bg-white text-gray-900`     | `blue-600`       | `bg-gray-50 border border-gray-200 rounded-2xl` | `bg-blue-600 hover:bg-blue-700`                |
+| **Bold Startup**  | `bg-white text-gray-900`     | `orange-500`     | `shadow-xl rounded-3xl`                         | `bg-orange-500 hover:bg-orange-600 text-white` |
+| **Enterprise**    | `bg-slate-50 text-slate-900` | `slate-700`      | `bg-white border border-slate-200 shadow-sm`    | `bg-slate-900 hover:bg-slate-800 text-white`   |
 
 > **Bold Startup** headings: add `font-black tracking-tight` to all `<h1>`/`<h2>` elements.
 
@@ -74,15 +74,18 @@ Copy framework: PAS | AIDA | BAB
 ## Copy Frameworks
 
 **PAS (Problem → Agitate → Solution)**
+
 - H1: Painful state they're in
 - Sub: What happens if they don't fix it
 - CTA: What you offer
-- *Example — H1:* "Your team wastes 3 hours a day on manual reporting" / *Sub:* "Every hour spent on spreadsheets is an hour not closing deals. Your competitors are already automated." / *CTA:* "Automate your reports in 10 minutes →"
+- _Example — H1:_ "Your team wastes 3 hours a day on manual reporting" / _Sub:_ "Every hour spent on spreadsheets is an hour not closing deals. Your competitors are already automated." / _CTA:_ "Automate your reports in 10 minutes →"
 
 **AIDA (Attention → Interest → Desire → Action)**
+
 - H1: Bold attention-grabbing statement → Sub: Interesting fact or benefit → Features: Desire-building proof points → CTA: Clear action
 
 **BAB (Before → After → Bridge)**
+
 - H1: "[Before state] → [After state]" → Sub: "Here's how [product] bridges the gap" → Features: How it works (the bridge)
 
 ---
@@ -103,24 +106,34 @@ export function HeroCentered() {
           Now in public beta
         </div>
         <h1 className="mb-6 text-5xl font-bold tracking-tight text-white md:text-7xl">
-          Ship faster.<br />
+          Ship faster.
+          <br />
           <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
             Break less.
           </span>
         </h1>
         <p className="mx-auto mb-10 max-w-2xl text-xl text-gray-400">
-          The deployment platform that catches errors before your users do.
-          Zero config. Instant rollbacks. Real-time monitoring.
+          The deployment platform that catches errors before your users do. Zero
+          config. Instant rollbacks. Real-time monitoring.
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <Button size="lg" className="bg-violet-600 text-white hover:bg-violet-500 px-8">
+          <Button
+            size="lg"
+            className="bg-violet-600 text-white hover:bg-violet-500 px-8"
+          >
             Start free trial
           </Button>
-          <Button size="lg" variant="outline" className="border-gray-700 text-gray-300">
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-gray-700 text-gray-300"
+          >
             See how it works →
           </Button>
         </div>
-        <p className="mt-4 text-sm text-gray-500">No credit card required · 14-day free trial</p>
+        <p className="mt-4 text-sm text-gray-500">
+          No credit card required · 14-day free trial
+        </p>
       </div>
     </section>
   )
@@ -171,13 +184,13 @@ Inject `FAQPage` JSON-LD via `<script type="application/ld+json" dangerouslySetI
 
 ## Performance Targets
 
-| Metric | Target | Technique |
-|---|---|---|
-| LCP | < 1s | Preload hero image, use `priority` on Next/Image |
-| CLS | < 0.1 | Set explicit width/height on all images |
-| FID/INP | < 100ms | Defer non-critical JS, use `loading="lazy"` |
-| TTFB | < 200ms | Use ISR or static generation for landing pages |
-| Bundle | < 100KB JS | Audit with `@next/bundle-analyzer` |
+| Metric  | Target     | Technique                                        |
+| ------- | ---------- | ------------------------------------------------ |
+| LCP     | < 1s       | Preload hero image, use `priority` on Next/Image |
+| CLS     | < 0.1      | Set explicit width/height on all images          |
+| FID/INP | < 100ms    | Defer non-critical JS, use `loading="lazy"`      |
+| TTFB    | < 200ms    | Use ISR or static generation for landing pages   |
+| Bundle  | < 100KB JS | Audit with `@next/bundle-analyzer`               |
 
 ---
 

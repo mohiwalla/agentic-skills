@@ -53,32 +53,32 @@ Establish risk management process per ISO 14971.
 
 ### Risk Management Plan Content
 
-| Section | Content | Evidence |
-|---------|---------|----------|
-| Scope | Device and lifecycle coverage | Scope statement |
-| Criteria | Risk acceptability matrix | Risk matrix document |
-| Responsibilities | Roles and authorities | RACI chart |
-| Verification | Methods and acceptance | Verification plan |
-| Production/Post-Production | Monitoring activities | Surveillance plan |
+| Section                    | Content                       | Evidence             |
+| -------------------------- | ----------------------------- | -------------------- |
+| Scope                      | Device and lifecycle coverage | Scope statement      |
+| Criteria                   | Risk acceptability matrix     | Risk matrix document |
+| Responsibilities           | Roles and authorities         | RACI chart           |
+| Verification               | Methods and acceptance        | Verification plan    |
+| Production/Post-Production | Monitoring activities         | Surveillance plan    |
 
 ### Risk Acceptability Matrix (5x5)
 
-| Probability \ Severity | Negligible | Minor | Serious | Critical | Catastrophic |
-|------------------------|------------|-------|---------|----------|--------------|
-| **Frequent (P5)** | Medium | High | High | Unacceptable | Unacceptable |
-| **Probable (P4)** | Medium | Medium | High | High | Unacceptable |
-| **Occasional (P3)** | Low | Medium | Medium | High | High |
-| **Remote (P2)** | Low | Low | Medium | Medium | High |
-| **Improbable (P1)** | Low | Low | Low | Medium | Medium |
+| Probability \ Severity | Negligible | Minor  | Serious | Critical     | Catastrophic |
+| ---------------------- | ---------- | ------ | ------- | ------------ | ------------ |
+| **Frequent (P5)**      | Medium     | High   | High    | Unacceptable | Unacceptable |
+| **Probable (P4)**      | Medium     | Medium | High    | High         | Unacceptable |
+| **Occasional (P3)**    | Low        | Medium | Medium  | High         | High         |
+| **Remote (P2)**        | Low        | Low    | Medium  | Medium       | High         |
+| **Improbable (P1)**    | Low        | Low    | Low     | Medium       | Medium       |
 
 ### Risk Level Actions
 
-| Level | Acceptable | Action Required |
-|-------|------------|-----------------|
-| Low | Yes | Document and accept |
-| Medium | ALARP | Reduce if practicable; document rationale |
-| High | ALARP | Reduction required; demonstrate ALARP |
-| Unacceptable | No | Design change mandatory |
+| Level        | Acceptable | Action Required                           |
+| ------------ | ---------- | ----------------------------------------- |
+| Low          | Yes        | Document and accept                       |
+| Medium       | ALARP      | Reduce if practicable; document rationale |
+| High         | ALARP      | Reduction required; demonstrate ALARP     |
+| Unacceptable | No         | Design change mandatory                   |
 
 ---
 
@@ -114,48 +114,48 @@ Identify hazards and estimate risks systematically.
 
 ### Hazard Categories Checklist
 
-| Category | Examples | Analyzed |
-|----------|----------|----------|
-| Electrical | Shock, burns, interference | ☐ |
-| Mechanical | Crushing, cutting, entrapment | ☐ |
-| Thermal | Burns, tissue damage | ☐ |
-| Radiation | Ionizing, non-ionizing | ☐ |
-| Biological | Infection, biocompatibility | ☐ |
-| Chemical | Toxicity, irritation | ☐ |
-| Software | Incorrect output, timing | ☐ |
-| Use Error | Misuse, perception, cognition | ☐ |
-| Environment | EMC, mechanical stress | ☐ |
+| Category    | Examples                      | Analyzed |
+| ----------- | ----------------------------- | -------- |
+| Electrical  | Shock, burns, interference    | ☐        |
+| Mechanical  | Crushing, cutting, entrapment | ☐        |
+| Thermal     | Burns, tissue damage          | ☐        |
+| Radiation   | Ionizing, non-ionizing        | ☐        |
+| Biological  | Infection, biocompatibility   | ☐        |
+| Chemical    | Toxicity, irritation          | ☐        |
+| Software    | Incorrect output, timing      | ☐        |
+| Use Error   | Misuse, perception, cognition | ☐        |
+| Environment | EMC, mechanical stress        | ☐        |
 
 ### Analysis Method Selection
 
-| Situation | Recommended Method |
-|-----------|-------------------|
-| Component failures | FMEA |
-| System-level failure | FTA |
-| Process deviations | HAZOP |
-| User interaction | Use Error Analysis |
-| Software behavior | Software FMEA |
-| Early design phase | PHA |
+| Situation            | Recommended Method |
+| -------------------- | ------------------ |
+| Component failures   | FMEA               |
+| System-level failure | FTA                |
+| Process deviations   | HAZOP              |
+| User interaction     | Use Error Analysis |
+| Software behavior    | Software FMEA      |
+| Early design phase   | PHA                |
 
 ### Probability Criteria
 
-| Level | Name | Description | Frequency |
-|-------|------|-------------|-----------|
-| P5 | Frequent | Expected to occur | >10⁻³ |
-| P4 | Probable | Likely to occur | 10⁻³ to 10⁻⁴ |
-| P3 | Occasional | May occur | 10⁻⁴ to 10⁻⁵ |
-| P2 | Remote | Unlikely | 10⁻⁵ to 10⁻⁶ |
-| P1 | Improbable | Very unlikely | <10⁻⁶ |
+| Level | Name       | Description       | Frequency    |
+| ----- | ---------- | ----------------- | ------------ |
+| P5    | Frequent   | Expected to occur | >10⁻³        |
+| P4    | Probable   | Likely to occur   | 10⁻³ to 10⁻⁴ |
+| P3    | Occasional | May occur         | 10⁻⁴ to 10⁻⁵ |
+| P2    | Remote     | Unlikely          | 10⁻⁵ to 10⁻⁶ |
+| P1    | Improbable | Very unlikely     | <10⁻⁶        |
 
 ### Severity Criteria
 
-| Level | Name | Description | Harm |
-|-------|------|-------------|------|
-| S5 | Catastrophic | Death | Death |
-| S4 | Critical | Permanent impairment | Irreversible injury |
-| S3 | Serious | Injury requiring intervention | Reversible injury |
-| S2 | Minor | Temporary discomfort | No treatment needed |
-| S1 | Negligible | Inconvenience | No injury |
+| Level | Name         | Description                   | Harm                |
+| ----- | ------------ | ----------------------------- | ------------------- |
+| S5    | Catastrophic | Death                         | Death               |
+| S4    | Critical     | Permanent impairment          | Irreversible injury |
+| S3    | Serious      | Injury requiring intervention | Reversible injury   |
+| S2    | Minor        | Temporary discomfort          | No treatment needed |
+| S1    | Negligible   | Inconvenience                 | No injury           |
 
 See: [references/risk-analysis-methods.md](references/risk-analysis-methods.md)
 
@@ -209,22 +209,22 @@ Apply Acceptability Criteria
 
 ### ALARP Demonstration Requirements
 
-| Criterion | Evidence Required |
-|-----------|-------------------|
-| Technical feasibility | Analysis of alternative controls |
-| Proportionality | Cost-benefit of further reduction |
-| State of the art | Comparison to similar devices |
-| Stakeholder input | Clinical/user perspectives |
+| Criterion             | Evidence Required                 |
+| --------------------- | --------------------------------- |
+| Technical feasibility | Analysis of alternative controls  |
+| Proportionality       | Cost-benefit of further reduction |
+| State of the art      | Comparison to similar devices     |
+| Stakeholder input     | Clinical/user perspectives        |
 
 ### Benefit-Risk Analysis Triggers
 
-| Situation | Benefit-Risk Required |
-|-----------|----------------------|
-| Residual risk remains high | Yes |
-| No feasible risk reduction | Yes |
-| Novel device | Yes |
-| Unacceptable risk with clinical benefit | Yes |
-| All risks low | No |
+| Situation                               | Benefit-Risk Required |
+| --------------------------------------- | --------------------- |
+| Residual risk remains high              | Yes                   |
+| No feasible risk reduction              | Yes                   |
+| Novel device                            | Yes                   |
+| Unacceptable risk with clinical benefit | Yes                   |
+| All risks low                           | No                    |
 
 ---
 
@@ -249,11 +249,11 @@ Implement and verify risk control measures.
 
 ### Risk Control Hierarchy
 
-| Priority | Control Type | Examples | Effectiveness |
-|----------|--------------|----------|---------------|
-| 1 | Inherent Safety | Eliminate hazard, fail-safe design | Highest |
-| 2 | Protective Measures | Guards, alarms, automatic shutdown | High |
-| 3 | Information | Warnings, training, IFU | Lower |
+| Priority | Control Type        | Examples                           | Effectiveness |
+| -------- | ------------------- | ---------------------------------- | ------------- |
+| 1        | Inherent Safety     | Eliminate hazard, fail-safe design | Highest       |
+| 2        | Protective Measures | Guards, alarms, automatic shutdown | High          |
+| 3        | Information         | Warnings, training, IFU            | Lower         |
 
 ### Risk Control Option Analysis Template
 
@@ -285,21 +285,21 @@ VERIFICATION:
 
 ### Risk Control Verification Methods
 
-| Method | When to Use | Evidence |
-|--------|-------------|----------|
-| Test | Quantifiable performance | Test report |
-| Inspection | Physical presence | Inspection record |
-| Analysis | Design calculation | Analysis report |
-| Review | Documentation check | Review record |
+| Method     | When to Use              | Evidence          |
+| ---------- | ------------------------ | ----------------- |
+| Test       | Quantifiable performance | Test report       |
+| Inspection | Physical presence        | Inspection record |
+| Analysis   | Design calculation       | Analysis report   |
+| Review     | Documentation check      | Review record     |
 
 ### Residual Risk Evaluation
 
-| After Control | Action |
-|---------------|--------|
-| Acceptable | Document, proceed |
-| ALARP achieved | Document rationale, proceed |
-| Still unacceptable | Additional control or design change |
-| New hazard introduced | Analyze and control new hazard |
+| After Control         | Action                              |
+| --------------------- | ----------------------------------- |
+| Acceptable            | Document, proceed                   |
+| ALARP achieved        | Document rationale, proceed         |
+| Still unacceptable    | Additional control or design change |
+| New hazard introduced | Analyze and control new hazard      |
 
 ---
 
@@ -329,37 +329,38 @@ Monitor and update risk management throughout product lifecycle.
 
 ### Information Sources
 
-| Source | Information Type | Review Frequency |
-|--------|------------------|------------------|
-| Complaints | Use issues, failures | Continuous |
-| Service | Field failures, repairs | Monthly |
-| Vigilance | Serious incidents | Immediate |
-| Literature | Similar device issues | Quarterly |
-| Regulatory | Authority feedback | As received |
-| Clinical | PMCF data | Per plan |
+| Source     | Information Type        | Review Frequency |
+| ---------- | ----------------------- | ---------------- |
+| Complaints | Use issues, failures    | Continuous       |
+| Service    | Field failures, repairs | Monthly          |
+| Vigilance  | Serious incidents       | Immediate        |
+| Literature | Similar device issues   | Quarterly        |
+| Regulatory | Authority feedback      | As received      |
+| Clinical   | PMCF data               | Per plan         |
 
 ### Risk Management File Update Triggers
 
-| Trigger | Response Time | Action |
-|---------|---------------|--------|
-| Serious incident | Immediate | Full risk review |
-| New hazard identified | 30 days | Risk analysis update |
-| Trend increase | 60 days | Trend analysis |
-| Design change | Before implementation | Impact assessment |
-| Standards update | Per transition period | Gap analysis |
+| Trigger               | Response Time         | Action               |
+| --------------------- | --------------------- | -------------------- |
+| Serious incident      | Immediate             | Full risk review     |
+| New hazard identified | 30 days               | Risk analysis update |
+| Trend increase        | 60 days               | Trend analysis       |
+| Design change         | Before implementation | Impact assessment    |
+| Standards update      | Per transition period | Gap analysis         |
 
 ### Periodic Review Requirements
 
-| Review Element | Frequency |
-|----------------|-----------|
-| Risk management file completeness | Annual |
-| Risk control effectiveness | Annual |
-| Post-market information analysis | Quarterly |
-| Risk-benefit conclusions | Annual or on new data |
+| Review Element                    | Frequency             |
+| --------------------------------- | --------------------- |
+| Risk management file completeness | Annual                |
+| Risk control effectiveness        | Annual                |
+| Post-market information analysis  | Quarterly             |
+| Risk-benefit conclusions          | Annual or on new data |
 
 ---
 
 ## Risk Assessment Templates
+
 → See references/risk-assessment-templates.md for details
 
 ## Decision Frameworks
@@ -389,20 +390,20 @@ What is the risk level?
 
 ### New Hazard Analysis
 
-| Question | If Yes | If No |
-|----------|--------|-------|
-| Does control introduce new hazard? | Analyze new hazard | Proceed |
-| Is new risk higher than original? | Reject control option | Acceptable trade-off |
-| Can new hazard be controlled? | Add control | Reject control option |
+| Question                           | If Yes                | If No                 |
+| ---------------------------------- | --------------------- | --------------------- |
+| Does control introduce new hazard? | Analyze new hazard    | Proceed               |
+| Is new risk higher than original?  | Reject control option | Acceptable trade-off  |
+| Can new hazard be controlled?      | Add control           | Reject control option |
 
 ### Risk Acceptability Decision
 
-| Condition | Decision |
-|-----------|----------|
-| All risks Low | Acceptable |
-| Medium risks with ALARP | Acceptable |
+| Condition                        | Decision                        |
+| -------------------------------- | ------------------------------- |
+| All risks Low                    | Acceptable                      |
+| Medium risks with ALARP          | Acceptable                      |
 | High risks with ALARP documented | Acceptable if benefits outweigh |
-| Any Unacceptable residual | Not acceptable - redesign |
+| Any Unacceptable residual        | Not acceptable - redesign       |
 
 ---
 
@@ -410,11 +411,12 @@ What is the risk level?
 
 ### Scripts
 
-| Tool | Purpose | Usage |
-|------|---------|-------|
+| Tool                                                           | Purpose                            | Usage                                     |
+| -------------------------------------------------------------- | ---------------------------------- | ----------------------------------------- |
 | [risk_matrix_calculator.py](scripts/risk_matrix_calculator.py) | Calculate risk levels and FMEA RPN | `python risk_matrix_calculator.py --help` |
 
 **Risk Matrix Calculator Features:**
+
 - ISO 14971 5x5 risk matrix calculation
 - FMEA RPN (Risk Priority Number) calculation
 - Interactive mode for guided assessment
@@ -423,29 +425,29 @@ What is the risk level?
 
 ### References
 
-| Document | Content |
-|----------|---------|
+| Document                                                                        | Content                                               |
+| ------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | [iso14971-implementation-guide.md](references/iso14971-implementation-guide.md) | Complete ISO 14971:2019 implementation with templates |
-| [risk-analysis-methods.md](references/risk-analysis-methods.md) | FMEA, FTA, HAZOP, Use Error Analysis methods |
+| [risk-analysis-methods.md](references/risk-analysis-methods.md)                 | FMEA, FTA, HAZOP, Use Error Analysis methods          |
 
 ### Quick Reference: ISO 14971 Process
 
-| Stage | Key Activities | Output |
-|-------|----------------|--------|
-| Planning | Define scope, criteria, responsibilities | Risk Management Plan |
-| Analysis | Identify hazards, estimate risk | Hazard Analysis |
-| Evaluation | Compare to criteria, ALARP assessment | Risk Evaluation |
-| Control | Implement hierarchy, verify | Risk Control Records |
-| Residual | Overall assessment, benefit-risk | Risk Management Report |
-| Production | Monitor, review, update | Updated RM File |
+| Stage      | Key Activities                           | Output                 |
+| ---------- | ---------------------------------------- | ---------------------- |
+| Planning   | Define scope, criteria, responsibilities | Risk Management Plan   |
+| Analysis   | Identify hazards, estimate risk          | Hazard Analysis        |
+| Evaluation | Compare to criteria, ALARP assessment    | Risk Evaluation        |
+| Control    | Implement hierarchy, verify              | Risk Control Records   |
+| Residual   | Overall assessment, benefit-risk         | Risk Management Report |
+| Production | Monitor, review, update                  | Updated RM File        |
 
 ---
 
 ## Related Skills
 
-| Skill | Integration Point |
-|-------|-------------------|
-| [quality-manager-qms-iso13485](../quality-manager-qms-iso13485/) | QMS integration |
-| [capa-officer](../capa-officer/) | Risk-based CAPA |
-| [regulatory-affairs-head](../regulatory-affairs-head/) | Regulatory submissions |
-| [quality-documentation-manager](../quality-documentation-manager/) | Risk file management |
+| Skill                                                              | Integration Point      |
+| ------------------------------------------------------------------ | ---------------------- |
+| [quality-manager-qms-iso13485](../quality-manager-qms-iso13485/)   | QMS integration        |
+| [capa-officer](../capa-officer/)                                   | Risk-based CAPA        |
+| [regulatory-affairs-head](../regulatory-affairs-head/)             | Regulatory submissions |
+| [quality-documentation-manager](../quality-documentation-manager/) | Risk file management   |

@@ -1,6 +1,6 @@
 ---
 name: "content-strategy"
-description: "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" or \"content planning.\" For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit."
+description: 'When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions "content strategy," "what should I write about," "content ideas," "blog strategy," "topic clusters," or "content planning." For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit.'
 license: MIT
 metadata:
   version: 1.0.0
@@ -21,29 +21,34 @@ If `.claude/product-marketing-context.md` exists, read it before asking question
 Gather this context (ask if not provided):
 
 ### 1. Business Context
+
 - What does the company do?
 - Who is the ideal customer?
 - What's the primary goal for content? (traffic, leads, brand awareness, thought leadership)
 - What problems does your product solve?
 
 ### 2. Customer Research
+
 - What questions do customers ask before buying?
 - What objections come up in sales calls?
 - What topics appear repeatedly in support tickets?
 - What language do customers use to describe their problems?
 
 ### 3. Current State
+
 - Do you have existing content? What's working?
 - What resources do you have? (writers, budget, time)
 - What content formats can you produce? (written, video, audio)
 
 ### 4. Competitive Landscape
+
 - Who are your main competitors?
 - What content gaps exist in your market?
 
 ---
 
 ## Searchable vs Shareable
+
 → See references/content-strategy-reference.md for details
 
 ## Output Format
@@ -51,12 +56,15 @@ Gather this context (ask if not provided):
 When creating a content strategy, provide:
 
 ### 1. Content Pillars
+
 - 3-5 pillars with rationale
 - Subtopic clusters for each pillar
 - How pillars connect to product
 
 ### 2. Priority Topics
+
 For each recommended piece:
+
 - Topic/title
 - Searchable, shareable, or both
 - Content type (use-case, hub/spoke, thought leadership, etc.)
@@ -64,6 +72,7 @@ For each recommended piece:
 - Why this topic (customer research backing)
 
 ### 3. Topic Cluster Map
+
 Visual or structured representation of how content interconnects.
 
 ---
@@ -92,13 +101,13 @@ Surface these issues WITHOUT being asked when you notice them in context:
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|---------------------|------------|
-| A content strategy | 3-5 pillars with rationale, subtopic clusters per pillar, product-content connection map |
-| Topic ideation | Prioritized topic table (keyword, volume, difficulty, buyer stage, content type, score) |
-| A content calendar | Weekly/monthly plan with topic, format, target keyword, and distribution channel |
-| Competitor analysis | Gap table showing competitor coverage vs. your coverage with opportunity ratings |
-| A content brief | Single-page brief: goal, audience, keyword, outline, CTA, internal links, proof points |
+| When you ask for... | You get...                                                                               |
+| ------------------- | ---------------------------------------------------------------------------------------- |
+| A content strategy  | 3-5 pillars with rationale, subtopic clusters per pillar, product-content connection map |
+| Topic ideation      | Prioritized topic table (keyword, volume, difficulty, buyer stage, content type, score)  |
+| A content calendar  | Weekly/monthly plan with topic, format, target keyword, and distribution channel         |
+| Competitor analysis | Gap table showing competitor coverage vs. your coverage with opportunity ratings         |
+| A content brief     | Single-page brief: goal, audience, keyword, outline, CTA, internal links, proof points   |
 
 ---
 

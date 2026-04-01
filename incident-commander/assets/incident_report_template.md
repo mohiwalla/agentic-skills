@@ -15,16 +15,16 @@
 
 ## Impact Statement
 
-| Metric | Value |
-|--------|-------|
-| **Duration** | [X hours Y minutes] |
-| **Affected Users** | [number or percentage] |
-| **Failed Transactions** | [number] |
-| **Revenue Impact** | $[amount] |
-| **Data Loss** | [Yes/No — if yes, detail below] |
-| **SLA Impact** | [X.XX% availability for period] |
-| **Affected Regions** | [list regions] |
-| **Affected Services** | [list services] |
+| Metric                  | Value                           |
+| ----------------------- | ------------------------------- |
+| **Duration**            | [X hours Y minutes]             |
+| **Affected Users**      | [number or percentage]          |
+| **Failed Transactions** | [number]                        |
+| **Revenue Impact**      | $[amount]                       |
+| **Data Loss**           | [Yes/No — if yes, detail below] |
+| **SLA Impact**          | [X.XX% availability for period] |
+| **Affected Regions**    | [list regions]                  |
+| **Affected Services**   | [list services]                 |
 
 ### Customer-Facing Impact
 
@@ -34,14 +34,14 @@
 
 ## Timeline
 
-| Time (UTC) | Phase | Event |
-|------------|-------|-------|
-| HH:MM | Detection | [First alert or report] |
-| HH:MM | Declaration | [Incident declared, channel created] |
-| HH:MM | Investigation | [Key investigation findings] |
-| HH:MM | Mitigation | [Mitigation action taken] |
-| HH:MM | Resolution | [Permanent fix applied] |
-| HH:MM | Closure | [Incident closed, monitoring confirmed stable] |
+| Time (UTC) | Phase         | Event                                          |
+| ---------- | ------------- | ---------------------------------------------- |
+| HH:MM      | Detection     | [First alert or report]                        |
+| HH:MM      | Declaration   | [Incident declared, channel created]           |
+| HH:MM      | Investigation | [Key investigation findings]                   |
+| HH:MM      | Mitigation    | [Mitigation action taken]                      |
+| HH:MM      | Resolution    | [Permanent fix applied]                        |
+| HH:MM      | Closure       | [Incident closed, monitoring confirmed stable] |
 
 ### Key Decision Points
 
@@ -87,24 +87,24 @@
 
 ## Response Metrics
 
-| Metric | Value | Target | Status |
-|--------|-------|--------|--------|
-| **MTTD** (Mean Time to Detect) | [X min] | <5 min | [Met/Missed] |
-| **Time to Declare** | [X min] | <10 min | [Met/Missed] |
-| **Time to Mitigate** | [X min] | <60 min (SEV1) | [Met/Missed] |
-| **MTTR** (Mean Time to Resolve) | [X min] | <4 hr (SEV1) | [Met/Missed] |
-| **Postmortem Timeliness** | [X hours] | <72 hr | [Met/Missed] |
+| Metric                          | Value     | Target         | Status       |
+| ------------------------------- | --------- | -------------- | ------------ |
+| **MTTD** (Mean Time to Detect)  | [X min]   | <5 min         | [Met/Missed] |
+| **Time to Declare**             | [X min]   | <10 min        | [Met/Missed] |
+| **Time to Mitigate**            | [X min]   | <60 min (SEV1) | [Met/Missed] |
+| **MTTR** (Mean Time to Resolve) | [X min]   | <4 hr (SEV1)   | [Met/Missed] |
+| **Postmortem Timeliness**       | [X hours] | <72 hr         | [Met/Missed] |
 
 ---
 
 ## Action Items
 
-| # | Priority | Action | Owner | Deadline | Type | Status |
-|---|----------|--------|-------|----------|------|--------|
-| 1 | P1 | [Action description] | [owner] | [date] | Detection | Open |
-| 2 | P1 | [Action description] | [owner] | [date] | Prevention | Open |
-| 3 | P2 | [Action description] | [owner] | [date] | Prevention | Open |
-| 4 | P2 | [Action description] | [owner] | [date] | Process | Open |
+| #   | Priority | Action               | Owner   | Deadline | Type       | Status |
+| --- | -------- | -------------------- | ------- | -------- | ---------- | ------ |
+| 1   | P1       | [Action description] | [owner] | [date]   | Detection  | Open   |
+| 2   | P1       | [Action description] | [owner] | [date]   | Prevention | Open   |
+| 3   | P2       | [Action description] | [owner] | [date]   | Prevention | Open   |
+| 4   | P2       | [Action description] | [owner] | [date]   | Process    | Open   |
 
 ### Action Item Types
 
@@ -135,21 +135,21 @@
 
 ## Communication Log
 
-| Time (UTC) | Channel | Audience | Summary |
-|------------|---------|----------|---------|
-| HH:MM | Status Page | External | [Summary of update] |
-| HH:MM | Slack #exec | Internal | [Summary of update] |
-| HH:MM | Email | Customers | [Summary of notification] |
+| Time (UTC) | Channel     | Audience  | Summary                   |
+| ---------- | ----------- | --------- | ------------------------- |
+| HH:MM      | Status Page | External  | [Summary of update]       |
+| HH:MM      | Slack #exec | Internal  | [Summary of update]       |
+| HH:MM      | Email       | Customers | [Summary of notification] |
 
 ---
 
 ## Participants
 
-| Name | Role |
-|------|------|
-| [Name] | Incident Commander |
-| [Name] | Operations Lead |
-| [Name] | Communications Lead |
+| Name   | Role                  |
+| ------ | --------------------- |
+| [Name] | Incident Commander    |
+| [Name] | Operations Lead       |
+| [Name] | Communications Lead   |
 | [Name] | Subject Matter Expert |
 
 ---
@@ -168,4 +168,4 @@
 
 ---
 
-*This report follows the blameless postmortem principle. The goal is systemic improvement, not individual accountability. All contributing factors should trace to process, tooling, or environmental gaps that can be addressed with concrete action items.*
+_This report follows the blameless postmortem principle. The goal is systemic improvement, not individual accountability. All contributing factors should trace to process, tooling, or environmental gaps that can be addressed with concrete action items._

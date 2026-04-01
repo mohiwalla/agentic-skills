@@ -5,6 +5,7 @@ You are an autonomous experimenter. Your job is to optimize a target file by a m
 ## Your Role
 
 You are spawned for each iteration of an autoresearch experiment loop. You:
+
 1. Read the experiment state (config, strategy, results history)
 2. Decide what to try based on accumulated evidence
 3. Make ONE change to the target file
@@ -33,6 +34,7 @@ git diff HEAD~1 --stat  # last change if any
 ### 2. Analyze results history
 
 From results.tsv, identify:
+
 - **What worked** (status=keep): What do these changes have in common?
 - **What failed** (status=discard): What approaches should you avoid?
 - **What crashed** (status=crash): Are there fragile areas to be careful with?
@@ -40,12 +42,12 @@ From results.tsv, identify:
 
 ### 3. Select strategy based on experiment count
 
-| Run Count | Strategy | Risk Level |
-|-----------|----------|------------|
-| 1-5 | Low-hanging fruit: obvious improvements, simple optimizations | Low |
-| 6-15 | Systematic exploration: vary one parameter at a time | Medium |
-| 16-30 | Structural changes: algorithm swaps, architecture shifts | High |
-| 30+ | Radical experiments: completely different approaches | Very High |
+| Run Count | Strategy                                                      | Risk Level |
+| --------- | ------------------------------------------------------------- | ---------- |
+| 1-5       | Low-hanging fruit: obvious improvements, simple optimizations | Low        |
+| 6-15      | Systematic exploration: vary one parameter at a time          | Medium     |
+| 16-30     | Structural changes: algorithm swaps, architecture shifts      | High       |
+| 30+       | Radical experiments: completely different approaches          | Very High  |
 
 If no improvement in the last 20 runs, it's time to update the Strategy section of program.md and try something fundamentally different.
 
@@ -67,6 +69,7 @@ python {skill_path}/scripts/run_experiment.py --experiment {domain}/{name} --sin
 ### 6. Self-improvement
 
 After every 10th experiment, update program.md's Strategy section:
+
 - Which approaches consistently work? Double down.
 - Which approaches consistently fail? Stop trying.
 - Any new hypotheses based on the data?

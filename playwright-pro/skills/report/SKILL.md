@@ -34,6 +34,7 @@ npx playwright test --reporter=json 2> /dev/null
 ```
 
 Extract:
+
 - Total tests, passed, failed, skipped, flaky
 - Duration per test and total
 - Failed test names with error messages
@@ -43,13 +44,13 @@ Extract:
 
 Check what's configured and route automatically:
 
-| Check | If found | Action |
-|---|---|---|
-| `TESTRAIL_URL` env var | TestRail configured | Push results via `/pw:testrail push` |
-| `SLACK_WEBHOOK_URL` env var | Slack configured | Post summary to Slack |
-| `.github/workflows/` | GitHub Actions | Results go to PR comment via artifacts |
-| `playwright-report/` | HTML reporter | Open or serve the report |
-| None of the above | Default | Generate markdown report |
+| Check                       | If found            | Action                                 |
+| --------------------------- | ------------------- | -------------------------------------- |
+| `TESTRAIL_URL` env var      | TestRail configured | Push results via `/pw:testrail push`   |
+| `SLACK_WEBHOOK_URL` env var | Slack configured    | Post summary to Slack                  |
+| `.github/workflows/`        | GitHub Actions      | Results go to PR comment via artifacts |
+| `playwright-report/`        | HTML reporter       | Open or serve the report               |
+| None of the above           | Default             | Generate markdown report               |
 
 ### 4. Generate Report
 
@@ -59,6 +60,7 @@ Check what's configured and route automatically:
 # Test Results — {{date}}
 
 ## Summary
+
 - ✅ Passed: {{passed}}
 - ❌ Failed: {{failed}}
 - ⏭️ Skipped: {{skipped}}
@@ -66,21 +68,24 @@ Check what's configured and route automatically:
 - ⏱️ Duration: {{duration}}
 
 ## Failed Tests
-| Test | Error | File |
-|---|---|---|
+
+| Test     | Error     | File              |
+| -------- | --------- | ----------------- |
 | {{name}} | {{error}} | {{file}}:{{line}} |
 
 ## Flaky Tests
-| Test | Retries | File |
-|---|---|---|
+
+| Test     | Retries     | File     |
+| -------- | ----------- | -------- |
 | {{name}} | {{retries}} | {{file}} |
 
 ## By Project
-| Browser | Passed | Failed | Duration |
-|---|---|---|---|
-| Chromium | X | Y | Zs |
-| Firefox | X | Y | Zs |
-| WebKit | X | Y | Zs |
+
+| Browser  | Passed | Failed | Duration |
+| -------- | ------ | ------ | -------- |
+| Chromium | X      | Y      | Zs       |
+| Firefox  | X      | Y      | Zs       |
+| WebKit   | X      | Y      | Zs       |
 ```
 
 Save to `test-reports/{{date}}-report.md`.
@@ -106,6 +111,7 @@ npx playwright show-report
 ```
 
 Or if in CI:
+
 ```bash
 echo "HTML report available at: playwright-report/index.html"
 ```
@@ -113,6 +119,7 @@ echo "HTML report available at: playwright-report/index.html"
 ### 5. Trend Analysis (If Historical Data Exists)
 
 If previous reports exist in `test-reports/`:
+
 - Compare pass rate over time
 - Identify tests that became flaky recently
 - Highlight new failures vs. recurring failures

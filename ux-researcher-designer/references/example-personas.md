@@ -69,6 +69,7 @@ Quote: "I need tools that can keep up with my workflow"
 ### Data Behind This Persona
 
 **Quantitative Data (n=45):**
+
 - 78% use product daily
 - Average session: 23 minutes
 - Average features used: 12
@@ -77,12 +78,12 @@ Quote: "I need tools that can keep up with my workflow"
 
 **Qualitative Insights (12 interviews):**
 
-| Theme | Frequency | Sample Quote |
-|-------|-----------|--------------|
-| Speed matters | 10/12 | "Every second counts when I'm in flow" |
-| Shortcuts wanted | 8/12 | "Why can't I Cmd+K to search?" |
-| Automation need | 9/12 | "I wrote a script to work around..." |
-| Customization | 7/12 | "Let me hide features I don't use" |
+| Theme            | Frequency | Sample Quote                           |
+| ---------------- | --------- | -------------------------------------- |
+| Speed matters    | 10/12     | "Every second counts when I'm in flow" |
+| Shortcuts wanted | 8/12      | "Why can't I Cmd+K to search?"         |
+| Automation need  | 9/12      | "I wrote a script to work around..."   |
+| Customization    | 7/12      | "Let me hide features I don't use"     |
 
 ---
 
@@ -141,6 +142,7 @@ Quote: "I need to show clear value to my stakeholders"
 ### Data Behind This Persona
 
 **Survey Data (n=200):**
+
 - 19% of total user base fits this profile
 - Average company size: 50-500 employees
 - 72% need to share outputs with non-users
@@ -148,12 +150,12 @@ Quote: "I need to show clear value to my stakeholders"
 
 **Interview Insights (18 interviews):**
 
-| Need | Frequency | Business Impact |
-|------|-----------|-----------------|
-| Reporting | 16/18 | "I spend 2hrs/week making slides" |
-| Team access | 14/18 | "Can't show my team what I see" |
-| Integration | 12/18 | "Copy-paste into Confluence..." |
-| SSO | 11/18 | "IT won't approve without SSO" |
+| Need        | Frequency | Business Impact                   |
+| ----------- | --------- | --------------------------------- |
+| Reporting   | 16/18     | "I spend 2hrs/week making slides" |
+| Team access | 14/18     | "Can't show my team what I see"   |
+| Integration | 12/18     | "Copy-paste into Confluence..."   |
+| SSO         | 11/18     | "IT won't approve without SSO"    |
 
 ### Scenario: Quarterly Review Prep
 
@@ -234,6 +236,7 @@ Quote: "I just want it to work without having to think about it"
 ### Data Behind This Persona
 
 **Analytics Data (n=1,200 casual segment):**
+
 - 65% of users are casual (< 1 session/week)
 - Average features used: 2.3
 - Return rate after 30 days: 34%
@@ -241,12 +244,12 @@ Quote: "I just want it to work without having to think about it"
 
 **Intercept Interview Insights (25 quick interviews):**
 
-| Quote | Count | Implication |
-|-------|-------|-------------|
-| "Where's the thing I used last time?" | 18 | Need breadcrumbs/history |
-| "There's so much here" | 15 | Simplify main view |
-| "I only need to do X" | 22 | Surface common tasks |
-| "Is there a tutorial?" | 11 | Better help system |
+| Quote                                 | Count | Implication              |
+| ------------------------------------- | ----- | ------------------------ |
+| "Where's the thing I used last time?" | 18    | Need breadcrumbs/history |
+| "There's so much here"                | 15    | Simplify main view       |
+| "I only need to do X"                 | 22    | Surface common tasks     |
+| "Is there a tutorial?"                | 11    | Better help system       |
 
 ### Journey: Infrequent Task Completion
 
@@ -303,14 +306,8 @@ Stage 4: Task Completion
     "learning_preference": "Self-directed, documentation"
   },
   "needs_and_goals": {
-    "primary_goals": [
-      "Complete tasks efficiently",
-      "Automate workflows"
-    ],
-    "secondary_goals": [
-      "Customize workspace",
-      "Integrate with other tools"
-    ],
+    "primary_goals": ["Complete tasks efficiently", "Automate workflows"],
+    "secondary_goals": ["Customize workspace", "Integrate with other tools"],
     "functional_needs": [
       "Speed and performance",
       "Keyboard shortcuts",
@@ -371,41 +368,42 @@ cat persona_power_user.json | jq '.design_implications'
 
 ### What Makes a Good Persona
 
-| Criterion | Bad Example | Good Example |
-|-----------|-------------|--------------|
-| **Specificity** | "Wants to be productive" | "Needs to process 50+ items daily" |
-| **Evidence** | "Users want simplicity" | "18/25 users said 'too many options'" |
-| **Actionable** | "Likes easy things" | "Hide advanced features by default" |
-| **Memorable** | Generic descriptions | Distinctive quote and archetype |
-| **Validated** | Team assumptions | User interviews + analytics |
+| Criterion       | Bad Example              | Good Example                          |
+| --------------- | ------------------------ | ------------------------------------- |
+| **Specificity** | "Wants to be productive" | "Needs to process 50+ items daily"    |
+| **Evidence**    | "Users want simplicity"  | "18/25 users said 'too many options'" |
+| **Actionable**  | "Likes easy things"      | "Hide advanced features by default"   |
+| **Memorable**   | Generic descriptions     | Distinctive quote and archetype       |
+| **Validated**   | Team assumptions         | User interviews + analytics           |
 
 ### Persona Quality Rubric
 
-| Element | Points | Criteria |
-|---------|--------|----------|
-| Data-backed demographics | /5 | From real user data |
-| Specific goals | /5 | Actionable, measurable |
-| Evidenced frustrations | /5 | With frequency counts |
-| Design implications | /5 | Directly usable by designers |
-| Authentic quote | /5 | From actual user |
-| Confidence stated | /5 | Sample size and method |
+| Element                  | Points | Criteria                     |
+| ------------------------ | ------ | ---------------------------- |
+| Data-backed demographics | /5     | From real user data          |
+| Specific goals           | /5     | Actionable, measurable       |
+| Evidenced frustrations   | /5     | With frequency counts        |
+| Design implications      | /5     | Directly usable by designers |
+| Authentic quote          | /5     | From actual user             |
+| Confidence stated        | /5     | Sample size and method       |
 
 **Score:**
+
 - 25-30: Production-ready persona
 - 18-24: Needs refinement
 - Below 18: Requires more research
 
 ### Red Flags in Persona Output
 
-| Red Flag | What It Means |
-|----------|---------------|
-| No sample size | Ungrounded assumptions |
-| Generic frustrations | Didn't do user research |
-| All positive | Missing real pain points |
-| No quotes | No qualitative research |
-| Contradicting behaviors | Forced archetype |
-| "Everyone" language | Too broad to be useful |
+| Red Flag                | What It Means            |
+| ----------------------- | ------------------------ |
+| No sample size          | Ungrounded assumptions   |
+| Generic frustrations    | Didn't do user research  |
+| All positive            | Missing real pain points |
+| No quotes               | No qualitative research  |
+| Contradicting behaviors | Forced archetype         |
+| "Everyone" language     | Too broad to be useful   |
 
 ---
 
-*See also: `persona-methodology.md` for creation process*
+_See also: `persona-methodology.md` for creation process_

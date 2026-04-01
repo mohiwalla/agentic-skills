@@ -3,6 +3,7 @@
 Tests category filter, price range, and checkbox filters.
 
 ## Prerequisites
+
 - Search results available for `{{searchQuery}}`
 - Category `{{filterCategory}}` with items
 - App running at `{{baseUrl}}`
@@ -90,39 +91,44 @@ test.describe('Search Filters', () => {
 ## JavaScript
 
 ```javascript
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require("@playwright/test")
 
-test.describe('Search Filters', () => {
+test.describe("Search Filters", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('{{baseUrl}}/search?q={{searchQuery}}');
-  });
+    await page.goto("{{baseUrl}}/search?q={{searchQuery}}")
+  })
 
-  test('filters results by category', async ({ page }) => {
-    await page.getByRole('checkbox', { name: '{{filterCategory}}' }).check();
-    await expect(page).toHaveURL(/category={{filterCategory}}/);
-    await expect(page.getByRole('listitem').first()).toBeVisible();
-  });
+  test("filters results by category", async ({ page }) => {
+    await page.getByRole("checkbox", { name: "{{filterCategory}}" }).check()
+    await expect(page).toHaveURL(/category={{filterCategory}}/)
+    await expect(page.getByRole("listitem").first()).toBeVisible()
+  })
 
-  test('shows active filter chips', async ({ page }) => {
-    await page.getByRole('checkbox', { name: '{{filterCategory}}' }).check();
-    await expect(page.getByRole('button', { name: /remove.*{{filterCategory}}/i })).toBeVisible();
-  });
+  test("shows active filter chips", async ({ page }) => {
+    await page.getByRole("checkbox", { name: "{{filterCategory}}" }).check()
+    await expect(
+      page.getByRole("button", { name: /remove.*{{filterCategory}}/i }),
+    ).toBeVisible()
+  })
 
-  test('clears all filters', async ({ page }) => {
-    await page.getByRole('checkbox', { name: '{{filterCategory}}' }).check();
-    await page.getByRole('button', { name: /clear all filters/i }).click();
-    await expect(page.getByRole('checkbox', { name: '{{filterCategory}}' })).not.toBeChecked();
-  });
-});
+  test("clears all filters", async ({ page }) => {
+    await page.getByRole("checkbox", { name: "{{filterCategory}}" }).check()
+    await page.getByRole("button", { name: /clear all filters/i }).click()
+    await expect(
+      page.getByRole("checkbox", { name: "{{filterCategory}}" }),
+    ).not.toBeChecked()
+  })
+})
 ```
 
 ## Variants
-| Variant | Description |
-|---------|-------------|
-| Category filter | Checkbox → results scoped to category |
-| Price range | Min/max filter applied, prices verified |
-| Multi-filter | Multiple checkboxes combine in URL |
-| Filter chips | Active filters shown as removable chips |
-| Remove chip | Chip close → filter unchecked |
-| Clear all | All filters removed at once |
-| No-results combo | Filter combination yields empty state |
+
+| Variant          | Description                             |
+| ---------------- | --------------------------------------- |
+| Category filter  | Checkbox → results scoped to category   |
+| Price range      | Min/max filter applied, prices verified |
+| Multi-filter     | Multiple checkboxes combine in URL      |
+| Filter chips     | Active filters shown as removable chips |
+| Remove chip      | Chip close → filter unchecked           |
+| Clear all        | All filters removed at once             |
+| No-results combo | Filter combination yields empty state   |

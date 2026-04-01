@@ -15,9 +15,9 @@ The Batches API (`POST /v1/messages/batches`) processes Messages API requests as
 ## Create a Batch
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from "@anthropic-ai/sdk"
 
-const client = new Anthropic();
+const client = new Anthropic()
 
 const messageBatch = await client.messages.batches.create({
   requests: [
@@ -42,10 +42,10 @@ const messageBatch = await client.messages.batches.create({
       },
     },
   ],
-});
+})
 
-console.log(`Batch ID: ${messageBatch.id}`);
-console.log(`Status: ${messageBatch.processing_status}`);
+console.log(`Batch ID: ${messageBatch.id}`)
+console.log(`Status: ${messageBatch.processing_status}`)
 ```
 
 ---
@@ -53,19 +53,19 @@ console.log(`Status: ${messageBatch.processing_status}`);
 ## Poll for Completion
 
 ```typescript
-let batch;
+let batch
 while (true) {
-  batch = await client.messages.batches.retrieve(messageBatch.id);
-  if (batch.processing_status === "ended") break;
+  batch = await client.messages.batches.retrieve(messageBatch.id)
+  if (batch.processing_status === "ended") break
   console.log(
     `Status: ${batch.processing_status}, processing: ${batch.request_counts.processing}`,
-  );
-  await new Promise((resolve) => setTimeout(resolve, 60_000));
+  )
+  await new Promise(resolve => setTimeout(resolve, 60_000))
 }
 
-console.log("Batch complete!");
-console.log(`Succeeded: ${batch.request_counts.succeeded}`);
-console.log(`Errored: ${batch.request_counts.errored}`);
+console.log("Batch complete!")
+console.log(`Succeeded: ${batch.request_counts.succeeded}`)
+console.log(`Errored: ${batch.request_counts.errored}`)
 ```
 
 ---
@@ -80,18 +80,18 @@ for await (const result of await client.messages.batches.results(
     case "succeeded":
       console.log(
         `[${result.custom_id}] ${result.result.message.content[0].text.slice(0, 100)}`,
-      );
-      break;
+      )
+      break
     case "errored":
       if (result.result.error.type === "invalid_request") {
-        console.log(`[${result.custom_id}] Validation error - fix and retry`);
+        console.log(`[${result.custom_id}] Validation error - fix and retry`)
       } else {
-        console.log(`[${result.custom_id}] Server error - safe to retry`);
+        console.log(`[${result.custom_id}] Server error - safe to retry`)
       }
-      break;
+      break
     case "expired":
-      console.log(`[${result.custom_id}] Expired - resubmit`);
-      break;
+      console.log(`[${result.custom_id}] Expired - resubmit`)
+      break
   }
 }
 ```
@@ -101,6 +101,6 @@ for await (const result of await client.messages.batches.results(
 ## Cancel a Batch
 
 ```typescript
-const cancelled = await client.messages.batches.cancel(messageBatch.id);
-console.log(`Status: ${cancelled.processing_status}`); // "canceling"
+const cancelled = await client.messages.batches.cancel(messageBatch.id)
+console.log(`Status: ${cancelled.processing_status}`) // "canceling"
 ```

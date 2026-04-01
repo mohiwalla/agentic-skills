@@ -21,12 +21,14 @@ You are a test migration specialist. Your job is to analyze an existing Cypress 
 Scan the project:
 
 **Cypress indicators:**
+
 - `cypress/` directory
 - `cypress.config.ts` or `cypress.config.js`
 - `@cypress` packages in `package.json`
 - `.cy.ts` or `.cy.js` test files
 
 **Selenium indicators:**
+
 - `selenium-webdriver` in dependencies
 - `webdriver` or `wdio` in dependencies
 - Test files importing `selenium-webdriver`
@@ -36,6 +38,7 @@ Scan the project:
 ### Step 2: Inventory All Test Files
 
 List every test file with:
+
 - File path
 - Number of tests (count `it()`, `test()`, or test methods)
 - Dependencies (custom commands, page objects, fixtures)
@@ -56,22 +59,27 @@ List every test file with:
 Identify shared resources that need migration:
 
 **Custom commands** (`cypress/support/commands.ts`):
+
 - List each command and what it does
 - Map to Playwright equivalent (fixture, helper function, or page object)
 
 **Fixtures** (`cypress/fixtures/`):
+
 - List data files
 - Plan: copy to `test-data/` with any format adjustments
 
 **Plugins** (`cypress/plugins/`):
+
 - List plugin functionality
 - Map to Playwright config options or fixtures
 
 **Page Objects** (if used):
+
 - List page object files
 - Plan: convert API calls (minimal structural change)
 
 **Support files** (`cypress/support/`):
+
 - List setup/teardown logic
 - Map to `playwright.config.ts` or `fixtures/`
 
@@ -102,15 +110,16 @@ Order files by dependency graph:
 
 ### Step 5: Estimate Effort
 
-| Complexity | Time per test | Notes |
-|---|---|---|
-| Simple | 2-3 min | Direct API mapping |
-| Medium | 5-10 min | Needs locator upgrade |
-| Complex | 10-20 min | Custom commands, plugins, complex flows |
+| Complexity | Time per test | Notes                                   |
+| ---------- | ------------- | --------------------------------------- |
+| Simple     | 2-3 min       | Direct API mapping                      |
+| Medium     | 5-10 min      | Needs locator upgrade                   |
+| Complex    | 10-20 min     | Custom commands, plugins, complex flows |
 
 ### Step 6: Identify Risks
 
 Flag tests that may need manual intervention:
+
 - Tests using Cypress-only features (`cy.origin()`, `cy.session()`)
 - Tests with complex `cy.intercept()` patterns
 - Tests relying on Cypress retry-ability semantics

@@ -20,24 +20,26 @@ Span of control = number of direct reports a manager has.
 
 ### Benchmarks
 
-| Role Type | Optimal Span | Min | Max |
-|-----------|-------------|-----|-----|
-| IC manager (predictable work) | 7–10 | 5 | 12 |
-| IC manager (complex/creative work) | 5–7 | 4 | 8 |
-| Manager of managers | 4–6 | 3 | 7 |
-| VP / Director | 4–7 | 3 | 8 |
-| C-Suite | 5–9 | 4 | 10 |
+| Role Type                          | Optimal Span | Min | Max |
+| ---------------------------------- | ------------ | --- | --- |
+| IC manager (predictable work)      | 7–10         | 5   | 12  |
+| IC manager (complex/creative work) | 5–7          | 4   | 8   |
+| Manager of managers                | 4–6          | 3   | 7   |
+| VP / Director                      | 4–7          | 3   | 8   |
+| C-Suite                            | 5–9          | 4   | 10  |
 
 **Too narrow (< 4 ICs):** Over-management, high cost per output, manager becomes a bottleneck
 **Too wide (> 12 ICs):** Under-management, degraded 1:1 quality, feedback loops collapse
 
 ### Factors that allow wider spans
+
 - Highly autonomous, senior team (L3+ ICs)
 - Predictable, well-defined work (support, ops)
 - Strong tooling and process (reduces manager overhead)
 - Experienced manager
 
 ### Factors that require narrower spans
+
 - High-complexity, undefined problems (research, early product)
 - Junior or newly promoted team members
 - High interdependence between reports (coordination overhead)
@@ -65,6 +67,7 @@ Span of control = number of direct reports a manager has.
 ### The Rule of 7
 
 When any manager has 7 or more direct reports and:
+
 - 1:1s are skipped regularly
 - Feedback quality drops
 - Manager can't answer "how is each person doing?" without checking notes
@@ -77,6 +80,7 @@ Every manager layer costs 10–15% in decision speed (communication hops).
 Every management role without a team = pure overhead.
 
 **Litmus test for each management role:**
+
 - Does this person have at least 4 ICs under them?
 - Would removing this role improve decision speed?
 - Is this a management job or a "we ran out of IC levels" job?
@@ -125,11 +129,13 @@ CEO
 **Disadvantage:** Duplication risk; harder to maintain technical coherence; harder career paths
 
 ### When to shift from Functional → Product org
+
 - You have 2+ distinct product lines that rarely share features
 - Cross-functional feature delivery takes > 3 sprints of coordination overhead
 - Teams are > 8 engineers and still waiting on shared resources
 
 ### Hybrid / Matrix (avoid unless necessary)
+
 Matrix reporting (e.g., engineer reports to EM + PM) creates accountability confusion. Avoid at < 500 people.
 
 ---
@@ -141,6 +147,7 @@ Matrix reporting (e.g., engineer reports to EM + PM) creates accountability conf
 Early startups over-title to compete with cash. "VP of Engineering" with 2 reports. "Head of Marketing" with no team.
 
 **Consequences:**
+
 - Can't add leadership above inflated titles without awkward conversations
 - Candidates from mature companies expect scope commensurate with titles
 - Internal equity breaks when the same title means different things
@@ -154,35 +161,35 @@ Early startups over-title to compete with cash. "VP of Engineering" with 2 repor
 
 ### Engineering Title Ladder (example)
 
-| Title | Level | Scope | Reports |
-|-------|-------|-------|---------|
-| Software Engineer I | L1 | Executes defined tasks | — |
-| Software Engineer II | L2 | Independent delivery | — |
-| Senior Software Engineer | L3 | Leads features, mentors | — |
-| Staff Software Engineer | L4 | Cross-team technical leadership | — |
-| Principal Software Engineer | L5 | Company-wide technical direction | — |
-| Distinguished Engineer | L6 | External recognition, defining practice | — |
-| Engineering Manager | M1 | Team of 4–8 engineers | 4–8 ICs |
-| Senior Engineering Manager | M2 | Larger team or manager of managers | 2–4 managers |
-| Director of Engineering | M3 | Functional area | Multiple managers |
-| VP of Engineering | M4 | Engineering org | Directors |
-| CTO | M5 | Technical organization + strategy | VPs |
+| Title                       | Level | Scope                                   | Reports           |
+| --------------------------- | ----- | --------------------------------------- | ----------------- |
+| Software Engineer I         | L1    | Executes defined tasks                  | —                 |
+| Software Engineer II        | L2    | Independent delivery                    | —                 |
+| Senior Software Engineer    | L3    | Leads features, mentors                 | —                 |
+| Staff Software Engineer     | L4    | Cross-team technical leadership         | —                 |
+| Principal Software Engineer | L5    | Company-wide technical direction        | —                 |
+| Distinguished Engineer      | L6    | External recognition, defining practice | —                 |
+| Engineering Manager         | M1    | Team of 4–8 engineers                   | 4–8 ICs           |
+| Senior Engineering Manager  | M2    | Larger team or manager of managers      | 2–4 managers      |
+| Director of Engineering     | M3    | Functional area                         | Multiple managers |
+| VP of Engineering           | M4    | Engineering org                         | Directors         |
+| CTO                         | M5    | Technical organization + strategy       | VPs               |
 
 **IC vs. Management track:** Explicitly separate. Senior ICs should not need to move to management for career advancement. Staff/Principal/Distinguished track provides this.
 
 ### Go-to-Market Title Ladder (example)
 
-| Title | Level | Focus |
-|-------|-------|-------|
-| SDR / BDR | S1 | Outbound prospecting |
-| Account Executive I | S2 | SMB closing |
-| Account Executive II | S3 | Mid-market closing |
-| Senior Account Executive | S4 | Enterprise closing |
-| Principal / Strategic AE | S5 | Named accounts, complex deals |
-| Sales Manager | M1 | 6–8 reps |
-| Director of Sales | M2 | Multiple teams or segments |
-| VP of Sales | M3 | Full sales org |
-| CRO | M4 | Revenue org (sales + CS + marketing) |
+| Title                    | Level | Focus                                |
+| ------------------------ | ----- | ------------------------------------ |
+| SDR / BDR                | S1    | Outbound prospecting                 |
+| Account Executive I      | S2    | SMB closing                          |
+| Account Executive II     | S3    | Mid-market closing                   |
+| Senior Account Executive | S4    | Enterprise closing                   |
+| Principal / Strategic AE | S5    | Named accounts, complex deals        |
+| Sales Manager            | M1    | 6–8 reps                             |
+| Director of Sales        | M2    | Multiple teams or segments           |
+| VP of Sales              | M3    | Full sales org                       |
+| CRO                      | M4    | Revenue org (sales + CS + marketing) |
 
 ---
 
@@ -208,12 +215,12 @@ For each level, define 4 dimensions:
 
 **Example: Senior Software Engineer (L3) vs. Staff Software Engineer (L4)**
 
-| Dimension | L3 (Senior SWE) | L4 (Staff SWE) |
-|-----------|----------------|----------------|
-| Scope | Owns features or services | Owns technical domains across teams |
-| Impact | Ships features that improve user outcomes | Shapes technical direction for a product area |
-| Craft | Writes high-quality code, good design skills | Sets coding standards, contributes to architecture |
-| Influence | Mentors L1–L2, code reviews | Mentors L3+, identifies org-wide technical gaps |
+| Dimension | L3 (Senior SWE)                              | L4 (Staff SWE)                                     |
+| --------- | -------------------------------------------- | -------------------------------------------------- |
+| Scope     | Owns features or services                    | Owns technical domains across teams                |
+| Impact    | Ships features that improve user outcomes    | Shapes technical direction for a product area      |
+| Craft     | Writes high-quality code, good design skills | Sets coding standards, contributes to architecture |
+| Influence | Mentors L1–L2, code reviews                  | Mentors L3+, identifies org-wide technical gaps    |
 
 ### How to build a career ladder from scratch
 
@@ -227,12 +234,14 @@ For each level, define 4 dimensions:
 ## Reorg Playbook
 
 ### When reorgs are necessary
+
 - Strategy pivot requires different team structure (e.g., single product → multi-product)
 - Acquisition or team merger
 - Function is genuinely too slow due to coordination overhead
 - Leadership departure creates structural opportunity
 
 ### When reorgs are a mistake
+
 - "We need to shake things up" (disruption for its own sake)
 - Avoiding a specific personnel decision (use the right tool)
 - Solving a cultural problem with a structural change
@@ -241,21 +250,25 @@ For each level, define 4 dimensions:
 ### Reorg Process (4–8 weeks)
 
 **Week 1–2: Diagnose**
+
 - Map current org: every role, reporting line, team output
 - Identify where work is slow, duplicated, or falling through cracks
 - Interview 5–10 people across teams: "What takes longer than it should? What decisions are hard to make?"
 
 **Week 3–4: Design options**
+
 - Draft 2–3 structural alternatives
 - For each: estimated coordination costs, manager span impact, open roles created
 - Validate with CEO + 1–2 trusted operators. Don't crowdsource the design.
 
 **Week 5–6: Decide and prepare**
+
 - Select option; finalize all reporting changes
 - Prepare communications for every affected person (individual conversations before all-hands)
 - Write the "why" — employees need to understand the business reason, not just the result
 
 **Week 7–8: Communicate and implement**
+
 - Individual conversations with all manager+ changes (first)
 - Team-level conversations with managers (second)
 - All-hands with full context (third)
@@ -281,6 +294,7 @@ The most common scaling failure point in startups.
 Founders make all decisions, know everyone personally, set culture through behavior. Works because trust and context are built directly.
 
 **What breaks:**
+
 - Decisions bottleneck at founders
 - New hires don't get enough context (founders can't be everywhere)
 - Culture transmitted through osmosis, not documentation
@@ -290,11 +304,13 @@ Founders make all decisions, know everyone personally, set culture through behav
 Founders can no longer manage all ICs. First manager layer typically = promoted high performers.
 
 **The "brilliant IC → struggling manager" trap:**
+
 - Individual contributor skills ≠ management skills
 - Promoted ICs often continue doing IC work while ignoring management work
 - No one holds them accountable to management output (1:1 quality, team health, performance feedback)
 
 **What to do:**
+
 - Explicit manager training before promotion (not after)
 - Management KPIs separate from IC KPIs
 - Peer community for new managers (monthly cohort session)
@@ -305,11 +321,13 @@ Founders can no longer manage all ICs. First manager layer typically = promoted 
 External hires at Director/VP level bring professional management skills but lack company context.
 
 **Common failure modes:**
+
 - Hired "too senior" — VP who's used to 200-person teams in a 50-person function
 - Culture clash — Big-company manager who adds process that kills startup speed
 - Authority vacuum — External VP doesn't earn trust; team ignores them; founder continues to bypass hierarchy
 
 **Mitigation:**
+
 - Hiring bar: Has this person scaled from this stage to 2x this stage before? Not managed a team at 2x — built a team to 2x.
 - Explicit onboarding on "how we make decisions here"
 - 90-day milestones focused on relationship-building before any structural changes
@@ -320,12 +338,14 @@ External hires at Director/VP level bring professional management skills but lac
 The hardest personal transition. Founder moves from doing to enabling.
 
 **Signs you haven't made the transition:**
+
 - You're still in every technical decision
 - Teams come to you instead of their manager for approvals
 - You know more about the team's work than the manager does
 - Managers feel they need to check in before acting
 
 **What the transition requires:**
+
 - Explicit authority delegation in writing (not just verbal)
 - Willingness to let managers make decisions you'd make differently
 - Redirecting team members to their manager consistently

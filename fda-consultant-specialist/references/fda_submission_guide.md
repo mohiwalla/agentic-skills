@@ -34,21 +34,23 @@ Is there a legally marketed predicate device?
 
 ### Classification Determination
 
-| Class | Risk Level | Pathway | Examples |
-|-------|------------|---------|----------|
-| I | Low | Exempt or 510(k) | Bandages, stethoscopes |
-| II | Moderate | 510(k) | Powered wheelchairs, pregnancy tests |
-| III | High | PMA | Pacemakers, heart valves |
+| Class | Risk Level | Pathway          | Examples                             |
+| ----- | ---------- | ---------------- | ------------------------------------ |
+| I     | Low        | Exempt or 510(k) | Bandages, stethoscopes               |
+| II    | Moderate   | 510(k)           | Powered wheelchairs, pregnancy tests |
+| III   | High       | PMA              | Pacemakers, heart valves             |
 
 ### Predicate Device Search
 
 **Database Sources:**
+
 1. FDA 510(k) Database: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm
 2. FDA Product Classification Database
 3. FDA PMA Database
 4. FDA De Novo Database
 
 **Search Criteria:**
+
 - Product code (3-letter code)
 - Device name keywords
 - Intended use similarity
@@ -79,14 +81,14 @@ CDRH Premarket Review Submission Cover Sheet (FDA Form 3514)
 
 #### 2. Device Description
 
-| Element | Required Content |
-|---------|------------------|
-| Device Name | Trade name, common name, classification name |
-| Intended Use | Disease/condition, patient population, use environment |
-| Physical Description | Materials, dimensions, components |
-| Principles of Operation | How the device achieves intended use |
-| Accessories | Included items, optional components |
-| Variants/Models | All versions included in submission |
+| Element                 | Required Content                                       |
+| ----------------------- | ------------------------------------------------------ |
+| Device Name             | Trade name, common name, classification name           |
+| Intended Use            | Disease/condition, patient population, use environment |
+| Physical Description    | Materials, dimensions, components                      |
+| Principles of Operation | How the device achieves intended use                   |
+| Accessories             | Included items, optional components                    |
+| Variants/Models         | All versions included in submission                    |
 
 #### 3. Substantial Equivalence Comparison
 
@@ -112,6 +114,7 @@ Substantial Equivalence Argument:
 #### 4. Performance Testing
 
 **Bench Testing:**
+
 - Mechanical/structural testing
 - Electrical safety (IEC 60601-1 if applicable)
 - Biocompatibility (ISO 10993 series)
@@ -120,6 +123,7 @@ Substantial Equivalence Argument:
 - Software verification (IEC 62304 if applicable)
 
 **Clinical Data (if required):**
+
 - Clinical study summaries
 - Literature review
 - Adverse event data
@@ -127,6 +131,7 @@ Substantial Equivalence Argument:
 #### 5. Labeling
 
 **Required Elements:**
+
 - Instructions for Use (IFU)
 - Device labeling (package, carton)
 - Indications for Use statement
@@ -188,14 +193,15 @@ Risk Analysis Requirements:
 
 #### Proposed Classification
 
-| Classification | Controls | Rationale |
-|----------------|----------|-----------|
-| Class I | General controls only | Low risk, general controls adequate |
-| Class II | General + Special controls | Moderate risk, special controls needed |
+| Classification | Controls                   | Rationale                              |
+| -------------- | -------------------------- | -------------------------------------- |
+| Class I        | General controls only      | Low risk, general controls adequate    |
+| Class II       | General + Special controls | Moderate risk, special controls needed |
 
 #### Special Controls (for Class II)
 
 Define specific controls such as:
+
 - Performance testing requirements
 - Labeling requirements
 - Post-market surveillance
@@ -264,10 +270,12 @@ Clinical Study Design:
 ### IDE (Investigational Device Exemption)
 
 **When Required:**
+
 - Significant risk device clinical studies
 - Studies not exempt under 21 CFR 812.2
 
 **IDE Application Content:**
+
 - Investigational plan
 - Manufacturing information
 - Investigator agreements
@@ -282,12 +290,12 @@ Clinical Study Design:
 
 ### Q-Submission Types
 
-| Type | Purpose | FDA Response |
-|------|---------|--------------|
-| Pre-Sub | Feedback on planned submission | Written feedback or meeting |
-| Informational | Share information, no feedback | Acknowledgment only |
-| Study Risk | Determination of study risk level | Risk determination |
-| Agreement/Determination | Binding agreement on specific issue | Formal agreement |
+| Type                    | Purpose                             | FDA Response                |
+| ----------------------- | ----------------------------------- | --------------------------- |
+| Pre-Sub                 | Feedback on planned submission      | Written feedback or meeting |
+| Informational           | Share information, no feedback      | Acknowledgment only         |
+| Study Risk              | Determination of study risk level   | Risk determination          |
+| Agreement/Determination | Binding agreement on specific issue | Formal agreement            |
 
 ### Pre-Sub Meeting Preparation
 
@@ -309,6 +317,7 @@ Meeting Types:
 ### Effective Question Formulation
 
 **Good Question Format:**
+
 ```
 Question: Does FDA agree that [specific proposal] is acceptable for [specific purpose]?
 
@@ -320,6 +329,7 @@ Rationale: [Why you believe this is appropriate]
 ```
 
 **Avoid:**
+
 - Open-ended questions ("What should we do?")
 - Multiple questions combined
 - Questions already answered in guidance
@@ -330,14 +340,14 @@ Rationale: [Why you believe this is appropriate]
 
 ### Standard Review Times
 
-| Submission Type | FDA Goal | Typical Range |
-|----------------|----------|---------------|
-| 510(k) Traditional | 90 days | 90-150 days |
-| 510(k) Special | 30 days | 30-60 days |
-| 510(k) Abbreviated | 30 days | 30-60 days |
-| De Novo | 150 days | 150-300 days |
-| PMA | 180 days | 12-24 months |
-| Pre-Sub Response | 70-75 days | 60-90 days |
+| Submission Type    | FDA Goal   | Typical Range |
+| ------------------ | ---------- | ------------- |
+| 510(k) Traditional | 90 days    | 90-150 days   |
+| 510(k) Special     | 30 days    | 30-60 days    |
+| 510(k) Abbreviated | 30 days    | 30-60 days    |
+| De Novo            | 150 days   | 150-300 days  |
+| PMA                | 180 days   | 12-24 months  |
+| Pre-Sub Response   | 70-75 days | 60-90 days    |
 
 ### Review Process Stages
 
@@ -362,6 +372,7 @@ Decision:
 ### Additional Information Requests
 
 **Response Best Practices:**
+
 - Respond within 30-60 days
 - Use FDA's question numbering
 - Provide complete responses
@@ -383,6 +394,7 @@ Decision:
 ### eSTAR (Electronic Submission Template)
 
 FDA's recommended electronic submission format for 510(k):
+
 - Structured data entry
 - Built-in validation
 - Automatic formatting
@@ -390,11 +402,11 @@ FDA's recommended electronic submission format for 510(k):
 
 ### Common Refuse to Accept (RTA) Issues
 
-| Issue | Prevention |
-|-------|------------|
-| Missing user fee | Verify payment before submission |
-| Incomplete Form 3514 | Review all fields, ensure signature |
-| Missing predicate | Confirm predicate is legally marketed |
-| Inadequate device description | Include all models, accessories |
-| Missing Indications for Use | Use FDA Form 3881 |
-| Incomplete SE comparison | Address all characteristics |
+| Issue                         | Prevention                            |
+| ----------------------------- | ------------------------------------- |
+| Missing user fee              | Verify payment before submission      |
+| Incomplete Form 3514          | Review all fields, ensure signature   |
+| Missing predicate             | Confirm predicate is legally marketed |
+| Inadequate device description | Include all models, accessories       |
+| Missing Indications for Use   | Use FDA Form 3881                     |
+| Incomplete SE comparison      | Address all characteristics           |

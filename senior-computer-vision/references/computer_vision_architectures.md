@@ -21,13 +21,13 @@ Backbone networks extract feature representations from images. The choice of bac
 
 ResNet introduced residual connections that enable training of very deep networks.
 
-| Variant | Params | GFLOPs | Top-1 Acc | Use Case |
-|---------|--------|--------|-----------|----------|
-| ResNet-18 | 11.7M | 1.8 | 69.8% | Edge, mobile |
-| ResNet-34 | 21.8M | 3.7 | 73.3% | Balanced |
-| ResNet-50 | 25.6M | 4.1 | 76.1% | Standard backbone |
-| ResNet-101 | 44.5M | 7.8 | 77.4% | High accuracy |
-| ResNet-152 | 60.2M | 11.6 | 78.3% | Maximum accuracy |
+| Variant    | Params | GFLOPs | Top-1 Acc | Use Case          |
+| ---------- | ------ | ------ | --------- | ----------------- |
+| ResNet-18  | 11.7M  | 1.8    | 69.8%     | Edge, mobile      |
+| ResNet-34  | 21.8M  | 3.7    | 73.3%     | Balanced          |
+| ResNet-50  | 25.6M  | 4.1    | 76.1%     | Standard backbone |
+| ResNet-101 | 44.5M  | 7.8    | 77.4%     | High accuracy     |
+| ResNet-152 | 60.2M  | 11.6   | 78.3%     | Maximum accuracy  |
 
 **Residual Block Architecture:**
 
@@ -48,6 +48,7 @@ Input
 ```
 
 **When to use ResNet:**
+
 - Standard detection/segmentation tasks
 - When pretrained weights are important
 - Moderate compute budget
@@ -57,24 +58,26 @@ Input
 
 EfficientNet uses compound scaling to balance depth, width, and resolution.
 
-| Variant | Params | GFLOPs | Top-1 Acc | Relative Speed |
-|---------|--------|--------|-----------|----------------|
-| EfficientNet-B0 | 5.3M | 0.4 | 77.1% | 1x |
-| EfficientNet-B1 | 7.8M | 0.7 | 79.1% | 0.7x |
-| EfficientNet-B2 | 9.2M | 1.0 | 80.1% | 0.6x |
-| EfficientNet-B3 | 12M | 1.8 | 81.6% | 0.4x |
-| EfficientNet-B4 | 19M | 4.2 | 82.9% | 0.25x |
-| EfficientNet-B5 | 30M | 9.9 | 83.6% | 0.15x |
-| EfficientNet-B6 | 43M | 19 | 84.0% | 0.1x |
-| EfficientNet-B7 | 66M | 37 | 84.3% | 0.05x |
+| Variant         | Params | GFLOPs | Top-1 Acc | Relative Speed |
+| --------------- | ------ | ------ | --------- | -------------- |
+| EfficientNet-B0 | 5.3M   | 0.4    | 77.1%     | 1x             |
+| EfficientNet-B1 | 7.8M   | 0.7    | 79.1%     | 0.7x           |
+| EfficientNet-B2 | 9.2M   | 1.0    | 80.1%     | 0.6x           |
+| EfficientNet-B3 | 12M    | 1.8    | 81.6%     | 0.4x           |
+| EfficientNet-B4 | 19M    | 4.2    | 82.9%     | 0.25x          |
+| EfficientNet-B5 | 30M    | 9.9    | 83.6%     | 0.15x          |
+| EfficientNet-B6 | 43M    | 19     | 84.0%     | 0.1x           |
+| EfficientNet-B7 | 66M    | 37     | 84.3%     | 0.05x          |
 
 **Key innovations:**
+
 - Mobile Inverted Bottleneck (MBConv) blocks
 - Squeeze-and-Excitation attention
 - Compound scaling coefficients
 - Swish activation function
 
 **When to use EfficientNet:**
+
 - Mobile and edge deployment
 - When parameter efficiency matters
 - Classification tasks
@@ -84,15 +87,16 @@ EfficientNet uses compound scaling to balance depth, width, and resolution.
 
 ConvNeXt modernizes ResNet with techniques from Vision Transformers.
 
-| Variant | Params | GFLOPs | Top-1 Acc |
-|---------|--------|--------|-----------|
-| ConvNeXt-T | 29M | 4.5 | 82.1% |
-| ConvNeXt-S | 50M | 8.7 | 83.1% |
-| ConvNeXt-B | 89M | 15.4 | 83.8% |
-| ConvNeXt-L | 198M | 34.4 | 84.3% |
-| ConvNeXt-XL | 350M | 60.9 | 84.7% |
+| Variant     | Params | GFLOPs | Top-1 Acc |
+| ----------- | ------ | ------ | --------- |
+| ConvNeXt-T  | 29M    | 4.5    | 82.1%     |
+| ConvNeXt-S  | 50M    | 8.7    | 83.1%     |
+| ConvNeXt-B  | 89M    | 15.4   | 83.8%     |
+| ConvNeXt-L  | 198M   | 34.4   | 84.3%     |
+| ConvNeXt-XL | 350M   | 60.9   | 84.7%     |
 
 **Key design choices:**
+
 - 7x7 depthwise convolutions (like ViT patch size)
 - Layer normalization instead of batch norm
 - GELU activation
@@ -124,6 +128,7 @@ Input
 CSPNet is the backbone design used in YOLO v4-v8.
 
 **Key features:**
+
 - Gradient flow optimization
 - Reduced computation while maintaining accuracy
 - Cross-stage partial connections
@@ -156,6 +161,7 @@ Two-stage detectors first propose regions, then classify and refine them.
 #### Faster R-CNN
 
 Architecture:
+
 1. **Backbone**: Feature extraction (ResNet, etc.)
 2. **RPN (Region Proposal Network)**: Generate object proposals
 3. **RoI Pooling/Align**: Extract fixed-size features
@@ -174,12 +180,14 @@ Image → Backbone → Feature Map
 ```
 
 **RPN Details:**
+
 - Sliding window over feature map
 - Anchor boxes at each position (3 scales × 3 ratios = 9)
 - Predicts objectness score and box refinement
 - NMS to reduce proposals (typically 300-2000)
 
 **Performance characteristics:**
+
 - mAP@50:95: ~40-42 (COCO, R50-FPN)
 - Inference: ~50-100ms per image
 - Better localization than single-stage
@@ -194,6 +202,7 @@ Stage 1 (IoU 0.5) → Stage 2 (IoU 0.6) → Stage 3 (IoU 0.7)
 ```
 
 **Benefits:**
+
 - Progressive refinement
 - Better high-IoU predictions
 - +3-4 mAP over Faster R-CNN
@@ -224,6 +233,7 @@ Input Image
 ```
 
 **Key YOLOv8 innovations:**
+
 - C2f module (faster CSP variant)
 - Anchor-free detection head
 - Decoupled classification/regression heads
@@ -232,28 +242,30 @@ Input Image
 
 **YOLO variant comparison:**
 
-| Model | Size (px) | Params | mAP@50:95 | Speed (ms) |
-|-------|-----------|--------|-----------|------------|
-| YOLOv5n | 640 | 1.9M | 28.0 | 1.2 |
-| YOLOv5s | 640 | 7.2M | 37.4 | 1.8 |
-| YOLOv5m | 640 | 21.2M | 45.4 | 3.5 |
-| YOLOv8n | 640 | 3.2M | 37.3 | 1.2 |
-| YOLOv8s | 640 | 11.2M | 44.9 | 2.1 |
-| YOLOv8m | 640 | 25.9M | 50.2 | 4.2 |
-| YOLOv8l | 640 | 43.7M | 52.9 | 6.8 |
-| YOLOv8x | 640 | 68.2M | 53.9 | 10.1 |
+| Model   | Size (px) | Params | mAP@50:95 | Speed (ms) |
+| ------- | --------- | ------ | --------- | ---------- |
+| YOLOv5n | 640       | 1.9M   | 28.0      | 1.2        |
+| YOLOv5s | 640       | 7.2M   | 37.4      | 1.8        |
+| YOLOv5m | 640       | 21.2M  | 45.4      | 3.5        |
+| YOLOv8n | 640       | 3.2M   | 37.3      | 1.2        |
+| YOLOv8s | 640       | 11.2M  | 44.9      | 2.1        |
+| YOLOv8m | 640       | 25.9M  | 50.2      | 4.2        |
+| YOLOv8l | 640       | 43.7M  | 52.9      | 6.8        |
+| YOLOv8x | 640       | 68.2M  | 53.9      | 10.1       |
 
 #### SSD (Single Shot Detector)
 
 Multi-scale detection with default boxes.
 
 **Architecture:**
+
 - VGG16 or MobileNet backbone
 - Additional convolution layers for multi-scale
 - Default boxes at each scale
 - Direct classification and regression
 
 **When to use SSD:**
+
 - Edge deployment (SSD-MobileNet)
 - When YOLO alternatives needed
 - Simple architecture requirements
@@ -263,15 +275,18 @@ Multi-scale detection with default boxes.
 Focal loss to handle class imbalance.
 
 **Key innovation:**
+
 ```python
 FL(p_t) = -α_t * (1 - p_t)^γ * log(p_t)
 ```
 
 Where:
+
 - γ (focusing parameter) = 2 typically
 - α (class weight) = 0.25 for background
 
 **Benefits:**
+
 - Handles extreme foreground-background imbalance
 - Matches two-stage accuracy
 - Single-stage speed
@@ -293,12 +308,14 @@ RoI Features → FC Layers → Class + BBox
 ```
 
 **Key details:**
+
 - RoI Align (bilinear interpolation, no quantization)
 - Per-class binary mask prediction
 - Decoupled mask and classification
 - 14×14 or 28×28 mask resolution
 
 **Performance:**
+
 - mAP (box): ~39 on COCO
 - mAP (mask): ~35 on COCO
 - Inference: ~100-200ms
@@ -308,11 +325,13 @@ RoI Features → FC Layers → Class + BBox
 Real-time instance segmentation.
 
 **Approach:**
+
 1. Generate prototype masks (global)
 2. Predict mask coefficients per instance
 3. Linear combination: mask = Σ(coefficients × prototypes)
 
 **Benefits:**
+
 - Real-time (~30 FPS)
 - Simpler than Mask R-CNN
 - Global prototypes capture spatial info
@@ -322,6 +341,7 @@ Real-time instance segmentation.
 Adds segmentation head to YOLOv8.
 
 **Performance:**
+
 - mAP (box): 44.6
 - mAP (mask): 36.8
 - Speed: 4.5ms
@@ -333,6 +353,7 @@ Adds segmentation head to YOLOv8.
 Atrous convolutions for multi-scale context.
 
 **Key components:**
+
 1. **ASPP (Atrous Spatial Pyramid Pooling)**
    - Parallel atrous convolutions at different rates
    - Captures multi-scale context
@@ -349,6 +370,7 @@ Image → Backbone → ASPP → Decoder → Segmentation
 ```
 
 **Performance:**
+
 - mIoU: 89.0 on Cityscapes
 - Inference: ~25ms (ResNet-50)
 
@@ -357,6 +379,7 @@ Image → Backbone → ASPP → Decoder → Segmentation
 Transformer-based semantic segmentation.
 
 **Architecture:**
+
 1. **Hierarchical Transformer Encoder**
    - Multi-scale feature maps
    - Efficient self-attention
@@ -367,6 +390,7 @@ Transformer-based semantic segmentation.
    - No complex decoders needed
 
 **Benefits:**
+
 - No positional encoding needed
 - Efficient attention mechanism
 - Strong multi-scale features
@@ -378,17 +402,20 @@ Transformer-based semantic segmentation.
 Zero-shot segmentation with prompts.
 
 **Architecture:**
+
 1. **Image Encoder**: ViT-H (632M params)
 2. **Prompt Encoder**: Points, boxes, masks, text
 3. **Mask Decoder**: Lightweight transformer
 
 **Prompts supported:**
+
 - Points (foreground/background)
 - Bounding boxes
 - Rough masks
 - Text (via CLIP integration)
 
 **Usage patterns:**
+
 ```python
 # Point prompt
 masks = sam.predict(image, point_coords=[[500, 375]], point_labels=[1])
@@ -422,6 +449,7 @@ Image → Patch Embedding → [CLS] + Position Embedding
 ```
 
 **Key details:**
+
 - Patch size: 16×16 or 14×14 typically
 - Position embeddings: Learned 1D
 - [CLS] token for classification
@@ -429,25 +457,27 @@ Image → Patch Embedding → [CLS] + Position Embedding
 
 **Variants:**
 
-| Model | Patch | Layers | Hidden | Heads | Params |
-|-------|-------|--------|--------|-------|--------|
-| ViT-Ti | 16 | 12 | 192 | 3 | 5.7M |
-| ViT-S | 16 | 12 | 384 | 6 | 22M |
-| ViT-B | 16 | 12 | 768 | 12 | 86M |
-| ViT-L | 16 | 24 | 1024 | 16 | 304M |
-| ViT-H | 14 | 32 | 1280 | 16 | 632M |
+| Model  | Patch | Layers | Hidden | Heads | Params |
+| ------ | ----- | ------ | ------ | ----- | ------ |
+| ViT-Ti | 16    | 12     | 192    | 3     | 5.7M   |
+| ViT-S  | 16    | 12     | 384    | 6     | 22M    |
+| ViT-B  | 16    | 12     | 768    | 12    | 86M    |
+| ViT-L  | 16    | 24     | 1024   | 16    | 304M   |
+| ViT-H  | 14    | 32     | 1280   | 16    | 632M   |
 
 ### DeiT (Data-efficient Image Transformers)
 
 Training ViT without massive datasets.
 
 **Key innovations:**
+
 - Knowledge distillation from CNN teachers
 - Strong data augmentation
 - Regularization (stochastic depth, label smoothing)
 - Distillation token (learns from teacher)
 
 **Training recipe:**
+
 - RandAugment
 - Mixup (α=0.8)
 - CutMix (α=1.0)
@@ -459,6 +489,7 @@ Training ViT without massive datasets.
 Hierarchical transformer with shifted windows.
 
 **Key innovations:**
+
 1. **Shifted Window Attention**
    - Local attention within windows
    - Cross-window connection via shifting
@@ -480,12 +511,12 @@ Stage 4: 7×7, 768-dim
 
 **Variants:**
 
-| Model | Params | GFLOPs | Top-1 |
-|-------|--------|--------|-------|
-| Swin-T | 29M | 4.5 | 81.3% |
-| Swin-S | 50M | 8.7 | 83.0% |
-| Swin-B | 88M | 15.4 | 83.5% |
-| Swin-L | 197M | 34.5 | 84.5% |
+| Model  | Params | GFLOPs | Top-1 |
+| ------ | ------ | ------ | ----- |
+| Swin-T | 29M    | 4.5    | 81.3% |
+| Swin-S | 50M    | 8.7    | 83.0% |
+| Swin-B | 88M    | 15.4   | 83.5% |
+| Swin-L | 197M   | 34.5   | 84.5% |
 
 ---
 
@@ -520,6 +551,7 @@ P5 → N5 → N5 → N5 → N5
 ```
 
 **Benefits:**
+
 - Shorter path from low-level to high-level
 - Better localization signals
 - +1-2 mAP improvement
@@ -529,11 +561,13 @@ P5 → N5 → N5 → N5 → N5
 Weighted bidirectional feature fusion.
 
 **Key innovations:**
+
 - Learnable fusion weights
 - Bidirectional cross-scale connections
 - Repeated blocks for iterative refinement
 
 **Fusion formula:**
+
 ```
 O = Σ(w_i × I_i) / (ε + Σ w_i)
 ```
@@ -545,6 +579,7 @@ Where weights are learned via fast normalized fusion.
 Neural architecture search for FPN design.
 
 **Searched on COCO:**
+
 - 7 fusion cells
 - Optimized connection patterns
 - 3-4 mAP improvement over FPN
@@ -555,39 +590,39 @@ Neural architecture search for FPN design.
 
 ### Decision Matrix
 
-| Requirement | Recommended | Alternative |
-|-------------|-------------|-------------|
-| Real-time (>30 FPS) | YOLOv8s | RT-DETR-S |
-| Edge (<4GB RAM) | YOLOv8n | MobileNetV3-SSD |
-| High accuracy | DINO, Cascade R-CNN | YOLOv8x |
-| Instance segmentation | Mask R-CNN | YOLOv8-seg |
-| Semantic segmentation | SegFormer | DeepLabV3+ |
-| Zero-shot | SAM | CLIP+segmentation |
-| Small objects | YOLO+SAHI | Cascade R-CNN |
-| Video real-time | YOLOv8 + ByteTrack | YOLOX + SORT |
+| Requirement           | Recommended         | Alternative       |
+| --------------------- | ------------------- | ----------------- |
+| Real-time (>30 FPS)   | YOLOv8s             | RT-DETR-S         |
+| Edge (<4GB RAM)       | YOLOv8n             | MobileNetV3-SSD   |
+| High accuracy         | DINO, Cascade R-CNN | YOLOv8x           |
+| Instance segmentation | Mask R-CNN          | YOLOv8-seg        |
+| Semantic segmentation | SegFormer           | DeepLabV3+        |
+| Zero-shot             | SAM                 | CLIP+segmentation |
+| Small objects         | YOLO+SAHI           | Cascade R-CNN     |
+| Video real-time       | YOLOv8 + ByteTrack  | YOLOX + SORT      |
 
 ### Training Data Requirements
 
-| Architecture | Minimum Images | Recommended |
-|--------------|----------------|-------------|
-| YOLO (fine-tune) | 100-500 | 1,000-5,000 |
-| YOLO (from scratch) | 5,000+ | 10,000+ |
-| Faster R-CNN | 1,000+ | 5,000+ |
-| DETR/DINO | 10,000+ | 50,000+ |
-| ViT backbone | 10,000+ | 100,000+ |
-| SAM (fine-tune) | 100-1,000 | 5,000+ |
+| Architecture        | Minimum Images | Recommended |
+| ------------------- | -------------- | ----------- |
+| YOLO (fine-tune)    | 100-500        | 1,000-5,000 |
+| YOLO (from scratch) | 5,000+         | 10,000+     |
+| Faster R-CNN        | 1,000+         | 5,000+      |
+| DETR/DINO           | 10,000+        | 50,000+     |
+| ViT backbone        | 10,000+        | 100,000+    |
+| SAM (fine-tune)     | 100-1,000      | 5,000+      |
 
 ### Compute Requirements
 
-| Architecture | Training GPU | Inference GPU |
-|--------------|--------------|---------------|
-| YOLOv8n | 4GB VRAM | 2GB VRAM |
-| YOLOv8m | 8GB VRAM | 4GB VRAM |
-| YOLOv8x | 16GB VRAM | 8GB VRAM |
-| Faster R-CNN R50 | 8GB VRAM | 4GB VRAM |
-| Mask R-CNN R101 | 16GB VRAM | 8GB VRAM |
-| DINO-4scale | 32GB VRAM | 16GB VRAM |
-| SAM ViT-H | 32GB VRAM | 8GB VRAM |
+| Architecture     | Training GPU | Inference GPU |
+| ---------------- | ------------ | ------------- |
+| YOLOv8n          | 4GB VRAM     | 2GB VRAM      |
+| YOLOv8m          | 8GB VRAM     | 4GB VRAM      |
+| YOLOv8x          | 16GB VRAM    | 8GB VRAM      |
+| Faster R-CNN R50 | 8GB VRAM     | 4GB VRAM      |
+| Mask R-CNN R101  | 16GB VRAM    | 8GB VRAM      |
+| DINO-4scale      | 32GB VRAM    | 16GB VRAM     |
+| SAM ViT-H        | 32GB VRAM    | 8GB VRAM      |
 
 ---
 

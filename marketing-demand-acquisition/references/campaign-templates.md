@@ -66,12 +66,12 @@ Account
 
 ### Targeting Settings
 
-| Parameter | Series A Sweet Spot |
-|-----------|---------------------|
-| Company Size | 50-5000 employees |
-| Job Titles | Director+, VP+, C-level |
-| Industries | Software, SaaS, Tech Services |
-| Budget | Start $50/day per campaign |
+| Parameter    | Series A Sweet Spot           |
+| ------------ | ----------------------------- |
+| Company Size | 50-5000 employees             |
+| Job Titles   | Director+, VP+, C-level       |
+| Industries   | Software, SaaS, Tech Services |
+| Budget       | Start $50/day per campaign    |
 
 ### Scaling Rules
 
@@ -81,10 +81,10 @@ Account
 
 ### Lead Gen Forms vs Landing Pages
 
-| Type | Conversion | Quality | Use Case |
-|------|------------|---------|----------|
-| Lead Gen Forms | 2-3x higher | Lower | TOFU/MOFU |
-| Landing Pages | Lower | Higher | BOFU/demos |
+| Type           | Conversion  | Quality | Use Case   |
+| -------------- | ----------- | ------- | ---------- |
+| Lead Gen Forms | 2-3x higher | Lower   | TOFU/MOFU  |
+| Landing Pages  | Lower       | Higher  | BOFU/demos |
 
 **Validation:** LinkedIn Insight Tag firing. Matched audiences syncing.
 
@@ -118,12 +118,12 @@ Campaign: [Search-Solution-Keywords]
 
 ### Keyword Strategy
 
-| Type | Match | Bid Priority |
-|------|-------|--------------|
-| Brand Terms | Exact | High - protect brand |
-| Competitor Terms | Phrase | Medium - comparison |
-| Solution Terms | Phrase | Medium - category |
-| Problem Terms | Broad | Lower - education |
+| Type             | Match  | Bid Priority         |
+| ---------------- | ------ | -------------------- |
+| Brand Terms      | Exact  | High - protect brand |
+| Competitor Terms | Phrase | Medium - comparison  |
+| Solution Terms   | Phrase | Medium - category    |
+| Problem Terms    | Broad  | Lower - education    |
 
 ### Negative Keywords (Maintain 100+)
 
@@ -147,12 +147,12 @@ download, tutorial, course, certification, example, template
 
 ### When to Use Meta
 
-| Scenario | Meta | LinkedIn |
-|----------|------|----------|
-| ACV <$10k | ✅ | ❌ |
-| Visual product | ✅ | ❌ |
-| SMB audience | ✅ | ❌ |
-| Enterprise | ❌ | ✅ |
+| Scenario       | Meta | LinkedIn |
+| -------------- | ---- | -------- |
+| ACV <$10k      | ✅   | ❌       |
+| Visual product | ✅   | ❌       |
+| SMB audience   | ✅   | ❌       |
+| Enterprise     | ❌   | ✅       |
 
 ### Campaign Template
 
@@ -206,6 +206,7 @@ Campaign Objective: [Conversions]
 ### Google Responsive Search Ads
 
 **Headlines (15 required):**
+
 - H1-3: Value props (Save 10 hours/week, Trusted by 500+ teams)
 - H4-6: Features (AI-powered, Real-time sync, Mobile app)
 - H7-9: Social proof (4.8★ G2 rating, Used by Microsoft)
@@ -213,6 +214,7 @@ Campaign Objective: [Conversions]
 - H13-15: Dynamic keyword insertion
 
 **Descriptions (4 required):**
+
 - D1: Primary value prop + CTA (30-60 chars)
 - D2: Feature list + differentiator (60-90 chars)
 - D3: Social proof + urgency (45-90 chars)

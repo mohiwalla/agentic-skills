@@ -28,6 +28,7 @@ The best board meetings aren't the ones where everything looks good. They're the
 Before the meeting, every number in your deck should live in your head, not just the slide.
 
 **The numbers you must know without looking:**
+
 - Current MRR / ARR and month-over-month growth rate
 - Burn rate (monthly) and runway (months at current burn)
 - Headcount by department
@@ -46,28 +47,33 @@ For every item on the agenda, generate the adversarial version of the question.
 
 **Standard adversarial questions by topic:**
 
-*Revenue performance:*
+_Revenue performance:_
+
 - "You missed revenue by 20% this quarter. What specifically failed?"
 - "Is this a pipeline problem, a conversion problem, or a capacity problem?"
 - "If you missed because of one big deal, how dependent is your model on individual deals?"
 - "When do you project recovery and what are the leading indicators you're right?"
 
-*Runway / burn:*
+_Runway / burn:_
+
 - "At current burn you have N months. What's your plan if the next round takes 9 months?"
 - "What would you cut first if you had to extend runway by 6 months today?"
 - "Is there a scenario where you don't raise another round?"
 
-*Product / roadmap:*
+_Product / roadmap:_
+
 - "You shipped X. What did customers actually do with it?"
 - "What did you kill this quarter and why?"
 - "Where are you behind on roadmap? What's slipping?"
 
-*Team:*
+_Team:_
+
 - "Who's at risk of leaving? How would that affect execution?"
 - "You've had 3 VP-level hires not work out. What pattern do you see?"
 - "Is the team the right team for this stage?"
 
-*Competition:*
+_Competition:_
+
 - "Competitor Y just raised $50M. How does that change your position?"
 - "If they copy your best feature in 90 days, what's your moat?"
 
@@ -90,6 +96,7 @@ The board meeting isn't a status update. It's a leadership demonstration.
 Do a mock board meeting. Have someone play the hardest director you have.
 
 **The simulation:**
+
 - Present your deck as you would
 - The mock director asks every uncomfortable question
 - You answer without referring to the deck
@@ -102,12 +109,14 @@ Do a mock board meeting. Have someone play the hardest director you have.
 Not all board members want the same thing from a meeting.
 
 **For each director, know:**
+
 - Their primary concern right now (usually tied to their investment thesis)
 - The metric they watch most closely
 - What would make them lose confidence in you
 - What they've said in the last meeting that you should address
 
 **Common director types:**
+
 - **The operator** — wants to know what's breaking and who owns fixing it
 - **The financial investor** — focused on path to profitability or next raise
 - **The strategic investor** — worried about competitive position and moat
@@ -118,6 +127,7 @@ Not all board members want the same thing from a meeting.
 ## Pre-Meeting Checklist
 
 **48 hours before:**
+
 - [ ] All numbers verified against source systems (not last week's export)
 - [ ] Deck reviewed for internal consistency
 - [ ] Pre-read sent to board (deck + 1-page brief on key topics)
@@ -125,6 +135,7 @@ Not all board members want the same thing from a meeting.
 - [ ] 3 hardest questions you expect — rehearsed out loud
 
 **Day of meeting:**
+
 - [ ] Agenda with time allocations distributed
 - [ ] Know the ask for each agenda item (decision needed, input wanted, FYI)
 - [ ] Materials to leave behind prepared
@@ -135,6 +146,7 @@ Not all board members want the same thing from a meeting.
 ## During the Meeting
 
 **What the board is watching:**
+
 - Do you own the bad news or deflect it?
 - Are you defending a narrative or sharing reality?
 - Do you know your numbers or do you look things up?
@@ -148,6 +160,7 @@ Not all board members want the same thing from a meeting.
 ## After the Meeting
 
 Within 24 hours:
+
 - Send action items with owners and dates
 - Send any data you promised but didn't have
 - Note the questions that came up you weren't ready for

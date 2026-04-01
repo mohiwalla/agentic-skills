@@ -23,6 +23,7 @@ If `marketing-context.md` exists, read it. It contains existing keyword targets,
 Gather what you need:
 
 ### What you need
+
 - **URL or content to audit** — specific page, or a topic area to assess
 - **Target queries** — what questions do you want AI systems to answer using your content?
 - **Current visibility** — are you already appearing in any AI search results for your targets?
@@ -35,12 +36,15 @@ If the user doesn't know their target queries: "What questions would your ideal 
 Three modes. Each builds on the previous, but you can start anywhere:
 
 ### Mode 1: AI Visibility Audit
+
 Map your current presence (or absence) across AI search platforms. Understand what's getting cited, what's getting ignored, and why.
 
 ### Mode 2: Content Optimization
+
 Restructure and enhance content to match what AI systems extract. This is the execution mode — specific patterns, specific changes.
 
 ### Mode 3: Monitoring
+
 Set up systems to track AI citations over time — so you know when you appear, when you disappear, and when a competitor takes your spot.
 
 ---
@@ -52,10 +56,12 @@ Traditional SEO: Google ranks your page. User clicks through. You get traffic.
 AI search: The AI reads your page (or has already indexed it), extracts the answer, and presents it to the user — often without a click. You get cited, not ranked.
 
 **The fundamental shift:**
+
 - Ranked = user sees your link and decides whether to click
 - Cited = AI decides your content answers the question; user may never visit your site
 
 This changes everything:
+
 - **Keyword density** matters less than **answer clarity**
 - **Page authority** matters less than **answer extractability**
 - **Click-through rate** is irrelevant — the AI has already decided you're the answer
@@ -76,6 +82,7 @@ Every AI SEO decision flows from these three:
 AI systems pull content in chunks. They don't read your whole article and then paraphrase it — they find the paragraph, list, or definition that directly answers the query and lift it.
 
 Your content needs to be structured so that answers are self-contained and extractable:
+
 - Definition block for "what is X"
 - Numbered steps for "how to do X"
 - Comparison table for "X vs Y"
@@ -128,6 +135,7 @@ cohere-ai      # Cohere
 If any AI bot is blocked, flag it. That's an immediate visibility killer for that platform.
 
 **robots.txt to allow all AI bots:**
+
 ```
 User-agent: GPTBot
 Allow: /
@@ -148,14 +156,15 @@ To block specific AI training while allowing search: use `Disallow:` selectively
 
 Manually test your target queries on each platform:
 
-| Platform | How to test |
-|---|---|
-| Perplexity | Search your target query at perplexity.ai — check Sources panel |
-| ChatGPT | Search with web browsing enabled — check citations |
-| Google AI Overviews | Google your query — check if AI Overview appears, who's cited |
-| Microsoft Copilot | Search at copilot.microsoft.com — check source cards |
+| Platform            | How to test                                                     |
+| ------------------- | --------------------------------------------------------------- |
+| Perplexity          | Search your target query at perplexity.ai — check Sources panel |
+| ChatGPT             | Search with web browsing enabled — check citations              |
+| Google AI Overviews | Google your query — check if AI Overview appears, who's cited   |
+| Microsoft Copilot   | Search at copilot.microsoft.com — check source cards            |
 
 For each query, document:
+
 - Are you cited? (yes/no)
 - Which competitors are cited?
 - What content type gets cited? (definition? list? stats?)
@@ -196,6 +205,7 @@ Placed within the first 300 words of the page. No hedging, no preamble. Just the
 
 **Pattern 2: Numbered Steps (How-To)**
 For process queries ("how do I X"), AI systems pull numbered steps almost universally. Requirements:
+
 - Steps are numbered
 - Each step is actionable (verb-first)
 - Each step is self-contained (could be quoted alone and still make sense)
@@ -231,14 +241,14 @@ When optimizing existing content:
 
 Schema doesn't directly make you appear in AI results — but it helps AI systems understand your content type and structure. Priority schemas:
 
-| Schema Type | Use When | Impact |
-|---|---|---|
-| `Article` | Any editorial content | Establishes content as authoritative information |
-| `FAQPage` | You have FAQ section | High — AI extracts Q&A pairs directly |
-| `HowTo` | Step-by-step guides | High — AI uses step structure for process queries |
-| `Product` | Product pages | Medium — appears in product comparison queries |
-| `Organization` | Company pages | Medium — establishes entity authority |
-| `Person` | Author pages | Medium — author credibility signal |
+| Schema Type    | Use When              | Impact                                            |
+| -------------- | --------------------- | ------------------------------------------------- |
+| `Article`      | Any editorial content | Establishes content as authoritative information  |
+| `FAQPage`      | You have FAQ section  | High — AI extracts Q&A pairs directly             |
+| `HowTo`        | Step-by-step guides   | High — AI uses step structure for process queries |
+| `Product`      | Product pages         | Medium — appears in product comparison queries    |
+| `Organization` | Company pages         | Medium — establishes entity authority             |
+| `Person`       | Author pages          | Medium — author credibility signal                |
 
 Implement via JSON-LD in the page `<head>`. Validate at schema.org/validator.
 
@@ -251,6 +261,7 @@ AI search is volatile. Citations change. Track them.
 ### Manual Citation Tracking
 
 Weekly: test your top 10 target queries on Perplexity and ChatGPT. Log:
+
 - Were you cited? (yes/no)
 - Rank in citations (1st source, 2nd, etc.)
 - What text was used?
@@ -260,26 +271,28 @@ This takes ~20 minutes/week. Do it before automated solutions exist (they don't 
 ### Google Search Console for AI Overviews
 
 Google Search Console now shows impressions in AI Overviews under "Search type: AI Overviews" filter. Check:
+
 - Which queries trigger AI Overview impressions for your site
 - Click-through rate from AI Overviews (typically 50-70% lower than organic)
 - Which pages get cited
 
 ### Visibility Signals to Track
 
-| Signal | Tool | Frequency |
-|---|---|---|
-| Perplexity citations | Manual query testing | Weekly |
-| ChatGPT citations | Manual query testing | Weekly |
-| Google AI Overviews | Google Search Console | Weekly |
-| Copilot citations | Manual query testing | Monthly |
-| AI bot crawl activity | Server logs or Cloudflare | Monthly |
-| Competitor AI citations | Manual query testing | Monthly |
+| Signal                  | Tool                      | Frequency |
+| ----------------------- | ------------------------- | --------- |
+| Perplexity citations    | Manual query testing      | Weekly    |
+| ChatGPT citations       | Manual query testing      | Weekly    |
+| Google AI Overviews     | Google Search Console     | Weekly    |
+| Copilot citations       | Manual query testing      | Monthly   |
+| AI bot crawl activity   | Server logs or Cloudflare | Monthly   |
+| Competitor AI citations | Manual query testing      | Monthly   |
 
 See [references/monitoring-guide.md](references/monitoring-guide.md) for the full tracking setup and templates.
 
 ### When Your Citations Drop
 
 If you were cited and suddenly aren't:
+
 1. Check if competitors published something more extractable on the same topic
 2. Check if your robots.txt changed (block AI bots = instant disappearance)
 3. Check if your page structure changed significantly (restructuring can break citation patterns)
@@ -301,19 +314,20 @@ Flag these without being asked:
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|---|---|
-| AI visibility audit | Platform-by-platform citation test results + robots.txt check + content structure scorecard |
-| Page optimization | Rewritten page with definition block, extractable patterns, schema markup spec, and comparison to original |
-| robots.txt fix | Updated robots.txt with correct AI bot allow rules + explanation of what each bot is |
-| Schema markup | JSON-LD implementation code for FAQPage, HowTo, or Article — ready to paste |
-| Monitoring setup | Weekly tracking template + Google Search Console filter guide + citation log spreadsheet structure |
+| When you ask for... | You get...                                                                                                 |
+| ------------------- | ---------------------------------------------------------------------------------------------------------- |
+| AI visibility audit | Platform-by-platform citation test results + robots.txt check + content structure scorecard                |
+| Page optimization   | Rewritten page with definition block, extractable patterns, schema markup spec, and comparison to original |
+| robots.txt fix      | Updated robots.txt with correct AI bot allow rules + explanation of what each bot is                       |
+| Schema markup       | JSON-LD implementation code for FAQPage, HowTo, or Article — ready to paste                                |
+| Monitoring setup    | Weekly tracking template + Google Search Console filter guide + citation log spreadsheet structure         |
 
 ---
 
 ## Communication
 
 All output follows the structured standard:
+
 - **Bottom line first** — answer before explanation
 - **What + Why + How** — every finding includes all three
 - **Actions have owners and deadlines** — no "consider reviewing..."

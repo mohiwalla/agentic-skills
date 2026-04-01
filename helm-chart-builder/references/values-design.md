@@ -253,11 +253,11 @@ skipTLS: true
 
 # GOOD — adjective-based, consistent
 serviceAccount:
-  create: true               # "Is it created?" reads naturally
+  create: true # "Is it created?" reads naturally
 autoscaling:
-  enabled: false             # "Is it enabled?" reads naturally
+  enabled: false # "Is it enabled?" reads naturally
 tls:
-  insecureSkipVerify: false  # Matches Go/K8s convention
+  insecureSkipVerify: false # Matches Go/K8s convention
 ```
 
 ### 4. Undocumented Values
@@ -451,12 +451,12 @@ helm template myrelease mychart/ -s templates/deployment.yaml
 
 ### Checklist for New Values
 
-| Check | Question |
-|-------|----------|
-| Documented? | Does the key have an inline comment? |
-| Default works? | Can you helm install without overriding? |
-| Type clear? | Is it obvious if this is string, int, bool, list, map? |
-| Overridable? | Can it be set with `--set`? (avoid deeply nested) |
-| No secrets? | Are default values free of passwords/tokens? |
-| camelCase? | Does it follow Helm naming convention? |
-| Flat enough? | Is nesting 3 levels or less? |
+| Check          | Question                                               |
+| -------------- | ------------------------------------------------------ |
+| Documented?    | Does the key have an inline comment?                   |
+| Default works? | Can you helm install without overriding?               |
+| Type clear?    | Is it obvious if this is string, int, bool, list, map? |
+| Overridable?   | Can it be set with `--set`? (avoid deeply nested)      |
+| No secrets?    | Are default values free of passwords/tokens?           |
+| camelCase?     | Does it follow Helm naming convention?                 |
+| Flat enough?   | Is nesting 3 levels or less?                           |

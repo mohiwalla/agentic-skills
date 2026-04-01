@@ -86,23 +86,23 @@ Categorization model for identifying threats.
 
 ### STRIDE Categories
 
-| Category | Description | Violated Property |
-|----------|-------------|-------------------|
-| **S**poofing | Pretending to be someone/something else | Authentication |
-| **T**ampering | Modifying data or code | Integrity |
-| **R**epudiation | Denying actions occurred | Non-repudiation |
-| **I**nformation Disclosure | Exposing data to unauthorized parties | Confidentiality |
-| **D**enial of Service | Making system unavailable | Availability |
-| **E**levation of Privilege | Gaining unauthorized access | Authorization |
+| Category                   | Description                             | Violated Property |
+| -------------------------- | --------------------------------------- | ----------------- |
+| **S**poofing               | Pretending to be someone/something else | Authentication    |
+| **T**ampering              | Modifying data or code                  | Integrity         |
+| **R**epudiation            | Denying actions occurred                | Non-repudiation   |
+| **I**nformation Disclosure | Exposing data to unauthorized parties   | Confidentiality   |
+| **D**enial of Service      | Making system unavailable               | Availability      |
+| **E**levation of Privilege | Gaining unauthorized access             | Authorization     |
 
 ### STRIDE per Element
 
-| DFD Element | Applicable Threats |
-|-------------|-------------------|
-| External Entity | S, R |
-| Process | S, T, R, I, D, E |
-| Data Store | T, R, I, D |
-| Data Flow | T, I, D |
+| DFD Element     | Applicable Threats |
+| --------------- | ------------------ |
+| External Entity | S, R               |
+| Process         | S, T, R, I, D, E   |
+| Data Store      | T, R, I, D         |
+| Data Flow       | T, I, D            |
 
 ### STRIDE Analysis Template
 
@@ -175,13 +175,13 @@ Type: Process
 
 ### Threat Mitigation Matrix
 
-| STRIDE Category | Standard Mitigations |
-|-----------------|---------------------|
-| Spoofing | Authentication (passwords, MFA, certificates) |
-| Tampering | Integrity controls (signing, hashing, checksums) |
-| Repudiation | Audit logging, digital signatures, timestamps |
-| Information Disclosure | Encryption, access controls, data masking |
-| Denial of Service | Rate limiting, redundancy, filtering |
+| STRIDE Category        | Standard Mitigations                             |
+| ---------------------- | ------------------------------------------------ |
+| Spoofing               | Authentication (passwords, MFA, certificates)    |
+| Tampering              | Integrity controls (signing, hashing, checksums) |
+| Repudiation            | Audit logging, digital signatures, timestamps    |
+| Information Disclosure | Encryption, access controls, data masking        |
+| Denial of Service      | Rate limiting, redundancy, filtering             |
 | Elevation of Privilege | Authorization, least privilege, input validation |
 
 ---
@@ -229,12 +229,12 @@ Legend:
 
 ### Attack Tree Analysis
 
-| Attack Path | Difficulty | Detection | Priority |
-|-------------|------------|-----------|----------|
-| Phishing → Credential theft | Low | Medium | High |
-| SQL Injection → Auth bypass | Medium | High | Critical |
-| XSS → Session steal | Medium | Medium | High |
-| JWT forgery → Privilege escalation | High | Low | Critical |
+| Attack Path                        | Difficulty | Detection | Priority |
+| ---------------------------------- | ---------- | --------- | -------- |
+| Phishing → Credential theft        | Low        | Medium    | High     |
+| SQL Injection → Auth bypass        | Medium     | High      | Critical |
+| XSS → Session steal                | Medium     | Medium    | High     |
+| JWT forgery → Privilege escalation | High       | Low       | Critical |
 
 ### Calculating Attack Probability
 
@@ -274,13 +274,13 @@ Quantitative risk assessment for prioritizing threats.
 
 ### DREAD Components
 
-| Factor | Description | Scale |
-|--------|-------------|-------|
-| **D**amage | How bad is the impact? | 1-10 |
-| **R**eproducibility | How easy to reproduce? | 1-10 |
-| **E**xploitability | How easy to exploit? | 1-10 |
-| **A**ffected Users | How many users impacted? | 1-10 |
-| **D**iscoverability | How easy to find? | 1-10 |
+| Factor              | Description              | Scale |
+| ------------------- | ------------------------ | ----- |
+| **D**amage          | How bad is the impact?   | 1-10  |
+| **R**eproducibility | How easy to reproduce?   | 1-10  |
+| **E**xploitability  | How easy to exploit?     | 1-10  |
+| **A**ffected Users  | How many users impacted? | 1-10  |
+| **D**iscoverability | How easy to find?        | 1-10  |
 
 ### DREAD Scoring Guide
 
@@ -380,21 +380,21 @@ Visual representation of system data movement for security analysis.
 
 ### DFD Elements
 
-| Symbol | Element | Security Considerations |
-|--------|---------|------------------------|
-| Rectangle | External Entity | Trust boundary crossing |
-| Circle/Oval | Process | All STRIDE threats apply |
-| Parallel Lines | Data Store | Tampering, disclosure, DoS |
-| Arrow | Data Flow | Tampering, disclosure, DoS |
-| Dashed Line | Trust Boundary | Authentication required |
+| Symbol         | Element         | Security Considerations    |
+| -------------- | --------------- | -------------------------- |
+| Rectangle      | External Entity | Trust boundary crossing    |
+| Circle/Oval    | Process         | All STRIDE threats apply   |
+| Parallel Lines | Data Store      | Tampering, disclosure, DoS |
+| Arrow          | Data Flow       | Tampering, disclosure, DoS |
+| Dashed Line    | Trust Boundary  | Authentication required    |
 
 ### DFD Levels
 
-| Level | Description | Use Case |
-|-------|-------------|----------|
-| Level 0 (Context) | Single process, external entities | Executive overview |
-| Level 1 | Major processes expanded | Architecture review |
-| Level 2 | Detailed subprocesses | Detailed threat modeling |
+| Level             | Description                       | Use Case                 |
+| ----------------- | --------------------------------- | ------------------------ |
+| Level 0 (Context) | Single process, external entities | Executive overview       |
+| Level 1           | Major processes expanded          | Architecture review      |
+| Level 2           | Detailed subprocesses             | Detailed threat modeling |
 
 ### Example: E-Commerce DFD
 
@@ -451,12 +451,12 @@ LEVEL 1: EXPANDED VIEW
 
 ### Trust Boundary Analysis
 
-| Boundary Crossing | Authentication | Authorization | Encryption |
-|-------------------|----------------|---------------|------------|
-| Customer → Web Server | Session cookie | - | TLS 1.3 |
-| Web Server → Order Service | mTLS | Service account | Internal TLS |
-| Order Service → DB | Connection pool | DB user roles | TLS |
-| Payment Service → Gateway | API key + HMAC | IP whitelist | TLS 1.3 |
+| Boundary Crossing          | Authentication  | Authorization   | Encryption   |
+| -------------------------- | --------------- | --------------- | ------------ |
+| Customer → Web Server      | Session cookie  | -               | TLS 1.3      |
+| Web Server → Order Service | mTLS            | Service account | Internal TLS |
+| Order Service → DB         | Connection pool | DB user roles   | TLS          |
+| Payment Service → Gateway  | API key + HMAC  | IP whitelist    | TLS 1.3      |
 
 ---
 
@@ -464,18 +464,18 @@ LEVEL 1: EXPANDED VIEW
 
 ### OWASP Top 10 Mapping
 
-| Rank | Vulnerability | STRIDE | Common Attack |
-|------|---------------|--------|---------------|
-| A01 | Broken Access Control | E | IDOR, privilege escalation |
-| A02 | Cryptographic Failures | I | Weak encryption, exposed keys |
-| A03 | Injection | T, E | SQLi, XSS, command injection |
-| A04 | Insecure Design | All | Logic flaws, missing controls |
-| A05 | Security Misconfiguration | I, E | Default creds, verbose errors |
-| A06 | Vulnerable Components | All | Outdated libraries, CVEs |
-| A07 | Authentication Failures | S, E | Credential stuffing, weak passwords |
-| A08 | Software/Data Integrity | T | Unsigned updates, CI/CD attacks |
-| A09 | Logging Failures | R | Missing logs, log injection |
-| A10 | SSRF | I, T | Internal service access |
+| Rank | Vulnerability             | STRIDE | Common Attack                       |
+| ---- | ------------------------- | ------ | ----------------------------------- |
+| A01  | Broken Access Control     | E      | IDOR, privilege escalation          |
+| A02  | Cryptographic Failures    | I      | Weak encryption, exposed keys       |
+| A03  | Injection                 | T, E   | SQLi, XSS, command injection        |
+| A04  | Insecure Design           | All    | Logic flaws, missing controls       |
+| A05  | Security Misconfiguration | I, E   | Default creds, verbose errors       |
+| A06  | Vulnerable Components     | All    | Outdated libraries, CVEs            |
+| A07  | Authentication Failures   | S, E   | Credential stuffing, weak passwords |
+| A08  | Software/Data Integrity   | T      | Unsigned updates, CI/CD attacks     |
+| A09  | Logging Failures          | R      | Missing logs, log injection         |
+| A10  | SSRF                      | I, T   | Internal service access             |
 
 ### Attack Pattern Catalog
 
@@ -510,9 +510,9 @@ Test Cases:
 
 ### Threat Intelligence Integration
 
-| Source | Purpose | Update Frequency |
-|--------|---------|------------------|
-| CVE/NVD | Known vulnerabilities | Daily |
-| MITRE ATT&CK | Attack techniques | Quarterly |
-| OWASP | Web application threats | Annual |
-| Industry ISACs | Sector-specific threats | Real-time |
+| Source         | Purpose                 | Update Frequency |
+| -------------- | ----------------------- | ---------------- |
+| CVE/NVD        | Known vulnerabilities   | Daily            |
+| MITRE ATT&CK   | Attack techniques       | Quarterly        |
+| OWASP          | Web application threats | Annual           |
+| Industry ISACs | Sector-specific threats | Real-time        |

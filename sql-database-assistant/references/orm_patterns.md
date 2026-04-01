@@ -7,6 +7,7 @@ Side-by-side comparison of Prisma, Drizzle, TypeORM, and SQLAlchemy patterns for
 ## Schema Definition
 
 ### Prisma (schema.prisma)
+
 ```prisma
 model User {
   id        Int      @id @default(autoincrement())
@@ -45,91 +46,125 @@ enum Role {
 ```
 
 ### Drizzle (schema.ts)
+
 ```typescript
-import { pgTable, serial, varchar, text, boolean, timestamp, integer, pgEnum } from 'drizzle-orm/pg-core';
+import {
+  pgTable,
+  serial,
+  varchar,
+  text,
+  boolean,
+  timestamp,
+  integer,
+  pgEnum,
+} from "drizzle-orm/pg-core"
 
-export const roleEnum = pgEnum('role', ['USER', 'ADMIN', 'MODERATOR']);
+export const roleEnum = pgEnum("role", ["USER", "ADMIN", "MODERATOR"])
 
-export const users = pgTable('users', {
-  id: serial('id').primaryKey(),
-  email: varchar('email', { length: 255 }).notNull().unique(),
-  name: varchar('name', { length: 255 }),
-  role: roleEnum('role').default('USER').notNull(),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
-  updatedAt: timestamp('updated_at').defaultNow().notNull(),
-});
+export const users = pgTable("users", {
+  id: serial("id").primaryKey(),
+  email: varchar("email", { length: 255 }).notNull().unique(),
+  name: varchar("name", { length: 255 }),
+  role: roleEnum("role").default("USER").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+})
 
-export const posts = pgTable('posts', {
-  id: serial('id').primaryKey(),
-  title: varchar('title', { length: 255 }).notNull(),
-  body: text('body'),
-  published: boolean('published').default(false).notNull(),
-  authorId: integer('author_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
-}, (table) => ({
-  authorIdx: index('idx_posts_author').on(table.authorId),
-  publishedIdx: index('idx_posts_published').on(table.published, table.createdAt),
-}));
+export const posts = pgTable(
+  "posts",
+  {
+    id: serial("id").primaryKey(),
+    title: varchar("title", { length: 255 }).notNull(),
+    body: text("body"),
+    published: boolean("published").default(false).notNull(),
+    authorId: integer("author_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+  },
+  table => ({
+    authorIdx: index("idx_posts_author").on(table.authorId),
+    publishedIdx: index("idx_posts_published").on(
+      table.published,
+      table.createdAt,
+    ),
+  }),
+)
 ```
 
 ### TypeORM (entities)
+
 ```typescript
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, CreateDateColumn, UpdateDateColumn, Index } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+  CreateDateColumn,
+  UpdateDateColumn,
+  Index,
+} from "typeorm"
 
-export enum Role { USER = 'USER', ADMIN = 'ADMIN', MODERATOR = 'MODERATOR' }
+export enum Role {
+  USER = "USER",
+  ADMIN = "ADMIN",
+  MODERATOR = "MODERATOR",
+}
 
-@Entity('users')
+@Entity("users")
 export class User {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number
 
   @Column({ unique: true })
   @Index()
-  email: string;
+  email: string
 
   @Column({ nullable: true })
-  name: string;
+  name: string
 
-  @Column({ type: 'enum', enum: Role, default: Role.USER })
-  role: Role;
+  @Column({ type: "enum", enum: Role, default: Role.USER })
+  role: Role
 
   @OneToMany(() => Post, post => post.author)
-  posts: Post[];
+  posts: Post[]
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt: Date
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt: Date
 }
 
-@Entity('posts')
-@Index(['published', 'createdAt'])
+@Entity("posts")
+@Index(["published", "createdAt"])
 export class Post {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number
 
   @Column()
-  title: string;
+  title: string
 
-  @Column({ nullable: true, type: 'text' })
-  body: string;
+  @Column({ nullable: true, type: "text" })
+  body: string
 
   @Column({ default: false })
-  published: boolean;
+  published: boolean
 
-  @ManyToOne(() => User, user => user.posts, { onDelete: 'CASCADE' })
-  author: User;
+  @ManyToOne(() => User, user => user.posts, { onDelete: "CASCADE" })
+  author: User
 
   @Column()
-  authorId: number;
+  authorId: number
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt: Date
 }
 ```
 
 ### SQLAlchemy (models.py)
+
 ```python
 import enum
 from datetime import datetime
@@ -176,38 +211,38 @@ class Post(Base):
 
 ### Create
 
-| ORM | Pattern |
-|-----|---------|
-| **Prisma** | `await prisma.user.create({ data: { email, name } })` |
-| **Drizzle** | `await db.insert(users).values({ email, name }).returning()` |
-| **TypeORM** | `await userRepo.save(userRepo.create({ email, name }))` |
+| ORM            | Pattern                                                       |
+| -------------- | ------------------------------------------------------------- |
+| **Prisma**     | `await prisma.user.create({ data: { email, name } })`         |
+| **Drizzle**    | `await db.insert(users).values({ email, name }).returning()`  |
+| **TypeORM**    | `await userRepo.save(userRepo.create({ email, name }))`       |
 | **SQLAlchemy** | `session.add(User(email=email, name=name)); session.commit()` |
 
 ### Read (with filter)
 
-| ORM | Pattern |
-|-----|---------|
-| **Prisma** | `await prisma.user.findMany({ where: { role: 'ADMIN' }, orderBy: { createdAt: 'desc' } })` |
-| **Drizzle** | `await db.select().from(users).where(eq(users.role, 'ADMIN')).orderBy(desc(users.createdAt))` |
-| **TypeORM** | `await userRepo.find({ where: { role: Role.ADMIN }, order: { createdAt: 'DESC' } })` |
-| **SQLAlchemy** | `session.query(User).filter(User.role == Role.ADMIN).order_by(User.created_at.desc()).all()` |
+| ORM            | Pattern                                                                                       |
+| -------------- | --------------------------------------------------------------------------------------------- |
+| **Prisma**     | `await prisma.user.findMany({ where: { role: 'ADMIN' }, orderBy: { createdAt: 'desc' } })`    |
+| **Drizzle**    | `await db.select().from(users).where(eq(users.role, 'ADMIN')).orderBy(desc(users.createdAt))` |
+| **TypeORM**    | `await userRepo.find({ where: { role: Role.ADMIN }, order: { createdAt: 'DESC' } })`          |
+| **SQLAlchemy** | `session.query(User).filter(User.role == Role.ADMIN).order_by(User.created_at.desc()).all()`  |
 
 ### Update
 
-| ORM | Pattern |
-|-----|---------|
-| **Prisma** | `await prisma.user.update({ where: { id }, data: { name } })` |
-| **Drizzle** | `await db.update(users).set({ name }).where(eq(users.id, id))` |
-| **TypeORM** | `await userRepo.update(id, { name })` |
+| ORM            | Pattern                                                                                 |
+| -------------- | --------------------------------------------------------------------------------------- |
+| **Prisma**     | `await prisma.user.update({ where: { id }, data: { name } })`                           |
+| **Drizzle**    | `await db.update(users).set({ name }).where(eq(users.id, id))`                          |
+| **TypeORM**    | `await userRepo.update(id, { name })`                                                   |
 | **SQLAlchemy** | `session.query(User).filter(User.id == id).update({User.name: name}); session.commit()` |
 
 ### Delete
 
-| ORM | Pattern |
-|-----|---------|
-| **Prisma** | `await prisma.user.delete({ where: { id } })` |
-| **Drizzle** | `await db.delete(users).where(eq(users.id, id))` |
-| **TypeORM** | `await userRepo.delete(id)` |
+| ORM            | Pattern                                                                |
+| -------------- | ---------------------------------------------------------------------- |
+| **Prisma**     | `await prisma.user.delete({ where: { id } })`                          |
+| **Drizzle**    | `await db.delete(users).where(eq(users.id, id))`                       |
+| **TypeORM**    | `await userRepo.delete(id)`                                            |
 | **SQLAlchemy** | `session.query(User).filter(User.id == id).delete(); session.commit()` |
 
 ---
@@ -215,43 +250,55 @@ class Post(Base):
 ## Relations and Eager Loading
 
 ### Prisma — include / select
+
 ```typescript
 // Eager load posts with user
 const user = await prisma.user.findUnique({
   where: { id: 1 },
-  include: { posts: { where: { published: true }, orderBy: { createdAt: 'desc' } } },
-});
+  include: {
+    posts: { where: { published: true }, orderBy: { createdAt: "desc" } },
+  },
+})
 
 // Nested create
 await prisma.user.create({
   data: {
-    email: 'new@example.com',
-    posts: { create: [{ title: 'First post' }] },
+    email: "new@example.com",
+    posts: { create: [{ title: "First post" }] },
   },
-});
+})
 ```
 
 ### Drizzle — relational queries
+
 ```typescript
 const result = await db.query.users.findFirst({
   where: eq(users.id, 1),
-  with: { posts: { where: eq(posts.published, true), orderBy: [desc(posts.createdAt)] } },
-});
+  with: {
+    posts: {
+      where: eq(posts.published, true),
+      orderBy: [desc(posts.createdAt)],
+    },
+  },
+})
 ```
 
 ### TypeORM — relations / query builder
+
 ```typescript
 // FindOptions
-const user = await userRepo.findOne({ where: { id: 1 }, relations: ['posts'] });
+const user = await userRepo.findOne({ where: { id: 1 }, relations: ["posts"] })
 
 // QueryBuilder for complex joins
-const result = await userRepo.createQueryBuilder('u')
-  .leftJoinAndSelect('u.posts', 'p', 'p.published = :pub', { pub: true })
-  .where('u.id = :id', { id: 1 })
-  .getOne();
+const result = await userRepo
+  .createQueryBuilder("u")
+  .leftJoinAndSelect("u.posts", "p", "p.published = :pub", { pub: true })
+  .where("u.id = :id", { id: 1 })
+  .getOne()
 ```
 
 ### SQLAlchemy — joinedload / selectinload
+
 ```python
 from sqlalchemy.orm import joinedload, selectinload
 
@@ -268,11 +315,11 @@ users = session.query(User).options(selectinload(User.posts)).all()
 
 Every ORM should provide a way to execute raw SQL for complex queries:
 
-| ORM | Pattern |
-|-----|---------|
-| **Prisma** | `` prisma.$queryRaw`SELECT * FROM users WHERE id = ${id}` `` |
-| **Drizzle** | `db.execute(sql`SELECT * FROM users WHERE id = ${id}`)` |
-| **TypeORM** | `dataSource.query('SELECT * FROM users WHERE id = $1', [id])` |
+| ORM            | Pattern                                                                   |
+| -------------- | ------------------------------------------------------------------------- |
+| **Prisma**     | `` prisma.$queryRaw`SELECT * FROM users WHERE id = ${id}` ``              |
+| **Drizzle**    | `db.execute(sql`SELECT \* FROM users WHERE id = ${id}`)`                  |
+| **TypeORM**    | `dataSource.query('SELECT * FROM users WHERE id = $1', [id])`             |
 | **SQLAlchemy** | `session.execute(text('SELECT * FROM users WHERE id = :id'), {'id': id})` |
 
 Always use parameterized queries in raw SQL to prevent injection.
@@ -282,30 +329,34 @@ Always use parameterized queries in raw SQL to prevent injection.
 ## Transaction Patterns
 
 ### Prisma
+
 ```typescript
-await prisma.$transaction(async (tx) => {
-  const user = await tx.user.create({ data: { email } });
-  await tx.post.create({ data: { title: 'Welcome', authorId: user.id } });
-});
+await prisma.$transaction(async tx => {
+  const user = await tx.user.create({ data: { email } })
+  await tx.post.create({ data: { title: "Welcome", authorId: user.id } })
+})
 ```
 
 ### Drizzle
+
 ```typescript
-await db.transaction(async (tx) => {
-  const [user] = await tx.insert(users).values({ email }).returning();
-  await tx.insert(posts).values({ title: 'Welcome', authorId: user.id });
-});
+await db.transaction(async tx => {
+  const [user] = await tx.insert(users).values({ email }).returning()
+  await tx.insert(posts).values({ title: "Welcome", authorId: user.id })
+})
 ```
 
 ### TypeORM
+
 ```typescript
-await dataSource.transaction(async (manager) => {
-  const user = await manager.save(User, { email });
-  await manager.save(Post, { title: 'Welcome', authorId: user.id });
-});
+await dataSource.transaction(async manager => {
+  const user = await manager.save(User, { email })
+  await manager.save(Post, { title: "Welcome", authorId: user.id })
+})
 ```
 
 ### SQLAlchemy
+
 ```python
 with Session() as session:
     try:
@@ -324,6 +375,7 @@ with Session() as session:
 ## Migration Workflows
 
 ### Prisma
+
 ```bash
 # Generate migration from schema changes
 npx prisma migrate dev --name add_posts_table
@@ -341,6 +393,7 @@ npx prisma generate
 **Files:** `prisma/migrations/<timestamp>_<name>/migration.sql`
 
 ### Drizzle
+
 ```bash
 # Generate migration SQL from schema diff
 npx drizzle-kit generate:pg
@@ -355,6 +408,7 @@ npx drizzle-kit migrate
 **Files:** `drizzle/<timestamp>_<name>.sql`
 
 ### TypeORM
+
 ```bash
 # Auto-generate migration from entity changes
 npx typeorm migration:generate -d data-source.ts -n AddPostsTable
@@ -372,6 +426,7 @@ npx typeorm migration:revert -d data-source.ts
 **Files:** `src/migrations/<timestamp>-<Name>.ts`
 
 ### SQLAlchemy (Alembic)
+
 ```bash
 # Initialize Alembic
 alembic init alembic
@@ -395,12 +450,12 @@ alembic current
 
 ## N+1 Prevention Cheat Sheet
 
-| ORM | Lazy (N+1 risk) | Eager (fixed) |
-|-----|-----------------|---------------|
-| **Prisma** | Not accessing `include` | `include: { posts: true }` |
-| **Drizzle** | Separate queries | `with: { posts: true }` |
-| **TypeORM** | `@ManyToOne(() => ..., { lazy: true })` | `relations: ['posts']` or `leftJoinAndSelect` |
-| **SQLAlchemy** | Default `lazy='select'` | `joinedload()` or `selectinload()` |
+| ORM            | Lazy (N+1 risk)                         | Eager (fixed)                                 |
+| -------------- | --------------------------------------- | --------------------------------------------- |
+| **Prisma**     | Not accessing `include`                 | `include: { posts: true }`                    |
+| **Drizzle**    | Separate queries                        | `with: { posts: true }`                       |
+| **TypeORM**    | `@ManyToOne(() => ..., { lazy: true })` | `relations: ['posts']` or `leftJoinAndSelect` |
+| **SQLAlchemy** | Default `lazy='select'`                 | `joinedload()` or `selectinload()`            |
 
 **Rule of thumb:** If you access a relation inside a loop, you have an N+1 problem. Always load relations before the loop.
 
@@ -409,27 +464,35 @@ alembic current
 ## Connection Pooling
 
 ### Prisma
+
 ```
 # In .env or connection string
 DATABASE_URL="postgresql://user:pass@host/db?connection_limit=20&pool_timeout=10"
 ```
 
 ### Drizzle (with node-postgres)
+
 ```typescript
-import { Pool } from 'pg';
-const pool = new Pool({ max: 20, idleTimeoutMillis: 30000, connectionTimeoutMillis: 5000 });
-const db = drizzle(pool);
+import { Pool } from "pg"
+const pool = new Pool({
+  max: 20,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 5000,
+})
+const db = drizzle(pool)
 ```
 
 ### TypeORM
+
 ```typescript
 const dataSource = new DataSource({
-  type: 'postgres',
+  type: "postgres",
   extra: { max: 20, idleTimeoutMillis: 30000 },
-});
+})
 ```
 
 ### SQLAlchemy
+
 ```python
 from sqlalchemy import create_engine
 engine = create_engine('postgresql://user:pass@host/db', pool_size=20, max_overflow=5, pool_timeout=30)

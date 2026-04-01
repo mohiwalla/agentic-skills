@@ -85,12 +85,12 @@ Production applications should never read secrets from `.env` files or environme
 
 ### Provider Comparison
 
-| Provider | Best For | Key Feature |
-|----------|----------|-------------|
-| **HashiCorp Vault** | Multi-cloud / hybrid | Dynamic secrets, policy engine, pluggable backends |
-| **AWS Secrets Manager** | AWS-native workloads | Native Lambda/ECS/EKS integration, automatic RDS rotation |
-| **Azure Key Vault** | Azure-native workloads | Managed HSM, Azure AD RBAC, certificate management |
-| **GCP Secret Manager** | GCP-native workloads | IAM-based access, automatic replication, versioning |
+| Provider                | Best For               | Key Feature                                               |
+| ----------------------- | ---------------------- | --------------------------------------------------------- |
+| **HashiCorp Vault**     | Multi-cloud / hybrid   | Dynamic secrets, policy engine, pluggable backends        |
+| **AWS Secrets Manager** | AWS-native workloads   | Native Lambda/ECS/EKS integration, automatic RDS rotation |
+| **Azure Key Vault**     | Azure-native workloads | Managed HSM, Azure AD RBAC, certificate management        |
+| **GCP Secret Manager**  | GCP-native workloads   | IAM-based access, automatic replication, versioning       |
 
 ### Selection Guidance
 
@@ -230,12 +230,12 @@ Knowing who accessed which secret and when is critical for incident investigatio
 
 ### Cloud-Native Audit Trails
 
-| Provider | Service | What It Captures |
-|----------|---------|-----------------|
-| **AWS** | CloudTrail | Every `GetSecretValue`, `DescribeSecret`, `RotateSecret` API call |
-| **Azure** | Activity Log + Diagnostic Logs | Key Vault access events, including caller identity and IP |
-| **GCP** | Cloud Audit Logs | Data access logs for Secret Manager with principal and timestamp |
-| **Vault** | Audit Backend | Full request/response logging (file, syslog, or socket backend) |
+| Provider  | Service                        | What It Captures                                                  |
+| --------- | ------------------------------ | ----------------------------------------------------------------- |
+| **AWS**   | CloudTrail                     | Every `GetSecretValue`, `DescribeSecret`, `RotateSecret` API call |
+| **Azure** | Activity Log + Diagnostic Logs | Key Vault access events, including caller identity and IP         |
+| **GCP**   | Cloud Audit Logs               | Data access logs for Secret Manager with principal and timestamp  |
+| **Vault** | Audit Backend                  | Full request/response logging (file, syslog, or socket backend)   |
 
 ### Alerting Strategy
 
@@ -251,10 +251,10 @@ Knowing who accessed which secret and when is critical for incident investigatio
 
 This skill covers env hygiene and secret detection. For deeper coverage of related domains, see:
 
-| Skill | Path | Relationship |
-|-------|------|-------------|
-| **Secrets Vault Manager** | `engineering/secrets-vault-manager` | Production vault infrastructure, HA deployment, DR |
-| **Senior SecOps** | `engineering/senior-secops` | Security operations perspective, incident response |
-| **CI/CD Pipeline Builder** | `engineering/ci-cd-pipeline-builder` | Pipeline architecture, secret injection patterns |
-| **Infrastructure as Code** | `engineering/infrastructure-as-code` | Terraform/Pulumi secret backend configuration |
-| **Container Orchestration** | `engineering/container-orchestration` | Kubernetes secret mounting, sealed secrets |
+| Skill                       | Path                                  | Relationship                                       |
+| --------------------------- | ------------------------------------- | -------------------------------------------------- |
+| **Secrets Vault Manager**   | `engineering/secrets-vault-manager`   | Production vault infrastructure, HA deployment, DR |
+| **Senior SecOps**           | `engineering/senior-secops`           | Security operations perspective, incident response |
+| **CI/CD Pipeline Builder**  | `engineering/ci-cd-pipeline-builder`  | Pipeline architecture, secret injection patterns   |
+| **Infrastructure as Code**  | `engineering/infrastructure-as-code`  | Terraform/Pulumi secret backend configuration      |
+| **Container Orchestration** | `engineering/container-orchestration` | Kubernetes secret mounting, sealed secrets         |

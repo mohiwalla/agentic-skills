@@ -19,6 +19,7 @@
 ### Daily Operations
 
 #### Daily Standup (Engineering / Product Teams)
+
 **Format:** Async-first (Slack/Loom); sync only if blocked  
 **Sync duration:** 15 minutes max  
 **Participants:** Team (5–10 people)  
@@ -32,16 +33,19 @@ Blocked: [Anything blocking me — tag the person who can unblock]
 ```
 
 **Rules:**
+
 - No status reporting in sync standup if everyone can read the async update
 - Standups are not problem-solving sessions — take issues offline
 - Skip standup if the team has a full-team session that day
 - Kill standup if the team consistently has nothing blocked; replace with async
 
 #### Daily Leadership Check-in (COO)
+
 **Format:** Async only — read, don't meet  
 **Time:** 8:00–8:30 AM
 
 **COO morning read:**
+
 1. Yesterday's key metrics dashboard (5 min)
 2. Overnight Slack/email escalations (5 min)
 3. Today's decisions needed list (5 min)
@@ -52,6 +56,7 @@ Blocked: [Anything blocking me — tag the person who can unblock]
 ### Weekly Cadence
 
 #### Leadership Sync (Weekly)
+
 **Duration:** 60–90 minutes  
 **Participants:** C-suite + VP level  
 **Owner:** COO (or CEO)  
@@ -77,6 +82,7 @@ AGENDA TEMPLATE:
 ```
 
 **Pre-meeting requirements:**
+
 - Metrics dashboard updated by EOD Friday
 - Priority items submitted by Sunday 6 PM
 - Anyone who hasn't read the pre-read gets no floor time
@@ -84,6 +90,7 @@ AGENDA TEMPLATE:
 **Output:** Decision log updated with outcomes, action items assigned in tracking system
 
 #### 1:1 (Manager ↔ Direct Report)
+
 **Duration:** 30–45 minutes  
 **Frequency:** Weekly (skip-levels: bi-weekly)  
 **Owner:** Report (the direct report sets agenda)
@@ -97,6 +104,7 @@ AGENDA TEMPLATE:
 ```
 
 **1:1 anti-patterns to eliminate:**
+
 - Using 1:1 for status updates (that's what standups are for)
 - Manager dominating the agenda
 - Skipping because "things are fine"
@@ -105,6 +113,7 @@ AGENDA TEMPLATE:
 **Private 1:1 doc:** Every manager/report pair maintains a shared doc with running notes, action items, and career development thread.
 
 #### Cross-Functional Weekly Sync
+
 **Duration:** 45 minutes  
 **Participants:** 2–4 team leads with shared dependencies  
 **Examples:** Product + Engineering, Sales + CS, Marketing + Sales
@@ -122,6 +131,7 @@ AGENDA:
 ### Monthly Cadence
 
 #### All-Hands / Town Hall
+
 **Duration:** 60–90 minutes  
 **Participants:** Entire company  
 **Owner:** CEO + functional heads  
@@ -151,6 +161,7 @@ ALL-HANDS PREP CHECKLIST:
 ```
 
 #### Monthly Business Review (MBR)
+
 **Duration:** 2 hours  
 **Participants:** Leadership team  
 **Owner:** COO
@@ -184,6 +195,7 @@ MBR AGENDA:
 ```
 
 **MBR pre-read package** (published 48h before):
+
 - Financial summary (1 page)
 - Each function's 1-pager (see template below)
 
@@ -221,6 +233,7 @@ NEXT 30 DAYS (top 3 priorities):
 ### Quarterly Cadence
 
 #### Quarterly Business Review (QBR)
+
 **Duration:** Half day (4 hours)  
 **Participants:** Leadership team + key functional leads  
 **Owner:** CEO + COO
@@ -250,11 +263,13 @@ PART 4: OKR setting for next quarter (30 min)
 ```
 
 #### Quarterly Leadership Off-site
+
 **Duration:** 1–2 days (Series B+)  
 **Participants:** C-suite + VPs  
 **Purpose:** Strategy alignment, relationship building, hard conversations
 
 **Off-site agenda principles:**
+
 - No laptops during sessions (phones away)
 - At least 50% discussion, max 50% presentation
 - Include one session on how the leadership team is functioning (not just what the business is doing)
@@ -265,6 +280,7 @@ PART 4: OKR setting for next quarter (30 min)
 ### Annual Cadence
 
 #### Annual Planning Cycle
+
 **Timeline:** Start 8–10 weeks before fiscal year end
 
 ```
@@ -282,6 +298,7 @@ Week 0:   Year kick-off all-hands
 ```
 
 #### Year Kick-off All-Hands
+
 **Duration:** 2–4 hours  
 **Participants:** Entire company  
 **Purpose:** Align entire company on year strategy and goals
@@ -305,6 +322,7 @@ KICK-OFF AGENDA:
 All communication defaults to written unless real-time is genuinely necessary. This is how you scale decision-making without scaling meetings.
 
 **Written first means:**
+
 - Decisions are documented before they're communicated
 - Updates are published before questions are asked
 - Problems are described before solutions are proposed
@@ -331,6 +349,7 @@ DECISION CHANNELS:
 ```
 
 **Anti-patterns to eliminate:**
+
 - DMs for work decisions (decisions belong in channels, visible to team)
 - @channel abuse (train people — this means everyone stops what they're doing)
 - Thread avoidance (all replies go in threads, period)
@@ -361,12 +380,14 @@ B) [Option B] — Pros: X. Cons: Y.
 ### Loom / Video for Async Communication
 
 Use async video for:
+
 - Explaining complex technical architecture
 - Walking through a design or document with context
 - Giving feedback that needs tone/nuance
 - Team updates that would otherwise be a meeting
 
 **Loom best practices:**
+
 - Keep under 5 minutes; break up anything longer
 - Always include a summary comment with key points
 - Ask viewers to leave timestamp comments for specific questions
@@ -379,21 +400,23 @@ Use async video for:
 
 The most practical decision-making framework for startups scaling to enterprises.
 
-| Role | Meaning | Responsibility |
-|------|---------|---------------|
-| **R** — Recommend | Proposes decision with analysis | Does the work, gathers input, makes recommendation |
-| **A** — Agree | Must agree before decision is final | Has veto power; should be used sparingly |
-| **P** — Perform | Executes the decision | Consulted during recommendation phase |
-| **I** — Input | Consulted for perspective | Shares point of view; not binding |
-| **D** — Decide | Makes the final call | One person only — groups don't decide |
+| Role              | Meaning                             | Responsibility                                     |
+| ----------------- | ----------------------------------- | -------------------------------------------------- |
+| **R** — Recommend | Proposes decision with analysis     | Does the work, gathers input, makes recommendation |
+| **A** — Agree     | Must agree before decision is final | Has veto power; should be used sparingly           |
+| **P** — Perform   | Executes the decision               | Consulted during recommendation phase              |
+| **I** — Input     | Consulted for perspective           | Shares point of view; not binding                  |
+| **D** — Decide    | Makes the final call                | One person only — groups don't decide              |
 
 **How to use RAPID:**
+
 1. For every significant decision, explicitly assign R, A, P, I, D before work begins
 2. The D role is always one person — never a committee
 3. Agree (A) roles should be limited to 2–3 people maximum; more = paralysis
 4. Post the RAPID in the decision doc so everyone knows the structure
 
 **Example application:**
+
 ```
 Decision: Migrate from PostgreSQL to distributed database
 R: VP Engineering
@@ -407,12 +430,12 @@ D: CTO
 
 Better for ongoing processes than one-time decisions. Use RACI for recurring operational responsibilities.
 
-| Role | Meaning |
-|------|---------|
-| **R** — Responsible | Does the work |
-| **A** — Accountable | Owns the outcome; one person only |
-| **C** — Consulted | Input before decisions/actions |
-| **I** — Informed | Told of decisions/actions after the fact |
+| Role                | Meaning                                  |
+| ------------------- | ---------------------------------------- |
+| **R** — Responsible | Does the work                            |
+| **A** — Accountable | Owns the outcome; one person only        |
+| **C** — Consulted   | Input before decisions/actions           |
+| **I** — Informed    | Told of decisions/actions after the fact |
 
 **RACI matrix template:**
 
@@ -430,6 +453,7 @@ Post-mortem (P0/P1)    | C       | A     | R        | I
 ```
 
 **Common RACI mistakes:**
+
 - Multiple A roles (breaks accountability)
 - R and A always same person (defeats the purpose)
 - Too many C roles (everyone's consulted, nothing moves)
@@ -442,6 +466,7 @@ Apple's framework; used widely in fast-moving tech companies. Simpler than RAPID
 **The rule:** Every project, deliverable, and decision has exactly one DRI. The DRI is the person who gets credit when it succeeds and gets called on when it fails. No DRI = no accountability.
 
 **DRI requirements:**
+
 - Listed by name in every project brief
 - Has authority to make decisions within scope
 - Is responsible for communicating status
@@ -591,16 +616,16 @@ TOP 3 ACTIONS TO GET BACK ON TRACK:
 
 ## Cadence Anti-Patterns to Eliminate
 
-| Anti-Pattern | What It Looks Like | Fix |
-|---|---|---|
-| **Meeting creep** | Calendar blocks added over time, never removed | Quarterly calendar audit — delete all recurring meetings, re-add only what's essential |
-| **Update theater** | Meetings where people read from slides | Require pre-reads; ban in-meeting presentations |
-| **Decision avoidance** | Topics recur across multiple meetings | Assign a D (decider) before the meeting. If no D, don't hold the meeting. |
-| **Sync for async** | Using meetings for information sharing | Move updates to Loom/Slack; protect sync time for discussion |
-| **HIPPO problem** | Highest-paid person in room wins | Structure discussions so data is presented before opinions |
-| **Retrospective theater** | Retros with no action items | Every retro must produce ≥1 committed change |
-| **Silent agenda** | Agenda not shared until meeting starts | Agendas published 24h in advance, required reading |
+| Anti-Pattern              | What It Looks Like                             | Fix                                                                                    |
+| ------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Meeting creep**         | Calendar blocks added over time, never removed | Quarterly calendar audit — delete all recurring meetings, re-add only what's essential |
+| **Update theater**        | Meetings where people read from slides         | Require pre-reads; ban in-meeting presentations                                        |
+| **Decision avoidance**    | Topics recur across multiple meetings          | Assign a D (decider) before the meeting. If no D, don't hold the meeting.              |
+| **Sync for async**        | Using meetings for information sharing         | Move updates to Loom/Slack; protect sync time for discussion                           |
+| **HIPPO problem**         | Highest-paid person in room wins               | Structure discussions so data is presented before opinions                             |
+| **Retrospective theater** | Retros with no action items                    | Every retro must produce ≥1 committed change                                           |
+| **Silent agenda**         | Agenda not shared until meeting starts         | Agendas published 24h in advance, required reading                                     |
 
 ---
 
-*Cadence framework synthesized from Amazon's PR/FAQ culture, Google's OKR playbook, GitLab's remote work handbook, and operational patterns from 50+ Series A–C companies.*
+_Cadence framework synthesized from Amazon's PR/FAQ culture, Google's OKR playbook, GitLab's remote work handbook, and operational patterns from 50+ Series A–C companies._

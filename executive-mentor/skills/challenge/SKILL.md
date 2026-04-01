@@ -35,9 +35,11 @@ That's not pessimism. It's how you build something that doesn't collapse.
 ## The Challenge Framework
 
 ### Step 1: Extract Core Assumptions
+
 Before you can test a plan, you need to surface everything it assumes to be true.
 
 For each section of the plan, ask:
+
 - What has to be true for this to work?
 - What are we assuming about customer behavior?
 - What are we assuming about competitor response?
@@ -45,6 +47,7 @@ For each section of the plan, ask:
 - What external factors does this depend on?
 
 **Common assumption categories:**
+
 - **Market assumptions** — size, growth rate, customer willingness to pay, buying cycle
 - **Execution assumptions** — team capacity, velocity, no major hires needed
 - **Customer assumptions** — they have the problem, they know they have it, they'll pay to solve it
@@ -57,12 +60,14 @@ For each section of the plan, ask:
 For every assumption extracted, rate it on two dimensions:
 
 **Confidence level (how sure are you this is true):**
+
 - **High** — verified with data, customer conversations, market research
 - **Medium** — directionally right but not validated
 - **Low** — plausible but untested
 - **Unknown** — we simply don't know
 
 **Impact if wrong (what happens if this assumption fails):**
+
 - **Critical** — plan fails entirely
 - **High** — major delay or cost overrun
 - **Medium** — significant rework required
@@ -81,6 +86,7 @@ These are not problems to ignore. They're the bets you're making. The question i
 Many plans fail not because any single assumption is wrong, but because multiple assumptions have to be right simultaneously.
 
 Map the chain:
+
 - Does assumption B depend on assumption A being true first?
 - If the first thing goes wrong, how many downstream things break?
 - What's the critical path? What has zero slack?
@@ -138,24 +144,28 @@ HARDENING ACTIONS
 ## Challenge Patterns by Plan Type
 
 ### Product Roadmap
+
 - Are we building what customers will pay for, or what they said they wanted?
 - Does the velocity estimate account for real team capacity (not theoretical)?
 - What happens if the anchor feature takes 3× longer than estimated?
 - Who owns decisions when requirements conflict?
 
 ### Go-to-Market Plan
+
 - What's the actual ICP conversion rate, not the hoped-for one?
 - How many touches to close, and do you have the sales capacity for that?
 - What happens if the first 10 deals take 3 months instead of 1?
 - Is "land and expand" a real motion or a hope?
 
 ### Hiring Plan
+
 - What happens if the key hire takes 4 months to find, not 6 weeks?
 - Is the plan dependent on retaining specific people who might leave?
 - Does the plan account for ramp time (usually 3–6 months before full productivity)?
 - What's the burn impact if headcount leads revenue by 6 months?
 
 ### Fundraising Plan
+
 - What's your fallback if the lead investor passes?
 - Have you modeled the timeline if it takes 6 months, not 3?
 - What's your runway at current burn if the round closes at the low end?
@@ -166,6 +176,7 @@ HARDENING ACTIONS
 ## The Hardest Questions
 
 These are the ones people skip:
+
 - "What's the bear case, not the base case?"
 - "If this exact plan was run by a team we don't trust, would it work?"
 - "What are we not saying out loud because it's uncomfortable?"

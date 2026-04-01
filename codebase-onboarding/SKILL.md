@@ -64,6 +64,7 @@ python3 scripts/codebase_analyzer.py /path/to/repo --json
 ## Onboarding Document Template
 
 Detailed template and section examples live in:
+
 - `references/onboarding-template.md`
 - `references/output-format-templates.md`
 

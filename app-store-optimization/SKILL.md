@@ -52,22 +52,22 @@ Discover and evaluate keywords that drive app store visibility.
 
 ### Keyword Evaluation Criteria
 
-| Factor | Weight | High Score Indicators |
-|--------|--------|----------------------|
-| Relevance | 35% | Describes core app function |
-| Volume | 25% | 10,000+ monthly searches |
-| Competition | 25% | Top 10 apps have <4.5 avg rating |
-| Conversion | 15% | Transactional intent ("best X app") |
+| Factor      | Weight | High Score Indicators               |
+| ----------- | ------ | ----------------------------------- |
+| Relevance   | 35%    | Describes core app function         |
+| Volume      | 25%    | 10,000+ monthly searches            |
+| Competition | 25%    | Top 10 apps have <4.5 avg rating    |
+| Conversion  | 15%    | Transactional intent ("best X app") |
 
 ### Keyword Placement Priority
 
-| Location | Search Weight |
-|----------|---------------|
-| App Title | Highest |
-| Subtitle (iOS) | High |
-| Keyword Field (iOS) | High |
-| Short Description (Android) | High |
-| Full Description | Medium |
+| Location                    | Search Weight |
+| --------------------------- | ------------- |
+| App Title                   | Highest       |
+| Subtitle (iOS)              | High          |
+| Keyword Field (iOS)         | High          |
+| Short Description (Android) | High          |
+| Full Description            | Medium        |
 
 See: [references/keyword-research-guide.md](references/keyword-research-guide.md)
 
@@ -108,15 +108,15 @@ Optimize app store listing elements for search ranking and conversion.
 
 ### Platform Character Limits
 
-| Field | Apple App Store | Google Play Store |
-|-------|-----------------|-------------------|
-| Title | 30 characters | 50 characters |
-| Subtitle | 30 characters | N/A |
-| Short Description | N/A | 80 characters |
-| Keywords | 100 characters | N/A |
-| Promotional Text | 170 characters | N/A |
-| Full Description | 4,000 characters | 4,000 characters |
-| What's New | 4,000 characters | 500 characters |
+| Field             | Apple App Store  | Google Play Store |
+| ----------------- | ---------------- | ----------------- |
+| Title             | 30 characters    | 50 characters     |
+| Subtitle          | 30 characters    | N/A               |
+| Short Description | N/A              | 80 characters     |
+| Keywords          | 100 characters   | N/A               |
+| Promotional Text  | 170 characters   | N/A               |
+| Full Description  | 4,000 characters | 4,000 characters  |
+| What's New        | 4,000 characters | 500 characters    |
 
 ### Description Structure
 
@@ -179,22 +179,22 @@ Analyze top competitors to identify keyword gaps and positioning opportunities.
 
 ### Competitor Analysis Matrix
 
-| Analysis Area | Data Points |
-|---------------|-------------|
-| Keywords | Title keywords, description frequency |
-| Metadata | Character utilization, keyword density |
-| Visuals | Icon style, screenshot count/style |
-| Ratings | Average rating, total count, velocity |
-| Reviews | Top praise, top complaints |
+| Analysis Area | Data Points                            |
+| ------------- | -------------------------------------- |
+| Keywords      | Title keywords, description frequency  |
+| Metadata      | Character utilization, keyword density |
+| Visuals       | Icon style, screenshot count/style     |
+| Ratings       | Average rating, total count, velocity  |
+| Reviews       | Top praise, top complaints             |
 
 ### Gap Analysis Template
 
-| Opportunity Type | Example | Action |
-|------------------|---------|--------|
-| Keyword gap | "habit tracker" (40% coverage) | Add to keyword field |
-| Feature gap | Competitor lacks widget | Highlight in screenshots |
-| Visual gap | No videos in top 5 | Create app preview |
-| Messaging gap | None mention "free" | Test free positioning |
+| Opportunity Type | Example                        | Action                   |
+| ---------------- | ------------------------------ | ------------------------ |
+| Keyword gap      | "habit tracker" (40% coverage) | Add to keyword field     |
+| Feature gap      | Competitor lacks widget        | Highlight in screenshots |
+| Visual gap       | No videos in top 5             | Create app preview       |
+| Messaging gap    | None mention "free"            | Test free positioning    |
 
 ---
 
@@ -234,23 +234,23 @@ Execute a structured launch for maximum initial visibility.
 
 ### Pre-Launch Checklist
 
-| Category | Items |
-|----------|-------|
-| Metadata | Title, subtitle, description, keywords |
-| Visual Assets | Icon, screenshots (all sizes), video |
-| Compliance | Age rating, privacy policy, content rights |
-| Technical | App binary, signing certificates |
-| Analytics | SDK integration, event tracking |
-| Marketing | Press kit, social content, email ready |
+| Category      | Items                                      |
+| ------------- | ------------------------------------------ |
+| Metadata      | Title, subtitle, description, keywords     |
+| Visual Assets | Icon, screenshots (all sizes), video       |
+| Compliance    | Age rating, privacy policy, content rights |
+| Technical     | App binary, signing certificates           |
+| Analytics     | SDK integration, event tracking            |
+| Marketing     | Press kit, social content, email ready     |
 
 ### Launch Timing Considerations
 
-| Factor | Recommendation |
-|--------|----------------|
-| Day of week | Tuesday-Wednesday (avoid weekends) |
-| Time of day | Morning in target market timezone |
-| Seasonal | Align with relevant category seasons |
-| Competition | Avoid major competitor launch dates |
+| Factor      | Recommendation                       |
+| ----------- | ------------------------------------ |
+| Day of week | Tuesday-Wednesday (avoid weekends)   |
+| Time of day | Morning in target market timezone    |
+| Seasonal    | Align with relevant category seasons |
+| Competition | Avoid major competitor launch dates  |
 
 See: [references/aso-best-practices.md](references/aso-best-practices.md)
 
@@ -293,22 +293,22 @@ Test metadata and visual elements to improve conversion rates.
 
 ### A/B Test Prioritization
 
-| Element | Conversion Impact | Test Complexity |
-|---------|-------------------|-----------------|
-| App Icon | 10-25% lift possible | Medium (design needed) |
-| Screenshot 1 | 15-35% lift possible | Medium |
-| Title | 5-15% lift possible | Low |
-| Short Description | 5-10% lift possible | Low |
-| Video | 10-20% lift possible | High |
+| Element           | Conversion Impact    | Test Complexity        |
+| ----------------- | -------------------- | ---------------------- |
+| App Icon          | 10-25% lift possible | Medium (design needed) |
+| Screenshot 1      | 15-35% lift possible | Medium                 |
+| Title             | 5-15% lift possible  | Low                    |
+| Short Description | 5-10% lift possible  | Low                    |
+| Video             | 10-20% lift possible | High                   |
 
 ### Sample Size Quick Reference
 
 | Baseline CVR | Impressions Needed (per variant) |
-|--------------|----------------------------------|
-| 1% | 31,000 |
-| 2% | 15,500 |
-| 5% | 6,200 |
-| 10% | 3,100 |
+| ------------ | -------------------------------- |
+| 1%           | 31,000                           |
+| 2%           | 15,500                           |
+| 5%           | 6,200                            |
+| 10%          | 3,100                            |
 
 ### Test Documentation Template
 
@@ -339,38 +339,41 @@ LEARNINGS:
 
 **Productivity App:**
 
-| Version | Title | Analysis |
-|---------|-------|----------|
-| Before | "MyTasks" | No keywords, brand only (8 chars) |
-| After | "MyTasks - Todo List & Planner" | Primary + secondary keywords (29 chars) |
+| Version | Title                           | Analysis                                |
+| ------- | ------------------------------- | --------------------------------------- |
+| Before  | "MyTasks"                       | No keywords, brand only (8 chars)       |
+| After   | "MyTasks - Todo List & Planner" | Primary + secondary keywords (29 chars) |
 
 **Fitness App:**
 
-| Version | Title | Analysis |
-|---------|-------|----------|
-| Before | "FitTrack Pro" | Generic modifier (12 chars) |
-| After | "FitTrack: Workout Log & Gym" | Category keywords (27 chars) |
+| Version | Title                         | Analysis                     |
+| ------- | ----------------------------- | ---------------------------- |
+| Before  | "FitTrack Pro"                | Generic modifier (12 chars)  |
+| After   | "FitTrack: Workout Log & Gym" | Category keywords (27 chars) |
 
 ### Subtitle Optimization (iOS)
 
-| Version | Subtitle | Analysis |
-|---------|----------|----------|
-| Before | "Get Things Done" | Vague, no keywords |
-| After | "Daily Task Manager & Planner" | Two keywords, benefit clear |
+| Version | Subtitle                       | Analysis                    |
+| ------- | ------------------------------ | --------------------------- |
+| Before  | "Get Things Done"              | Vague, no keywords          |
+| After   | "Daily Task Manager & Planner" | Two keywords, benefit clear |
 
 ### Keyword Field Optimization (iOS)
 
 **Before (Inefficient - 89 chars, 8 keywords):**
+
 ```
 task manager, todo list, productivity app, daily planner, reminder app
 ```
 
 **After (Optimized - 97 chars, 14 keywords):**
+
 ```
 task,todo,checklist,reminder,organize,daily,planner,schedule,deadline,goals,habit,widget,sync,team
 ```
 
 **Improvements:**
+
 - Removed spaces after commas (+8 chars)
 - Removed duplicates (task manager → task)
 - Removed plurals (reminders → reminder)
@@ -380,6 +383,7 @@ task,todo,checklist,reminder,organize,daily,planner,schedule,deadline,goals,habi
 ### Description Opening
 
 **Before:**
+
 ```
 MyTasks is a comprehensive task management solution designed
 to help busy professionals organize their daily activities
@@ -387,6 +391,7 @@ and boost productivity.
 ```
 
 **After:**
+
 ```
 Forget missed deadlines. MyTasks keeps every task, reminder,
 and project in one place—so you focus on doing, not remembering.
@@ -394,6 +399,7 @@ Trusted by 500,000+ professionals.
 ```
 
 **Improvements:**
+
 - Leads with user pain point
 - Specific benefit (not generic "boost productivity")
 - Social proof included
@@ -401,11 +407,11 @@ Trusted by 500,000+ professionals.
 
 ### Screenshot Caption Evolution
 
-| Version | Caption | Issue |
-|---------|---------|-------|
-| Before | "Task List Feature" | Feature-focused, passive |
-| Better | "Create Task Lists" | Action verb, but still feature |
-| Best | "Never Miss a Deadline" | Benefit-focused, emotional |
+| Version | Caption                 | Issue                          |
+| ------- | ----------------------- | ------------------------------ |
+| Before  | "Task List Feature"     | Feature-focused, passive       |
+| Better  | "Create Task Lists"     | Action verb, but still feature |
+| Best    | "Never Miss a Deadline" | Benefit-focused, emotional     |
 
 ---
 
@@ -413,43 +419,43 @@ Trusted by 500,000+ professionals.
 
 ### Scripts
 
-| Script | Purpose | Usage |
-|--------|---------|-------|
-| [keyword_analyzer.py](scripts/keyword_analyzer.py) | Analyze keywords for volume and competition | `python keyword_analyzer.py --keywords "todo,task,planner"` |
-| [metadata_optimizer.py](scripts/metadata_optimizer.py) | Validate metadata character limits and density | `python metadata_optimizer.py --platform ios --title "App Title"` |
-| [competitor_analyzer.py](scripts/competitor_analyzer.py) | Extract and compare competitor keywords | `python competitor_analyzer.py --competitors "App1,App2,App3"` |
-| [aso_scorer.py](scripts/aso_scorer.py) | Calculate overall ASO health score | `python aso_scorer.py --app-id com.example.app` |
-| [ab_test_planner.py](scripts/ab_test_planner.py) | Plan tests and calculate sample sizes | `python ab_test_planner.py --cvr 0.05 --lift 0.10` |
-| [review_analyzer.py](scripts/review_analyzer.py) | Analyze review sentiment and themes | `python review_analyzer.py --app-id com.example.app` |
-| [launch_checklist.py](scripts/launch_checklist.py) | Generate platform-specific launch checklists | `python launch_checklist.py --platform ios` |
-| [localization_helper.py](scripts/localization_helper.py) | Manage multi-language metadata | `python localization_helper.py --locales "en,es,de,ja"` |
+| Script                                                   | Purpose                                        | Usage                                                             |
+| -------------------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------------------- |
+| [keyword_analyzer.py](scripts/keyword_analyzer.py)       | Analyze keywords for volume and competition    | `python keyword_analyzer.py --keywords "todo,task,planner"`       |
+| [metadata_optimizer.py](scripts/metadata_optimizer.py)   | Validate metadata character limits and density | `python metadata_optimizer.py --platform ios --title "App Title"` |
+| [competitor_analyzer.py](scripts/competitor_analyzer.py) | Extract and compare competitor keywords        | `python competitor_analyzer.py --competitors "App1,App2,App3"`    |
+| [aso_scorer.py](scripts/aso_scorer.py)                   | Calculate overall ASO health score             | `python aso_scorer.py --app-id com.example.app`                   |
+| [ab_test_planner.py](scripts/ab_test_planner.py)         | Plan tests and calculate sample sizes          | `python ab_test_planner.py --cvr 0.05 --lift 0.10`                |
+| [review_analyzer.py](scripts/review_analyzer.py)         | Analyze review sentiment and themes            | `python review_analyzer.py --app-id com.example.app`              |
+| [launch_checklist.py](scripts/launch_checklist.py)       | Generate platform-specific launch checklists   | `python launch_checklist.py --platform ios`                       |
+| [localization_helper.py](scripts/localization_helper.py) | Manage multi-language metadata                 | `python localization_helper.py --locales "en,es,de,ja"`           |
 
 ### References
 
-| Document | Content |
-|----------|---------|
-| [platform-requirements.md](references/platform-requirements.md) | iOS and Android metadata specs, visual asset requirements |
-| [aso-best-practices.md](references/aso-best-practices.md) | Optimization strategies, rating management, launch tactics |
-| [keyword-research-guide.md](references/keyword-research-guide.md) | Research methodology, evaluation framework, tracking |
+| Document                                                          | Content                                                    |
+| ----------------------------------------------------------------- | ---------------------------------------------------------- |
+| [platform-requirements.md](references/platform-requirements.md)   | iOS and Android metadata specs, visual asset requirements  |
+| [aso-best-practices.md](references/aso-best-practices.md)         | Optimization strategies, rating management, launch tactics |
+| [keyword-research-guide.md](references/keyword-research-guide.md) | Research methodology, evaluation framework, tracking       |
 
 ### Assets
 
-| Template | Purpose |
-|----------|---------|
+| Template                                              | Purpose                                           |
+| ----------------------------------------------------- | ------------------------------------------------- |
 | [aso-audit-template.md](assets/aso-audit-template.md) | Structured audit checklist for app store listings |
 
 ---
 
 ## Platform Notes
 
-| Platform / Constraint | Behavior / Impact |
-|-----------------------|-------------------|
-| iOS keyword changes | Require app submission |
-| iOS promotional text | Editable without an app update |
-| Android metadata changes | Index in 1-2 hours |
-| Android keyword field | None — use description instead |
-| Keyword volume data | Estimates only; no official source |
-| Competitor data | Public listings only |
+| Platform / Constraint    | Behavior / Impact                  |
+| ------------------------ | ---------------------------------- |
+| iOS keyword changes      | Require app submission             |
+| iOS promotional text     | Editable without an app update     |
+| Android metadata changes | Index in 1-2 hours                 |
+| Android keyword field    | None — use description instead     |
+| Keyword volume data      | Estimates only; no official source |
+| Competitor data          | Public listings only               |
 
 **When not to use this skill:** web apps (use web SEO), enterprise/internal apps, TestFlight-only betas, or paid advertising strategy.
 
@@ -457,11 +463,11 @@ Trusted by 500,000+ professionals.
 
 ## Related Skills
 
-| Skill | Integration Point |
-|-------|-------------------|
-| [content-creator](../content-creator/) | App description copywriting |
-| [marketing-demand-acquisition](../marketing-demand-acquisition/) | Launch promotion campaigns |
-| [marketing-strategy-pmm](../marketing-strategy-pmm/) | Go-to-market planning |
+| Skill                                                            | Integration Point           |
+| ---------------------------------------------------------------- | --------------------------- |
+| [content-creator](../content-creator/)                           | App description copywriting |
+| [marketing-demand-acquisition](../marketing-demand-acquisition/) | Launch promotion campaigns  |
+| [marketing-strategy-pmm](../marketing-strategy-pmm/)             | Go-to-market planning       |
 
 ## Proactive Triggers
 
@@ -472,15 +478,16 @@ Trusted by 500,000+ professionals.
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|---------------------|------------|
-| "ASO audit" | Full app store listing audit with prioritized fixes |
-| "Keyword research" | Keyword list with search volume and difficulty scores |
+| When you ask for...   | You get...                                            |
+| --------------------- | ----------------------------------------------------- |
+| "ASO audit"           | Full app store listing audit with prioritized fixes   |
+| "Keyword research"    | Keyword list with search volume and difficulty scores |
 | "Optimize my listing" | Rewritten title, subtitle, description, keyword field |
 
 ## Communication
 
 All output passes quality verification:
+
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Output format: Bottom Line → What (with confidence) → Why → How to Act
 - Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.

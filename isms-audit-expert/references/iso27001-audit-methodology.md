@@ -18,16 +18,17 @@ Complete audit framework and procedures for Information Security Management Syst
 
 ### Annual Audit Schedule
 
-| Quarter | Focus Area | Audit Type |
-|---------|------------|------------|
-| Q1 | Access Control, Cryptography | Internal |
-| Q2 | Operations Security, Communications | Internal |
-| Q3 | System Acquisition, Supplier Relations | Internal |
-| Q4 | Full ISMS Review | Pre-certification |
+| Quarter | Focus Area                             | Audit Type        |
+| ------- | -------------------------------------- | ----------------- |
+| Q1      | Access Control, Cryptography           | Internal          |
+| Q2      | Operations Security, Communications    | Internal          |
+| Q3      | System Acquisition, Supplier Relations | Internal          |
+| Q4      | Full ISMS Review                       | Pre-certification |
 
 ### Risk-Based Scheduling
 
 Prioritize audit frequency based on:
+
 - Asset criticality and data classification
 - Previous finding history
 - Regulatory requirements
@@ -35,18 +36,21 @@ Prioritize audit frequency based on:
 - Organizational changes
 
 **High Risk Areas (Quarterly):**
+
 - Access management systems
 - Cryptographic key management
 - Incident response processes
 - Third-party access controls
 
 **Medium Risk Areas (Semi-Annual):**
+
 - Change management
 - Backup and recovery
 - Physical security
 - Security awareness training
 
 **Lower Risk Areas (Annual):**
+
 - Documentation management
 - Asset inventory
 - Business continuity planning
@@ -94,6 +98,7 @@ Day 3:
 ### Auditor Independence
 
 Verify before audit assignment:
+
 - No operational responsibility for audited area
 - No recent (12 months) involvement in audited processes
 - No conflict of interest with auditees
@@ -105,11 +110,11 @@ Verify before audit assignment:
 
 ### Evidence Collection Methods
 
-| Method | Use Case | Evidence Type |
-|--------|----------|---------------|
-| Document review | Policy verification | Screenshots, copies |
-| Interviews | Process understanding | Notes, recordings |
-| Observation | Operational checks | Photos, timestamps |
+| Method            | Use Case              | Evidence Type        |
+| ----------------- | --------------------- | -------------------- |
+| Document review   | Policy verification   | Screenshots, copies  |
+| Interviews        | Process understanding | Notes, recordings    |
+| Observation       | Operational checks    | Photos, timestamps   |
 | Technical testing | Control effectiveness | System logs, reports |
 
 ### Interview Protocol
@@ -124,16 +129,19 @@ Verify before audit assignment:
 ### Sample Interview Questions
 
 **For Security Managers:**
+
 - Describe the risk assessment process
 - How are security incidents reported and managed?
 - What metrics track ISMS effectiveness?
 
 **For System Administrators:**
+
 - How is privileged access managed?
 - Walk through the change management process
 - Show backup verification records
 
 **For End Users:**
+
 - What security training have you received?
 - How do you report suspicious activity?
 - Describe the password policy requirements
@@ -141,6 +149,7 @@ Verify before audit assignment:
 ### Control Testing Procedures
 
 **Access Control (A.9):**
+
 1. Request user access list for critical system
 2. Verify access rights match job roles
 3. Check for terminated user accounts
@@ -148,6 +157,7 @@ Verify before audit assignment:
 5. Verify MFA configuration
 
 **Logging (A.12.4):**
+
 1. Confirm logging enabled on systems in scope
 2. Verify log retention meets policy
 3. Check log protection from tampering
@@ -159,12 +169,12 @@ Verify before audit assignment:
 
 ### Severity Levels
 
-| Level | Definition | Response Time |
-|-------|------------|---------------|
+| Level               | Definition                           | Response Time             |
+| ------------------- | ------------------------------------ | ------------------------- |
 | Major Nonconformity | Failure of control, significant risk | 30 days corrective action |
-| Minor Nonconformity | Isolated deviation, limited impact | 90 days corrective action |
-| Observation | Improvement opportunity | Next audit cycle |
-| Good Practice | Exceeds requirements | Document and share |
+| Minor Nonconformity | Isolated deviation, limited impact   | 90 days corrective action |
+| Observation         | Improvement opportunity              | Next audit cycle          |
+| Good Practice       | Exceeds requirements                 | Document and share        |
 
 ### Finding Documentation
 
@@ -195,15 +205,15 @@ Recommendation:
 
 ### Corrective Action Tracking
 
-| Field | Content |
-|-------|---------|
-| Finding ID | Link to original finding |
-| Root Cause | Why the nonconformity occurred |
-| Corrective Action | Specific steps to address |
-| Responsible Person | Named accountable party |
-| Target Date | Completion deadline |
-| Verification Method | How closure will be confirmed |
-| Status | Open / In Progress / Closed |
+| Field               | Content                        |
+| ------------------- | ------------------------------ |
+| Finding ID          | Link to original finding       |
+| Root Cause          | Why the nonconformity occurred |
+| Corrective Action   | Specific steps to address      |
+| Responsible Person  | Named accountable party        |
+| Target Date         | Completion deadline            |
+| Verification Method | How closure will be confirmed  |
+| Status              | Open / In Progress / Closed    |
 
 ---
 
@@ -212,6 +222,7 @@ Recommendation:
 ### Stage 1 Audit Preparation
 
 Ensure availability of:
+
 - [ ] ISMS documentation (scope, policy, SoA)
 - [ ] Risk assessment records
 - [ ] Internal audit results from past 12 months
@@ -228,13 +239,13 @@ Ensure availability of:
 
 ### Surveillance Audit Cycle
 
-| Year | Quarter | Focus |
-|------|---------|-------|
-| Year 1 | Q2 | High-risk controls, Stage 2 findings |
-| Year 1 | Q4 | Remaining controls sample |
-| Year 2 | Q2 | Full surveillance |
-| Year 2 | Q4 | Continual improvement evidence |
-| Year 3 | Q2 | Re-certification preparation |
+| Year   | Quarter | Focus                                |
+| ------ | ------- | ------------------------------------ |
+| Year 1 | Q2      | High-risk controls, Stage 2 findings |
+| Year 1 | Q4      | Remaining controls sample            |
+| Year 2 | Q2      | Full surveillance                    |
+| Year 2 | Q4      | Continual improvement evidence       |
+| Year 3 | Q2      | Re-certification preparation         |
 
 ### Audit Findings Response Template
 

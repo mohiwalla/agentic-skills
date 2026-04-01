@@ -51,7 +51,7 @@ Framework: Pytest
 
 ### Example 1: Generate Tests from Code
 
-```
+````
 @tdd-guide
 
 Generate comprehensive tests for this function:
@@ -62,18 +62,21 @@ export function calculateTax(amount: number, rate: number): number {
   if (rate < 0 || rate > 1) throw new Error('Rate must be between 0 and 1');
   return Math.round(amount * rate * 100) / 100;
 }
-```
+````
 
 Include:
+
 - Happy path tests
 - Error cases
 - Boundary values
 - Edge cases
+
 ```
 
 ### Example 2: Improve Coverage
 
 ```
+
 @tdd-guide
 
 My coverage is at 65%. Help me get to 80%.
@@ -82,15 +85,18 @@ Coverage report:
 [paste LCOV or JSON coverage data]
 
 Source files:
+
 - src/services/payment-processor.ts
 - src/services/order-validator.ts
 
 Prioritize critical paths.
+
 ```
 
 ### Example 3: Review Test Quality
 
 ```
+
 @tdd-guide
 
 Review the quality of these tests:
@@ -109,54 +115,62 @@ def test_login_fails():
 ```
 
 Suggest improvements for:
+
 - Test isolation
 - Assertion quality
 - Naming conventions
 - Test organization
+
 ```
 
 ### Example 4: Framework Migration
 
 ```
+
 @tdd-guide
 
 Convert these Jest tests to Pytest:
 
 ```javascript
-describe('Calculator', () => {
-  it('should add two numbers', () => {
-    const result = add(2, 3);
-    expect(result).toBe(5);
-  });
+describe("Calculator", () => {
+  it("should add two numbers", () => {
+    const result = add(2, 3)
+    expect(result).toBe(5)
+  })
 
-  it('should handle negative numbers', () => {
-    const result = add(-2, 3);
-    expect(result).toBe(1);
-  });
-});
+  it("should handle negative numbers", () => {
+    const result = add(-2, 3)
+    expect(result).toBe(1)
+  })
+})
 ```
 
 Maintain test structure and coverage.
+
 ```
 
 ### Example 5: Generate Test Fixtures
 
 ```
+
 @tdd-guide
 
 Generate realistic test fixtures for:
 
 Entity: User
 Fields:
+
 - id (UUID)
 - email (valid format)
 - age (18-100)
 - role (admin, user, guest)
 
 Generate 5 fixtures with edge cases:
+
 - Minimum age boundary
 - Maximum age boundary
 - Special characters in email
+
 ```
 
 ## What to Provide
@@ -234,19 +248,23 @@ Generate 5 fixtures with edge cases:
 ### Multi-Language Projects
 
 ```
+
 @tdd-guide
 
 Analyze coverage across multiple languages:
+
 - Frontend: TypeScript (Jest) - src/frontend/
 - Backend: Python (Pytest) - src/backend/
 - API: Java (JUnit) - src/api/
 
 Provide unified coverage report and recommendations.
+
 ```
 
 ### CI/CD Integration
 
 ```
+
 @tdd-guide
 
 Generate coverage report for CI pipeline.
@@ -255,14 +273,17 @@ Input: coverage/coverage-final.json
 Output format: JSON
 
 Include:
+
 - Pass/fail based on 80% threshold
 - Changed files coverage
 - Trend comparison with main branch
+
 ```
 
 ### Parameterized Test Generation
 
 ```
+
 @tdd-guide
 
 Generate parameterized tests for:
@@ -270,12 +291,14 @@ Generate parameterized tests for:
 Function: validateEmail(email: string): boolean
 
 Test cases:
+
 - valid@example.com → true
 - invalid.email → false
 - @example.com → false
 - user@domain.co.uk → true
 
 Framework: Jest (test.each)
+
 ```
 
 ## Related Commands
@@ -311,3 +334,4 @@ If you encounter issues or have suggestions, please mention:
 - Language and framework used
 - Type of operation (generation, analysis, workflow)
 - Expected vs. actual behavior
+```

@@ -18,20 +18,21 @@ Reference guide for selecting the right GCP architecture pattern based on applic
 
 ## Pattern Selection Matrix
 
-| Pattern | Best For | Users | Monthly Cost | Complexity |
-|---------|----------|-------|--------------|------------|
-| Serverless Web | MVP, SaaS, mobile backend | <50K | $30-400 | Low |
-| Microservices on GKE | Complex services, enterprise | 10K-500K | $400-2500 | Medium |
-| Three-Tier | Traditional web, e-commerce | 10K-200K | $300-1500 | Medium |
-| Data Pipeline | Analytics, ETL, streaming | Any | $100-2000 | Medium-High |
-| ML Platform | Training, serving, MLOps | Any | $200-5000 | High |
-| Multi-Region HA | Global apps, DR | >100K | 2x single | High |
+| Pattern              | Best For                     | Users    | Monthly Cost | Complexity  |
+| -------------------- | ---------------------------- | -------- | ------------ | ----------- |
+| Serverless Web       | MVP, SaaS, mobile backend    | <50K     | $30-400      | Low         |
+| Microservices on GKE | Complex services, enterprise | 10K-500K | $400-2500    | Medium      |
+| Three-Tier           | Traditional web, e-commerce  | 10K-200K | $300-1500    | Medium      |
+| Data Pipeline        | Analytics, ETL, streaming    | Any      | $100-2000    | Medium-High |
+| ML Platform          | Training, serving, MLOps     | Any      | $200-5000    | High        |
+| Multi-Region HA      | Global apps, DR              | >100K    | 2x single    | High        |
 
 ---
 
 ## Pattern 1: Serverless Web Application
 
 ### Use Case
+
 SaaS platforms, mobile backends, low-traffic websites, MVPs
 
 ### Architecture Diagram
@@ -56,13 +57,13 @@ SaaS platforms, mobile backends, low-traffic websites, MVPs
 
 ### Service Stack
 
-| Layer | Service | Configuration |
-|-------|---------|---------------|
-| Frontend | Cloud Storage + Cloud CDN | Static hosting with HTTPS |
-| API | Cloud Run | Containerized API with auto-scaling |
-| Database | Firestore | Native mode, pay-per-operation |
-| Auth | Identity Platform | Multi-provider authentication |
-| CI/CD | Cloud Build | Automated container deployments |
+| Layer    | Service                   | Configuration                       |
+| -------- | ------------------------- | ----------------------------------- |
+| Frontend | Cloud Storage + Cloud CDN | Static hosting with HTTPS           |
+| API      | Cloud Run                 | Containerized API with auto-scaling |
+| Database | Firestore                 | Native mode, pay-per-operation      |
+| Auth     | Identity Platform         | Multi-provider authentication       |
+| CI/CD    | Cloud Build               | Automated container deployments     |
 
 ### Terraform Example
 
@@ -91,24 +92,26 @@ resource "google_cloud_run_v2_service" "api" {
 
 ### Cost Breakdown (10K users)
 
-| Service | Monthly Cost |
-|---------|-------------|
-| Cloud Run | $5-25 |
-| Firestore | $5-30 |
-| Cloud CDN | $5-15 |
-| Cloud Storage | $1-5 |
-| Identity Platform | $0-10 |
-| **Total** | **$16-85** |
+| Service           | Monthly Cost |
+| ----------------- | ------------ |
+| Cloud Run         | $5-25        |
+| Firestore         | $5-30        |
+| Cloud CDN         | $5-15        |
+| Cloud Storage     | $1-5         |
+| Identity Platform | $0-10        |
+| **Total**         | **$16-85**   |
 
 ### Pros and Cons
 
 **Pros:**
+
 - Scale-to-zero (pay nothing when idle)
 - Container-based (no runtime restrictions)
 - Built-in HTTPS and custom domains
 - Auto-scaling with no configuration
 
 **Cons:**
+
 - Cold starts if min instances = 0
 - Firestore query limitations vs SQL
 - Vendor lock-in to GCP
@@ -118,6 +121,7 @@ resource "google_cloud_run_v2_service" "api" {
 ## Pattern 2: Microservices on GKE
 
 ### Use Case
+
 Complex business systems, enterprise applications, platform engineering
 
 ### Architecture Diagram
@@ -143,14 +147,14 @@ Complex business systems, enterprise applications, platform engineering
 
 ### Service Stack
 
-| Layer | Service | Configuration |
-|-------|---------|---------------|
-| CDN | Cloud CDN | Edge caching, HTTPS |
+| Layer         | Service               | Configuration                   |
+| ------------- | --------------------- | ------------------------------- |
+| CDN           | Cloud CDN             | Edge caching, HTTPS             |
 | Load Balancer | Global Application LB | Backend services, health checks |
-| Compute | GKE Autopilot | Managed node provisioning |
-| Database | Cloud SQL PostgreSQL | Regional HA, read replicas |
-| Cache | Memorystore Redis | Session, query caching |
-| Messaging | Pub/Sub | Async service communication |
+| Compute       | GKE Autopilot         | Managed node provisioning       |
+| Database      | Cloud SQL PostgreSQL  | Regional HA, read replicas      |
+| Cache         | Memorystore Redis     | Session, query caching          |
+| Messaging     | Pub/Sub               | Async service communication     |
 
 ### GKE Autopilot Configuration
 
@@ -218,20 +222,21 @@ spec:
 
 ### Cost Breakdown (50K users)
 
-| Service | Monthly Cost |
-|---------|-------------|
-| GKE Autopilot | $150-400 |
-| Cloud Load Balancing | $25-50 |
-| Cloud SQL | $100-300 |
-| Memorystore | $40-80 |
-| Pub/Sub | $5-20 |
-| **Total** | **$320-850** |
+| Service              | Monthly Cost |
+| -------------------- | ------------ |
+| GKE Autopilot        | $150-400     |
+| Cloud Load Balancing | $25-50       |
+| Cloud SQL            | $100-300     |
+| Memorystore          | $40-80       |
+| Pub/Sub              | $5-20        |
+| **Total**            | **$320-850** |
 
 ---
 
 ## Pattern 3: Three-Tier Application
 
 ### Use Case
+
 Traditional web apps, e-commerce, CMS, applications with complex queries
 
 ### Architecture Diagram
@@ -257,31 +262,32 @@ Traditional web apps, e-commerce, CMS, applications with complex queries
 
 ### Service Stack
 
-| Layer | Service | Configuration |
-|-------|---------|---------------|
-| CDN | Cloud CDN | Edge caching, compression |
-| Load Balancer | External Application LB | SSL termination, health checks |
-| Compute | Cloud Run or Managed Instance Group | Auto-scaling containers or VMs |
-| Database | Cloud SQL (MySQL/PostgreSQL) | Regional HA, automated backups |
-| Cache | Memorystore Redis | Session store, query cache |
-| Storage | Cloud Storage | Uploads, static assets, backups |
+| Layer         | Service                             | Configuration                   |
+| ------------- | ----------------------------------- | ------------------------------- |
+| CDN           | Cloud CDN                           | Edge caching, compression       |
+| Load Balancer | External Application LB             | SSL termination, health checks  |
+| Compute       | Cloud Run or Managed Instance Group | Auto-scaling containers or VMs  |
+| Database      | Cloud SQL (MySQL/PostgreSQL)        | Regional HA, automated backups  |
+| Cache         | Memorystore Redis                   | Session store, query cache      |
+| Storage       | Cloud Storage                       | Uploads, static assets, backups |
 
 ### Cost Breakdown (50K users)
 
-| Service | Monthly Cost |
-|---------|-------------|
-| Cloud Run / MIG | $80-200 |
-| Cloud Load Balancing | $25-50 |
-| Cloud SQL | $100-250 |
-| Memorystore | $30-60 |
-| Cloud Storage | $10-30 |
-| **Total** | **$245-590** |
+| Service              | Monthly Cost |
+| -------------------- | ------------ |
+| Cloud Run / MIG      | $80-200      |
+| Cloud Load Balancing | $25-50       |
+| Cloud SQL            | $100-250     |
+| Memorystore          | $30-60       |
+| Cloud Storage        | $10-30       |
+| **Total**            | **$245-590** |
 
 ---
 
 ## Pattern 4: Serverless Data Pipeline
 
 ### Use Case
+
 Analytics, IoT data ingestion, log processing, real-time streaming, ETL
 
 ### Architecture Diagram
@@ -301,14 +307,14 @@ Analytics, IoT data ingestion, log processing, real-time streaming, ETL
 
 ### Service Stack
 
-| Layer | Service | Purpose |
-|-------|---------|---------|
-| Ingestion | Pub/Sub | Real-time event capture |
-| Processing | Dataflow (Apache Beam) | Stream/batch transforms |
-| Warehouse | BigQuery | SQL analytics at scale |
-| Storage | Cloud Storage | Raw data lake |
-| Visualization | Looker / Looker Studio | Dashboards and reports |
-| Orchestration | Cloud Composer (Airflow) | Pipeline scheduling |
+| Layer         | Service                  | Purpose                 |
+| ------------- | ------------------------ | ----------------------- |
+| Ingestion     | Pub/Sub                  | Real-time event capture |
+| Processing    | Dataflow (Apache Beam)   | Stream/batch transforms |
+| Warehouse     | BigQuery                 | SQL analytics at scale  |
+| Storage       | Cloud Storage            | Raw data lake           |
+| Visualization | Looker / Looker Studio   | Dashboards and reports  |
+| Orchestration | Cloud Composer (Airflow) | Pipeline scheduling     |
 
 ### Dataflow Pipeline Example
 
@@ -338,20 +344,21 @@ with beam.Pipeline(options=options) as p:
 
 ### Cost Breakdown
 
-| Service | Monthly Cost |
-|---------|-------------|
-| Pub/Sub | $5-30 |
-| Dataflow | $30-200 |
-| BigQuery (on-demand) | $10-100 |
-| Cloud Storage | $5-30 |
-| Looker Studio | $0 (free) |
-| **Total** | **$50-360** |
+| Service              | Monthly Cost |
+| -------------------- | ------------ |
+| Pub/Sub              | $5-30        |
+| Dataflow             | $30-200      |
+| BigQuery (on-demand) | $10-100      |
+| Cloud Storage        | $5-30        |
+| Looker Studio        | $0 (free)    |
+| **Total**            | **$50-360**  |
 
 ---
 
 ## Pattern 5: ML Platform
 
 ### Use Case
+
 Model training, serving, MLOps, feature engineering
 
 ### Architecture Diagram
@@ -371,14 +378,14 @@ Model training, serving, MLOps, feature engineering
 
 ### Service Stack
 
-| Layer | Service | Purpose |
-|-------|---------|---------|
-| Data | BigQuery | Feature engineering, exploration |
-| Training | Vertex AI Training | Custom or AutoML training |
-| Serving | Vertex AI Endpoints | Online/batch prediction |
-| Storage | Cloud Storage | Datasets, model artifacts |
-| Orchestration | Vertex AI Pipelines | ML workflow automation |
-| Monitoring | Vertex AI Model Monitoring | Drift and skew detection |
+| Layer         | Service                    | Purpose                          |
+| ------------- | -------------------------- | -------------------------------- |
+| Data          | BigQuery                   | Feature engineering, exploration |
+| Training      | Vertex AI Training         | Custom or AutoML training        |
+| Serving       | Vertex AI Endpoints        | Online/batch prediction          |
+| Storage       | Cloud Storage              | Datasets, model artifacts        |
+| Orchestration | Vertex AI Pipelines        | ML workflow automation           |
+| Monitoring    | Vertex AI Model Monitoring | Drift and skew detection         |
 
 ### Vertex AI Training Example
 
@@ -411,19 +418,20 @@ endpoint = model.deploy(
 
 ### Cost Breakdown
 
-| Service | Monthly Cost |
-|---------|-------------|
-| Vertex AI Training (T4 GPU) | $50-500 |
-| Vertex AI Prediction | $30-200 |
-| BigQuery | $10-50 |
-| Cloud Storage | $5-30 |
-| **Total** | **$95-780** |
+| Service                     | Monthly Cost |
+| --------------------------- | ------------ |
+| Vertex AI Training (T4 GPU) | $50-500      |
+| Vertex AI Prediction        | $30-200      |
+| BigQuery                    | $10-50       |
+| Cloud Storage               | $5-30        |
+| **Total**                   | **$95-780**  |
 
 ---
 
 ## Pattern 6: Multi-Region High Availability
 
 ### Use Case
+
 Global applications, disaster recovery, data sovereignty compliance
 
 ### Architecture Diagram
@@ -449,13 +457,13 @@ Global applications, disaster recovery, data sovereignty compliance
 
 ### Service Stack
 
-| Component | Service | Configuration |
-|-----------|---------|---------------|
-| DNS | Cloud DNS | Geolocation or latency routing |
-| CDN | Cloud CDN | Multiple regional origins |
-| Compute | Cloud Run (multi-region) | Deployed in each region |
-| Database | Cloud Spanner (multi-region) | Strong global consistency |
-| Storage | Cloud Storage (multi-region) | Automatic geo-redundancy |
+| Component | Service                      | Configuration                  |
+| --------- | ---------------------------- | ------------------------------ |
+| DNS       | Cloud DNS                    | Geolocation or latency routing |
+| CDN       | Cloud CDN                    | Multiple regional origins      |
+| Compute   | Cloud Run (multi-region)     | Deployed in each region        |
+| Database  | Cloud Spanner (multi-region) | Strong global consistency      |
+| Storage   | Cloud Storage (multi-region) | Automatic geo-redundancy       |
 
 ### Cloud DNS Geolocation Policy
 
@@ -470,13 +478,13 @@ gcloud dns record-sets create api.example.com \
 
 ### Cost Considerations
 
-| Factor | Impact |
-|--------|--------|
-| Compute | 2x (each region) |
+| Factor        | Impact                         |
+| ------------- | ------------------------------ |
+| Compute       | 2x (each region)               |
 | Cloud Spanner | Multi-region 3x regional price |
 | Data Transfer | Cross-region replication costs |
-| Cloud DNS | Geolocation queries premium |
-| **Total** | **2-3x single region** |
+| Cloud DNS     | Geolocation queries premium    |
+| **Total**     | **2-3x single region**         |
 
 ---
 
@@ -484,29 +492,29 @@ gcloud dns record-sets create api.example.com \
 
 ### Latency
 
-| Pattern | Typical Latency |
-|---------|-----------------|
-| Serverless Web | 30-150ms (Cloud Run) |
-| GKE Microservices | 15-80ms |
-| Three-Tier | 20-100ms |
-| Multi-Region | <50ms (regional) |
+| Pattern           | Typical Latency      |
+| ----------------- | -------------------- |
+| Serverless Web    | 30-150ms (Cloud Run) |
+| GKE Microservices | 15-80ms              |
+| Three-Tier        | 20-100ms             |
+| Multi-Region      | <50ms (regional)     |
 
 ### Scaling Characteristics
 
-| Pattern | Scale Limit | Scale Speed |
-|---------|-------------|-------------|
-| Serverless Web | 1000 instances/service | Seconds |
-| GKE Microservices | Cluster node limits | Minutes |
-| Data Pipeline | Unlimited (Dataflow) | Seconds |
-| Multi-Region | Regional limits | Seconds |
+| Pattern           | Scale Limit            | Scale Speed |
+| ----------------- | ---------------------- | ----------- |
+| Serverless Web    | 1000 instances/service | Seconds     |
+| GKE Microservices | Cluster node limits    | Minutes     |
+| Data Pipeline     | Unlimited (Dataflow)   | Seconds     |
+| Multi-Region      | Regional limits        | Seconds     |
 
 ### Operational Complexity
 
-| Pattern | Setup | Maintenance | Debugging |
-|---------|-------|-------------|-----------|
-| Serverless Web | Low | Low | Medium |
-| GKE Microservices | Medium | Medium | Medium |
-| Three-Tier | Medium | Medium | Low |
-| Data Pipeline | High | Medium | High |
-| ML Platform | High | High | High |
-| Multi-Region | High | High | High |
+| Pattern           | Setup  | Maintenance | Debugging |
+| ----------------- | ------ | ----------- | --------- |
+| Serverless Web    | Low    | Low         | Medium    |
+| GKE Microservices | Medium | Medium      | Medium    |
+| Three-Tier        | Medium | Medium      | Low       |
+| Data Pipeline     | High   | Medium      | High      |
+| ML Platform       | High   | High        | High      |
+| Multi-Region      | High   | High        | High      |

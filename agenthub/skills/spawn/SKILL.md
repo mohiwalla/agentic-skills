@@ -21,12 +21,12 @@ Spawn N subagents that work on the same task in parallel, each in an isolated gi
 
 When `--template <name>` is provided, use the dispatch prompt from `references/agent-templates.md` instead of the default prompt below. Available templates:
 
-| Template | Pattern | Use Case |
-|----------|---------|----------|
-| `optimizer` | Edit → eval → keep/discard → repeat x10 | Performance, latency, size reduction |
-| `refactorer` | Restructure → test → iterate until green | Code quality, tech debt |
-| `test-writer` | Write tests → measure coverage → repeat | Test coverage gaps |
-| `bug-fixer` | Reproduce → diagnose → fix → verify | Bug fix with competing approaches |
+| Template      | Pattern                                  | Use Case                             |
+| ------------- | ---------------------------------------- | ------------------------------------ |
+| `optimizer`   | Edit → eval → keep/discard → repeat x10  | Performance, latency, size reduction |
+| `refactorer`  | Restructure → test → iterate until green | Code quality, tech debt              |
+| `test-writer` | Write tests → measure coverage → repeat  | Test coverage gaps                   |
+| `bug-fixer`   | Reproduce → diagnose → fix → verify      | Bug fix with competing approaches    |
 
 When using a template, replace all `{variables}` with values from the session config. Assign each agent a **different strategy** appropriate to the template and task — diverse strategies maximize the value of parallel exploration.
 
@@ -63,6 +63,7 @@ Constraints:
 ```
 
 4. Update session state to `running` via:
+
 ```bash
 python {skill_path}/scripts/session_manager.py --update {session-id} --state running
 ```
@@ -77,6 +78,7 @@ python {skill_path}/scripts/session_manager.py --update {session-id} --state run
 ## After Spawn
 
 Tell the user:
+
 - {N} agents launched in parallel
 - Each working in an isolated worktree
 - Monitor with `/hub:status`

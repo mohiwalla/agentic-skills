@@ -1,9 +1,11 @@
 # Post-Incident Review: Payment API Database Connection Pool Exhaustion
 
 ## Executive Summary
+
 On March 15, 2024, we experienced a sev2 incident affecting ['payment-api', 'checkout-service', 'subscription-billing']. The incident lasted 1h 5m and had the following impact: 80% of users unable to complete payments or checkout. Approximately 2,400 failed payment attempts during the incident. Users experienced immediate 500 errors when attempting to pay. The incident has been resolved and we have identified specific actions to prevent recurrence.
 
 ## Incident Overview
+
 - **Incident ID:** INC-2024-0315-001
 - **Date & Time:** 2024-03-15 14:30:00 UTC
 - **Duration:** 1h 5m
@@ -13,15 +15,19 @@ On March 15, 2024, we experienced a sev2 incident affecting ['payment-api', 'che
 - **Responders:** Sarah Chen - On-call Engineer, Primary Responder, Tom Wilson - Database Team Lead, Lisa Park - Database Engineer, Mike Rodriguez - Incident Commander, David Kumar - DevOps Engineer
 
 ### Customer Impact
+
 80% of users unable to complete payments or checkout. Approximately 2,400 failed payment attempts during the incident. Users experienced immediate 500 errors when attempting to pay.
 
-### Business Impact  
+### Business Impact
+
 Estimated revenue loss of $45,000 during outage period. No SLA breaches as resolution was within 2-hour window. 12 customer escalations through support channels.
 
 ## Timeline
+
 No detailed timeline available.
 
 ## Root Cause Analysis
+
 ### Analysis Method: 5 Whys Analysis
 
 #### Why Analysis
@@ -41,22 +47,26 @@ No detailed timeline available.
 **Why 5:** Why wasn't this scenario anticipated?
 **Answer:** Further investigation needed
 
-
 ## What Went Well
+
 - The incident was successfully resolved
 - Incident command was established
 - Multiple team members collaborated on resolution
 
 ## What Didn't Go Well
+
 - Analysis in progress
 
 ## Lessons Learned
+
 Lessons learned to be documented following detailed analysis.
 
 ## Action Items
+
 Action items to be defined.
 
 ## Follow-up and Prevention
+
 ### Prevention Measures
 
 Based on the root cause analysis, the following preventive measures have been identified:
@@ -72,6 +82,7 @@ Based on the root cause analysis, the following preventive measures have been id
 - 3 months: Conduct follow-up assessment and update preventive measures
 
 ## Appendix
+
 ### Additional Information
 
 - Incident ID: INC-2024-0315-001
@@ -85,4 +96,5 @@ Based on the root cause analysis, the following preventive measures have been id
 - Communication thread: [Link TBD]
 
 ---
-*Generated on 2026-02-16 by PIR Generator*
+
+_Generated on 2026-02-16 by PIR Generator_

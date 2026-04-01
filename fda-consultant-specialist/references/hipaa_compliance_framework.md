@@ -21,14 +21,14 @@ Complete guide to HIPAA requirements for medical device manufacturers and softwa
 
 ### Applicability to Medical Devices
 
-| Entity Type | HIPAA Applicability |
-|-------------|---------------------|
-| Healthcare providers | Covered Entity (CE) |
-| Health plans | Covered Entity (CE) |
-| Healthcare clearinghouses | Covered Entity (CE) |
-| Device manufacturers | Business Associate (BA) if handling PHI |
-| SaMD developers | Business Associate (BA) if handling PHI |
-| Cloud service providers | Business Associate (BA) |
+| Entity Type               | HIPAA Applicability                     |
+| ------------------------- | --------------------------------------- |
+| Healthcare providers      | Covered Entity (CE)                     |
+| Health plans              | Covered Entity (CE)                     |
+| Healthcare clearinghouses | Covered Entity (CE)                     |
+| Device manufacturers      | Business Associate (BA) if handling PHI |
+| SaMD developers           | Business Associate (BA) if handling PHI |
+| Cloud service providers   | Business Associate (BA)                 |
 
 ### Protected Health Information (PHI)
 
@@ -60,6 +60,7 @@ Complete guide to HIPAA requirements for medical device manufacturers and softwa
 ### Electronic PHI (ePHI)
 
 PHI that is created, stored, transmitted, or received in electronic form. Most relevant for:
+
 - Connected medical devices
 - Medical device software (SaMD)
 - Mobile health applications
@@ -74,6 +75,7 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 **Principle:** Limit PHI access, use, and disclosure to the minimum necessary to accomplish the intended purpose.
 
 **Implementation:**
+
 - Role-based access controls
 - Access audit logging
 - Data segmentation
@@ -81,17 +83,18 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 
 ### Patient Rights
 
-| Right | Device Implication |
-|-------|---------------------|
-| Access | Provide mechanism to view/export data |
-| Amendment | Allow corrections to patient data |
-| Accounting of disclosures | Log all PHI disclosures |
-| Restriction requests | Support data sharing restrictions |
-| Confidential communications | Secure communication channels |
+| Right                       | Device Implication                    |
+| --------------------------- | ------------------------------------- |
+| Access                      | Provide mechanism to view/export data |
+| Amendment                   | Allow corrections to patient data     |
+| Accounting of disclosures   | Log all PHI disclosures               |
+| Restriction requests        | Support data sharing restrictions     |
+| Confidential communications | Secure communication channels         |
 
 ### Use and Disclosure
 
 **Permitted Uses:**
+
 - Treatment, Payment, Healthcare Operations (TPO)
 - With patient authorization
 - Public health activities
@@ -99,6 +102,7 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 - Health oversight activities
 
 **Medical Device Context:**
+
 - Device data for treatment: Permitted
 - Data analytics by manufacturer: Requires BAA or de-identification
 - Research use: Requires authorization or IRB waiver
@@ -117,6 +121,7 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 ## Security Management Process
 
 ### Risk Analysis
+
 - [ ] Identify systems with ePHI
 - [ ] Document potential threats and vulnerabilities
 - [ ] Assess likelihood and impact
@@ -124,15 +129,18 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 - [ ] Determine risk levels
 
 ### Risk Management
+
 - [ ] Implement security measures
 - [ ] Document residual risk
 - [ ] Management approval
 
 ### Sanction Policy
+
 - [ ] Define workforce sanctions
 - [ ] Document enforcement procedures
 
 ### Information System Activity Review
+
 - [ ] Define audit procedures
 - [ ] Review logs regularly
 - [ ] Document findings
@@ -140,15 +148,16 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 
 #### Workforce Security (§164.308(a)(3))
 
-| Specification | Type | Implementation |
-|---------------|------|----------------|
+| Specification             | Type        | Implementation          |
+| ------------------------- | ----------- | ----------------------- |
 | Authorization/supervision | Addressable | Access approval process |
-| Workforce clearance | Addressable | Background checks |
-| Termination procedures | Addressable | Access revocation |
+| Workforce clearance       | Addressable | Background checks       |
+| Termination procedures    | Addressable | Access revocation       |
 
 #### Information Access Management (§164.308(a)(4))
 
 **Access Control Elements:**
+
 - Access authorization
 - Access establishment and modification
 - Unique user identification
@@ -157,6 +166,7 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 #### Security Awareness and Training (§164.308(a)(5))
 
 **Training Topics:**
+
 - Security reminders
 - Protection from malicious software
 - Login monitoring
@@ -165,6 +175,7 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 #### Security Incident Procedures (§164.308(a)(6))
 
 **Incident Response Requirements:**
+
 1. Identify and document incidents
 2. Report security incidents
 3. Respond to mitigate harmful effects
@@ -176,44 +187,50 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 ## Contingency Plan Components
 
 ### Data Backup Plan (Required)
-- Backup frequency: _____
-- Backup verification: _____
-- Off-site storage: _____
+
+- Backup frequency: **\_**
+- Backup verification: **\_**
+- Off-site storage: **\_**
 
 ### Disaster Recovery Plan (Required)
-- Recovery time objective: _____
-- Recovery point objective: _____
-- Recovery procedures: _____
+
+- Recovery time objective: **\_**
+- Recovery point objective: **\_**
+- Recovery procedures: **\_**
 
 ### Emergency Mode Operation (Required)
-- Critical functions: _____
-- Manual procedures: _____
-- Communication plan: _____
+
+- Critical functions: **\_**
+- Manual procedures: **\_**
+- Communication plan: **\_**
 
 ### Testing and Revision (Addressable)
-- Test frequency: _____
-- Last test date: _____
-- Revision history: _____
+
+- Test frequency: **\_**
+- Last test date: **\_**
+- Revision history: **\_**
 
 ### Applications and Data Criticality (Addressable)
-- Critical systems: _____
-- Priority recovery order: _____
+
+- Critical systems: **\_**
+- Priority recovery order: **\_**
 ```
 
 ### Physical Safeguards
 
 #### Facility Access Controls (§164.310(a)(1))
 
-| Specification | Type | Implementation |
-|---------------|------|----------------|
-| Contingency operations | Addressable | Physical access during emergency |
-| Facility security plan | Addressable | Physical access policies |
-| Access control/validation | Addressable | Visitor management |
-| Maintenance records | Addressable | Physical maintenance logs |
+| Specification             | Type        | Implementation                   |
+| ------------------------- | ----------- | -------------------------------- |
+| Contingency operations    | Addressable | Physical access during emergency |
+| Facility security plan    | Addressable | Physical access policies         |
+| Access control/validation | Addressable | Visitor management               |
+| Maintenance records       | Addressable | Physical maintenance logs        |
 
 #### Workstation Use (§164.310(b))
 
 **Requirements:**
+
 - Policies for workstation use
 - Physical environment considerations
 - Secure positioning
@@ -222,6 +239,7 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 #### Workstation Security (§164.310(c))
 
 **Physical Safeguards:**
+
 - Cable locks
 - Restricted areas
 - Surveillance
@@ -235,21 +253,25 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 ## Device and Media Controls
 
 ### Disposal (Required)
+
 - [ ] Wipe procedures for devices with ePHI
 - [ ] Certificate of destruction
 - [ ] Media sanitization per NIST 800-88
 
 ### Media Re-use (Required)
+
 - [ ] Sanitization before re-use
 - [ ] Verification of removal
 - [ ] Documentation
 
 ### Accountability (Addressable)
+
 - [ ] Hardware inventory
 - [ ] Movement tracking
 - [ ] Responsibility assignment
 
 ### Data Backup and Storage (Addressable)
+
 - [ ] Retrievable copies
 - [ ] Secure storage location
 - [ ] Access controls on backup media
@@ -259,16 +281,17 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 
 #### Access Control (§164.312(a)(1))
 
-| Specification | Type | Implementation |
-|---------------|------|----------------|
-| Unique user identification | Required | Individual accounts |
-| Emergency access | Required | Break-glass procedures |
-| Automatic logoff | Addressable | Session timeout |
-| Encryption and decryption | Addressable | At-rest encryption |
+| Specification              | Type        | Implementation         |
+| -------------------------- | ----------- | ---------------------- |
+| Unique user identification | Required    | Individual accounts    |
+| Emergency access           | Required    | Break-glass procedures |
+| Automatic logoff           | Addressable | Session timeout        |
+| Encryption and decryption  | Addressable | At-rest encryption     |
 
 #### Audit Controls (§164.312(b))
 
 **Audit Log Contents:**
+
 - User identification
 - Event type
 - Date and time
@@ -276,6 +299,7 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 - Affected data
 
 **Medical Device Considerations:**
+
 - Log all access to patient data
 - Protect logs from tampering
 - Retain logs per policy (minimum 6 years)
@@ -284,6 +308,7 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 #### Integrity (§164.312(c)(1))
 
 **ePHI Integrity Controls:**
+
 - Hash verification
 - Digital signatures
 - Version control
@@ -292,6 +317,7 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 #### Person or Entity Authentication (§164.312(d))
 
 **Authentication Methods:**
+
 - Passwords (strong requirements)
 - Biometrics
 - Hardware tokens
@@ -299,10 +325,10 @@ PHI that is created, stored, transmitted, or received in electronic form. Most r
 
 #### Transmission Security (§164.312(e)(1))
 
-| Specification | Type | Implementation |
-|---------------|------|----------------|
+| Specification      | Type        | Implementation              |
+| ------------------ | ----------- | --------------------------- |
 | Integrity controls | Addressable | TLS, message authentication |
-| Encryption | Addressable | TLS 1.2+, AES-256 |
+| Encryption         | Addressable | TLS 1.2+, AES-256           |
 
 ---
 
@@ -322,6 +348,7 @@ Device → Local Network → Internet → Cloud → EHR
 ### SaMD (Software as a Medical Device)
 
 **HIPAA Requirements for SaMD:**
+
 1. Encryption of stored patient data
 2. Secure authentication
 3. Audit logging
@@ -333,6 +360,7 @@ Device → Local Network → Internet → Cloud → EHR
 ### Mobile Medical Applications
 
 **Additional Considerations:**
+
 - Device loss/theft protection
 - Remote wipe capability
 - App sandboxing
@@ -342,6 +370,7 @@ Device → Local Network → Internet → Cloud → EHR
 ### Cloud-Based Devices
 
 **Cloud Provider Requirements:**
+
 - BAA with cloud provider
 - Data residency (US only for HIPAA)
 - Encryption key management
@@ -396,35 +425,41 @@ Step 6: Documentation
 ## HIPAA Risk Assessment
 
 ### System Information
-System Name: _____________________
-System Owner: ____________________
-Date: ___________________________
+
+System Name: **********\_**********
+System Owner: ********\_\_\_\_********
+Date: ************\_\_\_************
 
 ### Asset Inventory
+
 | Asset | ePHI Type | Location | Classification |
-|-------|-----------|----------|----------------|
+| ----- | --------- | -------- | -------------- |
 |       |           |          |                |
 
 ### Threat Analysis
+
 | Threat | Likelihood (1-5) | Impact (1-5) | Risk Score |
-|--------|------------------|--------------|------------|
+| ------ | ---------------- | ------------ | ---------- |
 |        |                  |              |            |
 
 ### Vulnerability Assessment
+
 | Safeguard Category | Gap Identified | Severity | Remediation |
-|--------------------|----------------|----------|-------------|
+| ------------------ | -------------- | -------- | ----------- |
 | Administrative     |                |          |             |
 | Physical           |                |          |             |
 | Technical          |                |          |             |
 
 ### Risk Treatment Plan
+
 | Risk | Treatment | Owner | Timeline | Status |
-|------|-----------|-------|----------|--------|
+| ---- | --------- | ----- | -------- | ------ |
 |      |           |       |          |        |
 
 ### Approval
-Risk Assessment Approved: _______________ Date: _______
-Next Assessment Due: _______________
+
+Risk Assessment Approved: ******\_\_\_****** Date: **\_\_\_**
+Next Assessment Due: ******\_\_\_******
 ```
 
 ---
@@ -436,24 +471,25 @@ Next Assessment Due: _______________
 **Required:** Must be implemented as specified
 
 **Addressable:**
+
 1. Implement as specified, OR
 2. Implement alternative measure, OR
 3. Not implement if not reasonable and appropriate (document rationale)
 
 ### Implementation Status Matrix
 
-| Safeguard | Specification | Type | Status | Evidence |
-|-----------|---------------|------|--------|----------|
-| §164.308(a)(1)(ii)(A) | Risk analysis | R | ☐ | |
-| §164.308(a)(1)(ii)(B) | Risk management | R | ☐ | |
-| §164.308(a)(3)(ii)(A) | Authorization/supervision | A | ☐ | |
-| §164.308(a)(5)(ii)(A) | Security reminders | A | ☐ | |
-| §164.310(a)(2)(i) | Contingency operations | A | ☐ | |
-| §164.310(d)(2)(i) | Disposal | R | ☐ | |
-| §164.312(a)(2)(i) | Unique user ID | R | ☐ | |
-| §164.312(a)(2)(ii) | Emergency access | R | ☐ | |
-| §164.312(a)(2)(iv) | Encryption (at rest) | A | ☐ | |
-| §164.312(e)(2)(ii) | Encryption (transit) | A | ☐ | |
+| Safeguard             | Specification             | Type | Status | Evidence |
+| --------------------- | ------------------------- | ---- | ------ | -------- |
+| §164.308(a)(1)(ii)(A) | Risk analysis             | R    | ☐      |          |
+| §164.308(a)(1)(ii)(B) | Risk management           | R    | ☐      |          |
+| §164.308(a)(3)(ii)(A) | Authorization/supervision | A    | ☐      |          |
+| §164.308(a)(5)(ii)(A) | Security reminders        | A    | ☐      |          |
+| §164.310(a)(2)(i)     | Contingency operations    | A    | ☐      |          |
+| §164.310(d)(2)(i)     | Disposal                  | R    | ☐      |          |
+| §164.312(a)(2)(i)     | Unique user ID            | R    | ☐      |          |
+| §164.312(a)(2)(ii)    | Emergency access          | R    | ☐      |          |
+| §164.312(a)(2)(iv)    | Encryption (at rest)      | A    | ☐      |          |
+| §164.312(e)(2)(ii)    | Encryption (transit)      | A    | ☐      |          |
 
 ---
 
@@ -462,12 +498,14 @@ Next Assessment Due: _______________
 ### When Required
 
 BAA required when business associate:
+
 - Creates, receives, maintains, or transmits PHI
 - Provides services involving PHI use/disclosure
 
 ### BAA Requirements
 
 **Required Provisions:**
+
 1. Permitted and required uses of PHI
 2. Subcontractor requirements
 3. Appropriate safeguards
@@ -486,6 +524,7 @@ COVERED ENTITY: [Healthcare Provider/Plan Name]
 BUSINESS ASSOCIATE: [Device Manufacturer Name]
 
 ### 1. Definitions
+
 [Standard HIPAA definitions]
 
 ### 2. Obligations of Business Associate
@@ -526,12 +565,13 @@ b) Provide information for breach notification
 c) Mitigate harmful effects
 
 ### 6. Term and Termination
+
 [Standard termination provisions]
 
 ### Signatures
 
-COVERED ENTITY: _________________ Date: _______
-BUSINESS ASSOCIATE: _____________ Date: _______
+COVERED ENTITY: ********\_******** Date: **\_\_\_**
+BUSINESS ASSOCIATE: ******\_****** Date: **\_\_\_**
 ```
 
 ---
@@ -543,6 +583,7 @@ BUSINESS ASSOCIATE: _____________ Date: _______
 **Breach:** Acquisition, access, use, or disclosure of unsecured PHI in a manner not permitted that compromises security or privacy.
 
 **Exceptions:**
+
 1. Unintentional acquisition by workforce member acting in good faith
 2. Inadvertent disclosure between authorized persons
 3. Good faith belief that unauthorized person couldn't retain information
@@ -550,6 +591,7 @@ BUSINESS ASSOCIATE: _____________ Date: _______
 ### Risk Assessment for Breach
 
 **Factors to Consider:**
+
 1. Nature and extent of PHI involved
 2. Unauthorized person who received PHI
 3. Whether PHI was actually acquired/viewed
@@ -557,12 +599,12 @@ BUSINESS ASSOCIATE: _____________ Date: _______
 
 ### Notification Requirements
 
-| Audience | Timing | Method |
-|----------|--------|--------|
-| Individuals | 60 days from discovery | First-class mail or email |
-| HHS | 60 days (if >500) | HHS breach portal |
-| HHS | Annual (if <500) | Annual report |
-| Media | 60 days (if >500 in state) | Prominent media outlet |
+| Audience    | Timing                     | Method                    |
+| ----------- | -------------------------- | ------------------------- |
+| Individuals | 60 days from discovery     | First-class mail or email |
+| HHS         | 60 days (if >500)          | HHS breach portal         |
+| HHS         | Annual (if <500)           | Annual report             |
+| Media       | 60 days (if >500 in state) | Prominent media outlet    |
 
 ### Breach Response Procedure
 
@@ -570,6 +612,7 @@ BUSINESS ASSOCIATE: _____________ Date: _______
 ## Breach Response Procedure
 
 ### Phase 1: Detection and Containment (Immediate)
+
 - [ ] Identify scope of breach
 - [ ] Contain breach (stop ongoing access)
 - [ ] Preserve evidence
@@ -577,23 +620,27 @@ BUSINESS ASSOCIATE: _____________ Date: _______
 - [ ] Document timeline
 
 ### Phase 2: Investigation (1-14 days)
+
 - [ ] Determine what PHI was involved
 - [ ] Identify affected individuals
 - [ ] Assess risk of harm
 - [ ] Document investigation findings
 
 ### Phase 3: Risk Assessment (15-30 days)
+
 - [ ] Apply four-factor risk assessment
 - [ ] Determine if notification required
 - [ ] Document decision rationale
 
 ### Phase 4: Notification (Within 60 days)
+
 - [ ] Prepare individual notification letters
 - [ ] Submit to HHS (if required)
 - [ ] Media notification (if required)
 - [ ] Retain copies of notifications
 
 ### Phase 5: Remediation (Ongoing)
+
 - [ ] Implement corrective actions
 - [ ] Update policies and procedures
 - [ ] Train workforce
@@ -603,6 +650,7 @@ BUSINESS ASSOCIATE: _____________ Date: _______
 ### Breach Notification Content
 
 **Individual Notification Must Include:**
+
 1. Description of what happened
 2. Types of PHI involved
 3. Steps individuals should take
@@ -692,30 +740,30 @@ BUSINESS ASSOCIATE: _____________ Date: _______
 
 ### Common HIPAA Violations
 
-| Violation | Prevention |
-|-----------|------------|
-| Unauthorized access | Role-based access, MFA |
-| Lost/stolen devices | Encryption, remote wipe |
-| Improper disposal | NIST 800-88 sanitization |
-| Insufficient training | Annual training program |
-| Missing BAAs | BA inventory and tracking |
-| Insufficient audit logs | Comprehensive logging |
+| Violation               | Prevention                |
+| ----------------------- | ------------------------- |
+| Unauthorized access     | Role-based access, MFA    |
+| Lost/stolen devices     | Encryption, remote wipe   |
+| Improper disposal       | NIST 800-88 sanitization  |
+| Insufficient training   | Annual training program   |
+| Missing BAAs            | BA inventory and tracking |
+| Insufficient audit logs | Comprehensive logging     |
 
 ### Penalty Structure
 
-| Tier | Knowledge | Per Violation | Annual Maximum |
-|------|-----------|---------------|----------------|
-| 1 | Unknown | $100-$50,000 | $1,500,000 |
-| 2 | Reasonable cause | $1,000-$50,000 | $1,500,000 |
-| 3 | Willful neglect (corrected) | $10,000-$50,000 | $1,500,000 |
-| 4 | Willful neglect (not corrected) | $50,000 | $1,500,000 |
+| Tier | Knowledge                       | Per Violation   | Annual Maximum |
+| ---- | ------------------------------- | --------------- | -------------- |
+| 1    | Unknown                         | $100-$50,000    | $1,500,000     |
+| 2    | Reasonable cause                | $1,000-$50,000  | $1,500,000     |
+| 3    | Willful neglect (corrected)     | $10,000-$50,000 | $1,500,000     |
+| 4    | Willful neglect (not corrected) | $50,000         | $1,500,000     |
 
 ### FDA-HIPAA Intersection
 
-| Device Scenario | FDA | HIPAA |
-|-----------------|-----|-------|
-| Standalone diagnostic | 510(k)/PMA | If transmits PHI |
-| Connected insulin pump | Class III PMA | Yes (patient data) |
-| Wellness app (no diagnosis) | Exempt | If stores PHI |
-| EHR-integrated device | May apply | Yes |
-| Research device | IDE | IRB may waive |
+| Device Scenario             | FDA           | HIPAA              |
+| --------------------------- | ------------- | ------------------ |
+| Standalone diagnostic       | 510(k)/PMA    | If transmits PHI   |
+| Connected insulin pump      | Class III PMA | Yes (patient data) |
+| Wellness app (no diagnosis) | Exempt        | If stores PHI      |
+| EHR-integrated device       | May apply     | Yes                |
+| Research device             | IDE           | IRB may waive      |

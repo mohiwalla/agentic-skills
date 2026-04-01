@@ -1,9 +1,11 @@
 # incident-commander reference
 
 ## Reference Information
+
 - **Architecture Diagram:** {link}
 - **Monitoring Dashboard:** {link}
 - **Related Runbooks:** {links to dependent service runbooks}
+
 ```
 
 ### Post-Incident Review (PIR) Framework
@@ -138,6 +140,7 @@ Reconstruct the incident chronologically to identify decision points and missed 
 #### Update Template
 
 ```
+
 {Timestamp} - {Status Category}
 
 {Brief description of current state}
@@ -149,6 +152,7 @@ Resolution: {what's being done to fix it}
 Next update: {specific time}
 
 We apologize for any inconvenience this may cause.
+
 ```
 
 ### Action Item Framework
@@ -178,6 +182,7 @@ We apologize for any inconvenience this may cause.
 #### Action Item Template
 
 ```
+
 **Title:** {Concise description of the action}
 **Priority:** {Critical/High/Medium/Low}
 **Category:** {Fix/Process/Technical/Organizational}
@@ -191,11 +196,16 @@ We apologize for any inconvenience this may cause.
 {Detailed description of what needs to be done and why}
 
 **Implementation Plan:**
+
 1. {Step 1}
 2. {Step 2}
 3. {Validation step}
 
 **Progress Updates:**
+
 - {Date}: {Progress update}
 - {Date}: {Progress update}
+
+```
+
 ```

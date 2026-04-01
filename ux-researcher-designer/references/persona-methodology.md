@@ -37,14 +37,14 @@ Reference for creating research-backed, data-driven user personas.
 
 ### Minimum Viability Requirements
 
-| Requirement | Threshold | Confidence Level |
-|-------------|-----------|------------------|
-| Sample size | 5 users | Low (exploratory) |
-| Sample size | 20 users | Medium (directional) |
-| Sample size | 50+ users | High (reliable) |
-| Data types | 2+ sources | Required |
-| Interview depth | 30+ min | Recommended |
-| Behavioral data | 1 week+ | Recommended |
+| Requirement     | Threshold  | Confidence Level     |
+| --------------- | ---------- | -------------------- |
+| Sample size     | 5 users    | Low (exploratory)    |
+| Sample size     | 20 users   | Medium (directional) |
+| Sample size     | 50+ users  | High (reliable)      |
+| Data types      | 2+ sources | Required             |
+| Interview depth | 30+ min    | Recommended          |
+| Behavioral data | 1 week+    | Recommended          |
 
 ### The Persona Validity Test
 
@@ -71,23 +71,23 @@ A valid persona must pass these checks:
 
 ### Quantitative Sources
 
-| Source | Data Type | Use For |
-|--------|-----------|---------|
-| Analytics | Behavior | Usage patterns, feature adoption |
-| Surveys | Demographics, preferences | Segmentation, satisfaction |
-| Support tickets | Pain points | Frustration patterns |
-| Product logs | Actions | Feature usage, workflows |
-| CRM data | Profile | Job roles, company size |
+| Source          | Data Type                 | Use For                          |
+| --------------- | ------------------------- | -------------------------------- |
+| Analytics       | Behavior                  | Usage patterns, feature adoption |
+| Surveys         | Demographics, preferences | Segmentation, satisfaction       |
+| Support tickets | Pain points               | Frustration patterns             |
+| Product logs    | Actions                   | Feature usage, workflows         |
+| CRM data        | Profile                   | Job roles, company size          |
 
 ### Qualitative Sources
 
-| Source | Data Type | Use For |
-|--------|-----------|---------|
-| User interviews | Motivations, goals | Deep understanding |
-| Contextual inquiry | Environment | Real-world context |
-| Diary studies | Longitudinal | Behavior over time |
-| Usability tests | Pain points | Specific frustrations |
-| Customer calls | Quotes | Authentic voice |
+| Source             | Data Type          | Use For               |
+| ------------------ | ------------------ | --------------------- |
+| User interviews    | Motivations, goals | Deep understanding    |
+| Contextual inquiry | Environment        | Real-world context    |
+| Diary studies      | Longitudinal       | Behavior over time    |
+| Usability tests    | Pain points        | Specific frustrations |
+| Customer calls     | Quotes             | Authentic voice       |
 
 ### Data Collection Matrix
 
@@ -110,6 +110,7 @@ A valid persona must pass these checks:
 ### Interview Protocol
 
 **Pre-Interview:**
+
 - Review user's analytics data
 - Note usage patterns to explore
 - Prepare open-ended questions
@@ -145,6 +146,7 @@ A valid persona must pass these checks:
 **Step 1: Code Data Points**
 
 Tag each insight with:
+
 - `[GOAL]` - What they want to achieve
 - `[PAIN]` - What frustrates them
 - `[BEHAVIOR]` - What they actually do
@@ -165,21 +167,21 @@ Cluster 2: C (Casual User - weekly, basic)
 
 **Step 3: Calculate Cluster Size**
 
-| Cluster | Users | % of Sample | Viability |
-|---------|-------|-------------|-----------|
-| Power Users | 18 | 36% | Primary persona |
-| Business Users | 15 | 30% | Primary persona |
-| Casual Users | 12 | 24% | Secondary persona |
-| Mobile-First | 5 | 10% | Consider merging |
+| Cluster        | Users | % of Sample | Viability         |
+| -------------- | ----- | ----------- | ----------------- |
+| Power Users    | 18    | 36%         | Primary persona   |
+| Business Users | 15    | 30%         | Primary persona   |
+| Casual Users   | 12    | 24%         | Secondary persona |
+| Mobile-First   | 5     | 10%         | Consider merging  |
 
 ### Archetype Classification
 
-| Archetype | Identifying Signals | Design Focus |
-|-----------|--------------------| -------------|
-| Power User | Daily use, 10+ features, shortcuts | Efficiency, customization |
-| Casual User | Weekly use, 3-5 features, simple | Simplicity, guidance |
-| Business User | Work context, team features, ROI | Collaboration, reporting |
-| Mobile-First | Mobile primary, quick actions | Touch, offline, speed |
+| Archetype     | Identifying Signals                | Design Focus              |
+| ------------- | ---------------------------------- | ------------------------- |
+| Power User    | Daily use, 10+ features, shortcuts | Efficiency, customization |
+| Casual User   | Weekly use, 3-5 features, simple   | Simplicity, guidance      |
+| Business User | Work context, team features, ROI   | Collaboration, reporting  |
+| Mobile-First  | Mobile primary, quick actions      | Touch, offline, speed     |
 
 ### Confidence Scoring
 
@@ -210,30 +212,31 @@ Consistency Score:
 
 ### Required Elements
 
-| Component | Description | Source |
-|-----------|-------------|--------|
+| Component    | Description          | Source                    |
+| ------------ | -------------------- | ------------------------- |
 | Name & Photo | Memorable identifier | Stock photo, AI-generated |
-| Tagline | One-line summary | Synthesized from data |
-| Quote | Authentic voice | Direct from interviews |
-| Demographics | Age, role, location | CRM, surveys |
-| Goals | What they want | Interviews |
-| Frustrations | Pain points | Interviews, support |
-| Behaviors | How they act | Analytics, observation |
-| Scenarios | Usage contexts | Interviews, logs |
+| Tagline      | One-line summary     | Synthesized from data     |
+| Quote        | Authentic voice      | Direct from interviews    |
+| Demographics | Age, role, location  | CRM, surveys              |
+| Goals        | What they want       | Interviews                |
+| Frustrations | Pain points          | Interviews, support       |
+| Behaviors    | How they act         | Analytics, observation    |
+| Scenarios    | Usage contexts       | Interviews, logs          |
 
 ### Optional Enhancements
 
-| Component | When to Include |
-|-----------|-----------------|
-| Day-in-the-life | Complex workflows |
-| Empathy map | Design workshops |
-| Technology stack | B2B products |
-| Influences | Consumer products |
-| Brands they love | Marketing-heavy |
+| Component        | When to Include   |
+| ---------------- | ----------------- |
+| Day-in-the-life  | Complex workflows |
+| Empathy map      | Design workshops  |
+| Technology stack | B2B products      |
+| Influences       | Consumer products |
+| Brands they love | Marketing-heavy   |
 
 ### Component Depth Guide
 
 **Demographics (Keep Brief):**
+
 ```
 ❌ Too detailed:
    Age: 34, Lives: Seattle, Education: MBA from Stanford
@@ -243,6 +246,7 @@ Consistency Score:
 ```
 
 **Goals (Be Specific):**
+
 ```
 ❌ Too vague:
    "Wants to be productive"
@@ -252,6 +256,7 @@ Consistency Score:
 ```
 
 **Frustrations (Include Evidence):**
+
 ```
 ❌ Generic:
    "Finds the interface confusing"
@@ -267,11 +272,13 @@ Consistency Score:
 ### Internal Validation
 
 **Team Check:**
+
 - [ ] Does sales recognize this user type?
 - [ ] Does support see these pain points?
 - [ ] Does product know these workflows?
 
 **Data Check:**
+
 - [ ] Can we quantify this segment's size?
 - [ ] Do behaviors match analytics?
 - [ ] Are quotes from real users?
@@ -279,11 +286,13 @@ Consistency Score:
 ### External Validation
 
 **User Validation (recommended):**
+
 - Show persona to 3-5 users from segment
 - Ask: "Does this sound like you?"
 - Iterate based on feedback
 
 **A/B Design Test:**
+
 - Design for persona A vs. persona B
 - Test with actual users
 - Measure if persona-driven design wins
@@ -292,13 +301,13 @@ Consistency Score:
 
 Watch for these persona validity problems:
 
-| Red Flag | What It Means | Fix |
-|----------|---------------|-----|
-| "Everyone" persona | Too broad to be useful | Split into segments |
-| Contradicting data | Forcing a narrative | Re-analyze clusters |
-| No frustrations | Sanitized or incomplete | Dig deeper in interviews |
-| Assumptions labeled as data | No real research | Conduct actual research |
-| Single data source | Fragile foundation | Add another data type |
+| Red Flag                    | What It Means           | Fix                      |
+| --------------------------- | ----------------------- | ------------------------ |
+| "Everyone" persona          | Too broad to be useful  | Split into segments      |
+| Contradicting data          | Forcing a narrative     | Re-analyze clusters      |
+| No frustrations             | Sanitized or incomplete | Dig deeper in interviews |
+| Assumptions labeled as data | No real research        | Conduct actual research  |
+| Single data source          | Fragile foundation      | Add another data type    |
 
 ---
 
@@ -376,12 +385,12 @@ Watch for these persona validity problems:
 
 ### Time Investment Guide
 
-| Persona Type | Time | Team | Output |
-|--------------|------|------|--------|
-| Quick & Dirty | 1 week | 1 | Directional |
-| Standard | 2-4 weeks | 2 | Production |
-| Comprehensive | 6-8 weeks | 3+ | Strategic |
+| Persona Type  | Time      | Team | Output      |
+| ------------- | --------- | ---- | ----------- |
+| Quick & Dirty | 1 week    | 1    | Directional |
+| Standard      | 2-4 weeks | 2    | Production  |
+| Comprehensive | 6-8 weeks | 3+   | Strategic   |
 
 ---
 
-*See also: `example-personas.md` for output examples*
+_See also: `example-personas.md` for output examples_

@@ -10,6 +10,7 @@ Define, track, and interpret product metrics across discovery, growth, and matur
 ## When To Use
 
 Use this skill for:
+
 - Metric framework selection (AARRR, North Star, HEART)
 - KPI definition by product stage (pre-PMF, growth, mature)
 - Dashboard design and metric hierarchy
@@ -19,26 +20,31 @@ Use this skill for:
 ## Workflow
 
 1. Select metric framework
+
 - AARRR for growth loops and funnel visibility
 - North Star for cross-functional strategic alignment
 - HEART for UX quality and user experience measurement
 
 2. Define stage-appropriate KPIs
+
 - Pre-PMF: activation, early retention, qualitative success
 - Growth: acquisition efficiency, expansion, conversion velocity
 - Mature: retention depth, revenue quality, operational efficiency
 
 3. Design dashboard layers
+
 - Executive layer: 5-7 directional metrics
 - Product health layer: acquisition, activation, retention, engagement
 - Feature layer: adoption, depth, repeat usage, outcome correlation
 
 4. Run cohort + retention analysis
+
 - Segment by signup cohort or feature exposure cohort
 - Compare retention curves, not single-point snapshots
 - Identify inflection points around onboarding and first value moment
 
 5. Interpret and act
+
 - Connect metric movement to product changes and release timeline
 - Distinguish signal from noise using period-over-period context
 - Propose one clear product action per major metric risk/opportunity
@@ -46,18 +52,21 @@ Use this skill for:
 ## KPI Guidance By Stage
 
 ### Pre-PMF
+
 - Activation rate
 - Week-1 retention
 - Time-to-first-value
 - Problem-solution fit interview score
 
 ### Growth
+
 - Funnel conversion by stage
 - Monthly retained users
 - Feature adoption among new cohorts
 - Expansion / upsell proxy metrics
 
 ### Mature
+
 - Net revenue retention aligned product metrics
 - Power-user share and depth of use
 - Churn risk indicators by segment
@@ -72,6 +81,7 @@ Use this skill for:
 - Prefer comparable time windows (weekly vs weekly, monthly vs monthly).
 
 See:
+
 - `references/metrics-frameworks.md`
 - `references/dashboard-templates.md`
 
@@ -95,11 +105,13 @@ See:
 ### `scripts/metrics_calculator.py`
 
 CLI utility for:
+
 - Retention rate calculations by cohort age
 - Cohort table generation
 - Basic funnel conversion analysis
 
 Examples:
+
 ```bash
 python3 scripts/metrics_calculator.py retention events.csv
 python3 scripts/metrics_calculator.py cohort events.csv --cohort-grain month

@@ -38,27 +38,30 @@ The testing pyramid guides how to distribute testing effort across different tes
 
 For frontend applications, the pyramid shifts slightly:
 
-| Level | Percentage | Tools | Focus |
-|-------|------------|-------|-------|
-| Unit | 50-60% | Jest, RTL | Pure functions, hooks, isolated components |
-| Integration | 25-35% | RTL, MSW | Component trees, API calls, context |
-| E2E | 10-15% | Playwright | Critical user flows, cross-page navigation |
+| Level       | Percentage | Tools      | Focus                                      |
+| ----------- | ---------- | ---------- | ------------------------------------------ |
+| Unit        | 50-60%     | Jest, RTL  | Pure functions, hooks, isolated components |
+| Integration | 25-35%     | RTL, MSW   | Component trees, API calls, context        |
+| E2E         | 10-15%     | Playwright | Critical user flows, cross-page navigation |
 
 ### Why This Distribution?
 
 **Unit tests are fast and cheap:**
+
 - Execute in milliseconds
 - Pinpoint failures precisely
 - Easy to maintain
 - Run on every commit
 
 **Integration tests balance coverage and cost:**
+
 - Test realistic scenarios
 - Catch component interaction bugs
 - Moderate execution time
 - Run on every PR
 
 **E2E tests are expensive but essential:**
+
 - Validate real user experience
 - Catch deployment issues
 - Slow and brittle
@@ -73,6 +76,7 @@ For frontend applications, the pyramid shifts slightly:
 **Purpose:** Verify individual units of code work correctly in isolation.
 
 **What to Unit Test:**
+
 - Pure utility functions
 - Custom hooks (with renderHook)
 - Individual component rendering
@@ -84,32 +88,32 @@ For frontend applications, the pyramid shifts slightly:
 
 ```typescript
 // utils/formatPrice.ts
-export function formatPrice(cents: number, currency = 'USD'): string {
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
+export function formatPrice(cents: number, currency = "USD"): string {
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
     currency,
-  });
-  return formatter.format(cents / 100);
+  })
+  return formatter.format(cents / 100)
 }
 
 // utils/formatPrice.test.ts
-describe('formatPrice', () => {
-  it('formats cents to USD by default', () => {
-    expect(formatPrice(1999)).toBe('$19.99');
-  });
+describe("formatPrice", () => {
+  it("formats cents to USD by default", () => {
+    expect(formatPrice(1999)).toBe("$19.99")
+  })
 
-  it('handles zero', () => {
-    expect(formatPrice(0)).toBe('$0.00');
-  });
+  it("handles zero", () => {
+    expect(formatPrice(0)).toBe("$0.00")
+  })
 
-  it('supports different currencies', () => {
-    expect(formatPrice(1999, 'EUR')).toContain('€');
-  });
+  it("supports different currencies", () => {
+    expect(formatPrice(1999, "EUR")).toContain("€")
+  })
 
-  it('handles large numbers', () => {
-    expect(formatPrice(100000000)).toBe('$1,000,000.00');
-  });
-});
+  it("handles large numbers", () => {
+    expect(formatPrice(100000000)).toBe("$1,000,000.00")
+  })
+})
 ```
 
 **Example: Testing a Custom Hook**
@@ -117,42 +121,42 @@ describe('formatPrice', () => {
 ```typescript
 // hooks/useCounter.ts
 export function useCounter(initial = 0) {
-  const [count, setCount] = useState(initial);
-  const increment = () => setCount(c => c + 1);
-  const decrement = () => setCount(c => c - 1);
-  const reset = () => setCount(initial);
-  return { count, increment, decrement, reset };
+  const [count, setCount] = useState(initial)
+  const increment = () => setCount(c => c + 1)
+  const decrement = () => setCount(c => c - 1)
+  const reset = () => setCount(initial)
+  return { count, increment, decrement, reset }
 }
 
 // hooks/useCounter.test.ts
-import { renderHook, act } from '@testing-library/react';
-import { useCounter } from './useCounter';
+import { renderHook, act } from "@testing-library/react"
+import { useCounter } from "./useCounter"
 
-describe('useCounter', () => {
-  it('starts with initial value', () => {
-    const { result } = renderHook(() => useCounter(5));
-    expect(result.current.count).toBe(5);
-  });
+describe("useCounter", () => {
+  it("starts with initial value", () => {
+    const { result } = renderHook(() => useCounter(5))
+    expect(result.current.count).toBe(5)
+  })
 
-  it('increments count', () => {
-    const { result } = renderHook(() => useCounter(0));
-    act(() => result.current.increment());
-    expect(result.current.count).toBe(1);
-  });
+  it("increments count", () => {
+    const { result } = renderHook(() => useCounter(0))
+    act(() => result.current.increment())
+    expect(result.current.count).toBe(1)
+  })
 
-  it('decrements count', () => {
-    const { result } = renderHook(() => useCounter(5));
-    act(() => result.current.decrement());
-    expect(result.current.count).toBe(4);
-  });
+  it("decrements count", () => {
+    const { result } = renderHook(() => useCounter(5))
+    act(() => result.current.decrement())
+    expect(result.current.count).toBe(4)
+  })
 
-  it('resets to initial value', () => {
-    const { result } = renderHook(() => useCounter(10));
-    act(() => result.current.increment());
-    act(() => result.current.reset());
-    expect(result.current.count).toBe(10);
-  });
-});
+  it("resets to initial value", () => {
+    const { result } = renderHook(() => useCounter(10))
+    act(() => result.current.increment())
+    act(() => result.current.reset())
+    expect(result.current.count).toBe(10)
+  })
+})
 ```
 
 ### Integration Testing
@@ -160,6 +164,7 @@ describe('useCounter', () => {
 **Purpose:** Verify multiple units work together correctly.
 
 **What to Integration Test:**
+
 - Component trees with multiple children
 - Components with context providers
 - Form submission flows
@@ -237,6 +242,7 @@ describe('UserProfile', () => {
 **Purpose:** Verify complete user flows work in a real browser environment.
 
 **What to E2E Test:**
+
 - Critical business flows (checkout, signup, login)
 - Cross-page navigation sequences
 - Authentication flows
@@ -248,51 +254,51 @@ describe('UserProfile', () => {
 
 ```typescript
 // e2e/checkout.spec.ts
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test"
 
-test.describe('Checkout Flow', () => {
+test.describe("Checkout Flow", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-  });
+    await page.goto("/")
+  })
 
-  test('completes purchase successfully', async ({ page }) => {
+  test("completes purchase successfully", async ({ page }) => {
     // Add product to cart
-    await page.goto('/products/widget-pro');
-    await page.getByRole('button', { name: 'Add to Cart' }).click();
+    await page.goto("/products/widget-pro")
+    await page.getByRole("button", { name: "Add to Cart" }).click()
 
     // Verify cart updated
-    await expect(page.getByTestId('cart-count')).toHaveText('1');
+    await expect(page.getByTestId("cart-count")).toHaveText("1")
 
     // Go to checkout
-    await page.getByRole('link', { name: 'Checkout' }).click();
+    await page.getByRole("link", { name: "Checkout" }).click()
 
     // Fill shipping info
-    await page.getByLabel('Email').fill('test@example.com');
-    await page.getByLabel('Address').fill('123 Test St');
-    await page.getByLabel('City').fill('Test City');
-    await page.getByLabel('Zip').fill('12345');
+    await page.getByLabel("Email").fill("test@example.com")
+    await page.getByLabel("Address").fill("123 Test St")
+    await page.getByLabel("City").fill("Test City")
+    await page.getByLabel("Zip").fill("12345")
 
     // Fill payment info (test card)
-    await page.getByLabel('Card Number').fill('4242424242424242');
-    await page.getByLabel('Expiry').fill('12/25');
-    await page.getByLabel('CVC').fill('123');
+    await page.getByLabel("Card Number").fill("4242424242424242")
+    await page.getByLabel("Expiry").fill("12/25")
+    await page.getByLabel("CVC").fill("123")
 
     // Submit order
-    await page.getByRole('button', { name: 'Place Order' }).click();
+    await page.getByRole("button", { name: "Place Order" }).click()
 
     // Verify confirmation
-    await expect(page).toHaveURL(/\/orders\/\w+/);
-    await expect(page.getByText('Order Confirmed')).toBeVisible();
-  });
+    await expect(page).toHaveURL(/\/orders\/\w+/)
+    await expect(page.getByText("Order Confirmed")).toBeVisible()
+  })
 
-  test('shows validation errors for invalid input', async ({ page }) => {
-    await page.goto('/checkout');
-    await page.getByRole('button', { name: 'Place Order' }).click();
+  test("shows validation errors for invalid input", async ({ page }) => {
+    await page.goto("/checkout")
+    await page.getByRole("button", { name: "Place Order" }).click()
 
-    await expect(page.getByText('Email is required')).toBeVisible();
-    await expect(page.getByText('Address is required')).toBeVisible();
-  });
-});
+    await expect(page.getByText("Email is required")).toBeVisible()
+    await expect(page.getByText("Address is required")).toBeVisible()
+  })
+})
 ```
 
 ### Visual Regression Testing
@@ -305,25 +311,25 @@ test.describe('Checkout Flow', () => {
 
 ```typescript
 // e2e/visual/components.spec.ts
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test"
 
-test.describe('Visual Regression', () => {
-  test('button variants render correctly', async ({ page }) => {
-    await page.goto('/storybook/button');
-    await expect(page).toHaveScreenshot('button-variants.png');
-  });
+test.describe("Visual Regression", () => {
+  test("button variants render correctly", async ({ page }) => {
+    await page.goto("/storybook/button")
+    await expect(page).toHaveScreenshot("button-variants.png")
+  })
 
-  test('responsive header', async ({ page }) => {
+  test("responsive header", async ({ page }) => {
     // Desktop
-    await page.setViewportSize({ width: 1280, height: 720 });
-    await page.goto('/');
-    await expect(page.locator('header')).toHaveScreenshot('header-desktop.png');
+    await page.setViewportSize({ width: 1280, height: 720 })
+    await page.goto("/")
+    await expect(page.locator("header")).toHaveScreenshot("header-desktop.png")
 
     // Mobile
-    await page.setViewportSize({ width: 375, height: 667 });
-    await expect(page.locator('header')).toHaveScreenshot('header-mobile.png');
-  });
-});
+    await page.setViewportSize({ width: 375, height: 667 })
+    await expect(page.locator("header")).toHaveScreenshot("header-mobile.png")
+  })
+})
 ```
 
 ### Accessibility Testing
@@ -367,16 +373,17 @@ test('homepage has no a11y violations', async ({ page }) => {
 
 ### Recommended Thresholds by Project Type
 
-| Project Type | Statements | Branches | Functions | Lines |
-|--------------|------------|----------|-----------|-------|
-| Startup/MVP | 60% | 50% | 60% | 60% |
-| Growing Product | 75% | 70% | 75% | 75% |
-| Enterprise | 85% | 80% | 85% | 85% |
-| Safety Critical | 95% | 90% | 95% | 95% |
+| Project Type    | Statements | Branches | Functions | Lines |
+| --------------- | ---------- | -------- | --------- | ----- |
+| Startup/MVP     | 60%        | 50%      | 60%       | 60%   |
+| Growing Product | 75%        | 70%      | 75%       | 75%   |
+| Enterprise      | 85%        | 80%      | 85%       | 85%   |
+| Safety Critical | 95%        | 90%      | 95%       | 95%   |
 
 ### Coverage by Code Type
 
 **High Coverage Priority (80%+):**
+
 - Business logic
 - State management
 - API handlers
@@ -385,12 +392,14 @@ test('homepage has no a11y violations', async ({ page }) => {
 - Payment processing
 
 **Medium Coverage Priority (60-80%):**
+
 - UI components
 - Utility functions
 - Data transformers
 - Custom hooks
 
 **Lower Coverage Priority (40-60%):**
+
 - Static pages
 - Simple wrappers
 - Configuration files
@@ -402,11 +411,11 @@ test('homepage has no a11y violations', async ({ page }) => {
 // jest.config.js
 module.exports = {
   collectCoverageFrom: [
-    'src/**/*.{ts,tsx}',
-    '!src/**/*.d.ts',
-    '!src/**/*.stories.{ts,tsx}',
-    '!src/**/index.{ts,tsx}', // barrel files
-    '!src/types/**',
+    "src/**/*.{ts,tsx}",
+    "!src/**/*.d.ts",
+    "!src/**/*.stories.{ts,tsx}",
+    "!src/**/index.{ts,tsx}", // barrel files
+    "!src/types/**",
   ],
   coverageThreshold: {
     global: {
@@ -416,21 +425,21 @@ module.exports = {
       lines: 80,
     },
     // Higher thresholds for critical paths
-    './src/services/payment/': {
+    "./src/services/payment/": {
       statements: 95,
       branches: 90,
       functions: 95,
       lines: 95,
     },
-    './src/services/auth/': {
+    "./src/services/auth/": {
       statements: 90,
       branches: 85,
       functions: 90,
       lines: 90,
     },
   },
-  coverageReporters: ['text', 'lcov', 'html', 'json'],
-};
+  coverageReporters: ["text", "lcov", "html", "json"],
+}
 ```
 
 ---
@@ -491,14 +500,14 @@ e2e/
 
 ### Test File Naming Conventions
 
-| Pattern | Use Case |
-|---------|----------|
-| `*.test.ts` | Unit tests |
-| `*.spec.ts` | Integration/E2E tests |
+| Pattern                 | Use Case                   |
+| ----------------------- | -------------------------- |
+| `*.test.ts`             | Unit tests                 |
+| `*.spec.ts`             | Integration/E2E tests      |
 | `*.integration.test.ts` | Explicit integration tests |
-| `*.e2e.spec.ts` | Explicit E2E tests |
-| `*.a11y.test.ts` | Accessibility tests |
-| `*.visual.spec.ts` | Visual regression tests |
+| `*.e2e.spec.ts`         | Explicit E2E tests         |
+| `*.a11y.test.ts`        | Accessibility tests        |
+| `*.visual.spec.ts`      | Visual regression tests    |
 
 ---
 
@@ -525,7 +534,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
       - run: npm ci
       - run: npm run test:unit -- --coverage
       - uses: codecov/codecov-action@v4
@@ -542,7 +551,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
       - run: npm ci
       - run: npm run test:integration
 
@@ -555,7 +564,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
       - run: npm ci
       - run: npx playwright install --with-deps
       - run: npm run build
@@ -581,14 +590,14 @@ e2e:
 
 ### PR Gating Rules
 
-| Test Type | When to Run | Block Merge? |
-|-----------|-------------|--------------|
-| Unit | Every commit | Yes |
-| Integration | Every PR | Yes |
-| E2E (smoke) | Every PR | Yes |
-| E2E (full) | Merge to main | No (alert only) |
-| Visual | Every PR | No (review required) |
-| Performance | Weekly/Release | No (alert only) |
+| Test Type   | When to Run    | Block Merge?         |
+| ----------- | -------------- | -------------------- |
+| Unit        | Every commit   | Yes                  |
+| Integration | Every PR       | Yes                  |
+| E2E (smoke) | Every PR       | Yes                  |
+| E2E (full)  | Merge to main  | No (alert only)      |
+| Visual      | Every PR       | No (review required) |
+| Performance | Weekly/Release | No (alert only)      |
 
 ---
 
@@ -613,12 +622,12 @@ Is it a pure function with no side effects?
 
 ### Test ROI Matrix
 
-| Test Type | Write Time | Run Time | Maintenance | Confidence |
-|-----------|------------|----------|-------------|------------|
-| Unit | Low | Very Fast | Low | Medium |
-| Integration | Medium | Fast | Medium | High |
-| E2E | High | Slow | High | Very High |
-| Visual | Low | Medium | Medium | High (UI) |
+| Test Type   | Write Time | Run Time  | Maintenance | Confidence |
+| ----------- | ---------- | --------- | ----------- | ---------- |
+| Unit        | Low        | Very Fast | Low         | Medium     |
+| Integration | Medium     | Fast      | Medium      | High       |
+| E2E         | High       | Slow      | High        | Very High  |
+| Visual      | Low        | Medium    | Medium      | High (UI)  |
 
 ### When NOT to Test
 
@@ -630,13 +639,13 @@ Is it a pure function with no side effects?
 
 ### Red Flags in Testing Strategy
 
-| Red Flag | Problem | Solution |
-|----------|---------|----------|
-| E2E tests > 30% | Slow CI, flaky tests | Push logic down to integration |
-| Only unit tests | Missing interaction bugs | Add integration tests |
-| Testing mocks | Not testing real behavior | Test behavior, not implementation |
-| 100% coverage goal | Diminishing returns | Focus on critical paths |
-| No E2E tests | Missing deployment issues | Add smoke tests for critical flows |
+| Red Flag           | Problem                   | Solution                           |
+| ------------------ | ------------------------- | ---------------------------------- |
+| E2E tests > 30%    | Slow CI, flaky tests      | Push logic down to integration     |
+| Only unit tests    | Missing interaction bugs  | Add integration tests              |
+| Testing mocks      | Not testing real behavior | Test behavior, not implementation  |
+| 100% coverage goal | Diminishing returns       | Focus on critical paths            |
+| No E2E tests       | Missing deployment issues | Add smoke tests for critical flows |
 
 ---
 

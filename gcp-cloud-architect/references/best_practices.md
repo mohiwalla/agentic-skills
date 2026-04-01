@@ -44,14 +44,14 @@ Examples:
 
 ### Naming Rules
 
-| Resource | Format | Max Length | Example |
-|----------|--------|-----------|---------|
-| Project ID | lowercase, hyphens | 30 chars | acme-platform-prod |
-| GKE Cluster | lowercase, hyphens | 40 chars | prod-api-cluster |
-| Cloud Run | lowercase, hyphens | 49 chars | prod-myapp-api |
-| Cloud SQL | lowercase, hyphens | 84 chars | prod-myapp-sql-primary |
-| GCS Bucket | lowercase, hyphens, dots | 63 chars | acme-prod-myapp-uploads |
-| Service Account | lowercase, hyphens | 30 chars | myapp-run-sa |
+| Resource        | Format                   | Max Length | Example                 |
+| --------------- | ------------------------ | ---------- | ----------------------- |
+| Project ID      | lowercase, hyphens       | 30 chars   | acme-platform-prod      |
+| GKE Cluster     | lowercase, hyphens       | 40 chars   | prod-api-cluster        |
+| Cloud Run       | lowercase, hyphens       | 49 chars   | prod-myapp-api          |
+| Cloud SQL       | lowercase, hyphens       | 84 chars   | prod-myapp-sql-primary  |
+| GCS Bucket      | lowercase, hyphens, dots | 63 chars   | acme-prod-myapp-uploads |
+| Service Account | lowercase, hyphens       | 30 chars   | myapp-run-sa            |
 
 ---
 
@@ -174,12 +174,12 @@ booleanPolicy:
 
 ### Encryption
 
-| Layer | Service | Default |
-|-------|---------|---------|
-| At rest | Google-managed keys | Always enabled |
-| At rest | CMEK (Cloud KMS) | Optional, recommended |
-| In transit | TLS 1.3 | Always enabled |
-| Application | Cloud KMS | Encrypt sensitive fields |
+| Layer       | Service             | Default                  |
+| ----------- | ------------------- | ------------------------ |
+| At rest     | Google-managed keys | Always enabled           |
+| At rest     | CMEK (Cloud KMS)    | Optional, recommended    |
+| In transit  | TLS 1.3             | Always enabled           |
+| Application | Cloud KMS           | Encrypt sensitive fields |
 
 ```bash
 # Create CMEK key for Cloud SQL
@@ -286,16 +286,16 @@ gcloud alpha monitoring policies create \
 
 ### Key Metrics to Monitor
 
-| Service | Metric | Alert Threshold |
-|---------|--------|-----------------|
-| Cloud Run | request_latencies (p99) | >2s |
-| Cloud Run | request_count (5xx) | >1% of total |
-| Cloud SQL | cpu/utilization | >80% |
-| Cloud SQL | disk/utilization | >85% |
-| GKE | container/cpu/utilization | >80% |
-| GKE | node/cpu/allocatable_utilization | >85% |
-| Pub/Sub | subscription/oldest_unacked_message_age | >300s |
-| BigQuery | query/execution_time | >60s |
+| Service   | Metric                                  | Alert Threshold |
+| --------- | --------------------------------------- | --------------- |
+| Cloud Run | request_latencies (p99)                 | >2s             |
+| Cloud Run | request_count (5xx)                     | >1% of total    |
+| Cloud SQL | cpu/utilization                         | >80%            |
+| Cloud SQL | disk/utilization                        | >85%            |
+| GKE       | container/cpu/utilization               | >80%            |
+| GKE       | node/cpu/allocatable_utilization        | >85%            |
+| Pub/Sub   | subscription/oldest_unacked_message_age | >300s           |
+| BigQuery  | query/execution_time                    | >60s            |
 
 ### Log-Based Metrics
 
@@ -331,10 +331,10 @@ gcloud logging exclusions create exclude-debug \
 
 ### Committed Use Discounts
 
-| Term | Compute Discount | Memory Discount |
-|------|-----------------|-----------------|
-| 1 year | 37% | 37% |
-| 3 years | 55% | 55% |
+| Term    | Compute Discount | Memory Discount |
+| ------- | ---------------- | --------------- |
+| 1 year  | 37%              | 37%             |
+| 3 years | 55%              | 55%             |
 
 ```bash
 # Check recommendations
@@ -348,11 +348,11 @@ gcloud recommender recommendations list \
 
 Automatic discounts for resources running >25% of the month:
 
-| Usage | Discount |
-|-------|----------|
-| 25-50% | 20% |
-| 50-75% | 40% |
-| 75-100% | 60% |
+| Usage   | Discount |
+| ------- | -------- |
+| 25-50%  | 20%      |
+| 50-75%  | 40%      |
+| 75-100% | 60%      |
 
 ### BigQuery Cost Control
 
@@ -385,11 +385,11 @@ gsutil lifecycle set lifecycle.json gs://my-bucket/
 
 ### RPO/RTO Targets
 
-| Tier | RPO | RTO | Strategy |
-|------|-----|-----|----------|
-| Tier 1 (Critical) | 0 | <1 hour | Multi-region active-active |
-| Tier 2 (Important) | <1 hour | <4 hours | Regional HA + cross-region backup |
-| Tier 3 (Standard) | <24 hours | <24 hours | Automated backups + restore |
+| Tier               | RPO       | RTO       | Strategy                          |
+| ------------------ | --------- | --------- | --------------------------------- |
+| Tier 1 (Critical)  | 0         | <1 hour   | Multi-region active-active        |
+| Tier 2 (Important) | <1 hour   | <4 hours  | Regional HA + cross-region backup |
+| Tier 3 (Standard)  | <24 hours | <24 hours | Automated backups + restore       |
 
 ### Backup Strategy
 
@@ -429,39 +429,39 @@ gcloud sql instances promote-replica myapp-db-replica
 
 ### Technical Debt
 
-| Pitfall | Solution |
-|---------|----------|
-| Using default VPC | Always create custom VPCs |
-| Not enabling audit logs | Enable Cloud Audit Logs from day one |
-| Single-region deployment | Plan for multi-zone at minimum |
-| No IaC | Use Terraform from the start |
+| Pitfall                  | Solution                             |
+| ------------------------ | ------------------------------------ |
+| Using default VPC        | Always create custom VPCs            |
+| Not enabling audit logs  | Enable Cloud Audit Logs from day one |
+| Single-region deployment | Plan for multi-zone at minimum       |
+| No IaC                   | Use Terraform from the start         |
 
 ### Security Mistakes
 
-| Mistake | Prevention |
-|---------|------------|
-| SA key files in code | Use Workload Identity, attached SAs |
-| Public GCS buckets | Enable org policy for public access prevention |
-| Basic roles (Owner/Editor) | Use predefined or custom roles |
-| No encryption key management | Use CMEK for sensitive data |
-| Default service account | Create dedicated SAs per workload |
+| Mistake                      | Prevention                                     |
+| ---------------------------- | ---------------------------------------------- |
+| SA key files in code         | Use Workload Identity, attached SAs            |
+| Public GCS buckets           | Enable org policy for public access prevention |
+| Basic roles (Owner/Editor)   | Use predefined or custom roles                 |
+| No encryption key management | Use CMEK for sensitive data                    |
+| Default service account      | Create dedicated SAs per workload              |
 
 ### Performance Issues
 
-| Issue | Solution |
-|-------|----------|
-| Cold starts on Cloud Run | Set min-instances=1 for latency-critical services |
-| Slow BigQuery queries | Partition tables, use clustering, avoid SELECT * |
+| Issue                     | Solution                                              |
+| ------------------------- | ----------------------------------------------------- |
+| Cold starts on Cloud Run  | Set min-instances=1 for latency-critical services     |
+| Slow BigQuery queries     | Partition tables, use clustering, avoid SELECT \*     |
 | GKE pod scheduling delays | Use PodDisruptionBudget, pre-provision with Autopilot |
-| Firestore hotspots | Distribute writes across document IDs evenly |
+| Firestore hotspots        | Distribute writes across document IDs evenly          |
 
 ### Cost Surprises
 
-| Surprise | Prevention |
-|----------|------------|
-| Undeleted resources | Label everything, review weekly |
-| Egress costs | Keep traffic in same region, use Private Google Access |
-| Cloud NAT charges | Use Private Google Access for GCP service traffic |
-| Log ingestion costs | Set exclusion filters for debug/verbose logs |
-| BigQuery full scans | Always use partitioning and clustering |
-| Idle GKE clusters | Delete dev clusters nightly, use Autopilot |
+| Surprise            | Prevention                                             |
+| ------------------- | ------------------------------------------------------ |
+| Undeleted resources | Label everything, review weekly                        |
+| Egress costs        | Keep traffic in same region, use Private Google Access |
+| Cloud NAT charges   | Use Private Google Access for GCP service traffic      |
+| Log ingestion costs | Set exclusion filters for debug/verbose logs           |
+| BigQuery full scans | Always use partitioning and clustering                 |
+| Idle GKE clusters   | Delete dev clusters nightly, use Autopilot             |

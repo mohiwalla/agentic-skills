@@ -5,6 +5,7 @@ Common cross-functional patterns, with examples and guidance on when to invoke v
 ---
 
 ## Pattern 1: Revenue Planning Chain
+
 **CRO → CFO → CMO**
 
 Used when: setting revenue targets, allocating growth budget, modeling pipeline scenarios.
@@ -46,6 +47,7 @@ Caveat: Close rate assumes no sales team changes; any rep turnover drops it to 2
 ---
 
 ## Pattern 2: Hiring Decision Chain
+
 **CHRO → CFO → COO**
 
 Used when: headcount planning, role approval, capacity vs budget tradeoffs.
@@ -85,6 +87,7 @@ CHRO synthesis: Recommends 2 hires now, pipeline 3rd for Q3 contingent on ARR mi
 ---
 
 ## Pattern 3: Product Launch Chain
+
 **CPO → CTO → CMO**
 
 Used when: planning feature launches, assessing readiness, aligning go-to-market.
@@ -122,13 +125,14 @@ Caveat: Competitor launched similar feature last month — window for differenti
 ---
 
 ## Pattern 4: Crisis Broadcast
+
 **CEO → All Roles**
 
 Used when: major adverse event, fundraise miss, key customer loss, market disruption.
 
 ```
 CEO broadcasts:
-[BROADCAST:all|Scenario: largest customer (28% of ARR) gives 60-day termination notice. 
+[BROADCAST:all|Scenario: largest customer (28% of ARR) gives 60-day termination notice.
 Each role: what's the immediate impact on your domain and your top recommended action?]
 
 Roles respond INDEPENDENTLY (no agent sees others' responses first):
@@ -191,18 +195,21 @@ CEO synthesis: [Aggregates all 9 responses, identifies conflicts, sets prioritie
 ## When to Invoke vs When to Assume
 
 ### Invoke when:
+
 - Cross-functional data is material to the decision
 - Getting it wrong changes the recommendation significantly
 - The other role has data you genuinely don't have
 - Time allows (not in Phase 2 isolation)
 
 ### Assume when:
+
 - You're in Phase 2 (always — no exceptions)
 - The chain is at depth 2 (you cannot invoke further)
 - The answer is directionally obvious (e.g., "CFO will care about runway")
 - The precision doesn't change the recommendation
 
 ### State assumptions explicitly:
+
 ```
 [ASSUMPTION: runway ~12 months — not verified with CFO; actual may vary ±20%]
 [ASSUMPTION: CAC ~$8K based on industry benchmark — CMO has actual figures]
@@ -228,6 +235,7 @@ Recommendation: plan for 12 months, trigger bridge at 10.
 ```
 
 **Resolution options:**
+
 1. **Conservative:** Use worse case — appropriate for cash/runway decisions
 2. **Probabilistic:** Weight by confidence scores — appropriate for planning
 3. **Escalate:** Flag for human decision — appropriate for high-stakes irreversible choices
@@ -237,11 +245,11 @@ Recommendation: plan for 12 months, trigger bridge at 10.
 
 ## Anti-Patterns to Avoid
 
-| Anti-pattern | Problem | Fix |
-|---|---|---|
-| Invoke to validate your own conclusion | Confirmation bias loop | Ask open-ended questions |
-| Invoke when assuming works | Unnecessary latency | State assumption clearly |
-| Hide conflicts between responses | Bad synthesis | Always surface conflicts |
-| Invoke across depth > 2 | Loop risk | State assumption at depth 2 |
-| Invoke during Phase 2 | Groupthink contamination | Flag with [ASSUMPTION:] |
-| Vague questions | Poor responses | Specific, scoped questions only |
+| Anti-pattern                           | Problem                  | Fix                             |
+| -------------------------------------- | ------------------------ | ------------------------------- |
+| Invoke to validate your own conclusion | Confirmation bias loop   | Ask open-ended questions        |
+| Invoke when assuming works             | Unnecessary latency      | State assumption clearly        |
+| Hide conflicts between responses       | Bad synthesis            | Always surface conflicts        |
+| Invoke across depth > 2                | Loop risk                | State assumption at depth 2     |
+| Invoke during Phase 2                  | Groupthink contamination | Flag with [ASSUMPTION:]         |
+| Vague questions                        | Poor responses           | Specific, scoped questions only |

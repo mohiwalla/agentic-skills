@@ -2,13 +2,13 @@
 
 ## Sprint Info
 
-| Field | Value |
-|-------|-------|
-| **Sprint** | Sprint [Number] |
-| **Dates** | [Start Date] - [End Date] |
-| **Sprint Goal** | [One sentence describing what this sprint achieves] |
-| **Scrum Master** | [Name] |
-| **Product Owner** | [Name] |
+| Field             | Value                                               |
+| ----------------- | --------------------------------------------------- |
+| **Sprint**        | Sprint [Number]                                     |
+| **Dates**         | [Start Date] - [End Date]                           |
+| **Sprint Goal**   | [One sentence describing what this sprint achieves] |
+| **Scrum Master**  | [Name]                                              |
+| **Product Owner** | [Name]                                              |
 
 ---
 
@@ -20,11 +20,11 @@
 
 ## Team Capacity
 
-| Team Member | Available Days | Notes |
-|------------|---------------|-------|
-| [Name] | [X] / [Total] | [PTO, training, on-call, etc.] |
-| [Name] | [X] / [Total] | |
-| [Name] | [X] / [Total] | |
+| Team Member | Available Days | Notes                          |
+| ----------- | -------------- | ------------------------------ |
+| [Name]      | [X] / [Total]  | [PTO, training, on-call, etc.] |
+| [Name]      | [X] / [Total]  |                                |
+| [Name]      | [X] / [Total]  |                                |
 
 **Total Capacity:** [X] person-days
 **Historical Velocity:** [X] story points (avg of last 3 sprints)
@@ -34,12 +34,12 @@
 
 ## Selected Stories
 
-| # | Story | Points | Assignee | Priority | Status |
-|---|-------|--------|----------|----------|--------|
-| 1 | [Story title with ticket link] | [SP] | [Name] | Must Have | To Do |
-| 2 | [Story title with ticket link] | [SP] | [Name] | Must Have | To Do |
-| 3 | [Story title with ticket link] | [SP] | [Name] | Should Have | To Do |
-| 4 | [Story title with ticket link] | [SP] | [Name] | Nice to Have | To Do |
+| #   | Story                          | Points | Assignee | Priority     | Status |
+| --- | ------------------------------ | ------ | -------- | ------------ | ------ |
+| 1   | [Story title with ticket link] | [SP]   | [Name]   | Must Have    | To Do  |
+| 2   | [Story title with ticket link] | [SP]   | [Name]   | Must Have    | To Do  |
+| 3   | [Story title with ticket link] | [SP]   | [Name]   | Should Have  | To Do  |
+| 4   | [Story title with ticket link] | [SP]   | [Name]   | Nice to Have | To Do  |
 
 **Total Planned:** [X] story points
 
@@ -47,19 +47,19 @@
 
 ## Dependencies
 
-| Dependency | Blocking Story | Owner | Status | Due Date |
-|-----------|---------------|-------|--------|----------|
-| [External API ready] | [Story #] | [Name/Team] | [Status] | [Date] |
-| [Design review complete] | [Story #] | [Name] | [Status] | [Date] |
+| Dependency               | Blocking Story | Owner       | Status   | Due Date |
+| ------------------------ | -------------- | ----------- | -------- | -------- |
+| [External API ready]     | [Story #]      | [Name/Team] | [Status] | [Date]   |
+| [Design review complete] | [Story #]      | [Name]      | [Status] | [Date]   |
 
 ---
 
 ## Risks
 
-| Risk | Impact | Likelihood | Mitigation |
-|------|--------|-----------|-----------|
-| [Risk description] | High/Med/Low | High/Med/Low | [Plan] |
-| [Risk description] | High/Med/Low | High/Med/Low | [Plan] |
+| Risk               | Impact       | Likelihood   | Mitigation |
+| ------------------ | ------------ | ------------ | ---------- |
+| [Risk description] | High/Med/Low | High/Med/Low | [Plan]     |
+| [Risk description] | High/Med/Low | High/Med/Low | [Plan]     |
 
 ---
 
@@ -77,8 +77,8 @@
 
 ## Sprint Ceremonies
 
-| Ceremony | Day/Time | Duration |
-|----------|----------|----------|
-| Daily Standup | [Day] [Time] | 15 min |
-| Sprint Review | [Date] [Time] | 60 min |
-| Sprint Retrospective | [Date] [Time] | 60 min |
+| Ceremony             | Day/Time      | Duration |
+| -------------------- | ------------- | -------- |
+| Daily Standup        | [Day] [Time]  | 15 min   |
+| Sprint Review        | [Date] [Time] | 60 min   |
+| Sprint Retrospective | [Date] [Time] | 60 min   |

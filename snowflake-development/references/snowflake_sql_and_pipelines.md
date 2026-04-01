@@ -61,6 +61,7 @@ WHEN NOT MATCHED THEN
 ### Semi-Structured Data Patterns
 
 **Flatten nested arrays:**
+
 ```sql
 SELECT
     o.order_id,
@@ -72,6 +73,7 @@ LATERAL FLATTEN(input => o.line_items) f;
 ```
 
 **Nested flatten (array of arrays):**
+
 ```sql
 SELECT
     f1.value:category::STRING AS category,
@@ -82,6 +84,7 @@ LATERAL FLATTEN(input => f1.value:tags) f2;
 ```
 
 **OBJECT_CONSTRUCT for building JSON:**
+
 ```sql
 SELECT OBJECT_CONSTRUCT(
     'id', customer_id,
@@ -148,12 +151,13 @@ daily_aggregates (DT, TARGET_LAG = '1 hour')
 
 ### Refresh Mode Rules
 
-| Refresh Mode | Condition |
-|-------------|-----------|
-| Incremental | DTs with simple SELECT, JOIN, WHERE, GROUP BY, UNION ALL on change-tracked sources |
-| Full | DTs using non-deterministic functions, LIMIT, or depending on full-refresh DTs |
+| Refresh Mode | Condition                                                                          |
+| ------------ | ---------------------------------------------------------------------------------- |
+| Incremental  | DTs with simple SELECT, JOIN, WHERE, GROUP BY, UNION ALL on change-tracked sources |
+| Full         | DTs using non-deterministic functions, LIMIT, or depending on full-refresh DTs     |
 
 **Check refresh mode:**
+
 ```sql
 SELECT name, refresh_mode, refresh_mode_reason
 FROM TABLE(INFORMATION_SCHEMA.DYNAMIC_TABLES())
@@ -211,11 +215,11 @@ ALTER TASK parent_task RESUME;
 
 ### Stream Types
 
-| Stream Type | Use Case |
-|------------|----------|
-| Standard (default) | Track all DML changes (INSERT, UPDATE, DELETE) |
-| Append-only | Only track INSERTs. More efficient for insert-heavy tables. |
-| Insert-only (external tables) | Track new files loaded via external tables. |
+| Stream Type                   | Use Case                                                    |
+| ----------------------------- | ----------------------------------------------------------- |
+| Standard (default)            | Track all DML changes (INSERT, UPDATE, DELETE)              |
+| Append-only                   | Only track INSERTs. More efficient for insert-heavy tables. |
+| Insert-only (external tables) | Track new files loaded via external tables.                 |
 
 ```sql
 -- Append-only stream for event log tables
@@ -247,6 +251,7 @@ CREATE OR REPLACE PIPE my_pipe
 ```
 
 Configure the S3 event notification to point to the pipe's SQS queue:
+
 ```sql
 SHOW PIPES LIKE 'my_pipe';
 -- Use the notification_channel value for S3 event config
@@ -269,13 +274,13 @@ SELECT * FROM TABLE(INFORMATION_SCHEMA.COPY_HISTORY(
 
 ## Anti-Patterns
 
-| Anti-Pattern | Why It's Bad | Fix |
-|-------------|-------------|-----|
-| `SELECT *` in production | Scans all columns, breaks on schema changes | Explicit column list |
-| Double-quoted identifiers | Creates case-sensitive names requiring constant quoting | Use `snake_case` without quotes |
-| `ORDER BY` without `LIMIT` | Sorts entire result set for no reason | Add `LIMIT` or remove `ORDER BY` |
-| Single warehouse for everything | Workloads compete for resources | Separate warehouses per workload |
-| `FLOAT` for money | Rounding errors | `NUMBER(19,4)` or integer cents |
-| Missing `RESUME` after task creation | Task never runs | Always `ALTER TASK ... RESUME` |
-| `CURRENT_TIMESTAMP()` in DT query | Forces full refresh mode | Use a timestamp column from the source |
-| Scanning VARIANT without casting | "Numeric value not recognized" errors | Always cast: `col:field::TYPE` |
+| Anti-Pattern                         | Why It's Bad                                            | Fix                                    |
+| ------------------------------------ | ------------------------------------------------------- | -------------------------------------- |
+| `SELECT *` in production             | Scans all columns, breaks on schema changes             | Explicit column list                   |
+| Double-quoted identifiers            | Creates case-sensitive names requiring constant quoting | Use `snake_case` without quotes        |
+| `ORDER BY` without `LIMIT`           | Sorts entire result set for no reason                   | Add `LIMIT` or remove `ORDER BY`       |
+| Single warehouse for everything      | Workloads compete for resources                         | Separate warehouses per workload       |
+| `FLOAT` for money                    | Rounding errors                                         | `NUMBER(19,4)` or integer cents        |
+| Missing `RESUME` after task creation | Task never runs                                         | Always `ALTER TASK ... RESUME`         |
+| `CURRENT_TIMESTAMP()` in DT query    | Forces full refresh mode                                | Use a timestamp column from the source |
+| Scanning VARIANT without casting     | "Numeric value not recognized" errors                   | Always cast: `col:field::TYPE`         |

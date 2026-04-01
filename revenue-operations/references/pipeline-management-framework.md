@@ -10,26 +10,28 @@ A well-defined pipeline requires clear, observable exit criteria at each stage. 
 
 ### Recommended Stage Model (B2B SaaS)
 
-| Stage | Name | Exit Criteria | Probability | Typical Duration |
-|-------|------|--------------|-------------|-----------------|
-| S0 | Lead | Contact identified, initial interest signal | 5% | 0-7 days |
-| S1 | Discovery | Pain identified, budget confirmed, stakeholder engaged | 10% | 7-14 days |
-| S2 | Qualification | MEDDPICC criteria met, mutual action plan created | 20% | 14-21 days |
-| S3 | Proposal | Solution presented, pricing delivered, champion confirmed | 40% | 7-14 days |
-| S4 | Negotiation | Commercial terms discussed, legal engaged, verbal commitment | 60% | 7-21 days |
-| S5 | Commit | Contract redlined, signature timeline confirmed | 80% | 3-7 days |
-| S6 | Closed Won | Signed contract received | 100% | -- |
-| SL | Closed Lost | Deal disposition recorded with loss reason | 0% | -- |
+| Stage | Name          | Exit Criteria                                                | Probability | Typical Duration |
+| ----- | ------------- | ------------------------------------------------------------ | ----------- | ---------------- |
+| S0    | Lead          | Contact identified, initial interest signal                  | 5%          | 0-7 days         |
+| S1    | Discovery     | Pain identified, budget confirmed, stakeholder engaged       | 10%         | 7-14 days        |
+| S2    | Qualification | MEDDPICC criteria met, mutual action plan created            | 20%         | 14-21 days       |
+| S3    | Proposal      | Solution presented, pricing delivered, champion confirmed    | 40%         | 7-14 days        |
+| S4    | Negotiation   | Commercial terms discussed, legal engaged, verbal commitment | 60%         | 7-21 days        |
+| S5    | Commit        | Contract redlined, signature timeline confirmed              | 80%         | 3-7 days         |
+| S6    | Closed Won    | Signed contract received                                     | 100%        | --               |
+| SL    | Closed Lost   | Deal disposition recorded with loss reason                   | 0%          | --               |
 
 ### Stage Exit Criteria Best Practices
 
 **Discovery (S1) Exit Criteria:**
+
 - Pain point articulated by prospect (not assumed by rep)
 - Budget range discussed (even if informal)
 - Decision-making process understood
 - Next meeting scheduled with clear agenda
 
 **Qualification (S2) Exit Criteria:**
+
 - MEDDPICC or BANT qualification framework completed
 - Economic buyer identified (not just champion)
 - Compelling event or timeline identified
@@ -37,6 +39,7 @@ A well-defined pipeline requires clear, observable exit criteria at each stage. 
 - Technical requirements understood
 
 **Proposal (S3) Exit Criteria:**
+
 - Solution demo completed and well-received
 - Pricing proposal delivered
 - Champion validated proposal internally
@@ -44,6 +47,7 @@ A well-defined pipeline requires clear, observable exit criteria at each stage. 
 - No unresolved technical blockers
 
 **Negotiation (S4) Exit Criteria:**
+
 - Commercial terms discussed (not just pricing, but payment terms, SLA, etc.)
 - Legal review initiated
 - Security/procurement review started
@@ -51,6 +55,7 @@ A well-defined pipeline requires clear, observable exit criteria at each stage. 
 - Close date confirmed within 30 days
 
 **Commit (S5) Exit Criteria:**
+
 - Final contract sent for signature
 - All legal redlines resolved
 - Procurement approval obtained
@@ -62,39 +67,39 @@ A well-defined pipeline requires clear, observable exit criteria at each stage. 
 
 ### SMB (ACV <$25K)
 
-| Transition | Benchmark | Top Quartile |
-|-----------|-----------|--------------|
-| Lead to Discovery | 20-30% | 35%+ |
-| Discovery to Qualification | 40-50% | 55%+ |
-| Qualification to Proposal | 50-60% | 65%+ |
-| Proposal to Negotiation | 55-65% | 70%+ |
-| Negotiation to Close | 65-75% | 80%+ |
-| Overall Win Rate | 20-30% | 35%+ |
-| Avg Cycle Length | 14-30 days | <14 days |
+| Transition                 | Benchmark  | Top Quartile |
+| -------------------------- | ---------- | ------------ |
+| Lead to Discovery          | 20-30%     | 35%+         |
+| Discovery to Qualification | 40-50%     | 55%+         |
+| Qualification to Proposal  | 50-60%     | 65%+         |
+| Proposal to Negotiation    | 55-65%     | 70%+         |
+| Negotiation to Close       | 65-75%     | 80%+         |
+| Overall Win Rate           | 20-30%     | 35%+         |
+| Avg Cycle Length           | 14-30 days | <14 days     |
 
 ### Mid-Market (ACV $25K-$100K)
 
-| Transition | Benchmark | Top Quartile |
-|-----------|-----------|--------------|
-| Lead to Discovery | 15-25% | 30%+ |
-| Discovery to Qualification | 35-45% | 50%+ |
-| Qualification to Proposal | 45-55% | 60%+ |
-| Proposal to Negotiation | 50-60% | 65%+ |
-| Negotiation to Close | 60-70% | 75%+ |
-| Overall Win Rate | 15-25% | 30%+ |
-| Avg Cycle Length | 30-60 days | <30 days |
+| Transition                 | Benchmark  | Top Quartile |
+| -------------------------- | ---------- | ------------ |
+| Lead to Discovery          | 15-25%     | 30%+         |
+| Discovery to Qualification | 35-45%     | 50%+         |
+| Qualification to Proposal  | 45-55%     | 60%+         |
+| Proposal to Negotiation    | 50-60%     | 65%+         |
+| Negotiation to Close       | 60-70%     | 75%+         |
+| Overall Win Rate           | 15-25%     | 30%+         |
+| Avg Cycle Length           | 30-60 days | <30 days     |
 
 ### Enterprise (ACV >$100K)
 
-| Transition | Benchmark | Top Quartile |
-|-----------|-----------|--------------|
-| Lead to Discovery | 10-20% | 25%+ |
-| Discovery to Qualification | 30-40% | 45%+ |
-| Qualification to Proposal | 40-50% | 55%+ |
-| Proposal to Negotiation | 45-55% | 60%+ |
-| Negotiation to Close | 55-65% | 70%+ |
-| Overall Win Rate | 10-20% | 25%+ |
-| Avg Cycle Length | 60-120 days | <60 days |
+| Transition                 | Benchmark   | Top Quartile |
+| -------------------------- | ----------- | ------------ |
+| Lead to Discovery          | 10-20%      | 25%+         |
+| Discovery to Qualification | 30-40%      | 45%+         |
+| Qualification to Proposal  | 40-50%      | 55%+         |
+| Proposal to Negotiation    | 45-55%      | 60%+         |
+| Negotiation to Close       | 55-65%      | 70%+         |
+| Overall Win Rate           | 10-20%      | 25%+         |
+| Avg Cycle Length           | 60-120 days | <60 days     |
 
 ---
 
@@ -107,6 +112,7 @@ Each component is an optimization lever:
 ### Lever 1: Increase Opportunity Volume
 
 **Strategies:**
+
 - Invest in inbound marketing (content, SEO, paid)
 - Scale outbound SDR capacity
 - Develop partner/channel sourcing
@@ -118,6 +124,7 @@ Each component is an optimization lever:
 ### Lever 2: Increase Average Deal Size
 
 **Strategies:**
+
 - Multi-product bundling and packaging
 - Usage-based pricing with growth triggers
 - Land-and-expand with defined expansion playbooks
@@ -129,6 +136,7 @@ Each component is an optimization lever:
 ### Lever 3: Increase Win Rate
 
 **Strategies:**
+
 - Implement MEDDPICC qualification rigor
 - Build competitive battle cards and train on them
 - Create multi-threaded relationships (not single-threaded)
@@ -141,6 +149,7 @@ Each component is an optimization lever:
 ### Lever 4: Decrease Sales Cycle Length
 
 **Strategies:**
+
 - Pre-qualify harder at S1/S2 to remove slow deals
 - Mutual action plans with milestone dates
 - Champion enablement (arm champions with internal selling materials)
@@ -159,6 +168,7 @@ Each component is an optimization lever:
 **Focus:** Deal-level activity and next steps
 
 **Questions:**
+
 - What is the next step for each deal in S3+?
 - Are any deals missing next steps or scheduled meetings?
 - Which deals have not been updated in >3 days?
@@ -194,6 +204,7 @@ Each component is an optimization lever:
 **Focus:** Pipeline trends, velocity, and efficiency
 
 **Review Areas:**
+
 - Month-over-month pipeline growth trend
 - Conversion rate trends by stage
 - Sales velocity trend (improving or declining?)
@@ -206,6 +217,7 @@ Each component is an optimization lever:
 **Focus:** GTM efficiency and strategic pipeline
 
 **Review Areas:**
+
 - Pipeline coverage for next 2-3 quarters
 - LTV:CAC and Magic Number trends
 - Sales efficiency ratio trends
@@ -232,6 +244,7 @@ Each component is an optimization lever:
 ### Pipeline Cleanup Triggers
 
 Run cleanup when:
+
 - Pipeline-to-quota ratio drops below 2.5x
 - Forecast accuracy (MAPE) exceeds 20%
 - More than 15% of pipeline is >90 days old
@@ -255,6 +268,7 @@ Run cleanup when:
 **Definition:** Over-reliance on a small number of large deals.
 
 **Thresholds:**
+
 - Single deal >40% of pipeline = HIGH risk
 - Single deal >25% of pipeline = MEDIUM risk
 - Top 3 deals >70% of pipeline = HIGH risk
@@ -266,13 +280,15 @@ Run cleanup when:
 **Definition:** Pipeline is concentrated in early or late stages with gaps in between.
 
 **Healthy Distribution:**
+
 - Discovery/Qualification: 50-60% of pipeline value
 - Proposal: 20-25% of pipeline value
 - Negotiation/Commit: 15-20% of pipeline value
 
 **Warning Signs:**
-- >70% in early stages = insufficient progression
-- >50% in late stages = insufficient pipeline generation
+
+- > 70% in early stages = insufficient progression
+- > 50% in late stages = insufficient pipeline generation
 - Empty stages = broken funnel mechanics
 
 ### Temporal Risk
@@ -286,6 +302,7 @@ Run cleanup when:
 **Definition:** Pipeline is overly dependent on a single source (e.g., 80% outbound, 0% inbound).
 
 **Healthy Mix (varies by stage):**
+
 - Inbound/Marketing: 30-40%
 - Outbound/SDR: 30-40%
 - Partner/Channel: 10-20%

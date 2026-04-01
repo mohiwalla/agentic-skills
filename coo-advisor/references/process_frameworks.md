@@ -11,6 +11,7 @@
 Eliyahu Goldratt's core insight: **every system has exactly one constraint that limits throughput.** Improving anything other than the constraint is waste. The goal isn't to optimize every function — it's to identify the single bottleneck and exploit it until a new constraint emerges.
 
 **The Five Focusing Steps:**
+
 1. **Identify** the constraint — what limits the system's output?
 2. **Exploit** it — get maximum output from the constraint without adding resources
 3. **Subordinate** everything else — other activities serve the constraint's needs
@@ -25,37 +26,37 @@ The constraint is almost never where people think it is. Sales thinks it's Marke
 
 **Common startup constraints by stage:**
 
-| Stage | Most Common Constraint | Why |
-|-------|----------------------|-----|
-| Pre-PMF | Learning speed | Not enough customer feedback cycles |
-| Series A | Sales capacity | Demand > sales team's ability to close |
-| Series B | Engineering velocity | Product backlog growing faster than shipping rate |
-| Series C | Onboarding throughput | New customer volume > CS team's onboarding capacity |
-| Growth | Hiring throughput | Headcount plan > recruiting team's capacity |
+| Stage    | Most Common Constraint | Why                                                 |
+| -------- | ---------------------- | --------------------------------------------------- |
+| Pre-PMF  | Learning speed         | Not enough customer feedback cycles                 |
+| Series A | Sales capacity         | Demand > sales team's ability to close              |
+| Series B | Engineering velocity   | Product backlog growing faster than shipping rate   |
+| Series C | Onboarding throughput  | New customer volume > CS team's onboarding capacity |
+| Growth   | Hiring throughput      | Headcount plan > recruiting team's capacity         |
 
 ### Applying TOC to Product Development
 
 **The five visible constraints in product development:**
 
 **1. Requirements clarity**
-*Symptom:* Engineering asks for clarification mid-sprint. Tickets re-opened. Scope creep.
-*Fix:* Never pull a story into sprint until acceptance criteria are written and reviewed. Product manager must be available same-day for clarification.
+_Symptom:_ Engineering asks for clarification mid-sprint. Tickets re-opened. Scope creep.
+_Fix:_ Never pull a story into sprint until acceptance criteria are written and reviewed. Product manager must be available same-day for clarification.
 
 **2. Review and approval bottleneck**
-*Symptom:* PRs sit unreviewed for >24 hours. Deploys waiting for sign-off.
-*Fix:* Code review SLA: 2-hour response for small PRs (<100 lines), 4-hour for medium. Design reviews: 24-hour turnaround. Anyone waiting >SLA can escalate to manager.
+_Symptom:_ PRs sit unreviewed for >24 hours. Deploys waiting for sign-off.
+_Fix:_ Code review SLA: 2-hour response for small PRs (<100 lines), 4-hour for medium. Design reviews: 24-hour turnaround. Anyone waiting >SLA can escalate to manager.
 
 **3. QA throughput**
-*Symptom:* "Done" pile grows faster than QA can test. Release day crunch.
-*Fix:* QA is pulled into sprint planning and sprint review. Testing starts as features finish, not all at end. Automated test coverage as a sprint exit criterion.
+_Symptom:_ "Done" pile grows faster than QA can test. Release day crunch.
+_Fix:_ QA is pulled into sprint planning and sprint review. Testing starts as features finish, not all at end. Automated test coverage as a sprint exit criterion.
 
 **4. Deployment pipeline speed**
-*Symptom:* Deploy takes 45+ minutes. Engineers wait. Hotfix urgency causes dangerous shortcuts.
-*Fix:* Measure deploy time weekly. Set target (10 min for most apps). Build optimization into engineering roadmap as a real ticket.
+_Symptom:_ Deploy takes 45+ minutes. Engineers wait. Hotfix urgency causes dangerous shortcuts.
+_Fix:_ Measure deploy time weekly. Set target (10 min for most apps). Build optimization into engineering roadmap as a real ticket.
 
 **5. Feedback loop latency**
-*Symptom:* You ship features and don't know if they worked for weeks.
-*Fix:* Every shipped feature has instrumented metrics reviewed within 5 business days. If no metrics exist, feature doesn't ship.
+_Symptom:_ You ship features and don't know if they worked for weeks.
+_Fix:_ Every shipped feature has instrumented metrics reviewed within 5 business days. If no metrics exist, feature doesn't ship.
 
 ### Applying TOC to Sales
 
@@ -70,12 +71,13 @@ The constraint is the step with the LOWEST conversion rate × volume.
 ```
 
 **Example diagnosis:**
+
 - Lead → Qualified: 40% conversion, 2 days
 - Qualified → Demo: 80% conversion, 5 days ← High conversion but slow (queue)
 - Demo → Proposal: 60% conversion, 3 days
 - Proposal → Close: 30% conversion, 14 days ← **Constraint** (lowest conversion)
 
-*Diagnosis:* Proposals are being sent to wrong buyers or proposals aren't compelling. Fix: proposal template audit, champion coaching, economic buyer access earlier in process.
+_Diagnosis:_ Proposals are being sent to wrong buyers or proposals aren't compelling. Fix: proposal template audit, champion coaching, economic buyer access earlier in process.
 
 ---
 
@@ -88,31 +90,33 @@ Lean Manufacturing was designed for car factories. Most of the original toolkit 
 **Value Stream Mapping** — Map the full flow of work from customer request to delivery. Label value-add time vs. wait time. Most processes are 90% wait time and 10% actual work.
 
 **5S** — Sort, Set in order, Shine, Standardize, Sustain. Applied to digital work:
-- *Sort:* Delete unused tools, channels, documents
-- *Set in order:* Organize information architecture so things are findable
-- *Shine:* Regular cleanup sprints (documentation, tech debt, tool hygiene)
-- *Standardize:* Templates, conventions, naming standards
-- *Sustain:* Assign owners; entropy is the default state
+
+- _Sort:_ Delete unused tools, channels, documents
+- _Set in order:_ Organize information architecture so things are findable
+- _Shine:_ Regular cleanup sprints (documentation, tech debt, tool hygiene)
+- _Standardize:_ Templates, conventions, naming standards
+- _Sustain:_ Assign owners; entropy is the default state
 
 **Pull vs. Push** — Don't push work onto people's plates. Pull = people take work when they have capacity. Push = work is assigned to people regardless of capacity. Most companies push; lean companies pull.
 
 **Kaizen** — Continuous small improvements. Build this into your operating rhythm:
+
 - Weekly: each team identifies one small improvement to their process
 - Monthly: review and close out improvement items
 - Quarterly: broader process retrospective
 
 **Waste Categories (TIMWOODS) — Applied to Operations:**
 
-| Waste Type | Factory Example | Startup Example |
-|-----------|----------------|-----------------|
-| **T**ransportation | Moving parts | Handing off work between tools with no integration |
-| **I**nventory | Parts stockpile | Unreviewed PRs, unworked backlog items, unread reports |
-| **M**otion | Worker movement | Context switching between apps / communication channels |
-| **W**aiting | Machine idle | Waiting for approvals, waiting for data, waiting for decisions |
-| **O**verproduction | Making more than needed | Features built that weren't validated |
-| **O**verprocessing | Extra steps | 6-step approval for $200 purchase |
-| **D**efects | Rework | Bug fixes, incorrect specs, miscommunicated requirements |
-| **S**kills | Underutilized talent | Senior engineers doing manual QA |
+| Waste Type         | Factory Example         | Startup Example                                                |
+| ------------------ | ----------------------- | -------------------------------------------------------------- |
+| **T**ransportation | Moving parts            | Handing off work between tools with no integration             |
+| **I**nventory      | Parts stockpile         | Unreviewed PRs, unworked backlog items, unread reports         |
+| **M**otion         | Worker movement         | Context switching between apps / communication channels        |
+| **W**aiting        | Machine idle            | Waiting for approvals, waiting for data, waiting for decisions |
+| **O**verproduction | Making more than needed | Features built that weren't validated                          |
+| **O**verprocessing | Extra steps             | 6-step approval for $200 purchase                              |
+| **D**efects        | Rework                  | Bug fixes, incorrect specs, miscommunicated requirements       |
+| **S**kills         | Underutilized talent    | Senior engineers doing manual QA                               |
 
 **Exercise:** For your most important process, walk through each waste category and estimate hours/week wasted. This exercise typically reveals 20–40% improvement opportunities in the first pass.
 
@@ -128,11 +132,13 @@ Lead Time = Cycle Time + Wait Time
 Most teams only measure cycle time. Customers only experience lead time. The gap between the two is pure waste.
 
 **Measuring in your context:**
+
 - Engineering: Lead time = ticket created → in production. Cycle time = in progress → PR merged.
 - Sales: Lead time = lead created → closed won. Cycle time = demo completed → proposal sent.
 - CS: Lead time = ticket opened → customer confirms resolved. Cycle time = ticket in-progress → resolution sent.
 
 **Improvement pattern:**
+
 1. Measure lead time (not just cycle time)
 2. Find the steps where tickets sit waiting
 3. Remove the wait (automation, reduced approval layers, clearer handoff criteria)
@@ -142,6 +148,7 @@ Most teams only measure cycle time. Customers only experience lead time. The gap
 Work-In-Progress limits prevent the multi-tasking trap. When people work on 5 things simultaneously, each thing takes 5x longer and quality drops.
 
 **Recommended WIP limits:**
+
 - Individual IC: 2–3 active items at once
 - Team sprint: WIP = number of engineers × 1.5
 - Leadership team: No more than 3 company-level priorities per quarter
@@ -155,6 +162,7 @@ Work-In-Progress limits prevent the multi-tasking trap. When people work on 5 th
 ### When to Map a Process
 
 Map a process when:
+
 - It's done by more than 2 people
 - It fails regularly (errors, rework, complaints)
 - It needs to scale (you're about to add people or volume)
@@ -190,6 +198,7 @@ Step 6  |               |               |               | Schedule kick-|
 Best for: Escalation routing, incident response, approval workflows
 
 Use standard symbols:
+
 - Rectangle = action/task
 - Diamond = decision (yes/no branch)
 - Oval = start/end
@@ -200,6 +209,7 @@ Use standard symbols:
 Best for: Checklists, SOPs, how-to guides
 
 Format:
+
 ```
 Process: [Name]
 Owner: [Role]
@@ -222,11 +232,13 @@ Run this quarterly on your most critical processes:
 **1. Walk the process** — Literally follow a unit of work from start to finish. Ask the people doing it, not the people managing it.
 
 **2. Measure three numbers:**
+
 - How long does it actually take? (lead time)
 - How often does it go wrong? (error/rework rate)
 - What's the cost of a failure? (downstream impact)
 
 **3. Score it:**
+
 ```
 PROCESS HEALTH SCORE:
 Lead time vs. target:          [+2 on target / 0 delayed / -2 significantly delayed]
@@ -272,6 +284,7 @@ Rule of thumb: automate if payback period < 12 months
 ```
 
 **Example:**
+
 - Process: Weekly sales report compilation
 - Time: 3 hours/week manually
 - Fully-loaded cost: $75/hour
@@ -282,16 +295,19 @@ Rule of thumb: automate if payback period < 12 months
 ### Automation Tiers
 
 **Tier 1: No-code automation** (0–8 hours to implement)
+
 - Tools: Zapier, Make (Integromat), n8n, HubSpot workflows
 - Use for: Notification triggers, data syncs between tools, simple conditional routing
 - Example: New customer in CRM → create CS ticket → send welcome Slack message
 
 **Tier 2: Low-code automation** (8–40 hours to implement)
+
 - Tools: Retool, internal scripts, Google Apps Script, Airtable Automations
 - Use for: Internal dashboards, data transformation, approval workflows
 - Example: Weekly metrics compilation from Salesforce + Mixpanel + HubSpot into Notion dashboard
 
 **Tier 3: Engineered automation** (40+ hours to implement)
+
 - Built by engineering team as product/infrastructure work
 - Use for: Customer-facing workflows, compliance-critical processes, high-volume operations
 - Example: Automated customer health score calculation → CS alert → playbook trigger
@@ -319,6 +335,7 @@ Place each manual process in the quadrant. Execute top-right first, Tier 1 items
 As automation grows, it needs governance:
 
 **Automation registry:** Maintain a list of all automations with:
+
 - Name and description
 - Owner (person responsible if it breaks)
 - Tools used
@@ -349,25 +366,30 @@ Most process changes fail not because the process is wrong, but because of how i
 ADKAR (Awareness, Desire, Knowledge, Ability, Reinforcement) is the most practical model for operational change.
 
 **A — Awareness:** Does everyone understand WHY the change is needed?
+
 - Don't just announce the new process — explain what was broken about the old one
 - Share the data: "Our current onboarding takes 45 days, customers who onboard faster have 2x better retention. The new process targets 21 days."
 
 **D — Desire:** Do people want to change?
+
 - Resistance is information. Listen to it.
 - Involve front-line workers in process design. People support what they help build.
 - Address WIIFM (What's In It For Me) for each affected group
 
 **K — Knowledge:** Do people know HOW to do the new process?
+
 - Write it down (work instructions format above)
 - Run live demos and practice sessions
 - Create a "first time" checklist
 
 **A — Ability:** Can people actually do the new process?
+
 - Identify where people get stuck (first 2 weeks of rollout)
 - Have a designated expert for questions
 - Remove friction: if the new process requires 3 clicks where the old required 1, people will revert
 
 **R — Reinforcement:** Does the change stick?
+
 - Measure adoption (are people actually using the new process?)
 - Celebrate early adopters
 - Address non-adoption promptly — call it out without shame
@@ -412,15 +434,16 @@ LAUNCH WEEK:
 
 **Types of resistance and responses:**
 
-| Resistance Type | What It Sounds Like | Right Response |
-|----------------|---------------------|----------------|
-| Legitimate concern | "This process won't work because X happens" | Acknowledge, investigate, fix or explain |
-| Anxiety | "I don't know how to do this" | Training, support, reassurance |
-| Loss of control | "This takes away my judgment" | Involve them in design; give them ownership of part of it |
-| Passive non-compliance | Silent ignoring of the new process | Direct conversation; make it visible and required |
-| Organizational inertia | "We've always done it this way" | Show the cost of the status quo in concrete terms |
+| Resistance Type        | What It Sounds Like                         | Right Response                                            |
+| ---------------------- | ------------------------------------------- | --------------------------------------------------------- |
+| Legitimate concern     | "This process won't work because X happens" | Acknowledge, investigate, fix or explain                  |
+| Anxiety                | "I don't know how to do this"               | Training, support, reassurance                            |
+| Loss of control        | "This takes away my judgment"               | Involve them in design; give them ownership of part of it |
+| Passive non-compliance | Silent ignoring of the new process          | Direct conversation; make it visible and required         |
+| Organizational inertia | "We've always done it this way"             | Show the cost of the status quo in concrete terms         |
 
 **The three levers of adoption:**
+
 1. **Make the new way easier than the old way** (remove the old path if possible)
 2. **Make non-adoption visible** (dashboards showing who's using the process)
 3. **Connect process to meaningful outcomes** (show how it affects things people care about)
@@ -430,6 +453,7 @@ LAUNCH WEEK:
 Every process should have exactly one owner responsible for keeping it current.
 
 **Minimum documentation for any process:**
+
 - **Process name** and one-sentence purpose
 - **Owner:** Named individual, not a team
 - **Trigger:** What starts this process
@@ -444,16 +468,16 @@ Every process should have exactly one owner responsible for keeping it current.
 
 ## Framework Selection Guide
 
-| Situation | Framework |
-|-----------|-----------|
-| We're slow and can't figure out why | Theory of Constraints — find the bottleneck |
-| We have lots of waste and overhead | Lean — waste audit (TIMWOODS) |
-| Process is inconsistent across team | Process mapping — Level 1 swim lane |
-| Deciding what to automate | Automation decision framework + ROI calc |
-| New process keeps getting ignored | ADKAR change management |
-| Unclear who's responsible | RACI or DRI framework |
-| Too many decisions escalating to leadership | RAPID decision rights |
+| Situation                                   | Framework                                   |
+| ------------------------------------------- | ------------------------------------------- |
+| We're slow and can't figure out why         | Theory of Constraints — find the bottleneck |
+| We have lots of waste and overhead          | Lean — waste audit (TIMWOODS)               |
+| Process is inconsistent across team         | Process mapping — Level 1 swim lane         |
+| Deciding what to automate                   | Automation decision framework + ROI calc    |
+| New process keeps getting ignored           | ADKAR change management                     |
+| Unclear who's responsible                   | RACI or DRI framework                       |
+| Too many decisions escalating to leadership | RAPID decision rights                       |
 
 ---
 
-*Frameworks synthesized from: Eliyahu Goldratt's The Goal and Critical Chain; Womack and Jones' Lean Thinking; Prosci ADKAR model; Scaled Agile Framework (SAFe) process guidance; operational playbooks from Stripe, Airbnb, and Shopify operations teams.*
+_Frameworks synthesized from: Eliyahu Goldratt's The Goal and Critical Chain; Womack and Jones' Lean Thinking; Prosci ADKAR model; Scaled Agile Framework (SAFe) process guidance; operational playbooks from Stripe, Airbnb, and Shopify operations teams._

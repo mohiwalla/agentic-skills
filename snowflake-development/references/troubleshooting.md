@@ -14,34 +14,34 @@ Common errors, debugging queries, and resolution patterns for Snowflake developm
 
 ### SQL Errors
 
-| Error | Cause | Fix |
-|-------|-------|-----|
-| "Object 'X' does not exist or not authorized" | Wrong database/schema context, missing grants, or typo | Fully qualify: `db.schema.table`. Check `SHOW GRANTS ON TABLE`. |
-| "Invalid identifier 'VAR'" in procedure | Missing colon prefix on variable in SQL procedure | Use `:var_name` inside SELECT/INSERT/UPDATE/DELETE/MERGE |
-| "Numeric value 'X' is not recognized" | VARIANT field accessed without type cast | Always cast: `src:field::NUMBER(10,2)` |
-| "SQL compilation error: ambiguous column name" | Same column name in multiple joined tables | Use table aliases: `t.id`, `s.id` |
-| "Number of columns in insert does not match" | INSERT column count mismatch with VALUES | Verify column list matches value list exactly |
-| "Division by zero" | Dividing by a column that contains 0 | Use `NULLIF(divisor, 0)` or `IFF(divisor = 0, NULL, ...)` |
+| Error                                          | Cause                                                  | Fix                                                             |
+| ---------------------------------------------- | ------------------------------------------------------ | --------------------------------------------------------------- |
+| "Object 'X' does not exist or not authorized"  | Wrong database/schema context, missing grants, or typo | Fully qualify: `db.schema.table`. Check `SHOW GRANTS ON TABLE`. |
+| "Invalid identifier 'VAR'" in procedure        | Missing colon prefix on variable in SQL procedure      | Use `:var_name` inside SELECT/INSERT/UPDATE/DELETE/MERGE        |
+| "Numeric value 'X' is not recognized"          | VARIANT field accessed without type cast               | Always cast: `src:field::NUMBER(10,2)`                          |
+| "SQL compilation error: ambiguous column name" | Same column name in multiple joined tables             | Use table aliases: `t.id`, `s.id`                               |
+| "Number of columns in insert does not match"   | INSERT column count mismatch with VALUES               | Verify column list matches value list exactly                   |
+| "Division by zero"                             | Dividing by a column that contains 0                   | Use `NULLIF(divisor, 0)` or `IFF(divisor = 0, NULL, ...)`       |
 
 ### Pipeline Errors
 
-| Error | Cause | Fix |
-|-------|-------|-----|
-| Task not running | Created but not resumed | `ALTER TASK task_name RESUME;` |
-| DT stuck in FAILED state | Query error or upstream dependency issue | Check `DYNAMIC_TABLE_REFRESH_HISTORY()` for error messages |
-| DT shows full refresh instead of incremental | Non-deterministic function or unsupported pattern | Check `refresh_mode_reason` in `INFORMATION_SCHEMA.DYNAMIC_TABLES()` |
-| Stream shows no data | Stream was consumed or table was recreated | Verify stream is on the correct table, check `STALE_AFTER` |
-| Snowpipe not loading files | SQS notification misconfigured or file format mismatch | Check `SYSTEM$PIPE_STATUS()`, verify notification channel |
-| "UPSTREAM_FAILED" on DT | A DT dependency upstream has a refresh failure | Fix the upstream DT first, then downstream will recover |
+| Error                                        | Cause                                                  | Fix                                                                  |
+| -------------------------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------- |
+| Task not running                             | Created but not resumed                                | `ALTER TASK task_name RESUME;`                                       |
+| DT stuck in FAILED state                     | Query error or upstream dependency issue               | Check `DYNAMIC_TABLE_REFRESH_HISTORY()` for error messages           |
+| DT shows full refresh instead of incremental | Non-deterministic function or unsupported pattern      | Check `refresh_mode_reason` in `INFORMATION_SCHEMA.DYNAMIC_TABLES()` |
+| Stream shows no data                         | Stream was consumed or table was recreated             | Verify stream is on the correct table, check `STALE_AFTER`           |
+| Snowpipe not loading files                   | SQS notification misconfigured or file format mismatch | Check `SYSTEM$PIPE_STATUS()`, verify notification channel            |
+| "UPSTREAM_FAILED" on DT                      | A DT dependency upstream has a refresh failure         | Fix the upstream DT first, then downstream will recover              |
 
 ### Cortex AI Errors
 
-| Error | Cause | Fix |
-|-------|-------|-----|
-| "Function X does not exist" | Using deprecated function name | Use new `AI_*` names (e.g., `AI_CLASSIFY` not `CLASSIFY_TEXT`) |
-| TO_FILE error | Single argument instead of two | `TO_FILE('@stage', 'file.pdf')` -- two separate arguments |
-| Agent returns empty or wrong results | Poor tool descriptions or wrong semantic model | Improve tool descriptions, verify semantic model covers the question |
-| "Invalid specification" on agent | JSON structure error in spec | Check: `models` is object not array, `tool_resources` is top-level, no trailing commas |
+| Error                                | Cause                                          | Fix                                                                                    |
+| ------------------------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| "Function X does not exist"          | Using deprecated function name                 | Use new `AI_*` names (e.g., `AI_CLASSIFY` not `CLASSIFY_TEXT`)                         |
+| TO_FILE error                        | Single argument instead of two                 | `TO_FILE('@stage', 'file.pdf')` -- two separate arguments                              |
+| Agent returns empty or wrong results | Poor tool descriptions or wrong semantic model | Improve tool descriptions, verify semantic model covers the question                   |
+| "Invalid specification" on agent     | JSON structure error in spec                   | Check: `models` is object not array, `tool_resources` is top-level, no trailing commas |
 
 ---
 

@@ -26,14 +26,14 @@ Run the full AgentHub lifecycle in one command: initialize, capture baseline, sp
 
 ## Parameters
 
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `--task` | Yes | Task description for agents |
-| `--agents` | No | Number of parallel agents (default: 3) |
-| `--eval` | No | Eval command to measure results (skip for LLM judge mode) |
-| `--metric` | No | Metric name to extract from eval output (required if `--eval` given) |
-| `--direction` | No | `lower` or `higher` — which direction is better (required if `--metric` given) |
-| `--template` | No | Agent template: `optimizer`, `refactorer`, `test-writer`, `bug-fixer` |
+| Parameter     | Required | Description                                                                    |
+| ------------- | -------- | ------------------------------------------------------------------------------ |
+| `--task`      | Yes      | Task description for agents                                                    |
+| `--agents`    | No       | Number of parallel agents (default: 3)                                         |
+| `--eval`      | No       | Eval command to measure results (skip for LLM judge mode)                      |
+| `--metric`    | No       | Metric name to extract from eval output (required if `--eval` given)           |
+| `--direction` | No       | `lower` or `higher` — which direction is better (required if `--metric` given) |
+| `--template`  | No       | Agent template: `optimizer`, `refactorer`, `test-writer`, `bug-fixer`          |
 
 ## What It Does
 
@@ -98,6 +98,7 @@ Merge agent-2's branch? [Y/n]
 ```
 
 If confirmed, run `/hub:merge`. If declined, inform the user they can:
+
 - `/hub:merge --agent agent-{N}` to pick a different winner
 - `/hub:eval --judge` to re-evaluate with LLM judge
 - Inspect branches manually

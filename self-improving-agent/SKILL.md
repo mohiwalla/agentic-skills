@@ -11,13 +11,13 @@ Claude Code's auto-memory (v2.1.32+) automatically records project patterns, deb
 
 ## Quick Reference
 
-| Command | What it does |
-|---------|-------------|
-| `/si:review` | Analyze MEMORY.md — find promotion candidates, stale entries, consolidation opportunities |
-| `/si:promote` | Graduate a pattern from MEMORY.md → CLAUDE.md or `.claude/rules/` |
-| `/si:extract` | Turn a proven pattern into a standalone skill |
-| `/si:status` | Memory health dashboard — line counts, topic files, recommendations |
-| `/si:remember` | Explicitly save important knowledge to auto-memory |
+| Command        | What it does                                                                              |
+| -------------- | ----------------------------------------------------------------------------------------- |
+| `/si:review`   | Analyze MEMORY.md — find promotion candidates, stale entries, consolidation opportunities |
+| `/si:promote`  | Graduate a pattern from MEMORY.md → CLAUDE.md or `.claude/rules/`                         |
+| `/si:extract`  | Turn a proven pattern into a standalone skill                                             |
+| `/si:status`   | Memory health dashboard — line counts, topic files, recommendations                       |
+| `/si:remember` | Explicitly save important knowledge to auto-memory                                        |
 
 ## How It Fits Together
 
@@ -43,17 +43,20 @@ Claude Code's auto-memory (v2.1.32+) automatically records project patterns, deb
 ## Installation
 
 ### Claude Code (Plugin)
+
 ```
 /plugin marketplace add alirezarezvani/claude-skills
 /plugin install self-improving-agent@claude-code-skills
 ```
 
 ### OpenClaw
+
 ```bash
 clawhub install self-improving-agent
 ```
 
 ### Codex CLI
+
 ```bash
 ./scripts/codex-install.sh --skill self-improving-agent
 ```
@@ -62,13 +65,13 @@ clawhub install self-improving-agent
 
 ### Where things live
 
-| File | Who writes | Scope | Loaded |
-|------|-----------|-------|--------|
-| `./CLAUDE.md` | You (+ `/si:promote`) | Project rules | Full file, every session |
-| `~/.claude/CLAUDE.md` | You | Global preferences | Full file, every session |
-| `~/.claude/projects/<path>/memory/MEMORY.md` | Claude (auto) | Project learnings | First 200 lines |
-| `~/.claude/projects/<path>/memory/*.md` | Claude (overflow) | Topic-specific notes | On demand |
-| `.claude/rules/*.md` | You (+ `/si:promote`) | Scoped rules | When matching files open |
+| File                                         | Who writes            | Scope                | Loaded                   |
+| -------------------------------------------- | --------------------- | -------------------- | ------------------------ |
+| `./CLAUDE.md`                                | You (+ `/si:promote`) | Project rules        | Full file, every session |
+| `~/.claude/CLAUDE.md`                        | You                   | Global preferences   | Full file, every session |
+| `~/.claude/projects/<path>/memory/MEMORY.md` | Claude (auto)         | Project learnings    | First 200 lines          |
+| `~/.claude/projects/<path>/memory/*.md`      | Claude (overflow)     | Topic-specific notes | On demand                |
+| `.claude/rules/*.md`                         | You (+ `/si:promote`) | Scoped rules         | When matching files open |
 
 ### The promotion lifecycle
 
@@ -85,6 +88,7 @@ clawhub install self-improving-agent
 ### Auto-memory is capture, not curation
 
 Auto-memory is excellent at recording what Claude learns. But it has no judgment about:
+
 - Which learnings are temporary vs. permanent
 - Which patterns should become enforced rules
 - When the 200-line limit is wasting space on stale entries
@@ -122,14 +126,18 @@ This loads only when Claude works with API test files — zero overhead otherwis
 ## Agents
 
 ### memory-analyst
+
 Analyzes MEMORY.md and topic files to identify:
+
 - Entries that recur across sessions (promotion candidates)
 - Stale entries referencing deleted files or old patterns
 - Related entries that should be consolidated
 - Gaps between what MEMORY.md knows and what CLAUDE.md enforces
 
 ### skill-extractor
+
 Takes a proven pattern and generates a complete skill:
+
 - SKILL.md with proper frontmatter
 - Reference documentation
 - Examples and edge cases
@@ -138,7 +146,9 @@ Takes a proven pattern and generates a complete skill:
 ## Hooks
 
 ### error-capture (PostToolUse → Bash)
+
 Monitors command output for errors. When detected, appends a structured entry to auto-memory with:
+
 - The command that failed
 - Error output (truncated)
 - Timestamp and context
@@ -148,12 +158,12 @@ Monitors command output for errors. When detected, appends a structured entry to
 
 ## Platform Support
 
-| Platform | Memory System | Plugin Works? |
-|----------|--------------|---------------|
-| Claude Code | Auto-memory (MEMORY.md) | ✅ Full support |
-| OpenClaw | workspace/MEMORY.md | ✅ Adapted (reads workspace memory) |
-| Codex CLI | AGENTS.md | ✅ Adapted (reads AGENTS.md patterns) |
-| GitHub Copilot | `.github/copilot-instructions.md` | ⚠️ Manual promotion only |
+| Platform       | Memory System                     | Plugin Works?                         |
+| -------------- | --------------------------------- | ------------------------------------- |
+| Claude Code    | Auto-memory (MEMORY.md)           | ✅ Full support                       |
+| OpenClaw       | workspace/MEMORY.md               | ✅ Adapted (reads workspace memory)   |
+| Codex CLI      | AGENTS.md                         | ✅ Adapted (reads AGENTS.md patterns) |
+| GitHub Copilot | `.github/copilot-instructions.md` | ⚠️ Manual promotion only              |
 
 ## Related
 

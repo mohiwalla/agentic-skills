@@ -11,6 +11,7 @@ Measure a company's ability to generate earnings relative to revenue, assets, or
 **Formula:** Net Income / Total Shareholders' Equity
 
 **Interpretation:**
+
 - Measures how effectively management uses equity to generate profits
 - Higher ROE indicates more efficient use of equity capital
 - Compare against cost of equity - ROE should exceed it
@@ -30,6 +31,7 @@ Measure a company's ability to generate earnings relative to revenue, assets, or
 **Formula:** Net Income / Total Assets
 
 **Interpretation:**
+
 - Measures how efficiently assets generate profit
 - Asset-light businesses naturally have higher ROA
 - Compare within industry only
@@ -47,6 +49,7 @@ Measure a company's ability to generate earnings relative to revenue, assets, or
 **Formula:** (Revenue - COGS) / Revenue
 
 **Interpretation:**
+
 - Measures production efficiency and pricing power
 - Declining gross margin may signal competitive pressure or cost inflation
 - Critical for evaluating business model sustainability
@@ -65,6 +68,7 @@ Measure a company's ability to generate earnings relative to revenue, assets, or
 **Formula:** Operating Income / Revenue
 
 **Interpretation:**
+
 - Measures operational efficiency after all operating expenses
 - Excludes interest and taxes for better operational comparison
 - Indicates management effectiveness in controlling costs
@@ -82,6 +86,7 @@ Measure a company's ability to generate earnings relative to revenue, assets, or
 **Formula:** Net Income / Revenue
 
 **Interpretation:**
+
 - Bottom-line profitability after all expenses
 - Affected by tax strategy, capital structure, and one-time items
 - Most comprehensive profitability measure
@@ -103,6 +108,7 @@ Measure a company's ability to meet short-term obligations.
 **Formula:** Current Assets / Current Liabilities
 
 **Interpretation:**
+
 - Measures short-term solvency
 - Too high may indicate inefficient asset use
 - Too low signals potential liquidity risk
@@ -120,6 +126,7 @@ Measure a company's ability to meet short-term obligations.
 **Formula:** (Current Assets - Inventory) / Current Liabilities
 
 **Interpretation:**
+
 - More conservative than current ratio
 - Excludes inventory (least liquid current asset)
 - Critical for businesses with slow-moving inventory
@@ -137,6 +144,7 @@ Measure a company's ability to meet short-term obligations.
 **Formula:** Cash & Equivalents / Current Liabilities
 
 **Interpretation:**
+
 - Most conservative liquidity measure
 - Indicates ability to pay obligations with cash on hand
 - Particularly important during credit crunches
@@ -158,6 +166,7 @@ Measure the extent to which a company uses debt financing.
 **Formula:** Total Debt / Total Shareholders' Equity
 
 **Interpretation:**
+
 - Measures financial leverage and risk
 - Higher ratio = more reliance on debt financing
 - Industry norms vary significantly (utilities vs tech)
@@ -175,6 +184,7 @@ Measure the extent to which a company uses debt financing.
 **Formula:** Operating Income (EBIT) / Interest Expense
 
 **Interpretation:**
+
 - Measures ability to service debt from operating earnings
 - Below 1.5x is a red flag for lenders
 - Critical for credit analysis
@@ -192,6 +202,7 @@ Measure the extent to which a company uses debt financing.
 **Formula:** Operating Cash Flow / Total Debt Service
 
 **Interpretation:**
+
 - Cash-based measure of debt servicing capacity
 - Includes principal repayments (unlike interest coverage)
 - Required by many loan covenants
@@ -213,6 +224,7 @@ Measure how effectively a company uses its assets and manages operations.
 **Formula:** Revenue / Total Assets
 
 **Interpretation:**
+
 - Measures revenue generated per dollar of assets
 - Higher indicates more efficient asset utilization
 - Inversely related to profit margins (DuPont)
@@ -230,6 +242,7 @@ Measure how effectively a company uses its assets and manages operations.
 **Formula:** COGS / Average Inventory
 
 **Interpretation:**
+
 - Measures how quickly inventory is sold
 - Low turnover suggests overstock or obsolescence risk
 - High turnover may indicate strong sales or thin inventory
@@ -247,6 +260,7 @@ Measure how effectively a company uses its assets and manages operations.
 **Formula:** Revenue / Accounts Receivable
 
 **Interpretation:**
+
 - Measures efficiency of credit and collections
 - Higher turnover means faster collections
 - Monitor trends for credit policy changes
@@ -264,6 +278,7 @@ Measure how effectively a company uses its assets and manages operations.
 **Formula:** 365 / Receivables Turnover
 
 **Interpretation:**
+
 - Average days to collect payment after a sale
 - Lower DSO = faster cash conversion
 - Compare against payment terms
@@ -285,6 +300,7 @@ Measure a company's market value relative to financial metrics.
 **Formula:** Share Price / Earnings Per Share
 
 **Interpretation:**
+
 - Most widely used valuation metric
 - High P/E suggests growth expectations or overvaluation
 - Use trailing (TTM) and forward P/E for comparison
@@ -302,6 +318,7 @@ Measure a company's market value relative to financial metrics.
 **Formula:** Share Price / Book Value Per Share
 
 **Interpretation:**
+
 - Compares market value to accounting value
 - Below 1.0 may indicate undervaluation or distress
 - Most useful for asset-heavy industries
@@ -319,6 +336,7 @@ Measure a company's market value relative to financial metrics.
 **Formula:** Market Cap / Revenue
 
 **Interpretation:**
+
 - Useful for companies without positive earnings
 - Compare within industry only
 - Lower = potentially better value
@@ -336,6 +354,7 @@ Measure a company's market value relative to financial metrics.
 **Formula:** Enterprise Value / EBITDA
 
 **Interpretation:**
+
 - Capital-structure-neutral valuation metric
 - Preferred for M&A analysis and leveraged buyouts
 - More comparable across capital structures than P/E
@@ -353,6 +372,7 @@ Measure a company's market value relative to financial metrics.
 **Formula:** P/E Ratio / Earnings Growth Rate (%)
 
 **Interpretation:**
+
 - Growth-adjusted P/E ratio
 - PEG of 1.0 suggests fair valuation relative to growth
 - Below 1.0 may indicate undervaluation

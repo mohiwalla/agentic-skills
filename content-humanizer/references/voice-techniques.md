@@ -8,14 +8,14 @@ Techniques for injecting authentic brand voice into content. This is the Mode 3 
 
 Before writing anything, extract the voice from examples. Ask for one piece of content the brand considers representative. Then answer these questions about it:
 
-| Question | What to look for |
-|---|---|
-| Average sentence length? | Count words per sentence across 10 sentences. ≤15 = punchy. ≥25 = flowing. |
-| Formality level? | Count contractions ("it's" vs "it is"). Count first-person. Count slang. |
-| Use of humor? | Dry wit (unexpected juxtapositions). Self-deprecating (acknowledges own limitations). Provocateur (picks fights). None. |
-| Relationship to reader? | Peer (we're both figuring this out). Expert (I know, you're learning). Challenger (you're probably wrong about this). |
-| Signature phrases? | Phrases or constructions that appear more than once. That's the brand's verbal tic. |
-| What do they avoid? | Listen for what's conspicuously absent. |
+| Question                 | What to look for                                                                                                        |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| Average sentence length? | Count words per sentence across 10 sentences. ≤15 = punchy. ≥25 = flowing.                                              |
+| Formality level?         | Count contractions ("it's" vs "it is"). Count first-person. Count slang.                                                |
+| Use of humor?            | Dry wit (unexpected juxtapositions). Self-deprecating (acknowledges own limitations). Provocateur (picks fights). None. |
+| Relationship to reader?  | Peer (we're both figuring this out). Expert (I know, you're learning). Challenger (you're probably wrong about this).   |
+| Signature phrases?       | Phrases or constructions that appear more than once. That's the brand's verbal tic.                                     |
+| What do they avoid?      | Listen for what's conspicuously absent.                                                                                 |
 
 Document this as a voice profile before editing. Reference it throughout.
 
@@ -30,6 +30,7 @@ Document this as a voice profile before editing. Reference it throughout.
 **Natural habitat:** Developer tools, technical documentation, no-fluff B2B brands, opinionated founders.
 
 **Techniques:**
+
 - Lead every section with the conclusion, not the setup
 - Make claims without softening them: "Most onboarding is broken" not "Many onboarding flows may have room for improvement"
 - Use "you" relentlessly — direct address, always
@@ -51,6 +52,7 @@ Document this as a voice profile before editing. Reference it throughout.
 **Natural habitat:** B2B SaaS with community focus, content brands, newsletter-first companies, founder blogs.
 
 **Techniques:**
+
 - Show the reasoning: "Here's how I think about this..." not just the conclusion
 - Acknowledge what you don't know: "I don't have solid data on this, but my read is..."
 - Share the mistake before the lesson: "We tried X first and it failed. Here's what we learned."
@@ -71,6 +73,7 @@ Document this as a voice profile before editing. Reference it throughout.
 **Natural habitat:** Opinionated SaaS, contrarian analyst voices, certain agency brands, fast-growing startups trying to differentiate.
 
 **Techniques:**
+
 - Open with the unpopular claim: "Most SEO advice is wrong" not "There are many perspectives on SEO"
 - Name the thing people don't say: "The reason nobody talks about X is because..."
 - Acknowledge the argument against your position before making yours stronger
@@ -91,6 +94,7 @@ Document this as a voice profile before editing. Reference it throughout.
 **Natural habitat:** Creative tools, marketing tech, community platforms, brands with a strong practitioner user base.
 
 **Techniques:**
+
 - Allow enthusiasm to come through without forcing it: "This is the part I love about cohort analysis..."
 - Share the unexpected detail that only a practitioner would notice
 - Use specific terminology confidently — don't over-explain to practitioners
@@ -119,6 +123,7 @@ The anecdote doesn't have to be dramatic. It just has to be real and specific. "
 ### The Honest Admission
 
 Instantly humanizing. Rarely done by brands because it feels like weakness. But readers trust brands that admit:
+
 - What they got wrong
 - What they don't know
 - What they tried that failed
@@ -149,6 +154,7 @@ Once you know the pattern, apply it consistently throughout the piece.
 The last sentence of a piece should land. Not summarize. Not encourage. Land.
 
 Techniques:
+
 - **The hard cut:** State the core truth one final time, nakedly. No wrap-up.
 - **The reversal:** Setup expectation, then subvert it in the last line.
 - **The action:** Name the single most important thing to do next. One thing.
@@ -161,6 +167,7 @@ Avoid: "By following these steps, you'll be well on your way to achieving your g
 ## Voice Injection Quality Check
 
 After applying voice:
+
 - [ ] Read the piece aloud — does it sound like a person you'd actually follow?
 - [ ] Is every paragraph distinguishable from the others? (Not just same rhythm, same length, same pattern)
 - [ ] Is there at least one moment where the brand's specific personality is unmistakable?

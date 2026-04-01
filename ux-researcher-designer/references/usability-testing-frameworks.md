@@ -19,13 +19,13 @@ Reference for planning and conducting usability tests that produce actionable in
 
 ### Method Selection Matrix
 
-| Method | When to Use | Participants | Time | Output |
-|--------|-------------|--------------|------|--------|
-| Moderated remote | Deep insights, complex flows | 5-8 | 45-60 min | Rich qualitative |
-| Unmoderated remote | Quick validation, simple tasks | 10-20 | 15-20 min | Quantitative + video |
-| In-person | Physical products, context matters | 5-10 | 60-90 min | Very rich qualitative |
-| Guerrilla | Quick feedback, public spaces | 3-5 | 5-10 min | Rapid insights |
-| A/B testing | Comparing two designs | 100+ | Varies | Statistical data |
+| Method             | When to Use                        | Participants | Time      | Output                |
+| ------------------ | ---------------------------------- | ------------ | --------- | --------------------- |
+| Moderated remote   | Deep insights, complex flows       | 5-8          | 45-60 min | Rich qualitative      |
+| Unmoderated remote | Quick validation, simple tasks     | 10-20        | 15-20 min | Quantitative + video  |
+| In-person          | Physical products, context matters | 5-10         | 60-90 min | Very rich qualitative |
+| Guerrilla          | Quick feedback, public spaces      | 3-5          | 5-10 min  | Rapid insights        |
+| A/B testing        | Comparing two designs              | 100+         | Varies    | Statistical data      |
 
 ### Participant Count Guidelines
 
@@ -49,12 +49,12 @@ Reference for planning and conducting usability tests that produce actionable in
 
 **Nielsen's Rule:** 5 users find ~75-80% of usability issues
 
-| Goal | Participants | Reasoning |
-|------|--------------|-----------|
-| Find major issues | 5 | 80% coverage, diminishing returns |
-| Validate fix | 3 | Confirm specific issue resolved |
-| Compare designs | 8-10 per design | Need comparison data |
-| Quantitative metrics | 20+ | Statistical significance |
+| Goal                 | Participants    | Reasoning                         |
+| -------------------- | --------------- | --------------------------------- |
+| Find major issues    | 5               | 80% coverage, diminishing returns |
+| Validate fix         | 3               | Confirm specific issue resolved   |
+| Compare designs      | 8-10 per design | Need comparison data              |
+| Quantitative metrics | 20+             | Statistical significance          |
 
 ---
 
@@ -64,11 +64,11 @@ Reference for planning and conducting usability tests that produce actionable in
 
 Transform vague goals into testable questions:
 
-| Vague Goal | Testable Question |
-|------------|-------------------|
-| "Is it easy to use?" | "Can users complete checkout in under 3 minutes?" |
-| "Do users like it?" | "Will users choose Design A or B for this task?" |
-| "Does it make sense?" | "Can users find the settings without hints?" |
+| Vague Goal            | Testable Question                                 |
+| --------------------- | ------------------------------------------------- |
+| "Is it easy to use?"  | "Can users complete checkout in under 3 minutes?" |
+| "Do users like it?"   | "Will users choose Design A or B for this task?"  |
+| "Does it make sense?" | "Can users find the settings without hints?"      |
 
 ### Test Plan Template
 
@@ -121,6 +121,7 @@ SCHEDULE:
 - Adjust based on pilot feedback
 
 **Pilot Checklist:**
+
 - [ ] Tasks understood without clarification
 - [ ] Session fits in time slot
 - [ ] Recording captures screen + audio
@@ -132,12 +133,12 @@ SCHEDULE:
 
 ### Good vs. Bad Tasks
 
-| Bad Task | Why Bad | Good Task |
-|----------|---------|-----------|
-| "Find the settings" | Leading | "Change your notification preferences" |
-| "Use the dashboard" | Vague | "Find how many sales you made last month" |
-| "Click the blue button" | Prescriptive | "Submit your order" |
-| "Do you like this?" | Opinion-based | "Rate how easy it was (1-5)" |
+| Bad Task                | Why Bad       | Good Task                                 |
+| ----------------------- | ------------- | ----------------------------------------- |
+| "Find the settings"     | Leading       | "Change your notification preferences"    |
+| "Use the dashboard"     | Vague         | "Find how many sales you made last month" |
+| "Click the blue button" | Prescriptive  | "Submit your order"                       |
+| "Do you like this?"     | Opinion-based | "Rate how easy it was (1-5)"              |
 
 ### Task Construction Formula
 
@@ -156,12 +157,12 @@ You've succeeded when you see the confirmation page. [SUCCESS]"
 
 ### Task Types
 
-| Type | Purpose | Example |
-|------|---------|---------|
-| Exploration | First impressions | "Look around and tell me what you think this does" |
-| Specific | Core functionality | "Add item to cart and checkout" |
-| Comparison | Design validation | "Which of these two menus would you use to..." |
-| Stress | Edge cases | "What would you do if your payment failed?" |
+| Type        | Purpose            | Example                                            |
+| ----------- | ------------------ | -------------------------------------------------- |
+| Exploration | First impressions  | "Look around and tell me what you think this does" |
+| Specific    | Core functionality | "Add item to cart and checkout"                    |
+| Comparison  | Design validation  | "Which of these two menus would you use to..."     |
+| Stress      | Edge cases         | "What would you do if your payment failed?"        |
 
 ### Task Difficulty Progression
 
@@ -185,6 +186,7 @@ Task 5: Free exploration (open-ended)
 "As you work through the tasks, please think out loud. Tell me what you're looking at, what you're thinking, and what you're trying to do. There are no wrong answers - we're testing the design, not you."
 
 **Prompts When Silent:**
+
 - "What are you thinking right now?"
 - "What do you expect to happen?"
 - "What are you looking for?"
@@ -192,31 +194,33 @@ Task 5: Free exploration (open-ended)
 
 ### Handling Common Situations
 
-| Situation | What to Say |
-|-----------|-------------|
-| User asks for help | "What would you do if I weren't here?" |
-| User is stuck | "What are your options?" (wait 30 sec before hint) |
-| User apologizes | "You're doing great. We're testing the design." |
-| User goes off-task | "That's interesting. Let's come back to [task]." |
-| User criticizes | "Tell me more about that." (neutral, don't defend) |
+| Situation          | What to Say                                        |
+| ------------------ | -------------------------------------------------- |
+| User asks for help | "What would you do if I weren't here?"             |
+| User is stuck      | "What are your options?" (wait 30 sec before hint) |
+| User apologizes    | "You're doing great. We're testing the design."    |
+| User goes off-task | "That's interesting. Let's come back to [task]."   |
+| User criticizes    | "Tell me more about that." (neutral, don't defend) |
 
 ### Non-Leading Question Techniques
 
-| Leading (Don't) | Neutral (Do) |
-|-----------------|--------------|
-| "Did you find that confusing?" | "How was that experience?" |
-| "The search is over here" | "What do you think you should do?" |
-| "Don't you think X is easier?" | "Which do you prefer and why?" |
-| "Did you notice the tooltip?" | "What happened there?" |
+| Leading (Don't)                | Neutral (Do)                       |
+| ------------------------------ | ---------------------------------- |
+| "Did you find that confusing?" | "How was that experience?"         |
+| "The search is over here"      | "What do you think you should do?" |
+| "Don't you think X is easier?" | "Which do you prefer and why?"     |
+| "Did you notice the tooltip?"  | "What happened there?"             |
 
 ### Post-Task Questions
 
 After each task:
+
 1. "How difficult was that?" (1-5 scale)
 2. "What, if anything, was confusing?"
 3. "What would you improve?"
 
 After all tasks:
+
 1. "What stood out to you?"
 2. "What was the best/worst part?"
 3. "Would you use this? Why/why not?"
@@ -227,12 +231,12 @@ After all tasks:
 
 ### Severity Rating Scale
 
-| Severity | Definition | Criteria |
-|----------|------------|----------|
-| 4 - Critical | Prevents task completion | User cannot proceed |
-| 3 - Major | Significant difficulty | User struggles, considers giving up |
-| 2 - Minor | Causes hesitation | User recovers independently |
-| 1 - Cosmetic | Noticed but not problematic | User comments but unaffected |
+| Severity     | Definition                  | Criteria                            |
+| ------------ | --------------------------- | ----------------------------------- |
+| 4 - Critical | Prevents task completion    | User cannot proceed                 |
+| 3 - Major    | Significant difficulty      | User struggles, considers giving up |
+| 2 - Minor    | Causes hesitation           | User recovers independently         |
+| 1 - Cosmetic | Noticed but not problematic | User comments but unaffected        |
 
 ### Issue Documentation Template
 
@@ -263,12 +267,14 @@ AFFECTED PERSONA:
 ### Pattern Recognition
 
 **Quantitative Signals:**
+
 - Task completion rate < 80%
 - Time on task > 2x expected
 - Error rate > 20%
 - Satisfaction < 3/5
 
 **Qualitative Signals:**
+
 - Same confusion point across 3+ users
 - Repeated verbal frustration
 - Workaround attempts
@@ -374,6 +380,7 @@ Task 2: [Name]
 ### Session Checklist
 
 **Before Session:**
+
 - [ ] Test plan finalized
 - [ ] Tasks written and piloted
 - [ ] Recording set up and tested
@@ -382,6 +389,7 @@ Task 2: [Name]
 - [ ] Note-taking template ready
 
 **During Session:**
+
 - [ ] Consent obtained
 - [ ] Think-aloud explained
 - [ ] Recording started
@@ -391,6 +399,7 @@ Task 2: [Name]
 - [ ] Thanks and incentive
 
 **After Session:**
+
 - [ ] Notes organized
 - [ ] Recording saved
 - [ ] Initial impressions captured
@@ -398,15 +407,15 @@ Task 2: [Name]
 
 ### Common Metrics
 
-| Metric | Formula | Target |
-|--------|---------|--------|
-| Completion rate | Successful / Total × 100 | >80% |
-| Time on task | Average seconds | <2x expected |
-| Error rate | Errors / Attempts × 100 | <15% |
-| Task-level satisfaction | Average rating | >4/5 |
-| SUS score | Standard formula | >68 |
-| NPS | Promoters - Detractors | >0 |
+| Metric                  | Formula                  | Target       |
+| ----------------------- | ------------------------ | ------------ |
+| Completion rate         | Successful / Total × 100 | >80%         |
+| Time on task            | Average seconds          | <2x expected |
+| Error rate              | Errors / Attempts × 100  | <15%         |
+| Task-level satisfaction | Average rating           | >4/5         |
+| SUS score               | Standard formula         | >68          |
+| NPS                     | Promoters - Detractors   | >0           |
 
 ---
 
-*See also: `journey-mapping-guide.md` for contextual research*
+_See also: `journey-mapping-guide.md` for contextual research_

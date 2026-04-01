@@ -21,16 +21,19 @@ If `marketing-context.md` exists, read it before asking questions. Use that cont
 Gather this context:
 
 ### 1. Current State
+
 - Do they have any existing schema markup? (Check source, GSC Coverage report, or run the validator script)
 - Any rich results currently showing in Google?
 - Any structured data errors in Search Console?
 
 ### 2. Site Details
+
 - CMS platform (WordPress, Webflow, custom, etc.)
 - Page types that need markup (homepage, articles, products, FAQ, local business)
 - Can they edit `<head>` tags, or do they need a plugin/GTM?
 
 ### 3. Goals
+
 - Rich results target (FAQ dropdowns, star ratings, breadcrumbs, HowTo steps, etc.)
 - AI search visibility (getting cited in AI Overviews, Perplexity, etc.)
 - Fix existing errors vs implement net new
@@ -40,6 +43,7 @@ Gather this context:
 ## How This Skill Works
 
 ### Mode 1: Audit Existing Markup
+
 When they have a site and want to know what schema exists and what's broken.
 
 1. Run `scripts/schema_validator.py` on the page HTML (or paste URL for manual check)
@@ -48,6 +52,7 @@ When they have a site and want to know what schema exists and what's broken.
 4. Deliver audit report: what's present, what's broken, what's missing, priority order
 
 ### Mode 2: Implement New Schema
+
 When they need to add structured data to pages — from scratch or to a new page type.
 
 1. Identify the page type and the right schema types (see schema selection table below)
@@ -57,6 +62,7 @@ When they need to add structured data to pages — from scratch or to a new page
 5. Deliver complete, copy-paste-ready JSON-LD for each page type
 
 ### Mode 3: Validate & Fix
+
 When schema exists but rich results aren't showing or GSC reports errors.
 
 1. Test at rich-results.google.com and validator.schema.org
@@ -70,19 +76,20 @@ When schema exists but rich results aren't showing or GSC reports errors.
 
 Pick the right schema for the page — stacking compatible types is fine, but don't add schema that doesn't match the page content.
 
-| Page Type | Primary Schema | Supporting Schema |
-|-----------|---------------|-------------------|
-| Homepage | Organization | WebSite (with SearchAction) |
-| Blog post / article | Article | BreadcrumbList, Person (author) |
-| How-to guide | HowTo | Article, BreadcrumbList |
-| FAQ page | FAQPage | — |
-| Product page | Product | Offer, AggregateRating, BreadcrumbList |
-| Local business | LocalBusiness | OpeningHoursSpecification, GeoCoordinates |
-| Video page | VideoObject | Article (if video is embedded in article) |
-| Category / hub page | CollectionPage | BreadcrumbList |
-| Event | Event | Organization, Place |
+| Page Type           | Primary Schema | Supporting Schema                         |
+| ------------------- | -------------- | ----------------------------------------- |
+| Homepage            | Organization   | WebSite (with SearchAction)               |
+| Blog post / article | Article        | BreadcrumbList, Person (author)           |
+| How-to guide        | HowTo          | Article, BreadcrumbList                   |
+| FAQ page            | FAQPage        | —                                         |
+| Product page        | Product        | Offer, AggregateRating, BreadcrumbList    |
+| Local business      | LocalBusiness  | OpeningHoursSpecification, GeoCoordinates |
+| Video page          | VideoObject    | Article (if video is embedded in article) |
+| Category / hub page | CollectionPage | BreadcrumbList                            |
+| Event               | Event          | Organization, Place                       |
 
 **Stacking rules:**
+
 - Always add `BreadcrumbList` to any non-homepage if breadcrumbs exist on the page
 - `Article` + `BreadcrumbList` + `Person` is a common triple for blog content
 - Never add `Product` to a page that doesn't sell a product — Google will penalize misuse
@@ -96,11 +103,12 @@ Pick the right schema for the page — stacking compatible types is fine, but do
 Use JSON-LD. Full stop. Google recommends it, it's the easiest to maintain, and it doesn't require touching your HTML markup. Microdata and RDFa are legacy.
 
 ### Placement
+
 ```html
 <head>
   <!-- All other meta tags -->
   <script type="application/ld+json">
-  { ... your schema here ... }
+    { ... your schema here ... }
   </script>
 </head>
 ```
@@ -109,20 +117,22 @@ Multiple schema blocks per page are fine — use separate `<script>` tags or nes
 
 ### Per-Page vs Site-Wide
 
-| Scope | What to Do | Example |
-|-------|-----------|---------|
-| Site-wide | Organization schema in site template header | Your company identity, logo, social profiles |
-| Site-wide | WebSite schema with SearchAction on homepage | Sitelinks search box |
-| Per-page | Content-specific schema | Article on blog posts, Product on product pages |
-| Per-page | BreadcrumbList matching visible breadcrumbs | Every non-homepage |
+| Scope     | What to Do                                   | Example                                         |
+| --------- | -------------------------------------------- | ----------------------------------------------- |
+| Site-wide | Organization schema in site template header  | Your company identity, logo, social profiles    |
+| Site-wide | WebSite schema with SearchAction on homepage | Sitelinks search box                            |
+| Per-page  | Content-specific schema                      | Article on blog posts, Product on product pages |
+| Per-page  | BreadcrumbList matching visible breadcrumbs  | Every non-homepage                              |
 
 **CMS implementation shortcuts:**
+
 - WordPress: Yoast SEO or Rank Math handle Article/Organization automatically. Add custom schema via their blocks for HowTo/FAQ.
 - Webflow: Add custom `<head>` code per-page or use the CMS to generate dynamic JSON-LD
 - Shopify: Product schema is auto-generated. Add Organization and Article manually.
 - Custom CMS: Generate JSON-LD server-side with a template that pulls real field values
 
 ### Reference patterns
+
 See `references/implementation-patterns.md` for copy-paste JSON-LD for every schema type listed above.
 
 ---
@@ -131,16 +141,16 @@ See `references/implementation-patterns.md` for copy-paste JSON-LD for every sch
 
 These are the ones that actually matter — the errors that kill rich results eligibility:
 
-| Mistake | Why It Breaks | Fix |
-|---------|--------------|-----|
-| Missing `@context` | Schema won't parse | Always include `"@context": "https://schema.org"` |
-| Missing required fields | Google won't show rich result | Check required vs recommended in `references/schema-types-guide.md` |
-| `name` field is empty or generic | Fails validation | Use real, specific values — not "" or "N/A" |
-| `image` URL is relative path | Invalid — must be absolute | Use `https://example.com/image.jpg` not `/image.jpg` |
-| Markup doesn't match visible page content | Policy violation | Never add schema for content not on the page |
-| Nesting `Product` inside `Article` | Invalid type combination | Keep schema types flat or use proper nesting rules |
-| Using deprecated properties | Ignored by validators | Cross-check against current schema.org — types evolve |
-| Date in wrong format | Fails ISO 8601 check | Use `"2024-01-15"` or `"2024-01-15T10:30:00Z"` |
+| Mistake                                   | Why It Breaks                 | Fix                                                                 |
+| ----------------------------------------- | ----------------------------- | ------------------------------------------------------------------- |
+| Missing `@context`                        | Schema won't parse            | Always include `"@context": "https://schema.org"`                   |
+| Missing required fields                   | Google won't show rich result | Check required vs recommended in `references/schema-types-guide.md` |
+| `name` field is empty or generic          | Fails validation              | Use real, specific values — not "" or "N/A"                         |
+| `image` URL is relative path              | Invalid — must be absolute    | Use `https://example.com/image.jpg` not `/image.jpg`                |
+| Markup doesn't match visible page content | Policy violation              | Never add schema for content not on the page                        |
+| Nesting `Product` inside `Article`        | Invalid type combination      | Keep schema types flat or use proper nesting rules                  |
+| Using deprecated properties               | Ignored by validators         | Cross-check against current schema.org — types evolve               |
+| Date in wrong format                      | Fails ISO 8601 check          | Use `"2024-01-15"` or `"2024-01-15T10:30:00Z"`                      |
 
 ---
 
@@ -156,6 +166,7 @@ AI search systems (Google AI Overviews, Perplexity, ChatGPT Search, Bing Copilot
 - **Organization schema with `sameAs` links** — connects your entity across the web, boosting entity recognition
 
 Practical actions for AI search visibility:
+
 1. Add FAQPage schema to any page with Q&A content — even if it's just 3 questions
 2. Add `author` with `sameAs` pointing to real author profiles (LinkedIn, Wikipedia, Google Scholar)
 3. Add `Organization` with `sameAs` linking your social profiles and Wikidata entry
@@ -205,19 +216,20 @@ Surface these without being asked:
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|---------------------|------------|
-| Schema audit | Audit report: schemas found, required fields present/missing, errors, completeness score per page, priority fixes |
-| Schema for a page type | Complete JSON-LD block(s), copy-paste ready, populated with placeholder values clearly marked |
-| Fix my schema errors | Corrected JSON-LD with change log explaining each fix |
-| AI search visibility review | Entity markup gap analysis + FAQPage + Organization `sameAs` recommendations |
-| Implementation plan | Page-by-page schema implementation matrix with CMS-specific instructions |
+| When you ask for...         | You get...                                                                                                        |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Schema audit                | Audit report: schemas found, required fields present/missing, errors, completeness score per page, priority fixes |
+| Schema for a page type      | Complete JSON-LD block(s), copy-paste ready, populated with placeholder values clearly marked                     |
+| Fix my schema errors        | Corrected JSON-LD with change log explaining each fix                                                             |
+| AI search visibility review | Entity markup gap analysis + FAQPage + Organization `sameAs` recommendations                                      |
+| Implementation plan         | Page-by-page schema implementation matrix with CMS-specific instructions                                          |
 
 ---
 
 ## Communication
 
 All output follows the structured communication standard:
+
 - **Bottom line first** — answer before explanation
 - **What + Why + How** — every finding has all three
 - **Actions have owners and deadlines** — no "we should consider"

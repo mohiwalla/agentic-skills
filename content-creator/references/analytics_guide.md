@@ -21,30 +21,30 @@ Track these KPIs to measure content reach and consumption.
 
 ### Traffic Metrics
 
-| Metric | Target | What It Tells You |
-|--------|--------|-------------------|
-| Organic traffic | +10% MoM | SEO effectiveness |
-| Page views | Varies by content type | Raw consumption volume |
-| Unique visitors | +5% MoM | Audience growth |
-| Sessions per user | 1.5+ | Content stickiness |
+| Metric            | Target                 | What It Tells You      |
+| ----------------- | ---------------------- | ---------------------- |
+| Organic traffic   | +10% MoM               | SEO effectiveness      |
+| Page views        | Varies by content type | Raw consumption volume |
+| Unique visitors   | +5% MoM                | Audience growth        |
+| Sessions per user | 1.5+                   | Content stickiness     |
 
 ### Consumption Metrics
 
-| Metric | Target | What It Tells You |
-|--------|--------|-------------------|
-| Average time on page | 3+ min for long-form | Content depth engagement |
-| Bounce rate | <60% | Content relevance |
-| Scroll depth | 70%+ | Content holding attention |
-| Pages per session | 2+ | Internal linking success |
+| Metric               | Target               | What It Tells You         |
+| -------------------- | -------------------- | ------------------------- |
+| Average time on page | 3+ min for long-form | Content depth engagement  |
+| Bounce rate          | <60%                 | Content relevance         |
+| Scroll depth         | 70%+                 | Content holding attention |
+| Pages per session    | 2+                   | Internal linking success  |
 
 ### SEO Metrics
 
-| Metric | Target | What It Tells You |
-|--------|--------|-------------------|
-| Keyword rankings | Top 10 | Search visibility |
-| Backlinks earned | +5/month | Content authority |
-| Domain authority | Steady growth | Overall site strength |
-| Featured snippets | Track position | SERP prominence |
+| Metric            | Target         | What It Tells You     |
+| ----------------- | -------------- | --------------------- |
+| Keyword rankings  | Top 10         | Search visibility     |
+| Backlinks earned  | +5/month       | Content authority     |
+| Domain authority  | Steady growth  | Overall site strength |
+| Featured snippets | Track position | SERP prominence       |
 
 ---
 
@@ -54,30 +54,30 @@ Measure how audiences interact with content.
 
 ### Social Engagement
 
-| Metric | Benchmark | Calculation |
-|--------|-----------|-------------|
-| Engagement rate | 1-3% (LinkedIn) | (Likes + Comments + Shares) / Impressions × 100 |
-| Share rate | 0.5-1% | Shares / Reach × 100 |
-| Save rate | 1-2% (Instagram) | Saves / Reach × 100 |
-| Comment rate | 0.1-0.5% | Comments / Reach × 100 |
+| Metric          | Benchmark        | Calculation                                     |
+| --------------- | ---------------- | ----------------------------------------------- |
+| Engagement rate | 1-3% (LinkedIn)  | (Likes + Comments + Shares) / Impressions × 100 |
+| Share rate      | 0.5-1%           | Shares / Reach × 100                            |
+| Save rate       | 1-2% (Instagram) | Saves / Reach × 100                             |
+| Comment rate    | 0.1-0.5%         | Comments / Reach × 100                          |
 
 ### Email Engagement
 
-| Metric | Benchmark | What It Tells You |
-|--------|-----------|-------------------|
-| Open rate | 20-25% | Subject line effectiveness |
-| Click-through rate | 2-5% | Content relevance |
-| Unsubscribe rate | <0.5% | Audience fit |
-| Forward rate | 0.1-0.3% | Content share-worthiness |
+| Metric             | Benchmark | What It Tells You          |
+| ------------------ | --------- | -------------------------- |
+| Open rate          | 20-25%    | Subject line effectiveness |
+| Click-through rate | 2-5%      | Content relevance          |
+| Unsubscribe rate   | <0.5%     | Audience fit               |
+| Forward rate       | 0.1-0.3%  | Content share-worthiness   |
 
 ### Community Engagement
 
-| Metric | What to Track |
-|--------|---------------|
-| Comments and discussions | Volume and sentiment |
-| User-generated content | Submissions and quality |
-| Community growth | New members per week |
-| Active participation | % of members engaging |
+| Metric                   | What to Track           |
+| ------------------------ | ----------------------- |
+| Comments and discussions | Volume and sentiment    |
+| User-generated content   | Submissions and quality |
+| Community growth         | New members per week    |
+| Active participation     | % of members engaging   |
 
 ---
 
@@ -87,30 +87,30 @@ Connect content performance to business outcomes.
 
 ### Lead Generation
 
-| Metric | Calculation | Target |
-|--------|-------------|--------|
+| Metric                   | Calculation             | Target                 |
+| ------------------------ | ----------------------- | ---------------------- |
 | Content-attributed leads | Leads from content CTAs | Track by content piece |
-| Form submissions | Total completions | +5% MoM |
-| Lead quality score | MQL/total leads | 30%+ MQL rate |
-| Cost per lead | Spend / Leads | Below industry average |
+| Form submissions         | Total completions       | +5% MoM                |
+| Lead quality score       | MQL/total leads         | 30%+ MQL rate          |
+| Cost per lead            | Spend / Leads           | Below industry average |
 
 ### Conversion Metrics
 
-| Metric | Calculation | Target |
-|--------|-------------|--------|
-| Conversion rate | Conversions / Visitors × 100 | 2-5% |
-| Revenue attribution | $ tied to content | Track by piece |
-| Customer acquisition cost | Total cost / New customers | Decreasing trend |
-| Content ROI | (Revenue - Cost) / Cost × 100 | 300%+ for evergreen |
+| Metric                    | Calculation                   | Target              |
+| ------------------------- | ----------------------------- | ------------------- |
+| Conversion rate           | Conversions / Visitors × 100  | 2-5%                |
+| Revenue attribution       | $ tied to content             | Track by piece      |
+| Customer acquisition cost | Total cost / New customers    | Decreasing trend    |
+| Content ROI               | (Revenue - Cost) / Cost × 100 | 300%+ for evergreen |
 
 ### Customer Metrics
 
-| Metric | What It Tells You |
-|--------|-------------------|
-| Customer lifetime value | Long-term content impact |
-| Retention rate | Content's nurturing effectiveness |
-| NPS from content consumers | Content quality perception |
-| Support ticket reduction | Educational content success |
+| Metric                     | What It Tells You                 |
+| -------------------------- | --------------------------------- |
+| Customer lifetime value    | Long-term content impact          |
+| Retention rate             | Content's nurturing effectiveness |
+| NPS from content consumers | Content quality perception        |
+| Support ticket reduction   | Educational content success       |
 
 ---
 
@@ -119,12 +119,14 @@ Connect content performance to business outcomes.
 ### Blog Analytics (Google Analytics 4)
 
 **Key Reports:**
+
 - Landing pages report: Top entry content
 - Engagement report: Time, bounces, conversions
 - Traffic acquisition: Content discovery sources
 - User paths: Content journey mapping
 
 **Dimensions to Track:**
+
 - Page path
 - Source/medium
 - Device category
@@ -133,18 +135,21 @@ Connect content performance to business outcomes.
 ### Social Media Analytics
 
 **LinkedIn:**
+
 - Post impressions and reach
 - Follower demographics
 - Click-through rate on links
 - Article read time
 
 **Twitter/X:**
+
 - Impressions and engagements
 - Profile visits from tweets
 - Link clicks
 - Follower growth rate
 
 **Instagram:**
+
 - Reach vs impressions
 - Saves and shares (high-value signals)
 - Story completion rate
@@ -153,6 +158,7 @@ Connect content performance to business outcomes.
 ### Email Analytics
 
 **Track per Campaign:**
+
 - Send volume and deliverability
 - Open and click rates by segment
 - Conversion path from email
@@ -273,6 +279,7 @@ NEXT QUARTER ROADMAP
 **How It Works:** Credits the first content piece that brought a user in
 
 **Best For:**
+
 - Brand awareness campaigns
 - SEO content performance
 - Social media reach measurement
@@ -284,6 +291,7 @@ NEXT QUARTER ROADMAP
 **How It Works:** Credits the last content before conversion
 
 **Best For:**
+
 - Product pages
 - Case studies
 - Demo request pages
@@ -293,30 +301,36 @@ NEXT QUARTER ROADMAP
 **Use When:** Understanding full content journey impact
 
 **Linear Model:**
+
 - Equal credit to all touchpoints
 - Simple but may over-credit low-value touches
 
 **Time-Decay Model:**
+
 - More credit to recent touches
 - Good for short sales cycles
 
 **Position-Based Model:**
+
 - 40% first touch, 40% last touch, 20% middle
 - Balanced view of journey
 
 ### Content-Specific Attribution
 
 **For Blog Content:**
+
 1. Track assisted conversions in GA4
 2. Map content to funnel stage
 3. Weight by stage importance
 
 **For Social Content:**
+
 1. Use UTM parameters consistently
 2. Track view-through conversions
 3. Monitor social-assisted conversions
 
 **For Email Content:**
+
 1. Track email-attributed revenue
 2. Monitor nurture sequence effectiveness
 3. Measure reactivation campaigns

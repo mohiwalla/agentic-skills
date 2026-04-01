@@ -16,11 +16,11 @@ GTM launch playbooks for Tier 1, 2, and 3 product releases.
 
 ## Launch Tier Definitions
 
-| Tier | Scope | Prep Time | Budget | Audience |
-|------|-------|-----------|--------|----------|
-| 1 | New product, major feature | 6-8 weeks | $50-100k | All prospects + press |
-| 2 | Significant feature, integration | 3-4 weeks | $10-25k | Customers + select prospects |
-| 3 | Small feature, improvement | 1 week | <$5k | Existing customers |
+| Tier | Scope                            | Prep Time | Budget   | Audience                     |
+| ---- | -------------------------------- | --------- | -------- | ---------------------------- |
+| 1    | New product, major feature       | 6-8 weeks | $50-100k | All prospects + press        |
+| 2    | Significant feature, integration | 3-4 weeks | $10-25k  | Customers + select prospects |
+| 3    | Small feature, improvement       | 1 week    | <$5k     | Existing customers           |
 
 **Tier Selection Criteria:**
 
@@ -52,10 +52,10 @@ Tier 3 otherwise:
 
 - [ ] Schedule kickoff meeting (Product, Marketing, Sales, CS)
 - [ ] Define launch goals:
-  - Pipeline target: $______
-  - MQL target: ______
-  - Press hits target: ______
-  - Adoption target: ______% in 90 days
+  - Pipeline target: $**\_\_**
+  - MQL target: **\_\_**
+  - Press hits target: **\_\_**
+  - Adoption target: **\_\_**% in 90 days
 - [ ] Assign roles (RACI matrix):
   - PMM: Launch lead, positioning, messaging
   - Product: Feature readiness, demo environment
@@ -266,34 +266,34 @@ Tier 3 otherwise:
 
 ### Leading Indicators (Track Daily)
 
-| Metric | Target | Day 1 | Day 3 | Day 7 |
-|--------|--------|-------|-------|-------|
-| Landing page visitors | 5,000 | | | |
-| Demo requests | 100 | | | |
-| Free trial signups | 200 | | | |
-| MQLs generated | 150 | | | |
-| Pipeline created ($) | $500k | | | |
+| Metric                | Target | Day 1 | Day 3 | Day 7 |
+| --------------------- | ------ | ----- | ----- | ----- |
+| Landing page visitors | 5,000  |       |       |       |
+| Demo requests         | 100    |       |       |       |
+| Free trial signups    | 200    |       |       |       |
+| MQLs generated        | 150    |       |       |       |
+| Pipeline created ($)  | $500k  |       |       |       |
 
 ### Lagging Indicators (Track Weekly)
 
-| Metric | Target | Week 1 | Week 2 | Week 4 |
-|--------|--------|--------|--------|--------|
-| SQLs generated | 30 | | | |
-| Demos completed | 50 | | | |
-| Deals closed (#) | 5 | | | |
-| Revenue ($) | $100k | | | |
-| Feature adoption (%) | 40% | | | |
+| Metric               | Target | Week 1 | Week 2 | Week 4 |
+| -------------------- | ------ | ------ | ------ | ------ |
+| SQLs generated       | 30     |        |        |        |
+| Demos completed      | 50     |        |        |        |
+| Deals closed (#)     | 5      |        |        |        |
+| Revenue ($)          | $100k  |        |        |        |
+| Feature adoption (%) | 40%    |        |        |        |
 
 ### Channel Performance
 
-| Channel | Spend | MQLs | CPL | Pipeline | ROI |
-|---------|-------|------|-----|----------|-----|
-| LinkedIn Ads | $10k | | | | |
-| Google Ads | $5k | | | | |
-| Email | $0 | | | | |
-| Organic | $0 | | | | |
-| Webinar | $2k | | | | |
-| **Total** | **$17k** | | | | |
+| Channel      | Spend    | MQLs | CPL | Pipeline | ROI |
+| ------------ | -------- | ---- | --- | -------- | --- |
+| LinkedIn Ads | $10k     |      |     |          |     |
+| Google Ads   | $5k      |      |     |          |     |
+| Email        | $0       |      |     |          |     |
+| Organic      | $0       |      |     |          |     |
+| Webinar      | $2k      |      |     |          |     |
+| **Total**    | **$17k** |      |     |          |     |
 
 ### Post-Launch Report Template
 

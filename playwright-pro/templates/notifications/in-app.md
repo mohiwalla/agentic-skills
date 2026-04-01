@@ -3,6 +3,7 @@
 Tests notification badge count, dropdown, and mark-as-read behaviour.
 
 ## Prerequisites
+
 - Authenticated session via `{{authStorageStatePath}}`
 - At least `{{unreadCount}}` unread notifications seeded
 - App running at `{{baseUrl}}`
@@ -87,39 +88,45 @@ test.describe('In-App Notifications', () => {
 ## JavaScript
 
 ```javascript
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require("@playwright/test")
 
-test.describe('In-App Notifications', () => {
-  test.use({ storageState: '{{authStorageStatePath}}' });
+test.describe("In-App Notifications", () => {
+  test.use({ storageState: "{{authStorageStatePath}}" })
 
-  test('badge shows unread count', async ({ page }) => {
-    await page.goto('{{baseUrl}}/dashboard');
-    await expect(page.getByRole('status', { name: /notification.*count/i }))
-      .toContainText('{{unreadCount}}');
-  });
+  test("badge shows unread count", async ({ page }) => {
+    await page.goto("{{baseUrl}}/dashboard")
+    await expect(
+      page.getByRole("status", { name: /notification.*count/i }),
+    ).toContainText("{{unreadCount}}")
+  })
 
-  test('opens dropdown on bell click', async ({ page }) => {
-    await page.goto('{{baseUrl}}/dashboard');
-    await page.getByRole('button', { name: /notifications/i }).click();
-    await expect(page.getByRole('menu', { name: /notifications/i })).toBeVisible();
-  });
+  test("opens dropdown on bell click", async ({ page }) => {
+    await page.goto("{{baseUrl}}/dashboard")
+    await page.getByRole("button", { name: /notifications/i }).click()
+    await expect(
+      page.getByRole("menu", { name: /notifications/i }),
+    ).toBeVisible()
+  })
 
-  test('marks all as read clears badge', async ({ page }) => {
-    await page.goto('{{baseUrl}}/dashboard');
-    await page.getByRole('button', { name: /notifications/i }).click();
-    await page.getByRole('button', { name: /mark all.*read/i }).click();
-    await expect(page.getByRole('status', { name: /notification.*count/i })).toBeHidden();
-  });
-});
+  test("marks all as read clears badge", async ({ page }) => {
+    await page.goto("{{baseUrl}}/dashboard")
+    await page.getByRole("button", { name: /notifications/i }).click()
+    await page.getByRole("button", { name: /mark all.*read/i }).click()
+    await expect(
+      page.getByRole("status", { name: /notification.*count/i }),
+    ).toBeHidden()
+  })
+})
 ```
 
 ## Variants
-| Variant | Description |
-|---------|-------------|
-| Badge count | Unread count shown in badge |
-| Dropdown open | Bell click → notification list |
-| Mark single read | Item marked, badge decremented |
-| Mark all read | Badge hidden |
-| Notification click | Navigates to context page |
-| Empty state | No-notifications message |
-| Outside click | Dropdown closes |
+
+| Variant            | Description                    |
+| ------------------ | ------------------------------ |
+| Badge count        | Unread count shown in badge    |
+| Dropdown open      | Bell click → notification list |
+| Mark single read   | Item marked, badge decremented |
+| Mark all read      | Badge hidden                   |
+| Notification click | Navigates to context page      |
+| Empty state        | No-notifications message       |
+| Outside click      | Dropdown closes                |

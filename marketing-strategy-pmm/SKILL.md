@@ -48,21 +48,21 @@ Define ideal customer profile for targeting:
 
 ### Firmographics Template
 
-| Dimension | Target Range | Rationale |
-|-----------|--------------|-----------|
-| Employees | 50-5000 | Series A sweet spot |
-| Revenue | $5M-$500M | Budget available |
-| Industry | SaaS, Tech, Services | Product fit |
-| Geography | US, UK, DACH | Market priority |
-| Funding | Seed to Growth | Willing to adopt |
+| Dimension | Target Range         | Rationale           |
+| --------- | -------------------- | ------------------- |
+| Employees | 50-5000              | Series A sweet spot |
+| Revenue   | $5M-$500M            | Budget available    |
+| Industry  | SaaS, Tech, Services | Product fit         |
+| Geography | US, UK, DACH         | Market priority     |
+| Funding   | Seed to Growth       | Willing to adopt    |
 
 ### Buyer Personas
 
-| Persona | Title | Goals | Messaging |
-|---------|-------|-------|-----------|
-| Economic Buyer | VP, Director, Head of [Department] | ROI, team productivity, cost reduction | Business outcomes, ROI, case studies |
-| Technical Buyer | Engineer, Architect, Tech Lead | Technical fit, easy integration | Architecture, security, documentation |
-| User/Champion | Manager, Team Lead, Power User | Makes job easier, quick wins | UX, ease of use, time savings |
+| Persona         | Title                              | Goals                                  | Messaging                             |
+| --------------- | ---------------------------------- | -------------------------------------- | ------------------------------------- |
+| Economic Buyer  | VP, Director, Head of [Department] | ROI, team productivity, cost reduction | Business outcomes, ROI, case studies  |
+| Technical Buyer | Engineer, Architect, Tech Lead     | Technical fit, easy integration        | Architecture, security, documentation |
+| User/Champion   | Manager, Team Lead, Power User     | Makes job easier, quick wins           | UX, ease of use, time savings         |
 
 ### ICP Validation Checklist
 
@@ -107,13 +107,13 @@ Example: "Acme helps mid-market SaaS teams ship 2x faster by automating project 
 
 ### Messaging Hierarchy
 
-| Level | Content | Example |
-|-------|---------|---------|
-| Headline | 5-7 words | "Ship faster with AI automation" |
-| Subhead | 1 sentence | "Automate workflows so teams focus on what matters" |
-| Benefits | 3-4 bullets | Speed, quality, collaboration, cost |
-| Features | Supporting evidence | AI automation → 10 hrs/week saved |
-| Proof | Social proof | Customer logos, stats, case studies |
+| Level    | Content             | Example                                             |
+| -------- | ------------------- | --------------------------------------------------- |
+| Headline | 5-7 words           | "Ship faster with AI automation"                    |
+| Subhead  | 1 sentence          | "Automate workflows so teams focus on what matters" |
+| Benefits | 3-4 bullets         | Speed, quality, collaboration, cost                 |
+| Features | Supporting evidence | AI automation → 10 hrs/week saved                   |
+| Proof    | Social proof        | Customer logos, stats, case studies                 |
 
 ---
 
@@ -132,11 +132,11 @@ Build competitive knowledge base:
 
 ### Competitive Tier Structure
 
-| Tier | Definition | Examples |
-|------|------------|----------|
-| 1 | Direct competitor, same category | [Competitor A, B] |
-| 2 | Adjacent solution, overlapping use case | [Alt Solution C, D] |
-| 3 | Status quo (what they do today) | Spreadsheets, manual, in-house |
+| Tier | Definition                              | Examples                       |
+| ---- | --------------------------------------- | ------------------------------ |
+| 1    | Direct competitor, same category        | [Competitor A, B]              |
+| 2    | Adjacent solution, overlapping use case | [Alt Solution C, D]            |
+| 3    | Status quo (what they do today)         | Spreadsheets, manual, in-house |
 
 ### Battlecard Template
 
@@ -174,6 +174,7 @@ Response: "[Your response]"
 ### Win/Loss Analysis
 
 Track monthly:
+
 - Win rate by competitor
 - Top win reasons (product fit, ease of use, price)
 - Top loss reasons (missing feature, price, relationship)
@@ -185,11 +186,11 @@ Track monthly:
 
 Plan launches by tier:
 
-| Tier | Scope | Prep Time | Budget |
-|------|-------|-----------|--------|
-| 1 | New product, major feature | 6-8 weeks | $50-100k |
-| 2 | Significant feature, integration | 3-4 weeks | $10-25k |
-| 3 | Small improvement | 1 week | <$5k |
+| Tier | Scope                            | Prep Time | Budget   |
+| ---- | -------------------------------- | --------- | -------- |
+| 1    | New product, major feature       | 6-8 weeks | $50-100k |
+| 2    | Significant feature, integration | 3-4 weeks | $10-25k  |
+| 3    | Small improvement                | 1 week    | <$5k     |
 
 ### Tier 1 Launch Workflow
 
@@ -217,12 +218,12 @@ Execute major product launch:
 
 ### Launch Metrics
 
-| Metric | Leading (Daily) | Lagging (Weekly) |
-|--------|-----------------|------------------|
-| Traffic | Landing page visitors | - |
-| Engagement | Demo requests, signups | Feature adoption % |
-| Pipeline | MQLs generated | SQLs, pipeline $ |
-| Revenue | - | Deals closed, revenue |
+| Metric     | Leading (Daily)        | Lagging (Weekly)      |
+| ---------- | ---------------------- | --------------------- |
+| Traffic    | Landing page visitors  | -                     |
+| Engagement | Demo requests, signups | Feature adoption %    |
+| Pipeline   | MQLs generated         | SQLs, pipeline $      |
+| Revenue    | -                      | Deals closed, revenue |
 
 ---
 
@@ -241,13 +242,13 @@ Equip sales team with PMM assets:
 
 ### Sales Deck Structure
 
-| Slide | Content |
-|-------|---------|
-| 1-2 | Title, agenda |
-| 3-4 | Company intro, problem statement |
-| 5-7 | Solution, key benefits, demo |
-| 8-10 | Differentiation, case study, pricing |
-| 11-12 | Implementation, support, next steps |
+| Slide | Content                              |
+| ----- | ------------------------------------ |
+| 1-2   | Title, agenda                        |
+| 3-4   | Company intro, problem statement     |
+| 5-7   | Solution, key benefits, demo         |
+| 8-10  | Differentiation, case study, pricing |
+| 11-12 | Implementation, support, next steps  |
 
 ### Demo Flow
 
@@ -261,11 +262,11 @@ Equip sales team with PMM assets:
 
 ### Sales-Marketing Handoff
 
-| Handoff | Frequency | Content |
-|---------|-----------|---------|
-| Weekly sync | 30 min | Win/loss, competitive, new assets |
-| Monthly enablement | 60 min | Product updates, training |
-| Quarterly review | Half-day | Results, strategy, planning |
+| Handoff            | Frequency | Content                           |
+| ------------------ | --------- | --------------------------------- |
+| Weekly sync        | 30 min    | Win/loss, competitive, new assets |
+| Monthly enablement | 60 min    | Product updates, training         |
+| Quarterly review   | Half-day  | Results, strategy, planning       |
 
 ---
 
@@ -284,13 +285,13 @@ Enter new markets systematically:
 
 ### Market Priority (Series A)
 
-| Market | Timeline | Budget % | Target ARR |
-|--------|----------|----------|------------|
-| US | Months 1-6 | 50% | $1M |
-| UK | Months 4-9 | 20% | $500k |
-| DACH | Months 7-12 | 15% | $300k |
-| France | Months 10-15 | 10% | $200k |
-| Canada | Months 7-12 | 5% | $100k |
+| Market | Timeline     | Budget % | Target ARR |
+| ------ | ------------ | -------- | ---------- |
+| US     | Months 1-6   | 50%      | $1M        |
+| UK     | Months 4-9   | 20%      | $500k      |
+| DACH   | Months 7-12  | 15%      | $300k      |
+| France | Months 10-15 | 10%      | $200k      |
+| Canada | Months 7-12  | 5%       | $100k      |
 
 ### Localization Checklist
 
@@ -347,13 +348,13 @@ Enter new markets systematically:
 
 ## PMM KPIs
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| Product adoption | >40% in 90 days | Feature usage after launch |
-| Win rate | >30% competitive | Deals won vs. competitors |
-| Sales velocity | -20% YoY | Days from SQL to close |
-| Deal size | +25% YoY | Average contract value |
-| Launch pipeline | 3:1 ROMI | Pipeline $ : marketing spend |
+| Metric           | Target           | Measurement                  |
+| ---------------- | ---------------- | ---------------------------- |
+| Product adoption | >40% in 90 days  | Feature usage after launch   |
+| Win rate         | >30% competitive | Deals won vs. competitors    |
+| Sales velocity   | -20% YoY         | Days from SQL to close       |
+| Deal size        | +25% YoY         | Average contract value       |
+| Launch pipeline  | 3:1 ROMI         | Pipeline $ : marketing spend |
 
 ---
 
@@ -361,12 +362,12 @@ Enter new markets systematically:
 
 ### PMM Monthly Rhythm
 
-| Week | Focus |
-|------|-------|
-| 1 | Review metrics, update battlecards |
-| 2 | Create assets, publish content |
-| 3 | Support launches, optimize campaigns |
-| 4 | Monthly report, plan next month |
+| Week | Focus                                |
+| ---- | ------------------------------------ |
+| 1    | Review metrics, update battlecards   |
+| 2    | Create assets, publish content       |
+| 3    | Support launches, optimize campaigns |
+| 4    | Monthly report, plan next month      |
 
 ## Proactive Triggers
 
@@ -377,15 +378,16 @@ Enter new markets systematically:
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|---------------------|------------|
-| "Position my product" | Positioning framework (April Dunford method) with output |
-| "GTM strategy" | Go-to-market plan with channels, messaging, and timeline |
-| "Competitive positioning" | Positioning map with competitive gaps and opportunities |
+| When you ask for...       | You get...                                               |
+| ------------------------- | -------------------------------------------------------- |
+| "Position my product"     | Positioning framework (April Dunford method) with output |
+| "GTM strategy"            | Go-to-market plan with channels, messaging, and timeline |
+| "Competitive positioning" | Positioning map with competitive gaps and opportunities  |
 
 ## Communication
 
 All output passes quality verification:
+
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Output format: Bottom Line → What (with confidence) → Why → How to Act
 - Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.

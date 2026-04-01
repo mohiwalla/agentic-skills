@@ -31,6 +31,7 @@ If `project-context.md` or `product-context.md` exists, read it before asking qu
 ## Your Mindset
 
 Every website you build must feel like a **cinematic experience**. Think: Apple product pages, Awwwards winners, luxury brand sites. Even a simple landing page should have:
+
 - Depth and layers that respond to scroll
 - Text that enters and exits with intention
 - Sections that transition cinematically
@@ -43,12 +44,15 @@ Every website you build must feel like a **cinematic experience**. Think: Apple 
 ## How This Skill Works
 
 ### Mode 1: Build from Scratch
+
 When starting fresh with assets and a brief. Follow the complete workflow below (Steps 1-5).
 
 ### Mode 2: Enhance Existing Site
+
 When adding 2.5D effects to an existing page. Skip to Step 2, analyze current structure, recommend depth assignments and animation opportunities.
 
 ### Mode 3: Debug/Fix
+
 When troubleshooting performance or animation issues. Use `scripts/validate-layers.js`, check GPU rules, verify reduced-motion handling.
 
 ---
@@ -58,6 +62,7 @@ When troubleshooting performance or animation issues. Use `scripts/validate-laye
 Before writing a single line of code, do ALL of the following in order.
 
 ### A. Extract the brief
+
 1. What is the product/content? (brand site, portfolio, SaaS, event, etc.)
 2. What mood/feeling? (dark/cinematic, bright/energetic, minimal/luxury, etc.)
 3. How many sections? (hero only, full page, specific section?)
@@ -120,6 +125,7 @@ not just fade. This reinforces that they were orbiting the hero.
 ### D. Decide the cinematic role of each asset
 
 For each image ask: "What does this do in the scroll story?"
+
 - Floats beside the hero → depth-2, float-loop, scatter on scroll-out
 - IS the hero → depth-3, elastic drop entrance, grows on scrub
 - Fills a section during a DJI scale-in → depth-0 or full-section background
@@ -134,16 +140,16 @@ Match user intent to the right combination of techniques. Read the full techniqu
 
 ### By Project Type
 
-| User Says | Primary Patterns | Text Technique | Special Effect |
-|-----------|-----------------|----------------|----------------|
-| Product launch / brand site | Inter-section floating product + Perspective zoom | Split converge + Word lighting | DJI scale-in pin |
-| Hero with big title | 6-layer parallax + Pinned sticky | Offset diagonal + Masked line reveal | Bleed typography |
-| Cinematic sections | Curtain panel roll-up + Scrub timeline | Theatrical enter+exit | Top-down clip birth |
-| Apple-style animation | Scrub timeline + Clip-path wipe | Word-by-word scroll lighting | Character cylinder |
-| Elements between sections | Floating product + Clip-path birth | Scramble text | Window pane iris |
-| Cards / features section | Cascading card stack | Skew + elastic bounce | Section peel |
-| Portfolio / showcase | Horizontal scroll + Flip morph | Line clip wipe | Diagonal wipe |
-| SaaS / startup | Window pane iris + Stagger grid | Variable font wave | Curved path travel |
+| User Says                   | Primary Patterns                                  | Text Technique                       | Special Effect      |
+| --------------------------- | ------------------------------------------------- | ------------------------------------ | ------------------- |
+| Product launch / brand site | Inter-section floating product + Perspective zoom | Split converge + Word lighting       | DJI scale-in pin    |
+| Hero with big title         | 6-layer parallax + Pinned sticky                  | Offset diagonal + Masked line reveal | Bleed typography    |
+| Cinematic sections          | Curtain panel roll-up + Scrub timeline            | Theatrical enter+exit                | Top-down clip birth |
+| Apple-style animation       | Scrub timeline + Clip-path wipe                   | Word-by-word scroll lighting         | Character cylinder  |
+| Elements between sections   | Floating product + Clip-path birth                | Scramble text                        | Window pane iris    |
+| Cards / features section    | Cascading card stack                              | Skew + elastic bounce                | Section peel        |
+| Portfolio / showcase        | Horizontal scroll + Flip morph                    | Line clip wipe                       | Diagonal wipe       |
+| SaaS / startup              | Window pane iris + Stagger grid                   | Variable font wave                   | Curved path travel  |
 
 ### By Scroll Behavior Requested
 
@@ -186,7 +192,9 @@ These are MANDATORY in every output:
 
 ```css
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -210,34 +218,36 @@ These are MANDATORY in every output:
 ```html
 <!-- SECTION WRAPPER — every section follows this pattern -->
 <section class="scene" data-scene="hero" style="--scene-height: 200vh">
-  
   <!-- DEPTH LAYERS — always 3+ layers minimum -->
   <div class="layer depth-0" data-depth="0" aria-hidden="true">
     <!-- Background: gradient, texture, atmospheric PNG -->
   </div>
-  
+
   <div class="layer depth-1" data-depth="1" aria-hidden="true">
     <!-- Glow blobs, light effects, atmospheric haze -->
   </div>
-  
+
   <div class="layer depth-2" data-depth="2" aria-hidden="true">
     <!-- Mid decorations, floating shapes -->
   </div>
-  
+
   <div class="layer depth-3" data-depth="3">
     <!-- MAIN PRODUCT / HERO IMAGE — star of the show -->
-    <img class="product-hero float-loop" src="product.png" alt="[description]" />
+    <img
+      class="product-hero float-loop"
+      src="product.png"
+      alt="[description]"
+    />
   </div>
-  
+
   <div class="layer depth-4" data-depth="4">
     <!-- TEXT CONTENT — headlines, body, CTAs -->
     <h1 class="split-text" data-animate="converge">Your Headline</h1>
   </div>
-  
+
   <div class="layer depth-5" data-depth="5" aria-hidden="true">
     <!-- Foreground particles, sparkles, overlays -->
   </div>
-
 </section>
 ```
 
@@ -249,18 +259,18 @@ These are MANDATORY in every output:
 
 ## Reference Files — Read These for Full Technique Details
 
-| File | What's Inside | When to Read |
-|------|--------------|--------------|
-| `references/asset-pipeline.md` | Asset inspection, bg judgment rules, user notification format, CSS knockout, resize targets | ALWAYS — run before coding anything |
-| `references/cursor-microinteractions.md` | Custom cursor, particle bursts, magnetic hover, tilt effects | When building interactive premium sites |
-| `references/depth-system.md` | 6-layer depth model, CSS/JS implementation, blur/scale formulas | Every project — always read |
-| `references/motion-system.md` | 9 scroll architecture patterns with complete GSAP code | When building scroll interactions |
-| `references/text-animations.md` | 13 text techniques with full implementation code | When animating any text |
-| `references/directional-reveals.md` | 8 "born from top/sides" clip-path techniques | When sections need directional entry |
-| `references/inter-section-effects.md` | Floating product, GSAP Flip, cross-section travel | When product/element persists across sections |
-| `references/performance.md` | GPU rules, will-change, IntersectionObserver patterns | Always — non-negotiable rules |
-| `references/accessibility.md` | WCAG 2.1 AA, prefers-reduced-motion, ARIA | Always — non-negotiable |
-| `references/examples.md` | 5 complete real-world implementations | When user needs a full-page site |
+| File                                     | What's Inside                                                                               | When to Read                                  |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| `references/asset-pipeline.md`           | Asset inspection, bg judgment rules, user notification format, CSS knockout, resize targets | ALWAYS — run before coding anything           |
+| `references/cursor-microinteractions.md` | Custom cursor, particle bursts, magnetic hover, tilt effects                                | When building interactive premium sites       |
+| `references/depth-system.md`             | 6-layer depth model, CSS/JS implementation, blur/scale formulas                             | Every project — always read                   |
+| `references/motion-system.md`            | 9 scroll architecture patterns with complete GSAP code                                      | When building scroll interactions             |
+| `references/text-animations.md`          | 13 text techniques with full implementation code                                            | When animating any text                       |
+| `references/directional-reveals.md`      | 8 "born from top/sides" clip-path techniques                                                | When sections need directional entry          |
+| `references/inter-section-effects.md`    | Floating product, GSAP Flip, cross-section travel                                           | When product/element persists across sections |
+| `references/performance.md`              | GPU rules, will-change, IntersectionObserver patterns                                       | Always — non-negotiable rules                 |
+| `references/accessibility.md`            | WCAG 2.1 AA, prefers-reduced-motion, ARIA                                                   | Always — non-negotiable                       |
+| `references/examples.md`                 | 5 complete real-world implementations                                                       | When user needs a full-page site              |
 
 ---
 
@@ -279,13 +289,13 @@ Surface these issues WITHOUT being asked when you notice them in context:
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|---------------------|------------|
-| "Build a hero section" | Single HTML file with inline CSS/JS, 6 depth layers, asset audit, technique list |
-| "Make it feel cinematic" | Scrub timeline + parallax + text animation combo with GSAP setup |
-| "Inspect my images" | Asset audit report with bg status, depth assignments, resize recommendations |
-| "Apple-style scroll effect" | Word-by-word lighting + pinned section + perspective zoom implementation |
-| "Fix performance issues" | Validation report with GPU optimization checklist and will-change audit |
+| When you ask for...         | You get...                                                                       |
+| --------------------------- | -------------------------------------------------------------------------------- |
+| "Build a hero section"      | Single HTML file with inline CSS/JS, 6 depth layers, asset audit, technique list |
+| "Make it feel cinematic"    | Scrub timeline + parallax + text animation combo with GSAP setup                 |
+| "Inspect my images"         | Asset audit report with bg status, depth assignments, resize recommendations     |
+| "Apple-style scroll effect" | Word-by-word lighting + pinned section + perspective zoom implementation         |
+| "Fix performance issues"    | Validation report with GPU optimization checklist and will-change audit          |
 
 ---
 
@@ -303,10 +313,11 @@ All output follows the structured communication standard:
 ## Quick Rules (Non-Negotiable)
 
 0a. ✅ ALWAYS run asset inspection before coding — check every image's format,
-    background, and size. State depth assignments to the user before building.
+background, and size. State depth assignments to the user before building.
 0b. ✅ ALWAYS judge whether a background needs removing — not every image needs
-    it. Inform the user about each asset's status and get confirmation before
-    treating any background as a problem. Never auto-remove, never silently ignore.
+it. Inform the user about each asset's status and get confirmation before
+treating any background as a problem. Never auto-remove, never silently ignore.
+
 1. ✅ Every section has minimum **3 depth layers**
 2. ✅ Every text element uses at least **1 animation technique**
 3. ✅ Every project includes **`prefers-reduced-motion`** fallback
@@ -323,6 +334,7 @@ All output follows the structured communication standard:
 ## Output Format
 
 Always deliver:
+
 1. **Single self-contained HTML file** (inline CSS + JS) unless user asks for separate files
 2. **CDN imports** for GSAP via jsDelivr: `https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js`
 3. **Comments** explaining every major section and technique used

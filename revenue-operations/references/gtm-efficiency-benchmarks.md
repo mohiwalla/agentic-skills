@@ -8,66 +8,66 @@ SaaS benchmarks by funding stage, industry standards, and strategies for improvi
 
 ### Seed Stage ($0-$2M ARR)
 
-| Metric | Red | Yellow | Green | Elite |
-|--------|-----|--------|-------|-------|
-| Magic Number | <0.3 | 0.3-0.5 | >0.5 | >0.8 |
-| LTV:CAC | <1.5:1 | 1.5-2.5:1 | >2.5:1 | >4:1 |
-| CAC Payback | >30 mo | 24-30 mo | <24 mo | <15 mo |
-| Burn Multiple | >5x | 3-5x | <3x | <2x |
-| Rule of 40 | <0% | 0-20% | >20% | >40% |
-| NDR | <90% | 90-100% | >100% | >110% |
+| Metric        | Red    | Yellow    | Green  | Elite  |
+| ------------- | ------ | --------- | ------ | ------ |
+| Magic Number  | <0.3   | 0.3-0.5   | >0.5   | >0.8   |
+| LTV:CAC       | <1.5:1 | 1.5-2.5:1 | >2.5:1 | >4:1   |
+| CAC Payback   | >30 mo | 24-30 mo  | <24 mo | <15 mo |
+| Burn Multiple | >5x    | 3-5x      | <3x    | <2x    |
+| Rule of 40    | <0%    | 0-20%     | >20%   | >40%   |
+| NDR           | <90%   | 90-100%   | >100%  | >110%  |
 
 **Context:** At seed stage, efficiency metrics are naturally less stable due to small sample sizes. Focus on directional improvement rather than absolute numbers. Burn multiple is the most critical metric -- investors want to see capital-efficient growth.
 
 ### Series A ($2M-$10M ARR)
 
-| Metric | Red | Yellow | Green | Elite |
-|--------|-----|--------|-------|-------|
-| Magic Number | <0.4 | 0.4-0.6 | >0.6 | >0.9 |
-| LTV:CAC | <2:1 | 2-3:1 | >3:1 | >5:1 |
-| CAC Payback | >24 mo | 18-24 mo | <18 mo | <12 mo |
-| Burn Multiple | >4x | 2.5-4x | <2.5x | <1.5x |
-| Rule of 40 | <10% | 10-30% | >30% | >50% |
-| NDR | <95% | 95-105% | >105% | >115% |
+| Metric        | Red    | Yellow   | Green  | Elite  |
+| ------------- | ------ | -------- | ------ | ------ |
+| Magic Number  | <0.4   | 0.4-0.6  | >0.6   | >0.9   |
+| LTV:CAC       | <2:1   | 2-3:1    | >3:1   | >5:1   |
+| CAC Payback   | >24 mo | 18-24 mo | <18 mo | <12 mo |
+| Burn Multiple | >4x    | 2.5-4x   | <2.5x  | <1.5x  |
+| Rule of 40    | <10%   | 10-30%   | >30%   | >50%   |
+| NDR           | <95%   | 95-105%  | >105%  | >115%  |
 
 **Context:** Series A is where unit economics must prove out. LTV:CAC >3:1 validates product-market fit in the revenue model. Investors will scrutinize CAC payback to understand capital requirements.
 
 ### Series B ($10M-$50M ARR)
 
-| Metric | Red | Yellow | Green | Elite |
-|--------|-----|--------|-------|-------|
-| Magic Number | <0.5 | 0.5-0.75 | >0.75 | >1.0 |
-| LTV:CAC | <2.5:1 | 2.5-3.5:1 | >3.5:1 | >5:1 |
-| CAC Payback | >22 mo | 15-22 mo | <15 mo | <10 mo |
-| Burn Multiple | >3x | 2-3x | <2x | <1.5x |
-| Rule of 40 | <20% | 20-35% | >35% | >50% |
-| NDR | <100% | 100-110% | >110% | >120% |
+| Metric        | Red    | Yellow    | Green  | Elite  |
+| ------------- | ------ | --------- | ------ | ------ |
+| Magic Number  | <0.5   | 0.5-0.75  | >0.75  | >1.0   |
+| LTV:CAC       | <2.5:1 | 2.5-3.5:1 | >3.5:1 | >5:1   |
+| CAC Payback   | >22 mo | 15-22 mo  | <15 mo | <10 mo |
+| Burn Multiple | >3x    | 2-3x      | <2x    | <1.5x  |
+| Rule of 40    | <20%   | 20-35%    | >35%   | >50%   |
+| NDR           | <100%  | 100-110%  | >110%  | >120%  |
 
 **Context:** At Series B, the GTM machine should be scaling predictably. Magic Number >0.75 demonstrates that adding GTM spend produces proportional returns. NDR >110% proves land-and-expand motion works.
 
 ### Series C+ ($50M-$200M ARR)
 
-| Metric | Red | Yellow | Green | Elite |
-|--------|-----|--------|-------|-------|
-| Magic Number | <0.5 | 0.5-0.75 | >0.75 | >1.0 |
-| LTV:CAC | <3:1 | 3-4:1 | >4:1 | >6:1 |
-| CAC Payback | >20 mo | 14-20 mo | <14 mo | <10 mo |
-| Burn Multiple | >2.5x | 1.5-2.5x | <1.5x | <1x |
-| Rule of 40 | <25% | 25-40% | >40% | >60% |
-| NDR | <105% | 105-115% | >115% | >130% |
+| Metric        | Red    | Yellow   | Green  | Elite  |
+| ------------- | ------ | -------- | ------ | ------ |
+| Magic Number  | <0.5   | 0.5-0.75 | >0.75  | >1.0   |
+| LTV:CAC       | <3:1   | 3-4:1    | >4:1   | >6:1   |
+| CAC Payback   | >20 mo | 14-20 mo | <14 mo | <10 mo |
+| Burn Multiple | >2.5x  | 1.5-2.5x | <1.5x  | <1x    |
+| Rule of 40    | <25%   | 25-40%   | >40%   | >60%   |
+| NDR           | <105%  | 105-115% | >115%  | >130%  |
 
 **Context:** Growth efficiency and path to profitability become paramount. The Rule of 40 is the primary board-level metric. Companies approaching IPO should target Rule of 40 >40% consistently.
 
 ### Growth / Pre-IPO ($200M+ ARR)
 
-| Metric | Red | Yellow | Green | Elite |
-|--------|-----|--------|-------|-------|
-| Magic Number | <0.6 | 0.6-0.8 | >0.8 | >1.0 |
-| LTV:CAC | <3:1 | 3-5:1 | >5:1 | >7:1 |
-| CAC Payback | >18 mo | 12-18 mo | <12 mo | <8 mo |
-| Burn Multiple | >2x | 1-2x | <1x | <0.5x |
-| Rule of 40 | <30% | 30-45% | >45% | >65% |
-| NDR | <110% | 110-120% | >120% | >140% |
+| Metric        | Red    | Yellow   | Green  | Elite |
+| ------------- | ------ | -------- | ------ | ----- |
+| Magic Number  | <0.6   | 0.6-0.8  | >0.8   | >1.0  |
+| LTV:CAC       | <3:1   | 3-5:1    | >5:1   | >7:1  |
+| CAC Payback   | >18 mo | 12-18 mo | <12 mo | <8 mo |
+| Burn Multiple | >2x    | 1-2x     | <1x    | <0.5x |
+| Rule of 40    | <30%   | 30-45%   | >45%   | >65%  |
+| NDR           | <110%  | 110-120% | >120%  | >140% |
 
 **Context:** Pre-IPO and public companies are measured on absolute efficiency. FCF margin matters as much as growth rate. Best-in-class companies demonstrate both growth and profitability.
 
@@ -77,51 +77,51 @@ SaaS benchmarks by funding stage, industry standards, and strategies for improvi
 
 ### Horizontal SaaS (CRM, HR, Finance, Marketing)
 
-| Metric | Median | Top Quartile |
-|--------|--------|-------------|
-| Magic Number | 0.65 | 0.90+ |
-| LTV:CAC | 3.2:1 | 5.5:1+ |
-| CAC Payback | 17 months | 11 months |
-| Gross Margin | 72% | 80%+ |
-| NDR | 108% | 120%+ |
-| Win Rate | 22% | 32%+ |
+| Metric       | Median    | Top Quartile |
+| ------------ | --------- | ------------ |
+| Magic Number | 0.65      | 0.90+        |
+| LTV:CAC      | 3.2:1     | 5.5:1+       |
+| CAC Payback  | 17 months | 11 months    |
+| Gross Margin | 72%       | 80%+         |
+| NDR          | 108%      | 120%+        |
+| Win Rate     | 22%       | 32%+         |
 
 ### Vertical SaaS (Healthcare, FinTech, PropTech)
 
-| Metric | Median | Top Quartile |
-|--------|--------|-------------|
-| Magic Number | 0.55 | 0.80+ |
-| LTV:CAC | 3.8:1 | 6.0:1+ |
-| CAC Payback | 15 months | 10 months |
-| Gross Margin | 68% | 76%+ |
-| NDR | 112% | 125%+ |
-| Win Rate | 25% | 38%+ |
+| Metric       | Median    | Top Quartile |
+| ------------ | --------- | ------------ |
+| Magic Number | 0.55      | 0.80+        |
+| LTV:CAC      | 3.8:1     | 6.0:1+       |
+| CAC Payback  | 15 months | 10 months    |
+| Gross Margin | 68%       | 76%+         |
+| NDR          | 112%      | 125%+        |
+| Win Rate     | 25%       | 38%+         |
 
 **Note:** Vertical SaaS often has higher NDR (deeper embedding) and higher win rates (less competition) but lower gross margins (more services).
 
 ### Infrastructure / DevTools
 
-| Metric | Median | Top Quartile |
-|--------|--------|-------------|
-| Magic Number | 0.70 | 1.0+ |
-| LTV:CAC | 4.0:1 | 7.0:1+ |
-| CAC Payback | 14 months | 9 months |
-| Gross Margin | 75% | 85%+ |
-| NDR | 118% | 140%+ |
-| Win Rate | 18% | 28%+ |
+| Metric       | Median    | Top Quartile |
+| ------------ | --------- | ------------ |
+| Magic Number | 0.70      | 1.0+         |
+| LTV:CAC      | 4.0:1     | 7.0:1+       |
+| CAC Payback  | 14 months | 9 months     |
+| Gross Margin | 75%       | 85%+         |
+| NDR          | 118%      | 140%+        |
+| Win Rate     | 18%       | 28%+         |
 
 **Note:** Usage-based pricing in infrastructure drives exceptional NDR but more volatile revenue patterns.
 
 ### Security / Compliance
 
-| Metric | Median | Top Quartile |
-|--------|--------|-------------|
-| Magic Number | 0.60 | 0.85+ |
-| LTV:CAC | 3.5:1 | 5.8:1+ |
-| CAC Payback | 16 months | 11 months |
-| Gross Margin | 74% | 82%+ |
-| NDR | 115% | 130%+ |
-| Win Rate | 20% | 30%+ |
+| Metric       | Median    | Top Quartile |
+| ------------ | --------- | ------------ |
+| Magic Number | 0.60      | 0.85+        |
+| LTV:CAC      | 3.5:1     | 5.8:1+       |
+| CAC Payback  | 16 months | 11 months    |
+| Gross Margin | 74%       | 82%+         |
+| NDR          | 115%      | 130%+        |
+| Win Rate     | 20%       | 30%+         |
 
 ---
 
@@ -146,12 +146,14 @@ SaaS benchmarks by funding stage, industry standards, and strategies for improvi
 **Current: <3:1 (Yellow) -- Target: >5:1 (Green)**
 
 **Increase LTV:**
+
 - Reduce churn through proactive health scoring and intervention
 - Build expansion playbooks for cross-sell and upsell
 - Increase pricing through value-based packaging
 - Improve product stickiness with integrations and workflows
 
 **Decrease CAC:**
+
 - Invest in organic channels (content, SEO, community)
 - Implement product-led growth (PLG) motion
 - Optimize paid spend through better targeting and attribution
@@ -221,6 +223,7 @@ Shorter CAC payback enables faster reinvestment in growth. A company with 12-mon
 ### NDR vs. New Logo Acquisition
 
 High NDR reduces dependence on new logo acquisition for growth:
+
 - NDR of 120% means 20% growth from existing base before any new customers
 - NDR of 100% means all growth must come from new customers (expensive)
 - NDR of 80% means the company is shrinking and must acquire even more new customers just to replace lost revenue

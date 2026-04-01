@@ -21,6 +21,7 @@ Fullstack development skill with project scaffolding and code quality analysis t
 ## Trigger Phrases
 
 Use this skill when you hear:
+
 - "scaffold a new project"
 - "create a Next.js app"
 - "set up FastAPI with React"
@@ -39,6 +40,7 @@ Use this skill when you hear:
 Generates fullstack project structures with boilerplate code.
 
 **Supported Templates:**
+
 - `nextjs` - Next.js 14+ with App Router, TypeScript, Tailwind CSS
 - `fastapi-react` - FastAPI backend + React frontend + PostgreSQL
 - `mern` - MongoDB, Express, React, Node.js with TypeScript
@@ -71,15 +73,16 @@ python scripts/project_scaffolder.py nextjs my-app --json
 
 **Parameters:**
 
-| Parameter | Description |
-|-----------|-------------|
-| `template` | Template name (nextjs, fastapi-react, mern, django-react) |
-| `project_name` | Name for the new project directory |
-| `--output, -o` | Output directory (default: current directory) |
-| `--list-templates, -l` | List all available templates |
-| `--json` | Output in JSON format |
+| Parameter              | Description                                               |
+| ---------------------- | --------------------------------------------------------- |
+| `template`             | Template name (nextjs, fastapi-react, mern, django-react) |
+| `project_name`         | Name for the new project directory                        |
+| `--output, -o`         | Output directory (default: current directory)             |
+| `--list-templates, -l` | List all available templates                              |
+| `--json`               | Output in JSON format                                     |
 
 **Output includes:**
+
 - Project structure with all necessary files
 - Package configurations (package.json, requirements.txt)
 - TypeScript configuration
@@ -94,6 +97,7 @@ python scripts/project_scaffolder.py nextjs my-app --json
 Analyzes fullstack codebases for quality issues.
 
 **Analysis Categories:**
+
 - Security vulnerabilities (hardcoded secrets, injection risks)
 - Code complexity metrics (cyclomatic complexity, nesting depth)
 - Dependency health (outdated packages, known CVEs)
@@ -121,14 +125,15 @@ python scripts/code_quality_analyzer.py . --output report.json
 
 **Parameters:**
 
-| Parameter | Description |
-|-----------|-------------|
-| `project_path` | Path to project directory (default: current directory) |
-| `--verbose, -v` | Show detailed findings |
-| `--json` | Output in JSON format |
-| `--output, -o` | Write report to file |
+| Parameter       | Description                                            |
+| --------------- | ------------------------------------------------------ |
+| `project_path`  | Path to project directory (default: current directory) |
+| `--verbose, -v` | Show detailed findings                                 |
+| `--json`        | Output in JSON format                                  |
+| `--output, -o`  | Write report to file                                   |
 
 **Output includes:**
+
 - Overall score (0-100) with letter grade
 - Security issues by severity (critical, high, medium, low)
 - High complexity files
@@ -264,22 +269,22 @@ See `references/tech_stack_guide.md` for detailed comparison.
 
 ### Stack Decision Matrix
 
-| Requirement | Recommendation |
-|-------------|---------------|
-| SEO-critical site | Next.js with SSR |
-| Internal dashboard | React + Vite |
-| API-first backend | FastAPI or Fastify |
-| Enterprise scale | NestJS + PostgreSQL |
-| Rapid prototype | Next.js API routes |
-| Document-heavy data | MongoDB |
-| Complex queries | PostgreSQL |
+| Requirement         | Recommendation      |
+| ------------------- | ------------------- |
+| SEO-critical site   | Next.js with SSR    |
+| Internal dashboard  | React + Vite        |
+| API-first backend   | FastAPI or Fastify  |
+| Enterprise scale    | NestJS + PostgreSQL |
+| Rapid prototype     | Next.js API routes  |
+| Document-heavy data | MongoDB             |
+| Complex queries     | PostgreSQL          |
 
 ### Common Issues
 
-| Issue | Solution |
-|-------|----------|
-| N+1 queries | Use DataLoader or eager loading |
-| Slow builds | Check bundle size, lazy load |
-| Auth complexity | Use Auth.js or Clerk |
-| Type errors | Enable strict mode in tsconfig |
-| CORS issues | Configure middleware properly |
+| Issue           | Solution                        |
+| --------------- | ------------------------------- |
+| N+1 queries     | Use DataLoader or eager loading |
+| Slow builds     | Check bundle size, lazy load    |
+| Auth complexity | Use Auth.js or Clerk            |
+| Type errors     | Enable strict mode in tsconfig  |
+| CORS issues     | Configure middleware properly   |

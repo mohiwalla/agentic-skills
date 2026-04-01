@@ -26,29 +26,34 @@ This skill offers three interconnected tools that form a complete tech debt mana
 Together, these tools enable engineering teams to make data-driven decisions about tech debt, balancing new feature development with maintenance work.
 
 ## Technical Debt Classification Framework
+
 → See references/debt-frameworks.md for details
 
 ## Implementation Roadmap
 
 ### Phase 1: Foundation (Weeks 1-2)
+
 1. Set up debt scanning infrastructure
 2. Establish debt taxonomy and scoring criteria
 3. Scan initial codebase and create baseline inventory
 4. Train team on debt identification and reporting
 
 ### Phase 2: Process Integration (Weeks 3-4)
+
 1. Integrate debt tracking into sprint planning
 2. Establish debt budgets and allocation rules
 3. Create stakeholder reporting templates
 4. Set up automated debt scanning in CI/CD
 
 ### Phase 3: Optimization (Weeks 5-6)
+
 1. Refine scoring algorithms based on team feedback
 2. Implement trend analysis and predictive metrics
 3. Create specialized debt reduction initiatives
 4. Establish cross-team debt coordination processes
 
 ### Phase 4: Maturity (Ongoing)
+
 1. Continuous improvement of detection algorithms
 2. Advanced analytics and prediction models
 3. Integration with planning and project management tools
@@ -57,12 +62,14 @@ Together, these tools enable engineering teams to make data-driven decisions abo
 ## Success Criteria
 
 **Quantitative Metrics:**
+
 - 25% reduction in debt interest rate within 6 months
 - 15% improvement in development velocity
 - 30% reduction in production defects
 - 20% faster code review cycles
 
 **Qualitative Metrics:**
+
 - Improved developer satisfaction scores
 - Reduced context switching during feature development
 - Faster onboarding for new team members
@@ -71,22 +78,27 @@ Together, these tools enable engineering teams to make data-driven decisions abo
 ## Common Pitfalls and How to Avoid Them
 
 ### 1. Analysis Paralysis
+
 **Problem**: Spending too much time analyzing debt instead of fixing it.
 **Solution**: Set time limits for analysis, use "good enough" scoring for most items.
 
 ### 2. Perfectionism
+
 **Problem**: Trying to eliminate all debt instead of managing it.
 **Solution**: Focus on high-impact debt, accept that some debt is acceptable.
 
 ### 3. Ignoring Business Context
+
 **Problem**: Prioritizing technical elegance over business value.
 **Solution**: Always tie debt work to business outcomes and customer impact.
 
 ### 4. Inconsistent Application
+
 **Problem**: Some teams adopt practices while others ignore them.
 **Solution**: Make debt tracking part of standard development workflow.
 
 ### 5. Tool Over-Engineering
+
 **Problem**: Building complex debt management systems that nobody uses.
 **Solution**: Start simple, iterate based on actual usage patterns.
 

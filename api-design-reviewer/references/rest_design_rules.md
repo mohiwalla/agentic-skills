@@ -3,6 +3,7 @@
 ## Core Principles
 
 ### 1. Resources, Not Actions
+
 REST APIs should focus on **resources** (nouns) rather than **actions** (verbs). The HTTP methods provide the actions.
 
 ```
@@ -21,6 +22,7 @@ POST   /deleteUser/123
 ```
 
 ### 2. Hierarchical Resource Structure
+
 Use hierarchical URLs to represent resource relationships:
 
 ```
@@ -37,6 +39,7 @@ But avoid excessive nesting (max 3-4 levels):
 ## Resource Naming Conventions
 
 ### URLs Should Use Kebab-Case
+
 ```
 ✅ Good:
 /user-profiles
@@ -50,6 +53,7 @@ But avoid excessive nesting (max 3-4 levels):
 ```
 
 ### Collections vs Individual Resources
+
 ```
 Collection:   /users
 Individual:   /users/123
@@ -57,6 +61,7 @@ Sub-resource: /users/123/orders
 ```
 
 ### Pluralization Rules
+
 - Use **plural nouns** for collections: `/users`, `/orders`
 - Use **singular nouns** for single resources: `/user-profile`, `/current-session`
 - Be consistent throughout your API
@@ -64,6 +69,7 @@ Sub-resource: /users/123/orders
 ## HTTP Methods Usage
 
 ### GET - Safe and Idempotent
+
 - **Purpose**: Retrieve data
 - **Safe**: No side effects
 - **Idempotent**: Multiple calls return same result
@@ -76,6 +82,7 @@ GET /users?status=active&limit=10
 ```
 
 ### POST - Not Idempotent
+
 - **Purpose**: Create resources, non-idempotent operations
 - **Safe**: No
 - **Idempotent**: No
@@ -88,6 +95,7 @@ POST /users/123/activate # Activate user (action)
 ```
 
 ### PUT - Idempotent
+
 - **Purpose**: Create or completely replace a resource
 - **Safe**: No
 - **Idempotent**: Yes
@@ -99,6 +107,7 @@ PUT /users/123  # Replace entire user resource
 ```
 
 ### PATCH - Partial Update
+
 - **Purpose**: Partially update a resource
 - **Safe**: No
 - **Idempotent**: Not necessarily
@@ -110,6 +119,7 @@ PATCH /users/123  # Update only specified fields
 ```
 
 ### DELETE - Idempotent
+
 - **Purpose**: Remove a resource
 - **Safe**: No
 - **Idempotent**: Yes (same result if called multiple times)
@@ -123,17 +133,20 @@ DELETE /users/123
 ## Status Codes
 
 ### Success Codes (2xx)
+
 - **200 OK**: Standard success response
 - **201 Created**: Resource created successfully (POST)
 - **202 Accepted**: Request accepted for processing (async)
 - **204 No Content**: Success with no response body (DELETE, PUT)
 
 ### Redirection Codes (3xx)
+
 - **301 Moved Permanently**: Resource permanently moved
 - **302 Found**: Temporary redirect
 - **304 Not Modified**: Use cached version
 
 ### Client Error Codes (4xx)
+
 - **400 Bad Request**: Invalid request syntax or data
 - **401 Unauthorized**: Authentication required
 - **403 Forbidden**: Access denied (user authenticated but not authorized)
@@ -144,6 +157,7 @@ DELETE /users/123
 - **429 Too Many Requests**: Rate limit exceeded
 
 ### Server Error Codes (5xx)
+
 - **500 Internal Server Error**: Unexpected server error
 - **502 Bad Gateway**: Invalid response from upstream server
 - **503 Service Unavailable**: Server temporarily unavailable
@@ -152,6 +166,7 @@ DELETE /users/123
 ## URL Design Patterns
 
 ### Query Parameters for Filtering
+
 ```
 GET /users?status=active
 GET /users?role=admin&department=engineering
@@ -159,6 +174,7 @@ GET /orders?created_after=2024-01-01&status=pending
 ```
 
 ### Pagination Parameters
+
 ```
 # Offset-based
 GET /users?offset=20&limit=10
@@ -171,6 +187,7 @@ GET /users?page=3&page_size=10
 ```
 
 ### Sorting Parameters
+
 ```
 GET /users?sort=created_at          # Ascending
 GET /users?sort=-created_at         # Descending (prefix with -)
@@ -178,6 +195,7 @@ GET /users?sort=last_name,first_name # Multiple fields
 ```
 
 ### Field Selection
+
 ```
 GET /users?fields=id,name,email
 GET /users/123?include=orders,profile
@@ -185,6 +203,7 @@ GET /users/123?exclude=internal_notes
 ```
 
 ### Search Parameters
+
 ```
 GET /users?q=john
 GET /products?search=laptop&category=electronics
@@ -193,6 +212,7 @@ GET /products?search=laptop&category=electronics
 ## Response Format Standards
 
 ### Consistent Response Structure
+
 ```json
 {
   "data": {
@@ -208,11 +228,12 @@ GET /products?search=laptop&category=electronics
 ```
 
 ### Collection Responses
+
 ```json
 {
   "data": [
-    {"id": 1, "name": "Item 1"},
-    {"id": 2, "name": "Item 2"}
+    { "id": 1, "name": "Item 1" },
+    { "id": 2, "name": "Item 2" }
   ],
   "pagination": {
     "total": 150,
@@ -229,6 +250,7 @@ GET /products?search=laptop&category=electronics
 ```
 
 ### Error Response Format
+
 ```json
 {
   "error": {
@@ -250,6 +272,7 @@ GET /products?search=laptop&category=electronics
 ## Field Naming Conventions
 
 ### Use camelCase for JSON Fields
+
 ```json
 ✅ Good:
 {
@@ -268,6 +291,7 @@ GET /products?search=laptop&category=electronics
 ```
 
 ### Boolean Fields
+
 Use positive, clear names with "is", "has", "can", or "should" prefixes:
 
 ```json
@@ -288,6 +312,7 @@ Use positive, clear names with "is", "has", "can", or "should" prefixes:
 ```
 
 ### Date/Time Fields
+
 - Use ISO 8601 format: `2024-02-16T13:00:00Z`
 - Include timezone information
 - Use consistent field naming:
@@ -304,6 +329,7 @@ Use positive, clear names with "is", "has", "can", or "should" prefixes:
 ## Content Negotiation
 
 ### Accept Headers
+
 ```
 Accept: application/json
 Accept: application/xml
@@ -311,6 +337,7 @@ Accept: application/json; version=1
 ```
 
 ### Content-Type Headers
+
 ```
 Content-Type: application/json
 Content-Type: application/json; charset=utf-8
@@ -318,6 +345,7 @@ Content-Type: multipart/form-data
 ```
 
 ### Versioning via Headers
+
 ```
 Accept: application/vnd.myapi.v1+json
 API-Version: 1.0
@@ -326,6 +354,7 @@ API-Version: 1.0
 ## Caching Guidelines
 
 ### Cache-Control Headers
+
 ```
 Cache-Control: public, max-age=3600        # Cache for 1 hour
 Cache-Control: private, max-age=0          # Don't cache
@@ -333,6 +362,7 @@ Cache-Control: no-cache, must-revalidate   # Always validate
 ```
 
 ### ETags for Conditional Requests
+
 ```
 HTTP/1.1 200 OK
 ETag: "123456789"
@@ -346,6 +376,7 @@ If-Modified-Since: Wed, 21 Oct 2015 07:28:00 GMT
 ## Security Headers
 
 ### Authentication
+
 ```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 Authorization: Basic dXNlcjpwYXNzd29yZA==
@@ -353,6 +384,7 @@ Authorization: Api-Key abc123def456
 ```
 
 ### CORS Headers
+
 ```
 Access-Control-Allow-Origin: https://example.com
 Access-Control-Allow-Methods: GET, POST, PUT, DELETE
@@ -362,6 +394,7 @@ Access-Control-Allow-Headers: Content-Type, Authorization
 ## Rate Limiting
 
 ### Rate Limit Headers
+
 ```
 X-RateLimit-Limit: 1000
 X-RateLimit-Remaining: 999
@@ -370,6 +403,7 @@ X-RateLimit-Window: 3600
 ```
 
 ### Rate Limit Exceeded Response
+
 ```json
 HTTP/1.1 429 Too Many Requests
 Retry-After: 3600
@@ -390,6 +424,7 @@ Retry-After: 3600
 ## Hypermedia (HATEOAS)
 
 ### Links in Responses
+
 ```json
 {
   "id": 123,
@@ -415,6 +450,7 @@ Retry-After: 3600
 ```
 
 ### Link Relations
+
 - **self**: Link to the resource itself
 - **edit**: Link to edit the resource
 - **delete**: Link to delete the resource
@@ -424,42 +460,49 @@ Retry-After: 3600
 ## Common Anti-Patterns to Avoid
 
 ### 1. Verbs in URLs
+
 ```
 ❌ Bad: /api/getUser/123
 ✅ Good: GET /api/users/123
 ```
 
 ### 2. Inconsistent Naming
+
 ```
 ❌ Bad: /user-profiles and /userAddresses
 ✅ Good: /user-profiles and /user-addresses
 ```
 
 ### 3. Deep Nesting
+
 ```
 ❌ Bad: /companies/123/departments/456/teams/789/members/012
 ✅ Good: /team-members/012?team=789
 ```
 
 ### 4. Ignoring HTTP Status Codes
+
 ```
 ❌ Bad: Always return 200 with error info in body
 ✅ Good: Use appropriate status codes (404, 400, 500, etc.)
 ```
 
 ### 5. Exposing Internal Structure
+
 ```
 ❌ Bad: /api/database_table_users
 ✅ Good: /api/users
 ```
 
 ### 6. No Versioning Strategy
+
 ```
 ❌ Bad: Breaking changes without version management
 ✅ Good: /api/v1/users or Accept: application/vnd.api+json;version=1
 ```
 
 ### 7. Inconsistent Error Responses
+
 ```
 ❌ Bad: Different error formats for different endpoints
 ✅ Good: Standardized error response structure

@@ -196,7 +196,7 @@ Create a JSON file with execution logs:
   "execution_logs": [
     {
       "task_id": "unique_task_identifier",
-      "agent_id": "agent_identifier", 
+      "agent_id": "agent_identifier",
       "task_type": "task_category",
       "start_time": "2024-01-15T09:00:00Z",
       "end_time": "2024-01-15T09:02:34Z",
@@ -249,20 +249,23 @@ Options:
 #### Evaluation Metrics
 
 **Performance Metrics**:
+
 - Task success rate and completion times
 - Token usage and cost efficiency
 - Error rates and retry patterns
 - Throughput and latency distributions
 
 **System Health**:
+
 - Overall health score (poor/fair/good/excellent)
 - SLA compliance tracking
 - Resource utilization analysis
 - Trend identification
 
 **Bottleneck Analysis**:
+
 - Agent performance bottlenecks
-- Tool usage inefficiencies  
+- Tool usage inefficiencies
 - Communication overhead
 - Resource constraints
 
@@ -271,30 +274,35 @@ Options:
 ### When to Use Each Pattern
 
 #### Single Agent
+
 - **Best for**: Simple, focused tasks with clear boundaries
 - **Team size**: 1 agent
 - **Complexity**: Low
 - **Examples**: Personal assistant, document summarizer, simple automation
 
 #### Supervisor
+
 - **Best for**: Hierarchical task decomposition with quality control
-- **Team size**: 2-8 agents  
+- **Team size**: 2-8 agents
 - **Complexity**: Medium
 - **Examples**: Research coordinator with specialists, content review workflow
 
 #### Swarm
+
 - **Best for**: Distributed problem solving with high fault tolerance
 - **Team size**: 3-20 agents
 - **Complexity**: High
 - **Examples**: Parallel data processing, distributed research, competitive analysis
 
-#### Hierarchical  
+#### Hierarchical
+
 - **Best for**: Large-scale operations with organizational structure
 - **Team size**: 5-50 agents
 - **Complexity**: Very High
 - **Examples**: Enterprise workflows, complex business processes
 
 #### Pipeline
+
 - **Best for**: Sequential processing with specialized stages
 - **Team size**: 3-15 agents
 - **Complexity**: Medium
@@ -388,16 +396,19 @@ response = client.messages.create(
 ### Common Issues
 
 **"No valid architecture pattern found"**
+
 - Check that team_size is reasonable (1-50)
 - Ensure tasks list is not empty
 - Verify performance_requirements are valid
 
 **"Tool schema validation failed"**
+
 - Check that all required fields are present
 - Ensure parameter types are valid
 - Verify enum values are provided as arrays
 
 **"Insufficient execution logs"**
+
 - Ensure logs contain required fields (task_id, agent_id, status)
 - Check that timestamps are in ISO 8601 format
 - Verify token usage fields are numeric
@@ -425,6 +436,7 @@ This project is licensed under the MIT License - see the main repository for det
 ## Support
 
 For issues and questions:
+
 - Check the troubleshooting section above
 - Review the reference documentation in `references/`
 - Create an issue in the claude-skills repository

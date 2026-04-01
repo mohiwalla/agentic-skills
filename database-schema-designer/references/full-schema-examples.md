@@ -182,35 +182,72 @@ enum Priority    { LOW MEDIUM HIGH CRITICAL }
 ```typescript
 // db/schema.ts
 import {
-  pgTable, text, timestamp, integer, boolean,
-  varchar, jsonb, real, pgEnum, uniqueIndex, index,
-} from 'drizzle-orm/pg-core'
-import { createId } from '@paralleldrive/cuid2'
+  pgTable,
+  text,
+  timestamp,
+  integer,
+  boolean,
+  varchar,
+  jsonb,
+  real,
+  pgEnum,
+  uniqueIndex,
+  index,
+} from "drizzle-orm/pg-core"
+import { createId } from "@paralleldrive/cuid2"
 
-export const taskStatusEnum = pgEnum('task_status', [
-  'todo', 'in_progress', 'in_review', 'done', 'cancelled'
+export const taskStatusEnum = pgEnum("task_status", [
+  "todo",
+  "in_progress",
+  "in_review",
+  "done",
+  "cancelled",
 ])
-export const priorityEnum = pgEnum('priority', ['low', 'medium', 'high', 'critical'])
+export const priorityEnum = pgEnum("priority", [
+  "low",
+  "medium",
+  "high",
+  "critical",
+])
 
-export const tasks = pgTable('tasks', {
-  id:          text('id').primaryKey().$defaultFn(() => createId()),
-  projectId:   text('project_id').notNull().references(() => projects.id),
-  title:       varchar('title', { length: 500 }).notNull(),
-  description: text('description'),
-  status:      taskStatusEnum('status').notNull().default('todo'),
-  priority:    priorityEnum('priority').notNull().default('medium'),
-  dueDate:     timestamp('due_date', { withTimezone: true }),
-  position:    real('position').notNull().default(0),
-  version:     integer('version').notNull().default(1),
-  createdById: text('created_by_id').notNull().references(() => users.id),
-  updatedById: text('updated_by_id').notNull().references(() => users.id),
-  createdAt:   timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
-  updatedAt:   timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
-  deletedAt:   timestamp('deleted_at', { withTimezone: true }),
-}, (table) => ({
-  projectIdx:       index('tasks_project_id_idx').on(table.projectId),
-  projectStatusIdx: index('tasks_project_status_idx').on(table.projectId, table.status),
-}))
+export const tasks = pgTable(
+  "tasks",
+  {
+    id: text("id")
+      .primaryKey()
+      .$defaultFn(() => createId()),
+    projectId: text("project_id")
+      .notNull()
+      .references(() => projects.id),
+    title: varchar("title", { length: 500 }).notNull(),
+    description: text("description"),
+    status: taskStatusEnum("status").notNull().default("todo"),
+    priority: priorityEnum("priority").notNull().default("medium"),
+    dueDate: timestamp("due_date", { withTimezone: true }),
+    position: real("position").notNull().default(0),
+    version: integer("version").notNull().default(1),
+    createdById: text("created_by_id")
+      .notNull()
+      .references(() => users.id),
+    updatedById: text("updated_by_id")
+      .notNull()
+      .references(() => users.id),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+    deletedAt: timestamp("deleted_at", { withTimezone: true }),
+  },
+  table => ({
+    projectIdx: index("tasks_project_id_idx").on(table.projectId),
+    projectStatusIdx: index("tasks_project_status_idx").on(
+      table.projectId,
+      table.status,
+    ),
+  }),
+)
 
 // Infer TypeScript types
 export type Task = typeof tasks.$inferSelect
@@ -245,7 +282,7 @@ def upgrade() -> None:
         name='task_status'
     )
     task_status.create(op.get_bind())
-    
+
     op.create_table(
         'tasks',
         sa.Column('id', sa.Text(), primary_key=True),
@@ -263,7 +300,7 @@ def upgrade() -> None:
         sa.Column('updated_at', sa.TIMESTAMP(timezone=True), nullable=False, server_default=sa.text('NOW()')),
         sa.Column('deleted_at', sa.TIMESTAMP(timezone=True)),
     )
-    
+
     # Indexes
     op.create_index('tasks_project_id_idx', 'tasks', ['project_id'])
     op.create_index('tasks_project_status_idx', 'tasks', ['project_id', 'status'])

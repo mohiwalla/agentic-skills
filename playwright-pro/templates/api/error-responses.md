@@ -3,6 +3,7 @@
 Tests 400, 401, 403, 404, and 500 HTTP error handling.
 
 ## Prerequisites
+
 - Valid auth token: `{{apiToken}}`
 - API base: `{{apiBaseUrl}}`
 
@@ -112,46 +113,52 @@ test.describe('API Error Responses', () => {
 ## JavaScript
 
 ```javascript
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require("@playwright/test")
 
-const headers = { 'Authorization': `Bearer {{apiToken}}`, 'Content-Type': 'application/json' };
+const headers = {
+  Authorization: `Bearer {{apiToken}}`,
+  "Content-Type": "application/json",
+}
 
-test.describe('API Error Responses', () => {
-  test('POST with invalid body returns 400', async ({ request }) => {
-    const res = await request.post('{{apiBaseUrl}}/{{entityName}}s', {
+test.describe("API Error Responses", () => {
+  test("POST with invalid body returns 400", async ({ request }) => {
+    const res = await request.post("{{apiBaseUrl}}/{{entityName}}s", {
       headers,
-      data: { name: '' },
-    });
-    expect(res.status()).toBe(400);
-  });
+      data: { name: "" },
+    })
+    expect(res.status()).toBe(400)
+  })
 
-  test('no token returns 401', async ({ request }) => {
-    const res = await request.get('{{apiBaseUrl}}/{{entityName}}s');
-    expect(res.status()).toBe(401);
-  });
+  test("no token returns 401", async ({ request }) => {
+    const res = await request.get("{{apiBaseUrl}}/{{entityName}}s")
+    expect(res.status()).toBe(401)
+  })
 
-  test('regular user on admin endpoint returns 403', async ({ request }) => {
-    const res = await request.get('{{apiBaseUrl}}/admin/users', {
-      headers: { 'Authorization': `Bearer {{userToken}}` },
-    });
-    expect(res.status()).toBe(403);
-  });
+  test("regular user on admin endpoint returns 403", async ({ request }) => {
+    const res = await request.get("{{apiBaseUrl}}/admin/users", {
+      headers: { Authorization: `Bearer {{userToken}}` },
+    })
+    expect(res.status()).toBe(403)
+  })
 
-  test('non-existent resource returns 404', async ({ request }) => {
-    const res = await request.get('{{apiBaseUrl}}/{{entityName}}s/999999', { headers });
-    expect(res.status()).toBe(404);
-  });
-});
+  test("non-existent resource returns 404", async ({ request }) => {
+    const res = await request.get("{{apiBaseUrl}}/{{entityName}}s/999999", {
+      headers,
+    })
+    expect(res.status()).toBe(404)
+  })
+})
 ```
 
 ## Variants
-| Variant | Description |
-|---------|-------------|
-| 400 Bad Request | Invalid body → 400 + errors detail |
-| 401 Unauthorized | No token → 401 |
-| 403 Forbidden | Wrong role → 403 |
-| 404 Not Found | Missing resource → 404 |
-| 422 Unprocessable | Missing required field → 422/400 |
-| 429 Rate Limit | Threshold exceeded → 429 |
-| 500 Server Error | Mocked 500 → error body present |
-| Consistent shape | All errors have error/message field |
+
+| Variant           | Description                         |
+| ----------------- | ----------------------------------- |
+| 400 Bad Request   | Invalid body → 400 + errors detail  |
+| 401 Unauthorized  | No token → 401                      |
+| 403 Forbidden     | Wrong role → 403                    |
+| 404 Not Found     | Missing resource → 404              |
+| 422 Unprocessable | Missing required field → 422/400    |
+| 429 Rate Limit    | Threshold exceeded → 429            |
+| 500 Server Error  | Mocked 500 → error body present     |
+| Consistent shape  | All errors have error/message field |

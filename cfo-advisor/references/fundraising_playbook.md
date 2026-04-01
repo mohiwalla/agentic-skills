@@ -7,6 +7,7 @@ From timing to close. What investors actually look for, how valuation works, and
 ## 1. When to Raise
 
 **Optimal timing:**
+
 ```
 Target: 18-24 months runway post-close
 Minimum: 12 months runway post-close (leaves no buffer for slip)
@@ -21,13 +22,14 @@ Never start when: < 6 months runway
   → Terms get worse, or you don't close at all
 ```
 
-**Rule:** Your leverage is maximum when you don't *need* to raise. Raise from a position of momentum, not necessity.
+**Rule:** Your leverage is maximum when you don't _need_ to raise. Raise from a position of momentum, not necessity.
 
 ---
 
 ## 2. What Investors Look For at Each Stage
 
 ### Pre-seed
+
 - Team (are these people credible for this problem?)
 - Problem clarity (is the problem real and meaningful?)
 - Early signal (any customers paying, waitlist, prototype)
@@ -36,6 +38,7 @@ Never start when: < 6 months runway
 **Typical ask:** $500K–$2M | **Typical valuation:** $3M–$10M pre-money
 
 ### Seed
+
 - Product-market signal (customers using and paying)
 - Founding team with domain expertise
 - ARR: $100K–$1M (or strong usage for PLG)
@@ -45,9 +48,10 @@ Never start when: < 6 months runway
 
 ### Series A
 
-Investors are buying a *repeatable sales motion*. Not just customers — a machine.
+Investors are buying a _repeatable sales motion_. Not just customers — a machine.
 
 **What they need to see:**
+
 - ARR: $1M–$5M growing > 100% YoY
 - LTV:CAC > 2.5x (and improving)
 - Net Dollar Retention > 100%
@@ -60,9 +64,10 @@ Investors are buying a *repeatable sales motion*. Not just customers — a machi
 
 ### Series B
 
-Investors are buying *scalable go-to-market*. Can you pour fuel on the fire?
+Investors are buying _scalable go-to-market_. Can you pour fuel on the fire?
 
 **What they need to see:**
+
 - ARR: $5M–$20M growing > 100% YoY
 - LTV:CAC > 3x, CAC Payback < 18 months
 - Sales capacity model (hiring plan → pipeline → revenue)
@@ -74,9 +79,10 @@ Investors are buying *scalable go-to-market*. Can you pour fuel on the fire?
 
 ### Series C and Beyond
 
-Investors are buying *market leadership* and *path to profitability*.
+Investors are buying _market leadership_ and _path to profitability_.
 
 **What they need to see:**
+
 - ARR: $20M+ (often $30-50M for credible Series C)
 - Rule of 40 > 40 (or credible path)
 - Gross margin > 70%
@@ -271,7 +277,7 @@ Series B: $20M / $80M pre = 20% dilution
 Series C: $30M / $170M pre = 15% dilution
 ```
 
-**Option pool shuffle:** Investors often require you to create/expand the option pool *before* the round closes, which dilutes existing shareholders (not the incoming investor). Model this explicitly — a 20% round with a 5% pool expansion is really 24%+ dilution to founders.
+**Option pool shuffle:** Investors often require you to create/expand the option pool _before_ the round closes, which dilutes existing shareholders (not the incoming investor). Model this explicitly — a 20% round with a 5% pool expansion is really 24%+ dilution to founders.
 
 ### Cap Table Hygiene
 

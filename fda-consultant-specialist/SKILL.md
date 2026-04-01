@@ -39,13 +39,13 @@ Predicate device exists?
 
 ### Pathway Comparison
 
-| Pathway | When to Use | Timeline | Cost |
-|---------|-------------|----------|------|
-| 510(k) Traditional | Predicate exists, design changes | 90 days | $21,760 |
-| 510(k) Special | Manufacturing changes only | 30 days | $21,760 |
-| 510(k) Abbreviated | Guidance/standard conformance | 30 days | $21,760 |
-| De Novo | Novel, low-moderate risk | 150 days | $134,676 |
-| PMA | Class III, no predicate | 180+ days | $425,000+ |
+| Pathway            | When to Use                      | Timeline  | Cost      |
+| ------------------ | -------------------------------- | --------- | --------- |
+| 510(k) Traditional | Predicate exists, design changes | 90 days   | $21,760   |
+| 510(k) Special     | Manufacturing changes only       | 30 days   | $21,760   |
+| 510(k) Abbreviated | Guidance/standard conformance    | 30 days   | $21,760   |
+| De Novo            | Novel, low-moderate risk         | 150 days  | $134,676  |
+| PMA                | Class III, no predicate          | 180+ days | $425,000+ |
 
 ### Pre-Submission Strategy
 
@@ -92,25 +92,25 @@ Phase 4: Review
 
 ### Required Sections (21 CFR 807.87)
 
-| Section | Content |
-|---------|---------|
-| Cover Letter | Submission type, device ID, contact info |
-| Form 3514 | CDRH premarket review cover sheet |
-| Device Description | Physical description, principles of operation |
-| Indications for Use | Form 3881, patient population, use environment |
-| SE Comparison | Side-by-side comparison with predicate |
-| Performance Testing | Bench, biocompatibility, electrical safety |
-| Software Documentation | Level of concern, hazard analysis (IEC 62304) |
-| Labeling | IFU, package labels, warnings |
-| 510(k) Summary | Public summary of submission |
+| Section                | Content                                        |
+| ---------------------- | ---------------------------------------------- |
+| Cover Letter           | Submission type, device ID, contact info       |
+| Form 3514              | CDRH premarket review cover sheet              |
+| Device Description     | Physical description, principles of operation  |
+| Indications for Use    | Form 3881, patient population, use environment |
+| SE Comparison          | Side-by-side comparison with predicate         |
+| Performance Testing    | Bench, biocompatibility, electrical safety     |
+| Software Documentation | Level of concern, hazard analysis (IEC 62304)  |
+| Labeling               | IFU, package labels, warnings                  |
+| 510(k) Summary         | Public summary of submission                   |
 
 ### Common RTA Issues
 
-| Issue | Prevention |
-|-------|------------|
-| Missing user fee | Verify payment before submission |
-| Incomplete Form 3514 | Review all fields, ensure signature |
-| No predicate identified | Confirm K-number in FDA database |
+| Issue                    | Prevention                                |
+| ------------------------ | ----------------------------------------- |
+| Missing user fee         | Verify payment before submission          |
+| Incomplete Form 3514     | Review all fields, ensure signature       |
+| No predicate identified  | Confirm K-number in FDA database          |
 | Inadequate SE comparison | Address all technological characteristics |
 
 ---
@@ -121,15 +121,15 @@ Quality System Regulation (21 CFR Part 820) requirements for medical device manu
 
 ### Key Subsystems
 
-| Section | Title | Focus |
-|---------|-------|-------|
-| 820.20 | Management Responsibility | Quality policy, org structure, management review |
-| 820.30 | Design Controls | Input, output, review, verification, validation |
-| 820.40 | Document Controls | Approval, distribution, change control |
-| 820.50 | Purchasing Controls | Supplier qualification, purchasing data |
-| 820.70 | Production Controls | Process validation, environmental controls |
-| 820.100 | CAPA | Root cause analysis, corrective actions |
-| 820.181 | Device Master Record | Specifications, procedures, acceptance criteria |
+| Section | Title                     | Focus                                            |
+| ------- | ------------------------- | ------------------------------------------------ |
+| 820.20  | Management Responsibility | Quality policy, org structure, management review |
+| 820.30  | Design Controls           | Input, output, review, verification, validation  |
+| 820.40  | Document Controls         | Approval, distribution, change control           |
+| 820.50  | Purchasing Controls       | Supplier qualification, purchasing data          |
+| 820.70  | Production Controls       | Process validation, environmental controls       |
+| 820.100 | CAPA                      | Root cause analysis, corrective actions          |
+| 820.181 | Device Master Record      | Specifications, procedures, acceptance criteria  |
 
 ### Design Controls Workflow (820.30)
 
@@ -179,13 +179,13 @@ HIPAA requirements for devices that create, store, transmit, or access Protected
 
 ### Applicability
 
-| Device Type | HIPAA Applies |
-|-------------|---------------|
-| Standalone diagnostic (no data transmission) | No |
-| Connected device transmitting patient data | Yes |
-| Device with EHR integration | Yes |
-| SaMD storing patient information | Yes |
-| Wellness app (no diagnosis) | Only if stores PHI |
+| Device Type                                  | HIPAA Applies      |
+| -------------------------------------------- | ------------------ |
+| Standalone diagnostic (no data transmission) | No                 |
+| Connected device transmitting patient data   | Yes                |
+| Device with EHR integration                  | Yes                |
+| SaMD storing patient information             | Yes                |
+| Wellness app (no diagnosis)                  | Only if stores PHI |
 
 ### Required Safeguards
 
@@ -230,21 +230,23 @@ FDA cybersecurity requirements for connected medical devices.
 
 ### Premarket Requirements
 
-| Element | Description |
-|---------|-------------|
-| Threat Model | STRIDE analysis, attack trees, trust boundaries |
-| Security Controls | Authentication, encryption, access control |
-| SBOM | Software Bill of Materials (CycloneDX or SPDX) |
-| Security Testing | Penetration testing, vulnerability scanning |
-| Vulnerability Plan | Disclosure process, patch management |
+| Element            | Description                                     |
+| ------------------ | ----------------------------------------------- |
+| Threat Model       | STRIDE analysis, attack trees, trust boundaries |
+| Security Controls  | Authentication, encryption, access control      |
+| SBOM               | Software Bill of Materials (CycloneDX or SPDX)  |
+| Security Testing   | Penetration testing, vulnerability scanning     |
+| Vulnerability Plan | Disclosure process, patch management            |
 
 ### Device Tier Classification
 
 **Tier 1 (Higher Risk):**
+
 - Connects to network/internet
 - Cybersecurity incident could cause patient harm
 
 **Tier 2 (Standard Risk):**
+
 - All other connected devices
 
 ### Postmarket Obligations
@@ -277,21 +279,21 @@ Coordinated Public Disclosure
 
 ### scripts/
 
-| Script | Purpose |
-|--------|---------|
+| Script                      | Purpose                                                      |
+| --------------------------- | ------------------------------------------------------------ |
 | `fda_submission_tracker.py` | Track 510(k)/PMA/De Novo submission milestones and timelines |
-| `qsr_compliance_checker.py` | Assess 21 CFR 820 compliance against project documentation |
-| `hipaa_risk_assessment.py` | Evaluate HIPAA safeguards in medical device software |
+| `qsr_compliance_checker.py` | Assess 21 CFR 820 compliance against project documentation   |
+| `hipaa_risk_assessment.py`  | Evaluate HIPAA safeguards in medical device software         |
 
 ### references/
 
-| File | Content |
-|------|---------|
-| `fda_submission_guide.md` | 510(k), De Novo, PMA submission requirements and checklists |
-| `qsr_compliance_requirements.md` | 21 CFR 820 implementation guide with templates |
-| `hipaa_compliance_framework.md` | HIPAA Security Rule safeguards and BAA requirements |
-| `device_cybersecurity_guidance.md` | FDA cybersecurity requirements, SBOM, threat modeling |
-| `fda_capa_requirements.md` | CAPA process, root cause analysis, effectiveness verification |
+| File                               | Content                                                       |
+| ---------------------------------- | ------------------------------------------------------------- |
+| `fda_submission_guide.md`          | 510(k), De Novo, PMA submission requirements and checklists   |
+| `qsr_compliance_requirements.md`   | 21 CFR 820 implementation guide with templates                |
+| `hipaa_compliance_framework.md`    | HIPAA Security Rule safeguards and BAA requirements           |
+| `device_cybersecurity_guidance.md` | FDA cybersecurity requirements, SBOM, threat modeling         |
+| `fda_capa_requirements.md`         | CAPA process, root cause analysis, effectiveness verification |
 
 ### Usage Examples
 

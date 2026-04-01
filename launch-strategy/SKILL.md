@@ -21,6 +21,7 @@ If `.claude/product-marketing-context.md` exists, read it before asking question
 ---
 
 ## Core Philosophy
+
 → See references/launch-frameworks-and-checklists.md for details
 
 ## Task-Specific Questions
@@ -48,13 +49,13 @@ Proactively offer launch planning when:
 
 ## Output Artifacts
 
-| Artifact | Format | Description |
-|----------|--------|-------------|
-| Launch Plan | Markdown doc | Phase-by-phase plan with owners, dates, channels, and success metrics |
-| ORB Channel Map | Table | Owned/Rented/Borrowed channel strategy with tactics per channel |
-| Launch Day Checklist | Checklist | Complete day-of execution checklist with time-boxed actions |
-| Product Hunt Brief | Markdown doc | Listing copy, asset specs, pre-launch timeline, engagement playbook |
-| Post-Launch Momentum Plan | Bulleted list | 30-day post-launch actions to sustain and compound the launch |
+| Artifact                  | Format        | Description                                                           |
+| ------------------------- | ------------- | --------------------------------------------------------------------- |
+| Launch Plan               | Markdown doc  | Phase-by-phase plan with owners, dates, channels, and success metrics |
+| ORB Channel Map           | Table         | Owned/Rented/Borrowed channel strategy with tactics per channel       |
+| Launch Day Checklist      | Checklist     | Complete day-of execution checklist with time-boxed actions           |
+| Product Hunt Brief        | Markdown doc  | Listing copy, asset specs, pre-launch timeline, engagement playbook   |
+| Post-Launch Momentum Plan | Bulleted list | 30-day post-launch actions to sustain and compound the launch         |
 
 ---
 

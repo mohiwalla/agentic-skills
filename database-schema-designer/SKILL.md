@@ -7,7 +7,7 @@ description: "Use when the user asks to create ERD diagrams, normalize database 
 
 **Tier:** POWERFUL  
 **Category:** Engineering  
-**Domain:** Data Architecture / Backend  
+**Domain:** Data Architecture / Backend
 
 ---
 
@@ -42,9 +42,11 @@ Design relational database schemas from requirements and generate migrations, Ty
 ### Step 1: Requirements → Entities
 
 Given requirements:
+
 > "Users can create projects. Each project has tasks. Tasks can have labels. Tasks can be assigned to users. We need a full audit trail."
 
 Extract entities:
+
 ```
 User, Project, Task, Label, TaskLabel (junction), TaskAssignment, AuditLog
 ```
@@ -69,6 +71,7 @@ User 1──* AuditLog
 ---
 
 ## Full Schema Example (Task Management SaaS)
+
 → See references/full-schema-examples.md for details
 
 ## Row-Level Security (RLS) Policies
@@ -219,6 +222,7 @@ erDiagram
 ```
 
 Generate from Prisma:
+
 ```bash
 npx prisma-erd-generator
 # or: npx @dbml/cli prisma2dbml -i schema.prisma | npx dbml-to-mermaid

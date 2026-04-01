@@ -36,26 +36,26 @@ Every spec follows this structure. No sections are optional — if a section doe
 
 ### Mandatory Sections
 
-| # | Section | Key Rules |
-|---|---------|-----------|
-| 1 | **Title and Metadata** | Author, date, status (Draft/In Review/Approved/Superseded), reviewers |
-| 2 | **Context** | Why this feature exists. 2-4 paragraphs with evidence (metrics, tickets). |
-| 3 | **Functional Requirements** | RFC 2119 keywords (MUST/SHOULD/MAY). Numbered FR-N. Each is atomic and testable. |
-| 4 | **Non-Functional Requirements** | Performance, security, accessibility, scalability, reliability — all with measurable thresholds. |
-| 5 | **Acceptance Criteria** | Given/When/Then format. Every AC references at least one FR-* or NFR-*. |
-| 6 | **Edge Cases** | Numbered EC-N. Cover failure modes for every external dependency. |
-| 7 | **API Contracts** | TypeScript-style interfaces. Cover success and error responses. |
-| 8 | **Data Models** | Table format with field, type, constraints. Every entity from requirements must have a model. |
-| 9 | **Out of Scope** | Explicit exclusions with reasons. Prevents scope creep during implementation. |
+| #   | Section                         | Key Rules                                                                                        |
+| --- | ------------------------------- | ------------------------------------------------------------------------------------------------ |
+| 1   | **Title and Metadata**          | Author, date, status (Draft/In Review/Approved/Superseded), reviewers                            |
+| 2   | **Context**                     | Why this feature exists. 2-4 paragraphs with evidence (metrics, tickets).                        |
+| 3   | **Functional Requirements**     | RFC 2119 keywords (MUST/SHOULD/MAY). Numbered FR-N. Each is atomic and testable.                 |
+| 4   | **Non-Functional Requirements** | Performance, security, accessibility, scalability, reliability — all with measurable thresholds. |
+| 5   | **Acceptance Criteria**         | Given/When/Then format. Every AC references at least one FR-_ or NFR-_.                          |
+| 6   | **Edge Cases**                  | Numbered EC-N. Cover failure modes for every external dependency.                                |
+| 7   | **API Contracts**               | TypeScript-style interfaces. Cover success and error responses.                                  |
+| 8   | **Data Models**                 | Table format with field, type, constraints. Every entity from requirements must have a model.    |
+| 9   | **Out of Scope**                | Explicit exclusions with reasons. Prevents scope creep during implementation.                    |
 
 ### RFC 2119 Keywords
 
-| Keyword | Meaning |
-|---------|---------|
-| **MUST** | Absolute requirement. Non-conformant without it. |
-| **MUST NOT** | Absolute prohibition. |
-| **SHOULD** | Recommended. Omit only with documented justification. |
-| **MAY** | Optional. Implementer's discretion. |
+| Keyword      | Meaning                                               |
+| ------------ | ----------------------------------------------------- |
+| **MUST**     | Absolute requirement. Non-conformant without it.      |
+| **MUST NOT** | Absolute prohibition.                                 |
+| **SHOULD**   | Recommended. Omit only with documented justification. |
+| **MAY**      | Optional. Implementer's discretion.                   |
 
 See [spec_format_guide.md](references/spec_format_guide.md) for the complete template with section-by-section examples, good/bad requirement patterns, and feature-type templates (CRUD, Integration, Migration).
 
@@ -99,8 +99,8 @@ When you must stop, provide:
 **Blocked on:** [requirement ID, e.g., FR-3]
 **Question:** [Specific, answerable question — not "what should I do?"]
 **Options considered:**
-  A. [Option] — Pros: [...] Cons: [...]
-  B. [Option] — Pros: [...] Cons: [...]
+A. [Option] — Pros: [...] Cons: [...]
+B. [Option] — Pros: [...] Cons: [...]
 **My recommendation:** [A or B, with reasoning]
 **Impact of waiting:** [What is blocked until this is resolved?]
 ```
@@ -133,7 +133,7 @@ See `references/bounded_autonomy_rules.md` for the complete decision matrix.
 **Goal:** Produce a complete spec document following The Spec Format above.
 
 1. Fill every section of the template. No section left blank.
-2. Number all requirements (FR-*, NFR-*, AC-*, EC-*, OS-*).
+2. Number all requirements (FR-_, NFR-_, AC-_, EC-_, OS-\*).
 3. Use RFC 2119 keywords precisely.
 4. Write acceptance criteria in Given/When/Then format.
 5. Define API contracts with TypeScript-style types.
@@ -152,6 +152,7 @@ python spec_validator.py --file spec.md --strict
 ```
 
 Manual validation checklist:
+
 - [ ] Every functional requirement has at least one acceptance criterion
 - [ ] Every acceptance criterion is testable (no subjective language)
 - [ ] API contracts cover all endpoints mentioned in requirements
@@ -190,6 +191,7 @@ python test_extractor.py --file spec.md --framework pytest --output tests/
 5. Pick the next acceptance criterion. Repeat.
 
 **Rules:**
+
 - Do NOT implement anything not in the spec.
 - Do NOT optimize before all acceptance criteria pass.
 - Do NOT refactor before all acceptance criteria pass.
@@ -238,11 +240,13 @@ Phase 6: Self-Review     ──→  REFACTOR: Clean up internals
 **The handoff:** Spec-driven workflow produces the test stubs (Phase 4). TDD takes over from there. The spec tells you WHAT to test. TDD tells you HOW to implement.
 
 Use `engineering-team/tdd-guide` for:
+
 - Red-green-refactor cycle discipline
 - Coverage analysis and gap detection
 - Framework-specific test patterns (Jest, Pytest, JUnit)
 
 Use `engineering/spec-driven-workflow` for:
+
 - Defining what to build before building it
 - Acceptance criteria authoring
 - Completeness validation
@@ -290,9 +294,9 @@ A complete worked example (Password Reset spec with extracted test cases) is ava
 
 ### 6. Acceptance Criteria Without Requirement Traceability
 
-**Symptom:** AC-7 exists but does not reference any FR-* or NFR-*.
+**Symptom:** AC-7 exists but does not reference any FR-_ or NFR-_.
 **Problem:** Orphaned criteria mean either a requirement is missing or the criterion is unnecessary.
-**Rule:** Every AC-* MUST reference at least one FR-* or NFR-*.
+**Rule:** Every AC-_ MUST reference at least one FR-_ or NFR-\*.
 
 ### 7. Skipping Validation
 
@@ -315,11 +319,11 @@ A complete worked example (Password Reset spec with extracted test cases) is ava
 
 ## Tools
 
-| Script | Purpose | Key Flags |
-|--------|---------|-----------|
+| Script              | Purpose                                              | Key Flags                                       |
+| ------------------- | ---------------------------------------------------- | ----------------------------------------------- |
 | `spec_generator.py` | Generate spec template from feature name/description | `--name`, `--description`, `--format`, `--json` |
-| `spec_validator.py` | Validate spec completeness (0-100 score) | `--file`, `--strict`, `--json` |
-| `test_extractor.py` | Extract test stubs from acceptance criteria | `--file`, `--framework`, `--output`, `--json` |
+| `spec_validator.py` | Validate spec completeness (0-100 score)             | `--file`, `--strict`, `--json`                  |
+| `test_extractor.py` | Extract test stubs from acceptance criteria          | `--file`, `--framework`, `--output`, `--json`   |
 
 ```bash
 # Generate a spec template

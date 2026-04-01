@@ -43,6 +43,7 @@ hub/{session-id}/agent-{N}/attempt-{M}
 ## Message Board
 
 Agents communicate via `.agenthub/board/` markdown files:
+
 - `dispatch/` — task assignments from coordinator
 - `progress/` — status updates from agents
 - `results/` — final result summaries from agents

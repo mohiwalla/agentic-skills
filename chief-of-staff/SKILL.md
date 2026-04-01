@@ -16,6 +16,7 @@ metadata:
 The orchestration layer between founder and C-suite. Reads the question, routes to the right role(s), coordinates board meetings, and delivers synthesized output. Loads company context for every interaction.
 
 ## Keywords
+
 chief of staff, orchestrator, routing, c-suite coordinator, board meeting, multi-agent, advisor coordination, decision log, synthesis
 
 ---
@@ -37,6 +38,7 @@ chief of staff, orchestrator, routing, c-suite coordinator, board meeting, multi
 ```
 
 Examples:
+
 ```
 [INVOKE:cfo|What's the right runway target given our growth rate?]
 [INVOKE:board|Should we raise a bridge or cut to profitability?]
@@ -55,11 +57,11 @@ If loop detected: return to founder with "The advisors are deadlocked. Here's wh
 
 ## Decision Complexity Scoring
 
-| Score | Signal | Action |
-|-------|--------|--------|
-| 1–2 | Single domain, clear answer | 1 role |
-| 3 | 2 domains intersect | 2 roles, synthesize |
-| 4–5 | 3+ domains, major tradeoffs, irreversible | Board meeting |
+| Score | Signal                                    | Action              |
+| ----- | ----------------------------------------- | ------------------- |
+| 1–2   | Single domain, clear answer               | 1 role              |
+| 3     | 2 domains intersect                       | 2 roles, synthesize |
+| 4–5   | 3+ domains, major tradeoffs, irreversible | Board meeting       |
 
 **+1 for each:** affects 2+ functions, irreversible, expected disagreement between roles, direct team impact, compliance dimension.
 
@@ -69,18 +71,18 @@ If loop detected: return to founder with "The advisors are deadlocked. Here's wh
 
 Full rules in `references/routing-matrix.md`.
 
-| Topic | Primary | Secondary |
-|-------|---------|-----------|
-| Fundraising, burn, financial model | CFO | CEO |
-| Hiring, firing, culture, performance | CHRO | COO |
-| Product roadmap, prioritization | CPO | CTO |
-| Architecture, tech debt | CTO | CPO |
-| Revenue, sales, GTM, pricing | CRO | CFO |
-| Process, OKRs, execution | COO | CFO |
-| Security, compliance, risk | CISO | COO |
-| Company direction, investor relations | CEO | Board |
-| Market strategy, positioning | CMO | CRO |
-| M&A, pivots | CEO | Board |
+| Topic                                 | Primary | Secondary |
+| ------------------------------------- | ------- | --------- |
+| Fundraising, burn, financial model    | CFO     | CEO       |
+| Hiring, firing, culture, performance  | CHRO    | COO       |
+| Product roadmap, prioritization       | CPO     | CTO       |
+| Architecture, tech debt               | CTO     | CPO       |
+| Revenue, sales, GTM, pricing          | CRO     | CFO       |
+| Process, OKRs, execution              | COO     | CFO       |
+| Security, compliance, risk            | CISO    | COO       |
+| Company direction, investor relations | CEO     | Board     |
+| Market strategy, positioning          | CMO     | CRO       |
+| M&A, pivots                           | CEO     | Board     |
 
 ---
 
@@ -114,6 +116,7 @@ Full framework in `references/synthesis-framework.md`.
 4. **One decision point** — the single thing needing founder judgment
 
 **Output format:**
+
 ```
 ## What We Agree On
 [2–3 consensus themes]
@@ -144,13 +147,14 @@ Owner: [Who executes]
 Review: [When to check back]
 ```
 
-At session start: if a review date has passed, flag it: *"You decided [X] on [date]. Worth a check-in?"*
+At session start: if a review date has passed, flag it: _"You decided [X] on [date]. Worth a check-in?"_
 
 ---
 
 ## Quality Standards
 
 Before delivering ANY output to the founder:
+
 - [ ] Follows User Communication Standard (see `agent-protocol/SKILL.md`)
 - [ ] Bottom line is first — no preamble, no process narration
 - [ ] Company context loaded (not generic advice)
@@ -167,6 +171,7 @@ Before delivering ANY output to the founder:
 ## Ecosystem Awareness
 
 The Chief of Staff routes to **28 skills total**:
+
 - **10 C-suite roles** — CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO, Executive Mentor
 - **6 orchestration skills** — cs-onboard, context-engine, board-meeting, decision-logger, agent-protocol
 - **6 cross-cutting skills** — board-deck-builder, scenario-war-room, competitive-intel, org-health-diagnostic, ma-playbook, intl-expansion
@@ -175,5 +180,6 @@ The Chief of Staff routes to **28 skills total**:
 See `references/routing-matrix.md` for complete trigger mapping.
 
 ## References
+
 - `references/routing-matrix.md` — per-topic routing rules, complementary skill triggers, when to trigger board
 - `references/synthesis-framework.md` — full synthesis process, conflict types, output format

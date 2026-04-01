@@ -44,11 +44,13 @@ Before creating a sequence, understand:
 ---
 
 ## Core Principles
+
 → See references/email-sequence-playbook.md for details
 
 ## Output Format
 
 ### Sequence Overview
+
 ```
 Sequence Name: [Name]
 Trigger: [What starts the sequence]
@@ -59,6 +61,7 @@ Exit Conditions: [When they leave the sequence]
 ```
 
 ### For Each Email
+
 ```
 Email [#]: [Name/Purpose]
 Send: [Timing]
@@ -70,6 +73,7 @@ Segment/Conditions: [If applicable]
 ```
 
 ### Metrics Plan
+
 What to measure and benchmarks
 
 ---
@@ -88,13 +92,13 @@ What to measure and benchmarks
 
 For implementation, see the [tools registry](../../tools/REGISTRY.md). Key email tools:
 
-| Tool | Best For | MCP | Guide |
-|------|----------|:---:|-------|
-| **Customer.io** | Behavior-based automation | - | [customer-io.md](../../tools/integrations/customer-io.md) |
-| **Mailchimp** | SMB email marketing | ✓ | [mailchimp.md](../../tools/integrations/mailchimp.md) |
-| **Resend** | Developer-friendly transactional | ✓ | [resend.md](../../tools/integrations/resend.md) |
-| **SendGrid** | Transactional email at scale | - | [sendgrid.md](../../tools/integrations/sendgrid.md) |
-| **Kit** | Creator/newsletter focused | - | [kit.md](../../tools/integrations/kit.md) |
+| Tool            | Best For                         | MCP | Guide                                                     |
+| --------------- | -------------------------------- | :-: | --------------------------------------------------------- |
+| **Customer.io** | Behavior-based automation        |  -  | [customer-io.md](../../tools/integrations/customer-io.md) |
+| **Mailchimp**   | SMB email marketing              |  ✓  | [mailchimp.md](../../tools/integrations/mailchimp.md)     |
+| **Resend**      | Developer-friendly transactional |  ✓  | [resend.md](../../tools/integrations/resend.md)           |
+| **SendGrid**    | Transactional email at scale     |  -  | [sendgrid.md](../../tools/integrations/sendgrid.md)       |
+| **Kit**         | Creator/newsletter focused       |  -  | [kit.md](../../tools/integrations/kit.md)                 |
 
 ---
 
@@ -126,10 +130,10 @@ Deliver email sequences as complete, ready-to-send drafts — include subject li
 
 ## Output Artifacts
 
-| Artifact | Description |
-|----------|-------------|
+| Artifact                  | Description                                                                               |
+| ------------------------- | ----------------------------------------------------------------------------------------- |
 | Sequence Architecture Doc | Trigger, goal, length, timing, exit conditions, and branching logic for the full sequence |
-| Complete Email Drafts | Subject line, preview text, full body, and CTA for every email in the sequence |
-| Metrics Benchmarks | Open rate, click rate, and conversion rate targets per email type and sequence goal |
-| Segmentation Rules | Audience entry/exit conditions, behavioral branching, and suppression lists |
-| Subject Line Variations | 3 subject line alternatives per email for A/B testing |
+| Complete Email Drafts     | Subject line, preview text, full body, and CTA for every email in the sequence            |
+| Metrics Benchmarks        | Open rate, click rate, and conversion rate targets per email type and sequence goal       |
+| Segmentation Rules        | Audience entry/exit conditions, behavioral branching, and suppression lists               |
+| Subject Line Variations   | 3 subject line alternatives per email for A/B testing                                     |

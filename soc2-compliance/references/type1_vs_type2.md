@@ -6,18 +6,18 @@ Detailed guide for understanding the differences between SOC 2 Type I and Type I
 
 ## Overview
 
-| Dimension | Type I | Type II |
-|-----------|--------|---------|
-| **Full Name** | SOC 2 Type I Report | SOC 2 Type II Report |
-| **What It Tests** | Design of controls at a specific point in time | Design AND operating effectiveness over a period |
-| **Observation Period** | None — single date | 3-12 months (6 months typical) |
-| **Auditor Opinion** | "Controls are suitably designed as of [date]" | "Controls are suitably designed and operating effectively for the period [start] to [end]" |
-| **Evidence Volume** | Lower — policies, configs, descriptions | Higher — ongoing logs, tickets, samples across the period |
-| **Timeline to Complete** | 1-3 months (prep + audit) | 6-15 months (prep + observation + audit) |
-| **Audit Fee Range** | $20K-$50K | $30K-$100K+ |
-| **Internal Cost** | $50K-$150K (implementation + audit) | $100K-$300K+ (implementation + monitoring + audit) |
-| **Market Perception** | "They have controls" | "Their controls actually work" |
-| **Validity** | Snapshot — stale quickly | Covers a defined period; renewed annually |
+| Dimension                | Type I                                         | Type II                                                                                    |
+| ------------------------ | ---------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **Full Name**            | SOC 2 Type I Report                            | SOC 2 Type II Report                                                                       |
+| **What It Tests**        | Design of controls at a specific point in time | Design AND operating effectiveness over a period                                           |
+| **Observation Period**   | None — single date                             | 3-12 months (6 months typical)                                                             |
+| **Auditor Opinion**      | "Controls are suitably designed as of [date]"  | "Controls are suitably designed and operating effectively for the period [start] to [end]" |
+| **Evidence Volume**      | Lower — policies, configs, descriptions        | Higher — ongoing logs, tickets, samples across the period                                  |
+| **Timeline to Complete** | 1-3 months (prep + audit)                      | 6-15 months (prep + observation + audit)                                                   |
+| **Audit Fee Range**      | $20K-$50K                                      | $30K-$100K+                                                                                |
+| **Internal Cost**        | $50K-$150K (implementation + audit)            | $100K-$300K+ (implementation + monitoring + audit)                                         |
+| **Market Perception**    | "They have controls"                           | "Their controls actually work"                                                             |
+| **Validity**             | Snapshot — stale quickly                       | Covers a defined period; renewed annually                                                  |
 
 ---
 
@@ -119,36 +119,36 @@ Month 10-12: Type II Audit
 
 ### Type I Costs
 
-| Cost Category | Range | Notes |
-|--------------|-------|-------|
-| Readiness assessment | $5K-$15K | Optional, but recommended for first-timers |
-| Gap remediation | $10K-$50K | Depends on current maturity |
-| Audit firm fees | $20K-$50K | Varies by scope, firm, and company size |
-| Internal labor | $20K-$60K | Staff time for preparation and audit support |
-| Tooling | $0-$20K | Compliance platforms, evidence management |
-| **Total** | **$55K-$195K** | |
+| Cost Category        | Range          | Notes                                        |
+| -------------------- | -------------- | -------------------------------------------- |
+| Readiness assessment | $5K-$15K       | Optional, but recommended for first-timers   |
+| Gap remediation      | $10K-$50K      | Depends on current maturity                  |
+| Audit firm fees      | $20K-$50K      | Varies by scope, firm, and company size      |
+| Internal labor       | $20K-$60K      | Staff time for preparation and audit support |
+| Tooling              | $0-$20K        | Compliance platforms, evidence management    |
+| **Total**            | **$55K-$195K** |                                              |
 
 ### Type II Costs
 
-| Cost Category | Range | Notes |
-|--------------|-------|-------|
-| Readiness assessment | $5K-$15K | If not already done for Type I |
-| Gap remediation | $15K-$75K | More thorough than Type I |
-| Observation period monitoring | $10K-$30K | Internal effort for evidence collection |
-| Audit firm fees | $30K-$100K+ | Larger scope, more testing |
-| Internal labor | $40K-$120K | Ongoing effort across the observation period |
-| Tooling | $5K-$40K | Compliance platforms, automation tools |
-| **Total** | **$105K-$380K** | |
+| Cost Category                 | Range           | Notes                                        |
+| ----------------------------- | --------------- | -------------------------------------------- |
+| Readiness assessment          | $5K-$15K        | If not already done for Type I               |
+| Gap remediation               | $15K-$75K       | More thorough than Type I                    |
+| Observation period monitoring | $10K-$30K       | Internal effort for evidence collection      |
+| Audit firm fees               | $30K-$100K+     | Larger scope, more testing                   |
+| Internal labor                | $40K-$120K      | Ongoing effort across the observation period |
+| Tooling                       | $5K-$40K        | Compliance platforms, automation tools       |
+| **Total**                     | **$105K-$380K** |                                              |
 
 ### Annual Renewal Costs (Type II)
 
-| Cost Category | Range |
-|--------------|-------|
-| Audit firm fees | $25K-$80K |
-| Internal labor | $30K-$80K |
-| Tooling renewal | $5K-$30K |
-| Remediation (if findings) | $5K-$30K |
-| **Total** | **$65K-$220K** |
+| Cost Category             | Range          |
+| ------------------------- | -------------- |
+| Audit firm fees           | $25K-$80K      |
+| Internal labor            | $30K-$80K      |
+| Tooling renewal           | $5K-$30K       |
+| Remediation (if findings) | $5K-$30K       |
+| **Total**                 | **$65K-$220K** |
 
 ---
 
@@ -157,6 +157,7 @@ Month 10-12: Type II Audit
 ### Step 1: Receive Type I Report
 
 Review the Type I report for:
+
 - Any exceptions or findings
 - Auditor recommendations
 - Control gaps identified during testing
@@ -195,20 +196,20 @@ Review the Type I report for:
 
 ### Type I Testing
 
-| Test | What the Auditor Does |
-|------|----------------------|
-| Inquiry | Asks control owners to describe how controls work |
-| Inspection | Reviews policies, configurations, and documentation |
+| Test        | What the Auditor Does                                |
+| ----------- | ---------------------------------------------------- |
+| Inquiry     | Asks control owners to describe how controls work    |
+| Inspection  | Reviews policies, configurations, and documentation  |
 | Observation | May watch a control being executed (single instance) |
 
 ### Type II Additional Testing
 
-| Test | What the Auditor Does |
-|------|----------------------|
-| Re-performance | Re-executes the control to verify it works correctly |
-| Sampling | Selects samples from the full observation period |
-| Walkthroughs | Traces a transaction end-to-end through all controls |
-| Exception testing | Investigates any deviations found in samples |
+| Test               | What the Auditor Does                                         |
+| ------------------ | ------------------------------------------------------------- |
+| Re-performance     | Re-executes the control to verify it works correctly          |
+| Sampling           | Selects samples from the full observation period              |
+| Walkthroughs       | Traces a transaction end-to-end through all controls          |
+| Exception testing  | Investigates any deviations found in samples                  |
 | Consistency checks | Verifies controls operated the same way throughout the period |
 
 ---
@@ -218,6 +219,7 @@ Review the Type I report for:
 ### Who Receives the Report
 
 SOC 2 reports are **restricted-use documents** under AICPA standards:
+
 - Your organization (the service organization)
 - Your auditor
 - User entities (customers) and their auditors
@@ -225,14 +227,15 @@ SOC 2 reports are **restricted-use documents** under AICPA standards:
 
 ### Report Shelf Life
 
-| Report Type | Practical Validity | Market Expectation |
-|-------------|-------------------|-------------------|
-| Type I | 6-12 months | Replace with Type II within 12 months |
-| Type II | 12 months from period end | Renew annually; gap > 3 months raises concerns |
+| Report Type | Practical Validity        | Market Expectation                             |
+| ----------- | ------------------------- | ---------------------------------------------- |
+| Type I      | 6-12 months               | Replace with Type II within 12 months          |
+| Type II     | 12 months from period end | Renew annually; gap > 3 months raises concerns |
 
 ### Bridge Letters
 
 If there is a gap between your report period end and a customer's request date, you may issue a **bridge letter** (also called a gap letter) stating:
+
 - No material changes to the system since the report period
 - No known control failures since the report period
 - Management's assertion that controls continue to operate effectively
@@ -263,11 +266,11 @@ START
 
 ## Common Mistakes in the Upgrade Path
 
-| Mistake | Consequence | Prevention |
-|---------|------------|-----------|
-| Starting observation before fixing Type I findings | Findings carry into Type II as exceptions | Remediate all Type I findings first |
-| Choosing a 3-month observation period | Less convincing to customers; some reject < 6 months | Default to 6-month minimum observation |
-| Changing auditors between Type I and Type II | New auditor must re-learn your environment; potential scope changes | Use the same firm for continuity |
-| Not collecting evidence from day one of observation | Missing evidence for early-period controls | Start automated collection before observation begins |
-| Treating the observation period as passive | Control failures go undetected until audit | Conduct monthly internal reviews during observation |
-| Letting the Type I report expire before Type II is ready | Gap in coverage erodes customer confidence | Plan Type II timeline to overlap with Type I validity |
+| Mistake                                                  | Consequence                                                         | Prevention                                            |
+| -------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------- |
+| Starting observation before fixing Type I findings       | Findings carry into Type II as exceptions                           | Remediate all Type I findings first                   |
+| Choosing a 3-month observation period                    | Less convincing to customers; some reject < 6 months                | Default to 6-month minimum observation                |
+| Changing auditors between Type I and Type II             | New auditor must re-learn your environment; potential scope changes | Use the same firm for continuity                      |
+| Not collecting evidence from day one of observation      | Missing evidence for early-period controls                          | Start automated collection before observation begins  |
+| Treating the observation period as passive               | Control failures go undetected until audit                          | Conduct monthly internal reviews during observation   |
+| Letting the Type I report expire before Type II is ready | Gap in coverage erodes customer confidence                          | Plan Type II timeline to overlap with Type I validity |

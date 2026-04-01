@@ -18,21 +18,25 @@ The document is stored at `.agents/marketing-context.md` (or `marketing-context.
 ## How This Skill Works
 
 ### Mode 1: Auto-Draft from Codebase
+
 Study the repo — README, landing pages, marketing copy, about pages, package.json, existing docs — and draft a V1. The user reviews, corrects, and fills gaps. This is faster than starting from scratch.
 
 ### Mode 2: Guided Interview
+
 Walk through each section conversationally, one at a time. Don't dump all questions at once.
 
 ### Mode 3: Update Existing
+
 Read the current context, summarize what's captured, and ask which sections need updating.
 
-Most users prefer Mode 1. After presenting the draft, ask: *"What needs correcting? What's missing?"*
+Most users prefer Mode 1. After presenting the draft, ask: _"What needs correcting? What's missing?"_
 
 ---
 
 ## Sections to Capture
 
 ### 1. Product Overview
+
 - One-line description
 - What it does (2-3 sentences)
 - Product category (the "shelf" — how customers search for you)
@@ -40,6 +44,7 @@ Most users prefer Mode 1. After presenting the draft, ask: *"What needs correcti
 - Business model and pricing
 
 ### 2. Target Audience
+
 - Target company type (industry, size, stage)
 - Target decision-makers (roles, departments)
 - Primary use case (the main problem you solve)
@@ -47,39 +52,47 @@ Most users prefer Mode 1. After presenting the draft, ask: *"What needs correcti
 - Specific use cases or scenarios
 
 ### 3. Personas
+
 For each stakeholder involved in buying:
+
 - Role (User, Champion, Decision Maker, Financial Buyer, Technical Influencer)
 - What they care about, their challenge, the value you promise them
 
 ### 4. Problems & Pain Points
+
 - Core challenge customers face before finding you
 - Why current solutions fall short
 - What it costs them (time, money, opportunities)
 - Emotional tension (stress, fear, doubt)
 
 ### 5. Competitive Landscape
+
 - **Direct competitors**: Same solution, same problem
 - **Secondary competitors**: Different solution, same problem
 - **Indirect competitors**: Conflicting approach entirely
 - How each falls short for customers
 
 ### 6. Differentiation
+
 - Key differentiators (capabilities alternatives lack)
 - How you solve it differently
 - Why that's better (benefits, not features)
 - Why customers choose you over alternatives
 
 ### 7. Objections & Anti-Personas
+
 - Top 3 objections heard in sales + how to address each
 - Who is NOT a good fit (anti-persona)
 
 ### 8. Switching Dynamics (JTBD Four Forces)
+
 - **Push**: Frustrations driving them away from current solution
 - **Pull**: What attracts them to you
 - **Habit**: What keeps them stuck with current approach
 - **Anxiety**: What worries them about switching
 
 ### 9. Customer Language (Verbatim)
+
 - How customers describe the problem in their own words
 - How they describe your solution in their own words
 - Words and phrases TO use
@@ -87,30 +100,35 @@ For each stakeholder involved in buying:
 - Glossary of product-specific terms
 
 ### 10. Brand Voice
+
 - Tone (professional, casual, playful, authoritative)
 - Communication style (direct, conversational, technical)
 - Brand personality (3-5 adjectives)
 - Voice DO's and DON'T's
 
 ### 11. Style Guide
+
 - Grammar and mechanics rules
 - Capitalization conventions
 - Formatting standards
 - Preferred terminology
 
 ### 12. Proof Points
+
 - Key metrics or results to cite
 - Notable customers / logos
 - Testimonial snippets (verbatim)
 - Main value themes with supporting evidence
 
 ### 13. Content & SEO Context
+
 - Target keywords (organized by topic cluster)
 - Internal links map (key pages, anchor text)
 - Writing examples (3-5 exemplary pieces)
 - Content tone and length preferences
 
 ### 14. Goals
+
 - Primary business goal
 - Key conversion action (what you want people to do)
 - Current metrics (if known)
@@ -145,17 +163,18 @@ Surface these without being asked:
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|---------------------|------------|
-| "Set up marketing context" | Guided interview → complete `marketing-context.md` |
-| "Auto-draft from codebase" | Codebase scan → V1 draft for review |
-| "Update positioning" | Targeted update of differentiation + competitive sections |
-| "Add customer quotes" | Customer language section populated with verbatim phrases |
-| "Review context freshness" | Staleness audit with recommended updates |
+| When you ask for...        | You get...                                                |
+| -------------------------- | --------------------------------------------------------- |
+| "Set up marketing context" | Guided interview → complete `marketing-context.md`        |
+| "Auto-draft from codebase" | Codebase scan → V1 draft for review                       |
+| "Update positioning"       | Targeted update of differentiation + competitive sections |
+| "Add customer quotes"      | Customer language section populated with verbatim phrases |
+| "Review context freshness" | Staleness audit with recommended updates                  |
 
 ## Communication
 
 All output passes quality verification:
+
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Output format: Bottom Line → What (with confidence) → Why → How to Act
 - Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.

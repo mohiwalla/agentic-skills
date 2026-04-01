@@ -46,7 +46,7 @@ mychart/
 
 ---
 
-## _helpers.tpl — Standard Helpers
+## \_helpers.tpl — Standard Helpers
 
 Every chart needs these. Copy and adapt.
 
@@ -115,6 +115,7 @@ Create the name of the service account to use.
 ```
 
 ### Why These Helpers Matter
+
 - **Name truncation** — Kubernetes names max at 63 characters. Always trunc.
 - **Selector labels separate from common labels** — selectors are immutable after creation. Adding `app.kubernetes.io/version` to selectors breaks upgrades.
 - **nameOverride vs fullnameOverride** — `nameOverride` replaces the chart name portion, `fullnameOverride` replaces everything.
@@ -200,11 +201,10 @@ spec:
 # Use for background workers, queue consumers, cron jobs
 spec:
   containers:
-    - name: {{ .Chart.Name }}
+    - name: { { .Chart.Name } }
       image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-      command: {{ toYaml .Values.command | nindent 8 }}
-      resources:
-        {{- toYaml .Values.resources | nindent 12 }}
+      command: { { toYaml .Values.command | nindent 8 } }
+      resources: { { - toYaml .Values.resources | nindent 12 } }
 ```
 
 ---
@@ -425,11 +425,11 @@ helm dependency build mychart/
 
 ## Troubleshooting Checklist
 
-| Symptom | Likely Cause | Fix |
-|---------|-------------|-----|
-| Template renders empty | Missing `{{- if }}` or wrong value path | `helm template --debug` to see rendered output |
-| Upgrade fails on selector change | Selector labels changed between versions | Never change selectorLabels — they're immutable |
-| Values not applying | Wrong nesting in values override | Check indentation and key paths |
-| Subchart not rendering | Missing `condition:` or dependency not updated | Run `helm dependency update` |
-| Name too long | Kubernetes 63-char limit | Ensure `trunc 63` in _helpers.tpl |
-| RBAC permission denied | ServiceAccount missing or wrong Role | Check SA exists and RoleBinding is correct |
+| Symptom                          | Likely Cause                                   | Fix                                             |
+| -------------------------------- | ---------------------------------------------- | ----------------------------------------------- |
+| Template renders empty           | Missing `{{- if }}` or wrong value path        | `helm template --debug` to see rendered output  |
+| Upgrade fails on selector change | Selector labels changed between versions       | Never change selectorLabels — they're immutable |
+| Values not applying              | Wrong nesting in values override               | Check indentation and key paths                 |
+| Subchart not rendering           | Missing `condition:` or dependency not updated | Run `helm dependency update`                    |
+| Name too long                    | Kubernetes 63-char limit                       | Ensure `trunc 63` in \_helpers.tpl              |
+| RBAC permission denied           | ServiceAccount missing or wrong Role           | Check SA exists and RoleBinding is correct      |

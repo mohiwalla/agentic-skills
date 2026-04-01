@@ -52,6 +52,7 @@ New-MgIdentityConditionalAccessPolicy -BodyParameter $policy
 **Step 1: Generate Setup Checklist**
 
 Confirm prerequisites before provisioning:
+
 - Global Admin account created and secured with MFA
 - Custom domain purchased and accessible for DNS edits
 - License SKUs confirmed (E3 vs E5 feature requirements noted)
@@ -228,18 +229,21 @@ Write-Host "Offboarding complete for $upn"
 ## Reference Guides
 
 **references/powershell-templates.md**
+
 - Ready-to-use script templates
 - Conditional Access policy examples
 - Bulk user provisioning scripts
 - Security audit scripts
 
 **references/security-policies.md**
+
 - Conditional Access configuration
 - MFA enforcement strategies
 - DLP and retention policies
 - Security baseline settings
 
 **references/troubleshooting.md**
+
 - Common error resolutions
 - PowerShell module issues
 - Permission troubleshooting
@@ -249,13 +253,13 @@ Write-Host "Offboarding complete for $upn"
 
 ## Limitations
 
-| Constraint | Impact |
-|------------|--------|
-| Global Admin required | Full tenant setup needs highest privilege |
-| API rate limits | Bulk operations may be throttled |
-| License dependencies | E3/E5 required for advanced features |
-| Hybrid scenarios | On-premises AD needs additional configuration |
-| PowerShell prerequisites | Microsoft.Graph module required |
+| Constraint               | Impact                                        |
+| ------------------------ | --------------------------------------------- |
+| Global Admin required    | Full tenant setup needs highest privilege     |
+| API rate limits          | Bulk operations may be throttled              |
+| License dependencies     | E3/E5 required for advanced features          |
+| Hybrid scenarios         | On-premises AD needs additional configuration |
+| PowerShell prerequisites | Microsoft.Graph module required               |
 
 ### Required PowerShell Modules
 

@@ -22,10 +22,10 @@ A practical guide to Objectives and Key Results (OKRs) and how to cascade them a
 
 ### Components
 
-| Component | Definition | Characteristics |
-|-----------|------------|-----------------|
-| **Objective** | What you want to achieve | Qualitative, inspirational, time-bound |
-| **Key Result** | How you measure progress | Quantitative, specific, measurable |
+| Component      | Definition               | Characteristics                        |
+| -------------- | ------------------------ | -------------------------------------- |
+| **Objective**  | What you want to achieve | Qualitative, inspirational, time-bound |
+| **Key Result** | How you measure progress | Quantitative, specific, measurable     |
 
 ### OKR Formula
 
@@ -80,23 +80,24 @@ OKRs cascade from company strategy down to individual teams, ensuring alignment 
 
 Each level contributes a percentage to the level above:
 
-| Level | Typical Contribution | Range |
-|-------|---------------------|-------|
-| Product → Company | 30% | 20-50% |
-| Team → Product | 25% per team | 15-35% |
+| Level             | Typical Contribution | Range  |
+| ----------------- | -------------------- | ------ |
+| Product → Company | 30%                  | 20-50% |
+| Team → Product    | 25% per team         | 15-35% |
 
 **Note:** Contribution percentages should be calibrated based on:
+
 - Number of teams
 - Relative team size
 - Strategic importance of initiatives
 
 ### Alignment Types
 
-| Alignment | Description | Goal |
-|-----------|-------------|------|
-| **Vertical** | Each level supports the level above | >90% of objectives linked |
-| **Horizontal** | Teams coordinate on shared objectives | No conflicting goals |
-| **Temporal** | Quarterly OKRs support annual goals | Clear progression |
+| Alignment      | Description                           | Goal                      |
+| -------------- | ------------------------------------- | ------------------------- |
+| **Vertical**   | Each level supports the level above   | >90% of objectives linked |
+| **Horizontal** | Teams coordinate on shared objectives | No conflicting goals      |
+| **Temporal**   | Quarterly OKRs support annual goals   | Clear progression         |
 
 ---
 
@@ -104,15 +105,16 @@ Each level contributes a percentage to the level above:
 
 ### The 3 Cs of Objectives
 
-| Criterion | Description | Example |
-|-----------|-------------|---------|
-| **Clear** | Unambiguous intent | "Improve customer onboarding" not "Make things better" |
-| **Compelling** | Inspires action | "Delight enterprise customers" not "Serve enterprise" |
-| **Challenging** | Stretches capabilities | Achievable but requires effort |
+| Criterion       | Description            | Example                                                |
+| --------------- | ---------------------- | ------------------------------------------------------ |
+| **Clear**       | Unambiguous intent     | "Improve customer onboarding" not "Make things better" |
+| **Compelling**  | Inspires action        | "Delight enterprise customers" not "Serve enterprise"  |
+| **Challenging** | Stretches capabilities | Achievable but requires effort                         |
 
 ### Objective Templates by Strategy
 
 **Growth Strategy:**
+
 ```
 - Accelerate user acquisition in [segment]
 - Expand market presence in [region/vertical]
@@ -120,6 +122,7 @@ Each level contributes a percentage to the level above:
 ```
 
 **Retention Strategy:**
+
 ```
 - Create lasting value for [user segment]
 - Improve product experience for [use case]
@@ -127,6 +130,7 @@ Each level contributes a percentage to the level above:
 ```
 
 **Revenue Strategy:**
+
 ```
 - Drive revenue growth through [mechanism]
 - Optimize monetization for [segment]
@@ -134,6 +138,7 @@ Each level contributes a percentage to the level above:
 ```
 
 **Innovation Strategy:**
+
 ```
 - Pioneer [capability] in the market
 - Establish leadership through [innovation area]
@@ -141,6 +146,7 @@ Each level contributes a percentage to the level above:
 ```
 
 **Operational Strategy:**
+
 ```
 - Improve delivery efficiency by [mechanism]
 - Scale operations to support [target]
@@ -149,11 +155,11 @@ Each level contributes a percentage to the level above:
 
 ### Objective Anti-Patterns
 
-| Anti-Pattern | Problem | Better Alternative |
-|--------------|---------|-------------------|
-| "Increase revenue" | Too vague | "Grow enterprise ARR to $10M" |
-| "Be the best" | Not measurable | "Achieve #1 NPS in category" |
-| "Fix bugs" | Too tactical | "Improve platform reliability" |
+| Anti-Pattern       | Problem             | Better Alternative                      |
+| ------------------ | ------------------- | --------------------------------------- |
+| "Increase revenue" | Too vague           | "Grow enterprise ARR to $10M"           |
+| "Be the best"      | Not measurable      | "Achieve #1 NPS in category"            |
+| "Fix bugs"         | Too tactical        | "Improve platform reliability"          |
 | "Launch feature X" | Output, not outcome | "Improve [metric] through [capability]" |
 
 ---
@@ -168,32 +174,32 @@ Each level contributes a percentage to the level above:
 
 ### Key Result Types
 
-| Type | Characteristics | When to Use |
-|------|-----------------|-------------|
-| **Metric-based** | Track a number | Most common, highly measurable |
-| **Milestone-based** | Track completion | For binary deliverables |
-| **Health-based** | Track stability | For maintenance objectives |
+| Type                | Characteristics  | When to Use                    |
+| ------------------- | ---------------- | ------------------------------ |
+| **Metric-based**    | Track a number   | Most common, highly measurable |
+| **Milestone-based** | Track completion | For binary deliverables        |
+| **Health-based**    | Track stability  | For maintenance objectives     |
 
 ### Metric Categories
 
-| Category | Examples |
-|----------|----------|
-| **Acquisition** | Signups, trials started, leads generated |
-| **Activation** | Onboarding completion, first value moment |
-| **Retention** | D7/D30 retention, churn rate, repeat usage |
-| **Revenue** | ARR, ARPU, conversion rate, LTV |
-| **Engagement** | DAU/MAU, session duration, actions per session |
-| **Satisfaction** | NPS, CSAT, support tickets |
-| **Efficiency** | Cycle time, automation rate, cost per unit |
+| Category         | Examples                                       |
+| ---------------- | ---------------------------------------------- |
+| **Acquisition**  | Signups, trials started, leads generated       |
+| **Activation**   | Onboarding completion, first value moment      |
+| **Retention**    | D7/D30 retention, churn rate, repeat usage     |
+| **Revenue**      | ARR, ARPU, conversion rate, LTV                |
+| **Engagement**   | DAU/MAU, session duration, actions per session |
+| **Satisfaction** | NPS, CSAT, support tickets                     |
+| **Efficiency**   | Cycle time, automation rate, cost per unit     |
 
 ### Key Result Scoring
 
-| Score | Status | Description |
-|-------|--------|-------------|
-| 0.0-0.3 | Red | Significant gap, needs intervention |
-| 0.4-0.6 | Yellow | Partial progress, on watch |
-| 0.7-0.9 | Green | Strong progress, on track |
-| 1.0 | Complete | Target achieved |
+| Score   | Status   | Description                         |
+| ------- | -------- | ----------------------------------- |
+| 0.0-0.3 | Red      | Significant gap, needs intervention |
+| 0.4-0.6 | Yellow   | Partial progress, on watch          |
+| 0.7-0.9 | Green    | Strong progress, on track           |
+| 1.0     | Complete | Target achieved                     |
 
 **Note:** Hitting 0.7 is considered success for stretch goals. Consistently hitting 1.0 suggests targets aren't ambitious enough.
 
@@ -205,32 +211,32 @@ The OKR cascade generator calculates alignment scores across four dimensions:
 
 ### Scoring Dimensions
 
-| Dimension | Weight | What It Measures |
-|-----------|--------|------------------|
-| **Vertical Alignment** | 40% | % of objectives with parent links |
-| **Horizontal Alignment** | 20% | Cross-team coordination on shared goals |
-| **Coverage** | 20% | % of company KRs addressed by product |
-| **Balance** | 20% | Even distribution of work across teams |
+| Dimension                | Weight | What It Measures                        |
+| ------------------------ | ------ | --------------------------------------- |
+| **Vertical Alignment**   | 40%    | % of objectives with parent links       |
+| **Horizontal Alignment** | 20%    | Cross-team coordination on shared goals |
+| **Coverage**             | 20%    | % of company KRs addressed by product   |
+| **Balance**              | 20%    | Even distribution of work across teams  |
 
 ### Alignment Score Interpretation
 
-| Score | Grade | Interpretation |
-|-------|-------|----------------|
-| 90-100% | A | Excellent alignment, well-cascaded |
-| 80-89% | B | Good alignment, minor gaps |
-| 70-79% | C | Adequate, needs attention |
-| 60-69% | D | Poor alignment, significant gaps |
-| <60% | F | Misaligned, requires restructuring |
+| Score   | Grade | Interpretation                     |
+| ------- | ----- | ---------------------------------- |
+| 90-100% | A     | Excellent alignment, well-cascaded |
+| 80-89%  | B     | Good alignment, minor gaps         |
+| 70-79%  | C     | Adequate, needs attention          |
+| 60-69%  | D     | Poor alignment, significant gaps   |
+| <60%    | F     | Misaligned, requires restructuring |
 
 ### Target Benchmarks
 
-| Metric | Target | Red Flag |
-|--------|--------|----------|
-| Vertical alignment | >90% | <70% |
-| Horizontal alignment | >75% | <50% |
-| Coverage | >80% | <60% |
-| Balance | >80% | <60% |
-| Overall | >80% | <65% |
+| Metric               | Target | Red Flag |
+| -------------------- | ------ | -------- |
+| Vertical alignment   | >90%   | <70%     |
+| Horizontal alignment | >75%   | <50%     |
+| Coverage             | >80%   | <60%     |
+| Balance              | >80%   | <60%     |
+| Overall              | >80%   | <65%     |
 
 ---
 
@@ -238,14 +244,14 @@ The OKR cascade generator calculates alignment scores across four dimensions:
 
 ### OKR Anti-Patterns
 
-| Pitfall | Symptom | Fix |
-|---------|---------|-----|
-| **Too many OKRs** | 10+ objectives per level | Limit to 3-5 objectives |
-| **Sandbagging** | Always hit 100% | Set stretch targets (0.7 = success) |
-| **Task lists** | KRs are tasks, not outcomes | Focus on measurable impact |
-| **Set and forget** | No mid-quarter reviews | Check-ins every 2 weeks |
-| **Cascade disconnect** | Team OKRs don't link up | Validate parent relationships |
-| **Metric gaming** | Optimizing for KR, not intent | Balance with health metrics |
+| Pitfall                | Symptom                       | Fix                                 |
+| ---------------------- | ----------------------------- | ----------------------------------- |
+| **Too many OKRs**      | 10+ objectives per level      | Limit to 3-5 objectives             |
+| **Sandbagging**        | Always hit 100%               | Set stretch targets (0.7 = success) |
+| **Task lists**         | KRs are tasks, not outcomes   | Focus on measurable impact          |
+| **Set and forget**     | No mid-quarter reviews        | Check-ins every 2 weeks             |
+| **Cascade disconnect** | Team OKRs don't link up       | Validate parent relationships       |
+| **Metric gaming**      | Optimizing for KR, not intent | Balance with health metrics         |
 
 ### Warning Signs
 
@@ -261,15 +267,15 @@ The OKR cascade generator calculates alignment scores across four dimensions:
 
 ### Quarterly Rhythm
 
-| Week | Activity |
-|------|----------|
-| **Week -2** | Leadership sets company OKRs draft |
-| **Week -1** | Product and team OKR drafting |
-| **Week 0** | OKR finalization and alignment review |
-| **Week 2** | First check-in, adjust if needed |
-| **Week 6** | Mid-quarter review |
-| **Week 10** | Pre-quarter reflection |
-| **Week 12** | Quarter close, scoring, learnings |
+| Week        | Activity                              |
+| ----------- | ------------------------------------- |
+| **Week -2** | Leadership sets company OKRs draft    |
+| **Week -1** | Product and team OKR drafting         |
+| **Week 0**  | OKR finalization and alignment review |
+| **Week 2**  | First check-in, adjust if needed      |
+| **Week 6**  | Mid-quarter review                    |
+| **Week 10** | Pre-quarter reflection                |
+| **Week 12** | Quarter close, scoring, learnings     |
 
 ### Check-in Format
 
@@ -303,6 +309,7 @@ Q4: Scale and optimize (ARR: $65M → $100M)
 ### OKR Checklist
 
 **Before finalizing OKRs:**
+
 - [ ] 3-5 objectives per level (not more)
 - [ ] 3-5 key results per objective
 - [ ] Each KR has a current baseline and target
@@ -312,12 +319,14 @@ Q4: Scale and optimize (ARR: $65M → $100M)
 - [ ] Check-in cadence defined
 
 **During the quarter:**
+
 - [ ] Bi-weekly progress updates
 - [ ] Mid-quarter formal review
 - [ ] Adjust forecasts based on learnings
 - [ ] Escalate blockers early
 
 **End of quarter:**
+
 - [ ] Score all key results (0.0-1.0)
 - [ ] Document learnings
 - [ ] Celebrate wins
@@ -325,4 +334,4 @@ Q4: Scale and optimize (ARR: $65M → $100M)
 
 ---
 
-*See also: `strategy_types.md` for strategy-specific OKR templates*
+_See also: `strategy_types.md` for strategy-specific OKR templates_

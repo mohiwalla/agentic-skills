@@ -3,6 +3,7 @@
 Tests auto-save draft functionality and draft restoration on revisit.
 
 ## Prerequisites
+
 - Authenticated session via `{{authStorageStatePath}}`
 - Form with autosave at `{{baseUrl}}/{{formPath}}`
 - Autosave interval: `{{autosaveIntervalMs}}` ms
@@ -125,11 +126,12 @@ test.describe('Autosave', () => {
 ```
 
 ## Variants
-| Variant | Description |
-|---------|-------------|
-| Autosave indicator | "Draft saved" shown after interval |
-| Draft restored | Revisit → field pre-filled |
-| Restore via banner | Banner restore button populates field |
-| Dismiss draft | Discard clears saved value |
-| Cleared on submit | No draft banner after successful submit |
-| Network failure | Save-failed message shown |
+
+| Variant            | Description                             |
+| ------------------ | --------------------------------------- |
+| Autosave indicator | "Draft saved" shown after interval      |
+| Draft restored     | Revisit → field pre-filled              |
+| Restore via banner | Banner restore button populates field   |
+| Dismiss draft      | Discard clears saved value              |
+| Cleared on submit  | No draft banner after successful submit |
+| Network failure    | Save-failed message shown               |

@@ -17,20 +17,25 @@ metadata:
 Revenue frameworks for building predictable, scalable revenue engines — from $1M ARR to $100M and beyond.
 
 ## Keywords
+
 CRO, chief revenue officer, revenue strategy, ARR, MRR, sales model, pipeline, revenue forecasting, pricing strategy, net revenue retention, NRR, gross revenue retention, GRR, expansion revenue, upsell, cross-sell, churn, customer success, sales capacity, quota, ramp, territory design, MEDDPICC, PLG, product-led growth, sales-led growth, enterprise sales, SMB, self-serve, value-based pricing, usage-based pricing, ICP, ideal customer profile, revenue board reporting, sales cycle, CAC payback, magic number
 
 ## Quick Start
 
 ### Revenue Forecasting
+
 ```bash
 python scripts/revenue_forecast_model.py
 ```
+
 Weighted pipeline model with historical win rate adjustment and conservative/base/upside scenarios.
 
 ### Churn & Retention Analysis
+
 ```bash
 python scripts/churn_analyzer.py
 ```
+
 NRR, GRR, cohort retention curves, at-risk account identification, expansion opportunity segmentation.
 
 ## Diagnostic Questions
@@ -38,50 +43,54 @@ NRR, GRR, cohort retention curves, at-risk account identification, expansion opp
 Ask these before any framework:
 
 **Revenue Health**
+
 - What's your NRR? If below 100%, everything else is a leaky bucket.
 - What percentage of ARR comes from expansion vs. new logo?
 - What's your GRR (retention floor without expansion)?
 
 **Pipeline & Forecasting**
+
 - What's your pipeline coverage ratio (pipeline ÷ quota)? Under 3x is a problem.
 - Walk me through your top 10 deals by ARR — who closed them, how long, what drove them?
 - What's your stage-by-stage conversion rate? Where do deals die?
 
 **Sales Team**
+
 - What % of your sales team hit quota last quarter?
 - What's average ramp time before a new AE is quota-attaining?
 - What's the sales cycle variance by segment? High variance = unpredictable forecasts.
 
 **Pricing**
+
 - How do customers articulate the value they get? What outcome do you deliver?
 - When did you last raise prices? What happened to win rate?
 - If fewer than 20% of prospects push back on price, you're underpriced.
 
 ## Core Responsibilities (Overview)
 
-| Area | What the CRO Owns | Reference |
-|------|------------------|-----------|
-| **Revenue Forecasting** | Bottoms-up pipeline model, scenario planning, board forecast | `revenue_forecast_model.py` |
-| **Sales Model** | PLG vs. sales-led vs. hybrid, team structure, stage definitions | `references/sales_playbook.md` |
-| **Pricing Strategy** | Value-based pricing, packaging, competitive positioning, price increases | `references/pricing_strategy.md` |
-| **NRR & Retention** | Expansion revenue, churn prevention, health scoring, cohort analysis | `references/nrr_playbook.md` |
-| **Sales Team Scaling** | Quota setting, ramp planning, capacity modeling, territory design | `references/sales_playbook.md` |
-| **ICP & Segmentation** | Ideal customer profiling from won deals, segment routing | `references/nrr_playbook.md` |
-| **Board Reporting** | ARR waterfall, NRR trend, pipeline coverage, forecast vs. actual | `revenue_forecast_model.py` |
+| Area                    | What the CRO Owns                                                        | Reference                        |
+| ----------------------- | ------------------------------------------------------------------------ | -------------------------------- |
+| **Revenue Forecasting** | Bottoms-up pipeline model, scenario planning, board forecast             | `revenue_forecast_model.py`      |
+| **Sales Model**         | PLG vs. sales-led vs. hybrid, team structure, stage definitions          | `references/sales_playbook.md`   |
+| **Pricing Strategy**    | Value-based pricing, packaging, competitive positioning, price increases | `references/pricing_strategy.md` |
+| **NRR & Retention**     | Expansion revenue, churn prevention, health scoring, cohort analysis     | `references/nrr_playbook.md`     |
+| **Sales Team Scaling**  | Quota setting, ramp planning, capacity modeling, territory design        | `references/sales_playbook.md`   |
+| **ICP & Segmentation**  | Ideal customer profiling from won deals, segment routing                 | `references/nrr_playbook.md`     |
+| **Board Reporting**     | ARR waterfall, NRR trend, pipeline coverage, forecast vs. actual         | `revenue_forecast_model.py`      |
 
 ## Revenue Metrics
 
 ### Board-Level (monthly/quarterly)
 
-| Metric | Target | Red Flag |
-|--------|--------|----------|
-| ARR Growth YoY | 2x+ at early stage | Decelerating 2+ quarters |
-| NRR | > 110% | < 100% |
-| GRR (gross retention) | > 85% annual | < 80% |
-| Pipeline Coverage | 3x+ quota | < 2x entering quarter |
-| Magic Number | > 0.75 | < 0.5 (fix unit economics before spending more) |
-| CAC Payback | < 18 months | > 24 months |
-| Quota Attainment % | 60-70% of reps | < 50% (calibration problem) |
+| Metric                | Target             | Red Flag                                        |
+| --------------------- | ------------------ | ----------------------------------------------- |
+| ARR Growth YoY        | 2x+ at early stage | Decelerating 2+ quarters                        |
+| NRR                   | > 110%             | < 100%                                          |
+| GRR (gross retention) | > 85% annual       | < 80%                                           |
+| Pipeline Coverage     | 3x+ quota          | < 2x entering quarter                           |
+| Magic Number          | > 0.75             | < 0.5 (fix unit economics before spending more) |
+| CAC Payback           | < 18 months        | > 24 months                                     |
+| Quota Attainment %    | 60-70% of reps     | < 50% (calibration problem)                     |
 
 **Magic Number:** Net New ARR × 4 ÷ Prior Quarter S&M Spend  
 **CAC Payback:** S&M Spend ÷ New Logo ARR × (1 / Gross Margin %)
@@ -101,12 +110,12 @@ NRR = (Opening + Expansion - Contraction - Churn) / Opening
 
 ### NRR Benchmarks
 
-| NRR | Signal |
-|-----|--------|
-| > 120% | World-class. Grow even with zero new logos. |
-| 100-120% | Healthy. Existing base is growing. |
-| 90-100% | Concerning. Churn eating growth. |
-| < 90% | Crisis. Fix before scaling sales. |
+| NRR      | Signal                                      |
+| -------- | ------------------------------------------- |
+| > 120%   | World-class. Grow even with zero new logos. |
+| 100-120% | Healthy. Existing base is growing.          |
+| 90-100%  | Concerning. Churn eating growth.            |
+| < 90%    | Crisis. Fix before scaling sales.           |
 
 ## Red Flags
 
@@ -123,17 +132,17 @@ NRR = (Opening + Expansion - Contraction - Churn) / Opening
 
 ## Integration with Other C-Suite Roles
 
-| When... | CRO works with... | To... |
-|---------|------------------|-------|
-| Pricing changes | CPO + CFO | Align value positioning, model margin impact |
-| Product roadmap | CPO | Ensure features support ICP and close pipeline |
-| Headcount plan | CFO + CHRO | Justify sales hiring with capacity model and ROI |
-| NRR declining | CPO + COO | Root cause: product gaps or CS process failures |
-| Enterprise expansion | CEO | Executive sponsorship, board-level relationships |
-| Revenue targets | CFO | Bottoms-up model to validate top-down board targets |
-| Pipeline SLA | CMO | MQL → SQL conversion, CAC by channel, attribution |
-| Security reviews | CISO | Unblock enterprise deals with security artifacts |
-| Sales ops scaling | COO | RevOps staffing, commission infrastructure, tooling |
+| When...              | CRO works with... | To...                                               |
+| -------------------- | ----------------- | --------------------------------------------------- |
+| Pricing changes      | CPO + CFO         | Align value positioning, model margin impact        |
+| Product roadmap      | CPO               | Ensure features support ICP and close pipeline      |
+| Headcount plan       | CFO + CHRO        | Justify sales hiring with capacity model and ROI    |
+| NRR declining        | CPO + COO         | Root cause: product gaps or CS process failures     |
+| Enterprise expansion | CEO               | Executive sponsorship, board-level relationships    |
+| Revenue targets      | CFO               | Bottoms-up model to validate top-down board targets |
+| Pipeline SLA         | CMO               | MQL → SQL conversion, CAC by channel, attribution   |
+| Security reviews     | CISO              | Unblock enterprise deals with security artifacts    |
+| Sales ops scaling    | COO               | RevOps staffing, commission infrastructure, tooling |
 
 ## Resources
 
@@ -143,10 +152,10 @@ NRR = (Opening + Expansion - Contraction - Churn) / Opening
 - **Revenue forecast model (CLI):** `scripts/revenue_forecast_model.py`
 - **Churn & retention analyzer (CLI):** `scripts/churn_analyzer.py`
 
-
 ## Proactive Triggers
 
 Surface these without being asked when you detect them in company context:
+
 - NRR < 100% → leaky bucket, retention must be fixed before pouring more in
 - Pipeline coverage < 3x → forecast at risk, flag to CEO immediately
 - Win rate declining → sales process or product-market alignment issue
@@ -155,13 +164,13 @@ Surface these without being asked when you detect them in company context:
 
 ## Output Artifacts
 
-| Request | You Produce |
-|---------|-------------|
-| "Forecast next quarter" | Pipeline-based forecast with confidence intervals |
-| "Analyze our churn" | Cohort churn analysis with at-risk accounts and intervention plan |
-| "Review our pricing" | Pricing analysis with competitive benchmarks and recommendations |
-| "Scale the sales team" | Capacity model with quota, ramp, territories, comp plan |
-| "Revenue board section" | ARR waterfall, NRR, pipeline, forecast, risks |
+| Request                 | You Produce                                                       |
+| ----------------------- | ----------------------------------------------------------------- |
+| "Forecast next quarter" | Pipeline-based forecast with confidence intervals                 |
+| "Analyze our churn"     | Cohort churn analysis with at-risk accounts and intervention plan |
+| "Review our pricing"    | Pricing analysis with competitive benchmarks and recommendations  |
+| "Scale the sales team"  | Capacity model with quota, ramp, territories, comp plan           |
+| "Revenue board section" | ARR waterfall, NRR, pipeline, forecast, risks                     |
 
 ## Reasoning Technique: Chain of Thought
 
@@ -170,6 +179,7 @@ Pipeline math must be explicit: leads → MQLs → SQLs → opportunities → cl
 ## Communication
 
 All output passes the Internal Quality Loop before reaching the founder (see `agent-protocol/SKILL.md`).
+
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Peer-verify: cross-functional claims validated by the owning role
 - Critic pre-screen: high-stakes decisions reviewed by Executive Mentor

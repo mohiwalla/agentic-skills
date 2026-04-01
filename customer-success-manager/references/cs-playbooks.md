@@ -158,41 +158,41 @@ Comprehensive intervention, onboarding, renewal, expansion, and escalation playb
 
 ### Phase 1: Welcome and Setup (Day 1-14)
 
-| Day | Activity | Owner | Deliverable |
-|-----|----------|-------|-------------|
-| 1 | Welcome email and introduction | CSM | Welcome package sent |
-| 1-2 | Kickoff call | CSM + SE | Success plan drafted |
-| 3-5 | Technical setup and configuration | SE | Environment configured |
-| 5-7 | Admin training session | CSM | Admins trained |
-| 7-10 | Data migration (if applicable) | SE | Data validated |
-| 10-14 | Initial user training | CSM | Core team trained |
+| Day   | Activity                          | Owner    | Deliverable            |
+| ----- | --------------------------------- | -------- | ---------------------- |
+| 1     | Welcome email and introduction    | CSM      | Welcome package sent   |
+| 1-2   | Kickoff call                      | CSM + SE | Success plan drafted   |
+| 3-5   | Technical setup and configuration | SE       | Environment configured |
+| 5-7   | Admin training session            | CSM      | Admins trained         |
+| 7-10  | Data migration (if applicable)    | SE       | Data validated         |
+| 10-14 | Initial user training             | CSM      | Core team trained      |
 
 ### Phase 2: Activation (Day 15-30)
 
-| Day | Activity | Owner | Deliverable |
-|-----|----------|-------|-------------|
-| 15 | Activation check -- are users logging in? | CSM | Usage report |
-| 15-20 | Follow-up training for laggards | CSM | All users active |
-| 20-25 | First business outcome milestone | CSM | Milestone achieved |
-| 25-30 | 30-day review call | CSM | Review documented |
+| Day   | Activity                                  | Owner | Deliverable        |
+| ----- | ----------------------------------------- | ----- | ------------------ |
+| 15    | Activation check -- are users logging in? | CSM   | Usage report       |
+| 15-20 | Follow-up training for laggards           | CSM   | All users active   |
+| 20-25 | First business outcome milestone          | CSM   | Milestone achieved |
+| 25-30 | 30-day review call                        | CSM   | Review documented  |
 
 **Critical Milestone:** Time to First Value must be under 30 days.
 
 ### Phase 3: Adoption (Day 31-60)
 
-| Day | Activity | Owner | Deliverable |
-|-----|----------|-------|-------------|
-| 30-40 | Feature adoption expansion | CSM | New features in use |
-| 40-50 | Integration setup (if applicable) | SE | Integrations live |
-| 50-60 | Usage benchmarking vs. peers | CSM | Benchmark report |
+| Day   | Activity                          | Owner | Deliverable         |
+| ----- | --------------------------------- | ----- | ------------------- |
+| 30-40 | Feature adoption expansion        | CSM   | New features in use |
+| 40-50 | Integration setup (if applicable) | SE    | Integrations live   |
+| 50-60 | Usage benchmarking vs. peers      | CSM   | Benchmark report    |
 
 ### Phase 4: Optimisation (Day 61-90)
 
-| Day | Activity | Owner | Deliverable |
-|-----|----------|-------|-------------|
-| 60-70 | Advanced use case workshop | CSM + SE | New use cases identified |
-| 70-80 | ROI measurement | CSM | ROI documented |
-| 80-90 | 90-day executive review | CSM | Transition to steady-state |
+| Day   | Activity                   | Owner    | Deliverable                |
+| ----- | -------------------------- | -------- | -------------------------- |
+| 60-70 | Advanced use case workshop | CSM + SE | New use cases identified   |
+| 70-80 | ROI measurement            | CSM      | ROI documented             |
+| 80-90 | 90-day executive review    | CSM      | Transition to steady-state |
 
 **Gate:** Handoff from onboarding to ongoing CSM management. Health score must be Yellow or better.
 
@@ -241,13 +241,13 @@ Comprehensive intervention, onboarding, renewal, expansion, and escalation playb
 
 ### Identifying Expansion Signals
 
-| Signal | Expansion Type | Priority |
-|--------|---------------|----------|
-| Seat utilisation > 90% | Seat expansion | High |
-| Requests for features in higher tier | Tier upsell | High |
-| New department inquiries | Department expansion | Medium |
-| High adoption of existing modules | Module cross-sell | Medium |
-| Customer referencing competitors for missing features | Cross-sell | High |
+| Signal                                                | Expansion Type       | Priority |
+| ----------------------------------------------------- | -------------------- | -------- |
+| Seat utilisation > 90%                                | Seat expansion       | High     |
+| Requests for features in higher tier                  | Tier upsell          | High     |
+| New department inquiries                              | Department expansion | Medium   |
+| High adoption of existing modules                     | Module cross-sell    | Medium   |
+| Customer referencing competitors for missing features | Cross-sell           | High     |
 
 ### Expansion Conversation Framework
 
@@ -263,20 +263,21 @@ Comprehensive intervention, onboarding, renewal, expansion, and escalation playb
 
 ### Internal Escalation Matrix
 
-| Trigger | Escalation Level | Response Time |
-|---------|-----------------|---------------|
-| Health score drops to Red | VP Customer Success | 24 hours |
-| Executive sponsor leaves | Director CS + AE | 48 hours |
-| Critical bug affecting customer | VP Engineering + VP CS | 4 hours |
-| Customer mentions competitor evaluation | VP CS + VP Sales | 24 hours |
-| Renewal at risk (60 days or less) | CRO/VP Sales | 24 hours |
-| Customer threatens legal action | Legal + VP CS | Immediate |
+| Trigger                                 | Escalation Level       | Response Time |
+| --------------------------------------- | ---------------------- | ------------- |
+| Health score drops to Red               | VP Customer Success    | 24 hours      |
+| Executive sponsor leaves                | Director CS + AE       | 48 hours      |
+| Critical bug affecting customer         | VP Engineering + VP CS | 4 hours       |
+| Customer mentions competitor evaluation | VP CS + VP Sales       | 24 hours      |
+| Renewal at risk (60 days or less)       | CRO/VP Sales           | 24 hours      |
+| Customer threatens legal action         | Legal + VP CS          | Immediate     |
 
 ### Escalation Communication Template
 
 **Subject:** [ESCALATION] {Customer Name} -- {Brief Description}
 
 **Body:**
+
 - Customer: {name}, {segment}, ${ARR}
 - Health Score: {score} ({classification})
 - Renewal Date: {date}

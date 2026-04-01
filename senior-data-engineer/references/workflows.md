@@ -192,11 +192,14 @@ python scripts/data_quality_validator.py validate \
   "type": "object",
   "required": ["event_id", "user_id", "event_type", "timestamp"],
   "properties": {
-    "event_id": {"type": "string", "format": "uuid"},
-    "user_id": {"type": "string"},
-    "event_type": {"type": "string", "enum": ["page_view", "click", "purchase"]},
-    "timestamp": {"type": "string", "format": "date-time"},
-    "properties": {"type": "object"}
+    "event_id": { "type": "string", "format": "uuid" },
+    "user_id": { "type": "string" },
+    "event_type": {
+      "type": "string",
+      "enum": ["page_view", "click", "purchase"]
+    },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "properties": { "type": "object" }
   }
 }
 ```

@@ -35,6 +35,7 @@ python scripts/gdpr_compliance_checker.py . --json --output report.json
 ```
 
 **Detects:**
+
 - Personal data patterns (email, phone, IP addresses)
 - Special category data (health, biometric, religion)
 - Financial data (credit cards, IBAN)
@@ -46,6 +47,7 @@ python scripts/gdpr_compliance_checker.py . --json --output report.json
   - Disabled deletion functionality
 
 **Output:**
+
 - Compliance score (0-100)
 - Risk categorization (critical, high, medium)
 - Prioritized recommendations with GDPR article references
@@ -65,6 +67,7 @@ python scripts/dpia_generator.py --input input.json --output dpia_report.md
 ```
 
 **Features:**
+
 - Automatic DPIA threshold assessment
 - Risk identification based on processing characteristics
 - Legal basis requirements documentation
@@ -72,6 +75,7 @@ python scripts/dpia_generator.py --input input.json --output dpia_report.md
 - Markdown report generation
 
 **DPIA Triggers Assessed:**
+
 - Systematic monitoring (Art. 35(3)(c))
 - Large-scale special category data (Art. 35(3)(b))
 - Automated decision-making (Art. 35(3)(a))
@@ -103,17 +107,18 @@ python scripts/data_subject_rights_tracker.py template --id DSR-202601-0001
 
 **Supported Rights:**
 
-| Right | Article | Deadline |
-|-------|---------|----------|
-| Access | Art. 15 | 30 days |
-| Rectification | Art. 16 | 30 days |
-| Erasure | Art. 17 | 30 days |
-| Restriction | Art. 18 | 30 days |
-| Portability | Art. 20 | 30 days |
-| Objection | Art. 21 | 30 days |
-| Automated decisions | Art. 22 | 30 days |
+| Right               | Article | Deadline |
+| ------------------- | ------- | -------- |
+| Access              | Art. 15 | 30 days  |
+| Rectification       | Art. 16 | 30 days  |
+| Erasure             | Art. 17 | 30 days  |
+| Restriction         | Art. 18 | 30 days  |
+| Portability         | Art. 20 | 30 days  |
+| Objection           | Art. 21 | 30 days  |
+| Automated decisions | Art. 22 | 30 days  |
 
 **Features:**
+
 - Deadline tracking with overdue alerts
 - Identity verification workflow
 - Response template generation
@@ -124,9 +129,11 @@ python scripts/data_subject_rights_tracker.py template --id DSR-202601-0001
 ## Reference Guides
 
 ### GDPR Compliance Guide
+
 `references/gdpr_compliance_guide.md`
 
 Comprehensive implementation guidance covering:
+
 - Legal bases for processing (Art. 6)
 - Special category requirements (Art. 9)
 - Data subject rights implementation
@@ -135,9 +142,11 @@ Comprehensive implementation guidance covering:
 - Breach notification (Art. 33-34)
 
 ### German BDSG Requirements
+
 `references/german_bdsg_requirements.md`
 
 German-specific requirements including:
+
 - DPO appointment threshold (§ 38 BDSG - 20+ employees)
 - Employment data processing (§ 26 BDSG)
 - Video surveillance rules (§ 4 BDSG)
@@ -146,9 +155,11 @@ German-specific requirements including:
 - Works council co-determination rights
 
 ### DPIA Methodology
+
 `references/dpia_methodology.md`
 
 Step-by-step DPIA process:
+
 - Threshold assessment criteria
 - WP29 high-risk indicators
 - Risk assessment methodology
@@ -237,6 +248,7 @@ Step 4: Register DPO with supervisory authority
 ### Special Category Data (Art. 9)
 
 Requires explicit consent or Art. 9(2) exception:
+
 - Health data
 - Biometric data
 - Racial/ethnic origin
@@ -249,6 +261,7 @@ Requires explicit consent or Art. 9(2) exception:
 ### Data Subject Rights
 
 All rights must be fulfilled within **30 days** (extendable to 90 for complex requests):
+
 - **Access**: Provide copy of data and processing information
 - **Rectification**: Correct inaccurate data
 - **Erasure**: Delete data (with exceptions for legal obligations)
@@ -258,9 +271,9 @@ All rights must be fulfilled within **30 days** (extendable to 90 for complex re
 
 ### German BDSG Additions
 
-| Topic | BDSG Section | Key Requirement |
-|-------|--------------|-----------------|
-| DPO threshold | § 38 | 20+ employees = mandatory DPO |
-| Employment | § 26 | Detailed employee data rules |
-| Video | § 4 | Signage and proportionality |
-| Scoring | § 31 | Explainable algorithms |
+| Topic         | BDSG Section | Key Requirement               |
+| ------------- | ------------ | ----------------------------- |
+| DPO threshold | § 38         | 20+ employees = mandatory DPO |
+| Employment    | § 26         | Detailed employee data rules  |
+| Video         | § 4          | Signage and proportionality   |
+| Scoring       | § 31         | Explainable algorithms        |

@@ -45,6 +45,7 @@ uploads, and rate limiting. Outputs ready-to-run test files for Vitest+Supertest
 ## Route Detection
 
 ### Next.js App Router
+
 ```bash
 # Find all route handlers
 find ./app/api -name "route.ts" -o -name "route.js" | sort
@@ -63,6 +64,7 @@ done
 ```
 
 ### Express
+
 ```bash
 # Find all router files
 find ./src -name "*.ts" -o -name "*.js" | xargs grep -l "router\.\(get\|post\|put\|delete\|patch\)" 2>/dev/null
@@ -78,6 +80,7 @@ grep -rn "router\.\|app\." src/ --include="*.ts" | \
 ```
 
 ### FastAPI
+
 ```bash
 # Find all route decorators
 grep -rn "@app\.\|@router\." . --include="*.py" | \
@@ -89,6 +92,7 @@ grep -rn "@\(app\|router\)\.\(get\|post\|put\|delete\|patch\)" . --include="*.py
 ```
 
 ### Django REST Framework
+
 ```bash
 # urlpatterns extraction
 grep -rn "path\|re_path\|url(" . --include="*.py" | grep "urlpatterns" -A 50 | \
@@ -106,35 +110,36 @@ grep -rn "router\.register\|DefaultRouter\|SimpleRouter" . --include="*.py"
 
 For every authenticated endpoint, generate:
 
-| Test Case | Expected Status |
-|-----------|----------------|
-| No Authorization header | 401 |
-| Invalid token format | 401 |
-| Valid token, wrong user role | 403 |
-| Expired JWT token | 401 |
-| Valid token, correct role | 2xx |
-| Token from deleted user | 401 |
+| Test Case                    | Expected Status |
+| ---------------------------- | --------------- |
+| No Authorization header      | 401             |
+| Invalid token format         | 401             |
+| Valid token, wrong user role | 403             |
+| Expired JWT token            | 401             |
+| Valid token, correct role    | 2xx             |
+| Token from deleted user      | 401             |
 
 ### Input Validation Matrix
 
 For every POST/PUT/PATCH endpoint with a request body:
 
-| Test Case | Expected Status |
-|-----------|----------------|
-| Empty body `{}` | 400 or 422 |
-| Missing required fields (one at a time) | 400 or 422 |
-| Wrong type (string where int expected) | 400 or 422 |
-| Boundary: value at min-1 | 400 or 422 |
-| Boundary: value at min | 2xx |
-| Boundary: value at max | 2xx |
-| Boundary: value at max+1 | 400 or 422 |
-| SQL injection in string field | 400 or 200 (sanitized) |
-| XSS payload in string field | 400 or 200 (sanitized) |
-| Null values for required fields | 400 or 422 |
+| Test Case                               | Expected Status        |
+| --------------------------------------- | ---------------------- |
+| Empty body `{}`                         | 400 or 422             |
+| Missing required fields (one at a time) | 400 or 422             |
+| Wrong type (string where int expected)  | 400 or 422             |
+| Boundary: value at min-1                | 400 or 422             |
+| Boundary: value at min                  | 2xx                    |
+| Boundary: value at max                  | 2xx                    |
+| Boundary: value at max+1                | 400 or 422             |
+| SQL injection in string field           | 400 or 200 (sanitized) |
+| XSS payload in string field             | 400 or 200 (sanitized) |
+| Null values for required fields         | 400 or 422             |
 
 ---
 
 ## Example Test Files
+
 → See references/example-test-files.md for details
 
 ## Generating Tests from Route Scan

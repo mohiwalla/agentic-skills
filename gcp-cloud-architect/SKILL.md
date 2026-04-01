@@ -37,14 +37,30 @@ python scripts/architecture_designer.py --input requirements.json
 ```json
 {
   "recommended_pattern": "serverless_web",
-  "service_stack": ["Cloud Storage", "Cloud CDN", "Cloud Run", "Firestore", "Identity Platform"],
+  "service_stack": [
+    "Cloud Storage",
+    "Cloud CDN",
+    "Cloud Run",
+    "Firestore",
+    "Identity Platform"
+  ],
   "estimated_monthly_cost_usd": 30,
-  "pros": ["Low ops overhead", "Pay-per-use", "Auto-scaling", "No cold starts on Cloud Run min instances"],
-  "cons": ["Vendor lock-in", "Regional limitations", "Eventual consistency with Firestore"]
+  "pros": [
+    "Low ops overhead",
+    "Pay-per-use",
+    "Auto-scaling",
+    "No cold starts on Cloud Run min instances"
+  ],
+  "cons": [
+    "Vendor lock-in",
+    "Regional limitations",
+    "Eventual consistency with Firestore"
+  ]
 }
 ```
 
 Select from recommended patterns:
+
 - **Serverless Web**: Cloud Storage + Cloud CDN + Cloud Run + Firestore
 - **Microservices on GKE**: GKE Autopilot + Cloud SQL + Memorystore + Cloud Pub/Sub
 - **Serverless Data Pipeline**: Pub/Sub + Dataflow + BigQuery + Looker
@@ -68,15 +84,28 @@ python scripts/cost_optimizer.py --resources current_setup.json --monthly-spend 
 {
   "current_monthly_usd": 2000,
   "recommendations": [
-    { "action": "Right-size Cloud SQL db-custom-4-16384 to db-custom-2-8192", "savings_usd": 380, "priority": "high" },
-    { "action": "Purchase 1-yr committed use discount for GKE nodes", "savings_usd": 290, "priority": "high" },
-    { "action": "Move Cloud Storage objects >90 days to Nearline", "savings_usd": 75, "priority": "medium" }
+    {
+      "action": "Right-size Cloud SQL db-custom-4-16384 to db-custom-2-8192",
+      "savings_usd": 380,
+      "priority": "high"
+    },
+    {
+      "action": "Purchase 1-yr committed use discount for GKE nodes",
+      "savings_usd": 290,
+      "priority": "high"
+    },
+    {
+      "action": "Move Cloud Storage objects >90 days to Nearline",
+      "savings_usd": 75,
+      "priority": "medium"
+    }
   ],
   "total_potential_savings_usd": 745
 }
 ```
 
 Output includes:
+
 - Monthly cost breakdown by service
 - Right-sizing recommendations
 - Committed use discount opportunities
@@ -181,24 +210,24 @@ Set up automated deployment with Cloud Build or GitHub Actions:
 ```yaml
 # cloudbuild.yaml
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA', '.']
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA", "."]
 
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA']
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA"]
 
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
     args:
-      - 'run'
-      - 'deploy'
-      - 'my-app-api'
-      - '--image=gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA'
-      - '--region=us-central1'
-      - '--platform=managed'
+      - "run"
+      - "deploy"
+      - "my-app-api"
+      - "--image=gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA"
+      - "--region=us-central1"
+      - "--platform=managed"
 
 images:
-  - 'gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA'
+  - "gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA"
 ```
 
 ```bash
@@ -226,6 +255,7 @@ gcloud access-context-manager perimeters list --policy=$POLICY_ID
 ```
 
 **Security checklist:**
+
 - IAM roles follow least privilege (prefer predefined roles over basic roles)
 - Service accounts use Workload Identity for GKE
 - VPC Service Controls configured for sensitive APIs
@@ -249,6 +279,7 @@ gcloud access-context-manager perimeters list --policy=$POLICY_ID
    ```
 
 **Common failure causes:**
+
 - IAM permission errors -- verify service account roles and `--allow-unauthenticated` flag
 - Quota exceeded -- request quota increase via IAM & Admin > Quotas
 - Container startup failure -- check container logs and health check configuration
@@ -278,6 +309,7 @@ python scripts/cost_optimizer.py --resources inventory.json --monthly-spend 5000
 ```
 
 **Output:** Recommendations for:
+
 - Idle resource removal
 - Machine type right-sizing
 - Committed use discounts
@@ -293,6 +325,7 @@ python scripts/deployment_manager.py --app-name my-app --pattern serverless_web 
 ```
 
 **Output:** Production-ready deployment scripts with:
+
 - Cloud Run or GKE deployment
 - Firestore or Cloud SQL setup
 - Identity Platform configuration
@@ -362,14 +395,14 @@ Result:
 
 Provide these details for architecture design:
 
-| Requirement | Description | Example |
-|-------------|-------------|---------|
+| Requirement      | Description          | Example                       |
+| ---------------- | -------------------- | ----------------------------- |
 | Application type | What you're building | SaaS platform, mobile backend |
-| Expected scale | Users, requests/sec | 10k users, 100 RPS |
-| Budget | Monthly GCP limit | $500/month max |
-| Team context | Size, GCP experience | 3 devs, intermediate |
-| Compliance | Regulatory needs | HIPAA, GDPR, SOC 2 |
-| Availability | Uptime requirements | 99.9% SLA, 1hr RPO |
+| Expected scale   | Users, requests/sec  | 10k users, 100 RPS            |
+| Budget           | Monthly GCP limit    | $500/month max                |
+| Team context     | Size, GCP experience | 3 devs, intermediate          |
+| Compliance       | Regulatory needs     | HIPAA, GDPR, SOC 2            |
+| Availability     | Uptime requirements  | 99.9% SLA, 1hr RPO            |
 
 **JSON Format:**
 
@@ -411,34 +444,34 @@ Provide these details for architecture design:
 
 ## Anti-Patterns
 
-| Anti-Pattern | Why It Fails | Better Approach |
-|---|---|---|
-| Using default VPC for production | No isolation, shared firewall rules | Create custom VPC with private subnets |
-| Over-provisioning GKE node pools | Wasted cost on idle capacity | Use GKE Autopilot or cluster autoscaler |
-| Storing secrets in environment variables | Visible in Cloud Console, logs | Use Secret Manager with Workload Identity |
-| Ignoring sustained use discounts | Missing 20-30% automatic savings | Right-size VMs for consistent baseline usage |
-| Single-region deployment for SaaS | One region outage = full downtime | Multi-region with Cloud Load Balancing |
-| BigQuery on-demand for heavy workloads | Unpredictable costs at scale | Use BigQuery slots (flat-rate) for consistent workloads |
-| Running Cloud Functions for long tasks | 9-minute timeout, cold starts | Use Cloud Run for tasks > 60 seconds |
+| Anti-Pattern                             | Why It Fails                        | Better Approach                                         |
+| ---------------------------------------- | ----------------------------------- | ------------------------------------------------------- |
+| Using default VPC for production         | No isolation, shared firewall rules | Create custom VPC with private subnets                  |
+| Over-provisioning GKE node pools         | Wasted cost on idle capacity        | Use GKE Autopilot or cluster autoscaler                 |
+| Storing secrets in environment variables | Visible in Cloud Console, logs      | Use Secret Manager with Workload Identity               |
+| Ignoring sustained use discounts         | Missing 20-30% automatic savings    | Right-size VMs for consistent baseline usage            |
+| Single-region deployment for SaaS        | One region outage = full downtime   | Multi-region with Cloud Load Balancing                  |
+| BigQuery on-demand for heavy workloads   | Unpredictable costs at scale        | Use BigQuery slots (flat-rate) for consistent workloads |
+| Running Cloud Functions for long tasks   | 9-minute timeout, cold starts       | Use Cloud Run for tasks > 60 seconds                    |
 
 ---
 
 ## Cross-References
 
-| Skill | Relationship |
-|-------|-------------|
-| `engineering-team/aws-solution-architect` | AWS equivalent — same 6-step workflow, different services |
-| `engineering-team/azure-cloud-architect` | Azure equivalent — completes the cloud trifecta |
-| `engineering-team/senior-devops` | Broader DevOps scope — pipelines, monitoring, containerization |
-| `engineering/terraform-patterns` | IaC implementation — use for Terraform modules targeting GCP |
-| `engineering/ci-cd-pipeline-builder` | Pipeline construction — automates Cloud Build and deployment |
+| Skill                                     | Relationship                                                   |
+| ----------------------------------------- | -------------------------------------------------------------- |
+| `engineering-team/aws-solution-architect` | AWS equivalent — same 6-step workflow, different services      |
+| `engineering-team/azure-cloud-architect`  | Azure equivalent — completes the cloud trifecta                |
+| `engineering-team/senior-devops`          | Broader DevOps scope — pipelines, monitoring, containerization |
+| `engineering/terraform-patterns`          | IaC implementation — use for Terraform modules targeting GCP   |
+| `engineering/ci-cd-pipeline-builder`      | Pipeline construction — automates Cloud Build and deployment   |
 
 ---
 
 ## Reference Documentation
 
-| Document | Contents |
-|----------|----------|
+| Document                              | Contents                                                                                        |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `references/architecture_patterns.md` | 6 patterns: serverless, GKE microservices, three-tier, data pipeline, ML platform, multi-region |
-| `references/service_selection.md` | Decision matrices for compute, database, storage, messaging |
-| `references/best_practices.md` | Naming, labels, IAM, networking, monitoring, disaster recovery |
+| `references/service_selection.md`     | Decision matrices for compute, database, storage, messaging                                     |
+| `references/best_practices.md`        | Naming, labels, IAM, networking, monitoring, disaster recovery                                  |

@@ -10,45 +10,45 @@ A complete guide for responsibly reporting security vulnerabilities found during
 
 The industry-standard timeline used by Google Project Zero, CERT/CC, and most security researchers.
 
-| Day | Action | Owner |
-|-----|--------|-------|
-| 0 | Discover vulnerability, document with evidence | Researcher |
-| 1 | Submit initial report to vendor security contact | Researcher |
-| 3 | Confirm report received (if no auto-acknowledgment) | Researcher |
-| 7 | Follow up if no acknowledgment received | Researcher |
-| 7 | Acknowledge receipt, assign tracking ID | Vendor |
-| 14 | Provide initial severity assessment and timeline | Vendor |
-| 30 | First status update on remediation progress | Vendor |
-| 30 | Request update if none provided | Researcher |
-| 60 | Second status update; fix should be in development | Vendor |
-| 60 | Offer technical assistance if fix is delayed | Researcher |
-| 90 | Public disclosure deadline (with or without fix) | Researcher |
-| 90+ | Coordinate joint disclosure statement if fix is ready | Both |
+| Day | Action                                                | Owner      |
+| --- | ----------------------------------------------------- | ---------- |
+| 0   | Discover vulnerability, document with evidence        | Researcher |
+| 1   | Submit initial report to vendor security contact      | Researcher |
+| 3   | Confirm report received (if no auto-acknowledgment)   | Researcher |
+| 7   | Follow up if no acknowledgment received               | Researcher |
+| 7   | Acknowledge receipt, assign tracking ID               | Vendor     |
+| 14  | Provide initial severity assessment and timeline      | Vendor     |
+| 30  | First status update on remediation progress           | Vendor     |
+| 30  | Request update if none provided                       | Researcher |
+| 60  | Second status update; fix should be in development    | Vendor     |
+| 60  | Offer technical assistance if fix is delayed          | Researcher |
+| 90  | Public disclosure deadline (with or without fix)      | Researcher |
+| 90+ | Coordinate joint disclosure statement if fix is ready | Both       |
 
 ### Accelerated 30-Day Disclosure
 
 For actively exploited vulnerabilities or critical severity (CVSS 9.0+):
 
-| Day | Action |
-|-----|--------|
-| 0 | Discover, document, report immediately |
-| 1 | Vendor acknowledges |
-| 7 | Vendor provides remediation timeline |
-| 14 | Status update; patch expected |
-| 30 | Public disclosure |
+| Day | Action                                 |
+| --- | -------------------------------------- |
+| 0   | Discover, document, report immediately |
+| 1   | Vendor acknowledges                    |
+| 7   | Vendor provides remediation timeline   |
+| 14  | Status update; patch expected          |
+| 30  | Public disclosure                      |
 
 ### Extended 120-Day Disclosure
 
 For complex vulnerabilities requiring architectural changes:
 
-| Day | Action |
-|-----|--------|
-| 0 | Report submitted |
-| 14 | Vendor acknowledges, confirms complexity |
-| 30 | Vendor provides detailed remediation plan |
-| 60 | Status update, partial fix may be deployed |
-| 90 | Near-complete remediation expected |
-| 120 | Full disclosure |
+| Day | Action                                     |
+| --- | ------------------------------------------ |
+| 0   | Report submitted                           |
+| 14  | Vendor acknowledges, confirms complexity   |
+| 30  | Vendor provides detailed remediation plan  |
+| 60  | Status update, partial fix may be deployed |
+| 90  | Near-complete remediation expected         |
+| 120 | Full disclosure                            |
 
 **When to extend:** Only if the vendor is actively working on a fix and communicating progress. A vendor that goes silent does not earn extra time.
 
@@ -215,7 +215,7 @@ Discovered by [Your Name] ([Organization]).
 
 2. **Understand local laws.** The Computer Fraud and Abuse Act (CFAA) in the US, the Computer Misuse Act in the UK, and equivalent laws in other jurisdictions criminalize unauthorized access. Authorization is your legal shield.
 
-3. **Stay within scope.** If the bug bounty program says "*.example.com only," do not test anything outside that scope. If your pen test contract covers the web application, do not pivot to internal networks.
+3. **Stay within scope.** If the bug bounty program says "\*.example.com only," do not test anything outside that scope. If your pen test contract covers the web application, do not pivot to internal networks.
 
 4. **Document everything.** Keep timestamped records of all testing activities: what you tested, when, what you found, and what you did not do (e.g., "did not access real user data").
 

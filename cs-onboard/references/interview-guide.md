@@ -77,27 +77,33 @@ It helps you confirm understanding and signals you're tracking.
 ## Red Flag Patterns and What to Do
 
 ### "We have no real competition."
+
 **Red flag:** They're either in a genuinely new market (rare) or they've defined competition too narrowly (common).
 **Probe:** "What would someone do today if your product didn't exist? Who benefits if you fail?"
 
 ### "Our values are X, Y, Z."
+
 **Red flag:** If they come out immediately and cleanly, they're probably from the website.
 **Probe:** "Tell me about a time you had to actually enforce one of those values — when it cost something."
 
 ### "The team is great. Everyone's aligned."
+
 **Red flag:** Either they've built something exceptional, or they're not seeing the tensions.
 **Probe:** "What's the last thing you disagreed with someone on the team about? How did it go?"
 
 ### "I don't really have blind spots."
+
 **Red flag:** Everyone has blind spots. Founders who can't name theirs are the most dangerous.
 **Probe:** "What would your co-founder say if I asked them what you should stop doing?"
 **Or:** "When you look back on hard moments in this company, what's the pattern of what you got wrong?"
 
 ### "Revenue is good, things are growing."
+
 **Red flag:** "Good" is not a number.
 **Probe:** "Give me a range — is this $100K ARR, $1M, $10M? I'm not sharing it anywhere."
 
 ### "We just need more customers."
+
 **Red flag:** This is almost never the root problem.
 **Probe:** "What's driving the growth you have? Why aren't more customers finding you, or converting, or staying?"
 
@@ -134,6 +140,7 @@ Some founders are guarded. Usually for one of three reasons:
 3. **They're protecting someone.** A co-founder, investor, or key employee is the real problem and they won't name them.
 
 **Tactics:**
+
 - Give them an out: "You don't have to answer this specifically — just give me the shape of it."
 - Normalize the problem: "A lot of founders at this stage are dealing with X..."
 - Ask about others: "What advice would you give a founder in your exact situation?"

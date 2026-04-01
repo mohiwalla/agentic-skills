@@ -10,6 +10,7 @@ Design, prioritize, and evaluate product experiments with clear hypotheses and d
 ## When To Use
 
 Use this skill for:
+
 - A/B and multivariate experiment planning
 - Hypothesis writing and success criteria definition
 - Sample size and minimum detectable effect planning
@@ -19,38 +20,45 @@ Use this skill for:
 ## Core Workflow
 
 1. Write hypothesis in If/Then/Because format
+
 - If we change `[intervention]`
 - Then `[metric]` will change by `[expected direction/magnitude]`
 - Because `[behavioral mechanism]`
 
 2. Define metrics before running test
+
 - Primary metric: single decision metric
 - Guardrail metrics: quality/risk protection
 - Secondary metrics: diagnostics only
 
 3. Estimate sample size
+
 - Baseline conversion or baseline mean
 - Minimum detectable effect (MDE)
 - Significance level (alpha) and power
 
 Use:
+
 ```bash
 python3 scripts/sample_size_calculator.py --baseline-rate 0.12 --mde 0.02 --mde-type absolute
 ```
 
 4. Prioritize experiments with ICE
+
 - Impact: potential upside
 - Confidence: evidence quality
 - Ease: cost/speed/complexity
 
-ICE Score = (Impact * Confidence * Ease) / 10
+ICE Score = (Impact _ Confidence _ Ease) / 10
 
 5. Launch with stopping rules
+
 - Decide fixed sample size or fixed duration in advance
 - Avoid repeated peeking without proper method
 - Monitor guardrails continuously
 
 6. Interpret results
+
 - Statistical significance is not business significance
 - Compare point estimate + confidence interval to decision threshold
 - Investigate novelty effects and segment heterogeneity
@@ -80,6 +88,7 @@ ICE Score = (Impact * Confidence * Ease) / 10
 - Use practical significance thresholds tied to business impact.
 
 See:
+
 - `references/experiment-playbook.md`
 - `references/statistics-reference.md`
 
@@ -88,12 +97,14 @@ See:
 ### `scripts/sample_size_calculator.py`
 
 Computes required sample size (per variant and total) from:
+
 - baseline rate
 - MDE (absolute or relative)
 - significance level (alpha)
 - statistical power
 
 Example:
+
 ```bash
 python3 scripts/sample_size_calculator.py \
   --baseline-rate 0.10 \

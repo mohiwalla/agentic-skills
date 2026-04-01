@@ -18,16 +18,19 @@ Display the current state of an AgentHub session: agent branches, commit counts,
 ## What It Does
 
 1. Run session overview:
+
 ```bash
 python {skill_path}/scripts/session_manager.py --status {session-id}
 ```
 
 2. Run DAG analysis:
+
 ```bash
 python {skill_path}/scripts/dag_analyzer.py --status --session {session-id}
 ```
 
 3. Read recent board updates:
+
 ```bash
 python {skill_path}/scripts/board_manager.py --read progress
 ```
@@ -71,8 +74,10 @@ Recent Board Activity:
 ## After Status
 
 If all agents have posted results:
+
 - Suggest `/hub:eval` to rank results
 
 If some agents are still running:
+
 - Show which are done vs in-progress
 - Suggest waiting or checking again later

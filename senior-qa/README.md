@@ -4,13 +4,13 @@ Production-ready quality assurance and test automation skill for React/Next.js a
 
 ## Tech Stack Focus
 
-| Category | Technologies |
-|----------|--------------|
-| Unit/Integration | Jest, React Testing Library |
-| E2E Testing | Playwright |
-| Coverage Analysis | Istanbul, NYC, LCOV |
-| API Mocking | MSW (Mock Service Worker) |
-| Accessibility | jest-axe, @axe-core/playwright |
+| Category          | Technologies                   |
+| ----------------- | ------------------------------ |
+| Unit/Integration  | Jest, React Testing Library    |
+| E2E Testing       | Playwright                     |
+| Coverage Analysis | Istanbul, NYC, LCOV            |
+| API Mocking       | MSW (Mock Service Worker)      |
+| Accessibility     | jest-axe, @axe-core/playwright |
 
 ## Quick Start
 
@@ -32,12 +32,14 @@ python scripts/e2e_test_scaffolder.py src/app --page-objects
 Scans React/TypeScript components and generates Jest + React Testing Library test stubs.
 
 **Features:**
+
 - Detects functional, class, memo, and forwardRef components
 - Generates render, interaction, and accessibility tests
 - Identifies props requiring mock data
 - Optional `--include-a11y` for jest-axe assertions
 
 **Usage:**
+
 ```bash
 python scripts/test_suite_generator.py <component-dir> [options]
 
@@ -52,12 +54,14 @@ Options:
 Parses Istanbul JSON or LCOV coverage reports and identifies testing gaps.
 
 **Features:**
+
 - Calculates line, branch, function, and statement coverage
 - Identifies critical untested paths (auth, payment, API routes)
 - Generates text and HTML reports
 - Threshold enforcement with `--strict` flag
 
 **Usage:**
+
 ```bash
 python scripts/coverage_analyzer.py <coverage-file> [options]
 
@@ -73,12 +77,14 @@ Options:
 Scans Next.js App Router or Pages Router directories and generates Playwright tests.
 
 **Features:**
+
 - Detects routes, dynamic parameters, and layouts
 - Generates test files per route with navigation and content checks
 - Optional Page Object Model class generation
 - Generates `playwright.config.ts` and auth fixtures
 
 **Usage:**
+
 ```bash
 python scripts/e2e_test_scaffolder.py <app-dir> [options]
 
@@ -93,6 +99,7 @@ Options:
 ### testing_strategies.md (650 lines)
 
 Comprehensive testing strategy guide covering:
+
 - Test pyramid and distribution (70% unit, 20% integration, 10% E2E)
 - Coverage targets by project type
 - Testing types (unit, integration, E2E, visual, accessibility)
@@ -102,6 +109,7 @@ Comprehensive testing strategy guide covering:
 ### test_automation_patterns.md (1010 lines)
 
 React/Next.js test automation patterns:
+
 - Page Object Model implementation for Playwright
 - Test data factories and builder patterns
 - Fixture management (Playwright and Jest)
@@ -113,6 +121,7 @@ React/Next.js test automation patterns:
 ### qa_best_practices.md (965 lines)
 
 Quality assurance best practices:
+
 - Writing testable React code
 - Test naming conventions (Describe-It pattern)
 - Arrange-Act-Assert structure
@@ -149,19 +158,19 @@ Quality assurance best practices:
 
 ## Test Pyramid Targets
 
-| Test Type | Ratio | Focus |
-|-----------|-------|-------|
-| Unit | 70% | Individual functions, utilities, hooks |
-| Integration | 20% | Component interactions, API calls, state |
-| E2E | 10% | Critical user journeys, happy paths |
+| Test Type   | Ratio | Focus                                    |
+| ----------- | ----- | ---------------------------------------- |
+| Unit        | 70%   | Individual functions, utilities, hooks   |
+| Integration | 20%   | Component interactions, API calls, state |
+| E2E         | 10%   | Critical user journeys, happy paths      |
 
 ## Coverage Targets
 
 | Project Type | Line | Branch | Function |
-|--------------|------|--------|----------|
-| Startup/MVP | 60% | 50% | 70% |
-| Production | 80% | 70% | 85% |
-| Enterprise | 90% | 85% | 95% |
+| ------------ | ---- | ------ | -------- |
+| Startup/MVP  | 60%  | 50%    | 70%      |
+| Production   | 80%  | 70%    | 85%      |
+| Enterprise   | 90%  | 85%    | 95%      |
 
 ## CI/CD Integration
 

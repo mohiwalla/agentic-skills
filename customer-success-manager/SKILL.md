@@ -96,6 +96,7 @@ python scripts/expansion_opportunity_scorer.py customer_portfolio.json --format 
 ```
 
 **Error handling:** If a script exits with an error, check that:
+
 - The input JSON matches the required schema for that script (see Input Requirements above)
 - All required fields are present and correctly typed
 - Python 3.7+ is being used (`python --version`)
@@ -118,11 +119,13 @@ python scripts/expansion_opportunity_scorer.py customer_portfolio.json --format 
 | Relationship | 25% | Executive sponsor engagement, multi-threading depth, renewal sentiment |
 
 **Classification:**
+
 - Green (75-100): Healthy -- customer achieving value
 - Yellow (50-74): Needs attention -- monitor closely
 - Red (0-49): At risk -- immediate intervention required
 
 **Usage:**
+
 ```bash
 python scripts/health_score_calculator.py customer_data.json
 python scripts/health_score_calculator.py customer_data.json --format json
@@ -142,12 +145,14 @@ python scripts/health_score_calculator.py customer_data.json --format json
 | Commercial Factors | 10% | Contract type, pricing complaints, budget cuts |
 
 **Risk Tiers:**
+
 - Critical (80-100): Immediate executive escalation
 - High (60-79): Urgent CSM intervention
 - Medium (40-59): Proactive outreach
 - Low (0-39): Standard monitoring
 
 **Usage:**
+
 ```bash
 python scripts/churn_risk_analyzer.py customer_data.json
 python scripts/churn_risk_analyzer.py customer_data.json --format json
@@ -158,11 +163,13 @@ python scripts/churn_risk_analyzer.py customer_data.json --format json
 **Purpose:** Identify upsell, cross-sell, and expansion opportunities with revenue estimation and priority ranking.
 
 **Expansion Types:**
+
 - **Upsell**: Upgrade to higher tier or more of existing product
 - **Cross-sell**: Add new product modules
 - **Expansion**: Additional seats or departments
 
 **Usage:**
+
 ```bash
 python scripts/expansion_opportunity_scorer.py customer_data.json
 python scripts/expansion_opportunity_scorer.py customer_data.json --format json
@@ -172,22 +179,22 @@ python scripts/expansion_opportunity_scorer.py customer_data.json --format json
 
 ## Reference Guides
 
-| Reference | Description |
-|-----------|-------------|
+| Reference                                | Description                                                                                            |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `references/health-scoring-framework.md` | Complete health scoring methodology, dimension definitions, weighting rationale, threshold calibration |
-| `references/cs-playbooks.md` | Intervention playbooks for each risk tier, onboarding, renewal, expansion, and escalation procedures |
-| `references/cs-metrics-benchmarks.md` | Industry benchmarks for NRR, GRR, churn rates, health scores, expansion rates by segment and industry |
+| `references/cs-playbooks.md`             | Intervention playbooks for each risk tier, onboarding, renewal, expansion, and escalation procedures   |
+| `references/cs-metrics-benchmarks.md`    | Industry benchmarks for NRR, GRR, churn rates, health scores, expansion rates by segment and industry  |
 
 ---
 
 ## Templates
 
-| Template | Purpose |
-|----------|---------|
-| `assets/qbr_template.md` | Quarterly Business Review presentation structure |
-| `assets/success_plan_template.md` | Customer success plan with goals, milestones, and metrics |
-| `assets/onboarding_checklist_template.md` | 90-day onboarding checklist with phase gates |
-| `assets/executive_business_review_template.md` | Executive stakeholder review for strategic accounts |
+| Template                                       | Purpose                                                   |
+| ---------------------------------------------- | --------------------------------------------------------- |
+| `assets/qbr_template.md`                       | Quarterly Business Review presentation structure          |
+| `assets/success_plan_template.md`              | Customer success plan with goals, milestones, and metrics |
+| `assets/onboarding_checklist_template.md`      | 90-day onboarding checklist with phase gates              |
+| `assets/executive_business_review_template.md` | Executive stakeholder review for strategic accounts       |
 
 ---
 

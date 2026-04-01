@@ -2,11 +2,11 @@
 
 ## Approaches
 
-| Strategy | When to use | Tradeoff |
-|----------|-------------|----------|
-| Single root changelog | Product-wide releases, small teams | Simple but loses package-level detail |
-| Per-package changelogs | Independent versioning, large teams | Clear ownership but harder to see full picture |
-| Hybrid model | Root summary + package-specific details | Best of both, more maintenance |
+| Strategy               | When to use                             | Tradeoff                                       |
+| ---------------------- | --------------------------------------- | ---------------------------------------------- |
+| Single root changelog  | Product-wide releases, small teams      | Simple but loses package-level detail          |
+| Per-package changelogs | Independent versioning, large teams     | Clear ownership but harder to see full picture |
+| Hybrid model           | Root summary + package-specific details | Best of both, more maintenance                 |
 
 ## Commit Scoping Pattern
 
@@ -19,6 +19,7 @@ chore(infra): bump base Docker image
 ```
 
 **Rules:**
+
 - Scope must match a package/directory name exactly
 - Unscoped commits go to root changelog only
 - Multi-package changes get separate scoped commits (not one mega-commit)

@@ -21,12 +21,15 @@ If `marketing-context.md` exists, read it for audience personas and product posi
 ## How This Skill Works
 
 ### Mode 1: Diagnose — Why Isn't This Converting?
+
 Analyze a page, flow, or campaign through a behavioral science lens. Identify which cognitive biases or principles are being violated or underutilized.
 
 ### Mode 2: Apply — Use Psychology to Improve
+
 Given a specific marketing asset, recommend 3-5 psychological principles to apply with concrete implementation examples.
 
 ### Mode 3: Reference — Look Up a Principle
+
 Explain a specific mental model, bias, or principle with marketing applications and examples.
 
 ---
@@ -37,18 +40,19 @@ The full catalog lives in [references/mental-models-catalog.md](references/menta
 
 ### Categories at a Glance
 
-| Category | Count | Key Models | Marketing Application |
-|----------|-------|------------|----------------------|
-| **Foundational Thinking** | 14 | First Principles, Jobs to Be Done, Inversion, Pareto, Second-Order Thinking | Strategic decisions, positioning |
-| **Buyer Psychology** | 17 | Endowment Effect, Zero-Price Effect, Paradox of Choice, Social Proof | Conversion optimization, pricing |
-| **Persuasion & Influence** | 13 | Reciprocity, Scarcity, Loss Aversion, Anchoring, Decoy Effect | Copy, CTAs, offers |
-| **Pricing Psychology** | 5 | Charm Pricing, Rule of 100, Good-Better-Best | Pricing pages, discount framing |
-| **Design & Delivery** | 10 | AIDA, Hick's Law, Nudge Theory, Fogg Model | UX, onboarding, form design |
-| **Growth & Scaling** | 8 | Network Effects, Flywheel, Switching Costs, Compounding | Growth strategy, retention |
+| Category                   | Count | Key Models                                                                  | Marketing Application            |
+| -------------------------- | ----- | --------------------------------------------------------------------------- | -------------------------------- |
+| **Foundational Thinking**  | 14    | First Principles, Jobs to Be Done, Inversion, Pareto, Second-Order Thinking | Strategic decisions, positioning |
+| **Buyer Psychology**       | 17    | Endowment Effect, Zero-Price Effect, Paradox of Choice, Social Proof        | Conversion optimization, pricing |
+| **Persuasion & Influence** | 13    | Reciprocity, Scarcity, Loss Aversion, Anchoring, Decoy Effect               | Copy, CTAs, offers               |
+| **Pricing Psychology**     | 5     | Charm Pricing, Rule of 100, Good-Better-Best                                | Pricing pages, discount framing  |
+| **Design & Delivery**      | 10    | AIDA, Hick's Law, Nudge Theory, Fogg Model                                  | UX, onboarding, form design      |
+| **Growth & Scaling**       | 8     | Network Effects, Flywheel, Switching Costs, Compounding                     | Growth strategy, retention       |
 
 ### Most-Used Models (start here)
 
 **For conversion optimization:**
+
 - **Loss Aversion** — People feel losses 2x more than gains. Frame benefits as what they'll miss.
 - **Anchoring** — First number seen sets expectations. Show higher price first, then your price.
 - **Social Proof** — People follow others. Show customer count, testimonials, logos.
@@ -56,11 +60,13 @@ The full catalog lives in [references/mental-models-catalog.md](references/menta
 - **Paradox of Choice** — Too many options = no decision. Limit to 3 tiers.
 
 **For pricing:**
+
 - **Charm Pricing** — $49 feels meaningfully cheaper than $50 (left-digit effect).
 - **Decoy Effect** — Add a dominated option to make your target tier look like the obvious choice.
 - **Rule of 100** — Under $100: show % discount. Over $100: show $ discount.
 
 **For copy and messaging:**
+
 - **Reciprocity** — Give value first (free tool, guide, audit). People feel compelled to reciprocate.
 - **Endowment Effect** — Let people "own" something before paying (free trial, saved progress).
 - **Framing** — Same fact, different frame. "95% uptime" vs "down 18 days/year." Choose wisely.
@@ -69,15 +75,15 @@ The full catalog lives in [references/mental-models-catalog.md](references/menta
 
 ## Quick Reference
 
-| Situation | Models to Apply |
-|-----------|----------------|
-| Landing page not converting | Loss Aversion, Social Proof, Anchoring, Hick's Law |
-| Pricing page optimization | Charm Pricing, Decoy Effect, Good-Better-Best, Anchoring |
-| Email sequence engagement | Reciprocity, Zeigarnik Effect, Goal-Gradient, Commitment |
-| Reducing churn | Endowment Effect, Sunk Cost, Switching Costs, Status-Quo Bias |
-| Onboarding activation | IKEA Effect, Goal-Gradient, Fogg Model, Default Effect |
-| Ad creative improvement | Mere Exposure, Pratfall Effect, Contrast Effect, Framing |
-| Referral program design | Reciprocity, Social Proof, Network Effects, Unity Principle |
+| Situation                   | Models to Apply                                               |
+| --------------------------- | ------------------------------------------------------------- |
+| Landing page not converting | Loss Aversion, Social Proof, Anchoring, Hick's Law            |
+| Pricing page optimization   | Charm Pricing, Decoy Effect, Good-Better-Best, Anchoring      |
+| Email sequence engagement   | Reciprocity, Zeigarnik Effect, Goal-Gradient, Commitment      |
+| Reducing churn              | Endowment Effect, Sunk Cost, Switching Costs, Status-Quo Bias |
+| Onboarding activation       | IKEA Effect, Goal-Gradient, Fogg Model, Default Effect        |
+| Ad creative improvement     | Mere Exposure, Pratfall Effect, Contrast Effect, Framing      |
+| Referral program design     | Reciprocity, Social Proof, Network Effects, Unity Principle   |
 
 ## Task-Specific Questions
 
@@ -99,17 +105,18 @@ When applying psychology to a specific challenge, ask:
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|---------------------|------------|
-| "Why isn't this converting?" | Behavioral diagnosis: which principles are violated + specific fixes |
-| "Apply psychology to this page" | 3-5 applicable principles with concrete implementation |
-| "Explain [principle]" | Definition + marketing applications + before/after examples |
-| "Pricing psychology audit" | Pricing page analysis with principle-by-principle recommendations |
-| "Psychology playbook for [goal]" | Curated set of 5-7 models specific to the goal |
+| When you ask for...              | You get...                                                           |
+| -------------------------------- | -------------------------------------------------------------------- |
+| "Why isn't this converting?"     | Behavioral diagnosis: which principles are violated + specific fixes |
+| "Apply psychology to this page"  | 3-5 applicable principles with concrete implementation               |
+| "Explain [principle]"            | Definition + marketing applications + before/after examples          |
+| "Pricing psychology audit"       | Pricing page analysis with principle-by-principle recommendations    |
+| "Psychology playbook for [goal]" | Curated set of 5-7 models specific to the goal                       |
 
 ## Communication
 
 All output passes quality verification:
+
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Output format: Bottom Line → What (with confidence) → Why → How to Act
 - Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.

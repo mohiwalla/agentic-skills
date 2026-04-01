@@ -30,12 +30,14 @@ Each framework works best in specific situations — the mismatch between framew
 ### How to Write Each Part
 
 **Observation** — This must be:
+
 - Specific (not "I see you're in the software industry")
 - Recent (not something from 2 years ago)
 - Relevant to the problem you're about to raise
 - Non-creepy (public info: LinkedIn, press, job postings, tech stack signals)
 
 Good observations:
+
 - "Saw the announcement that you're opening a Berlin office."
 - "Noticed you're hiring 4 SDRs simultaneously — unusual to scale the team that fast."
 - "Your last three blog posts have all been about compliance — guessing that's a pressure point right now."
@@ -93,6 +95,7 @@ Good observations:
 The question works because it's specific enough that only a relevant person can answer it, and answering it in their head pulls them into the email.
 
 **Value** — Give something before asking for anything. This is the differentiator. Options:
+
 - A useful insight from your experience working in their space
 - A specific data point or benchmark they probably don't have
 - A framework or reframe that's genuinely useful
@@ -163,17 +166,18 @@ Pattern: "That usually means [specific operational challenge] that most [their r
 
 ## Choosing the Right Framework
 
-| Situation | Use |
-|-----------|-----|
-| Strong trigger event (funding, hiring, news, tech change) | TIA |
-| Good persona understanding, no specific trigger | QVA |
-| Mix of trigger + problem knowledge | OPPA |
-| Referral or warm intro context | OPPA with referral opener |
-| Re-engaging a past prospect | QVA with callback to previous context |
+| Situation                                                 | Use                                   |
+| --------------------------------------------------------- | ------------------------------------- |
+| Strong trigger event (funding, hiring, news, tech change) | TIA                                   |
+| Good persona understanding, no specific trigger           | QVA                                   |
+| Mix of trigger + problem knowledge                        | OPPA                                  |
+| Referral or warm intro context                            | OPPA with referral opener             |
+| Re-engaging a past prospect                               | QVA with callback to previous context |
 
 ## Combining Frameworks
 
 These frameworks aren't rigid. In practice, the best emails blend elements:
+
 - TIA trigger + OPPA proof
 - QVA question + TIA timing
 - OPPA observation + QVA value
@@ -187,28 +191,37 @@ What you can't blend: two questions, two proof points, or two asks. One of each,
 Subject lines have their own logic — separate from the email body.
 
 ### The Blank Subject
+
 Two or three words, no capitalization, feels like an internal message.
+
 - `quick question`
 - `cold outreach`
 - `your q3 pipeline`
 
 ### The Named Trigger
+
 Specific enough to signal you did research, vague enough to create curiosity.
+
 - `your Series A`
 - `Berlin office`
 - `your ATS stack`
 
 ### The Shared Context
+
 Implies a pre-existing relationship or shared frame.
+
 - `re: EMEA expansion`
 - `following up on the hiring spike`
 
 ### The Named Person (Referral)
+
 Only use if the referral is real — never fake this.
+
 - `[Mutual Name] suggested I reach out`
 - `[Name] mentioned you're building out your SDR team`
 
 ### Never Use
+
 - `Quick question about your [product category] strategy!`
 - `Revolutionize your [function] with [product name]`
 - `[FIRST NAME], we have a special offer for you`

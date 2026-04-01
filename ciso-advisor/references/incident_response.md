@@ -8,14 +8,15 @@ This is the executive IR playbook — strategic decisions, communication, and le
 
 ### Severity Levels
 
-| Severity | Definition | Examples | Response Time | Escalation |
-|---|---|---|---|---|
-| SEV-1 (Critical) | Confirmed breach, data exfil, ransomware, production down | Active ransomware, confirmed data theft, complete service outage | Immediate (< 1 hour) | CEO, board within 24 hrs |
-| SEV-2 (High) | Suspected breach, significant security event, extended outage | Credential compromise suspected, DDoS, 4-hour+ outage | < 4 hours | CEO, legal within 48 hrs |
-| SEV-3 (Medium) | Security event with limited impact, short outage | Phishing success (contained), brief outage, single system compromise | < 24 hours | CISO-owned, weekly rollup |
-| SEV-4 (Low) | Minor security event, near-miss | Failed phishing attempt, minor policy violation | < 72 hours | Team-owned |
+| Severity         | Definition                                                    | Examples                                                             | Response Time        | Escalation                |
+| ---------------- | ------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------- | ------------------------- |
+| SEV-1 (Critical) | Confirmed breach, data exfil, ransomware, production down     | Active ransomware, confirmed data theft, complete service outage     | Immediate (< 1 hour) | CEO, board within 24 hrs  |
+| SEV-2 (High)     | Suspected breach, significant security event, extended outage | Credential compromise suspected, DDoS, 4-hour+ outage                | < 4 hours            | CEO, legal within 48 hrs  |
+| SEV-3 (Medium)   | Security event with limited impact, short outage              | Phishing success (contained), brief outage, single system compromise | < 24 hours           | CISO-owned, weekly rollup |
+| SEV-4 (Low)      | Minor security event, near-miss                               | Failed phishing attempt, minor policy violation                      | < 72 hours           | Team-owned                |
 
 ### Breach vs. Security Incident
+
 **Security incident:** Unplanned event affecting security — may or may not involve data.
 **Data breach:** Confirmed unauthorized access to personal data — triggers regulatory notification obligations.
 
@@ -28,6 +29,7 @@ This is the executive IR playbook — strategic decisions, communication, and le
 ### Phase 1: Detection & Initial Assessment (0–2 hours for SEV-1)
 
 **Immediate actions (CISO):**
+
 1. Receive alert from SOC/monitoring system or team member report
 2. Make initial severity classification — don't wait for perfect information
 3. Activate incident response team (IR lead, legal counsel, comms lead)
@@ -36,11 +38,13 @@ This is the executive IR playbook — strategic decisions, communication, and le
 6. Begin chain of custody documentation if forensics may be needed
 
 **Executive notification trigger (within 1 hour for SEV-1):**
+
 - Notify CEO: incident status, initial severity, IR team activated
 - Put legal counsel on notice — don't wait to determine if breach occurred
 - If public company: notify General Counsel immediately (potential disclosure obligations)
 
 **What you do NOT do in Phase 1:**
+
 - Do not notify customers yet (confirm scope first)
 - Do not delete or modify any logs or systems (evidence preservation)
 - Do not make public statements
@@ -49,17 +53,20 @@ This is the executive IR playbook — strategic decisions, communication, and le
 ### Phase 2: Containment & Assessment (2–24 hours for SEV-1)
 
 **Executive decisions required:**
+
 - **Scope authorization:** Approve IR firm engagement (have a retainer in place)
 - **System isolation:** Authorize taking systems offline if needed (revenue vs. evidence tradeoff)
 - **Evidence preservation:** Authorize forensic image capture
 - **Communication timing:** When to notify customers/partners (legal drives this)
 
 **Board notification (for SEV-1/2):**
+
 - Notify board chair / audit committee chair within 24 hours for SEV-1
 - Board notification format: what we know, what we don't know, what we're doing, next update time
 - Do not speculate on financial impact in board notification until known
 
 **Legal assessment (with counsel):**
+
 - Determine if personal data was involved
 - Identify applicable notification laws (GDPR 72-hour, state breach notification, HIPAA 60-day)
 - Assess litigation risk (document with privilege from this point)
@@ -82,6 +89,7 @@ This is the executive IR playbook — strategic decisions, communication, and le
 ### Phase 4: Recovery (Ongoing)
 
 **Executive decisions:**
+
 - Approve recovery timeline and communicate to customers
 - Determine customer compensation or remediation (if applicable)
 - Authorize security improvements identified during incident
@@ -100,6 +108,7 @@ Covered in Section 5 of this document.
 **Subject:** [CONFIDENTIAL] Security Incident — Immediate Notification
 
 ---
+
 We have identified a security incident as of [DATE/TIME].
 
 **Current status:** [Brief factual description — what we know happened]
@@ -107,9 +116,11 @@ We have identified a security incident as of [DATE/TIME].
 **Severity assessment:** SEV-[1/2/3]
 
 **What we do not yet know:**
+
 - [List unknowns — scope of impact, whether data was accessed, root cause]
 
 **Actions taken so far:**
+
 - IR team activated at [time]
 - Legal counsel notified
 - [Specific containment actions if applicable]
@@ -125,6 +136,7 @@ We have identified a security incident as of [DATE/TIME].
 **Subject:** Important Security Notice — [Company Name]
 
 ---
+
 We are writing to inform you of a security incident that may have affected your data.
 
 **What happened:**
@@ -139,6 +151,7 @@ Your [specific data types] [were / were not] affected.
 We have [list specific actions: engaged leading cybersecurity firm, notified relevant authorities, implemented additional security controls, etc.].
 
 **What you can do:**
+
 - [Specific actionable steps for customers]
 - Monitor your accounts for unusual activity
 - [If passwords: reset your password at X]
@@ -161,6 +174,7 @@ We take the security of your data extremely seriously and deeply regret this inc
 **Subject:** Personal Data Breach Notification — [Company Name] — [Reference Number if applicable]
 
 ---
+
 **1. Nature of the breach:**
 [Description of what occurred, including how it happened]
 
@@ -188,6 +202,7 @@ We take the security of your data extremely seriously and deeply regret this inc
 "[Company Name] is aware of a security incident that we identified on [date]. We immediately activated our incident response team and launched a comprehensive investigation. We have notified affected customers and relevant regulatory authorities as required. The security and privacy of our customers' data is our top priority, and we are committed to transparency as our investigation proceeds. We will provide updates at [URL]. We cannot provide additional details at this time to protect the integrity of our investigation."
 
 **What not to say to media:**
+
 - Number of affected users (until confirmed and disclosed to customers first)
 - Cause of the incident (until investigation is complete)
 - Financial impact (speculation creates liability)
@@ -198,9 +213,11 @@ We take the security of your data extremely seriously and deeply regret this inc
 ## 4. Tabletop Exercise Design
 
 ### Purpose
+
 Test the decision-making and communication processes — not the technical response. The goal is to surface gaps in escalation, communication, and judgment before a real incident.
 
 ### Recommended Frequency
+
 - Annual full tabletop (2–3 hours, full leadership team)
 - Semi-annual mini-tabletop (45 minutes, CISO + legal + CEO)
 - Quarterly technical team exercise (separate from executive tabletop)
@@ -208,9 +225,11 @@ Test the decision-making and communication processes — not the technical respo
 ### Sample Tabletop Scenario: Ransomware
 
 **Setup (read to participants):**
+
 > It's 6:47 AM on a Monday. Your DevOps engineer receives automated alerts that production databases are inaccessible. By 7:15 AM, they discover a ransomware note demanding $500,000 in Bitcoin. Several files are already encrypted. Your last verified backup was 48 hours ago. Your business is B2B SaaS serving 200 enterprise customers. You process customer financial data.
 
 **Discussion questions (timed, 10 minutes each):**
+
 1. First 30 minutes — who do you call, in what order? Who decides whether to take production offline?
 2. Legal assessment — what regulatory obligations have been triggered? What's the timeline?
 3. Hour 4 — initial forensics suggests data may have been exfiltrated before encryption. How does your response change?
@@ -220,6 +239,7 @@ Test the decision-making and communication processes — not the technical respo
 7. Day 5 — what's your board communication strategy?
 
 **Post-discussion captures:**
+
 - What decisions were unclear (ownership ambiguous)?
 - What information did you need but didn't have?
 - What processes did not exist that should?
@@ -228,9 +248,11 @@ Test the decision-making and communication processes — not the technical respo
 ### Sample Tabletop Scenario: Insider Threat
 
 **Setup:**
+
 > HR notifies you that an engineer was terminated this morning for performance reasons. 24 hours later, your SIEM generates an alert that this former employee's credentials accessed your customer database 30 minutes before their offboarding was complete. They downloaded 50,000 customer records. You don't know if they shared or sold the data.
 
 **Key decision points:**
+
 - When does this become a breach vs. a security incident?
 - Do you notify customers? When?
 - What are your legal options against the former employee?
@@ -241,14 +263,17 @@ Test the decision-making and communication processes — not the technical respo
 ## 5. Post-Incident Review Framework
 
 ### Timeline
+
 Conduct within 30 days of incident resolution. Do not delay — memory fades and teams move on.
 
 ### Blameless Post-Mortem Principles
+
 The purpose is to improve systems and processes, not punish individuals. A blame culture means the next incident gets hidden longer.
 
 ### Post-Incident Review Structure
 
 **1. Incident Timeline (factual, no editorializing)**
+
 - Hour-by-hour reconstruction from detection to resolution
 - Source: logs, Slack messages, incident ticket, war room notes
 
@@ -256,6 +281,7 @@ The purpose is to improve systems and processes, not punish individuals. A blame
 Use the "5 Whys" technique — keep asking why until you reach a systemic root cause, not a human error.
 
 Example:
+
 - Why was there a breach? → Attacker compromised an admin account
 - Why was the admin account compromised? → Credentials stolen via phishing
 - Why did phishing succeed? → User wasn't trained on this attack type
@@ -264,12 +290,14 @@ Example:
 - **Root cause: No assigned ownership for security training maintenance**
 
 **3. What Went Well**
+
 - Detection mechanisms that worked
 - Response actions that contained damage
 - Communication that was effective
 - Teams that exceeded expectations
 
 **4. What Needs Improvement**
+
 - Detection gaps (how could we have found this faster?)
 - Response gaps (what slowed us down?)
 - Communication gaps (who didn't know what, when?)
@@ -281,6 +309,7 @@ Example:
 | [Specific improvement] | [Name] | [Date] | [P0/P1/P2] |
 
 **6. Metrics Review**
+
 - MTTD (Mean Time to Detect): [actual] vs. [target]
 - MTTR (Mean Time to Respond): [actual] vs. [target]
 - Customer impact: [affected customers, duration]
@@ -294,24 +323,28 @@ Example:
 ### Cyber Insurance
 
 **What to have before an incident:**
+
 - Cyber liability policy with minimum $2M coverage (Series A); $5M+ (Series B+)
 - Coverage should include: first-party loss, third-party liability, ransomware, business interruption, regulatory defense
 - Pre-approved IR firms on your policy (using an approved firm can expedite claims)
 - Notification requirements — know your insurer's required timeline (typically 48–72 hours)
 
 **Policy exclusions to watch:**
+
 - "War exclusion" — increasingly contested for nation-state attacks (NotPetya precedent)
 - "Systemic risk" — some policies exclude widespread events affecting many insureds simultaneously
 - "Prior acts" — incidents that began before policy inception
 - "Failure to maintain reasonable security" — don't give your insurer a reason to deny
 
 **Premium factors:**
+
 - Revenue and data volume
 - Security control maturity (MFA, EDR, backup, patch management)
 - Industry (healthcare, financial services = higher premium)
 - Claims history
 
 **Ballpark premiums:**
+
 - Seed/Series A ($1–10M ARR): $8,000–$25,000/yr
 - Series B ($10–50M ARR): $25,000–$75,000/yr
 - Series C+ ($50M+ ARR): $75,000–$250,000/yr
@@ -319,6 +352,7 @@ Example:
 ### Legal Counsel
 
 **Have on retainer before an incident:**
+
 - Cybersecurity/privacy attorney — breach notification, regulatory response
 - General counsel — contracts, employment law (insider threats), litigation
 - Consider: a law firm with data breach notification experience by jurisdiction
@@ -326,6 +360,7 @@ Example:
 **Attorney-client privilege:** Once legal counsel is involved in an incident, communications and work product may be privileged. Engage counsel early to maximize privilege protection.
 
 **Key legal decisions during an incident:**
+
 - When does notification obligation clock start? (Legal determines this)
 - Is this a breach or an incident? (Legal + CISO together)
 - Who are the affected data subjects? (Legal + technical together)
@@ -337,11 +372,13 @@ Example:
 **FBI Internet Crime Complaint Center (IC3):** File a complaint for ransomware or significant cybercrime. Does not obligate you to cooperate but creates a record.
 
 **Pros of law enforcement involvement:**
+
 - Access to threat intelligence they may have
 - May recover funds in some cases (rare)
 - Demonstrates good-faith response to regulators
 
 **Cons of law enforcement involvement:**
+
 - Loss of control over investigation timeline
 - Potential for public disclosure if case pursued
 - Slows ransom payment decisions (if considering)

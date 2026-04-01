@@ -6,22 +6,22 @@
 
 ```typescript
 // tests/api/users.test.ts
-import { describe, it, expect, beforeAll, afterAll } from 'vitest'
-import request from 'supertest'
-import { createServer } from '@/test/helpers/server'
-import { generateJWT, generateExpiredJWT } from '@/test/helpers/auth'
-import { createTestUser, cleanupTestUsers } from '@/test/helpers/db'
+import { describe, it, expect, beforeAll, afterAll } from "vitest"
+import request from "supertest"
+import { createServer } from "@/test/helpers/server"
+import { generateJWT, generateExpiredJWT } from "@/test/helpers/auth"
+import { createTestUser, cleanupTestUsers } from "@/test/helpers/db"
 
 const app = createServer()
 
-describe('GET /api/users/:id', () => {
+describe("GET /api/users/:id", () => {
   let validToken: string
   let adminToken: string
   let testUserId: string
 
   beforeAll(async () => {
-    const user = await createTestUser({ role: 'user' })
-    const admin = await createTestUser({ role: 'admin' })
+    const user = await createTestUser({ role: "user" })
+    const admin = await createTestUser({ role: "admin" })
     testUserId = user.id
     validToken = generateJWT(user)
     adminToken = generateJWT(admin)
@@ -32,176 +32,178 @@ describe('GET /api/users/:id', () => {
   })
 
   // --- Auth tests ---
-  it('returns 401 with no auth header', async () => {
+  it("returns 401 with no auth header", async () => {
     const res = await request(app).get(`/api/users/${testUserId}`)
     expect(res.status).toBe(401)
-    expect(res.body).toHaveProperty('error')
+    expect(res.body).toHaveProperty("error")
   })
 
-  it('returns 401 with malformed token', async () => {
+  it("returns 401 with malformed token", async () => {
     const res = await request(app)
       .get(`/api/users/${testUserId}`)
-      .set('Authorization', 'Bearer not-a-real-jwt')
+      .set("Authorization", "Bearer not-a-real-jwt")
     expect(res.status).toBe(401)
   })
 
-  it('returns 401 with expired token', async () => {
+  it("returns 401 with expired token", async () => {
     const expiredToken = generateExpiredJWT({ id: testUserId })
     const res = await request(app)
       .get(`/api/users/${testUserId}`)
-      .set('Authorization', `Bearer ${expiredToken}`)
+      .set("Authorization", `Bearer ${expiredToken}`)
     expect(res.status).toBe(401)
     expect(res.body.error).toMatch(/expired/i)
   })
 
-  it('returns 403 when accessing another user\'s profile without admin', async () => {
-    const otherUser = await createTestUser({ role: 'user' })
+  it("returns 403 when accessing another user's profile without admin", async () => {
+    const otherUser = await createTestUser({ role: "user" })
     const otherToken = generateJWT(otherUser)
     const res = await request(app)
       .get(`/api/users/${testUserId}`)
-      .set('Authorization', `Bearer ${otherToken}`)
+      .set("Authorization", `Bearer ${otherToken}`)
     expect(res.status).toBe(403)
     await cleanupTestUsers([otherUser.id])
   })
 
-  it('returns 200 with valid token for own profile', async () => {
+  it("returns 200 with valid token for own profile", async () => {
     const res = await request(app)
       .get(`/api/users/${testUserId}`)
-      .set('Authorization', `Bearer ${validToken}`)
+      .set("Authorization", `Bearer ${validToken}`)
     expect(res.status).toBe(200)
     expect(res.body).toMatchObject({ id: testUserId })
-    expect(res.body).not.toHaveProperty('password')
-    expect(res.body).not.toHaveProperty('hashedPassword')
+    expect(res.body).not.toHaveProperty("password")
+    expect(res.body).not.toHaveProperty("hashedPassword")
   })
 
-  it('returns 404 for non-existent user', async () => {
+  it("returns 404 for non-existent user", async () => {
     const res = await request(app)
-      .get('/api/users/00000000-0000-0000-0000-000000000000')
-      .set('Authorization', `Bearer ${adminToken}`)
+      .get("/api/users/00000000-0000-0000-0000-000000000000")
+      .set("Authorization", `Bearer ${adminToken}`)
     expect(res.status).toBe(404)
   })
 
   // --- Input validation ---
-  it('returns 400 for invalid UUID format', async () => {
+  it("returns 400 for invalid UUID format", async () => {
     const res = await request(app)
-      .get('/api/users/not-a-uuid')
-      .set('Authorization', `Bearer ${adminToken}`)
+      .get("/api/users/not-a-uuid")
+      .set("Authorization", `Bearer ${adminToken}`)
     expect(res.status).toBe(400)
   })
 })
 
-describe('POST /api/users', () => {
+describe("POST /api/users", () => {
   let adminToken: string
 
   beforeAll(async () => {
-    const admin = await createTestUser({ role: 'admin' })
+    const admin = await createTestUser({ role: "admin" })
     adminToken = generateJWT(admin)
   })
 
   afterAll(cleanupTestUsers)
 
   // --- Input validation ---
-  it('returns 422 when body is empty', async () => {
+  it("returns 422 when body is empty", async () => {
     const res = await request(app)
-      .post('/api/users')
-      .set('Authorization', `Bearer ${adminToken}`)
+      .post("/api/users")
+      .set("Authorization", `Bearer ${adminToken}`)
       .send({})
     expect(res.status).toBe(422)
     expect(res.body.errors).toBeDefined()
   })
 
-  it('returns 422 when email is missing', async () => {
+  it("returns 422 when email is missing", async () => {
     const res = await request(app)
-      .post('/api/users')
-      .set('Authorization', `Bearer ${adminToken}`)
-      .send({ name: "test-user", role: 'user' })
+      .post("/api/users")
+      .set("Authorization", `Bearer ${adminToken}`)
+      .send({ name: "test-user", role: "user" })
     expect(res.status).toBe(422)
     expect(res.body.errors).toContainEqual(
-      expect.objectContaining({ field: 'email' })
+      expect.objectContaining({ field: "email" }),
     )
   })
 
-  it('returns 422 for invalid email format', async () => {
+  it("returns 422 for invalid email format", async () => {
     const res = await request(app)
-      .post('/api/users')
-      .set('Authorization', `Bearer ${adminToken}`)
-      .send({ email: 'not-an-email', name: "test", role: 'user' })
+      .post("/api/users")
+      .set("Authorization", `Bearer ${adminToken}`)
+      .send({ email: "not-an-email", name: "test", role: "user" })
     expect(res.status).toBe(422)
   })
 
-  it('returns 422 for SQL injection attempt in email field', async () => {
+  it("returns 422 for SQL injection attempt in email field", async () => {
     const res = await request(app)
-      .post('/api/users')
-      .set('Authorization', `Bearer ${adminToken}`)
-      .send({ email: "' OR '1'='1", name: "hacker", role: 'user' })
+      .post("/api/users")
+      .set("Authorization", `Bearer ${adminToken}`)
+      .send({ email: "' OR '1'='1", name: "hacker", role: "user" })
     expect(res.status).toBe(422)
   })
 
-  it('returns 409 when email already exists', async () => {
-    const existing = await createTestUser({ role: 'user' })
+  it("returns 409 when email already exists", async () => {
+    const existing = await createTestUser({ role: "user" })
     const res = await request(app)
-      .post('/api/users')
-      .set('Authorization', `Bearer ${adminToken}`)
-      .send({ email: existing.email, name: "duplicate", role: 'user' })
+      .post("/api/users")
+      .set("Authorization", `Bearer ${adminToken}`)
+      .send({ email: existing.email, name: "duplicate", role: "user" })
     expect(res.status).toBe(409)
   })
 
-  it('creates user successfully with valid data', async () => {
+  it("creates user successfully with valid data", async () => {
     const res = await request(app)
-      .post('/api/users')
-      .set('Authorization', `Bearer ${adminToken}`)
-      .send({ email: 'newuser@example.com', name: "new-user", role: 'user' })
+      .post("/api/users")
+      .set("Authorization", `Bearer ${adminToken}`)
+      .send({ email: "newuser@example.com", name: "new-user", role: "user" })
     expect(res.status).toBe(201)
-    expect(res.body).toHaveProperty('id')
-    expect(res.body.email).toBe('newuser@example.com')
-    expect(res.body).not.toHaveProperty('password')
+    expect(res.body).toHaveProperty("id")
+    expect(res.body.email).toBe("newuser@example.com")
+    expect(res.body).not.toHaveProperty("password")
   })
 })
 
-describe('GET /api/users (pagination)', () => {
+describe("GET /api/users (pagination)", () => {
   let adminToken: string
 
   beforeAll(async () => {
-    const admin = await createTestUser({ role: 'admin' })
+    const admin = await createTestUser({ role: "admin" })
     adminToken = generateJWT(admin)
     // Create 15 test users for pagination
-    await Promise.all(Array.from({ length: 15 }, (_, i) =>
-      createTestUser({ email: `pagtest${i}@example.com` })
-    ))
+    await Promise.all(
+      Array.from({ length: 15 }, (_, i) =>
+        createTestUser({ email: `pagtest${i}@example.com` }),
+      ),
+    )
   })
 
   afterAll(cleanupTestUsers)
 
-  it('returns first page with default limit', async () => {
+  it("returns first page with default limit", async () => {
     const res = await request(app)
-      .get('/api/users')
-      .set('Authorization', `Bearer ${adminToken}`)
+      .get("/api/users")
+      .set("Authorization", `Bearer ${adminToken}`)
     expect(res.status).toBe(200)
     expect(res.body.data).toBeInstanceOf(Array)
-    expect(res.body).toHaveProperty('total')
-    expect(res.body).toHaveProperty('page')
-    expect(res.body).toHaveProperty('pageSize')
+    expect(res.body).toHaveProperty("total")
+    expect(res.body).toHaveProperty("page")
+    expect(res.body).toHaveProperty("pageSize")
   })
 
-  it('returns empty array for page beyond total', async () => {
+  it("returns empty array for page beyond total", async () => {
     const res = await request(app)
-      .get('/api/users?page=9999')
-      .set('Authorization', `Bearer ${adminToken}`)
+      .get("/api/users?page=9999")
+      .set("Authorization", `Bearer ${adminToken}`)
     expect(res.status).toBe(200)
     expect(res.body.data).toHaveLength(0)
   })
 
-  it('returns 400 for negative page number', async () => {
+  it("returns 400 for negative page number", async () => {
     const res = await request(app)
-      .get('/api/users?page=-1')
-      .set('Authorization', `Bearer ${adminToken}`)
+      .get("/api/users?page=-1")
+      .set("Authorization", `Bearer ${adminToken}`)
     expect(res.status).toBe(400)
   })
 
-  it('caps pageSize at maximum allowed value', async () => {
+  it("caps pageSize at maximum allowed value", async () => {
     const res = await request(app)
-      .get('/api/users?pageSize=9999')
-      .set('Authorization', `Bearer ${adminToken}`)
+      .get("/api/users?pageSize=9999")
+      .set("Authorization", `Bearer ${adminToken}`)
     expect(res.status).toBe(200)
     expect(res.body.data.length).toBeLessThanOrEqual(100)
   })
@@ -214,85 +216,100 @@ describe('GET /api/users (pagination)', () => {
 
 ```typescript
 // tests/api/uploads.test.ts
-import { describe, it, expect } from 'vitest'
-import request from 'supertest'
-import path from 'path'
-import fs from 'fs'
-import { createServer } from '@/test/helpers/server'
-import { generateJWT } from '@/test/helpers/auth'
-import { createTestUser } from '@/test/helpers/db'
+import { describe, it, expect } from "vitest"
+import request from "supertest"
+import path from "path"
+import fs from "fs"
+import { createServer } from "@/test/helpers/server"
+import { generateJWT } from "@/test/helpers/auth"
+import { createTestUser } from "@/test/helpers/db"
 
 const app = createServer()
 
-describe('POST /api/upload', () => {
+describe("POST /api/upload", () => {
   let validToken: string
 
   beforeAll(async () => {
-    const user = await createTestUser({ role: 'user' })
+    const user = await createTestUser({ role: "user" })
     validToken = generateJWT(user)
   })
 
-  it('returns 401 without authentication', async () => {
+  it("returns 401 without authentication", async () => {
     const res = await request(app)
-      .post('/api/upload')
-      .attach('file', Buffer.from('test'), 'test.pdf')
+      .post("/api/upload")
+      .attach("file", Buffer.from("test"), "test.pdf")
     expect(res.status).toBe(401)
   })
 
-  it('returns 400 when no file attached', async () => {
+  it("returns 400 when no file attached", async () => {
     const res = await request(app)
-      .post('/api/upload')
-      .set('Authorization', `Bearer ${validToken}`)
+      .post("/api/upload")
+      .set("Authorization", `Bearer ${validToken}`)
     expect(res.status).toBe(400)
     expect(res.body.error).toMatch(/file/i)
   })
 
-  it('returns 400 for unsupported file type (exe)', async () => {
+  it("returns 400 for unsupported file type (exe)", async () => {
     const res = await request(app)
-      .post('/api/upload')
-      .set('Authorization', `Bearer ${validToken}`)
-      .attach('file', Buffer.from('MZ fake exe'), { filename: "virusexe", contentType: 'application/octet-stream' })
+      .post("/api/upload")
+      .set("Authorization", `Bearer ${validToken}`)
+      .attach("file", Buffer.from("MZ fake exe"), {
+        filename: "virusexe",
+        contentType: "application/octet-stream",
+      })
     expect(res.status).toBe(400)
     expect(res.body.error).toMatch(/type|format|allowed/i)
   })
 
-  it('returns 413 for oversized file (>10MB)', async () => {
+  it("returns 413 for oversized file (>10MB)", async () => {
     const largeBuf = Buffer.alloc(11 * 1024 * 1024) // 11MB
     const res = await request(app)
-      .post('/api/upload')
-      .set('Authorization', `Bearer ${validToken}`)
-      .attach('file', largeBuf, { filename: "largepdf", contentType: 'application/pdf' })
+      .post("/api/upload")
+      .set("Authorization", `Bearer ${validToken}`)
+      .attach("file", largeBuf, {
+        filename: "largepdf",
+        contentType: "application/pdf",
+      })
     expect(res.status).toBe(413)
   })
 
-  it('returns 400 for empty file (0 bytes)', async () => {
+  it("returns 400 for empty file (0 bytes)", async () => {
     const res = await request(app)
-      .post('/api/upload')
-      .set('Authorization', `Bearer ${validToken}`)
-      .attach('file', Buffer.alloc(0), { filename: "emptypdf", contentType: 'application/pdf' })
+      .post("/api/upload")
+      .set("Authorization", `Bearer ${validToken}`)
+      .attach("file", Buffer.alloc(0), {
+        filename: "emptypdf",
+        contentType: "application/pdf",
+      })
     expect(res.status).toBe(400)
   })
 
-  it('rejects MIME type spoofing (pdf extension but exe content)', async () => {
+  it("rejects MIME type spoofing (pdf extension but exe content)", async () => {
     // Real malicious file: exe magic bytes but pdf extension
-    const fakeExe = Buffer.from('4D5A9000', 'hex') // MZ header
+    const fakeExe = Buffer.from("4D5A9000", "hex") // MZ header
     const res = await request(app)
-      .post('/api/upload')
-      .set('Authorization', `Bearer ${validToken}`)
-      .attach('file', fakeExe, { filename: "documentpdf", contentType: 'application/pdf' })
+      .post("/api/upload")
+      .set("Authorization", `Bearer ${validToken}`)
+      .attach("file", fakeExe, {
+        filename: "documentpdf",
+        contentType: "application/pdf",
+      })
     // Should detect magic bytes mismatch
     expect([400, 415]).toContain(res.status)
   })
 
-  it('accepts valid PDF file', async () => {
-    const pdfHeader = Buffer.from('%PDF-1.4 test content')
+  it("accepts valid PDF file", async () => {
+    const pdfHeader = Buffer.from("%PDF-1.4 test content")
     const res = await request(app)
-      .post('/api/upload')
-      .set('Authorization', `Bearer ${validToken}`)
-      .attach('file', pdfHeader, { filename: "validpdf", contentType: 'application/pdf' })
+      .post("/api/upload")
+      .set("Authorization", `Bearer ${validToken}`)
+      .attach("file", pdfHeader, {
+        filename: "validpdf",
+        contentType: "application/pdf",
+      })
     expect(res.status).toBe(200)
-    expect(res.body).toHaveProperty('url')
-    expect(res.body).toHaveProperty('id')
+    expect(res.body).toHaveProperty("url")
+    expect(res.body).toHaveProperty("id")
   })
 })
 ```

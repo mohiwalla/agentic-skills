@@ -19,19 +19,20 @@ Writes an explicit entry to auto-memory when something is important enough that 
 
 ## When to Use
 
-| Situation | Example |
-|-----------|---------|
-| Hard-won debugging insight | "CORS errors on /api/upload are caused by the CDN, not the backend" |
-| Project convention not in CLAUDE.md | "We use barrel exports in src/components/" |
-| Tool-specific gotcha | "Jest needs `--forceExit` flag or it hangs on DB tests" |
-| Architecture decision | "We chose Drizzle over Prisma for type-safe SQL" |
-| Preference you want Claude to learn | "Don't add comments explaining obvious code" |
+| Situation                           | Example                                                             |
+| ----------------------------------- | ------------------------------------------------------------------- |
+| Hard-won debugging insight          | "CORS errors on /api/upload are caused by the CDN, not the backend" |
+| Project convention not in CLAUDE.md | "We use barrel exports in src/components/"                          |
+| Tool-specific gotcha                | "Jest needs `--forceExit` flag or it hangs on DB tests"             |
+| Architecture decision               | "We chose Drizzle over Prisma for type-safe SQL"                    |
+| Preference you want Claude to learn | "Don't add comments explaining obvious code"                        |
 
 ## Workflow
 
 ### Step 1: Parse the knowledge
 
 Extract from the user's input:
+
 - **What**: The concrete fact or pattern
 - **Why it matters**: Context (if provided)
 - **Scope**: Project-specific or global?
@@ -44,6 +45,7 @@ grep -ni "<keywords>" "$MEMORY_DIR/MEMORY.md" 2>/dev/null
 ```
 
 If a similar entry exists:
+
 - Show it to the user
 - Ask: "Update the existing entry or add a new one?"
 

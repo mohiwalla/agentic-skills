@@ -26,7 +26,7 @@ Server Components render on the server and send HTML to the client. Use for data
 // app/products/page.tsx - Server Component (default)
 async function ProductsPage() {
   // This runs on the server - no client bundle impact
-  const products = await db.products.findMany();
+  const products = await db.products.findMany()
 
   return (
     <div className="grid grid-cols-3 gap-4">
@@ -34,37 +34,38 @@ async function ProductsPage() {
         <ProductCard key={product.id} product={product} />
       ))}
     </div>
-  );
+  )
 }
 ```
 
 ### Client Components
 
 Use `'use client'` only when you need:
+
 - Event handlers (onClick, onChange)
 - State (useState, useReducer)
 - Effects (useEffect)
 - Browser APIs (window, document)
 
 ```tsx
-'use client';
+"use client"
 
-import { useState } from 'react';
+import { useState } from "react"
 
 function AddToCartButton({ productId }: { productId: string }) {
-  const [isAdding, setIsAdding] = useState(false);
+  const [isAdding, setIsAdding] = useState(false)
 
   async function handleClick() {
-    setIsAdding(true);
-    await addToCart(productId);
-    setIsAdding(false);
+    setIsAdding(true)
+    await addToCart(productId)
+    setIsAdding(false)
   }
 
   return (
     <button onClick={handleClick} disabled={isAdding}>
-      {isAdding ? 'Adding...' : 'Add to Cart'}
+      {isAdding ? "Adding..." : "Add to Cart"}
     </button>
-  );
+  )
 }
 ```
 
@@ -73,7 +74,7 @@ function AddToCartButton({ productId }: { productId: string }) {
 ```tsx
 // app/products/[id]/page.tsx - Server Component
 async function ProductPage({ params }: { params: { id: string } }) {
-  const product = await getProduct(params.id);
+  const product = await getProduct(params.id)
 
   return (
     <div>
@@ -87,7 +88,7 @@ async function ProductPage({ params }: { params: { id: string } }) {
       {/* Server component for reviews */}
       <ProductReviews productId={product.id} />
     </div>
-  );
+  )
 }
 ```
 
@@ -95,25 +96,25 @@ async function ProductPage({ params }: { params: { id: string } }) {
 
 ```tsx
 // Force static generation at build time
-export const dynamic = 'force-static';
+export const dynamic = "force-static"
 
 // Force dynamic rendering at request time
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic"
 
 // Revalidate every 60 seconds (ISR)
-export const revalidate = 60;
+export const revalidate = 60
 
 // Revalidate on-demand
-import { revalidatePath, revalidateTag } from 'next/cache';
+import { revalidatePath, revalidateTag } from "next/cache"
 
 async function updateProduct(id: string, data: ProductData) {
-  await db.products.update({ where: { id }, data });
+  await db.products.update({ where: { id }, data })
 
   // Revalidate specific path
-  revalidatePath(`/products/${id}`);
+  revalidatePath(`/products/${id}`)
 
   // Or revalidate by tag
-  revalidateTag('products');
+  revalidateTag("products")
 }
 ```
 
@@ -162,23 +163,23 @@ module.exports = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cdn.example.com',
-        pathname: '/images/**',
+        protocol: "https",
+        hostname: "cdn.example.com",
+        pathname: "/images/**",
       },
       {
-        protocol: 'https',
-        hostname: '*.cloudinary.com',
+        protocol: "https",
+        hostname: "*.cloudinary.com",
       },
     ],
     // Image formats (webp is default)
-    formats: ['image/avif', 'image/webp'],
+    formats: ["image/avif", "image/webp"],
     // Device sizes for srcset
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     // Image sizes for srcset
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
-};
+}
 ```
 
 ### Lazy Loading Patterns
@@ -211,28 +212,26 @@ module.exports = {
 ### Dynamic Imports
 
 ```tsx
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic"
 
 // Basic dynamic import
-const HeavyChart = dynamic(() => import('@/components/HeavyChart'), {
+const HeavyChart = dynamic(() => import("@/components/HeavyChart"), {
   loading: () => <ChartSkeleton />,
-});
+})
 
 // Disable SSR for client-only components
-const MapComponent = dynamic(() => import('@/components/Map'), {
+const MapComponent = dynamic(() => import("@/components/Map"), {
   ssr: false,
   loading: () => <div className="h-[400px] bg-gray-100" />,
-});
+})
 
 // Named exports
-const Modal = dynamic(() =>
-  import('@/components/ui').then(mod => mod.Modal)
-);
+const Modal = dynamic(() => import("@/components/ui").then(mod => mod.Modal))
 
 // With suspense
-const DashboardCharts = dynamic(() => import('@/components/DashboardCharts'), {
+const DashboardCharts = dynamic(() => import("@/components/DashboardCharts"), {
   loading: () => <Suspense fallback={<ChartsSkeleton />} />,
-});
+})
 ```
 
 ### Route-Based Splitting
@@ -240,15 +239,15 @@ const DashboardCharts = dynamic(() => import('@/components/DashboardCharts'), {
 ```tsx
 // app/dashboard/analytics/page.tsx
 // This page only loads when /dashboard/analytics is visited
-import { Suspense } from 'react';
-import AnalyticsCharts from './AnalyticsCharts';
+import { Suspense } from "react"
+import AnalyticsCharts from "./AnalyticsCharts"
 
 export default function AnalyticsPage() {
   return (
     <Suspense fallback={<AnalyticsSkeleton />}>
       <AnalyticsCharts />
     </Suspense>
-  );
+  )
 }
 ```
 
@@ -272,9 +271,9 @@ export default function DashboardLayout({
   analytics,
   metrics,
 }: {
-  children: React.ReactNode;
-  analytics: React.ReactNode;
-  metrics: React.ReactNode;
+  children: React.ReactNode
+  analytics: React.ReactNode
+  metrics: React.ReactNode
 }) {
   return (
     <div className="grid grid-cols-2 gap-4">
@@ -282,7 +281,7 @@ export default function DashboardLayout({
       <Suspense fallback={<AnalyticsSkeleton />}>{analytics}</Suspense>
       <Suspense fallback={<MetricsSkeleton />}>{metrics}</Suspense>
     </div>
-  );
+  )
 }
 ```
 
@@ -300,7 +299,7 @@ async function Dashboard() {
     getUser(),
     getStats(),
     getNotifications(),
-  ]);
+  ])
 
   return (
     <div>
@@ -308,17 +307,17 @@ async function Dashboard() {
       <StatsPanel stats={stats} />
       <NotificationList notifications={notifications} />
     </div>
-  );
+  )
 }
 ```
 
 ### Streaming with Suspense
 
 ```tsx
-import { Suspense } from 'react';
+import { Suspense } from "react"
 
 async function ProductPage({ params }: { params: { id: string } }) {
-  const product = await getProduct(params.id);
+  const product = await getProduct(params.id)
 
   return (
     <div>
@@ -336,13 +335,13 @@ async function ProductPage({ params }: { params: { id: string } }) {
         <Recommendations productId={params.id} />
       </Suspense>
     </div>
-  );
+  )
 }
 
 // Slow data component
 async function Reviews({ productId }: { productId: string }) {
-  const reviews = await getReviews(productId); // Slow query
-  return <ReviewList reviews={reviews} />;
+  const reviews = await getReviews(productId) // Slow query
+  return <ReviewList reviews={reviews} />
 }
 ```
 
@@ -351,13 +350,13 @@ async function Reviews({ productId }: { productId: string }) {
 ```tsx
 // Next.js automatically dedupes identical requests
 async function Layout({ children }) {
-  const user = await getUser(); // Request 1
-  return <div>{children}</div>;
+  const user = await getUser() // Request 1
+  return <div>{children}</div>
 }
 
 async function Header() {
-  const user = await getUser(); // Same request - cached!
-  return <div>Hello, {user.name}</div>;
+  const user = await getUser() // Same request - cached!
+  return <div>Hello, {user.name}</div>
 }
 
 // Both components call getUser() but only one request is made
@@ -371,24 +370,24 @@ async function Header() {
 
 ```tsx
 // Cache indefinitely (default for static)
-fetch('https://api.example.com/data');
+fetch("https://api.example.com/data")
 
 // No cache - always fresh
-fetch('https://api.example.com/data', { cache: 'no-store' });
+fetch("https://api.example.com/data", { cache: "no-store" })
 
 // Revalidate after time
-fetch('https://api.example.com/data', {
-  next: { revalidate: 3600 } // 1 hour
-});
+fetch("https://api.example.com/data", {
+  next: { revalidate: 3600 }, // 1 hour
+})
 
 // Tag-based revalidation
-fetch('https://api.example.com/products', {
-  next: { tags: ['products'] }
-});
+fetch("https://api.example.com/products", {
+  next: { tags: ["products"] },
+})
 
 // Later, revalidate by tag
-import { revalidateTag } from 'next/cache';
-revalidateTag('products');
+import { revalidateTag } from "next/cache"
+revalidateTag("products")
 ```
 
 ### Route Segment Config
@@ -397,37 +396,37 @@ revalidateTag('products');
 // app/products/page.tsx
 
 // Revalidate every hour
-export const revalidate = 3600;
+export const revalidate = 3600
 
 // Or force dynamic
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic"
 
 // Generate static params at build
 export async function generateStaticParams() {
-  const products = await getProducts();
-  return products.map(p => ({ id: p.id }));
+  const products = await getProducts()
+  return products.map(p => ({ id: p.id }))
 }
 ```
 
 ### unstable_cache for Custom Caching
 
 ```tsx
-import { unstable_cache } from 'next/cache';
+import { unstable_cache } from "next/cache"
 
 const getCachedUser = unstable_cache(
   async (userId: string) => {
-    const user = await db.users.findUnique({ where: { id: userId } });
-    return user;
+    const user = await db.users.findUnique({ where: { id: userId } })
+    return user
   },
-  ['user-cache'],
+  ["user-cache"],
   {
     revalidate: 3600, // 1 hour
-    tags: ['users'],
-  }
-);
+    tags: ["users"],
+  },
+)
 
 // Usage
-const user = await getCachedUser(userId);
+const user = await getCachedUser(userId)
 ```
 
 ---
@@ -457,15 +456,15 @@ ANALYZE=true npm run build
 
 ```tsx
 // BAD - Imports entire library
-import _ from 'lodash';
-const result = _.debounce(fn, 300);
+import _ from "lodash"
+const result = _.debounce(fn, 300)
 
 // GOOD - Import only what you need
-import debounce from 'lodash/debounce';
-const result = debounce(fn, 300);
+import debounce from "lodash/debounce"
+const result = debounce(fn, 300)
 
 // GOOD - Named imports (tree-shakeable)
-import { debounce } from 'lodash-es';
+import { debounce } from "lodash-es"
 ```
 
 ### Optimize Dependencies
@@ -474,42 +473,42 @@ import { debounce } from 'lodash-es';
 // next.config.js
 module.exports = {
   // Transpile specific packages
-  transpilePackages: ['ui-library', 'shared-utils'],
+  transpilePackages: ["ui-library", "shared-utils"],
 
   // Optimize package imports
   experimental: {
-    optimizePackageImports: ['lucide-react', '@heroicons/react'],
+    optimizePackageImports: ["lucide-react", "@heroicons/react"],
   },
 
   // External packages for server
-  serverExternalPackages: ['sharp', 'bcrypt'],
-};
+  serverExternalPackages: ["sharp", "bcrypt"],
+}
 ```
 
 ### Font Optimization
 
 ```tsx
 // app/layout.tsx
-import { Inter, Roboto_Mono } from 'next/font/google';
+import { Inter, Roboto_Mono } from "next/font/google"
 
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-});
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+})
 
 const robotoMono = Roboto_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto-mono',
-});
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto-mono",
+})
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
-  );
+  )
 }
 ```
 
@@ -521,7 +520,7 @@ export default function RootLayout({ children }) {
 
 ```tsx
 // Optimize LCP hero image
-import Image from 'next/image';
+import Image from "next/image"
 
 export default function Hero() {
   return (
@@ -538,7 +537,7 @@ export default function Hero() {
         <h1>Welcome</h1>
       </div>
     </section>
-  );
+  )
 }
 
 // Preload critical resources in layout
@@ -551,7 +550,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>{children}</body>
     </html>
-  );
+  )
 }
 ```
 
@@ -597,7 +596,7 @@ function ProductCard({ product }: { product?: Product }) {
 
 ```tsx
 // Defer non-critical JavaScript
-import Script from 'next/script';
+import Script from "next/script"
 
 export default function Layout({ children }) {
   return (
@@ -618,28 +617,30 @@ export default function Layout({ children }) {
         />
       </body>
     </html>
-  );
+  )
 }
 
 // Use web workers for heavy computation
 // app/components/DataProcessor.tsx
-'use client';
+;("use client")
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react"
 
 function DataProcessor({ data }: { data: number[] }) {
-  const [result, setResult] = useState<number | null>(null);
+  const [result, setResult] = useState<number | null>(null)
 
   useEffect(() => {
-    const worker = new Worker(new URL('../workers/processor.js', import.meta.url));
+    const worker = new Worker(
+      new URL("../workers/processor.js", import.meta.url),
+    )
 
-    worker.postMessage(data);
-    worker.onmessage = (e) => setResult(e.data);
+    worker.postMessage(data)
+    worker.onmessage = e => setResult(e.data)
 
-    return () => worker.terminate();
-  }, [data]);
+    return () => worker.terminate()
+  }, [data])
 
-  return <div>Result: {result}</div>;
+  return <div>Result: {result}</div>
 }
 ```
 
@@ -647,36 +648,36 @@ function DataProcessor({ data }: { data: number[] }) {
 
 ```tsx
 // app/components/PerformanceMonitor.tsx
-'use client';
+"use client"
 
-import { useReportWebVitals } from 'next/web-vitals';
+import { useReportWebVitals } from "next/web-vitals"
 
 export function PerformanceMonitor() {
-  useReportWebVitals((metric) => {
+  useReportWebVitals(metric => {
     switch (metric.name) {
-      case 'LCP':
-        console.log('LCP:', metric.value);
-        break;
-      case 'FID':
-        console.log('FID:', metric.value);
-        break;
-      case 'CLS':
-        console.log('CLS:', metric.value);
-        break;
-      case 'TTFB':
-        console.log('TTFB:', metric.value);
-        break;
+      case "LCP":
+        console.log("LCP:", metric.value)
+        break
+      case "FID":
+        console.log("FID:", metric.value)
+        break
+      case "CLS":
+        console.log("CLS:", metric.value)
+        break
+      case "TTFB":
+        console.log("TTFB:", metric.value)
+        break
     }
 
     // Send to analytics
-    analytics.track('web-vital', {
+    analytics.track("web-vital", {
       name: metric.name,
       value: metric.value,
       id: metric.id,
-    });
-  });
+    })
+  })
 
-  return null;
+  return null
 }
 ```
 
@@ -686,15 +687,15 @@ export function PerformanceMonitor() {
 
 ### Performance Checklist
 
-| Area | Optimization | Impact |
-|------|-------------|--------|
-| Images | Use next/image with priority for LCP | High |
-| Fonts | Use next/font with display: swap | Medium |
-| Code | Dynamic imports for heavy components | High |
-| Data | Parallel fetching with Promise.all | High |
-| Render | Server Components by default | High |
-| Cache | Configure revalidate appropriately | Medium |
-| Bundle | Tree-shake imports, analyze size | Medium |
+| Area   | Optimization                         | Impact |
+| ------ | ------------------------------------ | ------ |
+| Images | Use next/image with priority for LCP | High   |
+| Fonts  | Use next/font with display: swap     | Medium |
+| Code   | Dynamic imports for heavy components | High   |
+| Data   | Parallel fetching with Promise.all   | High   |
+| Render | Server Components by default         | High   |
+| Cache  | Configure revalidate appropriately   | Medium |
+| Bundle | Tree-shake imports, analyze size     | Medium |
 
 ### Config Template
 
@@ -703,22 +704,22 @@ export function PerformanceMonitor() {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [{ hostname: 'cdn.example.com' }],
-    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [{ hostname: "cdn.example.com" }],
+    formats: ["image/avif", "image/webp"],
   },
   experimental: {
-    optimizePackageImports: ['lucide-react'],
+    optimizePackageImports: ["lucide-react"],
   },
   headers: async () => [
     {
-      source: '/(.*)',
+      source: "/(.*)",
       headers: [
-        { key: 'X-Content-Type-Options', value: 'nosniff' },
-        { key: 'X-Frame-Options', value: 'DENY' },
+        { key: "X-Content-Type-Options", value: "nosniff" },
+        { key: "X-Frame-Options", value: "DENY" },
       ],
     },
   ],
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
 ```

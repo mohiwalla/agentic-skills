@@ -17,6 +17,7 @@ metadata:
 Strategic marketing leadership — brand positioning, growth model design, budget allocation, and org design. Not campaign execution or content creation; those have their own skills. This is the engine.
 
 ## Keywords
+
 CMO, chief marketing officer, brand strategy, brand positioning, growth model, product-led growth, PLG, sales-led growth, community-led growth, marketing budget, CAC, customer acquisition cost, LTV, lifetime value, channel mix, marketing ROI, pipeline contribution, marketing org, category design, competitive positioning, growth loops, payback period, MQL, pipeline coverage
 
 ## Quick Start
@@ -30,6 +31,7 @@ python scripts/growth_model_simulator.py
 ```
 
 **Reference docs (load when needed):**
+
 - `references/brand_positioning.md` — category design, messaging architecture, battlecards, rebrand framework
 - `references/growth_frameworks.md` — PLG/SLG/CLG playbooks, growth loops, switching models
 - `references/marketing_org.md` — team structure by stage, hiring sequence, agency vs. in-house
@@ -81,17 +83,17 @@ Ask these before making any strategic recommendation:
 
 ## CMO Metrics Dashboard
 
-| Category | Metric | Healthy Target |
-|----------|--------|---------------|
-| **Pipeline** | Marketing-sourced pipeline % | 50–70% of total |
-| **Pipeline** | Pipeline coverage ratio | 3–4x quarterly quota |
-| **Pipeline** | MQL → Opportunity rate | > 15% |
-| **Efficiency** | Blended CAC payback | < 18 months |
-| **Efficiency** | LTV:CAC ratio | > 3:1 |
-| **Efficiency** | Marketing % of total S&M spend | 30–50% |
-| **Growth** | Brand search volume trend | ↑ QoQ |
-| **Growth** | Win rate vs. primary competitor | > 50% |
-| **Retention** | NPS (marketing-sourced cohort) | > 40 |
+| Category       | Metric                          | Healthy Target       |
+| -------------- | ------------------------------- | -------------------- |
+| **Pipeline**   | Marketing-sourced pipeline %    | 50–70% of total      |
+| **Pipeline**   | Pipeline coverage ratio         | 3–4x quarterly quota |
+| **Pipeline**   | MQL → Opportunity rate          | > 15%                |
+| **Efficiency** | Blended CAC payback             | < 18 months          |
+| **Efficiency** | LTV:CAC ratio                   | > 3:1                |
+| **Efficiency** | Marketing % of total S&M spend  | 30–50%               |
+| **Growth**     | Brand search volume trend       | ↑ QoQ                |
+| **Growth**     | Win rate vs. primary competitor | > 50%                |
+| **Retention**  | NPS (marketing-sourced cohort)  | > 40                 |
 
 ---
 
@@ -110,17 +112,17 @@ Ask these before making any strategic recommendation:
 
 ## Integration with Other C-Suite Roles
 
-| When... | CMO works with... | To... |
-|---------|-------------------|-------|
-| Pricing changes | CFO + CEO | Understand margin impact on positioning and messaging |
-| Product launch | CPO + CTO | Define launch tier, GTM motion, messaging |
-| Pipeline miss | CFO + CRO | Diagnose: volume problem, quality problem, or velocity problem |
-| Category design | CEO | Secure multi-year organizational commitment to the narrative |
-| New market entry | CEO + CFO | Validate ICP, budget, localization requirements |
-| Sales misalignment | CRO | Align on MQL definition, SLA, and pipeline ownership |
-| Hiring plan | CHRO | Define marketing headcount and skill profile by stage |
-| Retention insights | CCO | Use expansion and churn data to sharpen ICP and messaging |
-| Competitive threat | CEO + CRO | Coordinate battlecards, win/loss, repositioning response |
+| When...            | CMO works with... | To...                                                          |
+| ------------------ | ----------------- | -------------------------------------------------------------- |
+| Pricing changes    | CFO + CEO         | Understand margin impact on positioning and messaging          |
+| Product launch     | CPO + CTO         | Define launch tier, GTM motion, messaging                      |
+| Pipeline miss      | CFO + CRO         | Diagnose: volume problem, quality problem, or velocity problem |
+| Category design    | CEO               | Secure multi-year organizational commitment to the narrative   |
+| New market entry   | CEO + CFO         | Validate ICP, budget, localization requirements                |
+| Sales misalignment | CRO               | Align on MQL definition, SLA, and pipeline ownership           |
+| Hiring plan        | CHRO              | Define marketing headcount and skill profile by stage          |
+| Retention insights | CCO               | Use expansion and churn data to sharpen ICP and messaging      |
+| Competitive threat | CEO + CRO         | Coordinate battlecards, win/loss, repositioning response       |
 
 ---
 
@@ -129,10 +131,10 @@ Ask these before making any strategic recommendation:
 - **References:** `references/brand_positioning.md`, `references/growth_frameworks.md`, `references/marketing_org.md`
 - **Scripts:** `scripts/marketing_budget_modeler.py`, `scripts/growth_model_simulator.py`
 
-
 ## Proactive Triggers
 
 Surface these without being asked when you detect them in company context:
+
 - CAC rising quarter over quarter → channel efficiency declining, investigate
 - No brand positioning documented → messaging inconsistent across channels
 - Marketing budget allocation hasn't changed in 6+ months → market changed, budget didn't
@@ -141,13 +143,13 @@ Surface these without being asked when you detect them in company context:
 
 ## Output Artifacts
 
-| Request | You Produce |
-|---------|-------------|
-| "Plan our marketing budget" | Channel allocation model with CAC targets per channel |
-| "Position us vs competitors" | Positioning map + messaging framework + proof points |
-| "Design our growth model" | Growth projection with channel mix scenarios |
-| "Build the marketing team" | Hiring plan with sequence, roles, agency vs in-house |
-| "Marketing board section" | Pipeline contribution report with channel ROI |
+| Request                      | You Produce                                           |
+| ---------------------------- | ----------------------------------------------------- |
+| "Plan our marketing budget"  | Channel allocation model with CAC targets per channel |
+| "Position us vs competitors" | Positioning map + messaging framework + proof points  |
+| "Design our growth model"    | Growth projection with channel mix scenarios          |
+| "Build the marketing team"   | Hiring plan with sequence, roles, agency vs in-house  |
+| "Marketing board section"    | Pipeline contribution report with channel ROI         |
 
 ## Reasoning Technique: Recursion of Thought
 
@@ -156,6 +158,7 @@ Draft a marketing strategy, then critique it from the customer's perspective. Re
 ## Communication
 
 All output passes the Internal Quality Loop before reaching the founder (see `agent-protocol/SKILL.md`).
+
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Peer-verify: cross-functional claims validated by the owning role
 - Critic pre-screen: high-stakes decisions reviewed by Executive Mentor

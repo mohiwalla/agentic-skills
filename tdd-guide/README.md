@@ -36,16 +36,19 @@ The TDD Guide skill transforms how engineering teams implement Test Driven Devel
 ## Features
 
 ### Test Generation (3 capabilities)
+
 1. **Generate Test Cases from Requirements** - User stories → Test cases
 2. **Create Test Stubs** - Proper scaffolding with framework patterns
 3. **Generate Test Fixtures** - Realistic test data and boundary values
 
 ### TDD Workflow (3 capabilities)
+
 1. **Red-Green-Refactor Guidance** - Phase-by-phase validation
 2. **Suggest Missing Scenarios** - Identify untested edge cases
 3. **Review Test Quality** - Isolation, assertions, naming analysis
 
 ### Coverage & Metrics (6 categories)
+
 1. **Test Coverage** - Line/branch/function with gap analysis
 2. **Code Complexity** - Cyclomatic/cognitive complexity
 3. **Test Quality** - Assertions, isolation, naming scoring
@@ -54,6 +57,7 @@ The TDD Guide skill transforms how engineering teams implement Test Driven Devel
 6. **Missing Tests** - Uncovered paths and error handlers
 
 ### Framework Integration (4 capabilities)
+
 1. **Multi-Framework Adapters** - Jest, Pytest, JUnit, Vitest, Mocha
 2. **Generate Boilerplate** - Proper imports and test structure
 3. **Configure Runners** - Setup and coverage configuration
@@ -64,6 +68,7 @@ The TDD Guide skill transforms how engineering teams implement Test Driven Devel
 ### Claude Code (Desktop)
 
 1. **Download the skill folder**:
+
    ```bash
    # Option A: Clone from repository
    git clone https://github.com/your-org/tdd-guide-skill.git
@@ -72,6 +77,7 @@ The TDD Guide skill transforms how engineering teams implement Test Driven Devel
    ```
 
 2. **Install to Claude skills directory**:
+
    ```bash
    # Project-level (recommended for team projects)
    cp -r tdd-guide /path/to/your/project/.claude/skills/
@@ -199,6 +205,7 @@ The skill includes **8 Python modules** organized by functionality:
    - Summary and detailed views
 
 ### Total Lines of Code
+
 - **Python**: ~3,400 lines
 - **Documentation**: ~1,200 lines
 - **Samples**: ~200 lines
@@ -209,6 +216,7 @@ The skill includes **8 Python modules** organized by functionality:
 ### Example 1: Generate Tests from User Story
 
 **Input**:
+
 ```
 @tdd-guide
 
@@ -225,6 +233,7 @@ Framework: Pytest
 ```
 
 **Output**:
+
 ```python
 import pytest
 from shopping_cart import ShoppingCart
@@ -261,6 +270,7 @@ class TestShoppingCart:
 ### Example 2: Coverage Analysis with Recommendations
 
 **Input**:
+
 ```
 @tdd-guide
 
@@ -279,6 +289,7 @@ Target: 80% coverage
 ```
 
 **Output**:
+
 ```markdown
 ## Coverage Summary
 
@@ -312,6 +323,7 @@ Target: 80% coverage
 ### Example 3: TDD Red-Green-Refactor Guidance
 
 **Input**:
+
 ```
 @tdd-guide
 
@@ -323,13 +335,16 @@ Phase: RED (write failing test)
 ```
 
 **Output**:
-```markdown
+
+````markdown
 ## TDD Phase: RED
 
 ### Goal
+
 Write a failing test that describes desired email validation behavior
 
 ### Steps
+
 1. ✅ Read requirement: Email must contain @ and valid domain
 2. ✅ Think about expected behavior
 3. ⏳ Write test that verifies this behavior
@@ -339,48 +354,53 @@ Write a failing test that describes desired email validation behavior
 ### Test Template (Jest)
 
 ```typescript
-describe('EmailValidator', () => {
-  it('should accept valid email format', () => {
+describe("EmailValidator", () => {
+  it("should accept valid email format", () => {
     // Arrange
-    const validator = new EmailValidator();
+    const validator = new EmailValidator()
 
     // Act
-    const result = validator.validate('user@example.com');
+    const result = validator.validate("user@example.com")
 
     // Assert
-    expect(result).toBe(true);
-  });
+    expect(result).toBe(true)
+  })
 
-  it('should reject email without @ symbol', () => {
-    const validator = new EmailValidator();
-    const result = validator.validate('userexample.com');
-    expect(result).toBe(false);
-  });
-});
+  it("should reject email without @ symbol", () => {
+    const validator = new EmailValidator()
+    const result = validator.validate("userexample.com")
+    expect(result).toBe(false)
+  })
+})
 ```
+````
 
 ### Next Steps
+
 1. Run the test (it should fail)
 2. Verify failure: "EmailValidator is not defined" or similar
 3. Share test result to proceed to GREEN phase
+
 ```
 
 ### Example 4: Test Quality Review
 
 **Input**:
 ```
+
 @tdd-guide
 
 Review test quality:
 
 def test_user_login():
-    result = login("admin", "password123")
-    assert result
-    assert result["status"] == "success"
-    assert result["token"]
-    assert result["user"]["id"] > 0
-    assert result["user"]["role"] == "admin"
-```
+result = login("admin", "password123")
+assert result
+assert result["status"] == "success"
+assert result["token"]
+assert result["user"]["id"] > 0
+assert result["user"]["role"] == "admin"
+
+````
 
 **Output**:
 ```markdown
@@ -429,13 +449,15 @@ def test_successful_login_returns_user_data(admin_user):
     result = login(admin_user["username"], admin_user["password"])
     assert result["user"]["id"] > 0
     assert result["user"]["role"] == "admin"
-```
+````
 
 ### Quality Improvements
+
 - Isolation Score: 55 → 90 (with fixtures)
 - Naming Quality: 40 → 85 (descriptive names)
 - Test Focus: 30 → 95 (one assertion per test)
-```
+
+````
 
 ## Configuration
 
@@ -453,7 +475,7 @@ export TDD_VERBOSE=true
 
 # Set output format
 export TDD_OUTPUT_FORMAT="markdown"  # or "json", "terminal"
-```
+````
 
 ### Skill Configuration (Optional)
 
@@ -481,22 +503,26 @@ Create `.tdd-guide.json` in project root:
 ## Supported Frameworks
 
 ### JavaScript/TypeScript
+
 - **Jest** 29+ (recommended for React, Node.js)
 - **Vitest** 0.34+ (recommended for Vite projects)
 - **Mocha** 10+ with Chai
 - **Jasmine** 4+
 
 ### Python
+
 - **Pytest** 7+ (recommended)
 - **unittest** (Python standard library)
 - **nose2** 0.12+
 
 ### Java
+
 - **JUnit 5** 5.9+ (recommended)
 - **TestNG** 7+
 - **Mockito** 5+ (mocking support)
 
 ### Coverage Tools
+
 - **Istanbul/nyc** (JavaScript)
 - **c8** (JavaScript, V8 native)
 - **coverage.py** (Python)
@@ -507,18 +533,21 @@ Create `.tdd-guide.json` in project root:
 ## Output Formats
 
 ### Markdown (Claude Desktop)
+
 - Rich formatting with headers, tables, code blocks
 - Visual indicators (✅, ⚠️, ❌)
 - Progressive disclosure (summary first, details on demand)
 - Syntax highlighting for code examples
 
 ### Terminal (Claude Code CLI)
+
 - Concise, text-based output
 - Clear section separators
 - Minimal formatting for readability
 - Quick scanning for key information
 
 ### JSON (API/CI Integration)
+
 - Structured data for automated processing
 - Machine-readable metrics
 - Suitable for CI/CD pipelines
@@ -527,24 +556,28 @@ Create `.tdd-guide.json` in project root:
 ## Best Practices
 
 ### Test Generation
+
 1. **Start with requirements** - Clear specs lead to better tests
 2. **Cover the happy path first** - Then add error and edge cases
 3. **One behavior per test** - Focused tests are easier to maintain
 4. **Use descriptive names** - Tests are documentation
 
 ### Coverage Analysis
+
 1. **Aim for 80%+ coverage** - Balance between safety and effort
 2. **Prioritize critical paths** - Not all code needs 100% coverage
 3. **Branch coverage matters** - Line coverage alone is insufficient
 4. **Track trends** - Coverage should improve over time
 
 ### TDD Workflow
+
 1. **Small iterations** - Write one test, make it pass, refactor
 2. **Run tests frequently** - Fast feedback loop is essential
 3. **Commit often** - Each green phase is a safe checkpoint
 4. **Refactor with confidence** - Tests are your safety net
 
 ### Test Quality
+
 1. **Isolate tests** - No shared state between tests
 2. **Fast execution** - Unit tests should be <100ms each
 3. **Deterministic** - Same input always produces same output
@@ -555,12 +588,14 @@ Create `.tdd-guide.json` in project root:
 ### Common Issues
 
 **Issue**: Generated tests have wrong syntax for my framework
+
 ```
 Solution: Explicitly specify framework
 Example: "Generate tests using Pytest" or "Framework: Jest"
 ```
 
 **Issue**: Coverage report not recognized
+
 ```
 Solution: Verify format (LCOV, JSON, XML)
 Try: Paste raw coverage data instead of file path
@@ -568,6 +603,7 @@ Check: File exists and is readable
 ```
 
 **Issue**: Too many recommendations, overwhelmed
+
 ```
 Solution: Ask for prioritized output
 Example: "Show only P0 (critical) recommendations"
@@ -575,6 +611,7 @@ Limit: "Top 5 recommendations only"
 ```
 
 **Issue**: Test quality score seems wrong
+
 ```
 Check: Ensure complete test context (setup/teardown included)
 Verify: Test file contains actual test code, not just stubs
@@ -582,6 +619,7 @@ Context: Quality depends on isolation, assertions, naming
 ```
 
 **Issue**: Framework detection incorrect
+
 ```
 Solution: Specify framework explicitly
 Example: "Using JUnit 5" or "Framework: Vitest"
@@ -647,6 +685,7 @@ mypy *.py
 ## Version History
 
 ### v1.0.0 (November 5, 2025)
+
 - Initial release
 - Support for TypeScript, JavaScript, Python, Java
 - Jest, Pytest, JUnit, Vitest framework adapters
@@ -670,6 +709,7 @@ MIT License - See LICENSE file for details
 ## Acknowledgments
 
 Built with Claude Skills Factory toolkit, following Test Driven Development best practices and informed by:
+
 - Kent Beck's "Test Driven Development: By Example"
 - Martin Fowler's refactoring catalog
 - xUnit Test Patterns by Gerard Meszaros

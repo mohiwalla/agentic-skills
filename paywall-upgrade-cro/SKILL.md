@@ -31,20 +31,24 @@ Before providing recommendations, understand:
 ## Core Principles
 
 ### 1. Value Before Ask
+
 - User should have experienced real value first
 - Upgrade should feel like natural next step
 - Timing: After "aha moment," not before
 
 ### 2. Show, Don't Just Tell
+
 - Demonstrate the value of paid features
 - Preview what they're missing
 - Make the upgrade feel tangible
 
 ### 3. Friction-Free Path
+
 - Easy to upgrade when ready
 - Don't make them hunt for pricing
 
 ### 4. Respect the No
+
 - Don't trap or pressure
 - Make it easy to continue free
 - Maintain trust for future conversion
@@ -54,26 +58,34 @@ Before providing recommendations, understand:
 ## Paywall Trigger Points
 
 ### Feature Gates
+
 When user clicks a paid-only feature:
+
 - Clear explanation of why it's paid
 - Show what the feature does
 - Quick path to unlock
 - Option to continue without
 
 ### Usage Limits
+
 When user hits a limit:
+
 - Clear indication of limit reached
 - Show what upgrading provides
 - Don't block abruptly
 
 ### Trial Expiration
+
 When trial is ending:
+
 - Early warnings (7, 3, 1 day)
 - Clear "what happens" on expiration
 - Summarize value received
 
 ### Time-Based Prompts
+
 After X days of free use:
+
 - Gentle upgrade reminder
 - Highlight unused paid features
 - Easy to dismiss
@@ -101,6 +113,7 @@ After X days of free use:
 ## Specific Paywall Types
 
 ### Feature Lock Paywall
+
 ```
 [Lock Icon]
 This feature is available on Pro
@@ -116,6 +129,7 @@ This feature is available on Pro
 ```
 
 ### Usage Limit Paywall
+
 ```
 You've reached your free limit
 
@@ -127,6 +141,7 @@ Free: 3 projects | Pro: Unlimited
 ```
 
 ### Trial Expiration Paywall
+
 ```
 Your trial ends in 3 days
 
@@ -146,16 +161,19 @@ What you've accomplished:
 ## Timing and Frequency
 
 ### When to Show
+
 - After value moment, before frustration
 - After activation/aha moment
 - When hitting genuine limits
 
 ### When NOT to Show
+
 - During onboarding (too early)
 - When they're in a flow
 - Repeatedly after dismissal
 
 ### Frequency Rules
+
 - Limit per session
 - Cool-down after dismiss (days, not hours)
 - Track annoyance signals
@@ -165,11 +183,13 @@ What you've accomplished:
 ## Upgrade Flow Optimization
 
 ### From Paywall to Payment
+
 - Minimize steps
 - Keep in-context if possible
 - Pre-fill known information
 
 ### Post-Upgrade
+
 - Immediate access to features
 - Confirmation and receipt
 - Guide to new features
@@ -179,6 +199,7 @@ What you've accomplished:
 ## A/B Testing
 
 ### What to Test
+
 - Trigger timing
 - Headline/copy variations
 - Price presentation
@@ -187,6 +208,7 @@ What you've accomplished:
 - Design/layout
 
 ### Metrics to Track
+
 - Paywall impression rate
 - Click-through to upgrade
 - Completion rate
@@ -200,11 +222,13 @@ What you've accomplished:
 ## Anti-Patterns to Avoid
 
 ### Dark Patterns
+
 - Hiding the close button
 - Confusing plan selection
 - Guilt-trip copy
 
 ### Conversion Killers
+
 - Asking before value delivered
 - Too frequent prompts
 - Blocking critical flows
@@ -251,10 +275,10 @@ Paywall recommendations must account for where the user is in their value journe
 
 ## Output Artifacts
 
-| Artifact | Description |
-|----------|-------------|
-| Paywall Trigger Map | All paywall trigger points with timing rules, cooldown periods, and frequency caps |
+| Artifact                 | Description                                                                                    |
+| ------------------------ | ---------------------------------------------------------------------------------------------- |
+| Paywall Trigger Map      | All paywall trigger points with timing rules, cooldown periods, and frequency caps             |
 | Full Paywall Screen Copy | Headline, value demonstration, feature comparison, CTA, and escape hatch for each paywall type |
-| Upgrade Flow Diagram | Step-by-step from paywall click to post-upgrade confirmation with friction reduction notes |
-| Anti-Pattern Audit | Review of existing paywall for dark patterns, trust-damaging copy, and conversion killers |
-| A/B Test Backlog | Prioritized experiment ideas for trigger timing, copy, and pricing display |
+| Upgrade Flow Diagram     | Step-by-step from paywall click to post-upgrade confirmation with friction reduction notes     |
+| Anti-Pattern Audit       | Review of existing paywall for dark patterns, trust-damaging copy, and conversion killers      |
+| A/B Test Backlog         | Prioritized experiment ideas for trigger timing, copy, and pricing display                     |

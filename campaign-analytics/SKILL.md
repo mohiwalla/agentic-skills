@@ -30,12 +30,24 @@ All scripts accept a JSON file as positional input argument. See `assets/sample_
     {
       "journey_id": "j1",
       "touchpoints": [
-        {"channel": "organic_search", "timestamp": "2025-10-01T10:00:00", "interaction": "click"},
-        {"channel": "email", "timestamp": "2025-10-05T14:30:00", "interaction": "open"},
-        {"channel": "paid_search", "timestamp": "2025-10-08T09:15:00", "interaction": "click"}
+        {
+          "channel": "organic_search",
+          "timestamp": "2025-10-01T10:00:00",
+          "interaction": "click"
+        },
+        {
+          "channel": "email",
+          "timestamp": "2025-10-05T14:30:00",
+          "interaction": "open"
+        },
+        {
+          "channel": "paid_search",
+          "timestamp": "2025-10-08T09:15:00",
+          "interaction": "click"
+        }
       ],
       "converted": true,
-      "revenue": 500.00
+      "revenue": 500.0
     }
   ]
 }
@@ -60,8 +72,8 @@ All scripts accept a JSON file as positional input argument. See `assets/sample_
     {
       "name": "Spring Email Campaign",
       "channel": "email",
-      "spend": 5000.00,
-      "revenue": 25000.00,
+      "spend": 5000.0,
+      "revenue": 25000.0,
       "impressions": 50000,
       "clicks": 2500,
       "leads": 300,
@@ -157,13 +169,13 @@ python scripts/campaign_roi_calculator.py campaign_data.json --format json
 
 Implements five industry-standard attribution models to allocate conversion credit across marketing channels:
 
-| Model | Description | Best For |
-|-------|-------------|----------|
-| First-Touch | 100% credit to first interaction | Brand awareness campaigns |
-| Last-Touch | 100% credit to last interaction | Direct response campaigns |
-| Linear | Equal credit to all touchpoints | Balanced multi-channel evaluation |
-| Time-Decay | More credit to recent touchpoints | Short sales cycles |
-| Position-Based | 40/20/40 split (first/middle/last) | Full-funnel marketing |
+| Model          | Description                        | Best For                          |
+| -------------- | ---------------------------------- | --------------------------------- |
+| First-Touch    | 100% credit to first interaction   | Brand awareness campaigns         |
+| Last-Touch     | 100% credit to last interaction    | Direct response campaigns         |
+| Linear         | Equal credit to all touchpoints    | Balanced multi-channel evaluation |
+| Time-Decay     | More credit to recent touchpoints  | Short sales cycles                |
+| Position-Based | 40/20/40 split (first/middle/last) | Full-funnel marketing             |
 
 ### 2. funnel_analyzer.py
 
@@ -191,10 +203,10 @@ Calculates comprehensive ROI metrics with industry benchmarking:
 
 ## Reference Guides
 
-| Guide | Location | Purpose |
-|-------|----------|---------|
-| Attribution Models Guide | `references/attribution-models-guide.md` | Deep dive into 5 models with formulas, pros/cons, selection criteria |
-| Campaign Metrics Benchmarks | `references/campaign-metrics-benchmarks.md` | Industry benchmarks by channel and vertical for CTR, CPC, CPM, CPA, ROAS |
+| Guide                         | Location                                      | Purpose                                                                    |
+| ----------------------------- | --------------------------------------------- | -------------------------------------------------------------------------- |
+| Attribution Models Guide      | `references/attribution-models-guide.md`      | Deep dive into 5 models with formulas, pros/cons, selection criteria       |
+| Campaign Metrics Benchmarks   | `references/campaign-metrics-benchmarks.md`   | Industry benchmarks by channel and vertical for CTR, CPC, CPM, CPA, ROAS   |
 | Funnel Optimization Framework | `references/funnel-optimization-framework.md` | Stage-by-stage optimization strategies, common bottlenecks, best practices |
 
 ---

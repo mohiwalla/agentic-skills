@@ -7,6 +7,7 @@ This guide outlines systematic approaches for gathering competitive intelligence
 ## Public Data Sources
 
 ### Review Platforms
+
 - **G2**: Enterprise software reviews, feature comparisons, satisfaction scores
 - **Capterra**: SMB-focused reviews, pricing transparency, deployment details
 - **TrustRadius**: In-depth reviews with verified users, TrustMaps
@@ -14,6 +15,7 @@ This guide outlines systematic approaches for gathering competitive intelligence
 - **App Store / Google Play**: Mobile app ratings, review themes, update frequency
 
 ### Company Publications
+
 - **Pricing Pages**: Tier structure, feature gating, enterprise vs self-serve
 - **Changelogs / Release Notes**: Development velocity, feature priorities, tech direction
 - **Blog Posts**: Strategic messaging, thought leadership topics, market positioning
@@ -21,16 +23,19 @@ This guide outlines systematic approaches for gathering competitive intelligence
 - **Help Documentation**: Feature depth, API capabilities, integration ecosystem
 
 ### Talent & Organization Signals
+
 - **Job Postings**: Technology stack, team growth areas, strategic initiatives
 - **LinkedIn**: Team size, org structure, key hires, department ratios
 - **Glassdoor**: Company culture, internal challenges, growth trajectory
 
 ### Financial & Legal
+
 - **Patent Filings**: Innovation direction, defensive IP, technology differentiation
 - **SEC Filings (public companies)**: Revenue, growth rate, customer count, churn
 - **Crunchbase / PitchBook**: Funding rounds, investors, valuation trends
 
 ### Technical Intelligence
+
 - **BuiltWith / Wappalyzer**: Technology stack detection
 - **GitHub**: Open-source contributions, SDK quality, developer engagement
 - **API Documentation**: Integration capabilities, rate limits, data models
@@ -39,6 +44,7 @@ This guide outlines systematic approaches for gathering competitive intelligence
 ## Data Points to Collect Per Competitor
 
 ### Product
+
 - Core features and capabilities (feature-by-feature matrix)
 - Unique differentiators and proprietary technology
 - Platform support (web, mobile, desktop, API)
@@ -46,6 +52,7 @@ This guide outlines systematic approaches for gathering competitive intelligence
 - Performance benchmarks (if available from reviews)
 
 ### Business
+
 - Pricing tiers and per-seat/usage costs
 - Target customer segments (SMB, mid-market, enterprise)
 - Estimated customer count and notable logos
@@ -53,12 +60,14 @@ This guide outlines systematic approaches for gathering competitive intelligence
 - Go-to-market model (PLG, sales-led, hybrid)
 
 ### Team & Technology
+
 - Estimated team size and engineering ratio
 - Technology stack and infrastructure choices
 - Development velocity (release frequency)
 - Open-source involvement and developer relations
 
 ### Market Position
+
 - Market share estimates
 - Brand perception and NPS (from reviews)
 - Analyst coverage (Gartner, Forrester positioning)
@@ -75,15 +84,15 @@ This guide outlines systematic approaches for gathering competitive intelligence
 
 ## Update Cadence Recommendations
 
-| Data Type | Frequency | Trigger Events |
-|-----------|-----------|---------------|
-| Pricing | Monthly | Competitor pricing page changes |
-| Features | Bi-weekly | Changelog updates, product launches |
-| Reviews | Monthly | Batch review analysis |
-| Job Postings | Monthly | Hiring surge detection |
-| Financials | Quarterly | Earnings reports, funding rounds |
-| Tech Stack | Quarterly | Major platform changes |
-| Full Teardown | Quarterly | Strategic planning cycles |
+| Data Type     | Frequency | Trigger Events                      |
+| ------------- | --------- | ----------------------------------- |
+| Pricing       | Monthly   | Competitor pricing page changes     |
+| Features      | Bi-weekly | Changelog updates, product launches |
+| Reviews       | Monthly   | Batch review analysis               |
+| Job Postings  | Monthly   | Hiring surge detection              |
+| Financials    | Quarterly | Earnings reports, funding rounds    |
+| Tech Stack    | Quarterly | Major platform changes              |
+| Full Teardown | Quarterly | Strategic planning cycles           |
 
 ## Collection Workflow
 

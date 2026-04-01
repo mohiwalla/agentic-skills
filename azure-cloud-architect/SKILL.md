@@ -41,14 +41,25 @@ python scripts/architecture_designer.py \
 ```json
 {
   "recommended_pattern": "app_service_web",
-  "service_stack": ["App Service", "Azure SQL", "Front Door", "Key Vault", "Entra ID"],
+  "service_stack": [
+    "App Service",
+    "Azure SQL",
+    "Front Door",
+    "Key Vault",
+    "Entra ID"
+  ],
   "estimated_monthly_cost_usd": 280,
   "pros": ["Managed platform", "Built-in autoscale", "Deployment slots"],
-  "cons": ["Less control than VMs", "Platform constraints", "Cold start on consumption plans"]
+  "cons": [
+    "Less control than VMs",
+    "Platform constraints",
+    "Cold start on consumption plans"
+  ]
 }
 ```
 
 Select from recommended patterns:
+
 - **App Service Web**: Front Door + App Service + Azure SQL + Redis Cache
 - **Microservices on AKS**: AKS + Service Bus + Cosmos DB + API Management
 - **Serverless Event-Driven**: Functions + Event Grid + Service Bus + Cosmos DB
@@ -159,15 +170,28 @@ python scripts/cost_optimizer.py \
 {
   "current_monthly_usd": 2000,
   "recommendations": [
-    { "action": "Right-size SQL Database GP_S_Gen5_8 to GP_S_Gen5_2", "savings_usd": 380, "priority": "high" },
-    { "action": "Purchase 1-year Reserved Instances for AKS node pools", "savings_usd": 290, "priority": "high" },
-    { "action": "Move Blob Storage to Cool tier for objects >30 days old", "savings_usd": 65, "priority": "medium" }
+    {
+      "action": "Right-size SQL Database GP_S_Gen5_8 to GP_S_Gen5_2",
+      "savings_usd": 380,
+      "priority": "high"
+    },
+    {
+      "action": "Purchase 1-year Reserved Instances for AKS node pools",
+      "savings_usd": 290,
+      "priority": "high"
+    },
+    {
+      "action": "Move Blob Storage to Cool tier for objects >30 days old",
+      "savings_usd": 65,
+      "priority": "medium"
+    }
   ],
   "total_potential_savings_usd": 735
 }
 ```
 
 Output includes:
+
 - Monthly cost breakdown by service
 - Right-sizing recommendations
 - Reserved Instance and Savings Plan opportunities
@@ -215,14 +239,14 @@ trigger:
       - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-latest"
 
 steps:
   - task: AzureCLI@2
     inputs:
-      azureSubscription: 'MyServiceConnection'
-      scriptType: 'bash'
-      scriptLocation: 'inlineScript'
+      azureSubscription: "MyServiceConnection"
+      scriptType: "bash"
+      scriptLocation: "inlineScript"
       inlineScript: |
         az deployment group create \
           --resource-group rg-myapp-dev \
@@ -260,6 +284,7 @@ Validate security posture before production:
    ```
 
 **Common failure causes:**
+
 - RBAC permission errors — verify the deploying principal has Contributor on the resource group
 - Resource provider not registered — run `az provider register --namespace Microsoft.Web`
 - Naming conflicts — Azure resource names are often globally unique (storage accounts, web apps)
@@ -294,6 +319,7 @@ python scripts/cost_optimizer.py --config resources.json --json
 
 **Input:** JSON file with current Azure resource inventory
 **Output:** Recommendations for:
+
 - Idle resource removal
 - VM and database right-sizing
 - Reserved Instance purchases
@@ -309,6 +335,7 @@ python scripts/bicep_generator.py --arch-type microservices --output main.bicep
 ```
 
 **Output:** Production-ready Bicep templates with:
+
 - Managed Identity (no passwords)
 - Key Vault integration
 - Diagnostic settings for Azure Monitor
@@ -380,14 +407,14 @@ Result:
 
 Provide these details for architecture design:
 
-| Requirement | Description | Example |
-|-------------|-------------|---------|
-| Application type | What you're building | SaaS platform, mobile backend |
-| Expected scale | Users, requests/sec | 10k users, 100 RPS |
-| Budget | Monthly Azure limit | $500/month max |
-| Team context | Size, Azure experience | 3 devs, intermediate |
-| Compliance | Regulatory needs | HIPAA, GDPR, SOC 2 |
-| Availability | Uptime requirements | 99.9% SLA, 1hr RPO |
+| Requirement      | Description            | Example                       |
+| ---------------- | ---------------------- | ----------------------------- |
+| Application type | What you're building   | SaaS platform, mobile backend |
+| Expected scale   | Users, requests/sec    | 10k users, 100 RPS            |
+| Budget           | Monthly Azure limit    | $500/month max                |
+| Team context     | Size, Azure experience | 3 devs, intermediate          |
+| Compliance       | Regulatory needs       | HIPAA, GDPR, SOC 2            |
+| Availability     | Uptime requirements    | 99.9% SLA, 1hr RPO            |
 
 **JSON Format:**
 
@@ -408,16 +435,16 @@ Provide these details for architecture design:
 
 ## Anti-Patterns
 
-| Anti-Pattern | Why It Fails | Do This Instead |
-|---|---|---|
-| ARM JSON templates for new projects | Verbose, hard to read, no modules | Use Bicep — compiles to ARM, cleaner syntax |
-| Storing secrets in App Settings | Secrets visible in portal, no rotation | Use Key Vault references in App Settings |
-| Single large AKS node pool | Cannot optimize for different workloads | Use multiple node pools: system, app, jobs |
-| Public endpoints on PaaS services | Exposed attack surface | Use Private Endpoints + VNet integration |
-| Over-provisioning "just in case" | Wastes budget month one | Start small, use autoscale, right-size monthly |
-| Shared resource groups for everything | Blast radius, RBAC nightmares | One resource group per environment per workload |
-| No tagging strategy | Cannot track costs or ownership | Tag: environment, owner, cost-center, app-name |
-| Using classic resources | Deprecated, limited features | Use ARM/Bicep resources exclusively |
+| Anti-Pattern                          | Why It Fails                            | Do This Instead                                 |
+| ------------------------------------- | --------------------------------------- | ----------------------------------------------- |
+| ARM JSON templates for new projects   | Verbose, hard to read, no modules       | Use Bicep — compiles to ARM, cleaner syntax     |
+| Storing secrets in App Settings       | Secrets visible in portal, no rotation  | Use Key Vault references in App Settings        |
+| Single large AKS node pool            | Cannot optimize for different workloads | Use multiple node pools: system, app, jobs      |
+| Public endpoints on PaaS services     | Exposed attack surface                  | Use Private Endpoints + VNet integration        |
+| Over-provisioning "just in case"      | Wastes budget month one                 | Start small, use autoscale, right-size monthly  |
+| Shared resource groups for everything | Blast radius, RBAC nightmares           | One resource group per environment per workload |
+| No tagging strategy                   | Cannot track costs or ownership         | Tag: environment, owner, cost-center, app-name  |
+| Using classic resources               | Deprecated, limited features            | Use ARM/Bicep resources exclusively             |
 
 ---
 
@@ -444,20 +471,20 @@ Provide these details for architecture design:
 
 ## Cross-References
 
-| Skill | Relationship |
-|-------|-------------|
-| `engineering-team/aws-solution-architect` | AWS equivalent — same 6-step workflow, different services |
-| `engineering-team/gcp-cloud-architect` | GCP equivalent — completes the cloud trifecta |
-| `engineering-team/senior-devops` | Broader DevOps scope — pipelines, monitoring, containerization |
-| `engineering/terraform-patterns` | IaC implementation — use for Terraform modules targeting Azure |
-| `engineering/ci-cd-pipeline-builder` | Pipeline construction — automates Azure DevOps and GitHub Actions |
+| Skill                                     | Relationship                                                      |
+| ----------------------------------------- | ----------------------------------------------------------------- |
+| `engineering-team/aws-solution-architect` | AWS equivalent — same 6-step workflow, different services         |
+| `engineering-team/gcp-cloud-architect`    | GCP equivalent — completes the cloud trifecta                     |
+| `engineering-team/senior-devops`          | Broader DevOps scope — pipelines, monitoring, containerization    |
+| `engineering/terraform-patterns`          | IaC implementation — use for Terraform modules targeting Azure    |
+| `engineering/ci-cd-pipeline-builder`      | Pipeline construction — automates Azure DevOps and GitHub Actions |
 
 ---
 
 ## Reference Documentation
 
-| Document | Contents |
-|----------|----------|
+| Document                              | Contents                                                                        |
+| ------------------------------------- | ------------------------------------------------------------------------------- |
 | `references/architecture_patterns.md` | 5 patterns: web app, microservices/AKS, serverless, data pipeline, multi-region |
-| `references/service_selection.md` | Decision matrices for compute, database, storage, messaging, networking |
-| `references/best_practices.md` | Naming conventions, tagging, RBAC, network security, monitoring, DR |
+| `references/service_selection.md`     | Decision matrices for compute, database, storage, messaging, networking         |
+| `references/best_practices.md`        | Naming conventions, tagging, RBAC, network security, monitoring, DR             |

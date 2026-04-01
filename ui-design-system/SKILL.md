@@ -57,6 +57,7 @@ Use this skill when you need to:
    - Style preference: `modern` | `classic` | `playful`
 
 2. **Generate tokens using script**
+
    ```bash
    python scripts/design_token_generator.py "#0066CC" modern json
    ```
@@ -71,6 +72,7 @@ Use this skill when you need to:
    - Breakpoints: xs through 2xl
 
 4. **Export in target format**
+
    ```bash
    # CSS custom properties
    python scripts/design_token_generator.py "#0066CC" modern css > design-tokens.css
@@ -102,16 +104,17 @@ Use this skill when you need to:
 
 2. **Map tokens to components**
 
-   | Component | Tokens Used |
-   |-----------|-------------|
-   | Button | colors, sizing, borders, shadows, typography |
-   | Input | colors, sizing, borders, spacing |
-   | Card | colors, borders, shadows, spacing |
-   | Modal | colors, shadows, spacing, z-index, animation |
+   | Component | Tokens Used                                  |
+   | --------- | -------------------------------------------- |
+   | Button    | colors, sizing, borders, shadows, typography |
+   | Input     | colors, sizing, borders, spacing             |
+   | Card      | colors, borders, shadows, spacing            |
+   | Modal     | colors, shadows, spacing, z-index, animation |
 
 3. **Define variant patterns**
 
    Size variants:
+
    ```
    sm: height 32px, paddingX 12px, fontSize 14px
    md: height 40px, paddingX 16px, fontSize 16px
@@ -119,6 +122,7 @@ Use this skill when you need to:
    ```
 
    Color variants:
+
    ```
    primary: background primary-500, text white
    secondary: background neutral-100, text neutral-900
@@ -143,14 +147,14 @@ Use this skill when you need to:
 
 1. **Define breakpoints**
 
-   | Name | Width | Target |
-   |------|-------|--------|
-   | xs | 0 | Small phones |
-   | sm | 480px | Large phones |
-   | md | 640px | Tablets |
-   | lg | 768px | Small laptops |
-   | xl | 1024px | Desktops |
-   | 2xl | 1280px | Large screens |
+   | Name | Width  | Target        |
+   | ---- | ------ | ------------- |
+   | xs   | 0      | Small phones  |
+   | sm   | 480px  | Large phones  |
+   | md   | 640px  | Tablets       |
+   | lg   | 768px  | Small laptops |
+   | xl   | 1024px | Desktops      |
+   | 2xl  | 1280px | Large screens |
 
 2. **Calculate fluid typography**
 
@@ -162,6 +166,7 @@ Use this skill when you need to:
    ```
 
    Pre-calculated scales:
+
    ```css
    --fluid-h1: clamp(2rem, 1rem + 3.6vw, 4rem);
    --fluid-h2: clamp(1.75rem, 1rem + 2.3vw, 3rem);
@@ -171,12 +176,12 @@ Use this skill when you need to:
 
 3. **Set up responsive spacing**
 
-   | Token | Mobile | Tablet | Desktop |
-   |-------|--------|--------|---------|
-   | --space-md | 12px | 16px | 16px |
-   | --space-lg | 16px | 24px | 32px |
-   | --space-xl | 24px | 32px | 48px |
-   | --space-section | 48px | 80px | 120px |
+   | Token           | Mobile | Tablet | Desktop |
+   | --------------- | ------ | ------ | ------- |
+   | --space-md      | 12px   | 16px   | 16px    |
+   | --space-lg      | 16px   | 24px   | 32px    |
+   | --space-xl      | 24px   | 32px   | 48px    |
+   | --space-section | 48px   | 80px   | 120px   |
 
 4. **Reference:** See `references/responsive-calculations.md`
 
@@ -189,6 +194,7 @@ Use this skill when you need to:
 **Steps:**
 
 1. **Export tokens in required formats**
+
    ```bash
    # For CSS projects
    python scripts/design_token_generator.py "#0066CC" modern css
@@ -203,32 +209,35 @@ Use this skill when you need to:
 2. **Prepare framework integration**
 
    **React + CSS Variables:**
-   ```tsx
-   import './design-tokens.css';
 
-   <button className="btn btn-primary">Click</button>
+   ```tsx
+   import "./design-tokens.css"
+
+   ;<button className="btn btn-primary">Click</button>
    ```
 
    **Tailwind Config:**
+
    ```javascript
-   const tokens = require('./design-tokens.json');
+   const tokens = require("./design-tokens.json")
 
    module.exports = {
      theme: {
        colors: tokens.colors,
-       fontFamily: tokens.typography.fontFamily
-     }
-   };
+       fontFamily: tokens.typography.fontFamily,
+     },
+   }
    ```
 
    **styled-components:**
+
    ```typescript
-   import tokens from './design-tokens.json';
+   import tokens from "./design-tokens.json"
 
    const Button = styled.button`
-     background: ${tokens.colors.primary['500']};
-     padding: ${tokens.spacing['2']} ${tokens.spacing['4']};
-   `;
+     background: ${tokens.colors.primary["500"]};
+     padding: ${tokens.spacing["2"]} ${tokens.spacing["4"]};
+   `
    ```
 
 3. **Sync with Figma**
@@ -253,11 +262,11 @@ Use this skill when you need to:
 
 Generates complete design token system from brand color.
 
-| Argument | Values | Default | Description |
-|----------|--------|---------|-------------|
-| brand_color | Hex color | #0066CC | Primary brand color |
-| style | modern, classic, playful | modern | Design style preset |
-| format | json, css, scss, summary | json | Output format |
+| Argument    | Values                   | Default | Description         |
+| ----------- | ------------------------ | ------- | ------------------- |
+| brand_color | Hex color                | #0066CC | Primary brand color |
+| style       | modern, classic, playful | modern  | Design style preset |
+| format      | json, css, scss, summary | json    | Output format       |
 
 **Examples:**
 
@@ -274,17 +283,17 @@ python scripts/design_token_generator.py "#FF6B6B" playful summary
 
 **Output Categories:**
 
-| Category | Description | Key Values |
-|----------|-------------|------------|
-| colors | Color palettes | primary, secondary, neutral, semantic, surface |
-| typography | Font system | fontFamily, fontSize, fontWeight, lineHeight |
-| spacing | 8pt grid | 0-64 scale, semantic (xs-3xl) |
-| sizing | Component sizes | container, button, input, icon |
-| borders | Border values | radius (per style), width |
-| shadows | Shadow styles | none through 2xl, inner |
-| animation | Motion tokens | duration, easing, keyframes |
-| breakpoints | Responsive | xs, sm, md, lg, xl, 2xl |
-| z-index | Layer system | base through notification |
+| Category    | Description     | Key Values                                     |
+| ----------- | --------------- | ---------------------------------------------- |
+| colors      | Color palettes  | primary, secondary, neutral, semantic, surface |
+| typography  | Font system     | fontFamily, fontSize, fontWeight, lineHeight   |
+| spacing     | 8pt grid        | 0-64 scale, semantic (xs-3xl)                  |
+| sizing      | Component sizes | container, button, input, icon                 |
+| borders     | Border values   | radius (per style), width                      |
+| shadows     | Shadow styles   | none through 2xl, inner                        |
+| animation   | Motion tokens   | duration, easing, keyframes                    |
+| breakpoints | Responsive      | xs, sm, md, lg, xl, 2xl                        |
+| z-index     | Layer system    | base through notification                      |
 
 ---
 
@@ -292,50 +301,50 @@ python scripts/design_token_generator.py "#FF6B6B" playful summary
 
 ### Color Scale Generation
 
-| Step | Brightness | Saturation | Use Case |
-|------|------------|------------|----------|
-| 50 | 95% fixed | 30% | Subtle backgrounds |
-| 100 | 95% fixed | 38% | Light backgrounds |
-| 200 | 95% fixed | 46% | Hover states |
-| 300 | 95% fixed | 54% | Borders |
-| 400 | 95% fixed | 62% | Disabled states |
-| 500 | Original | 70% | Base/default color |
-| 600 | Original × 0.8 | 78% | Hover (dark) |
-| 700 | Original × 0.6 | 86% | Active states |
-| 800 | Original × 0.4 | 94% | Text |
-| 900 | Original × 0.2 | 100% | Headings |
+| Step | Brightness     | Saturation | Use Case           |
+| ---- | -------------- | ---------- | ------------------ |
+| 50   | 95% fixed      | 30%        | Subtle backgrounds |
+| 100  | 95% fixed      | 38%        | Light backgrounds  |
+| 200  | 95% fixed      | 46%        | Hover states       |
+| 300  | 95% fixed      | 54%        | Borders            |
+| 400  | 95% fixed      | 62%        | Disabled states    |
+| 500  | Original       | 70%        | Base/default color |
+| 600  | Original × 0.8 | 78%        | Hover (dark)       |
+| 700  | Original × 0.6 | 86%        | Active states      |
+| 800  | Original × 0.4 | 94%        | Text               |
+| 900  | Original × 0.2 | 100%       | Headings           |
 
 ### Typography Scale (1.25x Ratio)
 
 | Size | Value | Calculation |
-|------|-------|-------------|
-| xs | 10px | 16 ÷ 1.25² |
-| sm | 13px | 16 ÷ 1.25¹ |
-| base | 16px | Base |
-| lg | 20px | 16 × 1.25¹ |
-| xl | 25px | 16 × 1.25² |
-| 2xl | 31px | 16 × 1.25³ |
-| 3xl | 39px | 16 × 1.25⁴ |
-| 4xl | 49px | 16 × 1.25⁵ |
-| 5xl | 61px | 16 × 1.25⁶ |
+| ---- | ----- | ----------- |
+| xs   | 10px  | 16 ÷ 1.25²  |
+| sm   | 13px  | 16 ÷ 1.25¹  |
+| base | 16px  | Base        |
+| lg   | 20px  | 16 × 1.25¹  |
+| xl   | 25px  | 16 × 1.25²  |
+| 2xl  | 31px  | 16 × 1.25³  |
+| 3xl  | 39px  | 16 × 1.25⁴  |
+| 4xl  | 49px  | 16 × 1.25⁵  |
+| 5xl  | 61px  | 16 × 1.25⁶  |
 
 ### WCAG Contrast Requirements
 
 | Level | Normal Text | Large Text |
-|-------|-------------|------------|
-| AA | 4.5:1 | 3:1 |
-| AAA | 7:1 | 4.5:1 |
+| ----- | ----------- | ---------- |
+| AA    | 4.5:1       | 3:1        |
+| AAA   | 7:1         | 4.5:1      |
 
 Large text: ≥18pt regular or ≥14pt bold
 
 ### Style Presets
 
-| Aspect | Modern | Classic | Playful |
-|--------|--------|---------|---------|
-| Font Sans | Inter | Helvetica | Poppins |
-| Font Mono | Fira Code | Courier | Source Code Pro |
-| Radius Default | 8px | 4px | 16px |
-| Shadows | Layered, subtle | Single layer | Soft, pronounced |
+| Aspect         | Modern          | Classic      | Playful          |
+| -------------- | --------------- | ------------ | ---------------- |
+| Font Sans      | Inter           | Helvetica    | Poppins          |
+| Font Mono      | Fira Code       | Courier      | Source Code Pro  |
+| Radius Default | 8px             | 4px          | 16px             |
+| Shadows        | Layered, subtle | Single layer | Soft, pronounced |
 
 ---
 
@@ -343,36 +352,40 @@ Large text: ≥18pt regular or ≥14pt bold
 
 Detailed reference guides in `references/`:
 
-| File | Content |
-|------|---------|
-| `token-generation.md` | Color algorithms, HSV space, WCAG contrast, type scales |
-| `component-architecture.md` | Atomic design, naming conventions, props patterns |
-| `responsive-calculations.md` | Breakpoints, fluid typography, grid systems |
-| `developer-handoff.md` | Export formats, framework setup, Figma sync |
+| File                         | Content                                                 |
+| ---------------------------- | ------------------------------------------------------- |
+| `token-generation.md`        | Color algorithms, HSV space, WCAG contrast, type scales |
+| `component-architecture.md`  | Atomic design, naming conventions, props patterns       |
+| `responsive-calculations.md` | Breakpoints, fluid typography, grid systems             |
+| `developer-handoff.md`       | Export formats, framework setup, Figma sync             |
 
 ---
 
 ## Validation Checklist
 
 ### Token Generation
+
 - [ ] Brand color provided in hex format
 - [ ] Style matches project requirements
 - [ ] All token categories generated
 - [ ] Semantic colors include contrast values
 
 ### Component System
+
 - [ ] All sizes implemented (sm, md, lg)
 - [ ] All variants implemented (primary, secondary, ghost)
 - [ ] All states working (hover, active, focus, disabled)
 - [ ] Uses only design tokens (no hardcoded values)
 
 ### Accessibility
+
 - [ ] Color contrast meets WCAG AA
 - [ ] Focus indicators visible
 - [ ] Touch targets ≥ 44×44px
 - [ ] Semantic HTML elements used
 
 ### Developer Handoff
+
 - [ ] Tokens exported in required format
 - [ ] Framework integration documented
 - [ ] Design tool synced

@@ -46,26 +46,26 @@ Plan risk-based internal audit program:
 
 ### Risk-Based Audit Frequency
 
-| Risk Level | Frequency | Criteria |
-|------------|-----------|----------|
-| High | Quarterly | Design control, CAPA, production validation |
-| Medium | Semi-annual | Purchasing, training, document control |
-| Low | Annual | Infrastructure, management review (if stable) |
+| Risk Level | Frequency   | Criteria                                      |
+| ---------- | ----------- | --------------------------------------------- |
+| High       | Quarterly   | Design control, CAPA, production validation   |
+| Medium     | Semi-annual | Purchasing, training, document control        |
+| Low        | Annual      | Infrastructure, management review (if stable) |
 
 ### Audit Scope by Clause
 
-| Clause | Process | Focus Areas |
-|--------|---------|-------------|
-| 4.2 | Document Control | Document approval, distribution, obsolete control |
-| 5.6 | Management Review | Inputs complete, decisions documented, actions tracked |
-| 6.2 | Training | Competency defined, records complete, effectiveness verified |
-| 7.3 | Design Control | Inputs, reviews, V&V, transfer, changes |
-| 7.4 | Purchasing | Supplier evaluation, incoming inspection |
-| 7.5 | Production | Work instructions, process validation, DHR |
-| 7.6 | Calibration | Equipment list, calibration status, out-of-tolerance |
-| 8.2.2 | Internal Audit | Schedule compliance, auditor independence |
-| 8.3 | NC Product | Identification, segregation, disposition |
-| 8.5 | CAPA | Root cause, implementation, effectiveness |
+| Clause | Process           | Focus Areas                                                  |
+| ------ | ----------------- | ------------------------------------------------------------ |
+| 4.2    | Document Control  | Document approval, distribution, obsolete control            |
+| 5.6    | Management Review | Inputs complete, decisions documented, actions tracked       |
+| 6.2    | Training          | Competency defined, records complete, effectiveness verified |
+| 7.3    | Design Control    | Inputs, reviews, V&V, transfer, changes                      |
+| 7.4    | Purchasing        | Supplier evaluation, incoming inspection                     |
+| 7.5    | Production        | Work instructions, process validation, DHR                   |
+| 7.6    | Calibration       | Equipment list, calibration status, out-of-tolerance         |
+| 8.2.2  | Internal Audit    | Schedule compliance, auditor independence                    |
+| 8.3    | NC Product        | Identification, segregation, disposition                     |
+| 8.5    | CAPA              | Root cause, implementation, effectiveness                    |
 
 ### Auditor Independence
 
@@ -93,26 +93,29 @@ Conduct systematic internal audit:
 
 ### Evidence Collection
 
-| Method | Use For | Documentation |
-|--------|---------|---------------|
-| Document review | Procedures, records | Document number, version, date |
-| Interview | Process understanding | Interviewee name, role, summary |
-| Observation | Actual practice | What, where, when observed |
-| Record trace | Process flow | Record IDs, dates, linkage |
+| Method          | Use For               | Documentation                   |
+| --------------- | --------------------- | ------------------------------- |
+| Document review | Procedures, records   | Document number, version, date  |
+| Interview       | Process understanding | Interviewee name, role, summary |
+| Observation     | Actual practice       | What, where, when observed      |
+| Record trace    | Process flow          | Record IDs, dates, linkage      |
 
 ### Audit Questions by Clause
 
 **Document Control (4.2):**
+
 - Show me the document master list
 - How do you control obsolete documents?
 - Show me evidence of document change approval
 
 **Design Control (7.3):**
+
 - Show me the Design History File for [product]
 - Who participates in design reviews?
 - Show me design input to output traceability
 
 **CAPA (8.5):**
+
 - Show me the CAPA log with open items
 - How do you determine root cause?
 - Show me effectiveness verification records
@@ -130,6 +133,7 @@ Gap: [How evidence fails to meet requirement]
 ```
 
 **Example:**
+
 ```
 Requirement: ISO 13485:2016 Clause 7.6 requires calibration
 at specified intervals.
@@ -159,11 +163,11 @@ Classify and manage audit findings:
 
 ### Classification Criteria
 
-| Category | Definition | CAPA Required | Timeline |
-|----------|------------|---------------|----------|
-| Major | Systematic failure or absence of element | Yes | 30 days |
-| Minor | Isolated lapse or partial implementation | Recommended | 60 days |
-| Observation | Improvement opportunity | Optional | As appropriate |
+| Category    | Definition                               | CAPA Required | Timeline       |
+| ----------- | ---------------------------------------- | ------------- | -------------- |
+| Major       | Systematic failure or absence of element | Yes           | 30 days        |
+| Minor       | Isolated lapse or partial implementation | Recommended   | 60 days        |
+| Observation | Improvement opportunity                  | Optional      | As appropriate |
 
 ### Classification Decision
 
@@ -180,11 +184,11 @@ Is required element absent or failed?
 
 ### CAPA Integration
 
-| Finding Severity | CAPA Depth | Verification |
-|------------------|------------|--------------|
-| Major | Full root cause analysis (5-Why, Fishbone) | Next audit or within 6 months |
-| Minor | Immediate cause identification | Next scheduled audit |
-| Observation | Not required | Noted at next audit |
+| Finding Severity | CAPA Depth                                 | Verification                  |
+| ---------------- | ------------------------------------------ | ----------------------------- |
+| Major            | Full root cause analysis (5-Why, Fishbone) | Next audit or within 6 months |
+| Minor            | Immediate cause identification             | Next scheduled audit          |
+| Observation      | Not required                               | Noted at next audit           |
 
 See `references/nonconformity-classification.md` for detailed guidance.
 
@@ -206,18 +210,21 @@ Prepare for certification body or regulatory audit:
 ### Pre-Audit Readiness Checklist
 
 **Documentation:**
+
 - [ ] Quality Manual current
 - [ ] Procedures reflect actual practice
 - [ ] Records complete and retrievable
 - [ ] Previous audit findings closed
 
 **Personnel:**
+
 - [ ] Key personnel available during audit
 - [ ] Subject matter experts identified
 - [ ] Personnel briefed on audit protocol
 - [ ] Escorts assigned
 
 **Facility:**
+
 - [ ] Work areas organized
 - [ ] Documents at point of use current
 - [ ] Equipment calibration status visible
@@ -274,12 +281,14 @@ python scripts/audit_schedule_optimizer.py --processes processes.json --output j
 ```
 
 Generates risk-based audit schedule considering:
+
 - Process risk level
 - Previous findings
 - Days since last audit
 - Criticality scores
 
 **Output includes:**
+
 - Prioritized audit schedule
 - Quarterly distribution
 - Overdue audit alerts
@@ -314,10 +323,10 @@ Generates risk-based audit schedule considering:
 
 Track audit program effectiveness:
 
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| Schedule compliance | >90% | Audits completed on time |
-| Finding closure rate | >95% | Findings closed by due date |
-| Repeat findings | <10% | Same finding in consecutive audits |
-| CAPA effectiveness | >90% | Verified effective at follow-up |
-| Auditor utilization | 4 days/month | Audit days per qualified auditor |
+| Metric               | Target       | Measurement                        |
+| -------------------- | ------------ | ---------------------------------- |
+| Schedule compliance  | >90%         | Audits completed on time           |
+| Finding closure rate | >95%         | Findings closed by due date        |
+| Repeat findings      | <10%         | Same finding in consecutive audits |
+| CAPA effectiveness   | >90%         | Verified effective at follow-up    |
+| Auditor utilization  | 4 days/month | Audit days per qualified auditor   |

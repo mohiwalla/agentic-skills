@@ -47,9 +47,11 @@ The Incident Commander skill provides a comprehensive incident response framewor
 ### Severity Classification System
 
 #### SEV1 - Critical Outage
+
 **Definition:** Complete service failure affecting all users or critical business functions
 
 **Characteristics:**
+
 - Customer-facing services completely unavailable
 - Data loss or corruption affecting users
 - Security breaches with customer data exposure
@@ -57,6 +59,7 @@ The Incident Commander skill provides a comprehensive incident response framewor
 - SLA violations with financial penalties
 
 **Response Requirements:**
+
 - Immediate escalation to on-call engineer
 - Incident Commander assigned within 5 minutes
 - Executive notification within 15 minutes
@@ -67,9 +70,11 @@ The Incident Commander skill provides a comprehensive incident response framewor
 **Communication Frequency:** Every 15 minutes until resolution
 
 #### SEV2 - Major Impact
+
 **Definition:** Significant degradation affecting subset of users or non-critical functions
 
 **Characteristics:**
+
 - Partial service degradation (>25% of users affected)
 - Performance issues causing user frustration
 - Non-critical features unavailable
@@ -77,6 +82,7 @@ The Incident Commander skill provides a comprehensive incident response framewor
 - Data inconsistencies not affecting user experience
 
 **Response Requirements:**
+
 - On-call engineer response within 15 minutes
 - Incident Commander assigned within 30 minutes
 - Status page update within 30 minutes
@@ -86,9 +92,11 @@ The Incident Commander skill provides a comprehensive incident response framewor
 **Communication Frequency:** Every 30 minutes during active response
 
 #### SEV3 - Minor Impact
+
 **Definition:** Limited impact with workarounds available
 
 **Characteristics:**
+
 - Single feature or component affected
 - <25% of users impacted
 - Workarounds available
@@ -96,6 +104,7 @@ The Incident Commander skill provides a comprehensive incident response framewor
 - Non-urgent monitoring alerts
 
 **Response Requirements:**
+
 - Response within 2 hours during business hours
 - Next business day response acceptable outside hours
 - Internal team notification
@@ -104,9 +113,11 @@ The Incident Commander skill provides a comprehensive incident response framewor
 **Communication Frequency:** At key milestones only
 
 #### SEV4 - Low Impact
+
 **Definition:** Minimal impact, cosmetic issues, or planned maintenance
 
 **Characteristics:**
+
 - Cosmetic bugs
 - Documentation issues
 - Logging or monitoring gaps
@@ -114,6 +125,7 @@ The Incident Commander skill provides a comprehensive incident response framewor
 - Development/test environment issues
 
 **Response Requirements:**
+
 - Response within 1-2 business days
 - Standard ticket/issue tracking
 - No special escalation required
@@ -150,18 +162,21 @@ The Incident Commander skill provides a comprehensive incident response framewor
 #### Decision-Making Framework
 
 **Emergency Decisions (SEV1/2):**
+
 - Incident Commander has full authority
 - Bias toward action over analysis
 - Document decisions for later review
 - Consult subject matter experts but don't get blocked
 
 **Resource Allocation:**
+
 - Can pull in any necessary team members
 - Authority to escalate to senior leadership
 - Can approve emergency spend for external resources
 - Make call on communication channels and timing
 
 **Technical Decisions:**
+
 - Lean on technical leads for implementation details
 - Make final calls on trade-offs between speed and risk
 - Approve rollback vs. fix-forward strategies
@@ -209,14 +224,14 @@ Executive Summary:
 
 Key Metrics:
 - Time to Detection: {X minutes}
-- Time to Engagement: {X minutes} 
+- Time to Engagement: {X minutes}
 - Estimated Customer Impact: {number/percentage}
 - Current Status: {status}
 - ETA to Resolution: {time or "investigating"}
 
 Leadership Actions Required:
 - [ ] Customer communication approval
-- [ ] PR/Communications coordination  
+- [ ] PR/Communications coordination
 - [ ] Resource allocation decisions
 - [ ] External vendor engagement
 
@@ -230,7 +245,7 @@ This is an automated alert from our incident response system.
 #### Customer Communication Template
 
 ```
-We are currently experiencing {brief description of issue} affecting {scope of impact}. 
+We are currently experiencing {brief description of issue} affecting {scope of impact}.
 
 Our engineering team was alerted at {time} and is actively working to resolve the issue. We will provide updates every {frequency} until resolved.
 
@@ -257,6 +272,7 @@ Status page: {link}
 #### Stakeholder Classification
 
 **Internal Stakeholders:**
+
 - **Engineering Leadership** - Technical decisions and resource allocation
 - **Product Management** - Customer impact assessment and feature implications
 - **Customer Support** - User communication and support ticket management
@@ -265,6 +281,7 @@ Status page: {link}
 - **Legal/Compliance** - Regulatory reporting and liability assessment
 
 **External Stakeholders:**
+
 - **Customers** - Service availability and impact communication
 - **Partners** - API availability and integration impacts
 - **Vendors** - Third-party service dependencies and support escalation
@@ -273,13 +290,13 @@ Status page: {link}
 
 #### Communication Cadence by Stakeholder
 
-| Stakeholder | SEV1 | SEV2 | SEV3 | SEV4 |
-|-------------|------|------|------|------|
-| Engineering Leadership | Real-time | 30min | 4hrs | Daily |
-| Executive Team | 15min | 1hr | EOD | Weekly |
-| Customer Support | Real-time | 30min | 2hrs | As needed |
-| Customers | 15min | 1hr | Optional | None |
-| Partners | 30min | 2hrs | Optional | None |
+| Stakeholder            | SEV1      | SEV2  | SEV3     | SEV4      |
+| ---------------------- | --------- | ----- | -------- | --------- |
+| Engineering Leadership | Real-time | 30min | 4hrs     | Daily     |
+| Executive Team         | 15min     | 1hr   | EOD      | Weekly    |
+| Customer Support       | Real-time | 30min | 2hrs     | As needed |
+| Customers              | 15min     | 1hr   | Optional | None      |
+| Partners               | 30min     | 2hrs  | Optional | None      |
 
 ### Runbook Generation Framework
 
@@ -305,24 +322,29 @@ Status page: {link}
 
 #### Runbook Template Structure
 
-```markdown
+````markdown
 # {Service/Component} Incident Response Runbook
 
 ## Quick Reference
+
 - **Severity Indicators:** {list of conditions for each severity level}
 - **Key Contacts:** {on-call rotations and escalation paths}
 - **Critical Commands:** {list of emergency commands with descriptions}
 
 ## Detection
+
 ### Monitoring Alerts
+
 - {Alert name}: {description and thresholds}
 - {Alert name}: {description and thresholds}
 
 ### Manual Detection Signs
+
 - {Symptom}: {what to look for and where}
 - {Symptom}: {what to look for and where}
 
 ## Initial Response (0-15 minutes)
+
 1. **Assess Severity**
    - [ ] Check {primary metric}
    - [ ] Verify {secondary indicator}
@@ -339,21 +361,27 @@ Status page: {link}
    - [ ] Verify dependencies: {dependency check commands}
 
 ## Mitigation Strategies
+
 ### Strategy 1: {Name}
+
 **Use when:** {conditions}
 **Steps:**
+
 1. {detailed step with commands}
 2. {detailed step with expected outcomes}
 3. {validation step}
 
 **Rollback Plan:**
+
 1. {rollback step}
 2. {verification step}
 
 ### Strategy 2: {Name}
+
 {similar structure}
 
 ## Recovery and Validation
+
 1. **Service Restoration**
    - [ ] {restoration step}
    - [ ] Wait for {metric} to return to normal
@@ -365,10 +393,12 @@ Status page: {link}
    - [ ] Schedule PIR
 
 ## Common Pitfalls
+
 - **{Pitfall}:** {description and how to avoid}
 - **{Pitfall}:** {description and how to avoid}
 
 ## Reference Information
+
 → See references/reference-information.md for details
 
 ## Usage Examples
@@ -385,6 +415,7 @@ python scripts/timeline_reconstructor.py --input assets/db_incident_events.json 
 # Generate PIR after resolution
 python scripts/pir_generator.py --incident assets/db_incident_data.json --timeline timeline.md --output pir.md
 ```
+````
 
 ### Example 2: API Rate Limiting Incident
 
@@ -448,21 +479,25 @@ python scripts/pir_generator.py --incident assets/api_incident_summary.json --rc
 ## Integration with Existing Tools
 
 ### Monitoring and Alerting
+
 - PagerDuty/Opsgenie integration for escalation
 - Datadog/Grafana for metrics and dashboards
 - ELK/Splunk for log analysis and correlation
 
 ### Communication Platforms
+
 - Slack/Teams for war room coordination
 - Zoom/Meet for video bridges
 - Status page providers (Statuspage.io, etc.)
 
 ### Documentation Systems
+
 - Confluence/Notion for PIR storage
 - GitHub/GitLab for runbook version control
 - JIRA/Linear for action item tracking
 
 ### Change Management
+
 - CI/CD pipeline integration
 - Deployment tracking systems
 - Feature flag platforms for quick rollbacks

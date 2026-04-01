@@ -3,6 +3,7 @@
 Tests page navigation, items-per-page selector, and URL state.
 
 ## Prerequisites
+
 - Search results for `{{searchQuery}}` spanning multiple pages
 - At least `{{totalItemCount}}` items total
 - App running at `{{baseUrl}}`
@@ -111,13 +112,14 @@ test.describe('Pagination', () => {
 ```
 
 ## Variants
-| Variant | Description |
-|---------|-------------|
-| Next page | Items change, URL updates page=2 |
-| Previous page | Back to page 1 |
-| Jump to page | Clicking page number sets aria-current |
-| Items per page | Selector changes count of visible items |
-| Page info | "Showing X-Y of N" text |
-| First page prev | Previous button disabled |
-| Last page next | Next button disabled |
-| Out-of-range | Graceful fallback |
+
+| Variant         | Description                             |
+| --------------- | --------------------------------------- |
+| Next page       | Items change, URL updates page=2        |
+| Previous page   | Back to page 1                          |
+| Jump to page    | Clicking page number sets aria-current  |
+| Items per page  | Selector changes count of visible items |
+| Page info       | "Showing X-Y of N" text                 |
+| First page prev | Previous button disabled                |
+| Last page next  | Next button disabled                    |
+| Out-of-range    | Graceful fallback                       |

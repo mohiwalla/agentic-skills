@@ -17,6 +17,7 @@ metadata:
 Operational frameworks and tools for turning strategy into execution, scaling processes, and building the organizational engine.
 
 ## Keywords
+
 COO, chief operating officer, operations, operational excellence, process improvement, OKRs, objectives and key results, scaling, operational efficiency, execution, bottleneck analysis, process design, operational cadence, meeting cadence, org scaling, lean operations, continuous improvement
 
 ## Quick Start
@@ -29,9 +30,11 @@ python scripts/okr_tracker.py               # Cascade OKRs, track progress, flag
 ## Core Responsibilities
 
 ### 1. Strategy Execution
+
 The CEO sets direction. The COO makes it happen. Cascade company vision → annual strategy → quarterly OKRs → weekly execution. See `references/ops_cadence.md` for full OKR cascade framework.
 
 ### 2. Process Design
+
 Map current state → find the bottleneck → design improvement → implement incrementally → standardize. See `references/process_frameworks.md` for Theory of Constraints, lean ops, and automation decision framework.
 
 **Process Maturity Scale:**
@@ -44,12 +47,15 @@ Map current state → find the bottleneck → design improvement → implement i
 | 5 | Optimized | Continuous improvement loops |
 
 ### 3. Operational Cadence
+
 Daily standups (15 min, blockers only) → Weekly leadership sync → Monthly business review → Quarterly OKR planning. See `references/ops_cadence.md` for full templates.
 
 ### 4. Scaling Operations
+
 What breaks at each stage: Seed (tribal knowledge) → Series A (documentation) → Series B (coordination) → Series C (decision speed) → Growth (culture). See `references/scaling_playbook.md` for detailed playbook per stage.
 
 ### 5. Cross-Functional Coordination
+
 RACI for key decisions. Escalation framework: Team lead → Dept head → COO → CEO based on impact scope.
 
 ## Key Questions a COO Asks
@@ -62,15 +68,15 @@ RACI for key decisions. Escalation framework: Team lead → Dept head → COO �
 
 ## Operational Metrics
 
-| Category | Metric | Target |
-|----------|--------|--------|
-| Execution | OKR progress (% on track) | > 70% |
-| Execution | Quarterly goals hit rate | > 80% |
-| Speed | Decision cycle time | < 48 hours |
-| Quality | Customer-facing incidents | < 2/month |
-| Efficiency | Revenue per employee | Track trend |
-| Efficiency | Burn multiple | < 2x |
-| People | Regrettable attrition | < 10% |
+| Category   | Metric                    | Target      |
+| ---------- | ------------------------- | ----------- |
+| Execution  | OKR progress (% on track) | > 70%       |
+| Execution  | Quarterly goals hit rate  | > 80%       |
+| Speed      | Decision cycle time       | < 48 hours  |
+| Quality    | Customer-facing incidents | < 2/month   |
+| Efficiency | Revenue per employee      | Track trend |
+| Efficiency | Burn multiple             | < 2x        |
+| People     | Regrettable attrition     | < 10%       |
 
 ## Red Flags
 
@@ -83,24 +89,25 @@ RACI for key decisions. Escalation framework: Team lead → Dept head → COO �
 
 ## Integration with Other C-Suite Roles
 
-| When... | COO works with... | To... |
-|---------|-------------------|-------|
-| Strategy shifts | CEO | Translate direction into ops plan |
-| Roadmap changes | CPO + CTO | Assess operational impact |
-| Revenue targets change | CRO | Adjust capacity planning |
-| Budget constraints | CFO | Find efficiency gains |
-| Hiring plans | CHRO | Align headcount with ops needs |
-| Security incidents | CISO | Coordinate response |
+| When...                | COO works with... | To...                             |
+| ---------------------- | ----------------- | --------------------------------- |
+| Strategy shifts        | CEO               | Translate direction into ops plan |
+| Roadmap changes        | CPO + CTO         | Assess operational impact         |
+| Revenue targets change | CRO               | Adjust capacity planning          |
+| Budget constraints     | CFO               | Find efficiency gains             |
+| Hiring plans           | CHRO              | Align headcount with ops needs    |
+| Security incidents     | CISO              | Coordinate response               |
 
 ## Detailed References
+
 - `references/scaling_playbook.md` — what changes at each growth stage
 - `references/ops_cadence.md` — meeting rhythms, OKR cascades, reporting
 - `references/process_frameworks.md` — lean ops, TOC, automation decisions
 
-
 ## Proactive Triggers
 
 Surface these without being asked when you detect them in company context:
+
 - Same blocker appearing 3+ weeks → process is broken, not just slow
 - OKR check-in overdue → prompt quarterly review
 - Team growing past a scaling threshold (10→30, 30→80) → flag what will break
@@ -109,13 +116,13 @@ Surface these without being asked when you detect them in company context:
 
 ## Output Artifacts
 
-| Request | You Produce |
-|---------|-------------|
-| "Set up OKRs" | Cascaded OKR framework (company → dept → team) |
-| "We're scaling fast" | Scaling readiness report with what breaks next |
-| "Our process is broken" | Process map with bottleneck identified + fix plan |
-| "How efficient are we?" | Ops efficiency scorecard with maturity ratings |
-| "Design our meeting cadence" | Full cadence template (daily → quarterly) |
+| Request                      | You Produce                                       |
+| ---------------------------- | ------------------------------------------------- |
+| "Set up OKRs"                | Cascaded OKR framework (company → dept → team)    |
+| "We're scaling fast"         | Scaling readiness report with what breaks next    |
+| "Our process is broken"      | Process map with bottleneck identified + fix plan |
+| "How efficient are we?"      | Ops efficiency scorecard with maturity ratings    |
+| "Design our meeting cadence" | Full cadence template (daily → quarterly)         |
 
 ## Reasoning Technique: Step by Step
 
@@ -124,6 +131,7 @@ Map processes sequentially. Identify each step, handoff, and decision point. Fin
 ## Communication
 
 All output passes the Internal Quality Loop before reaching the founder (see `agent-protocol/SKILL.md`).
+
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Peer-verify: cross-functional claims validated by the owning role
 - Critic pre-screen: high-stakes decisions reviewed by Executive Mentor

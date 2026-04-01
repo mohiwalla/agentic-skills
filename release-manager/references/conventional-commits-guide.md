@@ -36,6 +36,7 @@ Conventional Commits is a specification for adding human and machine readable me
 ### Breaking Changes
 
 Any commit can introduce a breaking change by:
+
 1. Adding `!` after the type: `feat!: remove deprecated API`
 2. Including `BREAKING CHANGE:` in the footer
 
@@ -53,6 +54,7 @@ Scopes provide additional contextual information about the change. They should b
 ## Examples
 
 ### Simple Feature
+
 ```
 feat(auth): add OAuth2 integration
 
@@ -61,6 +63,7 @@ Users can now log in using their existing social media accounts.
 ```
 
 ### Bug Fix
+
 ```
 fix(api): resolve race condition in user creation
 
@@ -72,6 +75,7 @@ Fixes #234
 ```
 
 ### Breaking Change with !
+
 ```
 feat(api)!: remove deprecated /v1/users endpoint
 
@@ -83,6 +87,7 @@ BREAKING CHANGE: /v1/users endpoint removed, use /v2/users instead
 ```
 
 ### Breaking Change with Footer
+
 ```
 feat(auth): implement new authentication flow
 
@@ -94,6 +99,7 @@ are no longer valid. Users must log in again.
 ```
 
 ### Performance Improvement
+
 ```
 perf(image): optimize image compression algorithm
 
@@ -104,6 +110,7 @@ Closes #456
 ```
 
 ### Dependency Update
+
 ```
 build(deps): upgrade React to version 18.2.0
 
@@ -112,6 +119,7 @@ Includes performance improvements and new concurrent features.
 ```
 
 ### Documentation
+
 ```
 docs(readme): add deployment instructions
 
@@ -120,6 +128,7 @@ environment variables configuration, and troubleshooting tips.
 ```
 
 ### Revert
+
 ```
 revert: feat(payment): add cryptocurrency support
 
@@ -155,6 +164,7 @@ Closes #789, #823, #901
 ## Footers
 
 ### Issue References
+
 ```
 Fixes #123
 Closes #234, #345
@@ -162,6 +172,7 @@ Resolves #456
 ```
 
 ### Breaking Changes
+
 ```
 BREAKING CHANGE: The `authenticate` function now requires a second
 parameter for the authentication method. Update all calls from
@@ -169,12 +180,14 @@ parameter for the authentication method. Update all calls from
 ```
 
 ### Co-authors
+
 ```
 Co-authored-by: Jane Doe <jane@example.com>
 Co-authored-by: John Smith <john@example.com>
 ```
 
 ### Reviewed By
+
 ```
 Reviewed-by: Senior Developer <senior@example.com>
 Acked-by: Tech Lead <lead@example.com>
@@ -185,32 +198,39 @@ Acked-by: Tech Lead <lead@example.com>
 Using conventional commits enables:
 
 ### Automatic Version Bumping
+
 - `fix` commits trigger PATCH version bump (1.0.0 → 1.0.1)
-- `feat` commits trigger MINOR version bump (1.0.0 → 1.1.0)  
+- `feat` commits trigger MINOR version bump (1.0.0 → 1.1.0)
 - `BREAKING CHANGE` triggers MAJOR version bump (1.0.0 → 2.0.0)
 
 ### Changelog Generation
+
 ```markdown
 ## [1.2.0] - 2024-01-15
 
 ### Added
+
 - OAuth2 integration (auth)
 - Advanced search functionality (search)
 
 ### Fixed
+
 - Race condition in user creation (api)
 - Memory leak in image processing (image)
 
 ### Breaking Changes
+
 - Authentication tokens issued before this release are no longer valid
 ```
 
 ### Release Notes
+
 Generate user-friendly release notes automatically from commit history, filtering out internal changes and highlighting user-facing improvements.
 
 ## Best Practices
 
 ### Writing Good Descriptions
+
 - Use imperative mood: "add feature" not "added feature"
 - Start with lowercase letter
 - No period at the end
@@ -218,6 +238,7 @@ Generate user-friendly release notes automatically from commit history, filterin
 - Be specific and descriptive
 
 ### Good Examples
+
 ```
 feat(auth): add password reset functionality
 fix(ui): resolve mobile navigation menu overflow
@@ -225,6 +246,7 @@ perf(db): optimize user query with proper indexing
 ```
 
 ### Bad Examples
+
 ```
 feat: stuff
 fix: bug
@@ -232,12 +254,14 @@ update: changes
 ```
 
 ### Body Guidelines
+
 - Separate subject from body with blank line
 - Wrap body at 72 characters
 - Use body to explain what and why, not how
 - Reference issues and PRs when relevant
 
 ### Scope Guidelines
+
 - Use consistent scope naming across the team
 - Keep scopes short and meaningful
 - Document your team's scope conventions
@@ -246,6 +270,7 @@ update: changes
 ## Tools and Integration
 
 ### Git Hooks
+
 Use tools like `commitizen` or `husky` to enforce conventional commit format:
 
 ```bash
@@ -260,25 +285,41 @@ git cz
 ```
 
 ### Automated Validation
+
 Add commit message validation to prevent non-conventional commits:
 
 ```javascript
 // commitlint.config.js
 module.exports = {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
-      2, 'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'build', 'ci', 'chore', 'revert']
+    "type-enum": [
+      2,
+      "always",
+      [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "build",
+        "ci",
+        "chore",
+        "revert",
+      ],
     ],
-    'subject-case': [2, 'always', 'lower-case'],
-    'subject-max-length': [2, 'always', 50]
-  }
-};
+    "subject-case": [2, "always", "lower-case"],
+    "subject-max-length": [2, "always", 50],
+  },
+}
 ```
 
 ### CI/CD Integration
+
 Integrate with release automation tools:
+
 - **semantic-release**: Automated version management and package publishing
 - **standard-version**: Generate changelog and tag releases
 - **release-please**: Google's release automation tool
@@ -286,17 +327,19 @@ Integrate with release automation tools:
 ## Common Mistakes
 
 ### Mixing Multiple Changes
+
 ```
 # Bad: Multiple unrelated changes
 feat: add login page and fix CSS bug and update dependencies
 
 # Good: Separate commits
 feat(auth): add login page
-fix(ui): resolve CSS styling issue  
+fix(ui): resolve CSS styling issue
 build(deps): update React to version 18
 ```
 
 ### Vague Descriptions
+
 ```
 # Bad: Not descriptive
 fix: bug in code
@@ -308,6 +351,7 @@ feat(search): implement fuzzy matching algorithm
 ```
 
 ### Missing Breaking Change Indicators
+
 ```
 # Bad: Breaking change not marked
 feat(api): update user authentication
@@ -322,6 +366,7 @@ headers in every request. Anonymous access is no longer supported.
 ## Team Guidelines
 
 ### Establishing Conventions
+
 1. **Define scope vocabulary**: Create a list of approved scopes for your project
 2. **Document examples**: Provide team-specific examples of good commits
 3. **Set up tooling**: Use linters and hooks to enforce standards
@@ -329,13 +374,17 @@ headers in every request. Anonymous access is no longer supported.
 5. **Training**: Ensure all team members understand the format
 
 ### Scope Examples by Project Type
+
 **Web Application:**
+
 - `auth`, `ui`, `api`, `db`, `config`, `deploy`
 
 **Library/SDK:**
+
 - `core`, `utils`, `docs`, `examples`, `tests`
 
 **Mobile App:**
+
 - `ios`, `android`, `shared`, `ui`, `network`, `storage`
 
 By following conventional commits consistently, your team will have a clear, searchable commit history that enables powerful automation and improves the overall development workflow.

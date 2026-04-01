@@ -28,26 +28,26 @@ Follow the Azure Cloud Adoption Framework (CAF) naming convention for consistenc
 
 ### Examples
 
-| Resource | Naming Pattern | Example |
-|----------|---------------|---------|
-| Resource Group | rg-\<workload\>-\<env\> | rg-myapp-prod |
-| App Service | app-\<workload\>-\<env\> | app-myapp-prod |
-| App Service Plan | plan-\<workload\>-\<env\> | plan-myapp-prod |
-| Azure SQL Server | sql-\<workload\>-\<env\> | sql-myapp-prod |
-| Azure SQL Database | sqldb-\<workload\>-\<env\> | sqldb-myapp-prod |
-| Storage Account | st\<workload\>\<env\> (no hyphens) | stmyappprod |
-| Key Vault | kv-\<workload\>-\<env\> | kv-myapp-prod |
-| AKS Cluster | aks-\<workload\>-\<env\> | aks-myapp-prod |
-| Container Registry | cr\<workload\>\<env\> (no hyphens) | crmyappprod |
-| Virtual Network | vnet-\<workload\>-\<env\> | vnet-myapp-prod |
-| Subnet | snet-\<purpose\> | snet-app, snet-data |
-| NSG | nsg-\<subnet-name\> | nsg-snet-app |
-| Public IP | pip-\<resource\>-\<env\> | pip-agw-prod |
-| Cosmos DB | cosmos-\<workload\>-\<env\> | cosmos-myapp-prod |
-| Service Bus | sb-\<workload\>-\<env\> | sb-myapp-prod |
-| Event Hubs | evh-\<workload\>-\<env\> | evh-myapp-prod |
-| Log Analytics | log-\<workload\>-\<env\> | log-myapp-prod |
-| Application Insights | ai-\<workload\>-\<env\> | ai-myapp-prod |
+| Resource             | Naming Pattern                     | Example             |
+| -------------------- | ---------------------------------- | ------------------- |
+| Resource Group       | rg-\<workload\>-\<env\>            | rg-myapp-prod       |
+| App Service          | app-\<workload\>-\<env\>           | app-myapp-prod      |
+| App Service Plan     | plan-\<workload\>-\<env\>          | plan-myapp-prod     |
+| Azure SQL Server     | sql-\<workload\>-\<env\>           | sql-myapp-prod      |
+| Azure SQL Database   | sqldb-\<workload\>-\<env\>         | sqldb-myapp-prod    |
+| Storage Account      | st\<workload\>\<env\> (no hyphens) | stmyappprod         |
+| Key Vault            | kv-\<workload\>-\<env\>            | kv-myapp-prod       |
+| AKS Cluster          | aks-\<workload\>-\<env\>           | aks-myapp-prod      |
+| Container Registry   | cr\<workload\>\<env\> (no hyphens) | crmyappprod         |
+| Virtual Network      | vnet-\<workload\>-\<env\>          | vnet-myapp-prod     |
+| Subnet               | snet-\<purpose\>                   | snet-app, snet-data |
+| NSG                  | nsg-\<subnet-name\>                | nsg-snet-app        |
+| Public IP            | pip-\<resource\>-\<env\>           | pip-agw-prod        |
+| Cosmos DB            | cosmos-\<workload\>-\<env\>        | cosmos-myapp-prod   |
+| Service Bus          | sb-\<workload\>-\<env\>            | sb-myapp-prod       |
+| Event Hubs           | evh-\<workload\>-\<env\>           | evh-myapp-prod      |
+| Log Analytics        | log-\<workload\>-\<env\>           | log-myapp-prod      |
+| Application Insights | ai-\<workload\>-\<env\>            | ai-myapp-prod       |
 
 ### Rules
 
@@ -65,21 +65,21 @@ Tags enable cost allocation, ownership tracking, and automation. Apply to every 
 
 ### Required Tags
 
-| Tag Key | Purpose | Example Values |
-|---------|---------|---------------|
-| environment | Cost splitting, policy targeting | dev, staging, production |
-| app-name | Workload identification | myapp, data-pipeline |
-| owner | Team or individual responsible | platform-team, jane.doe@company.com |
-| cost-center | Finance allocation | CC-1234, engineering |
+| Tag Key     | Purpose                          | Example Values                      |
+| ----------- | -------------------------------- | ----------------------------------- |
+| environment | Cost splitting, policy targeting | dev, staging, production            |
+| app-name    | Workload identification          | myapp, data-pipeline                |
+| owner       | Team or individual responsible   | platform-team, jane.doe@company.com |
+| cost-center | Finance allocation               | CC-1234, engineering                |
 
 ### Recommended Tags
 
-| Tag Key | Purpose | Example Values |
-|---------|---------|---------------|
-| created-by | IaC or manual tracking | bicep, terraform, portal |
-| data-classification | Security posture | public, internal, confidential |
-| compliance | Regulatory requirements | hipaa, gdpr, sox |
-| auto-shutdown | Dev/test cost savings | true, false |
+| Tag Key             | Purpose                 | Example Values                 |
+| ------------------- | ----------------------- | ------------------------------ |
+| created-by          | IaC or manual tracking  | bicep, terraform, portal       |
+| data-classification | Security posture        | public, internal, confidential |
+| compliance          | Regulatory requirements | hipaa, gdpr, sox               |
+| auto-shutdown       | Dev/test cost savings   | true, false                    |
 
 ### Enforcement
 
@@ -90,7 +90,10 @@ Use Azure Policy to enforce tagging:
   "if": {
     "allOf": [
       { "field": "tags['environment']", "exists": "false" },
-      { "field": "type", "notEquals": "Microsoft.Resources/subscriptions/resourceGroups" }
+      {
+        "field": "type",
+        "notEquals": "Microsoft.Resources/subscriptions/resourceGroups"
+      }
     ]
   },
   "then": { "effect": "deny" }
@@ -111,16 +114,16 @@ Use Azure Policy to enforce tagging:
 
 ### Common Role Assignments
 
-| Persona | Scope | Role |
-|---------|-------|------|
-| Developer | Resource Group (dev) | Contributor |
-| Developer | Resource Group (prod) | Reader |
-| CI/CD pipeline | Resource Group | Contributor (via workload identity) |
-| App Service | Key Vault | Key Vault Secrets User |
-| App Service | Azure SQL | SQL DB Contributor (or Entra auth) |
-| AKS pod | Cosmos DB | Cosmos DB Built-in Data Contributor |
-| Security team | Subscription | Security Reader |
-| Platform team | Subscription | Owner (with PIM) |
+| Persona        | Scope                 | Role                                |
+| -------------- | --------------------- | ----------------------------------- |
+| Developer      | Resource Group (dev)  | Contributor                         |
+| Developer      | Resource Group (prod) | Reader                              |
+| CI/CD pipeline | Resource Group        | Contributor (via workload identity) |
+| App Service    | Key Vault             | Key Vault Secrets User              |
+| App Service    | Azure SQL             | SQL DB Contributor (or Entra auth)  |
+| AKS pod        | Cosmos DB             | Cosmos DB Built-in Data Contributor |
+| Security team  | Subscription          | Security Reader                     |
+| Platform team  | Subscription          | Owner (with PIM)                    |
 
 ### Workload Identity Federation
 
@@ -144,27 +147,27 @@ az ad app federated-credential create \
 
 ### Defense in Depth
 
-| Layer | Control | Implementation |
-|-------|---------|---------------|
-| Edge | DDoS + WAF | Azure DDoS Protection + Front Door WAF |
-| Perimeter | Firewall | Azure Firewall or NVA for hub VNet |
-| Network | Segmentation | VNet + subnets + NSGs |
-| Application | Access control | Private Endpoints + Managed Identity |
-| Data | Encryption | TLS 1.2+ in transit, CMK at rest |
+| Layer       | Control        | Implementation                         |
+| ----------- | -------------- | -------------------------------------- |
+| Edge        | DDoS + WAF     | Azure DDoS Protection + Front Door WAF |
+| Perimeter   | Firewall       | Azure Firewall or NVA for hub VNet     |
+| Network     | Segmentation   | VNet + subnets + NSGs                  |
+| Application | Access control | Private Endpoints + Managed Identity   |
+| Data        | Encryption     | TLS 1.2+ in transit, CMK at rest       |
 
 ### Private Endpoints
 
 Every PaaS service in production must use Private Endpoints:
 
-| Service | Private Endpoint Support | Private DNS Zone |
-|---------|------------------------|------------------|
-| Azure SQL | Yes | privatelink.database.windows.net |
-| Cosmos DB | Yes | privatelink.documents.azure.com |
-| Key Vault | Yes | privatelink.vaultcore.azure.net |
-| Storage (Blob) | Yes | privatelink.blob.core.windows.net |
-| Container Registry | Yes | privatelink.azurecr.io |
-| Service Bus | Yes | privatelink.servicebus.windows.net |
-| App Service | VNet Integration (outbound) + Private Endpoint (inbound) | privatelink.azurewebsites.net |
+| Service            | Private Endpoint Support                                 | Private DNS Zone                   |
+| ------------------ | -------------------------------------------------------- | ---------------------------------- |
+| Azure SQL          | Yes                                                      | privatelink.database.windows.net   |
+| Cosmos DB          | Yes                                                      | privatelink.documents.azure.com    |
+| Key Vault          | Yes                                                      | privatelink.vaultcore.azure.net    |
+| Storage (Blob)     | Yes                                                      | privatelink.blob.core.windows.net  |
+| Container Registry | Yes                                                      | privatelink.azurecr.io             |
+| Service Bus        | Yes                                                      | privatelink.servicebus.windows.net |
+| App Service        | VNet Integration (outbound) + Private Endpoint (inbound) | privatelink.azurewebsites.net      |
 
 ### NSG Rules Baseline
 
@@ -209,22 +212,23 @@ Action Groups (email, Teams, PagerDuty, webhook)
 
 ### Essential Alerts
 
-| Alert | Condition | Severity |
-|-------|-----------|----------|
-| App Service HTTP 5xx | > 10 in 5 minutes | Critical (Sev 1) |
-| App Service response time | P95 > 2 seconds | Warning (Sev 2) |
-| Azure SQL DTU/CPU | > 80% for 10 minutes | Warning (Sev 2) |
-| Azure SQL deadlocks | > 0 | Warning (Sev 2) |
-| Cosmos DB throttled requests | 429 count > 10 in 5 min | Warning (Sev 2) |
-| AKS node CPU | > 80% for 10 minutes | Warning (Sev 2) |
-| AKS pod restart count | > 5 in 10 minutes | Critical (Sev 1) |
-| Key Vault access denied | > 0 | Critical (Sev 1) |
-| Budget threshold | 80% of monthly budget | Warning (Sev 3) |
-| Budget threshold | 100% of monthly budget | Critical (Sev 1) |
+| Alert                        | Condition               | Severity         |
+| ---------------------------- | ----------------------- | ---------------- |
+| App Service HTTP 5xx         | > 10 in 5 minutes       | Critical (Sev 1) |
+| App Service response time    | P95 > 2 seconds         | Warning (Sev 2)  |
+| Azure SQL DTU/CPU            | > 80% for 10 minutes    | Warning (Sev 2)  |
+| Azure SQL deadlocks          | > 0                     | Warning (Sev 2)  |
+| Cosmos DB throttled requests | 429 count > 10 in 5 min | Warning (Sev 2)  |
+| AKS node CPU                 | > 80% for 10 minutes    | Warning (Sev 2)  |
+| AKS pod restart count        | > 5 in 10 minutes       | Critical (Sev 1) |
+| Key Vault access denied      | > 0                     | Critical (Sev 1) |
+| Budget threshold             | 80% of monthly budget   | Warning (Sev 3)  |
+| Budget threshold             | 100% of monthly budget  | Critical (Sev 1) |
 
 ### KQL Queries for Troubleshooting
 
 **App Service slow requests:**
+
 ```kql
 requests
 | where duration > 2000
@@ -234,6 +238,7 @@ requests
 ```
 
 **Failed dependencies (SQL, HTTP, etc.):**
+
 ```kql
 dependencies
 | where success == false
@@ -242,6 +247,7 @@ dependencies
 ```
 
 **AKS pod errors:**
+
 ```kql
 KubePodInventory
 | where PodStatus != "Running" and PodStatus != "Succeeded"
@@ -263,32 +269,32 @@ KubePodInventory
 
 ### RPO/RTO Mapping
 
-| Tier | RPO | RTO | Strategy | Cost |
-|------|-----|-----|----------|------|
-| Tier 1 (critical) | < 5 minutes | < 1 hour | Active-active multi-region | 2x |
-| Tier 2 (important) | < 1 hour | < 4 hours | Warm standby | 1.3x |
-| Tier 3 (standard) | < 24 hours | < 24 hours | Backup and restore | 1.1x |
-| Tier 4 (non-critical) | < 72 hours | < 72 hours | Rebuild from IaC | 1x |
+| Tier                  | RPO         | RTO        | Strategy                   | Cost |
+| --------------------- | ----------- | ---------- | -------------------------- | ---- |
+| Tier 1 (critical)     | < 5 minutes | < 1 hour   | Active-active multi-region | 2x   |
+| Tier 2 (important)    | < 1 hour    | < 4 hours  | Warm standby               | 1.3x |
+| Tier 3 (standard)     | < 24 hours  | < 24 hours | Backup and restore         | 1.1x |
+| Tier 4 (non-critical) | < 72 hours  | < 72 hours | Rebuild from IaC           | 1x   |
 
 ### Backup Strategy
 
-| Service | Backup Method | Retention |
-|---------|--------------|-----------|
-| Azure SQL | Automated backups | 7 days (short-term), 10 years (long-term) |
-| Cosmos DB | Continuous backup + point-in-time restore | 7-30 days |
-| Blob Storage | Soft delete + versioning + geo-redundant | 30 days soft delete |
-| AKS | Velero backup to Blob Storage | 7 days |
-| Key Vault | Soft delete + purge protection | 90 days |
-| App Service | Manual or automated (Backup and Restore feature) | Custom |
+| Service      | Backup Method                                    | Retention                                 |
+| ------------ | ------------------------------------------------ | ----------------------------------------- |
+| Azure SQL    | Automated backups                                | 7 days (short-term), 10 years (long-term) |
+| Cosmos DB    | Continuous backup + point-in-time restore        | 7-30 days                                 |
+| Blob Storage | Soft delete + versioning + geo-redundant         | 30 days soft delete                       |
+| AKS          | Velero backup to Blob Storage                    | 7 days                                    |
+| Key Vault    | Soft delete + purge protection                   | 90 days                                   |
+| App Service  | Manual or automated (Backup and Restore feature) | Custom                                    |
 
 ### Storage Redundancy
 
-| Redundancy | Regions | Durability | Use Case |
-|-----------|---------|-----------|----------|
-| LRS | 1 (3 copies) | 11 nines | Dev/test, easily recreatable data |
-| ZRS | 1 (3 AZs) | 12 nines | Production, zone failure protection |
-| GRS | 2 (6 copies) | 16 nines | Business-critical, regional failure protection |
-| GZRS | 2 (3 AZs + secondary) | 16 nines | Most critical data, best protection |
+| Redundancy | Regions               | Durability | Use Case                                       |
+| ---------- | --------------------- | ---------- | ---------------------------------------------- |
+| LRS        | 1 (3 copies)          | 11 nines   | Dev/test, easily recreatable data              |
+| ZRS        | 1 (3 AZs)             | 12 nines   | Production, zone failure protection            |
+| GRS        | 2 (6 copies)          | 16 nines   | Business-critical, regional failure protection |
+| GZRS       | 2 (3 AZs + secondary) | 16 nines   | Most critical data, best protection            |
 
 **Default to ZRS for production.** Use GRS/GZRS only when cross-region DR is required.
 
@@ -308,30 +314,30 @@ KubePodInventory
 
 ### Cost Pitfalls
 
-| Pitfall | Impact | Prevention |
-|---------|--------|-----------|
-| No budget alerts | Unexpected bills | Set alerts at 50%, 80%, 100% on day one |
-| Premium tier in dev/test | 3-5x overspend | Use Basic/Free tiers, auto-shutdown VMs |
-| Orphaned resources | Silent monthly charges | Tag everything, review Cost Management weekly |
-| Ignoring Reserved Instances | 35-55% overpay on steady workloads | Review Azure Advisor quarterly |
-| Over-provisioned Cosmos DB RU/s | Paying for unused throughput | Use autoscale or serverless |
+| Pitfall                         | Impact                             | Prevention                                    |
+| ------------------------------- | ---------------------------------- | --------------------------------------------- |
+| No budget alerts                | Unexpected bills                   | Set alerts at 50%, 80%, 100% on day one       |
+| Premium tier in dev/test        | 3-5x overspend                     | Use Basic/Free tiers, auto-shutdown VMs       |
+| Orphaned resources              | Silent monthly charges             | Tag everything, review Cost Management weekly |
+| Ignoring Reserved Instances     | 35-55% overpay on steady workloads | Review Azure Advisor quarterly                |
+| Over-provisioned Cosmos DB RU/s | Paying for unused throughput       | Use autoscale or serverless                   |
 
 ### Security Pitfalls
 
-| Pitfall | Impact | Prevention |
-|---------|--------|-----------|
-| Secrets in App Settings | Leaked credentials | Use Key Vault references |
-| Public PaaS endpoints | Exposed attack surface | Private Endpoints + VNet integration |
-| Contributor role on subscription | Overprivileged access | Scope to resource group, use PIM |
-| No diagnostic settings | Blind to attacks | Enable on every resource from day one |
-| SQL password authentication | Weak identity model | Entra-only auth, Managed Identity |
+| Pitfall                          | Impact                 | Prevention                            |
+| -------------------------------- | ---------------------- | ------------------------------------- |
+| Secrets in App Settings          | Leaked credentials     | Use Key Vault references              |
+| Public PaaS endpoints            | Exposed attack surface | Private Endpoints + VNet integration  |
+| Contributor role on subscription | Overprivileged access  | Scope to resource group, use PIM      |
+| No diagnostic settings           | Blind to attacks       | Enable on every resource from day one |
+| SQL password authentication      | Weak identity model    | Entra-only auth, Managed Identity     |
 
 ### Operational Pitfalls
 
-| Pitfall | Impact | Prevention |
-|---------|--------|-----------|
-| Manual portal deployments | Drift, no audit trail | Bicep for everything, block portal changes via Policy |
-| No health checks configured | Silent failures | /health endpoint, Front Door probes, App Service checks |
-| Single region deployment | Single point of failure | At minimum, use Availability Zones |
-| No tagging strategy | Cannot track costs/ownership | Enforce via Azure Policy from day one |
-| Ignoring Azure Advisor | Missed optimizations | Weekly review, enable email digest |
+| Pitfall                     | Impact                       | Prevention                                              |
+| --------------------------- | ---------------------------- | ------------------------------------------------------- |
+| Manual portal deployments   | Drift, no audit trail        | Bicep for everything, block portal changes via Policy   |
+| No health checks configured | Silent failures              | /health endpoint, Front Door probes, App Service checks |
+| Single region deployment    | Single point of failure      | At minimum, use Availability Zones                      |
+| No tagging strategy         | Cannot track costs/ownership | Enforce via Azure Policy from day one                   |
+| Ignoring Azure Advisor      | Missed optimizations         | Weekly review, enable email digest                      |

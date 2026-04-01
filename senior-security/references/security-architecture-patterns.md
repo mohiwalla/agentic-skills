@@ -21,11 +21,11 @@ Never trust, always verify. Every request authenticated and authorized regardles
 
 ### Core Principles
 
-| Principle | Implementation |
-|-----------|----------------|
+| Principle         | Implementation                                                    |
+| ----------------- | ----------------------------------------------------------------- |
 | Verify explicitly | Authenticate every request with identity, location, device health |
-| Least privilege | Just-in-time and just-enough access (JIT/JEA) |
-| Assume breach | Segment access, encrypt end-to-end, use analytics |
+| Least privilege   | Just-in-time and just-enough access (JIT/JEA)                     |
+| Assume breach     | Segment access, encrypt end-to-end, use analytics                 |
 
 ### Implementation Components
 
@@ -109,12 +109,12 @@ def get_sensitive_data():
 
 ### Network Segmentation
 
-| Segment | Access Level | Controls |
-|---------|--------------|----------|
-| DMZ | Public | WAF, DDoS protection, rate limiting |
-| Application | Authenticated users | mTLS, service mesh, RBAC |
-| Data | Authorized services only | Encryption, audit logging, DLP |
-| Management | Privileged admins | PAM, MFA, session recording |
+| Segment     | Access Level             | Controls                            |
+| ----------- | ------------------------ | ----------------------------------- |
+| DMZ         | Public                   | WAF, DDoS protection, rate limiting |
+| Application | Authenticated users      | mTLS, service mesh, RBAC            |
+| Data        | Authorized services only | Encryption, audit logging, DLP      |
+| Management  | Privileged admins        | PAM, MFA, session recording         |
 
 ---
 
@@ -147,18 +147,18 @@ DEFENSE IN DEPTH LAYERS
 
 ### Implementation Checklist
 
-| Layer | Control | Priority |
-|-------|---------|----------|
-| Perimeter | Web Application Firewall | Critical |
-| Perimeter | Rate limiting | Critical |
-| Network | Network segmentation (VLANs) | Critical |
-| Network | Intrusion detection system | High |
-| Host | Automated patching | Critical |
-| Host | Endpoint Detection & Response | High |
-| Application | Input validation | Critical |
-| Application | Parameterized queries | Critical |
-| Data | Encryption at rest (AES-256) | Critical |
-| Data | TLS 1.3 for transit | Critical |
+| Layer       | Control                       | Priority |
+| ----------- | ----------------------------- | -------- |
+| Perimeter   | Web Application Firewall      | Critical |
+| Perimeter   | Rate limiting                 | Critical |
+| Network     | Network segmentation (VLANs)  | Critical |
+| Network     | Intrusion detection system    | High     |
+| Host        | Automated patching            | Critical |
+| Host        | Endpoint Detection & Response | High     |
+| Application | Input validation              | Critical |
+| Application | Parameterized queries         | Critical |
+| Data        | Encryption at rest (AES-256)  | Critical |
+| Data        | TLS 1.3 for transit           | Critical |
 
 ### Fail-Safe Defaults
 
@@ -296,11 +296,11 @@ class JWTService:
 
 ### Multi-Factor Authentication
 
-| Factor | Examples | Strength |
-|--------|----------|----------|
-| Knowledge | Password, PIN, security questions | Low-Medium |
-| Possession | TOTP app, hardware key, SMS | Medium-High |
-| Inherence | Fingerprint, face, voice | High |
+| Factor     | Examples                          | Strength    |
+| ---------- | --------------------------------- | ----------- |
+| Knowledge  | Password, PIN, security questions | Low-Medium  |
+| Possession | TOTP app, hardware key, SMS       | Medium-High |
+| Inherence  | Fingerprint, face, voice          | High        |
 
 ```python
 # TOTP implementation
@@ -515,11 +515,11 @@ class User(db.Model):
 
 ### Secret Management
 
-| Storage Type | Use Case | Example |
-|--------------|----------|---------|
-| Environment variables | Container config | `DATABASE_URL` |
-| Secret manager | Application secrets | AWS Secrets Manager, HashiCorp Vault |
-| Hardware Security Module | Cryptographic keys | AWS CloudHSM |
+| Storage Type             | Use Case            | Example                              |
+| ------------------------ | ------------------- | ------------------------------------ |
+| Environment variables    | Container config    | `DATABASE_URL`                       |
+| Secret manager           | Application secrets | AWS Secrets Manager, HashiCorp Vault |
+| Hardware Security Module | Cryptographic keys  | AWS CloudHSM                         |
 
 ```python
 # HashiCorp Vault integration
@@ -550,11 +550,11 @@ class VaultClient:
 
 ### Anti-Pattern: Security Through Obscurity
 
-| Bad Practice | Why It's Wrong | Correct Approach |
-|--------------|----------------|------------------|
-| Custom encryption algorithm | Untested, likely breakable | Use AES-256-GCM, ChaCha20-Poly1305 |
-| Hidden admin URLs | Discovery via fuzzing | Proper authentication + authorization |
-| Encoded (not encrypted) secrets | Base64 is reversible | Use proper encryption |
+| Bad Practice                    | Why It's Wrong             | Correct Approach                      |
+| ------------------------------- | -------------------------- | ------------------------------------- |
+| Custom encryption algorithm     | Untested, likely breakable | Use AES-256-GCM, ChaCha20-Poly1305    |
+| Hidden admin URLs               | Discovery via fuzzing      | Proper authentication + authorization |
+| Encoded (not encrypted) secrets | Base64 is reversible       | Use proper encryption                 |
 
 ### Anti-Pattern: Trusting Client Input
 
@@ -605,11 +605,11 @@ except Exception as e:
 
 ## Security Tools Reference
 
-| Category | Tools |
-|----------|-------|
-| SAST (Static Analysis) | Semgrep, SonarQube, Bandit (Python), ESLint security plugins |
-| DAST (Dynamic Analysis) | OWASP ZAP, Burp Suite, Nikto |
-| Dependency Scanning | Snyk, Dependabot, npm audit, pip-audit |
-| Secret Detection | GitLeaks, TruffleHog, detect-secrets |
-| Container Security | Trivy, Clair, Anchore |
-| Infrastructure | Terraform Sentinel, Checkov, tfsec |
+| Category                | Tools                                                        |
+| ----------------------- | ------------------------------------------------------------ |
+| SAST (Static Analysis)  | Semgrep, SonarQube, Bandit (Python), ESLint security plugins |
+| DAST (Dynamic Analysis) | OWASP ZAP, Burp Suite, Nikto                                 |
+| Dependency Scanning     | Snyk, Dependabot, npm audit, pip-audit                       |
+| Secret Detection        | GitLeaks, TruffleHog, detect-secrets                         |
+| Container Security      | Trivy, Clair, Anchore                                        |
+| Infrastructure          | Terraform Sentinel, Checkov, tfsec                           |

@@ -7,6 +7,7 @@ This document provides standardized communication templates for incident respons
 ## Template Usage Guidelines
 
 ### General Principles
+
 1. **Be Clear and Concise** - Use simple language, avoid jargon
 2. **Be Factual** - Only state what is known, avoid speculation
 3. **Be Timely** - Send updates at committed intervals
@@ -14,6 +15,7 @@ This document provides standardized communication templates for incident respons
 5. **Be Accountable** - Include contact information for follow-up
 
 ### Template Selection
+
 - Choose templates based on incident severity and audience
 - Customize templates with specific incident details
 - Always include next update time and contact information
@@ -159,7 +161,7 @@ Next update in 15 minutes.
 ```
 {Timestamp} - Monitoring
 
-The fix has been implemented and we are monitoring the service recovery. 
+The fix has been implemented and we are monitoring the service recovery.
 
 Current Status: {Recovery progress}
 Next Steps: {What we're monitoring}
@@ -211,7 +213,7 @@ Immediate Actions:
 
 Metrics:
 - Error Rate: {Current vs normal}
-- Response Time: {Current vs normal}  
+- Response Time: {Current vs normal}
 - Throughput: {Current vs normal}
 
 Communication Plan:
@@ -400,7 +402,7 @@ Product Owner: {Name}
 SEVERITY ESCALATION NOTIFICATION
 
 Original Classification: {Original severity}
-New Classification: {New severity}  
+New Classification: {New severity}
 Escalation Time: {Timestamp}
 Escalated By: {Name and role}
 
@@ -542,6 +544,7 @@ Thank you,
 ## Template Customization Guidelines
 
 ### Placeholders to Always Replace
+
 - `{Service}` / `{Service Name}` - Specific service or component
 - `{Timestamp}` - Specific date/time in consistent format
 - `{Name}` / `{Contact}` - Actual names and contact information
@@ -549,6 +552,7 @@ Thank you,
 - `{Link}` - Real URLs to war rooms, status pages, etc.
 
 ### Language Guidelines
+
 - Use active voice ("We are investigating" not "The issue is being investigated")
 - Be specific about timelines ("within 30 minutes" not "soon")
 - Avoid technical jargon in customer communications
@@ -556,28 +560,32 @@ Thank you,
 - Use consistent terminology throughout incident lifecycle
 
 ### Timing Guidelines
-| Severity | Initial Notification | Update Frequency | Resolution Notification |
-|----------|---------------------|------------------|------------------------|
-| SEV1 | Immediate (< 5 min) | Every 15 minutes | Immediate |
-| SEV2 | Within 15 minutes | Every 30 minutes | Within 15 minutes |
-| SEV3 | Within 2 hours | At milestones | Within 1 hour |
-| SEV4 | Within 1 business day | Weekly | When resolved |
+
+| Severity | Initial Notification  | Update Frequency | Resolution Notification |
+| -------- | --------------------- | ---------------- | ----------------------- |
+| SEV1     | Immediate (< 5 min)   | Every 15 minutes | Immediate               |
+| SEV2     | Within 15 minutes     | Every 30 minutes | Within 15 minutes       |
+| SEV3     | Within 2 hours        | At milestones    | Within 1 hour           |
+| SEV4     | Within 1 business day | Weekly           | When resolved           |
 
 ### Audience-Specific Considerations
 
 #### Engineering Teams
+
 - Include technical details
 - Provide specific metrics and logs
 - Include coordination channels
 - List specific actions and owners
 
 #### Executive/Business
+
 - Focus on business impact
 - Include customer and revenue implications
 - Provide clear timeline and resource needs
 - Highlight any external factors (PR, legal, compliance)
 
 #### Customers
+
 - Use plain language
 - Focus on customer impact and workarounds
 - Provide realistic timelines

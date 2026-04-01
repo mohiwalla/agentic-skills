@@ -40,12 +40,14 @@ git checkout autoresearch/{domain}/{name}
 ### Step 3: Decide what to try
 
 Review results.tsv:
+
 - What changes were kept? What pattern do they share?
 - What was discarded? Avoid repeating those approaches.
 - What crashed? Understand why.
 - How many runs so far? (Escalate strategy accordingly)
 
 **Strategy escalation:**
+
 - Runs 1-5: Low-hanging fruit (obvious improvements)
 - Runs 6-15: Systematic exploration (vary one parameter)
 - Runs 16-30: Structural changes (algorithm swaps)
@@ -68,6 +70,7 @@ python {skill_path}/scripts/run_experiment.py \
 ### Step 6: Report result
 
 Read the script output. Tell the user:
+
 - **KEEP**: "Improvement! {metric}: {value} ({delta} from previous best)"
 - **DISCARD**: "No improvement. {metric}: {value} vs best {best}. Reverted."
 - **CRASH**: "Evaluation failed: {reason}. Reverted."

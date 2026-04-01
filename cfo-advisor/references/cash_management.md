@@ -23,6 +23,7 @@ Note: This is NOT the P&L. Revenue recognition ≠ cash collected.
 ### Where Cash Hides (and Leaks)
 
 **Cash sources you might be under-using:**
+
 - Deferred revenue (annual billing locks in cash 12 months early)
 - Customer deposits on enterprise contracts
 - Vendor payment terms (Net 60 instead of Net 30 = free float)
@@ -31,6 +32,7 @@ Note: This is NOT the P&L. Revenue recognition ≠ cash collected.
 - Venture debt (non-dilutive, available post-Series A)
 
 **Cash drains that sneak up on you:**
+
 - Annual software licenses paid in Q1 (budget for the lump sum)
 - Event sponsorships (often 6-12 months in advance)
 - Recruiting fees (15-25% of first-year salary, due on hire)
@@ -53,6 +55,7 @@ Cash impact:
 ```
 
 **The CFO's job:** Maximize the timing difference between cash in and cash out.
+
 - Collect from customers as early as possible (annual upfront, early payment discounts)
 - Pay vendors as late as possible (maximize payment terms)
 - Never confuse deferred revenue (a liability) with actual cash (it is cash — just count it right)
@@ -84,6 +87,7 @@ Emergency Account (separate bank):
 ```
 
 **FDIC coverage:** $250K per depositor per institution. For balances above $250K at a single bank, either:
+
 - Use CDARS/ICS (bank sweeps into multiple FDIC-insured accounts automatically)
 - Spread across multiple banks
 - Move excess to T-Bills (backed by US government, not FDIC, but safer)
@@ -108,6 +112,7 @@ This is not optional. Set it up once and automate.
 ### Accounts Receivable: Get Paid Faster
 
 **Billing model impact on cash:**
+
 ```
                 Annual Upfront  Quarterly    Monthly    Net 30 Monthly
 Cash Day 1:      100% of ACV     25% of ACV    8.3%       0%
@@ -121,6 +126,7 @@ For $100K ACV customer, Year 1 cash:
 ```
 
 **Push for annual billing. Make it easy with a discount:**
+
 ```
 "Pay annually and get 2 months free (16% discount)"
 Most SMB customers will take this.
@@ -128,6 +134,7 @@ Enterprise: use MSA structure with annual invoicing, not month-to-month.
 ```
 
 **AR Aging Policy:**
+
 ```
 > 0-30 days: Current. No action.
 > 30-60 days: Friendly reminder from AR team.
@@ -139,6 +146,7 @@ Reserve policy: 50% of 90-120 day AR, 100% of > 120 days
 ```
 
 **What slows down collections:**
+
 - Wrong contact (billing contact vs. user) — get finance contact during onboarding
 - Enterprise PO required — know this upfront, not when invoice is due
 - Credit holds or budget freeze — your CSM should surface these early
@@ -147,6 +155,7 @@ Reserve policy: 50% of 90-120 day AR, 100% of > 120 days
 ### Accounts Payable: Pay Slower
 
 **Standard terms by vendor type:**
+
 ```
 SaaS tools:      Net 30 default. Push for Net 45 or Net 60 at scale.
 Cloud providers: Pay as you go. Apply for credits first.
@@ -156,6 +165,7 @@ Payroll:         Pay on time. Never delay payroll. Ever.
 ```
 
 **Early payment discount trap:**
+
 ```
 "2/10 Net 30" means: 2% discount if you pay in 10 days, else pay in 30.
 Annual cost of NOT taking this: 2% × (365/(30-10)) = ~36% APY
@@ -164,6 +174,7 @@ Never take discounts < 1%.
 ```
 
 **AP workflow:**
+
 1. All invoices → finance inbox (not individual employees)
 2. Approval required above threshold ($500 for startups)
 3. Pay at end of terms, not when invoice arrives
@@ -178,6 +189,7 @@ Use these when you need to extend runway without raising. Ranked by speed and im
 ### Tier 1: Fast Cash (Days)
 
 **Annual billing campaign:**
+
 ```
 Target: Existing monthly customers
 Offer: 2 months free (16% discount) or 1 month free (8% discount) for annual upfront
@@ -188,6 +200,7 @@ No dilution. No debt. High impact.
 ```
 
 **Prepayment incentive for pipeline:**
+
 ```
 For deals in late stage, offer annual upfront pricing with 10-15% discount.
 Close rate may increase. Cash timing dramatically improves.
@@ -196,6 +209,7 @@ Close rate may increase. Cash timing dramatically improves.
 ### Tier 2: Cost Control (2-4 Weeks)
 
 **Hiring freeze:**
+
 ```
 Every unfilled role = salary × 1.25 per month.
 For a 30-person company, 3 open roles at $150K average:
@@ -205,6 +219,7 @@ Impact: Immediate. No blood.
 ```
 
 **Software audit:**
+
 ```
 Pull all credit card charges and ACH debits.
 Cancel any subscription not used in 30 days.
@@ -213,6 +228,7 @@ Tools: Vendr, Spendesk, or just a spreadsheet of recurring charges.
 ```
 
 **Cloud cost optimization:**
+
 ```
 Right-size instances (dev/staging don't need prod-scale)
 Reserve instances (1-year reserved = 30-40% savings vs on-demand)
@@ -223,6 +239,7 @@ Typical savings: 20-35% of current cloud bill
 ### Tier 3: Vendor Renegotiation (2-6 Weeks)
 
 **Payment term extension:**
+
 ```
 Ask key vendors for Net 60 instead of Net 30.
 $500K in AP × 30 days = $500K × (30/365) = ~$41K cash float improvement
@@ -230,12 +247,14 @@ Won't always work, but vendors often say yes to good customers.
 ```
 
 **Renewal timing:**
+
 ```
 Push annual renewals to later in the year.
 Preserve cash for Q1 (typically heaviest sales hiring quarter).
 ```
 
 **Vendor credits:**
+
 ```
 AWS: AWS Activate (up to $100K for qualified startups)
 GCP: Google for Startups (up to $200K)
@@ -247,6 +266,7 @@ Hubspot: Startup pricing (90% off)
 ### Tier 4: Financing (Weeks to Months)
 
 **Revenue-based financing:**
+
 ```
 Providers: Clearco, Capchase, Pipe, Arc
 Structure: Advance 3-6 months of MRR. Repay with % of monthly revenue.
@@ -257,6 +277,7 @@ When NOT to use: When burn rate is structural (will consume the advance fast).
 ```
 
 **Venture debt:**
+
 ```
 Providers: SVB (now First Citizens), Western Technology Investment, Hercules, TriplePoint
 Structure: Term loan, typically 3-6x monthly gross burn
@@ -268,6 +289,7 @@ When NOT to use: If you might trip financial covenants (minimum cash, revenue)
 ```
 
 **Convertible bridge:**
+
 ```
 Existing investors write bridge note: $500K-$2M at favorable terms.
 Structure: Converts at discount (10-20%) or cap into next equity round.
@@ -278,6 +300,7 @@ When NOT to use: As a long-term strategy. Bridge-to-bridge is a death spiral.
 ### Tier 5: Structural Cost Reduction (Weeks + Impact on Morale)
 
 **Salary deferrals (founders first):**
+
 ```
 Founders take 20-30% salary reduction, accrued for future repayment.
 Signals commitment to team and investors.
@@ -286,6 +309,7 @@ Always pay market rate to key non-founder employees — you can't afford to lose
 ```
 
 **Reduction in force (RIF):**
+
 ```
 Threshold: If burn multiple > 3x and growth < 20% YoY, a RIF is likely necessary.
 Sizing: Model to achieve at least 12 months runway without fundraising.
@@ -302,6 +326,7 @@ Focus cuts: G&A and underperforming sales roles first. Protect engineering and k
 ### The Framework
 
 **Cut when:**
+
 - Burn multiple > 2x and growth is decelerating
 - Runway < 9 months with no fundraise imminent
 - LTV:CAC declining for 3+ consecutive months
@@ -309,6 +334,7 @@ Focus cuts: G&A and underperforming sales roles first. Protect engineering and k
 - Headcount in functions not directly tied to near-term revenue or product-market fit
 
 **Invest when:**
+
 - Magic number > 1 (every dollar in S&M returns > $1 in gross profit)
 - LTV:CAC > 3x in a specific channel (pour money in)
 - Gross margin > 70% (unit economics are healthy; growth is the constraint)
@@ -317,12 +343,14 @@ Focus cuts: G&A and underperforming sales roles first. Protect engineering and k
 
 ### The False Economy Trap
 
-**Don't cut:** 
+**Don't cut:**
+
 - Top-of-funnel demand gen that generates qualified pipeline (if CAC payback is < 12 months, this is your best investment)
 - Engineering capacity on core product (technical debt compounds and slows you down permanently)
 - Key account managers on your largest customers (churn from top customers is catastrophic)
 
 **Cut these first:**
+
 - Conference sponsorships with no measurable pipeline
 - Tools and subscriptions with < 5 users or < 30% utilization
 - Agency spend that could be done in-house

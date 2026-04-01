@@ -1,5 +1,5 @@
 ---
-name: {{skill-name}}
+name: { { skill-name } }
 description: "{{One-line description}}. Use when: {{trigger conditions}}."
 ---
 
@@ -9,8 +9,8 @@ description: "{{One-line description}}. Use when: {{trigger conditions}}."
 
 ## Quick Reference
 
-| Problem | Solution |
-|---------|----------|
+| Problem             | Solution  |
+| ------------------- | --------- |
 | {{error/symptom 1}} | {{fix 1}} |
 | {{error/symptom 2}} | {{fix 2}} |
 
@@ -39,8 +39,8 @@ Include the exact error message if applicable.}}
 
 ## Trade-offs
 
-| Approach | Pros | Cons |
-|----------|------|------|
+| Approach | Pros     | Cons     |
+| -------- | -------- | -------- |
 | Option 1 | {{pros}} | {{cons}} |
 | Option 2 | {{pros}} | {{cons}} |
 

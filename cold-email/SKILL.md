@@ -21,18 +21,21 @@ If `marketing-context.md` exists, read it before asking questions.
 Gather this context:
 
 ### 1. The Sender
+
 - Who are they at this company? (Role, seniority — affects how they write)
 - What do they sell and who buys it?
 - Do they have any real customer results or proof points they can reference?
 - Are they sending as an individual or as a company?
 
 ### 2. The Prospect
+
 - Who is the target? (Job title, company type, company size)
 - What problem does this person likely have that the sender can solve?
 - Is there a specific trigger or reason to reach out now? (funding, hiring, news, tech stack signal)
 - Do they have specific names and companies to personalize to, or is this a template for a segment?
 
 ### 3. The Ask
+
 - What's the goal of the first email? (Book a call? Get a reply? Get a referral?)
 - How aggressive is the timeline? (SDR with daily send volume vs founder doing targeted outreach)
 
@@ -41,6 +44,7 @@ Gather this context:
 ## How This Skill Works
 
 ### Mode 1: Write the First Email
+
 When they need a single first-touch email or a template for a segment.
 
 1. Understand the ICP, the problem, and the trigger
@@ -50,6 +54,7 @@ When they need a single first-touch email or a template for a segment.
 5. Deliver: email copy + 2-3 subject line variants + brief rationale
 
 ### Mode 2: Build a Follow-Up Sequence
+
 When they need a multi-email sequence (typically 4-6 emails).
 
 1. Start with the first email (Mode 1)
@@ -60,6 +65,7 @@ When they need a multi-email sequence (typically 4-6 emails).
 6. Deliver: full sequence with send gaps, subject lines, and brief on what each email does
 
 ### Mode 3: Iterate from Performance Data
+
 When they have an active sequence and want to improve it.
 
 1. Review their current sequence emails and performance (open rate, reply rate)
@@ -111,12 +117,12 @@ Don't ask them to book a call, watch a demo, read a case study, AND reply with t
 
 Adjust tone, length, and specificity based on who you're writing to:
 
-| Audience | Length | Tone | Subject Line Style | What Works |
-|----------|--------|------|-------------------|------------|
-| C-suite (CEO, CRO, CMO) | 3-4 sentences | Ultra-brief, peer-level, strategic | Short, vague, internal-looking | Big problem → relevant proof → one question |
-| VP / Director | 5-7 sentences | Direct, metrics-conscious | Slightly more specific | Specific observation + clear business angle |
-| Mid-level (Manager, Analyst) | 7-10 sentences | Practical, shows you did homework | Can be more descriptive | Specific problem + practical value + easy CTA |
-| Technical (Engineer, Architect) | 7-10 sentences | Precise, no fluff | Technical specificity | Exact problem → precise solution → low-friction ask |
+| Audience                        | Length         | Tone                               | Subject Line Style             | What Works                                          |
+| ------------------------------- | -------------- | ---------------------------------- | ------------------------------ | --------------------------------------------------- |
+| C-suite (CEO, CRO, CMO)         | 3-4 sentences  | Ultra-brief, peer-level, strategic | Short, vague, internal-looking | Big problem → relevant proof → one question         |
+| VP / Director                   | 5-7 sentences  | Direct, metrics-conscious          | Slightly more specific         | Specific observation + clear business angle         |
+| Mid-level (Manager, Analyst)    | 7-10 sentences | Practical, shows you did homework  | Can be more descriptive        | Specific problem + practical value + easy CTA       |
+| Technical (Engineer, Architect) | 7-10 sentences | Precise, no fluff                  | Technical specificity          | Exact problem → precise solution → low-friction ask |
 
 The higher up the org chart, the shorter your email needs to be. A CEO gets 100+ emails per day. Three sentences and a clear question is a gift, not a slight.
 
@@ -130,13 +136,13 @@ The best cold email subject lines look like internal emails. They're short, slig
 
 ### What Works
 
-| Pattern | Example | Why It Works |
-|---------|---------|-------------|
-| Two or three words | `quick question` | Looks like an actual email from a colleague |
-| Specific trigger + question | `your TechCrunch piece` | Specific enough to not look like spam |
-| Shared context | `re: Series B` | Feels like a follow-up, not cold |
-| Observation | `your ATS setup` | Specific, relevant, not salesy |
-| Referral hook | `[mutual name] suggested I reach out` | Social proof front-loaded |
+| Pattern                     | Example                               | Why It Works                                |
+| --------------------------- | ------------------------------------- | ------------------------------------------- |
+| Two or three words          | `quick question`                      | Looks like an actual email from a colleague |
+| Specific trigger + question | `your TechCrunch piece`               | Specific enough to not look like spam       |
+| Shared context              | `re: Series B`                        | Feels like a follow-up, not cold            |
+| Observation                 | `your ATS setup`                      | Specific, relevant, not salesy              |
+| Referral hook               | `[mutual name] suggested I reach out` | Social proof front-loaded                   |
 
 ### What Kills Opens
 
@@ -155,20 +161,21 @@ Most deals happen in follow-ups. Most follow-ups are useless. The difference is 
 
 ### Cadence
 
-| Email | Send Day | Gap |
-|-------|----------|-----|
-| Email 1 | Day 1 | — |
-| Email 2 | Day 4 | +3 days |
-| Email 3 | Day 9 | +5 days |
-| Email 4 | Day 16 | +7 days |
-| Email 5 | Day 25 | +9 days |
-| Breakup | Day 35 | +10 days |
+| Email   | Send Day | Gap      |
+| ------- | -------- | -------- |
+| Email 1 | Day 1    | —        |
+| Email 2 | Day 4    | +3 days  |
+| Email 3 | Day 9    | +5 days  |
+| Email 4 | Day 16   | +7 days  |
+| Email 5 | Day 25   | +9 days  |
+| Breakup | Day 35   | +10 days |
 
 Gaps increase over time. You're persistent but not annoying.
 
 ### Follow-Up Rules
 
 **Each follow-up must have a new angle.** Rotate through:
+
 - New piece of evidence (case study, data point, recent result)
 - New angle on the problem (a different pain point in their world)
 - Related insight (something you noticed about their industry, tech stack, or news)
@@ -184,6 +191,7 @@ Gaps increase over time. You're persistent but not annoying.
 The last email in a sequence should close the loop professionally. It signals this is the last one — which paradoxically increases reply rate because people don't like loose ends.
 
 Example breakup:
+
 > "I'll stop cluttering your inbox after this one. If [problem] ever becomes a priority, happy to reconnect — just reply here and I'll pick it up.
 >
 > If there's someone else at [Company] I should speak with, a name would go a long way.
@@ -198,18 +206,18 @@ See `references/follow-up-playbook.md` for full cadence templates and angle rota
 
 These are not suggestions — they're patterns that mark you as a non-human and kill reply rates:
 
-| ❌ Avoid | Why It Fails |
-|----------|-------------|
-| "I hope this email finds you well" | Instant tell that this is templated. Cut it. |
-| "I wanted to reach out because..." | 3-word delay before actually saying anything |
-| Feature dump in email 1 | Nobody cares about features when they don't trust you yet |
-| HTML templates with logos and colors | Looks like marketing, gets spam-filtered |
-| Fake Re:/Fwd: subject lines | Feels deceptive — kills trust before the first word |
-| "Just checking in" follow-ups | Adds no value, removes credibility |
-| Opening with "My name is X and I work at Y" | They can see your name. Start with something interesting. |
-| Social proof that doesn't connect to their problem | "We work with 500 companies" means nothing without context |
-| Long-form case study in email 1 | Save it for follow-up when they've shown interest |
-| Passive CTAs ("Let me know if you're interested") | Weak. Ask a direct question or propose a specific next step. |
+| ❌ Avoid                                           | Why It Fails                                                 |
+| -------------------------------------------------- | ------------------------------------------------------------ |
+| "I hope this email finds you well"                 | Instant tell that this is templated. Cut it.                 |
+| "I wanted to reach out because..."                 | 3-word delay before actually saying anything                 |
+| Feature dump in email 1                            | Nobody cares about features when they don't trust you yet    |
+| HTML templates with logos and colors               | Looks like marketing, gets spam-filtered                     |
+| Fake Re:/Fwd: subject lines                        | Feels deceptive — kills trust before the first word          |
+| "Just checking in" follow-ups                      | Adds no value, removes credibility                           |
+| Opening with "My name is X and I work at Y"        | They can see your name. Start with something interesting.    |
+| Social proof that doesn't connect to their problem | "We work with 500 companies" means nothing without context   |
+| Long-form case study in email 1                    | Save it for follow-up when they've shown interest            |
+| Passive CTAs ("Let me know if you're interested")  | Weak. Ask a direct question or propose a specific next step. |
 
 ---
 
@@ -244,19 +252,20 @@ Surface these without being asked:
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|---------------------|------------|
-| Write a cold email | First-touch email + 3 subject line variants + brief rationale for structure choices |
-| Build a sequence | 5-6 email sequence with send gaps, subject lines per email, and angle summary for each follow-up |
-| Critique my email | Line-by-line assessment + rewrite + explanation of each change |
-| Write follow-ups only | Follow-up emails 2-6 with unique angles per email + breakup email |
-| Analyze sequence performance | Diagnosis of where the sequence breaks (subject/body/CTA) + specific rewrite recommendations |
+| When you ask for...          | You get...                                                                                       |
+| ---------------------------- | ------------------------------------------------------------------------------------------------ |
+| Write a cold email           | First-touch email + 3 subject line variants + brief rationale for structure choices              |
+| Build a sequence             | 5-6 email sequence with send gaps, subject lines per email, and angle summary for each follow-up |
+| Critique my email            | Line-by-line assessment + rewrite + explanation of each change                                   |
+| Write follow-ups only        | Follow-up emails 2-6 with unique angles per email + breakup email                                |
+| Analyze sequence performance | Diagnosis of where the sequence breaks (subject/body/CTA) + specific rewrite recommendations     |
 
 ---
 
 ## Communication
 
 All output follows the structured communication standard:
+
 - **Bottom line first** — answer before explanation
 - **What + Why + How** — every finding has all three
 - **Actions have owners and deadlines** — no "we should consider"

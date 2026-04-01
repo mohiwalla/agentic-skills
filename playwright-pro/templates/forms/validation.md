@@ -3,6 +3,7 @@
 Tests required fields, format validation, and inline error messages.
 
 ## Prerequisites
+
 - Form at `{{baseUrl}}/{{formPath}}`
 
 ---
@@ -93,49 +94,56 @@ test.describe('Form Validation', () => {
 ## JavaScript
 
 ```javascript
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require("@playwright/test")
 
-test.describe('Form Validation', () => {
+test.describe("Form Validation", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('{{baseUrl}}/{{formPath}}');
-  });
+    await page.goto("{{baseUrl}}/{{formPath}}")
+  })
 
-  test('shows required errors on empty submit', async ({ page }) => {
-    await page.getByRole('button', { name: /submit/i }).click();
-    await expect(page.getByText(/is required|required field/i).first()).toBeVisible();
-  });
+  test("shows required errors on empty submit", async ({ page }) => {
+    await page.getByRole("button", { name: /submit/i }).click()
+    await expect(
+      page.getByText(/is required|required field/i).first(),
+    ).toBeVisible()
+  })
 
-  test('shows error for invalid email on blur', async ({ page }) => {
-    await page.getByRole('textbox', { name: /email/i }).fill('bad@');
-    await page.getByRole('textbox', { name: /email/i }).blur();
-    await expect(page.getByText(/valid.*email/i)).toBeVisible();
-  });
+  test("shows error for invalid email on blur", async ({ page }) => {
+    await page.getByRole("textbox", { name: /email/i }).fill("bad@")
+    await page.getByRole("textbox", { name: /email/i }).blur()
+    await expect(page.getByText(/valid.*email/i)).toBeVisible()
+  })
 
-  test('passwords mismatch error shown', async ({ page }) => {
-    await page.getByRole('textbox', { name: /^password$/i }).fill('{{validPassword}}');
-    await page.getByRole('textbox', { name: /confirm password/i }).fill('other');
-    await page.getByRole('textbox', { name: /confirm password/i }).blur();
-    await expect(page.getByText(/do not match/i)).toBeVisible();
-  });
+  test("passwords mismatch error shown", async ({ page }) => {
+    await page
+      .getByRole("textbox", { name: /^password$/i })
+      .fill("{{validPassword}}")
+    await page.getByRole("textbox", { name: /confirm password/i }).fill("other")
+    await page.getByRole("textbox", { name: /confirm password/i }).blur()
+    await expect(page.getByText(/do not match/i)).toBeVisible()
+  })
 
-  test('clears errors when valid data entered', async ({ page }) => {
-    await page.getByRole('button', { name: /submit/i }).click();
-    await page.getByRole('textbox', { name: /{{requiredField}}/i }).fill('{{validValue}}');
-    await page.getByRole('button', { name: /submit/i }).click();
-    await expect(page.getByText(/required/i)).toBeHidden();
-  });
-});
+  test("clears errors when valid data entered", async ({ page }) => {
+    await page.getByRole("button", { name: /submit/i }).click()
+    await page
+      .getByRole("textbox", { name: /{{requiredField}}/i })
+      .fill("{{validValue}}")
+    await page.getByRole("button", { name: /submit/i }).click()
+    await expect(page.getByText(/required/i)).toBeHidden()
+  })
+})
 ```
 
 ## Variants
-| Variant | Description |
-|---------|-------------|
-| Error cleared | Valid input → errors removed on next submit |
-| Required fields | Empty submit → at least one required error |
-| Email format | Blur with bad email → inline error |
-| Phone format | Invalid phone → inline error |
-| Password length | Too short → character count error |
-| Password match | Mismatch → confirmation error |
-| Blur validation | Error shown on blur, not just submit |
-| aria-describedby | Error programmatically linked to field |
-| Max length | Exceeded length → error shown |
+
+| Variant          | Description                                 |
+| ---------------- | ------------------------------------------- |
+| Error cleared    | Valid input → errors removed on next submit |
+| Required fields  | Empty submit → at least one required error  |
+| Email format     | Blur with bad email → inline error          |
+| Phone format     | Invalid phone → inline error                |
+| Password length  | Too short → character count error           |
+| Password match   | Mismatch → confirmation error               |
+| Blur validation  | Error shown on blur, not just submit        |
+| aria-describedby | Error programmatically linked to field      |
+| Max length       | Exceeded length → error shown               |

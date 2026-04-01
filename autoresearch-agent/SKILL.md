@@ -21,13 +21,13 @@ Not one guess — fifty measured attempts, compounding.
 
 ## Slash Commands
 
-| Command | What it does |
-|---------|-------------|
-| `/ar:setup` | Set up a new experiment interactively |
-| `/ar:run` | Run a single experiment iteration |
-| `/ar:loop` | Start autonomous loop with configurable interval (10m, 1h, daily, weekly, monthly) |
-| `/ar:status` | Show dashboard and results |
-| `/ar:resume` | Resume a paused experiment |
+| Command      | What it does                                                                       |
+| ------------ | ---------------------------------------------------------------------------------- |
+| `/ar:setup`  | Set up a new experiment interactively                                              |
+| `/ar:run`    | Run a single experiment iteration                                                  |
+| `/ar:loop`   | Start autonomous loop with configurable interval (10m, 1h, daily, weekly, monthly) |
+| `/ar:status` | Show dashboard and results                                                         |
+| `/ar:resume` | Resume a paused experiment                                                         |
 
 ---
 
@@ -53,6 +53,7 @@ If the user describes a target file + a way to measure success → this skill ap
 Run the setup script. The user decides where experiments live:
 
 **Project-level** (inside repo, git-tracked, shareable with team):
+
 ```bash
 python scripts/setup_experiment.py \
   --domain engineering \
@@ -65,6 +66,7 @@ python scripts/setup_experiment.py \
 ```
 
 **User-level** (personal, in `~/.autoresearch/`):
+
 ```bash
 python scripts/setup_experiment.py \
   --domain marketing \
@@ -78,6 +80,7 @@ python scripts/setup_experiment.py \
 ```
 
 The `--scope` flag determines where `.autoresearch/` lives:
+
 - `project` (default) → `.autoresearch/` in the repo root. Experiment definitions are git-tracked. Results are gitignored.
 - `user` → `~/.autoresearch/` in the home directory. Everything is personal.
 
@@ -95,6 +98,7 @@ The `--scope` flag determines where `.autoresearch/` lives:
 ```
 
 **results.tsv columns:** `commit | metric | status | description`
+
 - `commit` — short git hash
 - `metric` — float value or "N/A" for crashes
 - `status` — keep | discard | crash
@@ -102,13 +106,13 @@ The `--scope` flag determines where `.autoresearch/` lives:
 
 ### Domains
 
-| Domain | Use Cases |
-|--------|-----------|
+| Domain        | Use Cases                                                   |
+| ------------- | ----------------------------------------------------------- |
 | `engineering` | Code speed, memory, bundle size, test pass rate, build time |
-| `marketing` | Headlines, social copy, email subjects, ad copy, engagement |
-| `content` | Article structure, SEO descriptions, readability, CTR |
-| `prompts` | System prompts, chatbot tone, agent instructions |
-| `custom` | Anything else with a measurable metric |
+| `marketing`   | Headlines, social copy, email subjects, ad copy, engagement |
+| `content`     | Article structure, SEO descriptions, readability, CTR       |
+| `prompts`     | System prompts, chatbot tone, agent instructions            |
+| `custom`      | Anything else with a measurable metric                      |
 
 ### If `program.md` Already Exists
 
@@ -121,6 +125,7 @@ The user may have written their own `program.md`. If found in the experiment dir
 You are the loop. The scripts handle setup and evaluation — you handle the creative work.
 
 ### Before Starting
+
 1. Read `.autoresearch/{domain}/{name}/config.cfg` to get:
    - `target` — the file you edit
    - `evaluate_cmd` — the command that measures your changes
@@ -132,6 +137,7 @@ You are the loop. The scripts handle setup and evaluation — you handle the cre
 4. Checkout the experiment branch: `git checkout autoresearch/{domain}/{name}`
 
 ### Each Iteration
+
 1. Review results.tsv — what worked? What failed? What hasn't been tried?
 2. Decide ONE change to the target file. One variable per experiment.
 3. Edit the target file
@@ -141,6 +147,7 @@ You are the loop. The scripts handle setup and evaluation — you handle the cre
 7. Go to step 1
 
 ### What the Script Handles (you don't)
+
 - Running the eval command with timeout
 - Parsing the metric from eval output
 - Comparing to previous best
@@ -158,6 +165,7 @@ python scripts/run_experiment.py --experiment engineering/api-speed --dry-run
 ```
 
 ### Strategy Escalation
+
 - Runs 1-5: Low-hanging fruit (obvious improvements, simple optimizations)
 - Runs 6-15: Systematic exploration (vary one parameter at a time)
 - Runs 16-30: Structural changes (algorithm swaps, architecture shifts)
@@ -165,12 +173,14 @@ python scripts/run_experiment.py --experiment engineering/api-speed --dry-run
 - If no improvement in 20+ runs: update program.md Strategy section
 
 ### Self-Improvement
+
 After every 10 experiments, review results.tsv for patterns. Update the
 Strategy section of program.md with what you learned (e.g., "caching changes
 consistently improve by 5-10%", "refactoring attempts never improve the metric").
 Future iterations benefit from this accumulated knowledge.
 
 ### Stopping
+
 - Run until interrupted by the user, context limit reached, or goal in program.md is met
 - Before stopping: ensure results.tsv is up to date
 - On context limit: the next session can resume — results.tsv and git log persist
@@ -192,25 +202,26 @@ Ready-to-use evaluation scripts. Copied into the experiment directory during set
 
 ### Free Evaluators (no API cost)
 
-| Evaluator | Metric | Use Case |
-|-----------|--------|----------|
-| `benchmark_speed` | `p50_ms` (lower) | Function/API execution time |
-| `benchmark_size` | `size_bytes` (lower) | File, bundle, Docker image size |
-| `test_pass_rate` | `pass_rate` (higher) | Test suite pass percentage |
-| `build_speed` | `build_seconds` (lower) | Build/compile/Docker build time |
-| `memory_usage` | `peak_mb` (lower) | Peak memory during execution |
+| Evaluator         | Metric                  | Use Case                        |
+| ----------------- | ----------------------- | ------------------------------- |
+| `benchmark_speed` | `p50_ms` (lower)        | Function/API execution time     |
+| `benchmark_size`  | `size_bytes` (lower)    | File, bundle, Docker image size |
+| `test_pass_rate`  | `pass_rate` (higher)    | Test suite pass percentage      |
+| `build_speed`     | `build_seconds` (lower) | Build/compile/Docker build time |
+| `memory_usage`    | `peak_mb` (lower)       | Peak memory during execution    |
 
 ### LLM Judge Evaluators (uses your subscription)
 
-| Evaluator | Metric | Use Case |
-|-----------|--------|----------|
-| `llm_judge_content` | `ctr_score` 0-10 (higher) | Headlines, titles, descriptions |
-| `llm_judge_prompt` | `quality_score` 0-100 (higher) | System prompts, agent instructions |
-| `llm_judge_copy` | `engagement_score` 0-10 (higher) | Social posts, ad copy, emails |
+| Evaluator           | Metric                           | Use Case                           |
+| ------------------- | -------------------------------- | ---------------------------------- |
+| `llm_judge_content` | `ctr_score` 0-10 (higher)        | Headlines, titles, descriptions    |
+| `llm_judge_prompt`  | `quality_score` 0-100 (higher)   | System prompts, agent instructions |
+| `llm_judge_copy`    | `engagement_score` 0-10 (higher) | Social posts, ad copy, emails      |
 
 LLM judges call the CLI tool the user is already running (Claude, Codex, Gemini). The evaluation prompt is locked inside `evaluate.py` — the agent cannot modify it. This prevents the agent from gaming its own evaluator.
 
 The user's existing subscription covers the cost:
+
 - Claude Code Max → unlimited Claude calls for evaluation
 - Codex CLI (ChatGPT Pro) → unlimited Codex calls
 - Gemini CLI (free tier) → free evaluation calls
@@ -283,17 +294,20 @@ Flag these without being asked:
 ## Installation
 
 ### One-liner (any tool)
+
 ```bash
 git clone https://github.com/alirezarezvani/claude-skills.git
 cp -r claude-skills/engineering/autoresearch-agent ~/.claude/skills/
 ```
 
 ### Multi-tool install
+
 ```bash
 ./scripts/convert.sh --skill autoresearch-agent --tool codex|gemini|cursor|windsurf|openclaw
 ```
 
 ### OpenClaw
+
 ```bash
 clawhub install cs-autoresearch-agent
 ```

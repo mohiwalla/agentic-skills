@@ -33,11 +33,13 @@ Fix problems from the bottom up. No point perfecting copy if your domain is blac
 Never send cold email from your primary company domain (`acme.com`). If your cold email domain gets flagged or blacklisted, you lose your main domain's email reputation.
 
 **Setup options:**
+
 - `mail.acme.com` — subdomain of main domain
 - `acme-hq.com` — separate domain with similar name
 - `getacme.com` / `tryacme.com` — common pattern for SaaS
 
 **Rules for the sending domain:**
+
 - Set up a proper website (even a simple redirect to main site) — bare domains look suspicious
 - Match the company name visually — unrelated domains look like phishing
 - Get a G Suite / Microsoft 365 mailbox on it — shared hosting email servers have worse reputation
@@ -47,6 +49,7 @@ Never send cold email from your primary company domain (`acme.com`). If your col
 SPF (Sender Policy Framework) tells receiving servers which IP addresses are allowed to send email from your domain. Without it, your emails look unauthenticated.
 
 **DNS TXT record:**
+
 ```
 v=spf1 include:_spf.google.com ~all
 ```
@@ -72,6 +75,7 @@ The public key in that record lets receiving servers verify your email's signatu
 DMARC ties SPF and DKIM together and tells receiving servers what to do when authentication fails.
 
 **Starter DMARC record (monitoring mode):**
+
 ```
 _dmarc.yourdomain.com  IN  TXT  "v=DMARC1; p=none; rua=mailto:dmarc@yourdomain.com"
 ```
@@ -92,15 +96,16 @@ Warmup = building reputation gradually by sending low volumes and getting positi
 
 ### Warmup Schedule
 
-| Week | Emails/Day | Focus |
-|------|-----------|-------|
-| 1 | 5-10 | Real conversations only — send to colleagues, get replies |
-| 2 | 20-30 | Small cold outreach batches — highly targeted, good lists |
-| 3 | 40-60 | Expand slightly — maintain >30% open rate |
-| 4 | 80-100 | Normal volume — watch bounce and spam complaint rates |
-| 5+ | Up to 200 | Full volume — monitor daily |
+| Week | Emails/Day | Focus                                                     |
+| ---- | ---------- | --------------------------------------------------------- |
+| 1    | 5-10       | Real conversations only — send to colleagues, get replies |
+| 2    | 20-30      | Small cold outreach batches — highly targeted, good lists |
+| 3    | 40-60      | Expand slightly — maintain >30% open rate                 |
+| 4    | 80-100     | Normal volume — watch bounce and spam complaint rates     |
+| 5+   | Up to 200  | Full volume — monitor daily                               |
 
 **Warning signs that warmup is failing:**
+
 - Open rate drops below 20%
 - Bounce rate above 3%
 - Spam complaint rate above 0.1%
@@ -139,6 +144,7 @@ Spam filters evaluate content alongside authentication and reputation. These pat
 ### Spam Trigger Words to Avoid
 
 High-risk words and phrases (use sparingly or avoid):
+
 - "Free" (especially in subject lines)
 - "Guaranteed" / "100% guaranteed"
 - "No obligation"
@@ -156,14 +162,14 @@ These don't automatically spam-filter you, but they're additive — the more of 
 
 ### Content Rules
 
-| Do | Don't |
-|----|-------|
-| Plain text or minimal HTML | Heavy HTML with complex tables, images |
-| One link max per email | 5+ links — looks like phishing or newsletter |
-| Personalized subject lines | Batch-blasted "LAST CHANCE" subject lines |
-| Unsubscribe link | No unsubscribe mechanism |
-| Consistent from name | Rotating from names |
-| Short emails | Wall-of-text emails |
+| Do                         | Don't                                        |
+| -------------------------- | -------------------------------------------- |
+| Plain text or minimal HTML | Heavy HTML with complex tables, images       |
+| One link max per email     | 5+ links — looks like phishing or newsletter |
+| Personalized subject lines | Batch-blasted "LAST CHANCE" subject lines    |
+| Unsubscribe link           | No unsubscribe mechanism                     |
+| Consistent from name       | Rotating from names                          |
+| Short emails               | Wall-of-text emails                          |
 
 ### The HTML Question
 
@@ -175,14 +181,14 @@ If you need to include your company logo and a fancy template: don't. Save that 
 
 ## Sending Limits by Platform
 
-| Platform | Safe Daily Volume | Notes |
-|----------|------------------|-------|
-| Google Workspace (paid) | 500/day | Shared across all outgoing |
-| Google Workspace + Warmup | Up to 2000/day | After full warmup |
-| Microsoft 365 | 10,000/day | Generous, but still subject to reputation |
-| SendGrid | Depends on plan | IP reputation matters at scale |
-| Mailgun | Depends on plan | Good for transactional, OK for cold |
-| Lemlist / Instantly / Apollo | Platform-managed | Warmup built in, use their sending infrastructure |
+| Platform                     | Safe Daily Volume | Notes                                             |
+| ---------------------------- | ----------------- | ------------------------------------------------- |
+| Google Workspace (paid)      | 500/day           | Shared across all outgoing                        |
+| Google Workspace + Warmup    | Up to 2000/day    | After full warmup                                 |
+| Microsoft 365                | 10,000/day        | Generous, but still subject to reputation         |
+| SendGrid                     | Depends on plan   | IP reputation matters at scale                    |
+| Mailgun                      | Depends on plan   | Good for transactional, OK for cold               |
+| Lemlist / Instantly / Apollo | Platform-managed  | Warmup built in, use their sending infrastructure |
 
 For cold outreach at scale (>500/day), dedicated sending platforms are better than Google/Microsoft direct — they're designed to manage reputation across many users.
 
@@ -198,6 +204,7 @@ If you suspect deliverability problems, check these:
 4. **Microsoft SNDS** — Similar to Google Postmaster for Outlook/Hotmail
 
 **If you're on a blacklist:**
+
 - Stop sending immediately from that domain
 - Identify the cause (bad list, spam complaints, warmup failure)
 - Follow the blacklist's delisting process (each has its own)
@@ -209,14 +216,15 @@ If you suspect deliverability problems, check these:
 
 Cold email has legal requirements in most markets. Breaking them isn't just unethical — it's fined.
 
-| Regulation | Where | Key Requirements |
-|-----------|-------|-----------------|
-| CAN-SPAM | USA | Honest subject line, physical address, unsubscribe mechanism |
-| CASL | Canada | Requires express or implied consent — much stricter than CAN-SPAM |
-| GDPR | EU/EEA | Legitimate interest basis required; no soft opt-in |
-| PECR | UK | Similar to GDPR; ICO enforcement |
+| Regulation | Where  | Key Requirements                                                  |
+| ---------- | ------ | ----------------------------------------------------------------- |
+| CAN-SPAM   | USA    | Honest subject line, physical address, unsubscribe mechanism      |
+| CASL       | Canada | Requires express or implied consent — much stricter than CAN-SPAM |
+| GDPR       | EU/EEA | Legitimate interest basis required; no soft opt-in                |
+| PECR       | UK     | Similar to GDPR; ICO enforcement                                  |
 
 **Minimum compliance for most cold email:**
+
 - Include your company name and physical address in every email
 - Provide a working unsubscribe link or reply-to-unsubscribe instruction
 - Honor unsubscribes within 10 business days (CAN-SPAM) or immediately (GDPR best practice)

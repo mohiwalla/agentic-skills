@@ -5,6 +5,7 @@
 ### RICE Prioritizer Example
 
 **Input (features.csv):**
+
 ```csv
 name,reach,impact,confidence,effort
 Onboarding Flow,20000,massive,high,s
@@ -15,11 +16,13 @@ Dark Mode,8000,medium,high,s
 ```
 
 **Command:**
+
 ```bash
 python scripts/rice_prioritizer.py features.csv --capacity 15
 ```
 
 **Output:**
+
 ```
 ============================================================
 RICE PRIORITIZATION RESULTS
@@ -77,6 +80,7 @@ Q2 - Capacity: 10/15 person-months
 ### Customer Interview Analyzer Example
 
 **Input (interview.txt):**
+
 ```
 Customer: Jane, Enterprise PM at TechCorp
 Date: 2024-01-15
@@ -99,11 +103,13 @@ back-and-forth messages. It's my biggest pain point right now.
 ```
 
 **Command:**
+
 ```bash
 python scripts/customer_interview_analyzer.py interview.txt
 ```
 
 **Output:**
+
 ```
 ============================================================
 CUSTOMER INTERVIEW ANALYSIS

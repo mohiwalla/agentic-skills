@@ -16,6 +16,7 @@ metadata:
 Culture is what you DO, not what you SAY. This skill builds culture as an operational system — observable behaviors, measurable health, and rituals that scale.
 
 ## Keywords
+
 culture, company culture, values, mission, vision, culture code, cultural rituals, culture health, values-to-behaviors, founder culture, culture debt, value-washing, culture assessment, culture survey, Netflix culture deck, HubSpot culture code, psychological safety, culture scaling
 
 ## Core Principle
@@ -31,13 +32,16 @@ If your values say "transparency" but you punish bearers of bad news — your re
 Run this conversationally, not as a corporate offsite. Three questions:
 
 **Mission** — Why do we exist (beyond making money)?
+
 - "What would be lost if we disappeared tomorrow?"
 - Mission is present-tense. "We reduce preventable falls in elderly care." Not "to be the leading..."
 
 **Vision** — What does winning look like in 5–10 years?
+
 - Specific enough to be wrong. "Every care home in Europe uses our system" beats "be the market leader."
 
 **Values** — What behaviors do we actually model?
+
 - Start with what you observe, not what sounds good. "What did our last great hire do that nobody asked them to?"
 - Keep to 3–5. More than 5 and none of them mean anything.
 
@@ -45,12 +49,12 @@ Run this conversationally, not as a corporate offsite. Three questions:
 
 This is the work. Every value needs behavioral anchors or it's decoration.
 
-| Value | Bad version | Behavioral anchor |
-|-------|------------|-------------------|
-| Transparency | "We're open and honest" | "We share bad news within 24 hours, including to our manager" |
-| Ownership | "We take responsibility" | "We don't hand off problems — we own them until resolved, even across team boundaries" |
-| Speed | "We move fast" | "Decisions under €5K happen at team level, same day, no approval needed" |
-| Quality | "We don't cut corners" | "We stop the line before shipping something we're not proud of" |
+| Value          | Bad version                  | Behavioral anchor                                                                        |
+| -------------- | ---------------------------- | ---------------------------------------------------------------------------------------- |
+| Transparency   | "We're open and honest"      | "We share bad news within 24 hours, including to our manager"                            |
+| Ownership      | "We take responsibility"     | "We don't hand off problems — we own them until resolved, even across team boundaries"   |
+| Speed          | "We move fast"               | "Decisions under €5K happen at team level, same day, no approval needed"                 |
+| Quality        | "We don't cut corners"       | "We stop the line before shipping something we're not proud of"                          |
 | Customer-first | "Customers are our priority" | "Any team member can escalate a customer issue to leadership, bypassing normal channels" |
 
 **Workshop exercise:** Write your value. Then ask "How would a new hire know we actually live this on day 30?" If you can't answer concretely, it's not a value — it's an aspiration.
@@ -60,6 +64,7 @@ This is the work. Every value needs behavioral anchors or it's decoration.
 A culture code is a public document that describes how you operate. It should scare off the wrong people and attract the right ones.
 
 **Structure:**
+
 1. Who we are (mission + context)
 2. Who thrives here (specific behaviors, not adjectives)
 3. Who doesn't thrive here (honest — this is the useful part)
@@ -71,6 +76,7 @@ A culture code is a public document that describes how you operate. It should sc
 See `templates/culture-code-template.md` for a complete template.
 
 **Anti-patterns to avoid:**
+
 - "We're a family" — families don't fire each other for performance
 - Listing only positive traits — the "who doesn't thrive here" section is what makes it credible
 - Making it aspirational instead of descriptive
@@ -80,6 +86,7 @@ See `templates/culture-code-template.md` for a complete template.
 Run quarterly. 8–12 questions. Anonymous. See `references/culture-playbook.md` for survey design.
 
 **Core areas to measure:**
+
 1. Psychological safety — "Can I raise a concern without fear?"
 2. Clarity — "Do I know how my work connects to company goals?"
 3. Fairness — "Are decisions made consistently and transparently?"
@@ -99,23 +106,27 @@ Run quarterly. 8–12 questions. Anonymous. See `references/culture-playbook.md`
 Rituals are the delivery mechanism for culture. What works at 10 people breaks at 100.
 
 **Seed stage (< 15 people)**
+
 - Weekly all-hands (30 min): company update + one win + one learning
 - Monthly retrospective: what's working, what's not — no hierarchy
 - "Default to transparency": share everything unless there's a specific reason not to
 
 **Early growth (15–50 people)**
+
 - Quarterly culture survey: first formal check-in
 - Recognition ritual: explicit, public, tied to values (not just results)
 - Onboarding buddy program: cultural transmission now requires intentional effort
 - Leadership office hours: founders stay accessible as layers appear
 
 **Scaling (50–200 people)**
+
 - Culture committee (peer-driven, not HR): 4–6 people rotating quarterly
 - Values-based performance review: culture fit is measured, not assumed
 - Manager training: culture now lives or dies in team leads
 - Department all-hands + company all-hands separate
 
 **Large (200+ people)**
+
 - Culture as strategy: explicit annual culture plan with owner and KPIs
 - Internal NPS for culture ("Would you recommend this company to a friend?")
 - Subculture management: engineering culture ≠ sales culture — both must align to company core
@@ -123,27 +134,31 @@ Rituals are the delivery mechanism for culture. What works at 10 people breaks a
 ### 6. Culture Anti-Patterns
 
 **Value-washing:** Listing values you don't practice. Symptom: employees roll their eyes during values discussions.
+
 - Fix: Run a values audit. Ask "What did the last person who got promoted demonstrate?" If it doesn't match your values, your real values are different.
 
 **Culture debt:** Accumulating cultural compromises over time. "We'll address the toxic star performer later." Later compounds.
+
 - Fix: Act on culture violations faster than you think necessary. One tolerated bad behavior destroys what ten good behaviors build.
 
 **Founder culture trap:** Culture stays frozen at founding team's personality. New hires assimilate or leave.
+
 - Fix: Explicitly evolve values as you scale. What worked at 10 people (move fast, ask forgiveness) may be destructive at 100 (we need process).
 
 **Culture by osmosis:** Assuming culture transmits naturally. It did at 10 people. It doesn't at 50.
+
 - Fix: Make culture intentional. Document it. Teach it. Measure it. Reward it explicitly.
 
 ## Culture Integration with C-Suite
 
-| When... | Culture Architect works with... | To... |
-|---------|---------------------------------|-------|
-| Hiring surge | CHRO | Ensure culture fit is measured, not guessed |
-| Org reorg | COO + CEO | Manage culture disruption from structure change |
-| M&A or partnership | CEO + COO | Detect and resolve culture clashes early |
-| Performance issues | CHRO | Separate culture fit from skill deficit |
-| Strategy pivot | CEO | Update values/behaviors that the pivot makes obsolete |
-| Rapid growth | All | Scale rituals before culture dilutes |
+| When...            | Culture Architect works with... | To...                                                 |
+| ------------------ | ------------------------------- | ----------------------------------------------------- |
+| Hiring surge       | CHRO                            | Ensure culture fit is measured, not guessed           |
+| Org reorg          | COO + CEO                       | Manage culture disruption from structure change       |
+| M&A or partnership | CEO + COO                       | Detect and resolve culture clashes early              |
+| Performance issues | CHRO                            | Separate culture fit from skill deficit               |
+| Strategy pivot     | CEO                             | Update values/behaviors that the pivot makes obsolete |
+| Rapid growth       | All                             | Scale rituals before culture dilutes                  |
 
 ## Key Questions a Culture Architect Asks
 
@@ -163,5 +178,6 @@ Rituals are the delivery mechanism for culture. What works at 10 people breaks a
 - Culture survey results never shared with the team
 
 ## Detailed References
+
 - `references/culture-playbook.md` — Netflix analysis, survey design, ritual examples, M&A playbook
 - `templates/culture-code-template.md` — Culture code document template

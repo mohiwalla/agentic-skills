@@ -3,6 +3,7 @@
 Tests step-by-step onboarding tour, skip, and completion behaviour.
 
 ## Prerequisites
+
 - Newly registered session (first login) via `{{newUserStorageStatePath}}`
 - Tour has `{{tourStepCount}}` steps
 - App running at `{{baseUrl}}`
@@ -117,12 +118,13 @@ test.describe('Welcome Tour', () => {
 ```
 
 ## Variants
-| Variant | Description |
-|---------|-------------|
-| Tour on first login | Dialog shown with step 1 of N |
-| Full completion | All steps advanced → tour dismissed |
-| Back navigation | Previous step accessible |
-| Skip tour | Dismissed immediately |
-| Not shown again | Tour absent on subsequent visits |
-| Tooltip target | Tour highlights correct element |
-| Close button | × closes tour |
+
+| Variant             | Description                         |
+| ------------------- | ----------------------------------- |
+| Tour on first login | Dialog shown with step 1 of N       |
+| Full completion     | All steps advanced → tour dismissed |
+| Back navigation     | Previous step accessible            |
+| Skip tour           | Dismissed immediately               |
+| Not shown again     | Tour absent on subsequent visits    |
+| Tooltip target      | Tour highlights correct element     |
+| Close button        | × closes tour                       |

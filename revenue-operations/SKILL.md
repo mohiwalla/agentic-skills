@@ -42,6 +42,7 @@ python scripts/pipeline_analyzer.py --input pipeline.json --format text
 ```
 
 **Key Metrics Calculated:**
+
 - **Pipeline Coverage Ratio** -- Total pipeline value / quota target (healthy: 3-4x)
 - **Stage Conversion Rates** -- Stage-to-stage progression rates
 - **Sales Velocity** -- (Opportunities x Avg Deal Size x Win Rate) / Avg Sales Cycle
@@ -54,7 +55,13 @@ python scripts/pipeline_analyzer.py --input pipeline.json --format text
 ```json
 {
   "quota": 500000,
-  "stages": ["Discovery", "Qualification", "Proposal", "Negotiation", "Closed Won"],
+  "stages": [
+    "Discovery",
+    "Qualification",
+    "Proposal",
+    "Negotiation",
+    "Closed Won"
+  ],
   "average_cycle_days": 45,
   "deals": [
     {
@@ -84,6 +91,7 @@ python scripts/forecast_accuracy_tracker.py forecast_data.json --format text
 ```
 
 **Key Metrics Calculated:**
+
 - **MAPE** -- mean(|actual - forecast| / |actual|) x 100
 - **Forecast Bias** -- Over-forecasting (positive) vs under-forecasting (negative) tendency
 - **Weighted Accuracy** -- MAPE weighted by deal value for materiality
@@ -103,13 +111,13 @@ python scripts/forecast_accuracy_tracker.py forecast_data.json --format text
 ```json
 {
   "forecast_periods": [
-    {"period": "2025-Q1", "forecast": 480000, "actual": 520000},
-    {"period": "2025-Q2", "forecast": 550000, "actual": 510000}
+    { "period": "2025-Q1", "forecast": 480000, "actual": 520000 },
+    { "period": "2025-Q2", "forecast": 550000, "actual": 510000 }
   ],
   "category_breakdowns": {
     "by_rep": [
-      {"category": "Rep A", "forecast": 200000, "actual": 210000},
-      {"category": "Rep B", "forecast": 280000, "actual": 310000}
+      { "category": "Rep A", "forecast": 200000, "actual": 210000 },
+      { "category": "Rep B", "forecast": 280000, "actual": 310000 }
     ]
   }
 }
@@ -130,14 +138,14 @@ python scripts/gtm_efficiency_calculator.py gtm_data.json --format text
 
 **Key Metrics Calculated:**
 
-| Metric | Formula | Target |
-|--------|---------|--------|
-| Magic Number | Net New ARR / Prior Period S&M Spend | >0.75 |
-| LTV:CAC | (ARPA x Gross Margin / Churn Rate) / CAC | >3:1 |
-| CAC Payback | CAC / (ARPA x Gross Margin) months | <18 months |
-| Burn Multiple | Net Burn / Net New ARR | <2x |
-| Rule of 40 | Revenue Growth % + FCF Margin % | >40% |
-| Net Dollar Retention | (Begin ARR + Expansion - Contraction - Churn) / Begin ARR | >110% |
+| Metric               | Formula                                                   | Target     |
+| -------------------- | --------------------------------------------------------- | ---------- |
+| Magic Number         | Net New ARR / Prior Period S&M Spend                      | >0.75      |
+| LTV:CAC              | (ARPA x Gross Margin / Churn Rate) / CAC                  | >3:1       |
+| CAC Payback          | CAC / (ARPA x Gross Margin) months                        | <18 months |
+| Burn Multiple        | Net Burn / Net New ARR                                    | <2x        |
+| Rule of 40           | Revenue Growth % + FCF Margin %                           | >40%       |
+| Net Dollar Retention | (Begin ARR + Expansion - Contraction - Churn) / Begin ARR | >110%      |
 
 **Input Schema:**
 
@@ -179,6 +187,7 @@ Use this workflow for your weekly pipeline inspection cadence.
 1. **Verify input data:** Confirm pipeline export is current and all required fields (stage, value, close_date, owner) are populated before proceeding.
 
 2. **Generate pipeline report:**
+
    ```bash
    python scripts/pipeline_analyzer.py --input current_pipeline.json --format text
    ```
@@ -202,6 +211,7 @@ Use monthly or quarterly to evaluate and improve forecasting discipline.
 1. **Verify input data:** Confirm all forecast periods have corresponding actuals and no periods are missing before running.
 
 2. **Generate accuracy report:**
+
    ```bash
    python scripts/forecast_accuracy_tracker.py forecast_history.json --format text
    ```
@@ -224,6 +234,7 @@ Use quarterly or during board prep to evaluate go-to-market efficiency.
 1. **Verify input data:** Confirm revenue, cost, and customer figures reconcile with finance records before running.
 
 2. **Calculate efficiency metrics:**
+
    ```bash
    python scripts/gtm_efficiency_calculator.py quarterly_data.json --format text
    ```
@@ -254,20 +265,20 @@ Combine all three tools for a comprehensive QBR analysis.
 
 ## Reference Documentation
 
-| Reference | Description |
-|-----------|-------------|
-| [RevOps Metrics Guide](references/revops-metrics-guide.md) | Complete metrics hierarchy, definitions, formulas, and interpretation |
-| [Pipeline Management Framework](references/pipeline-management-framework.md) | Pipeline best practices, stage definitions, conversion benchmarks |
-| [GTM Efficiency Benchmarks](references/gtm-efficiency-benchmarks.md) | SaaS benchmarks by stage, industry standards, improvement strategies |
+| Reference                                                                    | Description                                                           |
+| ---------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| [RevOps Metrics Guide](references/revops-metrics-guide.md)                   | Complete metrics hierarchy, definitions, formulas, and interpretation |
+| [Pipeline Management Framework](references/pipeline-management-framework.md) | Pipeline best practices, stage definitions, conversion benchmarks     |
+| [GTM Efficiency Benchmarks](references/gtm-efficiency-benchmarks.md)         | SaaS benchmarks by stage, industry standards, improvement strategies  |
 
 ---
 
 ## Templates
 
-| Template | Use Case |
-|----------|----------|
+| Template                                                       | Use Case                                         |
+| -------------------------------------------------------------- | ------------------------------------------------ |
 | [Pipeline Review Template](assets/pipeline_review_template.md) | Weekly/monthly pipeline inspection documentation |
-| [Forecast Report Template](assets/forecast_report_template.md) | Forecast accuracy reporting and trend analysis |
-| [GTM Dashboard Template](assets/gtm_dashboard_template.md) | GTM efficiency dashboard for leadership review |
-| [Sample Pipeline Data](assets/sample_pipeline_data.json) | Example input for pipeline_analyzer.py |
-| [Expected Output](assets/expected_output.json) | Reference output from pipeline_analyzer.py |
+| [Forecast Report Template](assets/forecast_report_template.md) | Forecast accuracy reporting and trend analysis   |
+| [GTM Dashboard Template](assets/gtm_dashboard_template.md)     | GTM efficiency dashboard for leadership review   |
+| [Sample Pipeline Data](assets/sample_pipeline_data.json)       | Example input for pipeline_analyzer.py           |
+| [Expected Output](assets/expected_output.json)                 | Reference output from pipeline_analyzer.py       |

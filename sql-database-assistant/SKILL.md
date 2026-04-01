@@ -20,11 +20,11 @@ The operational companion to database design. While **database-designer** focuse
 
 ### Tools
 
-| Script | Purpose |
-|--------|---------|
-| `scripts/query_optimizer.py` | Static analysis of SQL queries for performance issues |
+| Script                           | Purpose                                                    |
+| -------------------------------- | ---------------------------------------------------------- |
+| `scripts/query_optimizer.py`     | Static analysis of SQL queries for performance issues      |
 | `scripts/migration_generator.py` | Generate migration file templates from change descriptions |
-| `scripts/schema_explorer.py` | Generate schema documentation from introspection queries |
+| `scripts/schema_explorer.py`     | Generate schema documentation from introspection queries   |
 
 ---
 
@@ -43,6 +43,7 @@ When converting requirements to SQL, follow this sequence:
 ### Common Query Templates
 
 **Top-N per group (window function)**
+
 ```sql
 SELECT * FROM (
   SELECT *, ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY salary DESC) AS rn
@@ -51,6 +52,7 @@ SELECT * FROM (
 ```
 
 **Running totals**
+
 ```sql
 SELECT date, amount,
   SUM(amount) OVER (ORDER BY date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_total
@@ -58,6 +60,7 @@ FROM transactions;
 ```
 
 **Gap detection**
+
 ```sql
 SELECT curr.id, curr.seq_num, prev.seq_num AS prev_seq
 FROM records curr
@@ -66,6 +69,7 @@ WHERE prev.id IS NULL AND curr.seq_num > 1;
 ```
 
 **UPSERT (PostgreSQL)**
+
 ```sql
 INSERT INTO settings (key, value, updated_at)
 VALUES ('theme', 'dark', NOW())
@@ -73,6 +77,7 @@ ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = EXCLUDED.up
 ```
 
 **UPSERT (MySQL)**
+
 ```sql
 INSERT INTO settings (key_name, value, updated_at)
 VALUES ('theme', 'dark', NOW())
@@ -88,6 +93,7 @@ ON DUPLICATE KEY UPDATE value = VALUES(value), updated_at = VALUES(updated_at);
 ### Introspection Queries
 
 **PostgreSQL — list tables and columns**
+
 ```sql
 SELECT table_name, column_name, data_type, is_nullable, column_default
 FROM information_schema.columns
@@ -96,6 +102,7 @@ ORDER BY table_name, ordinal_position;
 ```
 
 **PostgreSQL — foreign keys**
+
 ```sql
 SELECT tc.table_name, kcu.column_name,
   ccu.table_name AS foreign_table, ccu.column_name AS foreign_column
@@ -106,6 +113,7 @@ WHERE tc.constraint_type = 'FOREIGN KEY';
 ```
 
 **MySQL — table sizes**
+
 ```sql
 SELECT table_name, table_rows,
   ROUND(data_length / 1024 / 1024, 2) AS data_mb,
@@ -116,11 +124,13 @@ ORDER BY data_length DESC;
 ```
 
 **SQLite — schema dump**
+
 ```sql
 SELECT name, sql FROM sqlite_master WHERE type = 'table' ORDER BY name;
 ```
 
 **SQL Server — columns with types**
+
 ```sql
 SELECT t.name AS table_name, c.name AS column_name,
   ty.name AS data_type, c.max_length, c.is_nullable
@@ -162,24 +172,26 @@ python scripts/schema_explorer.py --dialect mysql --tables users,orders --format
 
 ### Query Rewriting Patterns
 
-| Anti-Pattern | Rewrite |
-|-------------|---------|
-| `SELECT * FROM orders` | `SELECT id, status, total FROM orders` (explicit columns) |
-| `WHERE YEAR(created_at) = 2025` | `WHERE created_at >= '2025-01-01' AND created_at < '2026-01-01'` (sargable) |
-| Correlated subquery in SELECT | LEFT JOIN with aggregation |
-| `NOT IN (SELECT ...)` with NULLs | `NOT EXISTS (SELECT 1 ...)` |
-| `UNION` (dedup) when not needed | `UNION ALL` |
-| `LIKE '%search%'` | Full-text search index (GIN/FULLTEXT) |
-| `ORDER BY RAND()` | Application-side random sampling or `TABLESAMPLE` |
+| Anti-Pattern                     | Rewrite                                                                     |
+| -------------------------------- | --------------------------------------------------------------------------- |
+| `SELECT * FROM orders`           | `SELECT id, status, total FROM orders` (explicit columns)                   |
+| `WHERE YEAR(created_at) = 2025`  | `WHERE created_at >= '2025-01-01' AND created_at < '2026-01-01'` (sargable) |
+| Correlated subquery in SELECT    | LEFT JOIN with aggregation                                                  |
+| `NOT IN (SELECT ...)` with NULLs | `NOT EXISTS (SELECT 1 ...)`                                                 |
+| `UNION` (dedup) when not needed  | `UNION ALL`                                                                 |
+| `LIKE '%search%'`                | Full-text search index (GIN/FULLTEXT)                                       |
+| `ORDER BY RAND()`                | Application-side random sampling or `TABLESAMPLE`                           |
 
 ### N+1 Detection
 
 **Symptoms:**
+
 - Application loop that executes one query per parent row
 - ORM lazy-loading related entities inside a loop
 - Query log shows hundreds of identical SELECT patterns with different IDs
 
 **Fixes:**
+
 - Use eager loading (`include` in Prisma, `joinedload` in SQLAlchemy)
 - Batch queries with `WHERE id IN (...)`
 - Use DataLoader pattern for GraphQL resolvers
@@ -200,6 +212,7 @@ python scripts/query_optimizer.py --query queries.sql --dialect mysql --json
 ### Zero-Downtime Migration Patterns
 
 **Adding a column (safe)**
+
 ```sql
 -- Up
 ALTER TABLE users ADD COLUMN phone VARCHAR(20);
@@ -209,6 +222,7 @@ ALTER TABLE users DROP COLUMN phone;
 ```
 
 **Renaming a column (expand-contract)**
+
 ```sql
 -- Step 1: Add new column
 ALTER TABLE users ADD COLUMN full_name VARCHAR(255);
@@ -221,6 +235,7 @@ ALTER TABLE users DROP COLUMN name;
 ```
 
 **Adding a NOT NULL column (safe sequence)**
+
 ```sql
 -- Step 1: Add nullable
 ALTER TABLE orders ADD COLUMN region VARCHAR(50);
@@ -232,6 +247,7 @@ ALTER TABLE orders ALTER COLUMN region SET DEFAULT 'unknown';
 ```
 
 **Index creation (non-blocking, PostgreSQL)**
+
 ```sql
 CREATE INDEX CONCURRENTLY idx_orders_status ON orders (status);
 ```
@@ -264,17 +280,17 @@ python scripts/migration_generator.py --change "rename column name to full_name 
 
 ### Dialect Differences
 
-| Feature | PostgreSQL | MySQL | SQLite | SQL Server |
-|---------|-----------|-------|--------|------------|
-| UPSERT | `ON CONFLICT DO UPDATE` | `ON DUPLICATE KEY UPDATE` | `ON CONFLICT DO UPDATE` | `MERGE` |
-| Boolean | Native `BOOLEAN` | `TINYINT(1)` | `INTEGER` | `BIT` |
-| Auto-increment | `SERIAL` / `GENERATED` | `AUTO_INCREMENT` | `INTEGER PRIMARY KEY` | `IDENTITY` |
-| JSON | `JSONB` (indexed) | `JSON` | Text (ext) | `NVARCHAR(MAX)` |
-| Array | Native `ARRAY` | Not supported | Not supported | Not supported |
-| CTE (recursive) | Full support | 8.0+ | 3.8.3+ | Full support |
-| Window functions | Full support | 8.0+ | 3.25.0+ | Full support |
-| Full-text search | `tsvector` + GIN | `FULLTEXT` index | FTS5 extension | Full-text catalog |
-| LIMIT/OFFSET | `LIMIT n OFFSET m` | `LIMIT n OFFSET m` | `LIMIT n OFFSET m` | `OFFSET m ROWS FETCH NEXT n ROWS ONLY` |
+| Feature          | PostgreSQL              | MySQL                     | SQLite                  | SQL Server                             |
+| ---------------- | ----------------------- | ------------------------- | ----------------------- | -------------------------------------- |
+| UPSERT           | `ON CONFLICT DO UPDATE` | `ON DUPLICATE KEY UPDATE` | `ON CONFLICT DO UPDATE` | `MERGE`                                |
+| Boolean          | Native `BOOLEAN`        | `TINYINT(1)`              | `INTEGER`               | `BIT`                                  |
+| Auto-increment   | `SERIAL` / `GENERATED`  | `AUTO_INCREMENT`          | `INTEGER PRIMARY KEY`   | `IDENTITY`                             |
+| JSON             | `JSONB` (indexed)       | `JSON`                    | Text (ext)              | `NVARCHAR(MAX)`                        |
+| Array            | Native `ARRAY`          | Not supported             | Not supported           | Not supported                          |
+| CTE (recursive)  | Full support            | 8.0+                      | 3.8.3+                  | Full support                           |
+| Window functions | Full support            | 8.0+                      | 3.25.0+                 | Full support                           |
+| Full-text search | `tsvector` + GIN        | `FULLTEXT` index          | FTS5 extension          | Full-text catalog                      |
+| LIMIT/OFFSET     | `LIMIT n OFFSET m`      | `LIMIT n OFFSET m`        | `LIMIT n OFFSET m`      | `OFFSET m ROWS FETCH NEXT n ROWS ONLY` |
 
 ### Compatibility Tips
 
@@ -291,6 +307,7 @@ python scripts/migration_generator.py --change "rename column name to full_name 
 ### Prisma
 
 **Schema definition**
+
 ```prisma
 model User {
   id        Int      @id @default(autoincrement())
@@ -310,18 +327,19 @@ model Post {
 
 **Migrations**: `npx prisma migrate dev --name add_user_email`
 **Query API**: `prisma.user.findMany({ where: { email: { contains: '@' } }, include: { posts: true } })`
-**Raw SQL escape hatch**: `prisma.$queryRaw\`SELECT * FROM users WHERE id = ${userId}\``
+**Raw SQL escape hatch**: `prisma.$queryRaw\`SELECT \* FROM users WHERE id = ${userId}\``
 
 ### Drizzle
 
 **Schema-first definition**
+
 ```typescript
-export const users = pgTable('users', {
-  id: serial('id').primaryKey(),
-  email: varchar('email', { length: 255 }).notNull().unique(),
-  name: text('name'),
-  createdAt: timestamp('created_at').defaultNow(),
-});
+export const users = pgTable("users", {
+  id: serial("id").primaryKey(),
+  email: varchar("email", { length: 255 }).notNull().unique(),
+  name: text("name"),
+  createdAt: timestamp("created_at").defaultNow(),
+})
 ```
 
 **Query builder**: `db.select().from(users).where(eq(users.email, email))`
@@ -330,17 +348,18 @@ export const users = pgTable('users', {
 ### TypeORM
 
 **Entity decorators**
+
 ```typescript
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number
 
   @Column({ unique: true })
-  email: string;
+  email: string
 
   @OneToMany(() => Post, post => post.author)
-  posts: Post[];
+  posts: Post[]
 }
 ```
 
@@ -350,6 +369,7 @@ export class User {
 ### SQLAlchemy
 
 **Declarative models**
+
 ```python
 class User(Base):
     __tablename__ = 'users'
@@ -378,12 +398,12 @@ class User(Base):
 
 ### Transaction Isolation Levels
 
-| Level | Dirty Read | Non-Repeatable Read | Phantom Read | Use Case |
-|-------|-----------|-------------------|-------------|----------|
-| READ UNCOMMITTED | Yes | Yes | Yes | Never recommended |
-| READ COMMITTED | No | Yes | Yes | Default for PostgreSQL, general OLTP |
-| REPEATABLE READ | No | No | Yes (InnoDB: No) | Financial calculations |
-| SERIALIZABLE | No | No | No | Critical consistency (billing, inventory) |
+| Level            | Dirty Read | Non-Repeatable Read | Phantom Read     | Use Case                                  |
+| ---------------- | ---------- | ------------------- | ---------------- | ----------------------------------------- |
+| READ UNCOMMITTED | Yes        | Yes                 | Yes              | Never recommended                         |
+| READ COMMITTED   | No         | Yes                 | Yes              | Default for PostgreSQL, general OLTP      |
+| REPEATABLE READ  | No         | No                  | Yes (InnoDB: No) | Financial calculations                    |
+| SERIALIZABLE     | No         | No                  | No               | Critical consistency (billing, inventory) |
 
 ### Deadlock Prevention
 
@@ -397,6 +417,7 @@ class User(Base):
 ## Backup & Restore
 
 ### PostgreSQL
+
 ```bash
 # Full backup
 pg_dump -Fc --no-owner dbname > backup.dump
@@ -406,6 +427,7 @@ pg_restore -d dbname --clean --no-owner backup.dump
 ```
 
 ### MySQL
+
 ```bash
 # Full backup
 mysqldump --single-transaction --routines --triggers dbname > backup.sql
@@ -415,12 +437,14 @@ mysql dbname < backup.sql
 ```
 
 ### SQLite
+
 ```bash
 # Backup (safe with concurrent reads)
 sqlite3 dbname ".backup backup.db"
 ```
 
 ### Backup Best Practices
+
 - **Automate** — cron or systemd timer, never manual-only
 - **Test restores** — untested backups are not backups
 - **Offsite copies** — S3, GCS, or separate region
@@ -431,27 +455,27 @@ sqlite3 dbname ".backup backup.db"
 
 ## Anti-Patterns
 
-| Anti-Pattern | Problem | Fix |
-|-------------|---------|-----|
-| `SELECT *` | Transfers unnecessary data, breaks on schema changes | Explicit column list |
-| Missing indexes on FK columns | Slow JOINs and cascading deletes | Add indexes on all foreign keys |
-| N+1 queries | 1 + N round trips to database | Eager loading or batch queries |
-| Implicit type coercion | `WHERE id = '123'` prevents index use | Match types in predicates |
-| No connection pooling | Exhausts connections under load | PgBouncer, ProxySQL, or ORM pool |
-| Unbounded queries | No LIMIT risks returning millions of rows | Always paginate |
-| Storing money as FLOAT | Rounding errors | Use `DECIMAL(19,4)` or integer cents |
-| God tables | One table with 50+ columns | Normalize or use vertical partitioning |
-| Soft deletes everywhere | Complicates every query with `WHERE deleted_at IS NULL` | Archive tables or event sourcing |
-| Raw string concatenation | SQL injection | Parameterized queries always |
+| Anti-Pattern                  | Problem                                                 | Fix                                    |
+| ----------------------------- | ------------------------------------------------------- | -------------------------------------- |
+| `SELECT *`                    | Transfers unnecessary data, breaks on schema changes    | Explicit column list                   |
+| Missing indexes on FK columns | Slow JOINs and cascading deletes                        | Add indexes on all foreign keys        |
+| N+1 queries                   | 1 + N round trips to database                           | Eager loading or batch queries         |
+| Implicit type coercion        | `WHERE id = '123'` prevents index use                   | Match types in predicates              |
+| No connection pooling         | Exhausts connections under load                         | PgBouncer, ProxySQL, or ORM pool       |
+| Unbounded queries             | No LIMIT risks returning millions of rows               | Always paginate                        |
+| Storing money as FLOAT        | Rounding errors                                         | Use `DECIMAL(19,4)` or integer cents   |
+| God tables                    | One table with 50+ columns                              | Normalize or use vertical partitioning |
+| Soft deletes everywhere       | Complicates every query with `WHERE deleted_at IS NULL` | Archive tables or event sourcing       |
+| Raw string concatenation      | SQL injection                                           | Parameterized queries always           |
 
 ---
 
 ## Cross-References
 
-| Skill | Relationship |
-|-------|-------------|
-| **database-designer** | Schema architecture, normalization analysis, ERD generation |
-| **database-schema-designer** | Visual ERD modeling, relationship mapping |
-| **migration-architect** | Complex multi-step migration orchestration |
-| **api-design-reviewer** | Ensuring API endpoints align with query patterns |
-| **observability-platform** | Query performance monitoring, slow query alerts |
+| Skill                        | Relationship                                                |
+| ---------------------------- | ----------------------------------------------------------- |
+| **database-designer**        | Schema architecture, normalization analysis, ERD generation |
+| **database-schema-designer** | Visual ERD modeling, relationship mapping                   |
+| **migration-architect**      | Complex multi-step migration orchestration                  |
+| **api-design-reviewer**      | Ensuring API endpoints align with query patterns            |
+| **observability-platform**   | Query performance monitoring, slow query alerts             |

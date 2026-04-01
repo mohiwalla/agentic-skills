@@ -32,12 +32,12 @@ Production secret infrastructure management for teams running HashiCorp Vault, c
 
 ### Architecture Decisions
 
-| Decision | Recommendation | Rationale |
-|----------|---------------|-----------|
-| Deployment mode | HA with Raft storage | No external dependency, built-in leader election |
-| Auto-unseal | Cloud KMS (AWS KMS / Azure Key Vault / GCP KMS) | Eliminates manual unseal, enables automated restarts |
-| Namespaces | One per environment (dev/staging/prod) | Blast-radius isolation, independent policies |
-| Audit devices | File + syslog (dual) | Vault refuses requests if all audit devices fail — dual prevents outages |
+| Decision        | Recommendation                                  | Rationale                                                                |
+| --------------- | ----------------------------------------------- | ------------------------------------------------------------------------ |
+| Deployment mode | HA with Raft storage                            | No external dependency, built-in leader election                         |
+| Auto-unseal     | Cloud KMS (AWS KMS / Azure Key Vault / GCP KMS) | Eliminates manual unseal, enables automated restarts                     |
+| Namespaces      | One per environment (dev/staging/prod)          | Blast-radius isolation, independent policies                             |
+| Audit devices   | File + syslog (dual)                            | Vault refuses requests if all audit devices fail — dual prevents outages |
 
 ### Auth Methods
 
@@ -82,13 +82,13 @@ vault write auth/oidc/role/engineering \
 
 ### Secret Engines
 
-| Engine | Use Case | TTL Strategy |
-|--------|----------|-------------|
-| KV v2 | Static secrets (API keys, config) | Versioned, manual rotation |
-| Database | Dynamic DB credentials | 1h default, 24h max |
-| PKI | TLS certificates | 90d leaf certs, 5y intermediate CA |
-| Transit | Encryption-as-a-service | Key rotation every 90d |
-| SSH | Signed SSH certificates | 30m for interactive, 8h for automation |
+| Engine   | Use Case                          | TTL Strategy                           |
+| -------- | --------------------------------- | -------------------------------------- |
+| KV v2    | Static secrets (API keys, config) | Versioned, manual rotation             |
+| Database | Dynamic DB credentials            | 1h default, 24h max                    |
+| PKI      | TLS certificates                  | 90d leaf certs, 5y intermediate CA     |
+| Transit  | Encryption-as-a-service           | Key rotation every 90d                 |
+| SSH      | Signed SSH certificates           | 30m for interactive, 8h for automation |
 
 ### Policy Design
 
@@ -118,15 +118,15 @@ path "sys/*" {
 
 ### Comparison Matrix
 
-| Feature | AWS Secrets Manager | Azure Key Vault | GCP Secret Manager |
-|---------|--------------------|-----------------|--------------------|
-| Rotation | Built-in Lambda | Custom logic via Functions | Cloud Functions |
-| Versioning | Automatic | Manual or automatic | Automatic |
-| Encryption | AWS KMS (default or CMK) | HSM-backed | Google-managed or CMEK |
-| Access control | IAM policies + resource policy | RBAC + Access Policies | IAM bindings |
-| Cross-region | Replication supported | Geo-redundant by default | Replication supported |
-| Audit | CloudTrail | Azure Monitor + Diagnostic Logs | Cloud Audit Logs |
-| Pricing model | Per-secret + per-API call | Per-operation + per-key | Per-secret version + per-access |
+| Feature        | AWS Secrets Manager            | Azure Key Vault                 | GCP Secret Manager              |
+| -------------- | ------------------------------ | ------------------------------- | ------------------------------- |
+| Rotation       | Built-in Lambda                | Custom logic via Functions      | Cloud Functions                 |
+| Versioning     | Automatic                      | Manual or automatic             | Automatic                       |
+| Encryption     | AWS KMS (default or CMK)       | HSM-backed                      | Google-managed or CMEK          |
+| Access control | IAM policies + resource policy | RBAC + Access Policies          | IAM bindings                    |
+| Cross-region   | Replication supported          | Geo-redundant by default        | Replication supported           |
+| Audit          | CloudTrail                     | Azure Monitor + Diagnostic Logs | Cloud Audit Logs                |
+| Pricing model  | Per-secret + per-API call      | Per-operation + per-key         | Per-secret version + per-access |
 
 ### When to Use Which
 
@@ -177,14 +177,14 @@ def get_secret(vault_url, secret_name):
 
 ### Rotation Strategy by Secret Type
 
-| Secret Type | Rotation Frequency | Method | Downtime Risk |
-|-------------|-------------------|--------|---------------|
-| Database passwords | 30 days | Dual-account swap | Zero (A/B rotation) |
-| API keys | 90 days | Generate new, deprecate old | Zero (overlap window) |
-| TLS certificates | 60 days before expiry | ACME or Vault PKI | Zero (graceful reload) |
-| SSH keys | 90 days | Vault-signed certificates | Zero (CA-based) |
-| Service tokens | 24 hours | Dynamic generation | Zero (short-lived) |
-| Encryption keys | 90 days | Key versioning (rewrap) | Zero (version coexistence) |
+| Secret Type        | Rotation Frequency    | Method                      | Downtime Risk              |
+| ------------------ | --------------------- | --------------------------- | -------------------------- |
+| Database passwords | 30 days               | Dual-account swap           | Zero (A/B rotation)        |
+| API keys           | 90 days               | Generate new, deprecate old | Zero (overlap window)      |
+| TLS certificates   | 60 days before expiry | ACME or Vault PKI           | Zero (graceful reload)     |
+| SSH keys           | 90 days               | Vault-signed certificates   | Zero (CA-based)            |
+| Service tokens     | 24 hours              | Dynamic generation          | Zero (short-lived)         |
+| Encryption keys    | 90 days               | Key versioning (rewrap)     | Zero (version coexistence) |
 
 ### Database Credential Rotation (Dual-Account)
 
@@ -247,15 +247,15 @@ Replace SSH key distribution with a Vault-signed certificate model:
 
 ### What to Log
 
-| Event | Priority | Retention |
-|-------|----------|-----------|
-| Secret read access | HIGH | 1 year minimum |
-| Secret creation/update | HIGH | 1 year minimum |
-| Auth method login | MEDIUM | 90 days |
-| Policy changes | CRITICAL | 2 years (compliance) |
-| Failed access attempts | CRITICAL | 1 year |
-| Token creation/revocation | MEDIUM | 90 days |
-| Seal/unseal operations | CRITICAL | Indefinite |
+| Event                     | Priority | Retention            |
+| ------------------------- | -------- | -------------------- |
+| Secret read access        | HIGH     | 1 year minimum       |
+| Secret creation/update    | HIGH     | 1 year minimum       |
+| Auth method login         | MEDIUM   | 90 days              |
+| Policy changes            | CRITICAL | 2 years (compliance) |
+| Failed access attempts    | CRITICAL | 1 year               |
+| Token creation/revocation | MEDIUM   | 90 days              |
+| Seal/unseal operations    | CRITICAL | Indefinite           |
 
 ### Anomaly Detection Signals
 
@@ -299,6 +299,7 @@ Use `audit_log_analyzer.py` to parse Vault or cloud audit logs for these signals
 **Sealing** stops all Vault operations. Use only as last resort.
 
 **Unseal procedure:**
+
 1. Gather quorum of unseal key holders (Shamir threshold)
 2. Or confirm auto-unseal KMS key is accessible
 3. Unseal via `vault operator unseal` or restart with auto-unseal
@@ -371,26 +372,26 @@ Eliminate long-lived secrets in CI by using OIDC federation:
 
 ## Anti-Patterns
 
-| Anti-Pattern | Risk | Correct Approach |
-|-------------|------|-----------------|
-| Hardcoded secrets in source code | Leak via repo, logs, error output | Fetch from secret store at runtime |
-| Long-lived static tokens (>30 days) | Stale credentials, no accountability | Dynamic secrets or short TTL + rotation |
-| Shared service accounts | No audit trail per consumer | Per-service identity with unique credentials |
-| No rotation policy | Compromised creds persist indefinitely | Automated rotation on schedule |
-| Secrets in environment variables on CI | Visible in build logs, process table | Vault Agent or OIDC-based injection |
-| Single unseal key holder | Bus factor of 1, recovery blocked | Shamir split (3-of-5) or auto-unseal |
-| No audit device configured | Zero visibility into access | Dual audit devices (file + syslog) |
-| Wildcard policies (`path "*"`) | Over-permissioned, violates least privilege | Explicit path-based policies per service |
+| Anti-Pattern                           | Risk                                        | Correct Approach                             |
+| -------------------------------------- | ------------------------------------------- | -------------------------------------------- |
+| Hardcoded secrets in source code       | Leak via repo, logs, error output           | Fetch from secret store at runtime           |
+| Long-lived static tokens (>30 days)    | Stale credentials, no accountability        | Dynamic secrets or short TTL + rotation      |
+| Shared service accounts                | No audit trail per consumer                 | Per-service identity with unique credentials |
+| No rotation policy                     | Compromised creds persist indefinitely      | Automated rotation on schedule               |
+| Secrets in environment variables on CI | Visible in build logs, process table        | Vault Agent or OIDC-based injection          |
+| Single unseal key holder               | Bus factor of 1, recovery blocked           | Shamir split (3-of-5) or auto-unseal         |
+| No audit device configured             | Zero visibility into access                 | Dual audit devices (file + syslog)           |
+| Wildcard policies (`path "*"`)         | Over-permissioned, violates least privilege | Explicit path-based policies per service     |
 
 ---
 
 ## Tools
 
-| Script | Purpose |
-|--------|---------|
+| Script                      | Purpose                                                             |
+| --------------------------- | ------------------------------------------------------------------- |
 | `vault_config_generator.py` | Generate Vault policy and auth config from application requirements |
-| `rotation_planner.py` | Create rotation schedule from a secret inventory file |
-| `audit_log_analyzer.py` | Analyze audit logs for anomalies and compliance gaps |
+| `rotation_planner.py`       | Create rotation schedule from a secret inventory file               |
+| `audit_log_analyzer.py`     | Analyze audit logs for anomalies and compliance gaps                |
 
 ---
 

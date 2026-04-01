@@ -43,13 +43,13 @@ Before the site-specific patterns, these apply everywhere:
 
 ### What Works and What Doesn't
 
-| ✅ Do | ❌ Don't |
-|-------|----------|
-| `/pricing` | `/pricing-plans` (redundant) |
-| `/features/email-automation` | `/product/features/email-automation/detail` (too deep) |
-| `/blog/cold-email-guide` | `/blog/articles/cold-email/complete-guide-to-cold-email` (too long) |
-| `/solutions/sales-teams` | `/solutions-for-sales-teams` (ugly) |
-| `/integrations/hubspot` | `/connect-with/hubspot-integration` |
+| ✅ Do                        | ❌ Don't                                                            |
+| ---------------------------- | ------------------------------------------------------------------- |
+| `/pricing`                   | `/pricing-plans` (redundant)                                        |
+| `/features/email-automation` | `/product/features/email-automation/detail` (too deep)              |
+| `/blog/cold-email-guide`     | `/blog/articles/cold-email/complete-guide-to-cold-email` (too long) |
+| `/solutions/sales-teams`     | `/solutions-for-sales-teams` (ugly)                                 |
+| `/integrations/hubspot`      | `/connect-with/hubspot-integration`                                 |
 
 ### SaaS-Specific Notes
 
@@ -79,12 +79,12 @@ Before the site-specific patterns, these apply everywhere:
 
 ### What Works and What Doesn't
 
-| ✅ Do | ❌ Don't |
-|-------|----------|
-| `/seo/keyword-research-guide` | `/seo/keyword-research/a-complete-guide-to-keyword-research-for-beginners-in-2024` |
-| `/guides/cold-email` | `/blog/2024/03/15/cold-email-guide` |
-| `/author/reza-rezvani` | `/author?id=42` |
-| Flat category → post structure | 4-level nesting |
+| ✅ Do                          | ❌ Don't                                                                           |
+| ------------------------------ | ---------------------------------------------------------------------------------- |
+| `/seo/keyword-research-guide`  | `/seo/keyword-research/a-complete-guide-to-keyword-research-for-beginners-in-2024` |
+| `/guides/cold-email`           | `/blog/2024/03/15/cold-email-guide`                                                |
+| `/author/reza-rezvani`         | `/author?id=42`                                                                    |
+| Flat category → post structure | 4-level nesting                                                                    |
 
 ### Blog-Specific Notes
 
@@ -114,11 +114,11 @@ Before the site-specific patterns, these apply everywhere:
 
 ### What Works and What Doesn't
 
-| ✅ Do | ❌ Don't |
-|-------|----------|
-| `/products/air-max-270-black` | `/products?id=89472&color=black&size=10` |
-| `/collections/mens-shoes` | `/products/shoes/men/athletic/running/all-styles` |
-| Canonical on variant pages | Let `?color=red&size=10` create duplicate URLs |
+| ✅ Do                         | ❌ Don't                                          |
+| ----------------------------- | ------------------------------------------------- |
+| `/products/air-max-270-black` | `/products?id=89472&color=black&size=10`          |
+| `/collections/mens-shoes`     | `/products/shoes/men/athletic/running/all-styles` |
+| Canonical on variant pages    | Let `?color=red&size=10` create duplicate URLs    |
 
 ### E-Commerce-Specific Notes
 
@@ -168,6 +168,7 @@ Before the site-specific patterns, these apply everywhere:
 If you're changing URLs, you need a 301 redirect map. Every old URL → new URL. No exceptions.
 
 **Redirect mapping process:**
+
 1. Export all indexed URLs from Google Search Console (Crawl → Coverage → All)
 2. Export all inbound links to your site (use Ahrefs, Semrush, or GSC)
 3. Map old → new for every URL that has inbound links or search traffic
@@ -176,11 +177,13 @@ If you're changing URLs, you need a 301 redirect map. Every old URL → new URL.
 6. Update internal links — don't just redirect, fix the source links
 
 **Priority redirect tiers:**
+
 - **Tier 1:** Pages with significant inbound external links — redirect these first
 - **Tier 2:** Pages with significant organic traffic — redirect to preserve equity
 - **Tier 3:** Pages with neither — still redirect, but lower urgency
 
 **Never:**
+
 - Chain redirects more than 1 hop (`/old` → `/temp` → `/new` wastes equity)
 - 302 redirect something that's a permanent move (use 301)
 - Leave old URLs live as duplicates without canonicals
@@ -196,6 +199,7 @@ When the same content is accessible at multiple URLs, tell Google which one is c
 ```
 
 Common scenarios requiring canonicals:
+
 - `http://` vs `https://` — canonical should always be `https://`
 - `www` vs non-www — pick one, canonical + 301 the other
 - Trailing slash vs no trailing slash — `/page` and `/page/` are different URLs to Google
@@ -208,13 +212,13 @@ Common scenarios requiring canonicals:
 
 ## HTTP Status Code Reference
 
-| Code | Meaning | Use |
-|------|---------|-----|
-| 200 | OK | Normal page |
-| 301 | Moved Permanently | URL changed permanently — passes equity |
-| 302 | Found (Temporary) | Temporary redirect — does NOT pass equity |
-| 404 | Not Found | Page doesn't exist — configure a helpful 404 page |
-| 410 | Gone | Page intentionally removed — Google deindexes faster than 404 |
-| 503 | Service Unavailable | Maintenance mode — tell Google to come back later |
+| Code | Meaning             | Use                                                           |
+| ---- | ------------------- | ------------------------------------------------------------- |
+| 200  | OK                  | Normal page                                                   |
+| 301  | Moved Permanently   | URL changed permanently — passes equity                       |
+| 302  | Found (Temporary)   | Temporary redirect — does NOT pass equity                     |
+| 404  | Not Found           | Page doesn't exist — configure a helpful 404 page             |
+| 410  | Gone                | Page intentionally removed — Google deindexes faster than 404 |
+| 503  | Service Unavailable | Maintenance mode — tell Google to come back later             |
 
 Use 301, not 302, for all permanent URL changes.

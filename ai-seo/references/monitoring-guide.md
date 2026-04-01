@@ -13,6 +13,7 @@ The honest truth: AI citation monitoring is immature. There's no Google Search C
 **The challenge:** Most AI search platforms don't give publishers visibility into their citation data. You're reverse-engineering your presence through manual testing and indirect signals.
 
 **Four things to track:**
+
 1. Citation presence — are you appearing at all?
 2. Citation consistency — do you appear most of the time or occasionally?
 3. Competitor citations — who else is cited for your target queries?
@@ -27,17 +28,20 @@ The honest truth: AI citation monitoring is immature. There's no Google Search C
 Google Search Console is the best data source available for any AI platform:
 
 **Setup:**
+
 1. Open Google Search Console → Performance → Search results
 2. Add filter: "Search type" → "AI Overviews"
 3. Set date range to last 90 days minimum
 
 **What you see:**
+
 - Queries where your pages appeared in AI Overviews
 - Impressions from AI Overviews
 - Clicks from AI Overviews (usually much lower than organic — users get the answer in the AI box)
 - CTR from AI Overviews
 
 **What to do with it:**
+
 - Sort by impressions: these are your current AI Overview presences
 - Sort by clicks: these are the queries where users still clicked through (high-value)
 - Identify queries where you have impressions but zero clicks — consider whether that's acceptable or if you need to gate more value behind the click
@@ -52,6 +56,7 @@ Google Search Console is the best data source available for any AI platform:
 Perplexity has no publisher dashboard. Manual testing is the only reliable method.
 
 **Weekly test protocol:**
+
 1. Identify your 10-20 highest-priority target queries
 2. Search each query on perplexity.ai in an incognito window
 3. Check the Sources panel on the right side
@@ -59,12 +64,13 @@ Perplexity has no publisher dashboard. Manual testing is the only reliable metho
 
 **What to record in your tracking log:**
 
-| Date | Query | Cited? | Position | Cited URL | Top Competitor |
-|---|---|---|---|---|---|
-| 2026-03-06 | "how to reduce SaaS churn" | Yes | 2 | /blog/churn-reduction | competitor.com |
-| 2026-03-06 | "SaaS churn rate benchmark" | No | — | — | competitor.com |
+| Date       | Query                       | Cited? | Position | Cited URL             | Top Competitor |
+| ---------- | --------------------------- | ------ | -------- | --------------------- | -------------- |
+| 2026-03-06 | "how to reduce SaaS churn"  | Yes    | 2        | /blog/churn-reduction | competitor.com |
+| 2026-03-06 | "SaaS churn rate benchmark" | No     | —        | —                     | competitor.com |
 
 **Patterns to watch for:**
+
 - Same query cited 4/4 weeks → stable citation (protect it)
 - Citation appearing intermittently (2 out of 4 weeks) → fragile position (strengthen the page)
 - Consistent non-citation → gap to fill (page missing extractable patterns)
@@ -78,6 +84,7 @@ Perplexity has no publisher dashboard. Manual testing is the only reliable metho
 **Requirements:** ChatGPT Plus (for web browsing) or ChatGPT with Search enabled.
 
 **Test protocol:**
+
 1. Start a new conversation (fresh context window)
 2. Enable browsing / search mode
 3. Ask your target query as a natural question
@@ -87,6 +94,7 @@ Perplexity has no publisher dashboard. Manual testing is the only reliable metho
 **Note:** ChatGPT citations vary by session. The same query may cite different sources on consecutive days. This is by design — treat it as probabilistic. Your goal is to appear in the citation set, not to appear every time.
 
 **What to test:**
+
 - Exact keyword queries ("best email marketing software")
 - Natural question queries ("what's the best email marketing software for small teams?")
 - Comparison queries ("mailchimp vs klaviyo")
@@ -101,7 +109,8 @@ Access at copilot.microsoft.com or via Edge sidebar.
 
 Same protocol as ChatGPT. Look for source cards that appear with citations. Copilot integrates Bing's index, so if your Bing presence is strong, Copilot citations follow.
 
-**Bing indexing check:** 
+**Bing indexing check:**
+
 - Submit sitemap to Bing Webmaster Tools
 - Run URL inspection to verify pages are indexed
 - Check Bing Webmaster Tools for crawl errors on key pages
@@ -183,14 +192,14 @@ If you notice a citation you had has disappeared:
 
 ### Response Playbook
 
-| Root cause | Fix |
-|---|---|
-| AI bot blocked | Update robots.txt — typically resolves in 1-4 weeks |
-| Page restructured (patterns removed) | Restore extractable patterns (definition block, FAQ, steps) |
-| Competitor outranked you | Strengthen the page: more specific data, better structure, schema markup |
-| Authority drop | Rebuild backlinks; also check for manual penalty in Google Search Console |
-| Page went slow | Fix Core Web Vitals — AI crawlers deprioritize slow pages |
-| Content became outdated | Update with current data and year |
+| Root cause                           | Fix                                                                       |
+| ------------------------------------ | ------------------------------------------------------------------------- |
+| AI bot blocked                       | Update robots.txt — typically resolves in 1-4 weeks                       |
+| Page restructured (patterns removed) | Restore extractable patterns (definition block, FAQ, steps)               |
+| Competitor outranked you             | Strengthen the page: more specific data, better structure, schema markup  |
+| Authority drop                       | Rebuild backlinks; also check for manual penalty in Google Search Console |
+| Page went slow                       | Fix Core Web Vitals — AI crawlers deprioritize slow pages                 |
+| Content became outdated              | Update with current data and year                                         |
 
 ---
 

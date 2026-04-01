@@ -21,6 +21,7 @@ NMS removes redundant overlapping detections to produce final predictions.
 ### Standard NMS
 
 Basic algorithm:
+
 1. Sort boxes by confidence score
 2. Select highest confidence box
 3. Remove boxes with IoU > threshold
@@ -53,6 +54,7 @@ def nms(boxes, scores, iou_threshold=0.5):
 ```
 
 **Parameters:**
+
 - `iou_threshold`: 0.5-0.7 typical (lower = more suppression)
 - `score_threshold`: 0.25-0.5 (filter low-confidence first)
 
@@ -61,11 +63,13 @@ def nms(boxes, scores, iou_threshold=0.5):
 Reduces scores instead of removing boxes entirely.
 
 **Formula:**
+
 ```
 score = score * exp(-IoU^2 / sigma)
 ```
 
 **Benefits:**
+
 - Better for overlapping objects
 - +1-2% mAP improvement
 - Slightly slower than hard NMS
@@ -102,15 +106,18 @@ def soft_nms(boxes, scores, sigma=0.5, score_threshold=0.001):
 Uses Distance-IoU instead of standard IoU.
 
 **Formula:**
+
 ```
 DIoU = IoU - (d^2 / c^2)
 ```
 
 Where:
+
 - d = center distance between boxes
 - c = diagonal of smallest enclosing box
 
 **Benefits:**
+
 - Better for occluded objects
 - Penalizes distant boxes less
 - Works well with DIoU loss
@@ -136,12 +143,14 @@ def batched_nms(boxes, scores, classes, iou_threshold):
 Transformer-based detectors eliminate NMS.
 
 **How DETR avoids NMS:**
+
 - Object queries are learned embeddings
 - Bipartite matching in training
 - Each query outputs exactly one detection
 - Set-based loss enforces uniqueness
 
 **Benefits:**
+
 - End-to-end differentiable
 - No hand-crafted post-processing
 - Better for complex scenes
@@ -155,11 +164,13 @@ Transformer-based detectors eliminate NMS.
 Traditional detectors use predefined anchor boxes.
 
 **Anchor parameters:**
+
 - Scales: [32, 64, 128, 256, 512] pixels
 - Ratios: [0.5, 1.0, 2.0] (height/width)
 - Stride: Feature map stride (8, 16, 32)
 
 **Anchor assignment:**
+
 - Positive: IoU > 0.7 with ground truth
 - Negative: IoU < 0.3 with all ground truths
 - Ignored: 0.3 < IoU < 0.7
@@ -217,16 +228,19 @@ def calculate_anchor_fit(boxes, anchors):
 Modern detectors predict boxes without anchors.
 
 **FCOS-style (center-based):**
+
 - Predict (l, t, r, b) distances from center
 - Centerness score for quality
 - Multi-scale assignment
 
 **YOLO v8 style:**
+
 - Predict (x, y, w, h) directly
 - Task-aligned assigner
 - Distribution focal loss for regression
 
 **Benefits of anchor-free:**
+
 - No hyperparameter tuning for anchors
 - Simpler architecture
 - Better generalization
@@ -234,12 +248,14 @@ Modern detectors predict boxes without anchors.
 ### Anchor Assignment Strategies
 
 **ATSS (Adaptive Training Sample Selection):**
+
 1. For each GT, select k closest anchors per level
 2. Calculate IoU for selected anchors
 3. IoU threshold = mean + std of IoUs
 4. Assign positives where IoU > threshold
 
 **TAL (Task-Aligned Assigner - YOLO v8):**
+
 ```
 score = cls_score^alpha * IoU^beta
 ```
@@ -255,6 +271,7 @@ Where alpha=0.5, beta=6.0 (weights classification and localization)
 #### Cross-Entropy Loss
 
 Standard multi-class classification:
+
 ```python
 loss = -log(p_correct_class)
 ```
@@ -283,6 +300,7 @@ def focal_loss(pred, target, gamma=2.0, alpha=0.25):
 ```
 
 **Hyperparameters:**
+
 - gamma: 2.0 typical, higher = more focus on hard examples
 - alpha: 0.25 for foreground class weight
 
@@ -319,11 +337,13 @@ def smooth_l1_loss(pred, target, beta=1.0):
 #### IoU-Based Losses
 
 **IoU Loss:**
+
 ```
 L_IoU = 1 - IoU
 ```
 
 **GIoU (Generalized IoU):**
+
 ```
 GIoU = IoU - (C - U) / C
 L_GIoU = 1 - GIoU
@@ -332,6 +352,7 @@ L_GIoU = 1 - GIoU
 Where C = area of smallest enclosing box, U = union area.
 
 **DIoU (Distance IoU):**
+
 ```
 DIoU = IoU - d^2 / c^2
 L_DIoU = 1 - DIoU
@@ -340,6 +361,7 @@ L_DIoU = 1 - DIoU
 Where d = center distance, c = diagonal of enclosing box.
 
 **CIoU (Complete IoU):**
+
 ```
 CIoU = IoU - d^2 / c^2 - alpha*v
 v = (4/pi^2) * (arctan(w_gt/h_gt) - arctan(w/h))^2
@@ -349,13 +371,13 @@ L_CIoU = 1 - CIoU
 
 **Comparison:**
 
-| Loss | Handles | Best For |
-|------|---------|----------|
-| L1/L2 | Basic regression | Simple tasks |
-| IoU | Overlap | Standard detection |
-| GIoU | Non-overlapping | Distant boxes |
-| DIoU | Center distance | Faster convergence |
-| CIoU | Aspect ratio | Best accuracy |
+| Loss  | Handles          | Best For           |
+| ----- | ---------------- | ------------------ |
+| L1/L2 | Basic regression | Simple tasks       |
+| IoU   | Overlap          | Standard detection |
+| GIoU  | Non-overlapping  | Distant boxes      |
+| DIoU  | Center distance  | Faster convergence |
+| CIoU  | Aspect ratio     | Best accuracy      |
 
 ```python
 def ciou_loss(pred_boxes, target_boxes):
@@ -401,6 +423,7 @@ def ciou_loss(pred_boxes, target_boxes):
 Used in YOLO v8 for regression.
 
 **Concept:**
+
 - Predict distribution over discrete positions
 - Each regression target is a soft label
 - Allows uncertainty estimation
@@ -433,6 +456,7 @@ def dfl_loss(pred_dist, target, reg_max=16):
 ### Learning Rate Schedules
 
 **Warmup:**
+
 ```python
 # Linear warmup for first N epochs
 if epoch < warmup_epochs:
@@ -440,17 +464,20 @@ if epoch < warmup_epochs:
 ```
 
 **Cosine Annealing:**
+
 ```python
 lr = lr_min + 0.5 * (lr_max - lr_min) * (1 + cos(pi * epoch / total_epochs))
 ```
 
 **Step Decay:**
+
 ```python
 # Reduce by factor at milestones
 lr = base_lr * (0.1 ** (milestones_passed))
 ```
 
 **Recommended schedule for detection:**
+
 ```python
 optimizer = SGD(model.parameters(), lr=0.01, momentum=0.937, weight_decay=0.0005)
 
@@ -503,6 +530,7 @@ class EMA:
 ```
 
 **Usage:**
+
 - Update EMA after each training step
 - Use EMA weights for validation/inference
 - Decay: 0.9999 typical (higher = slower update)
@@ -521,6 +549,7 @@ images = F.interpolate(images, size=input_size, mode='bilinear')
 ```
 
 **Benefits:**
+
 - Better scale invariance
 - +1-2% mAP improvement
 - Slower training (variable batch size)
@@ -563,6 +592,7 @@ for images, targets in dataloader:
 ```
 
 **Benefits:**
+
 - 2-3x faster training
 - 50% memory reduction
 - Minimal accuracy loss
@@ -717,6 +747,7 @@ def cutout(image, num_holes=8, max_h_size=32, max_w_size=32):
 Remove unimportant weights.
 
 **Magnitude Pruning:**
+
 ```python
 import torch.nn.utils.prune as prune
 
@@ -727,6 +758,7 @@ for name, module in model.named_modules():
 ```
 
 **Structured Pruning (channels):**
+
 ```python
 # Prune entire channels
 prune.ln_structured(module, name='weight', amount=0.3, n=2, dim=0)
@@ -760,6 +792,7 @@ def distillation_loss(student_logits, teacher_logits, labels,
 Reduce precision for faster inference.
 
 **Post-Training Quantization:**
+
 ```python
 import torch.quantization
 
@@ -778,6 +811,7 @@ torch.quantization.convert(model, inplace=True)
 ```
 
 **Quantization-Aware Training:**
+
 ```python
 # Insert fake quantization during training
 model.train()
@@ -798,16 +832,16 @@ model_quantized = torch.quantization.convert(model_prepared)
 
 ### Key Hyperparameters
 
-| Parameter | Range | Default | Impact |
-|-----------|-------|---------|--------|
-| Learning rate | 1e-4 to 1e-1 | 0.01 | Critical |
-| Batch size | 4 to 64 | 16 | Memory/speed |
-| Weight decay | 1e-5 to 1e-3 | 5e-4 | Regularization |
-| Momentum | 0.9 to 0.99 | 0.937 | Optimization |
-| Warmup epochs | 1 to 10 | 3 | Stability |
-| IoU threshold (NMS) | 0.4 to 0.7 | 0.5 | Recall/precision |
-| Confidence threshold | 0.1 to 0.5 | 0.25 | Detection count |
-| Image size | 320 to 1280 | 640 | Accuracy/speed |
+| Parameter            | Range        | Default | Impact           |
+| -------------------- | ------------ | ------- | ---------------- |
+| Learning rate        | 1e-4 to 1e-1 | 0.01    | Critical         |
+| Batch size           | 4 to 64      | 16      | Memory/speed     |
+| Weight decay         | 1e-5 to 1e-3 | 5e-4    | Regularization   |
+| Momentum             | 0.9 to 0.99  | 0.937   | Optimization     |
+| Warmup epochs        | 1 to 10      | 3       | Stability        |
+| IoU threshold (NMS)  | 0.4 to 0.7   | 0.5     | Recall/precision |
+| Confidence threshold | 0.1 to 0.5   | 0.25    | Detection count  |
+| Image size           | 320 to 1280  | 640     | Accuracy/speed   |
 
 ### Tuning Strategy
 

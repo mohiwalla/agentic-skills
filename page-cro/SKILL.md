@@ -33,11 +33,13 @@ Analyze the page across these dimensions, in order of impact:
 ### 1. Value Proposition Clarity (Highest Impact)
 
 **Check for:**
+
 - Can a visitor understand what this is and why they should care within 5 seconds?
 - Is the primary benefit clear, specific, and differentiated?
 - Is it written in the customer's language (not company jargon)?
 
 **Common issues:**
+
 - Feature-focused instead of benefit-focused
 - Too vague or too clever (sacrificing clarity)
 - Trying to say everything instead of the most important thing
@@ -45,11 +47,13 @@ Analyze the page across these dimensions, in order of impact:
 ### 2. Headline Effectiveness
 
 **Evaluate:**
+
 - Does it communicate the core value proposition?
 - Is it specific enough to be meaningful?
 - Does it match the traffic source's messaging?
 
 **Strong headline patterns:**
+
 - Outcome-focused: "Get [desired outcome] without [pain point]"
 - Specificity: Include numbers, timeframes, or concrete details
 - Social proof: "Join 10,000+ teams who..."
@@ -57,6 +61,7 @@ Analyze the page across these dimensions, in order of impact:
 ### 3. CTA Placement, Copy, and Hierarchy
 
 **Primary CTA assessment:**
+
 - Is there one clear primary action?
 - Is it visible without scrolling?
 - Does the button copy communicate value, not just action?
@@ -64,12 +69,14 @@ Analyze the page across these dimensions, in order of impact:
   - Strong: "Start Free Trial," "Get My Report," "See Pricing"
 
 **CTA hierarchy:**
+
 - Is there a logical primary vs. secondary CTA structure?
 - Are CTAs repeated at key decision points?
 
 ### 4. Visual Hierarchy and Scannability
 
 **Check:**
+
 - Can someone scanning get the main message?
 - Are the most important elements visually prominent?
 - Is there enough white space?
@@ -78,6 +85,7 @@ Analyze the page across these dimensions, in order of impact:
 ### 5. Trust Signals and Social Proof
 
 **Types to look for:**
+
 - Customer logos (especially recognizable ones)
 - Testimonials (specific, attributed, with photos)
 - Case study snippets with real numbers
@@ -89,6 +97,7 @@ Analyze the page across these dimensions, in order of impact:
 ### 6. Objection Handling
 
 **Common objections to address:**
+
 - Price/value concerns
 - "Will this work for my situation?"
 - Implementation difficulty
@@ -99,6 +108,7 @@ Analyze the page across these dimensions, in order of impact:
 ### 7. Friction Points
 
 **Look for:**
+
 - Too many form fields
 - Unclear next steps
 - Confusing navigation
@@ -113,15 +123,19 @@ Analyze the page across these dimensions, in order of impact:
 Structure your recommendations as:
 
 ### Quick Wins (Implement Now)
+
 Easy changes with likely immediate impact.
 
 ### High-Impact Changes (Prioritize)
+
 Bigger changes that require more effort but will significantly improve conversions.
 
 ### Test Ideas
+
 Hypotheses worth A/B testing rather than assuming.
 
 ### Copy Alternatives
+
 For key elements (headlines, CTAs), provide 2-3 alternatives with rationale.
 
 ---
@@ -129,26 +143,31 @@ For key elements (headlines, CTAs), provide 2-3 alternatives with rationale.
 ## Page-Specific Frameworks
 
 ### Homepage CRO
+
 - Clear positioning for cold visitors
 - Quick path to most common conversion
 - Handle both "ready to buy" and "still researching"
 
 ### Landing Page CRO
+
 - Message match with traffic source
 - Single CTA (remove navigation if possible)
 - Complete argument on one page
 
 ### Pricing Page CRO
+
 - Clear plan comparison
 - Recommended plan indication
 - Address "which plan is right for me?" anxiety
 
 ### Feature Page CRO
+
 - Connect feature to benefit
 - Use cases and examples
 - Clear path to try/buy
 
 ### Blog Post CRO
+
 - Contextual CTAs matching content topic
 - Inline CTAs at natural stopping points
 
@@ -157,6 +176,7 @@ For key elements (headlines, CTAs), provide 2-3 alternatives with rationale.
 ## Experiment Ideas
 
 When recommending experiments, consider tests for:
+
 - Hero section (headline, visual, CTA)
 - Trust signals and social proof placement
 - Pricing presentation
@@ -192,6 +212,7 @@ When recommending experiments, consider tests for:
 ## Communication
 
 All page CRO output follows this quality standard:
+
 - Recommendations are always organized as **Quick Wins → High-Impact → Test Ideas** — never a flat list
 - Every recommendation includes a brief rationale tied to the CRO analysis framework dimension it addresses
 - Copy alternatives are provided in sets of 2-3 with the reasoning for each variant
@@ -215,10 +236,10 @@ Automatically surface page-cro recommendations when:
 
 ## Output Artifacts
 
-| Artifact | Format | Description |
-|----------|--------|-------------|
-| CRO Audit Summary | Markdown sections | Analysis across all 7 framework dimensions with issue severity ratings |
-| Quick Wins List | Bullet list | ≤5 changes implementable immediately with expected impact |
-| High-Impact Recommendations | Structured list | Each with rationale, effort estimate, and success metric |
-| Copy Alternatives | Side-by-side table | 2-3 variants per key element (headline, CTA, subhead) with reasoning |
-| A/B Test Hypotheses | Table | Hypothesis × variant description × success metric × priority |
+| Artifact                    | Format             | Description                                                            |
+| --------------------------- | ------------------ | ---------------------------------------------------------------------- |
+| CRO Audit Summary           | Markdown sections  | Analysis across all 7 framework dimensions with issue severity ratings |
+| Quick Wins List             | Bullet list        | ≤5 changes implementable immediately with expected impact              |
+| High-Impact Recommendations | Structured list    | Each with rationale, effort estimate, and success metric               |
+| Copy Alternatives           | Side-by-side table | 2-3 variants per key element (headline, CTA, subhead) with reasoning   |
+| A/B Test Hypotheses         | Table              | Hypothesis × variant description × success metric × priority           |

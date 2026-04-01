@@ -11,6 +11,7 @@ This document defines the severity classification system used for incident respo
 **Definition:** Complete service failure affecting all users or critical business functions
 
 #### Impact Criteria
+
 - Customer-facing services completely unavailable
 - Data loss or corruption affecting users
 - Security breaches with customer data exposure
@@ -19,22 +20,25 @@ This document defines the severity classification system used for incident respo
 - > 75% of users affected
 
 #### Response Requirements
-| Metric | Requirement |
-|--------|-------------|
-| **Response Time** | Immediate (0-5 minutes) |
-| **Incident Commander** | Assigned within 5 minutes |
-| **War Room** | Established within 10 minutes |
-| **Executive Notification** | Within 15 minutes |
-| **Public Status Page** | Updated within 15 minutes |
-| **Customer Communication** | Within 30 minutes |
+
+| Metric                     | Requirement                   |
+| -------------------------- | ----------------------------- |
+| **Response Time**          | Immediate (0-5 minutes)       |
+| **Incident Commander**     | Assigned within 5 minutes     |
+| **War Room**               | Established within 10 minutes |
+| **Executive Notification** | Within 15 minutes             |
+| **Public Status Page**     | Updated within 15 minutes     |
+| **Customer Communication** | Within 30 minutes             |
 
 #### Escalation Path
+
 1. **Immediate**: On-call Engineer → Incident Commander
 2. **15 minutes**: VP Engineering + Customer Success VP
 3. **30 minutes**: CTO
 4. **60 minutes**: CEO + Full Executive Team
 
 #### Communication Requirements
+
 - **Frequency**: Every 15 minutes until resolution
 - **Channels**: PagerDuty, Phone, Slack, Email, Status Page
 - **Recipients**: All engineering, executives, customer success
@@ -47,6 +51,7 @@ This document defines the severity classification system used for incident respo
 **Definition:** Significant degradation affecting subset of users or non-critical functions
 
 #### Impact Criteria
+
 - Partial service degradation (25-75% of users affected)
 - Performance issues causing user frustration
 - Non-critical features unavailable
@@ -55,21 +60,24 @@ This document defines the severity classification system used for incident respo
 - API errors affecting integrations
 
 #### Response Requirements
-| Metric | Requirement |
-|--------|-------------|
-| **Response Time** | 15 minutes |
-| **Incident Commander** | Assigned within 30 minutes |
-| **Status Page Update** | Within 30 minutes |
-| **Stakeholder Notification** | Within 1 hour |
-| **Team Assembly** | Within 30 minutes |
+
+| Metric                       | Requirement                |
+| ---------------------------- | -------------------------- |
+| **Response Time**            | 15 minutes                 |
+| **Incident Commander**       | Assigned within 30 minutes |
+| **Status Page Update**       | Within 30 minutes          |
+| **Stakeholder Notification** | Within 1 hour              |
+| **Team Assembly**            | Within 30 minutes          |
 
 #### Escalation Path
+
 1. **Immediate**: On-call Engineer → Team Lead
 2. **30 minutes**: Engineering Manager
 3. **2 hours**: VP Engineering
 4. **4 hours**: CTO (if unresolved)
 
 #### Communication Requirements
+
 - **Frequency**: Every 30 minutes during active response
 - **Channels**: PagerDuty, Slack, Email
 - **Recipients**: Engineering team, product team, relevant stakeholders
@@ -82,6 +90,7 @@ This document defines the severity classification system used for incident respo
 **Definition:** Limited impact with workarounds available
 
 #### Impact Criteria
+
 - Single feature or component affected
 - < 25% of users impacted
 - Workarounds available
@@ -90,20 +99,23 @@ This document defines the severity classification system used for incident respo
 - Development/test environment issues
 
 #### Response Requirements
-| Metric | Requirement |
-|--------|-------------|
-| **Response Time** | 2 hours (business hours) |
-| **After Hours Response** | Next business day |
-| **Team Assignment** | Within 4 hours |
-| **Status Page Update** | Optional |
-| **Internal Notification** | Within 2 hours |
+
+| Metric                    | Requirement              |
+| ------------------------- | ------------------------ |
+| **Response Time**         | 2 hours (business hours) |
+| **After Hours Response**  | Next business day        |
+| **Team Assignment**       | Within 4 hours           |
+| **Status Page Update**    | Optional                 |
+| **Internal Notification** | Within 2 hours           |
 
 #### Escalation Path
+
 1. **Immediate**: Assigned Engineer
 2. **4 hours**: Team Lead
 3. **1 business day**: Engineering Manager (if needed)
 
 #### Communication Requirements
+
 - **Frequency**: At key milestones only
 - **Channels**: Slack, Email
 - **Recipients**: Assigned team, team lead
@@ -116,6 +128,7 @@ This document defines the severity classification system used for incident respo
 **Definition:** Minimal impact, cosmetic issues, or planned maintenance
 
 #### Impact Criteria
+
 - Cosmetic bugs
 - Documentation issues
 - Logging or monitoring gaps
@@ -124,14 +137,16 @@ This document defines the severity classification system used for incident respo
 - Feature requests or enhancements
 
 #### Response Requirements
-| Metric | Requirement |
-|--------|-------------|
-| **Response Time** | 1-2 business days |
-| **Assignment** | Next sprint planning |
-| **Tracking** | Standard ticket system |
-| **Escalation** | None required |
+
+| Metric            | Requirement            |
+| ----------------- | ---------------------- |
+| **Response Time** | 1-2 business days      |
+| **Assignment**    | Next sprint planning   |
+| **Tracking**      | Standard ticket system |
+| **Escalation**    | None required          |
 
 #### Communication Requirements
+
 - **Frequency**: Standard development cycle updates
 - **Channels**: Ticket system
 - **Recipients**: Product owner, assigned developer
@@ -141,33 +156,33 @@ This document defines the severity classification system used for incident respo
 
 ### User Impact Assessment
 
-| Impact Scope | Description | Typical Severity |
-|--------------|-------------|------------------|
-| **All Users** | 100% of users affected | SEV1 |
-| **Major Subset** | 50-75% of users affected | SEV1/SEV2 |
-| **Significant Subset** | 25-50% of users affected | SEV2 |
-| **Limited Users** | 5-25% of users affected | SEV2/SEV3 |
-| **Few Users** | < 5% of users affected | SEV3/SEV4 |
-| **No User Impact** | Internal only | SEV4 |
+| Impact Scope           | Description              | Typical Severity |
+| ---------------------- | ------------------------ | ---------------- |
+| **All Users**          | 100% of users affected   | SEV1             |
+| **Major Subset**       | 50-75% of users affected | SEV1/SEV2        |
+| **Significant Subset** | 25-50% of users affected | SEV2             |
+| **Limited Users**      | 5-25% of users affected  | SEV2/SEV3        |
+| **Few Users**          | < 5% of users affected   | SEV3/SEV4        |
+| **No User Impact**     | Internal only            | SEV4             |
 
 ### Business Impact Assessment
 
-| Business Impact | Description | Severity Boost |
-|-----------------|-------------|----------------|
-| **Revenue Loss** | Direct revenue impact | +1 severity level |
-| **SLA Breach** | Contract violations | +1 severity level |
-| **Regulatory** | Compliance implications | +1 severity level |
-| **Brand Damage** | Public-facing issues | +1 severity level |
-| **Security** | Data or system security | +2 severity levels |
+| Business Impact  | Description             | Severity Boost     |
+| ---------------- | ----------------------- | ------------------ |
+| **Revenue Loss** | Direct revenue impact   | +1 severity level  |
+| **SLA Breach**   | Contract violations     | +1 severity level  |
+| **Regulatory**   | Compliance implications | +1 severity level  |
+| **Brand Damage** | Public-facing issues    | +1 severity level  |
+| **Security**     | Data or system security | +2 severity levels |
 
 ### Duration Considerations
 
-| Duration | Impact on Classification |
-|----------|--------------------------|
-| **< 15 minutes** | May reduce severity by 1 level |
-| **15-60 minutes** | Standard classification |
-| **1-4 hours** | May increase severity by 1 level |
-| **> 4 hours** | Significant severity increase |
+| Duration          | Impact on Classification         |
+| ----------------- | -------------------------------- |
+| **< 15 minutes**  | May reduce severity by 1 level   |
+| **15-60 minutes** | Standard classification          |
+| **1-4 hours**     | May increase severity by 1 level |
+| **> 4 hours**     | Significant severity increase    |
 
 ## Decision Tree
 
@@ -194,6 +209,7 @@ This document defines the severity classification system used for incident respo
 ## Examples
 
 ### SEV1 Examples
+
 - Payment processing system completely down
 - All user authentication failing
 - Database corruption causing data loss
@@ -201,6 +217,7 @@ This document defines the severity classification system used for incident respo
 - Website returning 500 errors for all users
 
 ### SEV2 Examples
+
 - Payment processing slow (30-second delays)
 - Search functionality returning incomplete results
 - API rate limits causing partner integration issues
@@ -208,6 +225,7 @@ This document defines the severity classification system used for incident respo
 - Mobile app crashing for 40% of users
 
 ### SEV3 Examples
+
 - Single feature in admin panel not working
 - Email notifications delayed by 1 hour
 - Non-critical API endpoint returning errors
@@ -215,6 +233,7 @@ This document defines the severity classification system used for incident respo
 - Development environment deployment failing
 
 ### SEV4 Examples
+
 - Typo in help documentation
 - Log format change needed for analysis
 - Non-critical performance optimization
@@ -224,12 +243,14 @@ This document defines the severity classification system used for incident respo
 ## Escalation Triggers
 
 ### Automatic Escalation
+
 - SEV1 incidents automatically escalate every 30 minutes if unresolved
 - SEV2 incidents escalate after 2 hours without significant progress
 - Any incident with expanding scope increases severity
 - Customer escalation to support triggers severity review
 
 ### Manual Escalation
+
 - Incident Commander can escalate at any time
 - Technical leads can request escalation
 - Business stakeholders can request severity review
@@ -238,6 +259,7 @@ This document defines the severity classification system used for incident respo
 ## Communication Templates
 
 ### SEV1 Executive Alert
+
 ```
 Subject: 🚨 CRITICAL INCIDENT - [Service] Complete Outage
 
@@ -260,13 +282,14 @@ This is a customer-impacting incident requiring executive awareness.
 ```
 
 ### SEV2 Major Impact
+
 ```
 Subject: ⚠️ [SEV2] [Service] - Major Performance Impact
 
 Major service degradation affecting user experience
 
 Service: [Service Name]
-Start Time: [Timestamp] 
+Start Time: [Timestamp]
 Impact: [Description of user impact]
 Scope: [Affected functionality/users]
 
@@ -281,6 +304,7 @@ Status Page: [Link if updated]
 ## Review and Updates
 
 This severity matrix should be reviewed quarterly and updated based on:
+
 - Incident response learnings
 - Business priority changes
 - Service architecture evolution

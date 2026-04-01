@@ -16,12 +16,12 @@ Language and framework selection, configuration, and patterns.
 
 ## Framework Selection
 
-| Language | Recommended | Alternatives | Best For |
-|----------|-------------|--------------|----------|
-| TypeScript/JS | Jest | Vitest, Mocha | React, Node.js, Next.js |
-| Python | Pytest | unittest, nose2 | Django, Flask, FastAPI |
-| Java | JUnit 5 | TestNG | Spring, Android |
-| Vite projects | Vitest | Jest | Modern Vite-based apps |
+| Language      | Recommended | Alternatives    | Best For                |
+| ------------- | ----------- | --------------- | ----------------------- |
+| TypeScript/JS | Jest        | Vitest, Mocha   | React, Node.js, Next.js |
+| Python        | Pytest      | unittest, nose2 | Django, Flask, FastAPI  |
+| Java          | JUnit 5     | TestNG          | Spring, Android         |
+| Vite projects | Vitest      | Jest            | Modern Vite-based apps  |
 
 ---
 
@@ -32,52 +32,53 @@ Language and framework selection, configuration, and patterns.
 ```javascript
 // jest.config.js
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  testMatch: ['**/*.test.ts'],
-  collectCoverageFrom: ['src/**/*.ts'],
+  preset: "ts-jest",
+  testEnvironment: "node",
+  testMatch: ["**/*.test.ts"],
+  collectCoverageFrom: ["src/**/*.ts"],
   coverageThreshold: {
-    global: { branches: 80, lines: 80 }
-  }
-};
+    global: { branches: 80, lines: 80 },
+  },
+}
 ```
 
 ### Jest Test Pattern
 
 ```typescript
-describe('Calculator', () => {
-  let calc: Calculator;
+describe("Calculator", () => {
+  let calc: Calculator
 
   beforeEach(() => {
-    calc = new Calculator();
-  });
+    calc = new Calculator()
+  })
 
-  it('should add two numbers', () => {
-    expect(calc.add(2, 3)).toBe(5);
-  });
+  it("should add two numbers", () => {
+    expect(calc.add(2, 3)).toBe(5)
+  })
 
-  it('should throw on invalid input', () => {
-    expect(() => calc.add(null, 3)).toThrow('Invalid input');
-  });
-});
+  it("should throw on invalid input", () => {
+    expect(() => calc.add(null, 3)).toThrow("Invalid input")
+  })
+})
 ```
 
 ### Vitest Configuration
 
 ```typescript
 // vitest.config.ts
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from "vitest/config"
 
 export default defineConfig({
   test: {
     globals: true,
-    environment: 'node',
-    coverage: { provider: 'c8' }
-  }
-});
+    environment: "node",
+    coverage: { provider: "c8" },
+  },
+})
 ```
 
 ### Coverage Tools
+
 - Istanbul/nyc: Traditional coverage
 - c8: Native V8 coverage (faster)
 - Vitest built-in: Integrated with test runner
@@ -125,6 +126,7 @@ class TestCalculator:
 ```
 
 ### Coverage Tools
+
 - coverage.py: Standard Python coverage
 - pytest-cov: Pytest plugin wrapper
 - Report formats: HTML, XML, LCOV
@@ -186,6 +188,7 @@ class CalculatorTest {
 ```
 
 ### Coverage Tools
+
 - JaCoCo: Standard Java coverage
 - Cobertura: Alternative XML format
 - Report formats: HTML, XML, CSV
@@ -194,13 +197,13 @@ class CalculatorTest {
 
 ## Version Requirements
 
-| Tool | Minimum Version | Notes |
-|------|-----------------|-------|
-| Node.js | 16+ | Required for Jest 29+ |
-| Jest | 29+ | Modern async support |
-| Vitest | 0.34+ | Stable API |
-| Python | 3.8+ | f-strings, async support |
-| Pytest | 7+ | Modern fixtures |
-| Java | 11+ | JUnit 5 support |
-| JUnit | 5.9+ | ParameterizedTest improvements |
-| TypeScript | 4.5+ | Strict mode features |
+| Tool       | Minimum Version | Notes                          |
+| ---------- | --------------- | ------------------------------ |
+| Node.js    | 16+             | Required for Jest 29+          |
+| Jest       | 29+             | Modern async support           |
+| Vitest     | 0.34+           | Stable API                     |
+| Python     | 3.8+            | f-strings, async support       |
+| Pytest     | 7+              | Modern fixtures                |
+| Java       | 11+             | JUnit 5 support                |
+| JUnit      | 5.9+            | ParameterizedTest improvements |
+| TypeScript | 4.5+            | Strict mode features           |

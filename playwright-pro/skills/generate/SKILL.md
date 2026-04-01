@@ -13,6 +13,7 @@ Generate production-ready Playwright tests from a user story, URL, component nam
 ## Input
 
 `$ARGUMENTS` contains what to test. Examples:
+
 - `"user can log in with email and password"`
 - `"the checkout flow"`
 - `"src/components/UserProfile.tsx"`
@@ -23,6 +24,7 @@ Generate production-ready Playwright tests from a user story, URL, component nam
 ### 1. Understand the Target
 
 Parse `$ARGUMENTS` to determine:
+
 - **User story**: Extract the behavior to verify
 - **Component path**: Read the component source code
 - **Page/URL**: Identify the route and its elements
@@ -43,18 +45,18 @@ Use the `Explore` subagent to gather context:
 
 Check `templates/` in this plugin for matching patterns:
 
-| If testing... | Load template from |
-|---|---|
-| Login/auth flow | `templates/auth/login.md` |
-| CRUD operations | `templates/crud/` |
-| Checkout/payment | `templates/checkout/` |
-| Search/filter UI | `templates/search/` |
-| Form submission | `templates/forms/` |
-| Dashboard/data | `templates/dashboard/` |
-| Settings page | `templates/settings/` |
-| Onboarding flow | `templates/onboarding/` |
-| API endpoints | `templates/api/` |
-| Accessibility | `templates/accessibility/` |
+| If testing...    | Load template from         |
+| ---------------- | -------------------------- |
+| Login/auth flow  | `templates/auth/login.md`  |
+| CRUD operations  | `templates/crud/`          |
+| Checkout/payment | `templates/checkout/`      |
+| Search/filter UI | `templates/search/`        |
+| Form submission  | `templates/forms/`         |
+| Dashboard/data   | `templates/dashboard/`     |
+| Settings page    | `templates/settings/`      |
+| Onboarding flow  | `templates/onboarding/`    |
+| API endpoints    | `templates/api/`           |
+| Accessibility    | `templates/accessibility/` |
 
 Adapt the template to the specific app — replace `{{placeholders}}` with actual selectors, URLs, and data.
 
@@ -63,22 +65,24 @@ Adapt the template to the specific app — replace `{{placeholders}}` with actua
 Follow these rules:
 
 **Structure:**
+
 ```typescript
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test"
 // Import custom fixtures if the project uses them
 
-test.describe('Feature Name', () => {
+test.describe("Feature Name", () => {
   // Group related behaviors
 
-  test('should <expected behavior>', async ({ page }) => {
+  test("should <expected behavior>", async ({ page }) => {
     // Arrange: navigate, set up state
     // Act: perform user action
     // Assert: verify outcome
-  });
-});
+  })
+})
 ```
 
 **Locator priority** (use the first that works):
+
 1. `getByRole()` — buttons, links, headings, form elements
 2. `getByLabel()` — form fields with labels
 3. `getByText()` — non-interactive text content
@@ -86,23 +90,26 @@ test.describe('Feature Name', () => {
 5. `getByTestId()` — when semantic options aren't available
 
 **Assertions** — always web-first:
+
 ```typescript
 // GOOD — auto-retries
-await expect(page.getByRole('heading')).toBeVisible();
-await expect(page.getByRole('alert')).toHaveText('Success');
+await expect(page.getByRole("heading")).toBeVisible()
+await expect(page.getByRole("alert")).toHaveText("Success")
 
 // BAD — no retry
-const text = await page.textContent('.msg');
-expect(text).toBe('Success');
+const text = await page.textContent(".msg")
+expect(text).toBe("Success")
 ```
 
 **Never use:**
+
 - `page.waitForTimeout()`
 - `page.$(selector)` or `page.$$(selector)`
 - Bare CSS selectors unless absolutely necessary
 - `page.evaluate()` for things locators can do
 
 **Always include:**
+
 - Descriptive test names that explain the behavior
 - Error/edge case tests alongside happy path
 - Proper `await` on every Playwright call
@@ -131,6 +138,7 @@ npx playwright test <generated-file> --reporter=list
 ```
 
 If it fails:
+
 1. Read the error
 2. Fix the test (not the app)
 3. Run again

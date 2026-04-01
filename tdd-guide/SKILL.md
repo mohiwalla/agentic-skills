@@ -43,6 +43,7 @@ Test-driven development skill for generating tests, analyzing coverage, and guid
 ### Test Generation — Input → Output (Pytest)
 
 **Input source function (`math_utils.py`):**
+
 ```python
 def divide(a: float, b: float) -> float:
     if b == 0:
@@ -51,11 +52,13 @@ def divide(a: float, b: float) -> float:
 ```
 
 **Command:**
+
 ```bash
 python scripts/test_generator.py --input math_utils.py --framework pytest
 ```
 
 **Generated test output (`test_math_utils.py`):**
+
 ```python
 import pytest
 from math_utils import divide
@@ -83,11 +86,13 @@ class TestDivide:
 ### Coverage Analysis — Sample P0/P1/P2 Output
 
 **Command:**
+
 ```bash
 python scripts/coverage_analyzer.py --report lcov.info --threshold 80
 ```
 
 **Sample output:**
+
 ```
 Coverage Report — Overall: 63% (threshold: 80%)
 
@@ -109,12 +114,12 @@ Recommended: Generate tests for P0 items first to reach 80% threshold.
 
 ## Key Tools
 
-| Tool | Purpose | Usage |
-|------|---------|-------|
-| `test_generator.py` | Generate test cases from code/requirements | `python scripts/test_generator.py --input source.py --framework pytest` |
-| `coverage_analyzer.py` | Parse and analyze coverage reports | `python scripts/coverage_analyzer.py --report lcov.info --threshold 80` |
-| `tdd_workflow.py` | Guide red-green-refactor cycles | `python scripts/tdd_workflow.py --phase red --test test_auth.py` |
-| `fixture_generator.py` | Generate test data and mocks | `python scripts/fixture_generator.py --entity User --count 5` |
+| Tool                   | Purpose                                    | Usage                                                                   |
+| ---------------------- | ------------------------------------------ | ----------------------------------------------------------------------- |
+| `test_generator.py`    | Generate test cases from code/requirements | `python scripts/test_generator.py --input source.py --framework pytest` |
+| `coverage_analyzer.py` | Parse and analyze coverage reports         | `python scripts/coverage_analyzer.py --report lcov.info --threshold 80` |
+| `tdd_workflow.py`      | Guide red-green-refactor cycles            | `python scripts/tdd_workflow.py --phase red --test test_auth.py`        |
+| `fixture_generator.py` | Generate test data and mocks               | `python scripts/fixture_generator.py --entity User --count 5`           |
 
 Additional scripts: `framework_adapter.py` (convert between frameworks), `metrics_calculator.py` (quality metrics), `format_detector.py` (detect language/framework), `output_formatter.py` (CLI/desktop/CI output).
 
@@ -123,16 +128,19 @@ Additional scripts: `framework_adapter.py` (convert between frameworks), `metric
 ## Input Requirements
 
 **For Test Generation:**
+
 - Source code (file path or pasted content)
 - Target framework (Jest, Pytest, JUnit, Vitest)
 - Coverage scope (unit, integration, edge cases)
 
 **For Coverage Analysis:**
+
 - Coverage report file (LCOV, JSON, or XML format)
 - Optional: Source code for context
 - Optional: Target threshold percentage
 
 **For TDD Workflow:**
+
 - Feature requirements or user story
 - Current phase (RED, GREEN, REFACTOR)
 - Test code and implementation status
@@ -168,11 +176,11 @@ project/
 
 Each acceptance criterion in a spec maps to at least one test:
 
-| Spec Criterion | Test Case |
-|---------------|-----------|
+| Spec Criterion                           | Test Case                                    |
+| ---------------------------------------- | -------------------------------------------- |
 | "User can log in with valid credentials" | `test_login_valid_credentials_returns_token` |
-| "Invalid password returns 401" | `test_login_invalid_password_returns_401` |
-| "Account locks after 5 failed attempts" | `test_login_locks_after_five_failures` |
+| "Invalid password returns 401"           | `test_login_invalid_password_returns_401`    |
+| "Account locks after 5 failed attempts"  | `test_login_locks_after_five_failures`       |
 
 **Tip:** Number your acceptance criteria in the spec. Reference the number in the test docstring for traceability (`# AC-3: Account locks after 5 failed attempts`).
 
@@ -189,30 +197,30 @@ Each acceptance criterion in a spec maps to at least one test:
 describe("Cart", () => {
   describe("addItem", () => {
     it("should add a new item to an empty cart", () => {
-      const cart = new Cart();
-      cart.addItem({ id: "sku-1", name: "Widget", price: 9.99, qty: 1 });
+      const cart = new Cart()
+      cart.addItem({ id: "sku-1", name: "Widget", price: 9.99, qty: 1 })
 
-      expect(cart.items).toHaveLength(1);
-      expect(cart.items[0].id).toBe("sku-1");
-    });
+      expect(cart.items).toHaveLength(1)
+      expect(cart.items[0].id).toBe("sku-1")
+    })
 
     it("should increment quantity when adding an existing item", () => {
-      const cart = new Cart();
-      cart.addItem({ id: "sku-1", name: "Widget", price: 9.99, qty: 1 });
-      cart.addItem({ id: "sku-1", name: "Widget", price: 9.99, qty: 2 });
+      const cart = new Cart()
+      cart.addItem({ id: "sku-1", name: "Widget", price: 9.99, qty: 1 })
+      cart.addItem({ id: "sku-1", name: "Widget", price: 9.99, qty: 2 })
 
-      expect(cart.items).toHaveLength(1);
-      expect(cart.items[0].qty).toBe(3);
-    });
+      expect(cart.items).toHaveLength(1)
+      expect(cart.items[0].qty).toBe(3)
+    })
 
     it("should throw when quantity is zero or negative", () => {
-      const cart = new Cart();
+      const cart = new Cart()
       expect(() =>
-        cart.addItem({ id: "sku-1", name: "Widget", price: 9.99, qty: 0 })
-      ).toThrow("Quantity must be positive");
-    });
-  });
-});
+        cart.addItem({ id: "sku-1", name: "Widget", price: 9.99, qty: 0 }),
+      ).toThrow("Quantity must be positive")
+    })
+  })
+})
 ```
 
 ### Python / Pytest (Advanced Patterns)
@@ -328,27 +336,27 @@ def test_addition_is_commutative(a, b):
 ### TypeScript — fast-check
 
 ```typescript
-import fc from "fast-check";
-import { encode, decode } from "./codec";
+import fc from "fast-check"
+import { encode, decode } from "./codec"
 
 test("encode/decode roundtrip", () => {
   fc.assert(
-    fc.property(fc.string(), (input) => {
-      expect(decode(encode(input))).toBe(input);
-    })
-  );
-});
+    fc.property(fc.string(), input => {
+      expect(decode(encode(input))).toBe(input)
+    }),
+  )
+})
 ```
 
 ### When to Use Property-Based Over Example-Based
 
-| Use Property-Based | Example |
-|-------------------|---------|
-| Data transformations | Serialize/deserialize roundtrips |
+| Use Property-Based      | Example                                   |
+| ----------------------- | ----------------------------------------- |
+| Data transformations    | Serialize/deserialize roundtrips          |
 | Mathematical properties | Commutativity, associativity, idempotency |
-| Encoding/decoding | Base64, URL encoding, compression |
-| Sorting and filtering | Output is sorted, length preserved |
-| Parser correctness | Valid input always parses without error |
+| Encoding/decoding       | Base64, URL encoding, compression         |
+| Sorting and filtering   | Output is sorted, length preserved        |
+| Parser correctness      | Valid input always parses without error   |
 
 ---
 
@@ -358,11 +366,11 @@ Mutation testing modifies your production code (creates "mutants") and checks wh
 
 ### Tools
 
-| Language | Tool | Command |
-|----------|------|---------|
-| TypeScript/JavaScript | **Stryker** | `npx stryker run` |
-| Python | **mutmut** | `mutmut run --paths-to-mutate=src/` |
-| Java | **PIT** | `mvn org.pitest:pitest-maven:mutationCoverage` |
+| Language              | Tool        | Command                                        |
+| --------------------- | ----------- | ---------------------------------------------- |
+| TypeScript/JavaScript | **Stryker** | `npx stryker run`                              |
+| Python                | **mutmut**  | `mutmut run --paths-to-mutate=src/`            |
+| Java                  | **PIT**     | `mvn org.pitest:pitest-maven:mutationCoverage` |
 
 ### Why Mutation Testing Matters
 
@@ -377,27 +385,28 @@ Mutation testing modifies your production code (creates "mutants") and checks wh
 
 ## Cross-References
 
-| Skill | Relationship |
-|-------|-------------|
-| `engineering/spec-driven-workflow` | Spec → acceptance criteria → test extraction pipeline |
-| `engineering-team/focused-fix` | Phase 5 (Verify) uses TDD to confirm the fix with a regression test |
-| `engineering-team/senior-qa` | Broader QA strategy; TDD is one layer in the test pyramid |
-| `engineering-team/code-reviewer` | Review generated tests for assertion quality and coverage completeness |
+| Skill                               | Relationship                                                                     |
+| ----------------------------------- | -------------------------------------------------------------------------------- |
+| `engineering/spec-driven-workflow`  | Spec → acceptance criteria → test extraction pipeline                            |
+| `engineering-team/focused-fix`      | Phase 5 (Verify) uses TDD to confirm the fix with a regression test              |
+| `engineering-team/senior-qa`        | Broader QA strategy; TDD is one layer in the test pyramid                        |
+| `engineering-team/code-reviewer`    | Review generated tests for assertion quality and coverage completeness           |
 | `engineering-team/senior-fullstack` | Project scaffolders include testing infrastructure compatible with TDD workflows |
 
 ---
 
 ## Limitations
 
-| Scope | Details |
-|-------|---------|
-| Unit test focus | Integration and E2E tests require different patterns |
-| Static analysis | Cannot execute tests or measure runtime behavior |
-| Language support | Best for TypeScript, JavaScript, Python, Java |
-| Report formats | LCOV, JSON, XML only; other formats need conversion |
-| Generated tests | Provide scaffolding; require human review for complex logic |
+| Scope            | Details                                                     |
+| ---------------- | ----------------------------------------------------------- |
+| Unit test focus  | Integration and E2E tests require different patterns        |
+| Static analysis  | Cannot execute tests or measure runtime behavior            |
+| Language support | Best for TypeScript, JavaScript, Python, Java               |
+| Report formats   | LCOV, JSON, XML only; other formats need conversion         |
+| Generated tests  | Provide scaffolding; require human review for complex logic |
 
 **When to use other tools:**
+
 - E2E testing: Playwright, Cypress, Selenium
 - Performance testing: k6, JMeter, Locust
 - Security testing: OWASP ZAP, Burp Suite

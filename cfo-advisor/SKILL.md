@@ -19,6 +19,7 @@ Strategic financial frameworks for startup CFOs and finance leaders. Numbers-dri
 This is **not** a financial analyst skill. This is strategic: models that drive decisions, fundraises that don't kill the company, board packages that earn trust.
 
 ## Keywords
+
 CFO, chief financial officer, burn rate, runway, unit economics, LTV, CAC, fundraising, Series A, Series B, term sheet, cap table, dilution, financial model, cash flow, board financials, FP&A, SaaS metrics, ARR, MRR, net dollar retention, gross margin, scenario planning, cash management, treasury, working capital, burn multiple, rule of 40
 
 ## Quick Start
@@ -44,30 +45,30 @@ python scripts/fundraising_model.py
 
 ## Core Responsibilities
 
-| Area | What It Covers | Reference |
-|------|---------------|-----------|
-| **Financial Modeling** | Bottoms-up P&L, three-statement model, headcount cost model | `references/financial_planning.md` |
-| **Unit Economics** | LTV by cohort, CAC by channel, payback periods | `references/financial_planning.md` |
-| **Burn & Runway** | Gross/net burn, burn multiple, scenario planning, decision triggers | `references/cash_management.md` |
-| **Fundraising** | Timing, valuation, dilution, term sheets, data room | `references/fundraising_playbook.md` |
-| **Board Financials** | What boards want, board pack structure, BvA | `references/financial_planning.md` |
-| **Cash Management** | Treasury, AR/AP optimization, runway extension tactics | `references/cash_management.md` |
-| **Budget Process** | Driver-based budgeting, allocation frameworks | `references/financial_planning.md` |
+| Area                   | What It Covers                                                      | Reference                            |
+| ---------------------- | ------------------------------------------------------------------- | ------------------------------------ |
+| **Financial Modeling** | Bottoms-up P&L, three-statement model, headcount cost model         | `references/financial_planning.md`   |
+| **Unit Economics**     | LTV by cohort, CAC by channel, payback periods                      | `references/financial_planning.md`   |
+| **Burn & Runway**      | Gross/net burn, burn multiple, scenario planning, decision triggers | `references/cash_management.md`      |
+| **Fundraising**        | Timing, valuation, dilution, term sheets, data room                 | `references/fundraising_playbook.md` |
+| **Board Financials**   | What boards want, board pack structure, BvA                         | `references/financial_planning.md`   |
+| **Cash Management**    | Treasury, AR/AP optimization, runway extension tactics              | `references/cash_management.md`      |
+| **Budget Process**     | Driver-based budgeting, allocation frameworks                       | `references/financial_planning.md`   |
 
 ## CFO Metrics Dashboard
 
-| Category | Metric | Target | Frequency |
-|----------|--------|--------|-----------|
-| **Efficiency** | Burn Multiple | < 1.5x | Monthly |
-| **Efficiency** | Rule of 40 | > 40 | Quarterly |
-| **Efficiency** | Revenue per FTE | Track trend | Quarterly |
-| **Revenue** | ARR growth (YoY) | > 2x at Series A/B | Monthly |
-| **Revenue** | Net Dollar Retention | > 110% | Monthly |
-| **Revenue** | Gross Margin | > 65% | Monthly |
-| **Economics** | LTV:CAC | > 3x | Monthly |
-| **Economics** | CAC Payback | < 18 mo | Monthly |
-| **Cash** | Runway | > 12 mo | Monthly |
-| **Cash** | AR > 60 days | < 5% of AR | Monthly |
+| Category       | Metric               | Target             | Frequency |
+| -------------- | -------------------- | ------------------ | --------- |
+| **Efficiency** | Burn Multiple        | < 1.5x             | Monthly   |
+| **Efficiency** | Rule of 40           | > 40               | Quarterly |
+| **Efficiency** | Revenue per FTE      | Track trend        | Quarterly |
+| **Revenue**    | ARR growth (YoY)     | > 2x at Series A/B | Monthly   |
+| **Revenue**    | Net Dollar Retention | > 110%             | Monthly   |
+| **Revenue**    | Gross Margin         | > 65%              | Monthly   |
+| **Economics**  | LTV:CAC              | > 3x               | Monthly   |
+| **Economics**  | CAC Payback          | < 18 mo            | Monthly   |
+| **Cash**       | Runway               | > 12 mo            | Monthly   |
+| **Cash**       | AR > 60 days         | < 5% of AR         | Monthly   |
 
 ## Red Flags
 
@@ -81,15 +82,15 @@ python scripts/fundraising_model.py
 
 ## Integration with Other C-Suite Roles
 
-| When... | CFO works with... | To... |
-|---------|-------------------|-------|
-| Headcount plan changes | CEO + COO | Model full loaded cost impact of every new hire |
-| Revenue targets shift | CRO | Recalibrate budget, CAC targets, quota capacity |
-| Roadmap scope changes | CTO + CPO | Assess R&D spend vs. revenue impact |
-| Fundraising | CEO | Lead financial narrative, model, data room |
-| Board prep | CEO | Own financial section of board pack |
-| Compensation design | CHRO | Model total comp cost, equity grants, burn impact |
-| Pricing changes | CPO + CRO | Model ARR impact, LTV change, margin impact |
+| When...                | CFO works with... | To...                                             |
+| ---------------------- | ----------------- | ------------------------------------------------- |
+| Headcount plan changes | CEO + COO         | Model full loaded cost impact of every new hire   |
+| Revenue targets shift  | CRO               | Recalibrate budget, CAC targets, quota capacity   |
+| Roadmap scope changes  | CTO + CPO         | Assess R&D spend vs. revenue impact               |
+| Fundraising            | CEO               | Lead financial narrative, model, data room        |
+| Board prep             | CEO               | Own financial section of board pack               |
+| Compensation design    | CHRO              | Model total comp cost, equity grants, burn impact |
+| Pricing changes        | CPO + CRO         | Model ARR impact, LTV change, margin impact       |
 
 ## Resources
 
@@ -100,10 +101,10 @@ python scripts/fundraising_model.py
 - `scripts/unit_economics_analyzer.py` — Per-cohort LTV, per-channel CAC
 - `scripts/fundraising_model.py` — Dilution, cap table, multi-round projections
 
-
 ## Proactive Triggers
 
 Surface these without being asked when you detect them in company context:
+
 - Runway < 18 months with no fundraising plan → raise the alarm early
 - Burn multiple > 2x for 2+ consecutive months → spending outpacing growth
 - Unit economics deteriorating by cohort → acquisition strategy needs review
@@ -112,13 +113,13 @@ Surface these without being asked when you detect them in company context:
 
 ## Output Artifacts
 
-| Request | You Produce |
-|---------|-------------|
-| "How much runway do we have?" | Runway model with base/bull/bear scenarios |
-| "Prep for fundraising" | Fundraising readiness package (metrics, deck financials, cap table) |
-| "Analyze our unit economics" | Per-cohort LTV, per-channel CAC, payback, with trends |
-| "Build the budget" | Zero-based or incremental budget with allocation framework |
-| "Board financial section" | P&L summary, cash position, burn, forecast, asks |
+| Request                       | You Produce                                                         |
+| ----------------------------- | ------------------------------------------------------------------- |
+| "How much runway do we have?" | Runway model with base/bull/bear scenarios                          |
+| "Prep for fundraising"        | Fundraising readiness package (metrics, deck financials, cap table) |
+| "Analyze our unit economics"  | Per-cohort LTV, per-channel CAC, payback, with trends               |
+| "Build the budget"            | Zero-based or incremental budget with allocation framework          |
+| "Board financial section"     | P&L summary, cash position, burn, forecast, asks                    |
 
 ## Reasoning Technique: Chain of Thought
 
@@ -127,6 +128,7 @@ Work through financial logic step by step. Show all math. Be conservative in pro
 ## Communication
 
 All output passes the Internal Quality Loop before reaching the founder (see `agent-protocol/SKILL.md`).
+
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Peer-verify: cross-functional claims validated by the owning role
 - Critic pre-screen: high-stakes decisions reviewed by Executive Mentor

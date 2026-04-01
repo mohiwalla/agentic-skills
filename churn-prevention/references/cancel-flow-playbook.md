@@ -44,14 +44,16 @@ Discount offer                        Match to reason category
 **What to show:** Brief value reminder (not a wall of guilt) + "Tell us why" framing.
 
 **Copy template:**
+
 ```
 Headline: Before you go, we want to understand
-Body: Your feedback helps us improve. Take 30 seconds to tell us why 
+Body: Your feedback helps us improve. Take 30 seconds to tell us why
       you're cancelling — and we might have a solution you haven't tried.
 CTA: Continue to cancellation →
 ```
 
 **Rules:**
+
 - Don't block the cancel path
 - Don't show this more than once per session
 - Mobile: single screen, no scrolling required
@@ -61,6 +63,7 @@ CTA: Continue to cancellation →
 ### Stage 2: Exit Survey
 
 **Design specs:**
+
 - Single question, required
 - Radio buttons (not checkboxes)
 - 6-8 options maximum
@@ -68,6 +71,7 @@ CTA: Continue to cancellation →
 - Submit advances to Stage 3 — don't show offer yet
 
 **Copy template:**
+
 ```
 What's the main reason you're cancelling?
 
@@ -91,16 +95,16 @@ What's the main reason you're cancelling?
 
 **Offer-to-reason mapping (full):**
 
-| Selected Reason | Primary Offer | Secondary (if declined) | Skip Offer |
-|----------------|--------------|------------------------|------------|
-| Too expensive | 30% off for 3 months | Downgrade plan | — |
-| Not using it enough | 1-month pause | Usage coaching call | — |
-| Missing a feature | Feature roadmap share + workaround | Human support call | If feature genuinely doesn't exist and won't exist soon |
-| Switching to competitor | Competitive comparison one-pager | — | If they've clearly made the decision |
-| Project ended | 2-month pause | — | — |
-| Too complicated | Free onboarding session | 1:1 support call | — |
-| Just testing | — | — | Always skip — wrong fit, let them go |
-| Other | Human support call | — | — |
+| Selected Reason         | Primary Offer                      | Secondary (if declined) | Skip Offer                                              |
+| ----------------------- | ---------------------------------- | ----------------------- | ------------------------------------------------------- |
+| Too expensive           | 30% off for 3 months               | Downgrade plan          | —                                                       |
+| Not using it enough     | 1-month pause                      | Usage coaching call     | —                                                       |
+| Missing a feature       | Feature roadmap share + workaround | Human support call      | If feature genuinely doesn't exist and won't exist soon |
+| Switching to competitor | Competitive comparison one-pager   | —                       | If they've clearly made the decision                    |
+| Project ended           | 2-month pause                      | —                       | —                                                       |
+| Too complicated         | Free onboarding session            | 1:1 support call        | —                                                       |
+| Just testing            | —                                  | —                       | Always skip — wrong fit, let them go                    |
+| Other                   | Human support call                 | —                       | —                                                       |
 
 **Offer presentation template:**
 
@@ -115,13 +119,14 @@ CTA (decline): No thanks, continue cancelling →
 
 [For not using it enough:]
 Headline: No charge for 60 days — pause your account
-Body: Life gets busy. Put [Product] on hold for up to 60 days. 
+Body: Life gets busy. Put [Product] on hold for up to 60 days.
       Your data stays intact, and you can resume any time. No charge during pause.
 CTA (accept): Pause my account →
 CTA (decline): No thanks, continue cancelling →
 ```
 
 **Offer rules:**
+
 - One offer per cancel attempt — never show multiple
 - If they decline, go straight to Stage 4
 - Don't re-show the same offer if they return to cancel within 30 days
@@ -132,6 +137,7 @@ CTA (decline): No thanks, continue cancelling →
 ### Stage 4: Cancellation Confirmation
 
 **What to include:**
+
 - Explicit confirmation of what will happen
 - Access end date (specific date, not "end of billing period")
 - Data retention policy (how long data is kept)
@@ -139,6 +145,7 @@ CTA (decline): No thanks, continue cancelling →
 - Confirmation button with clear copy
 
 **Copy template:**
+
 ```
 Your subscription will be cancelled.
 
@@ -183,7 +190,7 @@ Subject: Your [Product] account is still here
 
 Hi [Name],
 
-It's been a week since you cancelled. Your account and data are still intact 
+It's been a week since you cancelled. Your account and data are still intact
 until [date].
 
 If anything changed, you can reactivate in one click — no re-setup required.
@@ -218,17 +225,18 @@ If [their specific problem] was why you left, it might be worth another look.
 
 Rate your existing flow on each dimension (0-10):
 
-| Dimension | 0 pts | 5 pts | 10 pts |
-|-----------|-------|-------|--------|
-| **Accessibility** | Cancel requires support ticket | Cancel in settings, but buried | Cancel clearly visible in billing settings |
-| **Exit survey** | None | Optional, multi-question | Required, single question, maps to offers |
-| **Save offers** | None or generic discount | Offers exist but not mapped | Offers matched to exit reasons |
-| **Confirmation clarity** | Confusing terms | Mentions access end date | Clear date, data policy, reactivation path |
-| **Post-cancel sequence** | Nothing | One generic email | Immediate confirmation + 7-day re-engagement |
-| **Dunning** | None | Basic retry only | Retry + email sequence + card updater |
-| **Analytics** | No tracking | Basic cancellation count | Reason tracking, save rate, recovery rate |
+| Dimension                | 0 pts                          | 5 pts                          | 10 pts                                       |
+| ------------------------ | ------------------------------ | ------------------------------ | -------------------------------------------- |
+| **Accessibility**        | Cancel requires support ticket | Cancel in settings, but buried | Cancel clearly visible in billing settings   |
+| **Exit survey**          | None                           | Optional, multi-question       | Required, single question, maps to offers    |
+| **Save offers**          | None or generic discount       | Offers exist but not mapped    | Offers matched to exit reasons               |
+| **Confirmation clarity** | Confusing terms                | Mentions access end date       | Clear date, data policy, reactivation path   |
+| **Post-cancel sequence** | Nothing                        | One generic email              | Immediate confirmation + 7-day re-engagement |
+| **Dunning**              | None                           | Basic retry only               | Retry + email sequence + card updater        |
+| **Analytics**            | No tracking                    | Basic cancellation count       | Reason tracking, save rate, recovery rate    |
 
 **Score interpretation:**
+
 - 60-70: Solid foundation. Fix the 0-5 rated dimensions.
 - 40-59: Material revenue leaking. Prioritize survey + offer mapping.
 - <40: Major opportunity. Build from scratch using this playbook.
@@ -238,17 +246,20 @@ Rate your existing flow on each dimension (0-10):
 ## Platform Implementation Notes
 
 ### Stripe
+
 - Use Customer Portal for cancel flow (customizable via Stripe Dashboard)
 - Enable Stripe Billing webhooks: `customer.subscription.deleted`, `invoice.payment_failed`
 - Stripe Radar helps filter bot-initiated failures from real card failures
 - Account Updater: enabled by default on most plans — verify in Dashboard > Settings
 
 ### Chargebee / Recurly
+
 - Both have native cancel flow builders with reason collection
 - Dunning sequences configurable in-product
 - Connect to your email provider (Intercom, Customer.io, etc.) via webhook
 
 ### Custom / Homegrown Billing
+
 - Build cancel flow as a separate route (not inline in settings)
 - Store `cancel_reason`, `save_offer_shown`, `save_offer_accepted` per customer
 - Retry logic: implement as a background job with delay queue

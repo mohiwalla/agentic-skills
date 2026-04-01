@@ -18,6 +18,7 @@
 [Sharpened during interview]
 
 **Non-negotiable values:**
+
 - [Value 1] — [what would violate it]
 - [Value 2] — [what would violate it]
 - [Value 3] — [what would violate it]
@@ -93,6 +94,7 @@
 ## 6. Current Challenges
 
 **Priority stack-rank:**
+
 1. [Highest priority: product/growth/people/money/operations]
 2.
 3.

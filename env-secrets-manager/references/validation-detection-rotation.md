@@ -84,22 +84,26 @@ echo "✅  All required environment variables are set"
 ```
 
 Node.js equivalent:
+
 ```typescript
 // src/config/validateEnv.ts
 const required = [
-  'APP_SECRET', 'APP_URL', 'DATABASE_URL',
-  'AUTH_JWT_SECRET', 'AUTH_REFRESH_SECRET',
+  "APP_SECRET",
+  "APP_URL",
+  "DATABASE_URL",
+  "AUTH_JWT_SECRET",
+  "AUTH_REFRESH_SECRET",
 ]
 
 const missing = required.filter(key => !process.env[key])
 
 if (missing.length > 0) {
-  console.error('FATAL: Missing required environment variables:', missing)
+  console.error("FATAL: Missing required environment variables:", missing)
   process.exit(1)
 }
 
 if (process.env.AUTH_JWT_SECRET && process.env.AUTH_JWT_SECRET.length < 32) {
-  console.error('FATAL: AUTH_JWT_SECRET must be at least 32 characters')
+  console.error("FATAL: AUTH_JWT_SECRET must be at least 32 characters")
   process.exit(1)
 }
 
@@ -109,8 +113,8 @@ export const config = {
   databaseUrl: process.env.DATABASE_URL!,
   jwtSecret: process.env.AUTH_JWT_SECRET!,
   refreshSecret: process.env.AUTH_REFRESH_SECRET!,
-  stripeKey: process.env.STRIPE_SECRET_KEY,  // optional
-  port: parseInt(process.env.APP_PORT ?? '3000', 10),
+  stripeKey: process.env.STRIPE_SECRET_KEY, // optional
+  port: parseInt(process.env.APP_PORT ?? "3000", 10),
 } as const
 ```
 
@@ -119,6 +123,7 @@ export const config = {
 ## Secret Leak Detection
 
 ### Scan Working Tree
+
 ```bash
 #!/bin/bash
 # scripts/scan-secrets.sh
@@ -191,6 +196,7 @@ echo "No secrets detected in staged changes."
 ```
 
 ### Scan Git History (post-incident)
+
 ```bash
 #!/bin/bash
 # scripts/scan-history.sh — scan entire git history for leaked secrets
@@ -250,6 +256,7 @@ echo "Pre-commit hook installed at $HOOK_PATH"
 ```
 
 Using `pre-commit` framework (recommended for teams):
+
 ```yaml
 # .pre-commit-config.yaml
 repos:
@@ -274,6 +281,7 @@ repos:
 When a secret is leaked or compromised:
 
 ### Step 1 — Detect & Confirm
+
 ```bash
 # Confirm which secret was exposed
 git log --all -p --no-color | grep -A2 -B2 "AKIA\|sk_live_\|SECRET"
@@ -285,6 +293,7 @@ done
 ```
 
 ### Step 2 — Identify Exposure Window
+
 ```bash
 # Find first commit that introduced the secret
 git log --all -p --no-color -- "*.env" "*.json" "*.yaml" "*.ts" "*.py" | \
@@ -298,7 +307,9 @@ gh api search/code -X GET -f q="THE_LEAKED_VALUE" | jq '.total_count, .items[].h
 ```
 
 ### Step 3 — Rotate Credential
+
 Per service — rotate immediately:
+
 - **AWS**: IAM console → delete access key → create new → update everywhere
 - **Stripe**: Dashboard → Developers → API keys → Roll key
 - **GitHub PAT**: Settings → Developer Settings → Personal access tokens → Revoke → Create new
@@ -306,6 +317,7 @@ Per service — rotate immediately:
 - **JWT secret**: Rotate key (all existing sessions invalidated — users re-login)
 
 ### Step 4 — Update All Environments
+
 ```bash
 # Update secret manager (source of truth)
 # Then redeploy to pull new values
@@ -331,6 +343,7 @@ doppler secrets set STRIPE_SECRET_KEY="sk_live_NEW..." --project myapp --config 
 ```
 
 ### Step 5 — Remove from Git History
+
 ```bash
 # WARNING: rewrites history — coordinate with team first
 git filter-repo --path-glob "*.env" --invert-paths
@@ -345,6 +358,7 @@ git push origin --force --all
 ```
 
 ### Step 6 — Verify
+
 ```bash
 # Confirm secret no longer in history
 git log --all -p | grep "LEAKED_VALUE" | wc -l  # should be 0

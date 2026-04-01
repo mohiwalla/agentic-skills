@@ -18,6 +18,7 @@ for each image. Read its output carefully.
 The script detects whether a background exists. YOU must decide whether it matters.
 
 ### Remove the background if the image is:
+
 - An isolated product on a studio backdrop (bottle, shoe, phone, fruit, object)
 - A character or figure that needs to float in the scene
 - A logo or icon placed at any depth layer
@@ -25,6 +26,7 @@ The script detects whether a background exists. YOU must decide whether it matte
 - An asset where the background colour will visibly clash with the site background
 
 ### Keep the background if the image is:
+
 - A screenshot of a website, app UI, dashboard, or software
 - A photograph used as a section background or depth-0 fill
 - An artwork, poster, or illustration that is viewed as a complete piece
@@ -33,6 +35,7 @@ The script detects whether a background exists. YOU must decide whether it matte
 - Any image placed at depth-0 — it IS the background, keep it
 
 ### When unsure — ask the role:
+
 > "Does this image need to float freely over other content?"
 > Yes → remove bg. No → keep it.
 
@@ -43,14 +46,14 @@ The script detects whether a background exists. YOU must decide whether it matte
 Run the resize step in `scripts/inspect-assets.py` or do it manually.
 Never embed a large image when a smaller one is sufficient.
 
-| Depth | Role | Max Longest Edge |
-|---|---|---|
-| 0 | Background fill | 1920px |
-| 1 | Glow / atmosphere | 800px |
-| 2 | Mid decorations, companions | 400px |
-| 3 | Hero product | 1200px |
-| 4 | UI components | 600px |
-| 5 | Particles, sparkles | 128px |
+| Depth | Role                        | Max Longest Edge |
+| ----- | --------------------------- | ---------------- |
+| 0     | Background fill             | 1920px           |
+| 1     | Glow / atmosphere           | 800px            |
+| 2     | Mid decorations, companions | 400px            |
+| 3     | Hero product                | 1200px           |
+| 4     | UI components               | 600px            |
+| 5     | Particles, sparkles         | 128px            |
 
 ---
 
@@ -69,6 +72,7 @@ For each image that has a background issue, use this exact format:
 > background [should be removed / should be kept because it's a [screenshot/artwork/bg fill/etc.]].
 >
 > **Options:**
+>
 > 1. Provide a new PNG with a transparent background — best quality, ideal
 > 2. Proceed as-is with a CSS workaround (mix-blend-mode) — quick but approximate
 > 3. Keep the background — if this image is meant to be seen with its background
@@ -100,12 +104,14 @@ Apply ONLY if the user explicitly chooses option 2 above:
 ```
 
 Always add a comment in the HTML when using this:
+
 ```html
 <!-- CSS approximation: [filename] has a solid background.
      Replace with a transparent PNG for best quality. -->
 ```
 
 Limitations:
+
 - `screen` lightens mid-tones — only works well on very dark site backgrounds
 - `multiply` darkens mid-tones — only works well on very light site backgrounds
 - Neither works on complex or gradient backgrounds

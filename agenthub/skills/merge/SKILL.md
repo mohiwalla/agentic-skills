@@ -59,7 +59,7 @@ Write `.agenthub/board/results/merge-summary.md`:
 ```markdown
 ---
 author: coordinator
-timestamp: {now}
+timestamp: { now }
 channel: results
 ---
 
@@ -88,6 +88,7 @@ python {skill_path}/scripts/session_manager.py --update {session-id} --state mer
 ## After Merge
 
 Tell the user:
+
 - Winner merged into `{base_branch}`
 - Losers archived with tags `hub/archive/{session-id}/agent-{N}`
 - Worktrees cleaned up

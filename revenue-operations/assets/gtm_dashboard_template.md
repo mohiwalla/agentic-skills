@@ -1,6 +1,7 @@
 # GTM Efficiency Dashboard - [Quarter/Period]
 
 ## Dashboard Details
+
 - **Prepared By:** [Name]
 - **Report Date:** [YYYY-MM-DD]
 - **Period:** [Quarter or Date Range]
@@ -10,14 +11,14 @@
 
 ## Metrics At A Glance
 
-| Metric | Value | Rating | Target | Trend | vs. Last Period |
-|--------|-------|--------|--------|-------|-----------------|
-| Magic Number | _ | | >0.75 | | |
-| LTV:CAC | _:1 | | >3:1 | | |
-| CAC Payback | _ mo | | <18 mo | | |
-| Burn Multiple | _x | | <2x | | |
-| Rule of 40 | _% | | >40% | | |
-| NDR | _% | | >110% | | |
+| Metric        | Value | Rating | Target | Trend | vs. Last Period |
+| ------------- | ----- | ------ | ------ | ----- | --------------- |
+| Magic Number  | \_    |        | >0.75  |       |                 |
+| LTV:CAC       | \_:1  |        | >3:1   |       |                 |
+| CAC Payback   | \_ mo |        | <18 mo |       |                 |
+| Burn Multiple | \_x   |        | <2x    |       |                 |
+| Rule of 40    | \_%   |        | >40%   |       |                 |
+| NDR           | \_%   |        | >110%  |       |                 |
 
 **Rating Legend:** Green = Healthy | Yellow = Monitor | Red = Action Required
 
@@ -29,11 +30,11 @@
 
 ### Magic Number
 
-| Component | Value |
-|-----------|-------|
-| Net New ARR | $_ |
-| Prior Period S&M Spend | $_ |
-| **Magic Number** | **_** |
+| Component              | Value  |
+| ---------------------- | ------ |
+| Net New ARR            | $\_    |
+| Prior Period S&M Spend | $\_    |
+| **Magic Number**       | **\_** |
 
 - **Rating:** [Green / Yellow / Red]
 - **Percentile:** [Top 10% / Top 25% / Median / Below Median]
@@ -42,15 +43,15 @@
 
 ### LTV:CAC Ratio
 
-| Component | Value |
-|-----------|-------|
-| ARPA (Monthly) | $_ |
-| ARPA (Annual) | $_ |
-| Gross Margin | _% |
-| Annual Churn Rate | _% |
-| **Customer LTV** | **$_** |
-| Customer Acquisition Cost | $_ |
-| **LTV:CAC Ratio** | **_:1** |
+| Component                 | Value    |
+| ------------------------- | -------- |
+| ARPA (Monthly)            | $\_      |
+| ARPA (Annual)             | $\_      |
+| Gross Margin              | \_%      |
+| Annual Churn Rate         | \_%      |
+| **Customer LTV**          | **$\_**  |
+| Customer Acquisition Cost | $\_      |
+| **LTV:CAC Ratio**         | **\_:1** |
 
 - **Rating:** [Green / Yellow / Red]
 - **Percentile:** [Top 10% / Top 25% / Median / Below Median]
@@ -59,11 +60,11 @@
 
 ### CAC Payback Period
 
-| Component | Value |
-|-----------|-------|
-| CAC | $_ |
-| Monthly Gross Margin Contribution | $_ |
-| **CAC Payback** | **_ months** |
+| Component                         | Value         |
+| --------------------------------- | ------------- |
+| CAC                               | $\_           |
+| Monthly Gross Margin Contribution | $\_           |
+| **CAC Payback**                   | **\_ months** |
 
 - **Rating:** [Green / Yellow / Red]
 - **Percentile:** [Top 10% / Top 25% / Median / Below Median]
@@ -72,11 +73,11 @@
 
 ### Burn Multiple
 
-| Component | Value |
-|-----------|-------|
-| Net Burn | $_ |
-| Net New ARR | $_ |
-| **Burn Multiple** | **_x** |
+| Component         | Value   |
+| ----------------- | ------- |
+| Net Burn          | $\_     |
+| Net New ARR       | $\_     |
+| **Burn Multiple** | **\_x** |
 
 - **Rating:** [Green / Yellow / Red]
 - **Percentile:** [Top 10% / Top 25% / Median / Below Median]
@@ -85,11 +86,11 @@
 
 ### Rule of 40
 
-| Component | Value |
-|-----------|-------|
-| Revenue Growth Rate | _% |
-| FCF Margin | _% |
-| **Rule of 40 Score** | **_%** |
+| Component            | Value   |
+| -------------------- | ------- |
+| Revenue Growth Rate  | \_%     |
+| FCF Margin           | \_%     |
+| **Rule of 40 Score** | **\_%** |
 
 - **Rating:** [Green / Yellow / Red]
 - **Percentile:** [Top 10% / Top 25% / Median / Below Median]
@@ -98,14 +99,14 @@
 
 ### Net Dollar Retention
 
-| Component | Value |
-|-----------|-------|
-| Beginning ARR | $_ |
-| Expansion ARR | +$_ |
-| Contraction ARR | -$_ |
-| Churned ARR | -$_ |
-| Ending ARR | $_ |
-| **NDR** | **_%** |
+| Component       | Value   |
+| --------------- | ------- |
+| Beginning ARR   | $\_     |
+| Expansion ARR   | +$\_    |
+| Contraction ARR | -$\_    |
+| Churned ARR     | -$\_    |
+| Ending ARR      | $\_     |
+| **NDR**         | **\_%** |
 
 - **Rating:** [Green / Yellow / Red]
 - **Percentile:** [Top 10% / Top 25% / Median / Below Median]
@@ -116,27 +117,27 @@
 
 ## Quarterly Trend
 
-| Metric | Q-3 | Q-2 | Q-1 | Current | Direction |
-|--------|-----|-----|-----|---------|-----------|
-| Magic Number | _ | _ | _ | _ | |
-| LTV:CAC | _:1 | _:1 | _:1 | _:1 | |
-| CAC Payback | _ mo | _ mo | _ mo | _ mo | |
-| Burn Multiple | _x | _x | _x | _x | |
-| Rule of 40 | _% | _% | _% | _% | |
-| NDR | _% | _% | _% | _% | |
+| Metric        | Q-3   | Q-2   | Q-1   | Current | Direction |
+| ------------- | ----- | ----- | ----- | ------- | --------- |
+| Magic Number  | \_    | \_    | \_    | \_      |           |
+| LTV:CAC       | \_:1  | \_:1  | \_:1  | \_:1    |           |
+| CAC Payback   | \_ mo | \_ mo | \_ mo | \_ mo   |           |
+| Burn Multiple | \_x   | \_x   | \_x   | \_x     |           |
+| Rule of 40    | \_%   | \_%   | \_%   | \_%     |           |
+| NDR           | \_%   | \_%   | \_%   | \_%     |           |
 
 ---
 
 ## Benchmark Comparison
 
-| Metric | Our Value | Stage Median | Top Quartile | Gap to Top Quartile |
-|--------|-----------|-------------|--------------|---------------------|
-| Magic Number | _ | _ | _ | _ |
-| LTV:CAC | _:1 | _:1 | _:1 | _ |
-| CAC Payback | _ mo | _ mo | _ mo | _ mo |
-| Burn Multiple | _x | _x | _x | _ |
-| Rule of 40 | _% | _% | _% | _% |
-| NDR | _% | _% | _% | _% |
+| Metric        | Our Value | Stage Median | Top Quartile | Gap to Top Quartile |
+| ------------- | --------- | ------------ | ------------ | ------------------- |
+| Magic Number  | \_        | \_           | \_           | \_                  |
+| LTV:CAC       | \_:1      | \_:1         | \_:1         | \_                  |
+| CAC Payback   | \_ mo     | \_ mo        | \_ mo        | \_ mo               |
+| Burn Multiple | \_x       | \_x          | \_x          | \_                  |
+| Rule of 40    | \_%       | \_%          | \_%          | \_%                 |
+| NDR           | \_%       | \_%          | \_%          | \_%                 |
 
 ---
 
@@ -197,19 +198,19 @@ Gross Margin:       ____________%
 ### Investment Recommendations
 
 | Area | Current Spend | Recommended | Rationale |
-|------|--------------|-------------|-----------|
-| | $_ | $_ | |
-| | $_ | $_ | |
-| | $_ | $_ | |
+| ---- | ------------- | ----------- | --------- |
+|      | $\_           | $\_         |           |
+|      | $\_           | $\_         |           |
+|      | $\_           | $\_         |           |
 
 ---
 
 ## Next Steps
 
-| # | Action | Owner | Due Date | Success Metric |
-|---|--------|-------|----------|---------------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
+| #   | Action | Owner | Due Date | Success Metric |
+| --- | ------ | ----- | -------- | -------------- |
+| 1   |        |       |          |                |
+| 2   |        |       |          |                |
+| 3   |        |       |          |                |
+| 4   |        |       |          |                |
+| 5   |        |       |          |                |

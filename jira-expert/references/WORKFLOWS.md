@@ -5,17 +5,20 @@ Comprehensive guide to Jira workflow design, transitions, conditions, validators
 ## Default Workflows
 
 ### Simplified Workflow
+
 ```
 Open → In Progress → Done
 ```
 
 ### Software Development Workflow
+
 ```
 Backlog → Selected for Development → In Progress → In Review → Done
          ↑___________________________|  (reopen)
 ```
 
 ### Bug Tracking Workflow
+
 ```
 Open → In Progress → Fixed → Verified → Closed
   ↑                    |        |
@@ -25,6 +28,7 @@ Open → In Progress → Fixed → Verified → Closed
 ## Custom Workflow Design
 
 ### Design Principles
+
 1. **Mirror your actual process** — don't force teams into artificial states
 2. **Minimize statuses** — each status must represent a distinct work state where the item waits for a different action
 3. **Clear ownership** — every status should have an obvious responsible party
@@ -32,28 +36,32 @@ Open → In Progress → Fixed → Verified → Closed
 5. **Separate "waiting" from "working"** — distinguish "In Review" (waiting) from "Reviewing" (actively working)
 
 ### Status Categories
+
 Jira maps every status to one of four categories that drive board columns and JQL:
 
-| Category | Meaning | JQL | Examples |
-|----------|---------|-----|----------|
-| `To Do` | Not started | `statusCategory = "To Do"` | Backlog, Open, New |
-| `In Progress` | Active work | `statusCategory = "In Progress"` | In Progress, In Review, Testing |
-| `Done` | Completed | `statusCategory = Done` | Done, Closed, Released |
-| `Undefined` | Legacy/unused | — | Avoid using |
+| Category      | Meaning       | JQL                              | Examples                        |
+| ------------- | ------------- | -------------------------------- | ------------------------------- |
+| `To Do`       | Not started   | `statusCategory = "To Do"`       | Backlog, Open, New              |
+| `In Progress` | Active work   | `statusCategory = "In Progress"` | In Progress, In Review, Testing |
+| `Done`        | Completed     | `statusCategory = Done`          | Done, Closed, Released          |
+| `Undefined`   | Legacy/unused | —                                | Avoid using                     |
 
 ### Recommended Statuses by Team Type
 
 **Engineering Team:**
+
 ```
 Backlog → Ready → In Progress → Code Review → QA → Done
 ```
 
 **Support Team:**
+
 ```
 New → Triaged → In Progress → Waiting on Customer → Resolved → Closed
 ```
 
 **Design Team:**
+
 ```
 Backlog → Research → Design → Review → Approved → Handoff
 ```
@@ -62,17 +70,18 @@ Backlog → Research → Design → Review → Approved → Handoff
 
 ### Transition Properties
 
-| Property | Description |
-|----------|-------------|
-| **Name** | Display name on the button (e.g., "Start Work") |
-| **Screen** | Form shown during transition (optional) |
-| **Conditions** | Who can trigger this transition |
-| **Validators** | Rules that must pass before transition executes |
-| **Post-functions** | Actions executed after transition completes |
+| Property           | Description                                     |
+| ------------------ | ----------------------------------------------- |
+| **Name**           | Display name on the button (e.g., "Start Work") |
+| **Screen**         | Form shown during transition (optional)         |
+| **Conditions**     | Who can trigger this transition                 |
+| **Validators**     | Rules that must pass before transition executes |
+| **Post-functions** | Actions executed after transition completes     |
 
 ### Common Transition Patterns
 
 **Start Work:**
+
 ```
 Trigger: "Start Work" button
 Condition: Assignee only
@@ -81,6 +90,7 @@ Post-function: Set "In Progress" resolution to None
 ```
 
 **Submit for Review:**
+
 ```
 Trigger: "Submit for Review" button
 Condition: Assignee or project admin
@@ -89,6 +99,7 @@ Post-function: Add comment "Submitted for review by {user}"
 ```
 
 **Approve:**
+
 ```
 Trigger: "Approve" button
 Condition: Must be in "Reviewers" group
@@ -100,17 +111,18 @@ Post-function: Set resolution to "Done", fire event
 
 ### Built-in Conditions
 
-| Condition | Use When |
-|-----------|----------|
-| **Only Assignee** | Only assigned user can transition |
-| **Only Reporter** | Only creator can transition |
-| **Permission Condition** | User must have specific permission |
-| **Group Condition** | User must be in specified group |
-| **Sub-Task Blocking** | All sub-tasks must be resolved |
-| **Previous Status** | Issue must have been in a specific status |
-| **User Is In Role** | User must have project role (Developer, Admin) |
+| Condition                | Use When                                       |
+| ------------------------ | ---------------------------------------------- |
+| **Only Assignee**        | Only assigned user can transition              |
+| **Only Reporter**        | Only creator can transition                    |
+| **Permission Condition** | User must have specific permission             |
+| **Group Condition**      | User must be in specified group                |
+| **Sub-Task Blocking**    | All sub-tasks must be resolved                 |
+| **Previous Status**      | Issue must have been in a specific status      |
+| **User Is In Role**      | User must have project role (Developer, Admin) |
 
 ### Combining Conditions
+
 - **AND logic**: Add multiple conditions to one transition — ALL must pass
 - **OR logic**: Create parallel transitions with different conditions
 
@@ -118,13 +130,13 @@ Post-function: Set resolution to "Done", fire event
 
 ### Built-in Validators
 
-| Validator | Checks |
-|-----------|--------|
-| **Required Field** | Specific field must be populated |
-| **Field Has Been Modified** | Field must change during transition |
-| **Regular Expression** | Field must match regex pattern |
-| **Permission Validator** | User must have permission |
-| **Previous Status Validator** | Issue was in a required status |
+| Validator                     | Checks                              |
+| ----------------------------- | ----------------------------------- |
+| **Required Field**            | Specific field must be populated    |
+| **Field Has Been Modified**   | Field must change during transition |
+| **Regular Expression**        | Field must match regex pattern      |
+| **Permission Validator**      | User must have permission           |
+| **Previous Status Validator** | Issue was in a required status      |
 
 ### Common Validator Patterns
 
@@ -146,19 +158,21 @@ When: Transition = "Close"
 
 ### Built-in Post-Functions
 
-| Post-Function | Action |
-|---------------|--------|
-| **Set Field Value** | Assign a value to any field |
-| **Update Issue Field** | Change assignee, priority, etc. |
-| **Create Comment** | Add automated comment |
-| **Fire Event** | Trigger notification event |
-| **Assign to Lead** | Assign to project lead |
-| **Assign to Reporter** | Assign back to creator |
-| **Clear Field** | Remove field value |
-| **Copy Value** | Copy field from parent/linked issue |
+| Post-Function          | Action                              |
+| ---------------------- | ----------------------------------- |
+| **Set Field Value**    | Assign a value to any field         |
+| **Update Issue Field** | Change assignee, priority, etc.     |
+| **Create Comment**     | Add automated comment               |
+| **Fire Event**         | Trigger notification event          |
+| **Assign to Lead**     | Assign to project lead              |
+| **Assign to Reporter** | Assign back to creator              |
+| **Clear Field**        | Remove field value                  |
+| **Copy Value**         | Copy field from parent/linked issue |
 
 ### Post-Function Execution Order
+
 Post-functions execute in defined order. Standard sequence:
+
 1. Set issue status (automatic, always first)
 2. Add comment (if configured)
 3. Update fields
@@ -170,11 +184,13 @@ Post-functions execute in defined order. Standard sequence:
 ## Workflow Schemes
 
 ### What They Do
+
 - Map issue types to workflows within a project
 - One workflow scheme per project
 - Different issue types can use different workflows
 
 ### Configuration Pattern
+
 ```
 Project: MYPROJ
 Workflow Scheme: "Engineering Workflow Scheme"

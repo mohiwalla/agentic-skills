@@ -2,7 +2,7 @@
 
 ## README.md - Full Template
 
-```markdown
+````markdown
 # [Project Name]
 
 > One-sentence description of what this does and who uses it.
@@ -24,12 +24,12 @@
 
 ### Prerequisites
 
-| Tool | Version | Install |
-|------|---------|---------|
-| Node.js | 20+ | `nvm install 20` |
-| pnpm | 8+ | `npm i -g pnpm` |
-| Docker | 24+ | [docker.com](https://docker.com) |
-| PostgreSQL | 16+ | via Docker (see below) |
+| Tool       | Version | Install                          |
+| ---------- | ------- | -------------------------------- |
+| Node.js    | 20+     | `nvm install 20`                 |
+| pnpm       | 8+      | `npm i -g pnpm`                  |
+| Docker     | 24+     | [docker.com](https://docker.com) |
+| PostgreSQL | 16+     | via Docker (see below)           |
 
 ### Setup (5 minutes)
 
@@ -44,6 +44,7 @@ pnpm db:seed
 pnpm dev
 pnpm test
 ```
+````
 
 ### Verify it works
 
@@ -70,25 +71,25 @@ Browser / Mobile
 
 ### Tech Stack
 
-| Layer | Technology | Why |
-|-------|-----------|-----|
-| Frontend | Next.js | SSR + routing |
-| Styling | Tailwind + shadcn/ui | Rapid UI |
-| API | Route handlers | Co-location |
-| Database | PostgreSQL | Relational |
-| Queue | BullMQ + Redis | Background jobs |
+| Layer    | Technology           | Why             |
+| -------- | -------------------- | --------------- |
+| Frontend | Next.js              | SSR + routing   |
+| Styling  | Tailwind + shadcn/ui | Rapid UI        |
+| API      | Route handlers       | Co-location     |
+| Database | PostgreSQL           | Relational      |
+| Queue    | BullMQ + Redis       | Background jobs |
 
 ---
 
 ## Key Files
 
-| Path | Purpose |
-|------|---------|
-| `app/` | Pages and route handlers |
-| `src/db/` | Schema and migrations |
-| `src/lib/` | Shared utilities |
-| `tests/` | Test suites and helpers |
-| `.env.example` | Required variables |
+| Path           | Purpose                  |
+| -------------- | ------------------------ |
+| `app/`         | Pages and route handlers |
+| `src/db/`      | Schema and migrations    |
+| `src/lib/`     | Shared utilities         |
+| `tests/`       | Test suites and helpers  |
+| `.env.example` | Required variables       |
 
 ---
 
@@ -133,11 +134,11 @@ pnpm db:migrate
 
 ### Log Locations
 
-| Environment | Logs |
-|-------------|------|
-| Local dev | local terminal |
-| Production | platform logs |
-| Worker | worker process logs |
+| Environment | Logs                |
+| ----------- | ------------------- |
+| Local dev   | local terminal      |
+| Production  | platform logs       |
+| Worker      | worker process logs |
 
 ---
 
@@ -166,16 +167,20 @@ pnpm db:migrate
 ## Audience-Specific Notes
 
 ### Junior Developers
+
 - Start with core auth/data modules
 - Follow tests as executable examples
 
 ### Senior Engineers
+
 - Read ADRs and scaling notes first
 - Validate performance/security assumptions early
 
 ### Contractors
+
 - Stay within scoped feature boundaries
 - Use wrappers for external integrations
+
 ```
 
 ## Usage Notes
@@ -184,3 +189,4 @@ pnpm db:migrate
 - Include executable verification checks after each setup phase.
 - Prefer links to canonical docs instead of duplicating long content.
 - Update this template when stack conventions or tooling change.
+```

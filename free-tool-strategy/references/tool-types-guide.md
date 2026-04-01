@@ -11,6 +11,7 @@ Each tool type explained with examples, build complexity, typical outcomes, and 
 **What they do:** Take numerical or categorical inputs → output a calculated result (a number, range, or score).
 
 **Examples:**
+
 - SaaS Pricing Calculator ("What should you charge?")
 - ROI Calculator ("How much would you save?")
 - LTV Calculator ("What's your customer worth?")
@@ -18,6 +19,7 @@ Each tool type explained with examples, build complexity, typical outcomes, and 
 - Salary Calculator by role/location/experience
 
 **Build complexity:** Low–Medium
+
 - Simple formula: 1-2 days of dev
 - Multi-variable model: 1-2 weeks
 
@@ -28,6 +30,7 @@ Each tool type explained with examples, build complexity, typical outcomes, and 
 **Viral potential:** Medium — people share results when they're surprising or validating.
 
 **Design tips:**
+
 - Sliders are more satisfying than input fields for numerical ranges
 - Show results dynamically (real-time as they adjust inputs)
 - Include a "how this was calculated" section for credibility
@@ -43,6 +46,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 **What they do:** Take inputs (topic, style, parameters) → output structured text or content.
 
 **Examples:**
+
 - Headline Generator (input: product + audience → 10 headline options)
 - LinkedIn Bio Generator
 - Job Description Generator
@@ -53,11 +57,13 @@ The underlying model must be credible. If you're calculating LTV, show your form
 **Build complexity:** Low (template-based) to High (LLM-powered)
 
 **Template-based (madlibs):**
+
 - 1-3 days
 - Take inputs, fill template slots, combine with variations
 - Deterministic output
 
 **LLM-powered:**
+
 - 1-2 weeks (API integration + prompt engineering)
 - Generative output
 - Requires API key costs to be modeled into business case
@@ -69,6 +75,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 **Viral potential:** High — people share clever or surprisingly good generated outputs.
 
 **Design tips:**
+
 - Show an example output before the user enters anything (reduces bounce)
 - Generate 3-5 variations, not just 1
 - "Copy to clipboard" button is a must
@@ -81,6 +88,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 **What they do:** Analyze a URL, email, text, file, or domain → return an audit or pass/fail assessment.
 
 **Examples:**
+
 - SEO Checker ("Analyze your page's SEO")
 - Email Spam Checker ("Will your email hit spam?")
 - Website Speed Checker
@@ -90,6 +98,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 - Domain Authority Checker
 
 **Build complexity:** Medium–High
+
 - Text analysis (readability, keyword density): 2-5 days
 - URL crawling (page analysis): 1-2 weeks
 - Email delivery testing: 1-2 weeks + email infrastructure
@@ -101,6 +110,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 **Viral potential:** High — "Your page scored 47/100 — here's what's broken" drives sharing.
 
 **Design tips:**
+
 - Score the output (0-100) — people anchor on scores and compare
 - Categorize results: Critical / Warnings / Passed
 - Prioritize issues — don't just list everything, rank by impact
@@ -113,6 +123,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 **What they do:** Score something holistically against a rubric. More opinionated than a checker — you're grading against a defined standard.
 
 **Examples:**
+
 - Website Grader (HubSpot's classic)
 - Sales Page Grader
 - Email Newsletter Grader
@@ -121,6 +132,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 - Pricing Page Grader
 
 **Build complexity:** Medium
+
 - Define the rubric first (the criteria matter more than the tech)
 - Usually 1-2 weeks
 
@@ -131,6 +143,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 **Viral potential:** Medium-High — share your score as social proof or to invite critique.
 
 **Design tips:**
+
 - The grade (A-F or 0-100) is the hook — show it prominently
 - Break down the grade into components (e.g., "Design: A, Copy: C, CTA: D")
 - Each component should explain why and how to improve it
@@ -143,6 +156,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 **What they do:** Transform input from one format to another. Pure utility.
 
 **Examples:**
+
 - Markdown to HTML Converter
 - Timestamp Converter
 - CSV to JSON Converter
@@ -152,6 +166,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 - Currency Converter
 
 **Build complexity:** Very Low – Low
+
 - Most conversions are 1-2 days
 - Pure client-side (no server needed)
 
@@ -170,6 +185,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 **What they do:** Pre-built, fillable documents that users download, copy, or use.
 
 **Examples:**
+
 - Job Description Templates
 - Product Roadmap Template
 - SaaS Metrics Dashboard Template (Google Sheets)
@@ -179,6 +195,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 - Engineering RFP Template
 
 **Build complexity:** Very Low
+
 - Template creation: hours to 1 day
 - Hosting: Google Docs/Sheets share, Notion public page, or downloadable PDF
 
@@ -189,6 +206,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 **Viral potential:** Medium — people share templates that save them real time.
 
 **Design tips:**
+
 - The template itself is the product — make it excellent
 - Include instructions inside the template
 - Offer a "filled example" so users understand what it should look like
@@ -201,6 +219,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 **What they do:** Show data, concepts, or comparisons in a visual, explorable way.
 
 **Examples:**
+
 - SaaS Market Map (interactive, filterable)
 - Marketing Funnel Visualizer
 - Company Comparison Tool (filter by size, location, tech stack)
@@ -208,6 +227,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 - Interactive Pricing Comparison
 
 **Build complexity:** High
+
 - 2-6 weeks typically
 - Requires data (your own research, public datasets, or API)
 - May require ongoing data maintenance
@@ -219,6 +239,7 @@ The underlying model must be credible. If you're calculating LTV, show your form
 **Viral potential:** Very High if the data is surprising or highly visual — these are your link magnets.
 
 **Design tips:**
+
 - The data is the moat — if you have unique data, this is the highest-leverage tool type
 - Interactive beats static for time-on-page
 - Make it embeddable (embed code button) for backlink acquisition
@@ -228,15 +249,15 @@ The underlying model must be credible. If you're calculating LTV, show your form
 
 ## Build vs. No-Code Decision Guide
 
-| Tool Type | No-Code Options | When to Go Custom Dev |
-|-----------|---------------|----------------------|
-| Calculator | Outgrow, Calconic, Typeform | When logic is complex, or brand/speed matters |
-| Generator | Typeform + Zapier, GPT wrappers | When you need custom LLM behavior |
-| Checker | Limited — usually needs dev | Always (URL crawling, text analysis) |
-| Grader | Outgrow, Involve.me | When the rubric is fixed and simple |
-| Converter | Findable no-code tools | Rarely — utility tools are trivially buildable |
-| Template | Google Docs, Notion, Canva | When document quality matters |
-| Visualization | Flourish, Observable | When data is complex or interactive |
+| Tool Type     | No-Code Options                 | When to Go Custom Dev                          |
+| ------------- | ------------------------------- | ---------------------------------------------- |
+| Calculator    | Outgrow, Calconic, Typeform     | When logic is complex, or brand/speed matters  |
+| Generator     | Typeform + Zapier, GPT wrappers | When you need custom LLM behavior              |
+| Checker       | Limited — usually needs dev     | Always (URL crawling, text analysis)           |
+| Grader        | Outgrow, Involve.me             | When the rubric is fixed and simple            |
+| Converter     | Findable no-code tools          | Rarely — utility tools are trivially buildable |
+| Template      | Google Docs, Notion, Canva      | When document quality matters                  |
+| Visualization | Flourish, Observable            | When data is complex or interactive            |
 
 ---
 

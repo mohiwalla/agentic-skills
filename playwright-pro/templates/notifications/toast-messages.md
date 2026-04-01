@@ -3,6 +3,7 @@
 Tests success, error, and warning toasts with auto-dismiss and manual close.
 
 ## Prerequisites
+
 - Authenticated session via `{{authStorageStatePath}}`
 - App running at `{{baseUrl}}`
 
@@ -128,12 +129,13 @@ test.describe('Toast Messages', () => {
 ```
 
 ## Variants
-| Variant | Description |
-|---------|-------------|
-| Success toast | Save → green/success alert visible |
-| Error toast | 500 → red/error alert visible |
-| Warning toast | Trigger action → warning alert |
-| Auto-dismiss | Toast hidden after N ms (clock-controlled) |
-| Manual dismiss | Close button hides toast |
-| Stacked toasts | Multiple alerts visible simultaneously |
-| Accessible | role=alert or role=status present |
+
+| Variant        | Description                                |
+| -------------- | ------------------------------------------ |
+| Success toast  | Save → green/success alert visible         |
+| Error toast    | 500 → red/error alert visible              |
+| Warning toast  | Trigger action → warning alert             |
+| Auto-dismiss   | Toast hidden after N ms (clock-controlled) |
+| Manual dismiss | Close button hides toast                   |
+| Stacked toasts | Multiple alerts visible simultaneously     |
+| Accessible     | role=alert or role=status present          |

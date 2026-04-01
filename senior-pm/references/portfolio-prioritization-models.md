@@ -17,7 +17,7 @@ START: What is your primary prioritization objective?
 │   ├── Clear quantitative metrics available? → RICE Model
 │   └── Mix of quantitative/qualitative factors? → Weighted Scoring Matrix
 │
-├── Optimize Resource Utilization  
+├── Optimize Resource Utilization
 │   ├── Agile/SAFe environment? → WSJF (Weighted Shortest Job First)
 │   └── Traditional PM environment? → Resource-Constraint Optimization
 │
@@ -47,24 +47,28 @@ START: What is your primary prioritization objective?
 #### Detailed Scoring Framework
 
 **User/Business Value (1-20 scale):**
+
 - **1-5:** Nice to have improvements, minimal user impact
 - **6-10:** Moderate value, affects subset of users/processes
 - **11-15:** Significant value, major user/business impact
 - **16-20:** Critical value, transformational business impact
 
 **Time Criticality (1-20 scale):**
+
 - **1-5:** No time pressure, can be delayed 12+ months
 - **6-10:** Some urgency, should complete within 6-12 months
 - **11-15:** Urgent, needed within 3-6 months
 - **16-20:** Critical time pressure, needed within 1-3 months
 
 **Risk Reduction/Opportunity Enablement (1-20 scale):**
+
 - **1-5:** Minimal risk mitigation or future opportunity impact
 - **6-10:** Moderate risk reduction or enables some future work
 - **11-15:** Significant risk mitigation or enables key capabilities
 - **16-20:** Critical risk mitigation or foundational for future strategy
 
 **Job Size (1-20 scale, reverse scored):**
+
 - **1-5:** Very large (>12 months, >$2M, >20 people)
 - **6-10:** Large (6-12 months, $1-2M, 10-20 people)
 - **11-15:** Medium (3-6 months, $500K-1M, 5-10 people)
@@ -80,7 +84,7 @@ Project A: Mobile App Enhancement
 - Job Size: 14 (3-month project, $750K, 7 people)
 WSJF = (15 + 12 + 8) ÷ 14 = 2.5
 
-Project B: Infrastructure Security Upgrade  
+Project B: Infrastructure Security Upgrade
 - User Value: 8 (minimal user-facing impact)
 - Time Criticality: 18 (regulatory compliance deadline)
 - Risk Reduction: 17 (critical security vulnerability mitigation)
@@ -99,11 +103,13 @@ Result: Project B prioritized despite lower user value due to criticality and ri
 #### RICE Scoring Guidelines
 
 **Reach (Number per time period):**
+
 - **Projects:** Number of users/customers/processes affected per month
 - **Internal Initiatives:** Number of employees/systems/workflows impacted
 - **Strategic Programs:** Market size or business units affected
 
 **Impact (Multiplier scale):**
+
 - **3.0:** Massive impact - Transforms core business metrics
 - **2.0:** High impact - Significantly improves key metrics
 - **1.0:** Medium impact - Moderately improves metrics
@@ -111,11 +117,13 @@ Result: Project B prioritized despite lower user value due to criticality and ri
 - **0.25:** Minimal impact - Barely measurable improvement
 
 **Confidence (Percentage as decimal):**
+
 - **100% (1.0):** High confidence - Strong data and precedent
 - **80% (0.8):** Medium confidence - Some data, reasonable assumptions
 - **50% (0.5):** Low confidence - Limited data, high uncertainty
 
 **Effort (Person-months):**
+
 - Total estimated effort across all teams and functions
 - Include planning, design, development, testing, deployment, training
 
@@ -148,18 +156,21 @@ Result: Sales automation prioritized despite much smaller reach due to high impa
 Each dimension scored 1-10:
 
 **Impact (1-10):**
+
 - **10:** Revolutionary change, massive business impact
 - **7-9:** Significant improvement in key metrics
 - **4-6:** Moderate positive impact
 - **1-3:** Minimal or unclear impact
 
 **Confidence (1-10):**
+
 - **10:** Certain of outcome, strong data/precedent
 - **7-9:** High confidence, some supporting evidence
 - **4-6:** Medium confidence, reasonable assumptions
 - **1-3:** Low confidence, uncertain outcome
 
 **Ease (1-10):**
+
 - **10:** Minimal effort, existing resources, low complexity
 - **7-9:** Moderate effort, some new resources needed
 - **4-6:** Significant effort, substantial resource commitment
@@ -167,12 +178,12 @@ Each dimension scored 1-10:
 
 #### ICE Prioritization Matrix
 
-| Initiative | Impact | Confidence | Ease | ICE Score | Priority |
-|------------|--------|------------|------|-----------|----------|
-| API Documentation Update | 6 | 9 | 9 | 8.0 | High |
-| Machine Learning Platform | 9 | 5 | 3 | 5.7 | Medium |
-| Mobile App Redesign | 8 | 7 | 5 | 6.7 | Medium-High |
-| Data Warehouse Migration | 7 | 8 | 2 | 5.7 | Medium |
+| Initiative                | Impact | Confidence | Ease | ICE Score | Priority    |
+| ------------------------- | ------ | ---------- | ---- | --------- | ----------- |
+| API Documentation Update  | 6      | 9          | 9    | 8.0       | High        |
+| Machine Learning Platform | 9      | 5          | 3    | 5.7       | Medium      |
+| Mobile App Redesign       | 8      | 7          | 5    | 6.7       | Medium-High |
+| Data Warehouse Migration  | 7      | 8          | 2    | 5.7       | Medium      |
 
 ---
 
@@ -183,32 +194,37 @@ Each dimension scored 1-10:
 **Best Used For:** Scope management, stakeholder alignment, requirement prioritization
 
 **Categories:**
+
 - **Must Have:** Non-negotiable requirements, project fails without these
-- **Should Have:** Important but not critical, can be delayed if necessary  
+- **Should Have:** Important but not critical, can be delayed if necessary
 - **Could Have:** Nice to have, include if resources permit
 - **Won't Have:** Explicitly out of scope for current timeframe
 
 #### MoSCoW Implementation Guidelines
 
 **Must Have Criteria:**
+
 - Legal/regulatory requirement
 - Critical business process dependency
 - Fundamental system functionality
 - Security/compliance necessity
 
 **Should Have Criteria:**
+
 - Significant user value or business benefit
 - Competitive advantage requirement
 - Important process improvement
 - Strong stakeholder demand
 
 **Could Have Criteria:**
+
 - Enhancement to user experience
 - Process optimization opportunity
 - Future-proofing consideration
 - Secondary stakeholder request
 
 **Won't Have Criteria:**
+
 - Feature creep identification
 - Future phase consideration
 - Out-of-budget items
@@ -219,7 +235,7 @@ Each dimension scored 1-10:
 ```
 Priority Distribution Guidelines:
 - Must Have: 60% of budget/effort (ensures core delivery)
-- Should Have: 20% of budget/effort (key value delivery)  
+- Should Have: 20% of budget/effort (key value delivery)
 - Could Have: 20% of budget/effort (buffer for scope adjustment)
 - Won't Have: Document for future consideration
 
@@ -236,30 +252,35 @@ Risk Management:
 #### Kano Categories
 
 **Basic Needs (Must-Be):**
+
 - **Definition:** Expected features, dissatisfaction if absent
 - **Customer Response:** "Of course it should do that"
 - **Business Impact:** Prevents customer loss but doesn't drive acquisition
 - **Examples:** Security, basic functionality, compliance
 
 **Performance Needs (More-Is-Better):**
+
 - **Definition:** Linear satisfaction relationship with performance
 - **Customer Response:** "The better it performs, the happier I am"
 - **Business Impact:** Competitive differentiation opportunity
 - **Examples:** Speed, efficiency, cost, reliability
 
 **Excitement Needs (Delighters):**
+
 - **Definition:** Unexpected features that create delight
 - **Customer Response:** "Wow, I didn't expect that!"
 - **Business Impact:** Customer acquisition and loyalty driver
 - **Examples:** Innovative features, exceptional experiences
 
 **Indifferent Features:**
+
 - **Definition:** Features customers don't care about
 - **Customer Response:** "Whatever, doesn't matter to me"
 - **Business Impact:** Resource waste if prioritized
 - **Action:** Eliminate or deprioritize
 
 **Reverse Features:**
+
 - **Definition:** Features that actually create dissatisfaction
 - **Customer Response:** "I wish this wasn't here"
 - **Business Impact:** Customer churn risk
@@ -267,12 +288,12 @@ Risk Management:
 
 #### Kano Prioritization Matrix
 
-| Feature | Kano Category | Customer Impact | Implementation Cost | Priority Score |
-|---------|---------------|-----------------|-------------------|----------------|
-| Single Sign-On | Basic | High Dissatisfaction if Missing | Medium | Must Do |
-| Load Time <2sec | Performance | Linear Satisfaction | High | High Priority |
-| AI-Powered Recommendations | Excitement | High Delight Potential | Very High | Medium Priority |
-| Advanced Analytics Dashboard | Indifferent | Low Interest | Medium | Low Priority |
+| Feature                      | Kano Category | Customer Impact                 | Implementation Cost | Priority Score  |
+| ---------------------------- | ------------- | ------------------------------- | ------------------- | --------------- |
+| Single Sign-On               | Basic         | High Dissatisfaction if Missing | Medium              | Must Do         |
+| Load Time <2sec              | Performance   | Linear Satisfaction             | High                | High Priority   |
+| AI-Powered Recommendations   | Excitement    | High Delight Potential          | Very High           | Medium Priority |
+| Advanced Analytics Dashboard | Indifferent   | Low Interest                    | Medium              | Low Priority    |
 
 ---
 
@@ -285,10 +306,11 @@ Risk Management:
 #### Weighted Scoring Matrix Setup
 
 **Step 1: Define Evaluation Criteria**
+
 ```
 Strategic Criteria (40% weight):
 - Strategic Alignment (15%)
-- Market Opportunity (10%) 
+- Market Opportunity (10%)
 - Competitive Advantage (15%)
 
 Financial Criteria (35% weight):
@@ -305,6 +327,7 @@ Risk/Feasibility Criteria (25% weight):
 **Step 2: Score Each Project (1-5 scale)**
 
 **Step 3: Calculate Weighted Scores**
+
 ```
 Project Score = Σ(Criterion Score × Criterion Weight)
 
@@ -329,6 +352,7 @@ Total Score: 3.70
 #### Horizon Definitions
 
 **Horizon 1: Core Business (70% of portfolio)**
+
 - **Focus:** Optimize existing products/services
 - **Timeline:** 0-2 years
 - **Risk Level:** Low
@@ -336,13 +360,15 @@ Total Score: 3.70
 - **Examples:** Process improvements, maintenance, incremental features
 
 **Horizon 2: Emerging Opportunities (20% of portfolio)**
+
 - **Focus:** Extend core capabilities into new areas
-- **Timeline:** 2-5 years  
+- **Timeline:** 2-5 years
 - **Risk Level:** Medium
 - **ROI Expectation:** Medium certainty, high returns
 - **Examples:** New markets, adjacent products, platform extensions
 
 **Horizon 3: Transformational Initiatives (10% of portfolio)**
+
 - **Focus:** Create new capabilities and business models
 - **Timeline:** 5+ years
 - **Risk Level:** High
@@ -370,6 +396,7 @@ Risk Management:
 #### Risk-Return Plotting
 
 **Step 1: Quantify Risk and Return for Each Project**
+
 ```
 Return Metrics:
 - Expected NPV or IRR
@@ -385,11 +412,13 @@ Risk Metrics:
 **Step 2: Plot Projects on Risk-Return Matrix**
 
 **Step 3: Identify Efficient Frontier**
+
 - Projects offering maximum return for each risk level
 - Projects below the frontier are suboptimal
 - Portfolio optimization involves selecting mix along frontier
 
 **Step 4: Apply Risk Appetite**
+
 - Conservative: Lower risk portion of frontier
 - Moderate: Balanced mix across frontier
 - Aggressive: Higher risk/return portion
@@ -414,6 +443,7 @@ Suboptimal Projects:
 ### Scenario-Based Model Selection
 
 #### Scenario 1: Resource-Constrained Environment
+
 ```
 Available Resources < Demand?
 ├── Yes: Use WSJF (maximize value per unit effort)
@@ -429,6 +459,7 @@ Stakeholder Alignment Issues?
 ```
 
 #### Scenario 2: Innovation vs. Operations Balance
+
 ```
 Portfolio Currently Imbalanced?
 ├── Too Operational: Apply Three Horizons Model (increase H2/H3)
@@ -441,6 +472,7 @@ Strategic Direction Clear?
 ```
 
 #### Scenario 3: Customer vs. Business Value Tension
+
 ```
 Primary Value Driver?
 ├── Customer Satisfaction: Use Kano Analysis
@@ -460,11 +492,13 @@ Data Availability?
 ### 1. Two-Stage Prioritization
 
 **Stage 1: Strategic Filtering**
+
 - Apply MoSCoW or Strategic Alignment Filter
 - Eliminate projects that don't meet minimum criteria
 - Reduce candidate pool by 40-60%
 
 **Stage 2: Detailed Scoring**
+
 - Apply WSJF, RICE, or MCDA to remaining candidates
 - Rank order for resource allocation
 - Final prioritization with stakeholder review
@@ -490,11 +524,13 @@ Challenges:
 **Concept:** Priorities change as conditions change; build flexibility into the system
 
 **Implementation:**
+
 - Monthly priority reviews using lightweight scoring (ICE)
 - Quarterly deep-dive analysis using comprehensive model (MCDA)
 - Annual strategic realignment using Three Horizons
 
 **Trigger Events for Reprioritization:**
+
 - Significant market changes
 - Technology breakthroughs or failures
 - Resource availability changes
@@ -508,16 +544,19 @@ Challenges:
 ### 1. Model Calibration and Validation
 
 **Historical Validation:**
+
 - Compare model predictions to actual project outcomes
 - Identify systematic biases in scoring
 - Adjust scoring criteria based on lessons learned
 
 **Cross-Validation:**
+
 - Use multiple models on same project set
 - Investigate projects that rank very differently
 - Understand root causes of ranking differences
 
 **Stakeholder Validation:**
+
 - Present prioritization results to key stakeholders
 - Gather feedback on "surprising" rankings
 - Adjust weights or criteria based on strategic input
@@ -525,36 +564,43 @@ Challenges:
 ### 2. Common Implementation Pitfalls
 
 **Over-Engineering the Process:**
+
 - **Problem:** Complex models that take too long to use
 - **Solution:** Start simple, add complexity only when needed
 
 **Score Inflation:**
+
 - **Problem:** All projects rated as high importance
 - **Solution:** Forced ranking, relative scoring, external calibration
 
 **Gaming the System:**
+
 - **Problem:** Project sponsors inflate scores to get priority
 - **Solution:** Independent scoring, historical validation, transparency
 
 **Analysis Paralysis:**
+
 - **Problem:** Endless refinement without decision making
 - **Solution:** Set decision deadlines, "good enough" thresholds
 
 ### 3. Organizational Change Management
 
 **Building Buy-In:**
+
 - Involve stakeholders in model selection process
 - Provide training on chosen methodology
 - Start with pilot group before full rollout
 - Demonstrate early wins from improved prioritization
 
 **Managing Resistance:**
+
 - Address concerns about "pet projects" being deprioritized
 - Show how model supports rather than replaces judgment
 - Provide transparency into scoring rationale
 - Allow for appeals process with clear criteria
 
 **Continuous Improvement:**
+
 - Regular retrospectives on prioritization effectiveness
 - Gather feedback from project teams and stakeholders
 - Update models based on changing business context
@@ -567,12 +613,14 @@ Challenges:
 ### 1. Excel-Based Prioritization Templates
 
 **WSJF Calculator:**
+
 - Automated score calculation
 - Sensitivity analysis for weight changes
 - Portfolio-level aggregation
 - Visual ranking dashboard
 
 **RICE Framework Spreadsheet:**
+
 - Reach estimation guidelines
 - Impact scoring rubric
 - Confidence level definitions
@@ -581,12 +629,14 @@ Challenges:
 ### 2. Decision Support Dashboards
 
 **Portfolio Overview:**
+
 - Current project distribution across models
 - Resource allocation vs. strategic priorities
 - Risk-return visualization
 - Priority change tracking
 
 **Stakeholder Views:**
+
 - Executive summary of top priorities
 - Department-specific project impacts
 - Budget allocation by strategic theme
@@ -595,6 +645,7 @@ Challenges:
 ### 3. Governance Integration
 
 **Portfolio Review Templates:**
+
 - Monthly priority health check
 - Quarterly strategic alignment review
 - Annual prioritization methodology assessment
@@ -607,12 +658,14 @@ Challenges:
 ### 1. Machine Learning Enhanced Prioritization
 
 **Predictive Scoring:**
+
 - Use historical project data to improve scoring accuracy
 - Identify patterns in successful vs. failed initiatives
 - Automate routine scoring updates
 - Flag projects with unusual risk profiles
 
 **Natural Language Processing:**
+
 - Analyze project descriptions for implicit risk factors
 - Extract customer sentiment from feedback data
 - Monitor market signals for priority implications
@@ -621,12 +674,14 @@ Challenges:
 ### 2. Real-Time Priority Adjustment
 
 **Market Signal Integration:**
+
 - Customer satisfaction scores
 - Competitive intelligence
 - Regulatory changes
 - Technology disruption indicators
 
 **Internal Signal Monitoring:**
+
 - Resource availability changes
 - Budget reforecasts
 - Strategic initiative launches
@@ -635,6 +690,7 @@ Challenges:
 ### 3. Portfolio Scenario Planning
 
 **What-If Analysis:**
+
 - Impact of budget cuts on portfolio balance
 - Effect of resource constraints on delivery timelines
 - Strategic pivot implications for current priorities
@@ -642,4 +698,4 @@ Challenges:
 
 ---
 
-*This framework should be customized based on organizational maturity, industry context, and strategic objectives. Regular updates should incorporate lessons learned and evolving best practices.*
+_This framework should be customized based on organizational maturity, industry context, and strategic objectives. Regular updates should incorporate lessons learned and evolving best practices._

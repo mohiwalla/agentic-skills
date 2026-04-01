@@ -19,21 +19,21 @@ ISO 13485 Clause 5.6 management review requirements, inputs, outputs, and action
 
 ### ISO 13485:2016 Clause 5.6
 
-| Requirement | Specification |
-|-------------|---------------|
-| Frequency | Planned intervals (typically quarterly or semi-annually) |
-| Participants | Top management involvement required |
-| Documentation | Records must be maintained |
-| Inputs | All required inputs must be reviewed |
-| Outputs | Decisions and actions documented |
+| Requirement   | Specification                                            |
+| ------------- | -------------------------------------------------------- |
+| Frequency     | Planned intervals (typically quarterly or semi-annually) |
+| Participants  | Top management involvement required                      |
+| Documentation | Records must be maintained                               |
+| Inputs        | All required inputs must be reviewed                     |
+| Outputs       | Decisions and actions documented                         |
 
 ### Review Schedule
 
-| Review Type | Frequency | Focus | Participants |
-|-------------|-----------|-------|--------------|
-| Full Management Review | Semi-annual or Annual | Complete QMS performance | CEO, QMR, all department heads |
-| Quarterly Quality Review | Quarterly | Key metrics and actions | QMR, Quality team, affected managers |
-| Monthly Quality Update | Monthly | Operational metrics | QMR, Quality team leads |
+| Review Type              | Frequency             | Focus                    | Participants                         |
+| ------------------------ | --------------------- | ------------------------ | ------------------------------------ |
+| Full Management Review   | Semi-annual or Annual | Complete QMS performance | CEO, QMR, all department heads       |
+| Quarterly Quality Review | Quarterly             | Key metrics and actions  | QMR, Quality team, affected managers |
+| Monthly Quality Update   | Monthly               | Operational metrics      | QMR, Quality team leads              |
 
 ### Planning Checklist
 
@@ -51,16 +51,16 @@ ISO 13485 Clause 5.6 management review requirements, inputs, outputs, and action
 
 ### ISO 13485 Required Input Topics
 
-| Input | Source | Data Period | Responsible |
-|-------|--------|-------------|-------------|
-| Audit results | Internal and external audits | Since last review | QA Manager |
-| Customer feedback | Complaints, surveys, returns | Since last review | Customer Quality |
-| Process performance | Process metrics, yields | Since last review | Process owners |
-| Product conformity | Inspection data, NCRs | Since last review | QC Manager |
-| CAPA status | Open/closed CAPAs | Current status | CAPA Officer |
-| Previous review actions | Action item tracker | Since last review | QMR |
-| Changes to QMS | Regulatory, standard changes | Since last review | RA Manager |
-| Recommendations | Improvement opportunities | Ongoing collection | All managers |
+| Input                   | Source                       | Data Period        | Responsible      |
+| ----------------------- | ---------------------------- | ------------------ | ---------------- |
+| Audit results           | Internal and external audits | Since last review  | QA Manager       |
+| Customer feedback       | Complaints, surveys, returns | Since last review  | Customer Quality |
+| Process performance     | Process metrics, yields      | Since last review  | Process owners   |
+| Product conformity      | Inspection data, NCRs        | Since last review  | QC Manager       |
+| CAPA status             | Open/closed CAPAs            | Current status     | CAPA Officer     |
+| Previous review actions | Action item tracker          | Since last review  | QMR              |
+| Changes to QMS          | Regulatory, standard changes | Since last review  | RA Manager       |
+| Recommendations         | Improvement opportunities    | Ongoing collection | All managers     |
 
 ### Input Data Collection Template
 
@@ -120,13 +120,13 @@ Internal Changes: [List]
 
 ### Data Analysis Guidelines
 
-| Input | Analysis Required | Red Flags |
-|-------|------------------|-----------|
-| Audit results | Trend by area, repeat findings | Major NC in same area twice |
-| Complaints | Pareto analysis, rate trending | Increasing rate, safety issues |
-| Process performance | Control charts, capability | Out of control, Cpk <1.33 |
-| Product conformity | Defect Pareto, yield trending | Declining yield, new defect types |
-| CAPA | Aging analysis, effectiveness | >10% overdue, <80% effective |
+| Input               | Analysis Required              | Red Flags                         |
+| ------------------- | ------------------------------ | --------------------------------- |
+| Audit results       | Trend by area, repeat findings | Major NC in same area twice       |
+| Complaints          | Pareto analysis, rate trending | Increasing rate, safety issues    |
+| Process performance | Control charts, capability     | Out of control, Cpk <1.33         |
+| Product conformity  | Defect Pareto, yield trending  | Declining yield, new defect types |
+| CAPA                | Aging analysis, effectiveness  | >10% overdue, <80% effective      |
 
 ---
 
@@ -186,11 +186,11 @@ Chair: [QMR Name]
 
 ### Time Allocation by Review Type
 
-| Review Type | Duration | Focus Areas |
-|-------------|----------|-------------|
-| Full Annual Review | 3-4 hours | All inputs, strategic planning |
-| Semi-annual Review | 2-3 hours | All inputs, trend analysis |
-| Quarterly Review | 1.5-2 hours | Key metrics, action tracking |
+| Review Type        | Duration    | Focus Areas                    |
+| ------------------ | ----------- | ------------------------------ |
+| Full Annual Review | 3-4 hours   | All inputs, strategic planning |
+| Semi-annual Review | 2-3 hours   | All inputs, trend analysis     |
+| Quarterly Review   | 1.5-2 hours | Key metrics, action tracking   |
 
 ---
 
@@ -198,12 +198,12 @@ Chair: [QMR Name]
 
 ### ISO 13485 Required Output Topics
 
-| Output | Description | Documentation |
-|--------|-------------|---------------|
-| Improvement decisions | QMS and process improvements | Action items with owners |
-| Resource decisions | Changes to resource allocation | Resource plan updates |
-| Quality objectives | Changes to objectives or targets | Updated objectives document |
-| QMS changes | Decisions on system modifications | Change requests initiated |
+| Output                | Description                       | Documentation               |
+| --------------------- | --------------------------------- | --------------------------- |
+| Improvement decisions | QMS and process improvements      | Action items with owners    |
+| Resource decisions    | Changes to resource allocation    | Resource plan updates       |
+| Quality objectives    | Changes to objectives or targets  | Updated objectives document |
+| QMS changes           | Decisions on system modifications | Change requests initiated   |
 
 ### Output Documentation Template
 
@@ -280,15 +280,15 @@ Verified By: [Name, Date]
 
 ### Action Status Categories
 
-| Status | Definition | Color Code |
-|--------|------------|------------|
-| Not Started | Assigned but work not begun | Gray |
-| In Progress | Work underway | Blue |
-| On Hold | Blocked, awaiting dependency | Yellow |
-| Overdue | Past due date, not complete | Red |
-| Complete | Finished, pending verification | Green |
-| Verified | Completion verified | Dark Green |
-| Cancelled | No longer required | Strikethrough |
+| Status      | Definition                     | Color Code    |
+| ----------- | ------------------------------ | ------------- |
+| Not Started | Assigned but work not begun    | Gray          |
+| In Progress | Work underway                  | Blue          |
+| On Hold     | Blocked, awaiting dependency   | Yellow        |
+| Overdue     | Past due date, not complete    | Red           |
+| Complete    | Finished, pending verification | Green         |
+| Verified    | Completion verified            | Dark Green    |
+| Cancelled   | No longer required             | Strikethrough |
 
 ### Action Tracking Dashboard
 
@@ -369,10 +369,10 @@ QMR: _________________ Date: _______
 
 ### Review Effectiveness Metrics
 
-| Metric | Target | Calculation |
-|--------|--------|-------------|
-| Action completion rate | >90% | Completed on time / Total actions |
-| Review attendance | 100% required | Required attendees present / Required |
-| Input completeness | 100% | Inputs provided / Required inputs |
-| Decision documentation | 100% | Documented decisions / Decisions made |
-| Time to complete review | Per schedule | Actual date - Planned date |
+| Metric                  | Target        | Calculation                           |
+| ----------------------- | ------------- | ------------------------------------- |
+| Action completion rate  | >90%          | Completed on time / Total actions     |
+| Review attendance       | 100% required | Required attendees present / Required |
+| Input completeness      | 100%          | Inputs provided / Required inputs     |
+| Decision documentation  | 100%          | Documented decisions / Decisions made |
+| Time to complete review | Per schedule  | Actual date - Planned date            |

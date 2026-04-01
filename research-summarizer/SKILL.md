@@ -21,11 +21,11 @@ Not a generic "summarize this" — a repeatable framework that extracts what mat
 
 ## Slash Commands
 
-| Command | What it does |
-|---------|-------------|
+| Command               | What it does                                      |
+| --------------------- | ------------------------------------------------- |
 | `/research:summarize` | Summarize a single source into a structured brief |
-| `/research:compare` | Compare 2-5 sources side-by-side with synthesis |
-| `/research:cite` | Extract and format all citations from a document |
+| `/research:compare`   | Compare 2-5 sources side-by-side with synthesis   |
+| `/research:cite`      | Extract and format all citations from a document  |
 
 ---
 
@@ -56,6 +56,7 @@ If the user has a document and wants structured understanding → this skill app
    - Documentation → use reference summary structure
 
 2. **Extract structured brief**
+
    ```
    Title: [exact title]
    Author(s): [names]
@@ -112,6 +113,7 @@ If the user has a document and wants structured understanding → this skill app
    - What's the weight of evidence for each position?
 
 5. **Produce synthesis brief**
+
    ```
    ## Consensus Findings
    [What most sources agree on]
@@ -137,6 +139,7 @@ If the user has a document and wants structured understanding → this skill app
 4. **Output** sorted bibliography with classification tags
 
 Supported citation formats:
+
 - **APA 7** (default) — social sciences, business
 - **IEEE** — engineering, computer science
 - **Chicago** — humanities, history
@@ -152,12 +155,14 @@ Supported citation formats:
 CLI utility for extracting and formatting citations from text.
 
 **Features:**
+
 - Regex-based citation detection (DOI, URL, author-year, numbered references)
 - Multiple output formats (APA, IEEE, Chicago, Harvard, MLA)
 - JSON export for integration with reference managers
 - Deduplication of repeated citations
 
 **Usage:**
+
 ```bash
 # Extract citations from a file (APA format, default)
 python3 scripts/extract_citations.py document.txt
@@ -177,12 +182,14 @@ cat paper.txt | python3 scripts/extract_citations.py --stdin
 CLI utility for generating structured research summaries.
 
 **Features:**
+
 - Multiple summary templates (academic, article, report, executive)
 - Configurable output length (brief, standard, detailed)
 - Markdown and plain text output
 - Key findings extraction with evidence tagging
 
 **Usage:**
+
 ```bash
 # Generate structured summary template
 python3 scripts/format_summary.py --template academic
@@ -203,14 +210,15 @@ python3 scripts/format_summary.py --template article --output json
 
 Rate every source on four dimensions:
 
-| Dimension | High | Medium | Low |
-|-----------|------|--------|-----|
-| **Credibility** | Peer-reviewed, established author | Reputable outlet, known author | Blog, unknown author, no review |
-| **Evidence** | Large sample, rigorous method | Moderate data, sound approach | Anecdotal, no data, opinion |
-| **Recency** | Published within 2 years | 2-5 years old | 5+ years, may be outdated |
-| **Objectivity** | No conflicts, balanced view | Minor affiliations disclosed | Funded by interested party, one-sided |
+| Dimension       | High                              | Medium                         | Low                                   |
+| --------------- | --------------------------------- | ------------------------------ | ------------------------------------- |
+| **Credibility** | Peer-reviewed, established author | Reputable outlet, known author | Blog, unknown author, no review       |
+| **Evidence**    | Large sample, rigorous method     | Moderate data, sound approach  | Anecdotal, no data, opinion           |
+| **Recency**     | Published within 2 years          | 2-5 years old                  | 5+ years, may be outdated             |
+| **Objectivity** | No conflicts, balanced view       | Minor affiliations disclosed   | Funded by interested party, one-sided |
 
 **Overall Rating:**
+
 - 4 Highs = Strong source — cite with confidence
 - 2+ Mediums = Adequate source — cite with caveats
 - 2+ Lows = Weak source — verify independently before citing
@@ -220,6 +228,7 @@ Rate every source on four dimensions:
 ## Summary Templates
 
 See `references/summary-templates.md` for:
+
 - Academic paper summary template (IMRAD)
 - Web article summary template (claim-evidence-implication)
 - Technical report template (executive summary)
@@ -227,6 +236,7 @@ See `references/summary-templates.md` for:
 - Literature review template (thematic organization)
 
 See `references/citation-formats.md` for:
+
 - APA 7 formatting rules and examples
 - IEEE formatting rules and examples
 - Chicago, Harvard, MLA quick reference
@@ -249,17 +259,20 @@ Flag these without being asked:
 ## Installation
 
 ### One-liner (any tool)
+
 ```bash
 git clone https://github.com/alirezarezvani/claude-skills.git
 cp -r claude-skills/product-team/research-summarizer ~/.claude/skills/
 ```
 
 ### Multi-tool install
+
 ```bash
 ./scripts/convert.sh --skill research-summarizer --tool codex|gemini|cursor|windsurf|openclaw
 ```
 
 ### OpenClaw
+
 ```bash
 clawhub install cs-research-summarizer
 ```

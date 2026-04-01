@@ -19,14 +19,14 @@ Systematic techniques for hazard identification and risk analysis in medical dev
 
 ### Method Application Matrix
 
-| Method | Best For | Standard | Complexity |
-|--------|----------|----------|------------|
-| FMEA | Component/process failures | IEC 60812 | Medium |
-| FTA | System-level failure analysis | IEC 61025 | High |
-| HAZOP | Process deviations | IEC 61882 | Medium |
-| PHA | Early hazard screening | - | Low |
-| Use FMEA | Use-related hazards | IEC 62366-1 | Medium |
-| STPA | Software/system interactions | - | High |
+| Method   | Best For                      | Standard    | Complexity |
+| -------- | ----------------------------- | ----------- | ---------- |
+| FMEA     | Component/process failures    | IEC 60812   | Medium     |
+| FTA      | System-level failure analysis | IEC 61025   | High       |
+| HAZOP    | Process deviations            | IEC 61882   | Medium     |
+| PHA      | Early hazard screening        | -           | Low        |
+| Use FMEA | Use-related hazards           | IEC 62366-1 | Medium     |
+| STPA     | Software/system interactions  | -           | High       |
 
 ### Selection Decision Tree
 
@@ -46,14 +46,14 @@ What is the analysis focus?
 
 ### When to Use Each Method
 
-| Project Phase | Recommended Methods |
-|---------------|---------------------|
-| Concept | PHA, initial FTA |
-| Design | FMEA, detailed FTA |
-| Development | Use Error Analysis, Software HA |
-| Verification | FMEA review, FTA validation |
-| Production | Process FMEA |
-| Post-Market | Trend analysis, FMEA updates |
+| Project Phase | Recommended Methods             |
+| ------------- | ------------------------------- |
+| Concept       | PHA, initial FTA                |
+| Design        | FMEA, detailed FTA              |
+| Development   | Use Error Analysis, Software HA |
+| Verification  | FMEA review, FTA validation     |
+| Production    | Process FMEA                    |
+| Post-Market   | Trend analysis, FMEA updates    |
 
 ---
 
@@ -61,12 +61,12 @@ What is the analysis focus?
 
 ### FMEA Overview
 
-| Aspect | Description |
-|--------|-------------|
-| Purpose | Identify potential failure modes and their effects |
-| Approach | Bottom-up analysis from component to system |
-| Output | Failure mode list with severity, occurrence, detection ratings |
-| Standard | IEC 60812 |
+| Aspect   | Description                                                    |
+| -------- | -------------------------------------------------------------- |
+| Purpose  | Identify potential failure modes and their effects             |
+| Approach | Bottom-up analysis from component to system                    |
+| Output   | Failure mode list with severity, occurrence, detection ratings |
+| Standard | IEC 60812                                                      |
 
 ### FMEA Process Workflow
 
@@ -105,57 +105,57 @@ RPN = Risk Priority Number
 
 ### Severity Rating Scale
 
-| Rating | Severity | Criteria |
-|--------|----------|----------|
-| 10 | Hazardous | Death or regulatory non-compliance |
-| 9 | Serious | Serious injury, major function loss |
-| 8 | Major | Significant injury, major inconvenience |
-| 7 | High | Minor injury, significant inconvenience |
-| 6 | Moderate | Discomfort, partial function loss |
-| 5 | Low | Some performance loss |
-| 4 | Very Low | Minor performance degradation |
-| 3 | Minor | Noticeable effect, no function loss |
-| 2 | Very Minor | Negligible effect |
-| 1 | None | No effect |
+| Rating | Severity   | Criteria                                |
+| ------ | ---------- | --------------------------------------- |
+| 10     | Hazardous  | Death or regulatory non-compliance      |
+| 9      | Serious    | Serious injury, major function loss     |
+| 8      | Major      | Significant injury, major inconvenience |
+| 7      | High       | Minor injury, significant inconvenience |
+| 6      | Moderate   | Discomfort, partial function loss       |
+| 5      | Low        | Some performance loss                   |
+| 4      | Very Low   | Minor performance degradation           |
+| 3      | Minor      | Noticeable effect, no function loss     |
+| 2      | Very Minor | Negligible effect                       |
+| 1      | None       | No effect                               |
 
 ### Occurrence Rating Scale
 
-| Rating | Occurrence | Probability |
-|--------|------------|-------------|
-| 10 | Almost Certain | >1 in 2 |
-| 9 | Very High | 1 in 3 |
-| 8 | High | 1 in 8 |
-| 7 | Moderately High | 1 in 20 |
-| 6 | Moderate | 1 in 80 |
-| 5 | Low | 1 in 400 |
-| 4 | Very Low | 1 in 2,000 |
-| 3 | Remote | 1 in 15,000 |
-| 2 | Very Remote | 1 in 150,000 |
-| 1 | Nearly Impossible | <1 in 1,500,000 |
+| Rating | Occurrence        | Probability     |
+| ------ | ----------------- | --------------- |
+| 10     | Almost Certain    | >1 in 2         |
+| 9      | Very High         | 1 in 3          |
+| 8      | High              | 1 in 8          |
+| 7      | Moderately High   | 1 in 20         |
+| 6      | Moderate          | 1 in 80         |
+| 5      | Low               | 1 in 400        |
+| 4      | Very Low          | 1 in 2,000      |
+| 3      | Remote            | 1 in 15,000     |
+| 2      | Very Remote       | 1 in 150,000    |
+| 1      | Nearly Impossible | <1 in 1,500,000 |
 
 ### Detection Rating Scale
 
-| Rating | Detection | Likelihood of Detection |
-|--------|-----------|------------------------|
-| 10 | Absolute Uncertainty | Cannot detect |
-| 9 | Very Remote | Very remote chance |
-| 8 | Remote | Remote chance |
-| 7 | Very Low | Very low chance |
-| 6 | Low | Low chance |
-| 5 | Moderate | Moderate chance |
-| 4 | Moderately High | Moderately high chance |
-| 3 | High | High chance |
-| 2 | Very High | Very high chance |
-| 1 | Almost Certain | Will detect |
+| Rating | Detection            | Likelihood of Detection |
+| ------ | -------------------- | ----------------------- |
+| 10     | Absolute Uncertainty | Cannot detect           |
+| 9      | Very Remote          | Very remote chance      |
+| 8      | Remote               | Remote chance           |
+| 7      | Very Low             | Very low chance         |
+| 6      | Low                  | Low chance              |
+| 5      | Moderate             | Moderate chance         |
+| 4      | Moderately High      | Moderately high chance  |
+| 3      | High                 | High chance             |
+| 2      | Very High            | Very high chance        |
+| 1      | Almost Certain       | Will detect             |
 
 ### RPN Action Thresholds
 
-| RPN Range | Priority | Action |
-|-----------|----------|--------|
-| >200 | Critical | Immediate action required |
-| 100-200 | High | Action plan required |
-| 50-100 | Medium | Consider action |
-| <50 | Low | Monitor |
+| RPN Range | Priority | Action                    |
+| --------- | -------- | ------------------------- |
+| >200      | Critical | Immediate action required |
+| 100-200   | High     | Action plan required      |
+| 50-100    | Medium   | Consider action           |
+| <50       | Low      | Monitor                   |
 
 ---
 
@@ -163,12 +163,12 @@ RPN = Risk Priority Number
 
 ### FTA Overview
 
-| Aspect | Description |
-|--------|-------------|
-| Purpose | Determine combinations of events leading to top event |
-| Approach | Top-down deductive analysis |
-| Output | Fault tree diagram with cut sets |
-| Standard | IEC 61025 |
+| Aspect   | Description                                           |
+| -------- | ----------------------------------------------------- |
+| Purpose  | Determine combinations of events leading to top event |
+| Approach | Top-down deductive analysis                           |
+| Output   | Fault tree diagram with cut sets                      |
+| Standard | IEC 61025                                             |
 
 ### FTA Process Workflow
 
@@ -183,14 +183,14 @@ RPN = Risk Priority Number
 
 ### Fault Tree Symbols
 
-| Symbol | Name | Meaning |
-|--------|------|---------|
-| Rectangle | Intermediate Event | Event resulting from other events |
-| Circle | Basic Event | Primary event, no further development |
-| Diamond | Undeveloped Event | Not analyzed further |
-| House | House Event | Event expected to occur (condition) |
-| AND Gate | AND | All inputs required for output |
-| OR Gate | OR | Any input causes output |
+| Symbol    | Name               | Meaning                               |
+| --------- | ------------------ | ------------------------------------- |
+| Rectangle | Intermediate Event | Event resulting from other events     |
+| Circle    | Basic Event        | Primary event, no further development |
+| Diamond   | Undeveloped Event  | Not analyzed further                  |
+| House     | House Event        | Event expected to occur (condition)   |
+| AND Gate  | AND                | All inputs required for output        |
+| OR Gate   | OR                 | Any input causes output               |
 
 ### FTA Worksheet Template
 
@@ -221,12 +221,12 @@ SINGLE POINTS OF FAILURE:
 
 ### Cut Set Analysis
 
-| Cut Set Order | Meaning | Criticality |
-|---------------|---------|-------------|
-| First Order | Single event causes top event | Highest - single point of failure |
-| Second Order | Two events required | High |
-| Third Order | Three events required | Moderate |
-| Higher Order | Four+ events required | Lower |
+| Cut Set Order | Meaning                       | Criticality                       |
+| ------------- | ----------------------------- | --------------------------------- |
+| First Order   | Single event causes top event | Highest - single point of failure |
+| Second Order  | Two events required           | High                              |
+| Third Order   | Three events required         | Moderate                          |
+| Higher Order  | Four+ events required         | Lower                             |
 
 ---
 
@@ -234,26 +234,26 @@ SINGLE POINTS OF FAILURE:
 
 ### HAZOP Overview
 
-| Aspect | Description |
-|--------|-------------|
-| Purpose | Identify deviations from intended operation |
-| Approach | Systematic examination using guide words |
-| Output | Deviation analysis with consequences and safeguards |
-| Standard | IEC 61882 |
+| Aspect   | Description                                         |
+| -------- | --------------------------------------------------- |
+| Purpose  | Identify deviations from intended operation         |
+| Approach | Systematic examination using guide words            |
+| Output   | Deviation analysis with consequences and safeguards |
+| Standard | IEC 61882                                           |
 
 ### HAZOP Guide Words
 
-| Guide Word | Meaning | Example Application |
-|------------|---------|---------------------|
-| NO/NOT | Complete negation | No flow, no signal |
-| MORE | Quantitative increase | More pressure, more current |
-| LESS | Quantitative decrease | Less flow, less voltage |
-| AS WELL AS | Qualitative increase | Extra component, contamination |
-| PART OF | Qualitative decrease | Missing component |
-| REVERSE | Logical opposite | Reverse flow, reverse polarity |
-| OTHER THAN | Complete substitution | Wrong material, wrong signal |
-| EARLY | Time-related | Early activation |
-| LATE | Time-related | Delayed response |
+| Guide Word | Meaning               | Example Application            |
+| ---------- | --------------------- | ------------------------------ |
+| NO/NOT     | Complete negation     | No flow, no signal             |
+| MORE       | Quantitative increase | More pressure, more current    |
+| LESS       | Quantitative decrease | Less flow, less voltage        |
+| AS WELL AS | Qualitative increase  | Extra component, contamination |
+| PART OF    | Qualitative decrease  | Missing component              |
+| REVERSE    | Logical opposite      | Reverse flow, reverse polarity |
+| OTHER THAN | Complete substitution | Wrong material, wrong signal   |
+| EARLY      | Time-related          | Early activation               |
+| LATE       | Time-related          | Delayed response               |
 
 ### HAZOP Process Workflow
 
@@ -290,21 +290,21 @@ Date: [Date]
 
 ### Use Error Analysis Overview
 
-| Aspect | Description |
-|--------|-------------|
-| Purpose | Identify use-related hazards and mitigations |
+| Aspect   | Description                                  |
+| -------- | -------------------------------------------- |
+| Purpose  | Identify use-related hazards and mitigations |
 | Approach | Task analysis combined with error prediction |
-| Output | Use error list with risk controls |
-| Standard | IEC 62366-1 |
+| Output   | Use error list with risk controls            |
+| Standard | IEC 62366-1                                  |
 
 ### Use Error Categories
 
-| Category | Description | Examples |
-|----------|-------------|----------|
-| Perception Error | Failure to perceive information | Missing alarm, unclear display |
-| Cognition Error | Failure to understand | Misinterpretation, wrong decision |
-| Action Error | Incorrect physical action | Wrong button, slip, lapse |
-| Memory Error | Failure to recall | Forgotten step, omission |
+| Category         | Description                     | Examples                          |
+| ---------------- | ------------------------------- | --------------------------------- |
+| Perception Error | Failure to perceive information | Missing alarm, unclear display    |
+| Cognition Error  | Failure to understand           | Misinterpretation, wrong decision |
+| Action Error     | Incorrect physical action       | Wrong button, slip, lapse         |
+| Memory Error     | Failure to recall               | Forgotten step, omission          |
 
 ### Use Error Analysis Process
 
@@ -337,13 +337,13 @@ Error Types: Perception (P), Cognition (C), Action (A), Memory (M)
 
 ### Human Factors Risk Controls
 
-| Control Type | Examples |
-|--------------|----------|
-| Design | Forcing functions, constraints, affordances |
-| Feedback | Visual, auditory, tactile confirmation |
-| Labeling | Clear instructions, warnings, symbols |
-| Training | User education, competency verification |
-| Environment | Adequate lighting, noise reduction |
+| Control Type | Examples                                    |
+| ------------ | ------------------------------------------- |
+| Design       | Forcing functions, constraints, affordances |
+| Feedback     | Visual, auditory, tactile confirmation      |
+| Labeling     | Clear instructions, warnings, symbols       |
+| Training     | User education, competency verification     |
+| Environment  | Adequate lighting, noise reduction          |
 
 ---
 
@@ -351,30 +351,30 @@ Error Types: Perception (P), Cognition (C), Action (A), Memory (M)
 
 ### Software Hazard Analysis Overview
 
-| Aspect | Description |
-|--------|-------------|
-| Purpose | Identify software contribution to hazards |
+| Aspect   | Description                                      |
+| -------- | ------------------------------------------------ |
+| Purpose  | Identify software contribution to hazards        |
 | Approach | Analysis of software failure modes and behaviors |
-| Output | Software hazard list with safety requirements |
-| Standard | IEC 62304 |
+| Output   | Software hazard list with safety requirements    |
+| Standard | IEC 62304                                        |
 
 ### Software Safety Classification
 
-| Class | Contribution to Hazard | Rigor Required |
-|-------|------------------------|----------------|
-| A | No contribution possible | Basic |
-| B | Non-serious injury possible | Moderate |
-| C | Death or serious injury possible | High |
+| Class | Contribution to Hazard           | Rigor Required |
+| ----- | -------------------------------- | -------------- |
+| A     | No contribution possible         | Basic          |
+| B     | Non-serious injury possible      | Moderate       |
+| C     | Death or serious injury possible | High           |
 
 ### Software Hazard Categories
 
-| Category | Description | Examples |
-|----------|-------------|----------|
-| Omission | Required function not performed | Missing safety check |
-| Commission | Incorrect function performed | Wrong calculation |
-| Timing | Function at wrong time | Delayed alarm |
-| Value | Function with wrong value | Incorrect dose |
-| Sequence | Functions in wrong order | Steps reversed |
+| Category   | Description                     | Examples             |
+| ---------- | ------------------------------- | -------------------- |
+| Omission   | Required function not performed | Missing safety check |
+| Commission | Incorrect function performed    | Wrong calculation    |
+| Timing     | Function at wrong time          | Delayed alarm        |
+| Value      | Function with wrong value       | Incorrect dose       |
+| Sequence   | Functions in wrong order        | Steps reversed       |
 
 ### Software FMEA Worksheet
 
@@ -395,21 +395,21 @@ Failure Mode Types: Omission, Commission, Timing, Value, Sequence
 
 ### Software Risk Controls
 
-| Control Type | Implementation |
-|--------------|----------------|
-| Defensive Programming | Input validation, range checking |
-| Error Handling | Exception handling, graceful degradation |
-| Redundancy | Dual channels, voting logic |
-| Watchdog | Timeout monitoring, heartbeat |
-| Self-Test | Power-on diagnostics, runtime checks |
-| Separation | Independence of safety functions |
+| Control Type          | Implementation                           |
+| --------------------- | ---------------------------------------- |
+| Defensive Programming | Input validation, range checking         |
+| Error Handling        | Exception handling, graceful degradation |
+| Redundancy            | Dual channels, voting logic              |
+| Watchdog              | Timeout monitoring, heartbeat            |
+| Self-Test             | Power-on diagnostics, runtime checks     |
+| Separation            | Independence of safety functions         |
 
 ### Traceability Requirements
 
-| From | To | Purpose |
-|------|------|---------|
-| Software Hazard | Software Requirement | Hazard addressed |
-| Software Requirement | Architecture | Requirement implemented |
-| Architecture | Code | Design realized |
-| Code | Test | Verification coverage |
-| Test | Hazard | Control verified |
+| From                 | To                   | Purpose                 |
+| -------------------- | -------------------- | ----------------------- |
+| Software Hazard      | Software Requirement | Hazard addressed        |
+| Software Requirement | Architecture         | Requirement implemented |
+| Architecture         | Code                 | Design realized         |
+| Code                 | Test                 | Verification coverage   |
+| Test                 | Hazard               | Control verified        |

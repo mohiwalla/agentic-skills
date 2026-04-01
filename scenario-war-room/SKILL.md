@@ -17,6 +17,7 @@ metadata:
 Model cascading what-if scenarios across all business functions. Not single-assumption stress tests — compound adversity that shows how one problem creates the next.
 
 ## Keywords
+
 scenario planning, war room, what-if analysis, risk modeling, cascading effects, compound risk, adversity planning, contingency planning, stress test, crisis planning, multi-variable scenario, pre-mortem
 
 ## Quick Start
@@ -26,6 +27,7 @@ python scripts/scenario_modeler.py   # Interactive scenario builder with cascade
 ```
 
 Or describe the scenario:
+
 ```
 /war-room "What if we lose our top customer AND miss the Q3 fundraise?"
 /war-room "What if 3 engineers quit AND we need to ship by Q3?"
@@ -42,7 +44,9 @@ Or describe the scenario:
 ## Framework: 6-Step Cascade Model
 
 ### Step 1: Define Scenario Variables (max 3)
+
 State each variable with:
+
 - **What changes** — specific, quantified if possible
 - **Probability** — your best estimate
 - **Timeline** — when it hits
@@ -62,16 +66,16 @@ Variable C: Lead engineer resigns
 
 For each variable, each relevant role models impact:
 
-| Domain | Owner | Models |
-|--------|-------|--------|
-| Cash & runway | CFO | Burn impact, runway change, bridge options |
-| Revenue | CRO | ARR gap, churn cascade risk, pipeline |
-| Product | CPO | Roadmap impact, PMF risk |
-| Engineering | CTO | Velocity impact, key person risk |
-| People | CHRO | Attrition cascade, hiring freeze implications |
-| Operations | COO | Capacity, OKR impact, process risk |
-| Security | CISO | Compliance timeline risk |
-| Market | CMO | CAC impact, competitive exposure |
+| Domain        | Owner | Models                                        |
+| ------------- | ----- | --------------------------------------------- |
+| Cash & runway | CFO   | Burn impact, runway change, bridge options    |
+| Revenue       | CRO   | ARR gap, churn cascade risk, pipeline         |
+| Product       | CPO   | Roadmap impact, PMF risk                      |
+| Engineering   | CTO   | Velocity impact, key person risk              |
+| People        | CHRO  | Attrition cascade, hiring freeze implications |
+| Operations    | COO   | Capacity, OKR impact, process risk            |
+| Security      | CISO  | Compliance timeline risk                      |
+| Market        | CMO   | CAC impact, competitive exposure              |
 
 ### Step 3: Cascade Effect Mapping
 
@@ -99,13 +103,14 @@ Name the cascade explicitly. Show where it can be interrupted.
 
 Model three scenarios:
 
-| Scenario | Definition | Recovery |
-|----------|------------|---------|
-| **Base** | One variable hits; others don't | Manageable with plan |
-| **Stress** | Two variables hit simultaneously | Requires significant response |
-| **Severe** | All variables hit; full cascade | Existential; requires board intervention |
+| Scenario   | Definition                       | Recovery                                 |
+| ---------- | -------------------------------- | ---------------------------------------- |
+| **Base**   | One variable hits; others don't  | Manageable with plan                     |
+| **Stress** | Two variables hit simultaneously | Requires significant response            |
+| **Severe** | All variables hit; full cascade  | Existential; requires board intervention |
 
 For each severity level:
+
 - Runway impact
 - ARR impact
 - Headcount impact
@@ -136,12 +141,12 @@ Trigger for Engineering Attrition:
 
 For each scenario: actions to take **now** (before the scenario materializes) that reduce impact if it does.
 
-| Hedge | Cost | Impact | Owner | Deadline |
-|-------|------|--------|-------|---------|
-| Establish $500K credit line | $5K/year | Buys 3 months if churn hits | CFO | 60 days |
-| 12-month retention bonus for 3 key engineers | $90K | Locks team through fundraise | CHRO | 30 days |
-| Diversify to <20% revenue concentration per customer | Sales effort | Reduces single-customer risk | CRO | 2 quarters |
-| Compress fundraise timeline, start parallel process | CEO time | Closes before runways merge | CEO | Immediate |
+| Hedge                                                | Cost         | Impact                       | Owner | Deadline   |
+| ---------------------------------------------------- | ------------ | ---------------------------- | ----- | ---------- |
+| Establish $500K credit line                          | $5K/year     | Buys 3 months if churn hits  | CFO   | 60 days    |
+| 12-month retention bonus for 3 key engineers         | $90K         | Locks team through fundraise | CHRO  | 30 days    |
+| Diversify to <20% revenue concentration per customer | Sales effort | Reduces single-customer risk | CRO   | 2 quarters |
+| Compress fundraise timeline, start parallel process  | CEO time     | Closes before runways merge  | CEO   | Immediate  |
 
 ---
 
@@ -197,28 +202,32 @@ RECOMMENDED DECISION
 ## Common Scenarios by Stage
 
 **Seed:**
+
 - Co-founder leaves + product misses launch
 - Funding runs out + bridge terms unfavorable
 
 **Series A:**
+
 - Miss ARR target + fundraise delayed
 - Key customer churns + competitor raises
 
 **Series B:**
+
 - Market contraction + burn multiple spikes
 - Lead investor wants pivot + team resists
 
 ## Integration with C-Suite Roles
 
-| Scenario Type | Primary Roles | Cascade To |
-|--------------|---------------|------------|
-| Revenue miss | CRO, CFO | CMO (pipeline), COO (cuts), CHRO (layoffs) |
-| Key person departure | CHRO, COO | CTO (if eng), CRO (if sales) |
-| Fundraise failure | CFO, CEO | COO (runway extension), CHRO (hiring freeze) |
-| Security breach | CISO, CTO | CEO (comms), CFO (cost), CRO (customer impact) |
-| Market shift | CEO, CPO | CMO (repositioning), CRO (new segments) |
-| Competitor move | CMO, CRO | CPO (roadmap response), CEO (strategy) |
+| Scenario Type        | Primary Roles | Cascade To                                     |
+| -------------------- | ------------- | ---------------------------------------------- |
+| Revenue miss         | CRO, CFO      | CMO (pipeline), COO (cuts), CHRO (layoffs)     |
+| Key person departure | CHRO, COO     | CTO (if eng), CRO (if sales)                   |
+| Fundraise failure    | CFO, CEO      | COO (runway extension), CHRO (hiring freeze)   |
+| Security breach      | CISO, CTO     | CEO (comms), CFO (cost), CRO (customer impact) |
+| Market shift         | CEO, CPO      | CMO (repositioning), CRO (new segments)        |
+| Competitor move      | CMO, CRO      | CPO (roadmap response), CEO (strategy)         |
 
 ## References
+
 - `references/scenario-planning.md` — Shell methodology, pre-mortem, Monte Carlo, cascade frameworks
 - `scripts/scenario_modeler.py` — CLI tool for structured scenario modeling

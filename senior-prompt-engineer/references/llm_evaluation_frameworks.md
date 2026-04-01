@@ -18,13 +18,13 @@ Concrete metrics, scoring methods, comparison tables, and A/B testing frameworks
 
 ### Metric Categories
 
-| Category | Metrics | When to Use |
-|----------|---------|-------------|
-| **Lexical** | BLEU, ROUGE, Exact Match | Reference-based comparison |
-| **Semantic** | BERTScore, Embedding similarity | Meaning preservation |
-| **Task-specific** | F1, Accuracy, Precision/Recall | Classification, extraction |
-| **Quality** | Coherence, Fluency, Relevance | Open-ended generation |
-| **Safety** | Toxicity, Bias scores | Content moderation |
+| Category          | Metrics                         | When to Use                |
+| ----------------- | ------------------------------- | -------------------------- |
+| **Lexical**       | BLEU, ROUGE, Exact Match        | Reference-based comparison |
+| **Semantic**      | BERTScore, Embedding similarity | Meaning preservation       |
+| **Task-specific** | F1, Accuracy, Precision/Recall  | Classification, extraction |
+| **Quality**       | Coherence, Fluency, Relevance   | Open-ended generation      |
+| **Safety**        | Toxicity, Bias scores           | Content moderation         |
 
 ### Choosing the Right Metric
 
@@ -51,6 +51,7 @@ Is there a single correct answer?
 **Score range:** 0 to 1 (higher is better)
 
 **Calculation:**
+
 ```
 BLEU = BP × exp(Σ wn × log(pn))
 
@@ -69,6 +70,7 @@ Where:
 | < 0.2 | Poor |
 
 **Example:**
+
 ```
 Reference: "The quick brown fox jumps over the lazy dog"
 Generated: "A fast brown fox leaps over the lazy dog"
@@ -79,6 +81,7 @@ BLEU-4: ~0.35
 ```
 
 **Limitations:**
+
 - Doesn't capture meaning (synonyms penalized)
 - Position-independent
 - Requires reference text
@@ -98,6 +101,7 @@ BLEU-4: ~0.35
 | ROUGE-Lsum | LCS with sentence-level computation |
 
 **Calculation:**
+
 ```
 ROUGE-N Recall = (matching n-grams) / (n-grams in reference)
 ROUGE-N Precision = (matching n-grams) / (n-grams in generated)
@@ -105,6 +109,7 @@ ROUGE-N F1 = 2 × (Precision × Recall) / (Precision + Recall)
 ```
 
 **Example:**
+
 ```
 Reference: "The cat sat on the mat"
 Generated: "The cat was sitting on the mat"
@@ -129,17 +134,20 @@ ROUGE-2:
 **What it measures:** Semantic similarity using contextual embeddings.
 
 **How it works:**
+
 1. Generate BERT embeddings for each token
 2. Compute cosine similarity between token pairs
 3. Apply greedy matching to find best alignment
 4. Aggregate into Precision, Recall, F1
 
 **Advantages over lexical metrics:**
+
 - Captures synonyms and paraphrases
 - Context-aware matching
 - Better correlation with human judgment
 
 **Example:**
+
 ```
 Reference: "The movie was excellent"
 Generated: "The film was outstanding"
@@ -167,6 +175,7 @@ BERTScore: High score (semantic meaning preserved)
 **Calculation methods:**
 
 **Method 1: Embedding similarity**
+
 ```python
 relevance = cosine_similarity(
     embed(query),
@@ -175,6 +184,7 @@ relevance = cosine_similarity(
 ```
 
 **Method 2: LLM-as-judge**
+
 ```
 Prompt: "Rate the relevance of this context to the question.
 Question: {question}
@@ -191,6 +201,7 @@ Rate from 1-5 where 5 is highly relevant."
 **What it measures:** Whether the answer is supported by the context (no hallucination).
 
 **Evaluation prompt:**
+
 ```
 Given the context and answer, determine if every claim in the
 answer is supported by the context.
@@ -207,6 +218,7 @@ Overall faithfulness score: [0-1]
 ```
 
 **Scoring:**
+
 ```
 Faithfulness = (supported claims) / (total claims)
 ```
@@ -217,14 +229,15 @@ Faithfulness = (supported claims) / (total claims)
 
 ### Retrieval Metrics
 
-| Metric | Formula | What it measures |
-|--------|---------|------------------|
-| **Precision@k** | (relevant in top-k) / k | Quality of top results |
-| **Recall@k** | (relevant in top-k) / (total relevant) | Coverage |
-| **MRR** | 1 / (rank of first relevant) | Position of first hit |
-| **NDCG@k** | DCG@k / IDCG@k | Ranking quality |
+| Metric          | Formula                                | What it measures       |
+| --------------- | -------------------------------------- | ---------------------- |
+| **Precision@k** | (relevant in top-k) / k                | Quality of top results |
+| **Recall@k**    | (relevant in top-k) / (total relevant) | Coverage               |
+| **MRR**         | 1 / (rank of first relevant)           | Position of first hit  |
+| **NDCG@k**      | DCG@k / IDCG@k                         | Ranking quality        |
 
 **Example:**
+
 ```
 Query: "What is photosynthesis?"
 Retrieved docs (k=5): [R, N, R, N, R]  (R=relevant, N=not relevant)
@@ -242,6 +255,7 @@ MRR = 1/1 = 1.0 (first doc is relevant)
 ### Likert Scale Evaluation
 
 **Setup:**
+
 ```
 Rate the following response on a scale of 1-5:
 
@@ -266,6 +280,7 @@ Criteria:
 ### Comparative Evaluation (Side-by-Side)
 
 **Setup:**
+
 ```
 Compare these two responses to the question:
 
@@ -285,11 +300,13 @@ Why? _______________
 ```
 
 **Advantages:**
+
 - Easier for humans than absolute scoring
 - Reduces calibration issues
 - Clear winner for A/B decisions
 
 **Analysis:**
+
 ```
 Win rate = (A wins + 0.5 × ties) / total
 Bradley-Terry model for ranking multiple variants
@@ -300,6 +317,7 @@ Bradley-Terry model for ranking multiple variants
 ### LLM-as-Judge
 
 **Setup:**
+
 ```
 You are an expert evaluator. Rate the quality of this response.
 
@@ -318,6 +336,7 @@ Overall score (0-10):
 ```
 
 **Calibration techniques:**
+
 - Include reference responses with known scores
 - Use chain-of-thought for reasoning
 - Compare against human baseline periodically
@@ -337,12 +356,14 @@ Overall score (0-10):
 ### Experiment Design
 
 **Hypothesis template:**
+
 ```
 H0: Prompt A and Prompt B have equal performance on [metric]
 H1: Prompt B improves [metric] by at least [minimum detectable effect]
 ```
 
 **Sample size calculation:**
+
 ```
 n = 2 × ((z_α + z_β)² × σ²) / δ²
 
@@ -384,6 +405,7 @@ Where:
 ### Analysis Framework
 
 **Statistical test selection:**
+
 ```
 Is the metric binary (success/failure)?
 ├── Yes → Chi-squared test or Z-test for proportions
@@ -394,6 +416,7 @@ Is the metric binary (success/failure)?
 ```
 
 **Interpreting results:**
+
 ```
 p-value < 0.05: Statistically significant
 Effect size (Cohen's d):
@@ -410,26 +433,27 @@ Decision: Ship if p < 0.05 AND effect size meets threshold AND guardrails pass
 
 ### General NLP Benchmarks
 
-| Benchmark | Task | Size | Metric |
-|-----------|------|------|--------|
-| **MMLU** | Knowledge QA | 14K | Accuracy |
-| **HellaSwag** | Commonsense | 10K | Accuracy |
-| **TruthfulQA** | Factuality | 817 | % Truthful |
-| **HumanEval** | Code generation | 164 | pass@k |
-| **GSM8K** | Math reasoning | 8.5K | Accuracy |
+| Benchmark      | Task            | Size | Metric     |
+| -------------- | --------------- | ---- | ---------- |
+| **MMLU**       | Knowledge QA    | 14K  | Accuracy   |
+| **HellaSwag**  | Commonsense     | 10K  | Accuracy   |
+| **TruthfulQA** | Factuality      | 817  | % Truthful |
+| **HumanEval**  | Code generation | 164  | pass@k     |
+| **GSM8K**      | Math reasoning  | 8.5K | Accuracy   |
 
 ### RAG Benchmarks
 
-| Benchmark | Focus | Metrics |
-|-----------|-------|---------|
-| **Natural Questions** | Wikipedia QA | EM, F1 |
-| **HotpotQA** | Multi-hop reasoning | EM, F1 |
-| **MS MARCO** | Web search | MRR, Recall |
-| **BEIR** | Zero-shot retrieval | NDCG@10 |
+| Benchmark             | Focus               | Metrics     |
+| --------------------- | ------------------- | ----------- |
+| **Natural Questions** | Wikipedia QA        | EM, F1      |
+| **HotpotQA**          | Multi-hop reasoning | EM, F1      |
+| **MS MARCO**          | Web search          | MRR, Recall |
+| **BEIR**              | Zero-shot retrieval | NDCG@10     |
 
 ### Creating Custom Benchmarks
 
 **Template:**
+
 ```json
 {
   "id": "custom-001",
@@ -448,6 +472,7 @@ Decision: Ship if p < 0.05 AND effect size meets threshold AND guardrails pass
 ```
 
 **Best practices:**
+
 - Minimum 100 examples per category
 - Include edge cases (10-20%)
 - Balance difficulty levels
@@ -512,13 +537,13 @@ Decision: Ship if p < 0.05 AND effect size meets threshold AND guardrails pass
 
 ## Quick Reference: Metric Selection
 
-| Use Case | Primary Metric | Secondary Metrics |
-|----------|---------------|-------------------|
-| Summarization | ROUGE-L | BERTScore, Compression ratio |
-| Translation | BLEU | chrF, Human pref |
-| QA (extractive) | Exact Match, F1 | |
-| QA (generative) | BERTScore | Faithfulness, Relevance |
-| Code generation | pass@k | Syntax errors |
-| Classification | Accuracy, F1 | Precision, Recall |
-| RAG | Faithfulness | Context relevance, MRR |
-| Open-ended chat | Human eval | Helpfulness, Safety |
+| Use Case        | Primary Metric  | Secondary Metrics            |
+| --------------- | --------------- | ---------------------------- |
+| Summarization   | ROUGE-L         | BERTScore, Compression ratio |
+| Translation     | BLEU            | chrF, Human pref             |
+| QA (extractive) | Exact Match, F1 |                              |
+| QA (generative) | BERTScore       | Faithfulness, Relevance      |
+| Code generation | pass@k          | Syntax errors                |
+| Classification  | Accuracy, F1    | Precision, Recall            |
+| RAG             | Faithfulness    | Context relevance, MRR       |
+| Open-ended chat | Human eval      | Helpfulness, Safety          |

@@ -13,6 +13,7 @@ EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT) SELECT * FROM orders WHERE status = 'pai
 ```
 
 **Sample output:**
+
 ```
 Limit  (cost=0.43..12.87 rows=20 width=128) (actual time=0.052..0.089 rows=20 loops=1)
   ->  Index Scan Backward using idx_orders_status_created on orders  (cost=0.43..4521.33 rows=7284 width=128) (actual time=0.051..0.085 rows=20 loops=1)
@@ -24,17 +25,18 @@ Execution Time: 0.112 ms
 
 **Key fields to check:**
 
-| Field | What it tells you |
-|-------|-------------------|
-| `cost` | Estimated startup..total cost (arbitrary units) |
-| `rows` | Estimated row count at that node |
-| `actual time` | Real wall-clock time in milliseconds |
-| `actual rows` | Real row count — compare against estimate |
-| `Buffers: shared hit` | Pages read from cache (good) |
-| `Buffers: shared read` | Pages read from disk (slow) |
-| `loops` | How many times the node executed |
+| Field                  | What it tells you                               |
+| ---------------------- | ----------------------------------------------- |
+| `cost`                 | Estimated startup..total cost (arbitrary units) |
+| `rows`                 | Estimated row count at that node                |
+| `actual time`          | Real wall-clock time in milliseconds            |
+| `actual rows`          | Real row count — compare against estimate       |
+| `Buffers: shared hit`  | Pages read from cache (good)                    |
+| `Buffers: shared read` | Pages read from disk (slow)                     |
+| `loops`                | How many times the node executed                |
 
 **Red flags:**
+
 - `Seq Scan` on a large table with a WHERE clause — missing index
 - `actual rows` >> `rows` (estimated) — stale statistics, run `ANALYZE`
 - `Nested Loop` with high loop count — consider hash join or add index
@@ -48,6 +50,7 @@ EXPLAIN FORMAT=JSON SELECT * FROM orders WHERE status = 'paid' ORDER BY created_
 ```
 
 **Key fields:**
+
 - `query_block.select_id` — identifies subqueries
 - `table.access_type` — `ALL` (full scan), `ref` (index lookup), `range`, `index`, `const`
 - `table.rows_examined_per_scan` — how many rows the engine reads
@@ -164,32 +167,32 @@ CREATE INDEX idx_users_lower_email ON users (LOWER(email));
 
 ### Scan operators
 
-| Operator | Description | Performance |
-|----------|-------------|-------------|
-| **Seq Scan** | Full table scan, reads every row | Slow on large tables |
-| **Index Scan** | B-tree lookup + table fetch | Fast for selective queries |
-| **Index Only Scan** | Reads only the index (covering) | Fastest for covered queries |
-| **Bitmap Index Scan** | Builds a bitmap of matching pages | Good for medium selectivity |
-| **Bitmap Heap Scan** | Fetches pages identified by bitmap | Pairs with bitmap index scan |
+| Operator              | Description                        | Performance                  |
+| --------------------- | ---------------------------------- | ---------------------------- |
+| **Seq Scan**          | Full table scan, reads every row   | Slow on large tables         |
+| **Index Scan**        | B-tree lookup + table fetch        | Fast for selective queries   |
+| **Index Only Scan**   | Reads only the index (covering)    | Fastest for covered queries  |
+| **Bitmap Index Scan** | Builds a bitmap of matching pages  | Good for medium selectivity  |
+| **Bitmap Heap Scan**  | Fetches pages identified by bitmap | Pairs with bitmap index scan |
 
 ### Join operators
 
-| Operator | Description | Best when |
-|----------|-------------|-----------|
-| **Nested Loop** | For each outer row, scan inner | Small outer set, indexed inner |
-| **Hash Join** | Build hash table on inner, probe with outer | Medium-large sets, no index |
-| **Merge Join** | Merge two sorted inputs | Both inputs already sorted |
+| Operator        | Description                                 | Best when                      |
+| --------------- | ------------------------------------------- | ------------------------------ |
+| **Nested Loop** | For each outer row, scan inner              | Small outer set, indexed inner |
+| **Hash Join**   | Build hash table on inner, probe with outer | Medium-large sets, no index    |
+| **Merge Join**  | Merge two sorted inputs                     | Both inputs already sorted     |
 
 ### Other operators
 
-| Operator | Description |
-|----------|-------------|
-| **Sort** | Sorts rows (may spill to disk if work_mem exceeded) |
-| **Hash Aggregate** | GROUP BY using hash table |
-| **Group Aggregate** | GROUP BY on pre-sorted input |
-| **Limit** | Stops after N rows |
-| **Materialize** | Caches subquery results in memory |
-| **Gather / Gather Merge** | Collects results from parallel workers |
+| Operator                  | Description                                         |
+| ------------------------- | --------------------------------------------------- |
+| **Sort**                  | Sorts rows (may spill to disk if work_mem exceeded) |
+| **Hash Aggregate**        | GROUP BY using hash table                           |
+| **Group Aggregate**       | GROUP BY on pre-sorted input                        |
+| **Limit**                 | Stops after N rows                                  |
+| **Materialize**           | Caches subquery results in memory                   |
+| **Gather / Gather Merge** | Collects results from parallel workers              |
 
 ---
 
@@ -198,6 +201,7 @@ CREATE INDEX idx_users_lower_email ON users (LOWER(email));
 ### Why pool connections?
 
 Each database connection consumes memory (5-10 MB in PostgreSQL). Without pooling:
+
 - Application creates a new connection per request (slow: TCP + TLS + auth)
 - Under load, connection count spikes past `max_connections`
 - Database OOM or connection refused errors
@@ -207,6 +211,7 @@ Each database connection consumes memory (5-10 MB in PostgreSQL). Without poolin
 The standard external connection pooler for PostgreSQL.
 
 **Modes:**
+
 - **Session** — connection assigned for entire client session (safest, least efficient)
 - **Transaction** — connection returned to pool after each transaction (recommended)
 - **Statement** — connection returned after each statement (cannot use transactions)
@@ -227,9 +232,11 @@ server_idle_timeout = 300
 ```
 
 **Sizing formula:**
+
 ```
 default_pool_size = num_cpu_cores * 2 + effective_spindle_count
 ```
+
 For SSDs, start with `num_cpu_cores * 2` (typically 4-16 connections is optimal).
 
 ### ProxySQL (MySQL)
@@ -243,22 +250,22 @@ mysql_query_rules = ({ rule_id=1, match_pattern="^SELECT.*FOR UPDATE", destinati
 
 Most ORMs and drivers include built-in pooling:
 
-| Platform | Pool Configuration |
-|----------|--------------------|
-| **node-postgres** | `new Pool({ max: 20, idleTimeoutMillis: 30000 })` |
-| **SQLAlchemy** | `create_engine(url, pool_size=20, max_overflow=5)` |
+| Platform            | Pool Configuration                                      |
+| ------------------- | ------------------------------------------------------- |
+| **node-postgres**   | `new Pool({ max: 20, idleTimeoutMillis: 30000 })`       |
+| **SQLAlchemy**      | `create_engine(url, pool_size=20, max_overflow=5)`      |
 | **HikariCP (Java)** | `maximumPoolSize=20, minimumIdle=5, idleTimeout=300000` |
-| **Prisma** | `connection_limit=20` in connection string |
+| **Prisma**          | `connection_limit=20` in connection string              |
 
 ### Pool Sizing Guidelines
 
-| Metric | Guideline |
-|--------|-----------|
-| **Minimum** | Number of always-active background workers |
-| **Maximum** | 2-4x CPU cores for OLTP; lower for OLAP |
-| **Idle timeout** | 30-300 seconds (reclaim unused connections) |
-| **Connection timeout** | 3-10 seconds (fail fast under pressure) |
-| **Queue size** | 2-5x pool max (buffer bursts before rejecting) |
+| Metric                 | Guideline                                      |
+| ---------------------- | ---------------------------------------------- |
+| **Minimum**            | Number of always-active background workers     |
+| **Maximum**            | 2-4x CPU cores for OLTP; lower for OLAP        |
+| **Idle timeout**       | 30-300 seconds (reclaim unused connections)    |
+| **Connection timeout** | 3-10 seconds (fail fast under pressure)        |
+| **Queue size**         | 2-5x pool max (buffer bursts before rejecting) |
 
 **Warning:** More connections does not mean better performance. Beyond the optimal point (usually 20-50), contention on locks, CPU, and I/O causes throughput to decrease.
 
@@ -267,6 +274,7 @@ Most ORMs and drivers include built-in pooling:
 ## Statistics and Maintenance
 
 ### PostgreSQL
+
 ```sql
 -- Update statistics for the query planner
 ANALYZE orders;
@@ -284,6 +292,7 @@ ORDER BY pg_relation_size(indexrelid) DESC;
 ```
 
 ### MySQL
+
 ```sql
 -- Update statistics
 ANALYZE TABLE orders;
@@ -315,16 +324,16 @@ Before deploying any query to production:
 
 ## Quick Reference: When to Use Which Index
 
-| Query Pattern | Index Type |
-|--------------|-----------|
-| `WHERE col = value` | B-tree or Hash |
-| `WHERE col > value` | B-tree |
-| `WHERE col LIKE 'prefix%'` | B-tree |
-| `WHERE col LIKE '%substring%'` | GIN (full-text) or trigram |
-| `WHERE jsonb_col @> '{...}'` | GIN |
-| `WHERE array_col && ARRAY[...]` | GIN |
-| `WHERE range_col && '[a,b]'` | GiST |
-| `WHERE ST_DWithin(geom, ...)` | GiST |
-| `WHERE col = value` (append-only) | BRIN |
-| `WHERE col = value AND status = 'active'` | Partial B-tree |
-| `SELECT a, b WHERE c = value` | Covering (INCLUDE) |
+| Query Pattern                             | Index Type                 |
+| ----------------------------------------- | -------------------------- |
+| `WHERE col = value`                       | B-tree or Hash             |
+| `WHERE col > value`                       | B-tree                     |
+| `WHERE col LIKE 'prefix%'`                | B-tree                     |
+| `WHERE col LIKE '%substring%'`            | GIN (full-text) or trigram |
+| `WHERE jsonb_col @> '{...}'`              | GIN                        |
+| `WHERE array_col && ARRAY[...]`           | GIN                        |
+| `WHERE range_col && '[a,b]'`              | GiST                       |
+| `WHERE ST_DWithin(geom, ...)`             | GiST                       |
+| `WHERE col = value` (append-only)         | BRIN                       |
+| `WHERE col = value AND status = 'active'` | Partial B-tree             |
+| `SELECT a, b WHERE c = value`             | Covering (INCLUDE)         |

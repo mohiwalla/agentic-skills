@@ -18,12 +18,12 @@ Variables: [Type] - [Parameter Name]         e.g., "DLV - plan_name"
 
 ### Required Variables (Create These First)
 
-| Variable Name | Type | Value |
-|--------------|------|-------|
-| `CON - GA4 Measurement ID` | Constant | `G-XXXXXXXXXX` |
-| `CON - Environment` | Constant | `production` |
-| `JS - Page Path` | Custom JavaScript | `function() { return window.location.pathname; }` |
-| `JS - User ID` | Custom JavaScript | `function() { return window.currentUserId || undefined; }` |
+| Variable Name              | Type              | Value                                             |
+| -------------------------- | ----------------- | ------------------------------------------------- | --- | ------------- |
+| `CON - GA4 Measurement ID` | Constant          | `G-XXXXXXXXXX`                                    |
+| `CON - Environment`        | Constant          | `production`                                      |
+| `JS - Page Path`           | Custom JavaScript | `function() { return window.location.pathname; }` |
+| `JS - User ID`             | Custom JavaScript | `function() { return window.currentUserId         |     | undefined; }` |
 
 ### GA4 Configuration Tag
 
@@ -46,22 +46,23 @@ Trigger: All Pages
 The most reliable pattern. Your app pushes structured data; GTM listens.
 
 **In your application code:**
+
 ```javascript
 // Call this function on any trackable event
 function trackEvent(eventName, parameters) {
-  window.dataLayer = window.dataLayer || [];
+  window.dataLayer = window.dataLayer || []
   window.dataLayer.push({
     event: eventName,
-    ...parameters
-  });
+    ...parameters,
+  })
 }
 
 // Example: after successful signup
-trackEvent('signup_completed', {
-  signup_method: 'email',
+trackEvent("signup_completed", {
+  signup_method: "email",
   user_id: newUser.id,
-  plan_name: 'trial'
-});
+  plan_name: "trial",
+})
 ```
 
 **In GTM:**
@@ -102,7 +103,7 @@ Use when you can't modify app code and need to track a specific CTA.
    - Fire On: Some Clicks
    - Conditions:
      - Click Element matches CSS selector: `[data-track="demo-cta"]`
-     OR
+       OR
      - Click Text equals "Request a Demo"
    - Name: `Click - Demo CTA`
 
@@ -129,6 +130,7 @@ Use when you can't modify app code and need to track a specific CTA.
 Two approaches depending on whether the form submits via JavaScript or full page reload.
 
 **For JavaScript-handled forms (AJAX/fetch):**
+
 - Use Pattern 1 (dataLayer push) after successful form submission callback
 
 **For traditional form submit:**
@@ -177,11 +179,11 @@ Single-page apps often don't trigger standard page view events on route changes.
 // In your router's navigation handler:
 router.afterEach((to, from) => {
   window.dataLayer.push({
-    event: 'page_view',
+    event: "page_view",
     page_path: to.path,
-    page_title: document.title
-  });
-});
+    page_title: document.title,
+  })
+})
 ```
 
 ---
@@ -191,6 +193,7 @@ router.afterEach((to, from) => {
 For content engagement measurement:
 
 **Option A: Use GA4 Enhanced Measurement (90% depth only)**
+
 - Enable in GA4 → Data Streams → Enhanced Measurement → Scrolls
 - Fires when user scrolls 90% down the page
 - No GTM configuration needed
@@ -222,35 +225,39 @@ For GDPR compliance — connect your CMP to GTM.
 ```javascript
 // In your CMP callback:
 window.dataLayer.push({
-  event: 'cookie_consent_update',
-  ad_storage: 'denied',         // or 'granted'
-  analytics_storage: 'denied',  // or 'granted'
-  functionality_storage: 'denied',
-  personalization_storage: 'denied',
-  security_storage: 'granted'   // always granted
-});
+  event: "cookie_consent_update",
+  ad_storage: "denied", // or 'granted'
+  analytics_storage: "denied", // or 'granted'
+  functionality_storage: "denied",
+  personalization_storage: "denied",
+  security_storage: "granted", // always granted
+})
 ```
 
 **Advanced Consent Mode (modeled data for declined users):**
 
 Add to `<head>` BEFORE GTM loads:
+
 ```javascript
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
+window.dataLayer = window.dataLayer || []
+function gtag() {
+  dataLayer.push(arguments)
+}
 
 // Default all to denied
-gtag('consent', 'default', {
-  ad_storage: 'denied',
-  analytics_storage: 'denied',
-  wait_for_update: 500  // ms to wait for CMP to initialize
-});
+gtag("consent", "default", {
+  ad_storage: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500, // ms to wait for CMP to initialize
+})
 ```
 
 Then update when user consents:
+
 ```javascript
-gtag('consent', 'update', {
-  analytics_storage: 'granted'
-});
+gtag("consent", "update", {
+  analytics_storage: "granted",
+})
 ```
 
 ---
@@ -278,6 +285,7 @@ v2.0 - Overhaul: new event taxonomy + Meta Pixel
 ### Environments
 
 Create a staging environment in GTM (Admin → Environments):
+
 - Development: test changes without affecting production
 - Staging: validate before publish
 - Production: live
@@ -288,11 +296,11 @@ Share staging GTM snippet with your dev team so they test against the same conta
 
 ## Common GTM Mistakes
 
-| Mistake | Symptom | Fix |
-|---------|---------|-----|
-| Tag fires on "All Pages" when it should be scoped | Inflated event counts | Add page conditions to trigger |
-| Data Layer Variable path is wrong | Parameter shows as `undefined` | Use GTM Preview to inspect dataLayer structure |
-| GA4 Configuration tag fires multiple times | Duplicate sessions/users | Check all triggers — should be one trigger, "All Pages" |
-| Enhanced Measurement conflicts with custom tags | Duplicate outbound click events | Disable conflicting Enhanced Measurement settings |
-| Trigger fires before DOM ready | Element not found errors | Change trigger type from "Page View" to "DOM Ready" or "Window Loaded" |
-| Form trigger doesn't fire | Form uses AJAX or custom submit | Switch to dataLayer push after submit callback |
+| Mistake                                           | Symptom                         | Fix                                                                    |
+| ------------------------------------------------- | ------------------------------- | ---------------------------------------------------------------------- |
+| Tag fires on "All Pages" when it should be scoped | Inflated event counts           | Add page conditions to trigger                                         |
+| Data Layer Variable path is wrong                 | Parameter shows as `undefined`  | Use GTM Preview to inspect dataLayer structure                         |
+| GA4 Configuration tag fires multiple times        | Duplicate sessions/users        | Check all triggers — should be one trigger, "All Pages"                |
+| Enhanced Measurement conflicts with custom tags   | Duplicate outbound click events | Disable conflicting Enhanced Measurement settings                      |
+| Trigger fires before DOM ready                    | Element not found errors        | Change trigger type from "Page View" to "DOM Ready" or "Window Loaded" |
+| Form trigger doesn't fire                         | Form uses AJAX or custom submit | Switch to dataLayer push after submit callback                         |

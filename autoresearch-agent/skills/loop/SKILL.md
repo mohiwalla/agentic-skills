@@ -41,13 +41,13 @@ Select loop interval:
 
 Map to cron expressions:
 
-| Interval | Cron Expression | Shorthand |
-|----------|----------------|-----------|
-| 10 minutes | `*/10 * * * *` | `10m` |
-| 1 hour | `7 * * * *` | `1h` |
-| Daily | `57 8 * * *` | `daily` |
-| Weekly | `57 8 * * 1` | `weekly` |
-| Monthly | `57 8 1 * *` | `monthly` |
+| Interval   | Cron Expression | Shorthand |
+| ---------- | --------------- | --------- |
+| 10 minutes | `*/10 * * * *`  | `10m`     |
+| 1 hour     | `7 * * * *`     | `1h`      |
+| Daily      | `57 8 * * *`    | `daily`   |
+| Weekly     | `57 8 * * 1`    | `weekly`  |
+| Monthly    | `57 8 1 * *`    | `monthly` |
 
 ### Step 3: Create the recurring job
 

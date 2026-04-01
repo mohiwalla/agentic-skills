@@ -70,11 +70,11 @@ WHEN NOT MATCHED THEN INSERT (id, name, updated_at) VALUES (s.id, s.name, CURREN
 
 ### Choosing Your Approach
 
-| Approach | When to Use |
-|----------|-------------|
-| Dynamic Tables | Declarative transformations. **Default choice.** Define the query, Snowflake handles refresh. |
-| Streams + Tasks | Imperative CDC. Use for procedural logic, stored procedure calls, complex branching. |
-| Snowpipe | Continuous file loading from cloud storage (S3, GCS, Azure). |
+| Approach        | When to Use                                                                                   |
+| --------------- | --------------------------------------------------------------------------------------------- |
+| Dynamic Tables  | Declarative transformations. **Default choice.** Define the query, Snowflake handles refresh. |
+| Streams + Tasks | Imperative CDC. Use for procedural logic, stored procedure calls, complex branching.          |
+| Snowpipe        | Continuous file loading from cloud storage (S3, GCS, Azure).                                  |
 
 ### Dynamic Tables
 
@@ -89,6 +89,7 @@ CREATE OR REPLACE DYNAMIC TABLE cleaned_events
 ```
 
 Key rules:
+
 - Set `TARGET_LAG` progressively: tighter at the top of the DAG, looser downstream.
 - Incremental DTs cannot depend on Full-refresh DTs.
 - `SELECT *` breaks on upstream schema changes -- use explicit column lists.
@@ -117,15 +118,15 @@ ALTER TASK process_events RESUME;
 
 ### Function Reference
 
-| Function | Purpose |
-|----------|---------|
-| `AI_COMPLETE` | LLM completion (text, images, documents) |
-| `AI_CLASSIFY` | Classify text into categories (up to 500 labels) |
-| `AI_FILTER` | Boolean filter on text or images |
-| `AI_EXTRACT` | Structured extraction from text/images/documents |
-| `AI_SENTIMENT` | Sentiment score (-1 to 1) |
-| `AI_PARSE_DOCUMENT` | OCR or layout extraction from documents |
-| `AI_REDACT` | PII removal from text |
+| Function            | Purpose                                          |
+| ------------------- | ------------------------------------------------ |
+| `AI_COMPLETE`       | LLM completion (text, images, documents)         |
+| `AI_CLASSIFY`       | Classify text into categories (up to 500 labels) |
+| `AI_FILTER`         | Boolean filter on text or images                 |
+| `AI_EXTRACT`        | Structured extraction from text/images/documents |
+| `AI_SENTIMENT`      | Sentiment score (-1 to 1)                        |
+| `AI_PARSE_DOCUMENT` | OCR or layout extraction from documents          |
+| `AI_REDACT`         | PII removal from text                            |
 
 **Deprecated names (do NOT use):** `COMPLETE`, `CLASSIFY_TEXT`, `EXTRACT_ANSWER`, `PARSE_DOCUMENT`, `SUMMARIZE`, `TRANSLATE`, `SENTIMENT`, `EMBED_TEXT_768`.
 
@@ -220,14 +221,14 @@ Surface these issues without being asked when you notice them in context:
 
 ## Common Errors
 
-| Error | Cause | Fix |
-|-------|-------|-----|
-| "Object does not exist" | Wrong database/schema context or missing grants | Fully qualify names (`db.schema.table`), check grants |
-| "Invalid identifier" in procedure | Missing colon prefix on variable | Use `:variable_name` inside SQL statements |
-| "Numeric value not recognized" | VARIANT field not cast | Cast explicitly: `src:field::NUMBER(10,2)` |
-| Task not running | Forgot to resume after creation | `ALTER TASK task_name RESUME;` |
-| DT refresh failing | Schema change upstream or tracking disabled | Use explicit columns, verify change tracking |
-| TO_FILE error | Combined path as single argument | Split into two args: `TO_FILE('@stage', 'file.pdf')` |
+| Error                             | Cause                                           | Fix                                                   |
+| --------------------------------- | ----------------------------------------------- | ----------------------------------------------------- |
+| "Object does not exist"           | Wrong database/schema context or missing grants | Fully qualify names (`db.schema.table`), check grants |
+| "Invalid identifier" in procedure | Missing colon prefix on variable                | Use `:variable_name` inside SQL statements            |
+| "Numeric value not recognized"    | VARIANT field not cast                          | Cast explicitly: `src:field::NUMBER(10,2)`            |
+| Task not running                  | Forgot to resume after creation                 | `ALTER TASK task_name RESUME;`                        |
+| DT refresh failing                | Schema change upstream or tracking disabled     | Use explicit columns, verify change tracking          |
+| TO_FILE error                     | Combined path as single argument                | Split into two args: `TO_FILE('@stage', 'file.pdf')`  |
 
 ---
 
@@ -259,36 +260,36 @@ Surface these issues without being asked when you notice them in context:
 
 ## Anti-Patterns
 
-| Anti-Pattern | Why It Fails | Better Approach |
-|---|---|---|
-| `SELECT *` in Dynamic Tables | Schema changes upstream break the DT silently | Use explicit column lists |
-| Missing colon prefix in procedures | "Invalid identifier" runtime error | Always use `:variable_name` in SQL blocks |
-| Single warehouse for all workloads | Contention between load, transform, and query | Separate warehouses per workload type |
-| Hardcoded credentials in Snowpark | Security risk, breaks in CI/CD | Use `os.environ[]` or key pair auth |
-| `collect()` on large DataFrames | Pulls entire result set to client memory | Process server-side with DataFrame operations |
-| Nested subqueries instead of CTEs | Unreadable, hard to debug, Snowflake optimizes CTEs better | Use `WITH` clauses |
-| Using deprecated Cortex functions | `CLASSIFY_TEXT`, `SUMMARIZE` etc. will be removed | Use `AI_CLASSIFY`, `AI_COMPLETE` etc. |
-| Tasks without `WHEN SYSTEM$STREAM_HAS_DATA` | Task runs on schedule even with no new data, wasting credits | Add the WHEN clause for stream-driven tasks |
-| Double-quoted identifiers | Forces case-sensitive names across all queries | Use `snake_case` unquoted identifiers |
+| Anti-Pattern                                | Why It Fails                                                 | Better Approach                               |
+| ------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------- |
+| `SELECT *` in Dynamic Tables                | Schema changes upstream break the DT silently                | Use explicit column lists                     |
+| Missing colon prefix in procedures          | "Invalid identifier" runtime error                           | Always use `:variable_name` in SQL blocks     |
+| Single warehouse for all workloads          | Contention between load, transform, and query                | Separate warehouses per workload type         |
+| Hardcoded credentials in Snowpark           | Security risk, breaks in CI/CD                               | Use `os.environ[]` or key pair auth           |
+| `collect()` on large DataFrames             | Pulls entire result set to client memory                     | Process server-side with DataFrame operations |
+| Nested subqueries instead of CTEs           | Unreadable, hard to debug, Snowflake optimizes CTEs better   | Use `WITH` clauses                            |
+| Using deprecated Cortex functions           | `CLASSIFY_TEXT`, `SUMMARIZE` etc. will be removed            | Use `AI_CLASSIFY`, `AI_COMPLETE` etc.         |
+| Tasks without `WHEN SYSTEM$STREAM_HAS_DATA` | Task runs on schedule even with no new data, wasting credits | Add the WHEN clause for stream-driven tasks   |
+| Double-quoted identifiers                   | Forces case-sensitive names across all queries               | Use `snake_case` unquoted identifiers         |
 
 ---
 
 ## Cross-References
 
-| Skill | Relationship |
-|-------|-------------|
-| `engineering/sql-database-assistant` | General SQL patterns — use for non-Snowflake databases |
-| `engineering/database-designer` | Schema design — use for data modeling before Snowflake implementation |
-| `engineering-team/senior-data-engineer` | Broader data engineering — pipelines, Spark, Airflow, data quality |
-| `engineering-team/senior-data-scientist` | Analytics and ML — use alongside Snowpark for feature engineering |
-| `engineering-team/senior-devops` | CI/CD for Snowflake deployments (Terraform, GitHub Actions) |
+| Skill                                    | Relationship                                                          |
+| ---------------------------------------- | --------------------------------------------------------------------- |
+| `engineering/sql-database-assistant`     | General SQL patterns — use for non-Snowflake databases                |
+| `engineering/database-designer`          | Schema design — use for data modeling before Snowflake implementation |
+| `engineering-team/senior-data-engineer`  | Broader data engineering — pipelines, Spark, Airflow, data quality    |
+| `engineering-team/senior-data-scientist` | Analytics and ML — use alongside Snowpark for feature engineering     |
+| `engineering-team/senior-devops`         | CI/CD for Snowflake deployments (Terraform, GitHub Actions)           |
 
 ---
 
 ## Reference Documentation
 
-| Document | Contents |
-|----------|----------|
+| Document                                    | Contents                                                                        |
+| ------------------------------------------- | ------------------------------------------------------------------------------- |
 | `references/snowflake_sql_and_pipelines.md` | SQL patterns, MERGE templates, Dynamic Table debugging, Snowpipe, anti-patterns |
-| `references/cortex_ai_and_agents.md` | Cortex AI functions, agent spec structure, Cortex Search, Snowpark |
-| `references/troubleshooting.md` | Error reference, debugging queries, common fixes |
+| `references/cortex_ai_and_agents.md`        | Cortex AI functions, agent spec structure, Cortex Search, Snowpark              |
+| `references/troubleshooting.md`             | Error reference, debugging queries, common fixes                                |

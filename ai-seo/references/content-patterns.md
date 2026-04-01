@@ -17,24 +17,28 @@ The patterns below are structured to be self-contained by design. If the AI pull
 **Used for:** "What is X" queries — the most common AI Overview trigger.
 
 **Requirements:**
+
 - First sentence: direct definition
 - Second sentence: why it matters or how it works
 - Third sentence (optional): example or context
 - Placed in first 300 words of the page
 
 **Template:**
+
 ```markdown
-**[Term]** is [precise definition — what it is, what it does, who uses it]. 
-[One sentence on why it matters or what problem it solves]. 
+**[Term]** is [precise definition — what it is, what it does, who uses it].
+[One sentence on why it matters or what problem it solves].
 [Optional: one sentence example — "For example, a SaaS company might use X to..."].
 ```
 
 **Example:**
+
 ```markdown
 **Churn rate** is the percentage of customers who cancel or stop using a service within a given period, typically measured monthly or annually. It directly impacts recurring revenue — a 5% monthly churn means losing over half your customer base each year. For subscription SaaS, a healthy monthly churn rate is typically below 2%.
 ```
 
 **Tips:**
+
 - Bold the term on its first use
 - Don't start with "In the world of..." or "When it comes to..."
 - The definition should work even if the reader knows nothing about the topic
@@ -46,6 +50,7 @@ The patterns below are structured to be self-contained by design. If the AI pull
 **Used for:** "How to X" and "How do I X" queries.
 
 **Requirements:**
+
 - Numbered list (not bulleted)
 - Each step starts with an action verb
 - Each step is self-contained (can be cited alone)
@@ -53,6 +58,7 @@ The patterns below are structured to be self-contained by design. If the AI pull
 - Pair with HowTo schema markup
 
 **Template:**
+
 ```markdown
 ## How to [Task]
 
@@ -64,6 +70,7 @@ The patterns below are structured to be self-contained by design. If the AI pull
 ```
 
 **Example:**
+
 ```markdown
 ## How to Reduce SaaS Churn
 
@@ -75,14 +82,23 @@ The patterns below are structured to be self-contained by design. If the AI pull
 ```
 
 **Schema markup (JSON-LD):**
+
 ```json
 {
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "How to [Task]",
   "step": [
-    {"@type": "HowToStep", "name": "Step 1 name", "text": "Step 1 explanation"},
-    {"@type": "HowToStep", "name": "Step 2 name", "text": "Step 2 explanation"}
+    {
+      "@type": "HowToStep",
+      "name": "Step 1 name",
+      "text": "Step 1 explanation"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Step 2 name",
+      "text": "Step 2 explanation"
+    }
   ]
 }
 ```
@@ -94,6 +110,7 @@ The patterns below are structured to be self-contained by design. If the AI pull
 **Used for:** "X vs Y" and "best X for Y" queries.
 
 **Requirements:**
+
 - Header row with category names
 - First column: feature or criterion
 - Remaining columns: the things being compared
@@ -101,17 +118,19 @@ The patterns below are structured to be self-contained by design. If the AI pull
 - Don't try to cover everything; cover what matters most
 
 **Template:**
+
 ```markdown
-| Feature | [Option A] | [Option B] | [Option C] |
-|---|---|---|---|
-| [Criterion 1] | [Value] | [Value] | [Value] |
-| [Criterion 2] | [Value] | [Value] | [Value] |
-| [Criterion 3] | [Value] | [Value] | [Value] |
-| Best for | [Audience A] | [Audience B] | [Audience C] |
-| Pricing | [Range] | [Range] | [Range] |
+| Feature       | [Option A]   | [Option B]   | [Option C]   |
+| ------------- | ------------ | ------------ | ------------ |
+| [Criterion 1] | [Value]      | [Value]      | [Value]      |
+| [Criterion 2] | [Value]      | [Value]      | [Value]      |
+| [Criterion 3] | [Value]      | [Value]      | [Value]      |
+| Best for      | [Audience A] | [Audience B] | [Audience C] |
+| Pricing       | [Range]      | [Range]      | [Range]      |
 ```
 
 **Tips:**
+
 - Put the most important criteria first
 - Use simple values — "Yes / No / Partial" beats long prose in cells
 - Include a "Best for" row — AI systems use this for recommendation queries
@@ -124,12 +143,14 @@ The patterns below are structured to be self-contained by design. If the AI pull
 **Used for:** Question-style queries, People Also Ask queries, voice search.
 
 **Requirements:**
+
 - Question phrased exactly as someone would ask it (natural language)
 - Answer is complete in 2-4 sentences (no "read more in section 3")
 - 5-10 FAQs per block
 - Pair with FAQPage schema markup
 
 **Template:**
+
 ```markdown
 ## Frequently Asked Questions
 
@@ -150,6 +171,7 @@ The patterns below are structured to be self-contained by design. If the AI pull
 ```
 
 **Schema markup (JSON-LD):**
+
 ```json
 {
   "@context": "https://schema.org",
@@ -168,6 +190,7 @@ The patterns below are structured to be self-contained by design. If the AI pull
 ```
 
 **Tips:**
+
 - Write questions the way users actually type or speak them — use Google's "People Also Ask" as a source
 - Answers should be complete without needing context from anywhere else on the page
 - Don't start answers with "Great question" or "That's a common question" — just answer
@@ -179,22 +202,26 @@ The patterns below are structured to be self-contained by design. If the AI pull
 **Used for:** Data queries, "how many" queries, research-backed claims.
 
 **Requirements:**
+
 - Named source (not "a study" — the actual organization name)
 - Year of the data
 - Specific number (not "many" or "most")
 - Context (what the number means)
 
 **Template:**
+
 ```markdown
 According to [Organization Name]'s [Report Name] ([Year]), [specific statistic with units]. [One sentence on what this means or why it matters].
 ```
 
 **Example:**
+
 ```markdown
 According to the Baymard Institute's 2024 UX benchmarking study, 69.8% of online shopping carts are abandoned before purchase. For a $1M/month ecommerce store, recovering just 5% of abandoned carts represents $35,000 in monthly revenue.
 ```
 
 **Tips:**
+
 - Link to the original source (AI systems and readers both benefit)
 - If data is from your own research, say so: "In our 2025 survey of 500 SaaS founders..."
 - Proprietary data is the highest-value citation target — AI systems actively seek original research
@@ -206,12 +233,14 @@ According to the Baymard Institute's 2024 UX benchmarking study, 69.8% of online
 **Used for:** Authority building, "what do experts say" queries.
 
 **Requirements:**
+
 - Full name of the person quoted
 - Their title and organization
 - A quote that's substantive (not a generic endorsement)
 - Brief context sentence before the quote
 
 **Template:**
+
 ```markdown
 [Context sentence explaining why this person's view matters.]
 
@@ -219,6 +248,7 @@ According to the Baymard Institute's 2024 UX benchmarking study, 69.8% of online
 ```
 
 **Example:**
+
 ```markdown
 Patrick Campbell, founder of ProfitWell (acquired by Paddle), studied pricing data from over 30,000 SaaS companies before reaching a counterintuitive conclusion about churn.
 
@@ -226,6 +256,7 @@ Patrick Campbell, founder of ProfitWell (acquired by Paddle), studied pricing da
 ```
 
 **Tips:**
+
 - Don't use generic quotes ("innovation is key to success") — they add nothing
 - Quotes should contain a specific claim, data point, or perspective
 - If quoting your own team: "[Name], [Title] at [Company Name]" is still valid
@@ -238,14 +269,17 @@ Patrick Campbell, founder of ProfitWell (acquired by Paddle), studied pricing da
 **Used for:** Queries where users want the TL;DR before committing to the full article.
 
 **Requirements:**
+
 - Placed near the top of the article (after the intro)
 - 3-7 key takeaways
 - Each bullet stands alone — no context required
 - Labeled clearly ("Key Takeaways" or "Quick Summary")
 
 **Template:**
+
 ```markdown
 **Key Takeaways**
+
 - [Specific, complete takeaway — could be read as a tweet]
 - [Specific, complete takeaway]
 - [Specific, complete takeaway]
@@ -254,6 +288,7 @@ Patrick Campbell, founder of ProfitWell (acquired by Paddle), studied pricing da
 ```
 
 **Tips:**
+
 - This is often the block AI systems extract for "summary" type queries
 - Make each bullet specific: "Monthly churn below 2% is considered healthy for most SaaS" beats "Churn should be low"
 - Don't repeat the article intro verbatim — these should be the most actionable insights
@@ -265,6 +300,7 @@ Patrick Campbell, founder of ProfitWell (acquired by Paddle), studied pricing da
 The most citable pages combine multiple patterns throughout the piece:
 
 **Recommended page structure for maximum AI extractability:**
+
 1. Definition block (first 300 words)
 2. Quick summary box (right after intro)
 3. Body sections with numbered steps or subsections

@@ -1,6 +1,7 @@
 # Team Dynamics Framework for Scrum Teams
 
 ## Table of Contents
+
 - [Overview](#overview)
 - [Tuckman's Model Applied to Scrum](#tuckmans-model-applied-to-scrum)
 - [Psychological Safety in Agile Teams](#psychological-safety-in-agile-teams)
@@ -18,6 +19,7 @@
 Understanding team dynamics is crucial for Scrum Masters to effectively guide teams through their development journey. This framework combines Tuckman's stages of group development with psychological safety principles and practical scrum-specific interventions.
 
 ### Core Principles
+
 1. **Development is Non-Linear**: Teams may cycle between stages based on changes
 2. **Each Stage Has Value**: Every stage serves a purpose in team development
 3. **Facilitation Must Adapt**: Leadership style should match the team's developmental stage
@@ -25,6 +27,7 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 5. **Measurement Enables Improvement**: Track dynamics to guide interventions
 
 ### Framework Components
+
 - **Tuckman's Stages**: Forming → Storming → Norming → Performing → Adjourning
 - **Psychological Safety**: Environment for risk-taking and learning
 - **Scrum Ceremonies**: Team development accelerators when facilitated well
@@ -35,9 +38,11 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 ## Tuckman's Model Applied to Scrum
 
 ### Stage 1: Forming (Team Inception)
-*"Getting to know each other and understanding the work"*
+
+_"Getting to know each other and understanding the work"_
 
 #### Characteristics in Scrum Context
+
 - **Individual Focus**: Members work independently, unsure of roles
 - **Politeness**: Conflict is avoided, everyone tries to be agreeable
 - **Dependency**: Heavy reliance on Scrum Master for guidance
@@ -45,21 +50,24 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 - **Low Velocity**: Productivity is low as team learns to work together
 
 #### Scrum Master Behaviors
+
 - **Directing Style**: Provide clear structure and guidance
 - **Process Champion**: Teach scrum framework and ceremonies rigorously
 - **Relationship Builder**: Facilitate team bonding and trust building
 - **Context Setter**: Explain the "why" behind practices and goals
 
 #### Key Metrics & Indicators
-| Metric | Forming Range | Assessment Method |
-|--------|---------------|-------------------|
-| Ceremony Participation | 60-80% | Attendance tracking |
-| Cross-team Collaboration | Low | Story pairing frequency |
-| Velocity Predictability | High volatility (CV >40%) | Velocity coefficient of variation |
-| Psychological Safety | 2.0-3.5/5.0 | Anonymous team survey |
-| Conflict Frequency | Very low | Retrospective themes |
+
+| Metric                   | Forming Range             | Assessment Method                 |
+| ------------------------ | ------------------------- | --------------------------------- |
+| Ceremony Participation   | 60-80%                    | Attendance tracking               |
+| Cross-team Collaboration | Low                       | Story pairing frequency           |
+| Velocity Predictability  | High volatility (CV >40%) | Velocity coefficient of variation |
+| Psychological Safety     | 2.0-3.5/5.0               | Anonymous team survey             |
+| Conflict Frequency       | Very low                  | Retrospective themes              |
 
 #### Intervention Strategies
+
 - **Team Charter Creation**: Define working agreements and values together
 - **Skill Inventory**: Map team capabilities and identify knowledge gaps
 - **Pairing/Mobbing**: Encourage collaborative work to build relationships
@@ -67,6 +75,7 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 - **Process Education**: Intensive scrum training and coaching
 
 #### Success Indicators
+
 - Consistent ceremony attendance (>85%)
 - Team members start asking questions about process
 - Initial working agreements are established
@@ -75,9 +84,11 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 ---
 
 ### Stage 2: Storming (Productive Conflict)
-*"Working through differences and establishing team dynamics"*
+
+_"Working through differences and establishing team dynamics"_
 
 #### Characteristics in Scrum Context
+
 - **Conflict Emergence**: Disagreements about technical approaches, priorities
 - **Role Struggles**: Tension around responsibilities and decision-making authority
 - **Process Pushback**: Questioning scrum practices, suggesting changes
@@ -85,21 +96,24 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 - **Velocity Fluctuations**: Performance varies as team works through conflicts
 
 #### Scrum Master Behaviors
+
 - **Coaching Style**: Guide conflict resolution without directing solutions
 - **Neutral Facilitator**: Help team work through disagreements constructively
 - **Psychological Safety Guardian**: Ensure conflicts remain productive
 - **Process Flexibility**: Adapt ceremonies to team's evolving needs
 
 #### Key Metrics & Indicators
-| Metric | Storming Range | Assessment Method |
-|--------|---------------|-------------------|
-| Conflict Frequency | Moderate-High | Retrospective action items |
-| Ceremony Engagement | Variable (70-90%) | Participation quality scoring |
-| Velocity Volatility | Moderate (CV 25-40%) | Sprint-to-sprint variation |
-| Psychological Safety | 2.5-4.0/5.0 | Team surveys + observation |
-| Process Adherence | Inconsistent | Ceremony audit scores |
+
+| Metric               | Storming Range       | Assessment Method             |
+| -------------------- | -------------------- | ----------------------------- |
+| Conflict Frequency   | Moderate-High        | Retrospective action items    |
+| Ceremony Engagement  | Variable (70-90%)    | Participation quality scoring |
+| Velocity Volatility  | Moderate (CV 25-40%) | Sprint-to-sprint variation    |
+| Psychological Safety | 2.5-4.0/5.0          | Team surveys + observation    |
+| Process Adherence    | Inconsistent         | Ceremony audit scores         |
 
 #### Intervention Strategies
+
 - **Conflict Facilitation**: Structured conflict resolution sessions
 - **Retrospective Focus**: Deep-dive into team dynamics and relationships
 - **Individual Coaching**: 1:1s to address personal concerns and conflicts
@@ -107,6 +121,7 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 - **External Facilitation**: Bring in neutral parties for significant conflicts
 
 #### Success Indicators
+
 - Conflicts are addressed openly rather than avoided
 - Team develops mechanisms for working through disagreements
 - Ceremony participation becomes more authentic
@@ -115,9 +130,11 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 ---
 
 ### Stage 3: Norming (Agreement & Collaboration)
-*"Establishing effective ways of working together"*
+
+_"Establishing effective ways of working together"_
 
 #### Characteristics in Scrum Context
+
 - **Shared Ownership**: Team takes collective responsibility for outcomes
 - **Process Refinement**: Self-organizing improvements to scrum practices
 - **Collaboration Increase**: More cross-functional pairing and knowledge sharing
@@ -125,21 +142,24 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 - **Velocity Stabilization**: More predictable delivery patterns emerge
 
 #### Scrum Master Behaviors
+
 - **Supporting Style**: Step back and let team lead, provide support when needed
 - **Impediment Remover**: Focus on external blockers and organizational issues
 - **Continuous Improvement Coach**: Help team identify and implement improvements
 - **Shield Provider**: Protect team from external disruptions
 
 #### Key Metrics & Indicators
-| Metric | Norming Range | Assessment Method |
-|--------|---------------|-------------------|
-| Self-Organization | Increasing | Decision-making autonomy tracking |
-| Ceremony Effectiveness | 80-90% | Time-to-value ratios |
-| Velocity Consistency | Good (CV 15-25%) | Rolling average stability |
-| Psychological Safety | 3.5-4.5/5.0 | Regular pulse surveys |
-| Knowledge Sharing | High | Cross-training metrics |
+
+| Metric                 | Norming Range    | Assessment Method                 |
+| ---------------------- | ---------------- | --------------------------------- |
+| Self-Organization      | Increasing       | Decision-making autonomy tracking |
+| Ceremony Effectiveness | 80-90%           | Time-to-value ratios              |
+| Velocity Consistency   | Good (CV 15-25%) | Rolling average stability         |
+| Psychological Safety   | 3.5-4.5/5.0      | Regular pulse surveys             |
+| Knowledge Sharing      | High             | Cross-training metrics            |
 
 #### Intervention Strategies
+
 - **Process Ownership Transfer**: Guide team to own ceremony facilitation
 - **Skill Development**: Focus on technical and collaboration skills
 - **Measurement Introduction**: Help team define their own success metrics
@@ -147,6 +167,7 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 - **Continuous Improvement Rhythm**: Establish regular process refinement
 
 #### Success Indicators
+
 - Team members facilitate some ceremonies themselves
 - Proactive identification and resolution of impediments
 - Stable, predictable velocity patterns
@@ -155,9 +176,11 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 ---
 
 ### Stage 4: Performing (High Performance)
-*"Delivering exceptional results together"*
+
+_"Delivering exceptional results together"_
 
 #### Characteristics in Scrum Context
+
 - **Collective Excellence**: Team consistently exceeds expectations
 - **Adaptive Expertise**: Quick response to changing requirements
 - **Self-Management**: Minimal need for external direction
@@ -165,21 +188,24 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 - **Knowledge Multiplication**: Members actively develop others
 
 #### Scrum Master Behaviors
+
 - **Delegating Style**: Minimal intervention, team is largely autonomous
 - **Strategic Facilitator**: Focus on long-term team development and capability
 - **Organizational Catalyst**: Help team influence broader organizational change
 - **Mentor Developer**: Coach team members to become coaches themselves
 
 #### Key Metrics & Indicators
-| Metric | Performing Range | Assessment Method |
-|--------|---------------|-------------------|
-| Autonomy Level | High | Decision independence tracking |
-| Innovation Frequency | Regular | New idea implementation rate |
-| Velocity Excellence | High + Consistent (CV <15%) | Performance benchmarking |
-| Psychological Safety | 4.0-5.0/5.0 | Team assessment + observation |
-| External Impact | Significant | Other teams adopting practices |
+
+| Metric               | Performing Range            | Assessment Method              |
+| -------------------- | --------------------------- | ------------------------------ |
+| Autonomy Level       | High                        | Decision independence tracking |
+| Innovation Frequency | Regular                     | New idea implementation rate   |
+| Velocity Excellence  | High + Consistent (CV <15%) | Performance benchmarking       |
+| Psychological Safety | 4.0-5.0/5.0                 | Team assessment + observation  |
+| External Impact      | Significant                 | Other teams adopting practices |
 
 #### Intervention Strategies
+
 - **Challenge Provision**: Introduce stretch goals and complex problems
 - **Leadership Development**: Grow team members into coaches/leaders
 - **Knowledge Sharing**: Facilitate teaching other teams
@@ -187,6 +213,7 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 - **Innovation Support**: Create space for experimentation and learning
 
 #### Success Indicators
+
 - Consistent delivery of high-quality work with minimal defects
 - Team serves as a model for other teams in the organization
 - Members are sought out for coaching and mentoring roles
@@ -195,9 +222,11 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 ---
 
 ### Stage 5: Adjourning (Transition & Legacy)
-*"Wrapping up and transitioning knowledge"*
+
+_"Wrapping up and transitioning knowledge"_
 
 #### Characteristics in Scrum Context
+
 - **Closure Activities**: Project completion or team dissolution
 - **Knowledge Transfer**: Documenting learnings and sharing expertise
 - **Relationship Maintenance**: Preserving professional networks
@@ -205,12 +234,14 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 - **Emotional Processing**: Addressing feelings about team ending
 
 #### Scrum Master Behaviors
+
 - **Closure Facilitator**: Guide proper conclusion of work and relationships
 - **Legacy Curator**: Ensure knowledge and practices are preserved
 - **Transition Planner**: Help members move to new roles/teams effectively
 - **Emotional Support**: Acknowledge and process team disbanding feelings
 
 #### Key Activities
+
 - **Final Retrospective**: Comprehensive review of team journey and learnings
 - **Practice Documentation**: Record effective processes for future teams
 - **Knowledge Transfer Sessions**: Share expertise with successor teams
@@ -222,35 +253,41 @@ Understanding team dynamics is crucial for Scrum Masters to effectively guide te
 ## Psychological Safety in Agile Teams
 
 ### Definition & Importance
+
 Psychological safety is the belief that one can show vulnerability, ask questions, admit mistakes, and propose ideas without risk of negative consequences to self-image, status, or career.
 
 ### Google's Four Components Applied to Scrum
+
 1. **Ability to show vulnerability and ask for help**
-2. **Permission to discuss difficult topics and disagreements** 
+2. **Permission to discuss difficult topics and disagreements**
 3. **Freedom to take risks and make mistakes**
 4. **Encouragement to be authentic and express oneself**
 
 ### Building Psychological Safety in Scrum Teams
 
 #### Daily Standups
+
 - **Model Vulnerability**: Scrum Master admits own mistakes and uncertainties
 - **Normalize Help-Seeking**: "Who needs help?" vs. "Any blockers?"
 - **Celebrate Learning**: Highlight lessons learned from failures
 - **Time Protection**: Ensure everyone has space to speak
 
 #### Sprint Planning
+
 - **Estimation Comfort**: No judgment for "wrong" estimates
 - **Capacity Honesty**: Safe to express realistic availability
 - **Question Encouragement**: Reward curiosity and clarification requests
 - **Scope Negotiation**: Team can push back on unrealistic commitments
 
 #### Sprint Reviews
+
 - **Failure Normalization**: Discuss what didn't work without blame
 - **Stakeholder Preparation**: Coach stakeholders on constructive feedback
 - **Team Support**: Unified front when facing criticism
 - **Learning Focus**: Frame setbacks as learning opportunities
 
 #### Retrospectives
+
 - **Non-Judgmental Space**: Focus on systems, not individuals
 - **Equal Participation**: Ensure all voices are heard
 - **Actionable Outcomes**: Team commits to improvements together
@@ -259,6 +296,7 @@ Psychological safety is the belief that one can show vulnerability, ask question
 ### Measuring Psychological Safety
 
 #### Edmondson's 7-Point Scale
+
 1. If you make a mistake on this team, it is often held against you
 2. Members of this team are able to bring up problems and tough issues
 3. People on this team sometimes reject others for being different
@@ -268,6 +306,7 @@ Psychological safety is the belief that one can show vulnerability, ask question
 7. Working with members of this team, my unique skills and talents are valued and utilized
 
 #### Practical Assessment Questions
+
 - **Risk Taking**: "Do team members speak up when they disagree with leadership?"
 - **Mistake Handling**: "How does the team respond when someone makes an error?"
 - **Help Seeking**: "Do people admit when they don't know something?"
@@ -281,18 +320,21 @@ Psychological safety is the belief that one can show vulnerability, ask question
 ### Quantitative Indicators
 
 #### Velocity & Predictability
+
 - **Sprint Velocity Trends**: Improvement over time indicates team development
 - **Commitment Reliability**: Ability to deliver planned work consistently
 - **Velocity Volatility (CV)**: Lower variation indicates team maturity
 - **Forecast Accuracy**: Precision in release planning improves with development
 
 #### Quality Metrics
+
 - **Defect Rates**: High-performing teams have lower defect introduction
 - **Definition of Done Adherence**: Mature teams consistently meet quality criteria
 - **Technical Debt Management**: Performing teams proactively address debt
 - **Customer Satisfaction**: Ultimately reflected in user/stakeholder feedback
 
 #### Collaboration Indicators
+
 - **Cross-functional Work**: Story completion without handoffs
 - **Knowledge Sharing**: Pair programming, code review participation
 - **Skill Development**: Team members learning from each other
@@ -301,12 +343,14 @@ Psychological safety is the belief that one can show vulnerability, ask question
 ### Qualitative Assessments
 
 #### Ceremony Quality
+
 - **Engagement Level**: Active participation vs. passive attendance
 - **Value Generation**: Productive outcomes from time invested
 - **Self-Facilitation**: Team taking ownership of meeting effectiveness
 - **Adaptation**: Tailoring practices to team's specific needs
 
 #### Communication Patterns
+
 - **Openness**: Willingness to share problems and concerns
 - **Constructive Conflict**: Disagreements lead to better solutions
 - **Active Listening**: Team members build on each other's ideas
@@ -317,24 +361,28 @@ Psychological safety is the belief that one can show vulnerability, ask question
 ## Facilitation Techniques by Stage
 
 ### Forming Stage Facilitation
+
 - **Structured Introductions**: Personal/professional background sharing
 - **Explicit Process Teaching**: Step-by-step ceremony instruction
 - **Role Clarification**: Clear explanation of responsibilities and expectations
 - **Safe-to-Fail Experiments**: Low-risk opportunities to try new things
 
 ### Storming Stage Facilitation
+
 - **Conflict Normalization**: "Conflict is healthy and expected"
 - **Ground Rules Enforcement**: Maintain respectful disagreement standards
 - **Perspective Taking**: Help team members understand different viewpoints
 - **External Processing**: Individual coaching sessions for complex issues
 
 ### Norming Stage Facilitation
+
 - **Autonomy Building**: Gradually reduce direct intervention
 - **Process Ownership Transfer**: Team takes responsibility for improvements
 - **Skill Gap Identification**: Focus on capability development
 - **Success Pattern Recognition**: Help team understand what's working
 
 ### Performing Stage Facilitation
+
 - **Challenge Introduction**: Stretch goals and complex problems
 - **Innovation Support**: Time and space for experimentation
 - **Teaching Opportunities**: Help team share knowledge with others
@@ -347,6 +395,7 @@ Psychological safety is the belief that one can show vulnerability, ask question
 ### Healthy vs. Unhealthy Conflict
 
 #### Healthy Conflict Characteristics
+
 - **Task-Focused**: About work, not personalities
 - **Solution-Oriented**: Aimed at finding better ways forward
 - **Open and Direct**: Issues addressed transparently
@@ -354,6 +403,7 @@ Psychological safety is the belief that one can show vulnerability, ask question
 - **Temporary**: Resolved and doesn't fester
 
 #### Unhealthy Conflict Characteristics
+
 - **Personal Attacks**: Targeting individuals rather than ideas
 - **Win-Lose Mentality**: Zero-sum thinking
 - **Underground**: Gossip and indirect communication
@@ -363,18 +413,21 @@ Psychological safety is the belief that one can show vulnerability, ask question
 ### Conflict Resolution Process
 
 #### 1. Early Detection
+
 - **Retrospective Themes**: Recurring issues or tensions
 - **Ceremony Observation**: Body language, participation patterns
 - **1:1 Conversations**: Individual team member concerns
 - **Performance Indicators**: Velocity drops, quality issues
 
 #### 2. Assessment & Preparation
+
 - **Stakeholder Mapping**: Who's involved, who's affected
 - **Issue Clarification**: Separate facts from interpretations
 - **Desired Outcomes**: What would resolution look like?
 - **Facilitation Planning**: Process design for resolution session
 
 #### 3. Facilitated Resolution
+
 - **Ground Rules**: Safe space for honest dialogue
 - **Perspective Sharing**: Each party states their view
 - **Common Ground**: Identify shared interests and values
@@ -382,6 +435,7 @@ Psychological safety is the belief that one can show vulnerability, ask question
 - **Agreement Creation**: Clear commitments and follow-up
 
 #### 4. Follow-up & Learning
+
 - **Implementation Support**: Help parties honor agreements
 - **Relationship Repair**: Ongoing relationship building
 - **Process Improvement**: Learn from conflict for future prevention
@@ -394,7 +448,9 @@ Psychological safety is the belief that one can show vulnerability, ask question
 ### Team Development Stage Assessment
 
 #### Behavioral Indicators Checklist
+
 **Forming Indicators:**
+
 - [ ] Heavy reliance on Scrum Master for decisions
 - [ ] Polite, superficial interactions
 - [ ] Individual work preferences
@@ -402,13 +458,15 @@ Psychological safety is the belief that one can show vulnerability, ask question
 - [ ] Low ceremony engagement
 
 **Storming Indicators:**
+
 - [ ] Open disagreements about approach
-- [ ] Questioning of established processes  
+- [ ] Questioning of established processes
 - [ ] Subgroup formation
 - [ ] Inconsistent performance
 - [ ] Emotional reactions to feedback
 
 **Norming Indicators:**
+
 - [ ] Collaborative problem-solving
 - [ ] Process adaptation and improvement
 - [ ] Shared responsibility for outcomes
@@ -416,6 +474,7 @@ Psychological safety is the belief that one can show vulnerability, ask question
 - [ ] Stable performance patterns
 
 **Performing Indicators:**
+
 - [ ] Self-organization without external direction
 - [ ] Proactive problem anticipation
 - [ ] Innovation and experimentation
@@ -425,6 +484,7 @@ Psychological safety is the belief that one can show vulnerability, ask question
 ### Psychological Safety Assessment Survey
 
 #### Team Member Self-Assessment (5-point Likert Scale)
+
 1. **Mistake Tolerance**: "When I make a mistake, my team supports me in learning from it"
 2. **Voice Safety**: "I feel comfortable challenging decisions or raising concerns"
 3. **Inclusion**: "My unique perspective is valued by the team"
@@ -434,6 +494,7 @@ Psychological safety is the belief that one can show vulnerability, ask question
 7. **Innovation**: "We try new approaches even if they might not work"
 
 #### Behavioral Observation Checklist
+
 - **Speaking Up**: Team members voice disagreements respectfully
 - **Mistake Response**: Errors are discussed openly for learning
 - **Help Seeking**: People admit knowledge gaps and ask for assistance
@@ -448,18 +509,21 @@ Psychological safety is the belief that one can show vulnerability, ask question
 ### Stage-Specific Interventions
 
 #### Forming → Storming Transition
+
 - **Trust Building Activities**: Structured sharing and team bonding
 - **Psychological Safety Foundation**: Establish ground rules for safe conflict
 - **Process Education**: Deep training on collaboration and communication
 - **Individual Coaching**: Prepare team members for productive disagreement
 
 #### Storming → Norming Transition
+
 - **Conflict Resolution Skills**: Training in constructive disagreement
 - **Working Agreement Updates**: Refine team collaboration standards
 - **Success Celebration**: Acknowledge progress through difficult conversations
 - **Process Ownership**: Begin transferring facilitation responsibilities
 
 #### Norming → Performing Transition
+
 - **Challenge Introduction**: Stretch goals to push team capabilities
 - **Leadership Development**: Grow coaching and mentoring skills
 - **Innovation Support**: Create time and space for experimentation
@@ -468,24 +532,30 @@ Psychological safety is the belief that one can show vulnerability, ask question
 ### Crisis Interventions
 
 #### Performance Regression
+
 **Symptoms**: Sudden drops in velocity, quality, or team satisfaction
 **Interventions**:
+
 - Team health check and root cause analysis
 - Individual 1:1s to understand personal factors
 - Process audit to identify systemic issues
 - Targeted support for specific capability gaps
 
 #### Psychological Safety Violations
+
 **Symptoms**: Team members withdrawing, avoiding risk, or leaving
 **Interventions**:
+
 - Immediate protective actions for affected individuals
 - Team-wide discussion of psychological safety principles
 - Leadership coaching for those who violated safety
 - System changes to prevent future violations
 
 #### External Pressure Impact
+
 **Symptoms**: Team stress, process shortcuts, decreased collaboration
 **Interventions**:
+
 - Stakeholder education about sustainable pace
 - Scope negotiation and priority clarification
 - Team capacity protection and workload management
@@ -498,24 +568,28 @@ Psychological safety is the belief that one can show vulnerability, ask question
 ### Dashboard Metrics by Stage
 
 #### Forming Stage Metrics
+
 - Ceremony attendance rates
 - Individual vs. collaborative work ratios
 - Process adherence scores
 - Initial psychological safety baseline
 
 #### Storming Stage Metrics
+
 - Conflict frequency and resolution time
 - Ceremony engagement quality
 - Velocity volatility measures
 - Team satisfaction surveys
 
 #### Norming Stage Metrics
+
 - Self-organization indicators
 - Process improvement frequency
 - Knowledge sharing metrics
 - Stakeholder satisfaction
 
 #### Performing Stage Metrics
+
 - Innovation and experimentation rates
 - External influence and mentoring
 - Exceptional result achievement
@@ -524,18 +598,21 @@ Psychological safety is the belief that one can show vulnerability, ask question
 ### Tracking Tools & Methods
 
 #### Regular Assessment Schedule
+
 - **Weekly**: Ceremony quality observation
 - **Sprint**: Velocity and quality metrics
 - **Monthly**: Psychological safety pulse survey
 - **Quarterly**: Comprehensive team development assessment
 
 #### Data Collection Methods
+
 - **Quantitative**: Sprint metrics, attendance, survey scores
 - **Qualitative**: Observation notes, retrospective themes, interview insights
 - **Behavioral**: Video/audio analysis of team interactions (with consent)
 - **External**: Stakeholder feedback, other team perceptions
 
 #### Progress Visualization
+
 - **Team Development Radar**: Multi-dimensional progress tracking
 - **Psychological Safety Trends**: Safety metrics over time
 - **Stage Transition Timeline**: Development milestone tracking
@@ -558,4 +635,4 @@ The goal is not just high-performing teams, but sustainable high performance bui
 
 ---
 
-*This framework combines research-based models with practical scrum implementation experience. Adapt the tools and techniques to fit your specific organizational context and team needs.*
+_This framework combines research-based models with practical scrum implementation experience. Adapt the tools and techniques to fit your specific organizational context and team needs._

@@ -11,12 +11,12 @@ Strategic toolkit for Head of Product to drive vision, alignment, and organizati
 
 ## Core Capabilities
 
-| Capability | Description | Tool |
-|------------|-------------|------|
-| **OKR Cascade** | Generate aligned OKRs from company to team level | `okr_cascade_generator.py` |
-| **Alignment Scoring** | Measure vertical and horizontal alignment | Built into generator |
-| **Strategy Templates** | 5 pre-built strategy types | Growth, Retention, Revenue, Innovation, Operational |
-| **Team Configuration** | Customize for your org structure | `--teams` flag |
+| Capability             | Description                                      | Tool                                                |
+| ---------------------- | ------------------------------------------------ | --------------------------------------------------- |
+| **OKR Cascade**        | Generate aligned OKRs from company to team level | `okr_cascade_generator.py`                          |
+| **Alignment Scoring**  | Measure vertical and horizontal alignment        | Built into generator                                |
+| **Strategy Templates** | 5 pre-built strategy types                       | Growth, Retention, Revenue, Innovation, Operational |
+| **Team Configuration** | Customize for your org structure                 | `--teams` flag                                      |
 
 ---
 
@@ -42,12 +42,12 @@ python scripts/okr_cascade_generator.py growth --json > okrs.json
 
 ### Step 1: Define Strategic Focus
 
-| Strategy | When to Use |
-|----------|-------------|
-| **Growth** | Scaling user base, market expansion |
-| **Retention** | Reducing churn, improving LTV |
-| **Revenue** | Increasing ARPU, new monetization |
-| **Innovation** | Market differentiation, new capabilities |
+| Strategy        | When to Use                              |
+| --------------- | ---------------------------------------- |
+| **Growth**      | Scaling user base, market expansion      |
+| **Retention**   | Reducing churn, improving LTV            |
+| **Revenue**     | Increasing ARPU, new monetization        |
+| **Innovation**  | Market differentiation, new capabilities |
 | **Operational** | Improving efficiency, scaling operations |
 
 See `references/strategy_types.md` for detailed guidance.
@@ -56,10 +56,10 @@ See `references/strategy_types.md` for detailed guidance.
 
 ```json
 {
-  "current": 100000,      // Current MAU
-  "target": 150000,       // Target MAU
-  "current_nps": 40,      // Current NPS
-  "target_nps": 60        // Target NPS
+  "current": 100000, // Current MAU
+  "target": 150000, // Target MAU
+  "current_nps": 40, // Current NPS
+  "target_nps": 60 // Target NPS
 }
 ```
 
@@ -77,13 +77,13 @@ python scripts/okr_cascade_generator.py growth \
 
 ### Step 4: Review Alignment Scores
 
-| Score | Target | Action if Below |
-|-------|--------|-----------------|
-| Vertical Alignment | >90% | Ensure all objectives link to parent |
-| Horizontal Alignment | >75% | Check for team coordination gaps |
-| Coverage | >80% | Validate all company OKRs are addressed |
-| Balance | >80% | Redistribute if one team is overloaded |
-| **Overall** | **>80%** | <60% needs restructuring |
+| Score                | Target   | Action if Below                         |
+| -------------------- | -------- | --------------------------------------- |
+| Vertical Alignment   | >90%     | Ensure all objectives link to parent    |
+| Horizontal Alignment | >75%     | Check for team coordination gaps        |
+| Coverage             | >80%     | Validate all company OKRs are addressed |
+| Balance              | >80%     | Redistribute if one team is overloaded  |
+| **Overall**          | **>80%** | <60% needs restructuring                |
 
 ### Step 5: Refine, Validate, and Export
 
@@ -114,12 +114,12 @@ python scripts/okr_cascade_generator.py [strategy] [options]
 
 ### Configuration Options
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `--teams`, `-t` | Comma-separated team names | Growth,Platform,Mobile,Data |
-| `--contribution`, `-c` | Product contribution to company OKRs (0-1) | 0.3 (30%) |
-| `--json`, `-j` | Output as JSON instead of dashboard | False |
-| `--metrics`, `-m` | Metrics as JSON string | Sample metrics |
+| Option                 | Description                                | Default                     |
+| ---------------------- | ------------------------------------------ | --------------------------- |
+| `--teams`, `-t`        | Comma-separated team names                 | Growth,Platform,Mobile,Data |
+| `--contribution`, `-c` | Product contribution to company OKRs (0-1) | 0.3 (30%)                   |
+| `--json`, `-j`         | Output as JSON instead of dashboard        | False                       |
+| `--metrics`, `-m`      | Metrics as JSON string                     | Sample metrics              |
 
 ### Output Examples
 
@@ -172,7 +172,12 @@ Growth Team:
         "id": "CO-1",
         "title": "Create lasting customer value and loyalty",
         "key_results": [
-          { "id": "CO-1-KR1", "title": "Improve retention from 70% to 85%", "current": 70, "target": 85 }
+          {
+            "id": "CO-1-KR1",
+            "title": "Improve retention from 70% to 85%",
+            "current": 70,
+            "target": 85
+          }
         ]
       }
     ]
@@ -180,8 +185,11 @@ Growth Team:
   "product": { "contribution": 0.3, "objectives": ["..."] },
   "teams": ["..."],
   "alignment_scores": {
-    "vertical_alignment": 100.0, "horizontal_alignment": 75.0,
-    "coverage": 100.0, "balance": 97.5, "overall": 94.0
+    "vertical_alignment": 100.0,
+    "horizontal_alignment": 75.0,
+    "coverage": 100.0,
+    "balance": 97.5,
+    "overall": 94.0
   }
 }
 ```
@@ -192,11 +200,11 @@ See `references/examples/sample_growth_okrs.json` for a complete example.
 
 ## Reference Documents
 
-| Document | Description |
-|----------|-------------|
-| `references/okr_framework.md` | OKR methodology, writing guidelines, alignment scoring |
-| `references/strategy_types.md` | Detailed breakdown of all 5 strategy types with examples |
-| `references/examples/sample_growth_okrs.json` | Complete sample output for growth strategy |
+| Document                                      | Description                                              |
+| --------------------------------------------- | -------------------------------------------------------- |
+| `references/okr_framework.md`                 | OKR methodology, writing guidelines, alignment scoring   |
+| `references/strategy_types.md`                | Detailed breakdown of all 5 strategy types with examples |
+| `references/examples/sample_growth_okrs.json` | Complete sample output for growth strategy               |
 
 ---
 

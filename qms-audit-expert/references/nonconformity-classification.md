@@ -18,11 +18,11 @@ Severity classification, CAPA integration, and finding documentation guidance.
 
 ### Nonconformity Definitions
 
-| Category | Definition | Examples |
-|----------|------------|----------|
-| Major NC | Systematic failure or absence of required element | No design control procedure, no CAPA system |
-| Minor NC | Isolated lapse or partial implementation | Single missing signature, one overdue calibration |
-| Observation | Improvement opportunity, potential future NC | Trending toward noncompliance, unclear procedure |
+| Category    | Definition                                        | Examples                                          |
+| ----------- | ------------------------------------------------- | ------------------------------------------------- |
+| Major NC    | Systematic failure or absence of required element | No design control procedure, no CAPA system       |
+| Minor NC    | Isolated lapse or partial implementation          | Single missing signature, one overdue calibration |
+| Observation | Improvement opportunity, potential future NC      | Trending toward noncompliance, unclear procedure  |
 
 ### Classification Decision Tree
 
@@ -48,24 +48,24 @@ Is required element absent or failed?
 
 ### Impact vs. Occurrence Matrix
 
-| | Low Occurrence (1 instance) | Medium (2-3 instances) | High (Systematic) |
-|---|---|---|---|
-| **High Impact** (Safety/Efficacy) | Major | Major | Major |
-| **Medium Impact** (Quality/Compliance) | Minor | Major | Major |
-| **Low Impact** (Administrative) | Observation | Minor | Minor |
+|                                        | Low Occurrence (1 instance) | Medium (2-3 instances) | High (Systematic) |
+| -------------------------------------- | --------------------------- | ---------------------- | ----------------- |
+| **High Impact** (Safety/Efficacy)      | Major                       | Major                  | Major             |
+| **Medium Impact** (Quality/Compliance) | Minor                       | Major                  | Major             |
+| **Low Impact** (Administrative)        | Observation                 | Minor                  | Minor             |
 
 ### Clause-Specific Severity Guidance
 
-| Clause | Major If... | Minor If... |
-|--------|-------------|-------------|
-| 4.2 Document Control | No document control system | Single obsolete document in use |
-| 5.6 Management Review | Not conducted >12 months | Missing single input |
-| 6.2 Training | No competency defined | Single training record missing |
-| 7.3 Design Control | No design reviews | Review participant missing |
-| 7.4 Purchasing | No supplier evaluation | Single evaluation overdue |
-| 7.5 Production | Special process not validated | Minor deviation from WI |
-| 8.2.2 Internal Audit | No audit program | Audit overdue <90 days |
-| 8.5 CAPA | No CAPA system | Effectiveness not verified |
+| Clause                | Major If...                   | Minor If...                     |
+| --------------------- | ----------------------------- | ------------------------------- |
+| 4.2 Document Control  | No document control system    | Single obsolete document in use |
+| 5.6 Management Review | Not conducted >12 months      | Missing single input            |
+| 6.2 Training          | No competency defined         | Single training record missing  |
+| 7.3 Design Control    | No design reviews             | Review participant missing      |
+| 7.4 Purchasing        | No supplier evaluation        | Single evaluation overdue       |
+| 7.5 Production        | Special process not validated | Minor deviation from WI         |
+| 8.2.2 Internal Audit  | No audit program              | Audit overdue <90 days          |
+| 8.5 CAPA              | No CAPA system                | Effectiveness not verified      |
 
 ---
 
@@ -83,19 +83,19 @@ Is required element absent or failed?
 
 ### CAPA Requirement by Severity
 
-| Severity | CAPA Required | Timeline | Verification |
-|----------|---------------|----------|--------------|
-| Major | Yes | 30 days for root cause, 90 days for implementation | Next audit or within 6 months |
-| Minor | Recommended | 60 days for correction | Next scheduled audit |
-| Observation | Optional | As appropriate | Noted at next audit |
+| Severity    | CAPA Required | Timeline                                           | Verification                  |
+| ----------- | ------------- | -------------------------------------------------- | ----------------------------- |
+| Major       | Yes           | 30 days for root cause, 90 days for implementation | Next audit or within 6 months |
+| Minor       | Recommended   | 60 days for correction                             | Next scheduled audit          |
+| Observation | Optional      | As appropriate                                     | Noted at next audit           |
 
 ### Root Cause Depth by Severity
 
-| Severity | Root Cause Analysis Required |
-|----------|------------------------------|
-| Major | Full 5-Why or Fishbone, systemic causes |
-| Minor | Immediate cause identification |
-| Observation | Not required |
+| Severity    | Root Cause Analysis Required            |
+| ----------- | --------------------------------------- |
+| Major       | Full 5-Why or Fishbone, systemic causes |
+| Minor       | Immediate cause identification          |
+| Observation | Not required                            |
 
 ---
 
@@ -124,22 +124,24 @@ planned, representing a gap in audit program execution.
 
 ### Evidence Types and Requirements
 
-| Evidence Type | How to Document | Retention |
-|---------------|-----------------|-----------|
-| Document | Reference document number, version, date | Copy in audit file |
-| Interview | Interviewee name, role, statement summary | Notes in audit file |
-| Observation | What, where, when observed | Photo if appropriate |
-| Record | Record identifier, date, content observed | Copy in audit file |
+| Evidence Type | How to Document                           | Retention            |
+| ------------- | ----------------------------------------- | -------------------- |
+| Document      | Reference document number, version, date  | Copy in audit file   |
+| Interview     | Interviewee name, role, statement summary | Notes in audit file  |
+| Observation   | What, where, when observed                | Photo if appropriate |
+| Record        | Record identifier, date, content observed | Copy in audit file   |
 
 ### Finding Writing Guidelines
 
 **Do:**
+
 - State objective evidence clearly
 - Reference specific requirements
 - Use factual, neutral language
 - Include document/record identifiers
 
 **Don't:**
+
 - Use judgmental language ("poor", "inadequate")
 - Generalize without evidence ("always", "never")
 - Combine multiple findings
@@ -152,6 +154,7 @@ planned, representing a gap in audit program execution.
 ### Closure Criteria by Severity
 
 **Major Nonconformity:**
+
 - [ ] Root cause analysis completed
 - [ ] Corrective action implemented
 - [ ] Effectiveness verified (objective evidence)
@@ -160,22 +163,24 @@ planned, representing a gap in audit program execution.
 - [ ] Auditor verification
 
 **Minor Nonconformity:**
+
 - [ ] Immediate correction completed
 - [ ] Root cause addressed (if applicable)
 - [ ] Evidence of correction reviewed
 - [ ] QA Manager sign-off
 
 **Observation:**
+
 - [ ] Action taken (if any) documented
 - [ ] Noted for future reference
 
 ### Verification Methods
 
-| Method | When to Use |
-|--------|-------------|
-| Record review | Correction documented in records |
-| Interview | Process change understood by personnel |
-| Observation | Physical correction verified |
+| Method          | When to Use                              |
+| --------------- | ---------------------------------------- |
+| Record review   | Correction documented in records         |
+| Interview       | Process change understood by personnel   |
+| Observation     | Physical correction verified             |
 | Follow-up audit | Systematic correction verified over time |
 
 ### Closure Documentation
@@ -205,17 +210,17 @@ Closure Approved By: [Name, Role, Date]
 
 ### Log Template
 
-| ID | Date | Clause | Finding | Severity | Status | Due Date | Closed Date |
-|----|------|--------|---------|----------|--------|----------|-------------|
-| NC-2024-001 | | | | | | | |
-| NC-2024-002 | | | | | | | |
+| ID          | Date | Clause | Finding | Severity | Status | Due Date | Closed Date |
+| ----------- | ---- | ------ | ------- | -------- | ------ | -------- | ----------- |
+| NC-2024-001 |      |        |         |          |        |          |             |
+| NC-2024-002 |      |        |         |          |        |          |             |
 
 ### Status Definitions
 
-| Status | Definition |
-|--------|------------|
-| Open | Finding documented, CAPA not started |
-| In Progress | CAPA underway |
-| Pending Verification | Action complete, awaiting verification |
-| Closed | Effectiveness verified |
-| Escalated | Overdue or ineffective, requires management attention |
+| Status               | Definition                                            |
+| -------------------- | ----------------------------------------------------- |
+| Open                 | Finding documented, CAPA not started                  |
+| In Progress          | CAPA underway                                         |
+| Pending Verification | Action complete, awaiting verification                |
+| Closed               | Effectiveness verified                                |
+| Escalated            | Overdue or ineffective, requires management attention |

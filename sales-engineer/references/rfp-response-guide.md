@@ -9,6 +9,7 @@ A comprehensive reference for Sales Engineers responding to Requests for Proposa
 Before investing time in a response, conduct a thorough bid/no-bid assessment:
 
 **Bid Criteria Checklist:**
+
 - Do we have a pre-existing relationship with the customer?
 - Is there an identified champion or sponsor?
 - Do our capabilities align with >70% of requirements?
@@ -17,6 +18,7 @@ Before investing time in a response, conduct a thorough bid/no-bid assessment:
 - Is the timeline realistic for our solution?
 
 **Red Flags for No-Bid:**
+
 - No prior customer engagement (blind RFP)
 - Requirement language mirrors a competitor's product
 - Timeline is unrealistically short
@@ -26,18 +28,21 @@ Before investing time in a response, conduct a thorough bid/no-bid assessment:
 ### 2. Response Organization
 
 **Executive Summary (1-2 pages):**
+
 - Lead with business outcomes, not features
 - Reference the customer's specific challenges
 - Quantify value proposition with relevant metrics
 - State confidence level and key differentiators
 
 **Solution Overview:**
+
 - Map directly to the customer's stated requirements
 - Use the customer's language and terminology
 - Include architecture diagrams for technical sections
 - Address integration with existing systems
 
 **Compliance Matrix:**
+
 - Mirror the RFP's requirement numbering exactly
 - Use consistent coverage categories: Full, Partial, Planned, Gap
 - Provide clear explanations for each response
@@ -45,12 +50,12 @@ Before investing time in a response, conduct a thorough bid/no-bid assessment:
 
 ### 3. Coverage Classification
 
-| Status | Score | Definition | Response Approach |
-|--------|-------|------------|-------------------|
-| Full | 100% | Current product fully meets requirement | Describe capability with evidence |
-| Partial | 50% | Met with configuration or workaround | Explain approach and any limitations |
-| Planned | 25% | On product roadmap | Provide timeline and interim solution |
-| Gap | 0% | Not currently supported | Acknowledge gap and propose alternatives |
+| Status  | Score | Definition                              | Response Approach                        |
+| ------- | ----- | --------------------------------------- | ---------------------------------------- |
+| Full    | 100%  | Current product fully meets requirement | Describe capability with evidence        |
+| Partial | 50%   | Met with configuration or workaround    | Explain approach and any limitations     |
+| Planned | 25%   | On product roadmap                      | Provide timeline and interim solution    |
+| Gap     | 0%    | Not currently supported                 | Acknowledge gap and propose alternatives |
 
 ### 4. Priority-Weighted Scoring
 
@@ -63,6 +68,7 @@ Not all requirements are equal. Weight them by business impact:
 ### 5. Response Writing Tips
 
 **Do:**
+
 - Answer the question directly before elaborating
 - Use the customer's terminology, not internal jargon
 - Provide specific examples, case studies, and metrics
@@ -71,6 +77,7 @@ Not all requirements are equal. Weight them by business impact:
 - Proofread for consistency across sections (multiple authors)
 
 **Avoid:**
+
 - Marketing fluff or vague language ("best-in-class", "world-class")
 - Answering a question you were not asked
 - Contradictions between sections
@@ -81,17 +88,18 @@ Not all requirements are equal. Weight them by business impact:
 
 ### Decision Matrix
 
-| Factor | Weight | Score (1-5) | Weighted |
-|--------|--------|-------------|----------|
-| Technical fit | 25% | | |
-| Relationship strength | 20% | | |
-| Competitive position | 20% | | |
-| Deal value vs effort | 15% | | |
-| Strategic importance | 10% | | |
-| Win probability | 10% | | |
-| **Total** | **100%** | | |
+| Factor                | Weight   | Score (1-5) | Weighted |
+| --------------------- | -------- | ----------- | -------- |
+| Technical fit         | 25%      |             |          |
+| Relationship strength | 20%      |             |          |
+| Competitive position  | 20%      |             |          |
+| Deal value vs effort  | 15%      |             |          |
+| Strategic importance  | 10%      |             |          |
+| Win probability       | 10%      |             |          |
+| **Total**             | **100%** |             |          |
 
 **Scoring Guide:**
+
 - 5: Strong advantage
 - 4: Slight advantage
 - 3: Neutral / competitive parity
@@ -99,6 +107,7 @@ Not all requirements are equal. Weight them by business impact:
 - 1: Significant disadvantage
 
 **Decision Thresholds:**
+
 - Score >= 3.5: **Bid** - proceed with full response
 - Score 2.5 - 3.4: **Conditional Bid** - proceed with executive approval
 - Score < 2.5: **No-Bid** - decline or submit information-only response
@@ -107,15 +116,15 @@ Not all requirements are equal. Weight them by business impact:
 
 Estimate the total effort required and compare against deal value:
 
-| Response Component | Typical Effort (hours) |
-|-------------------|----------------------|
-| Requirements analysis | 4-8 |
-| Technical writing | 16-40 |
-| Architecture diagrams | 4-8 |
-| Demo preparation | 8-16 |
-| Internal review | 4-8 |
-| Final formatting | 2-4 |
-| **Total** | **38-84 hours** |
+| Response Component    | Typical Effort (hours) |
+| --------------------- | ---------------------- |
+| Requirements analysis | 4-8                    |
+| Technical writing     | 16-40                  |
+| Architecture diagrams | 4-8                    |
+| Demo preparation      | 8-16                   |
+| Internal review       | 4-8                    |
+| Final formatting      | 2-4                    |
+| **Total**             | **38-84 hours**        |
 
 **Rule of thumb:** The response effort should not exceed 2% of the deal value.
 
@@ -144,22 +153,27 @@ Organize requirements by category for clarity:
 ## Common Pitfalls
 
 ### 1. The Wired RFP
+
 **Symptom:** Requirements language matches a competitor's product feature list.
 **Response:** Focus on outcomes over features. Highlight areas of differentiation. Ask clarifying questions that expose broader needs.
 
 ### 2. Feature Checklist Syndrome
+
 **Symptom:** RFP is a massive feature checklist with no context about business problems.
 **Response:** Group features by business outcome. Add context in your response that demonstrates understanding of the underlying need.
 
 ### 3. Scope Creep in Response
+
 **Symptom:** Team keeps adding content that was not requested.
 **Response:** Assign a response manager to enforce scope. Answer what was asked, provide references for additional information.
 
 ### 4. Inconsistent Messaging
+
 **Symptom:** Multiple authors provide contradictory information.
 **Response:** Assign a single editor for final review. Create a response style guide. Use consistent terminology throughout.
 
 ### 5. Overcommitting on Gaps
+
 **Symptom:** Marking "Planned" items as "Full" to improve scores.
 **Response:** Never misrepresent coverage. Planned items with firm timelines and interim workarounds are better than lies discovered during POC.
 
@@ -167,15 +181,15 @@ Organize requirements by category for clarity:
 
 ### Typical Response Timeline
 
-| Day | Activity |
-|-----|----------|
-| Day 1 | Receive RFP, conduct initial review, assign team |
-| Day 2-3 | Bid/no-bid decision, questions submission |
-| Day 4-7 | Requirements analysis, coverage assessment |
-| Day 8-14 | Draft responses, architecture diagrams |
-| Day 15-17 | Internal review, quality check |
-| Day 18-19 | Final edits, formatting, executive review |
-| Day 20 | Submission |
+| Day       | Activity                                         |
+| --------- | ------------------------------------------------ |
+| Day 1     | Receive RFP, conduct initial review, assign team |
+| Day 2-3   | Bid/no-bid decision, questions submission        |
+| Day 4-7   | Requirements analysis, coverage assessment       |
+| Day 8-14  | Draft responses, architecture diagrams           |
+| Day 15-17 | Internal review, quality check                   |
+| Day 18-19 | Final edits, formatting, executive review        |
+| Day 20    | Submission                                       |
 
 ### Time-Saving Strategies
 

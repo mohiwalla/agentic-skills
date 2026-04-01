@@ -16,9 +16,11 @@ metadata:
 Structured multi-agent deliberation that prevents groupthink, captures minority views, and produces clean, actionable decisions.
 
 ## Keywords
+
 board meeting, executive deliberation, strategic decision, C-suite, multi-agent, /cs:board, founder review, decision extraction, independent perspectives
 
 ## Invoke
+
 `/cs:board [topic]` — e.g. `/cs:board Should we expand to Spain in Q3?`
 
 ---
@@ -26,6 +28,7 @@ board meeting, executive deliberation, strategic decision, C-suite, multi-agent,
 ## The 6-Phase Protocol
 
 ### PHASE 1: Context Gathering
+
 1. Load `memory/company-context.md`
 2. Load `memory/board-meetings/decisions.md` **(Layer 2 ONLY — never raw transcripts)**
 3. Reset session state — no bleed from previous conversations
@@ -51,6 +54,7 @@ Order: Research (if needed) → CMO → CFO → CEO → CTO → COO → CHRO →
 **Reasoning techniques:** CEO: Tree of Thought (3 futures) | CFO: Chain of Thought (show the math) | CMO: Recursion of Thought (draft→critique→refine) | CPO: First Principles | CRO: Chain of Thought (pipeline math) | COO: Step by Step (process map) | CTO: ReAct (research→analyze→act) | CISO: Risk-Based (P×I) | CHRO: Empathy + Data
 
 **Contribution format (max 5 key points, self-verified):**
+
 ```
 ## [ROLE] — [DATE]
 
@@ -69,9 +73,11 @@ Each agent self-verifies before contributing: source attribution, assumption aud
 ---
 
 ### PHASE 3: Critic Analysis
+
 Executive Mentor receives ALL Phase 2 outputs simultaneously. Role: adversarial reviewer, not synthesizer.
 
 Checklist:
+
 - Where did agents agree too easily? (suspicious consensus = red flag)
 - What assumptions are shared but unvalidated?
 - Who is missing from the room? (customer voice? front-line ops?)
@@ -81,7 +87,9 @@ Checklist:
 ---
 
 ### PHASE 4: Synthesis
+
 Chief of Staff delivers using the **Board Meeting Output** format (defined in `agent-protocol/SKILL.md`):
+
 - Decision Required (one sentence)
 - Perspectives (one line per contributing role)
 - Where They Agree / Where They Disagree
@@ -102,6 +110,7 @@ Options: ✅ Approve | ✏️ Modify | ❌ Reject | ❓ Ask follow-up
 ```
 
 **Rules:**
+
 - User corrections OVERRIDE agent proposals. No pushback. No "but the CFO said..."
 - 30-min inactivity → auto-close as "pending review"
 - Reopen any time with `/cs:board resume`
@@ -109,7 +118,9 @@ Options: ✅ Approve | ✏️ Modify | ❌ Reject | ❓ Ask follow-up
 ---
 
 ### PHASE 6: Decision Extraction
+
 After founder approval:
+
 - **Layer 1:** Write full transcript → `memory/board-meetings/YYYY-MM-DD-raw.md`
 - **Layer 2:** Append approved decisions → `memory/board-meetings/decisions.md`
 - Mark rejected proposals `[DO_NOT_RESURFACE]`
@@ -118,6 +129,7 @@ After founder approval:
 ---
 
 ## Memory Structure
+
 ```
 memory/board-meetings/
 ├── decisions.md          # Layer 2 — founder-approved only (Phase 1 loads this)
@@ -130,17 +142,19 @@ memory/board-meetings/
 ---
 
 ## Failure Mode Quick Reference
-| Failure | Fix |
-|---------|-----|
-| Groupthink (all agree) | Re-run Phase 2 isolated; force "strongest argument against" |
-| Analysis paralysis | Cap at 5 points; force recommendation even with Low confidence |
-| Bikeshedding | Log as async action item; return to main agenda |
-| Role bleed (CFO making product calls) | Critic flags; exclude from synthesis |
-| Layer contamination | Phase 1 loads decisions.md only — hard rule |
+
+| Failure                               | Fix                                                            |
+| ------------------------------------- | -------------------------------------------------------------- |
+| Groupthink (all agree)                | Re-run Phase 2 isolated; force "strongest argument against"    |
+| Analysis paralysis                    | Cap at 5 points; force recommendation even with Low confidence |
+| Bikeshedding                          | Log as async action item; return to main agenda                |
+| Role bleed (CFO making product calls) | Critic flags; exclude from synthesis                           |
+| Layer contamination                   | Phase 1 loads decisions.md only — hard rule                    |
 
 ---
 
 ## References
+
 - `templates/meeting-agenda.md` — agenda format
 - `templates/meeting-minutes.md` — final output format
 - `references/meeting-facilitation.md` — conflict handling, timing, failure modes

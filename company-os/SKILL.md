@@ -16,11 +16,13 @@ metadata:
 The operating system is the collection of tools, rhythms, and agreements that determine how the company functions. Every company has one — most just don't know what it is. Making it explicit makes it improvable.
 
 ## Keywords
+
 operating system, EOS, Entrepreneurial Operating System, Scaling Up, Rockefeller Habits, OKR, Holacracy, L10 meeting, rocks, scorecard, accountability chart, issues list, IDS, meeting pulse, quarterly planning, weekly scorecard, management framework, company rhythm, traction, Gino Wickman, Verne Harnish
 
 ## Why This Matters
 
 Most operational dysfunction isn't a people problem — it's a system problem. When:
+
 - The same issues recur every week: no issue resolution system
 - Meetings feel pointless: no structured meeting pulse
 - Nobody knows who owns what: no accountability chart
@@ -39,6 +41,7 @@ Not an org chart. An accountability chart answers: "Who owns this outcome?"
 **Key distinction:** One person owns each function. Multiple people may work in it. Ownership means the buck stops with one person.
 
 **Structure:**
+
 ```
 CEO
 ├── Sales (CRO/VP Sales)
@@ -56,11 +59,13 @@ CEO
 ```
 
 **Rules:**
+
 - No shared ownership. "Alice and Bob both own it" means nobody owns it.
 - One person can own multiple seats at early stages. That's fine. Just be explicit.
 - Revisit quarterly as you scale. Ownership shifts as the company grows.
 
 **Build it in a workshop:**
+
 1. List all functions the company performs
 2. Assign one owner per function — no exceptions
 3. Identify gaps (functions nobody owns) and overlaps (functions two people think they own)
@@ -71,6 +76,7 @@ CEO
 Weekly metrics that tell you if the company is on track. Not monthly. Not quarterly. Weekly.
 
 **Rules:**
+
 - 5–15 metrics maximum. More than 15 and nothing gets attention.
 - Each metric has an owner and a weekly target (not a range — a number).
 - Red/yellow/green status. Not paragraphs.
@@ -78,14 +84,14 @@ Weekly metrics that tell you if the company is on track. Not monthly. Not quarte
 
 **Example scorecard structure:**
 
-| Metric | Owner | Target | This Week | Status |
-|--------|-------|--------|-----------|--------|
-| New MRR | CRO | €50K | €43K | 🔴 |
-| Churn | CS Lead | < 1% | 0.8% | 🟢 |
-| Active users | CPO | 2,000 | 2,150 | 🟢 |
-| Deployments | CTO | 3/week | 3 | 🟢 |
-| Open critical bugs | CTO | 0 | 2 | 🔴 |
-| Runway | CFO | > 18mo | 16mo | 🟡 |
+| Metric             | Owner   | Target | This Week | Status |
+| ------------------ | ------- | ------ | --------- | ------ |
+| New MRR            | CRO     | €50K   | €43K      | 🔴     |
+| Churn              | CS Lead | < 1%   | 0.8%      | 🟢     |
+| Active users       | CPO     | 2,000  | 2,150     | 🟢     |
+| Deployments        | CTO     | 3/week | 3         | 🟢     |
+| Open critical bugs | CTO     | 0      | 2         | 🔴     |
+| Runway             | CFO     | > 18mo | 16mo      | 🟡     |
 
 **Anti-pattern:** Measuring everything. If you track 40 KPIs, you're watching, not managing.
 
@@ -95,16 +101,17 @@ The meeting rhythm that drives the company. Not optional — the pulse is what k
 
 **The full rhythm:**
 
-| Meeting | Frequency | Duration | Who | Purpose |
-|---------|-----------|----------|-----|---------|
-| Daily standup | Daily | 15 min | Each team | Blockers only |
-| L10 / Leadership sync | Weekly | 90 min | Leadership team | Scorecard + issues |
-| Department review | Monthly | 60 min | Dept + leadership | OKR progress |
-| Quarterly planning | Quarterly | 1–2 days | Leadership | Set rocks, review strategy |
-| Annual planning | Annual | 2–3 days | Leadership | 1-year + 3-year vision |
+| Meeting               | Frequency | Duration | Who               | Purpose                    |
+| --------------------- | --------- | -------- | ----------------- | -------------------------- |
+| Daily standup         | Daily     | 15 min   | Each team         | Blockers only              |
+| L10 / Leadership sync | Weekly    | 90 min   | Leadership team   | Scorecard + issues         |
+| Department review     | Monthly   | 60 min   | Dept + leadership | OKR progress               |
+| Quarterly planning    | Quarterly | 1–2 days | Leadership        | Set rocks, review strategy |
+| Annual planning       | Annual    | 2–3 days | Leadership        | 1-year + 3-year vision     |
 
 **The L10 meeting (Weekly Leadership Sync):**
 Named for the goal of each meeting being a 10/10. Fixed agenda:
+
 1. Good news (5 min) — personal + business
 2. Scorecard review (5 min) — flag red items only
 3. Rock review (5 min) — on/off track for each rock
@@ -124,6 +131,7 @@ The core problem-solving loop. Maximum 15 minutes per issue.
 - **Solve:** One owner. One action. One due date. Written on the to-do list.
 
 **Anti-patterns:**
+
 - "Let's take this offline" — most things taken offline never get resolved
 - Discussing without deciding — a great discussion with no action item is wasted time
 - Revisiting decided issues — once solved, it leaves the list. Reopen only with new information.
@@ -137,6 +145,7 @@ Rocks are the 3–7 most important things each person must accomplish in the nex
 **Why 90 days?** Long enough for meaningful progress. Short enough to stay real.
 
 **Rock rules:**
+
 - Each person: 3–7 rocks maximum. More than 7 and none get done.
 - Company-level rocks (shared priorities): 3–7 for the leadership team
 - Each rock is binary: done or not done. No "60% complete."
@@ -151,14 +160,14 @@ Rocks are the 3–7 most important things each person must accomplish in the nex
 
 Who gets what information, when, and how.
 
-| Audience | What | When | Format |
-|----------|------|------|--------|
-| All employees | Company update | Monthly | Written + Q&A |
-| All employees | Quarterly results + next priorities | Quarterly | All-hands |
-| Leadership team | Scorecard | Weekly | Dashboard |
-| Board | Company performance | Monthly | Board memo |
-| Investors | Key metrics + narrative | Monthly or quarterly | Investor update |
-| Customers | Product updates | Per release | Release notes |
+| Audience        | What                                | When                 | Format          |
+| --------------- | ----------------------------------- | -------------------- | --------------- |
+| All employees   | Company update                      | Monthly              | Written + Q&A   |
+| All employees   | Quarterly results + next priorities | Quarterly            | All-hands       |
+| Leadership team | Scorecard                           | Weekly               | Dashboard       |
+| Board           | Company performance                 | Monthly              | Board memo      |
+| Investors       | Key metrics + narrative             | Monthly or quarterly | Investor update |
+| Customers       | Product updates                     | Per release          | Release notes   |
 
 **Default rule:** If you're deciding whether to share something internally, share it. The cost of under-communication always exceeds the cost of over-communication inside a company.
 
@@ -168,13 +177,13 @@ Who gets what information, when, and how.
 
 See `references/os-comparison.md` for full comparison. Quick guide:
 
-| If you are... | Consider... |
-|---------------|-------------|
-| 10–250 person company, founder-led, operational chaos | EOS / Traction |
-| Ambitious growth company, need rigorous strategy cascade | Scaling Up |
-| Tech company, engineering culture, hypothesis-driven | OKR-native |
-| Decentralized, flat, high autonomy | Holacracy (only if you're patient) |
-| None of the above quite fit | Custom hybrid |
+| If you are...                                            | Consider...                        |
+| -------------------------------------------------------- | ---------------------------------- |
+| 10–250 person company, founder-led, operational chaos    | EOS / Traction                     |
+| Ambitious growth company, need rigorous strategy cascade | Scaling Up                         |
+| Tech company, engineering culture, hypothesis-driven     | OKR-native                         |
+| Decentralized, flat, high autonomy                       | Holacracy (only if you're patient) |
+| None of the above quite fit                              | Custom hybrid                      |
 
 ---
 
@@ -183,6 +192,7 @@ See `references/os-comparison.md` for full comparison. Quick guide:
 Don't implement everything at once. See `references/implementation-guide.md` for the full 90-day plan.
 
 **Quick start (first 30 days):**
+
 1. Build the accountability chart (1 workshop, 2 hours)
 2. Define 5–10 weekly scorecard metrics (leadership team alignment, 1 hour)
 3. Start the weekly L10 meeting (no prep — just start)
@@ -211,15 +221,15 @@ These three alone will improve coordination more than most companies achieve in 
 
 The company OS is the connective tissue. Every other role depends on it:
 
-| C-Suite Role | OS Dependency |
-|-------------|---------------|
-| CEO | Sets vision that feeds into 1-year plan and rocks |
-| COO | Owns the meeting pulse and issue resolution cadence |
-| CFO | Owns the financial metrics in the scorecard |
-| CTO | Owns engineering rocks and tech scorecard metrics |
-| CHRO | Owns people metrics (attrition, hiring velocity) in scorecard |
-| Culture Architect | Culture rituals plug into the meeting pulse |
-| Strategic Alignment Engine | Validates that team rocks cascade from company rocks |
+| C-Suite Role               | OS Dependency                                                 |
+| -------------------------- | ------------------------------------------------------------- |
+| CEO                        | Sets vision that feeds into 1-year plan and rocks             |
+| COO                        | Owns the meeting pulse and issue resolution cadence           |
+| CFO                        | Owns the financial metrics in the scorecard                   |
+| CTO                        | Owns engineering rocks and tech scorecard metrics             |
+| CHRO                       | Owns people metrics (attrition, hiring velocity) in scorecard |
+| Culture Architect          | Culture rituals plug into the meeting pulse                   |
+| Strategic Alignment Engine | Validates that team rocks cascade from company rocks          |
 
 ---
 
@@ -232,5 +242,6 @@ The company OS is the connective tissue. Every other role depends on it:
 - "When was the last time we updated the accountability chart?"
 
 ## Detailed References
+
 - `references/os-comparison.md` — EOS vs Scaling Up vs OKRs vs Holacracy vs hybrid
 - `references/implementation-guide.md` — 90-day implementation plan

@@ -8,6 +8,7 @@ description: "Use when the user asks to fix, debug, or make a specific feature/m
 ## When to Use
 
 Activate when the user asks to fix, debug, or make a specific feature/module/area work. Key triggers:
+
 - "make X work"
 - "fix the Y feature"
 - "the Z module is broken"
@@ -84,6 +85,7 @@ FEATURE SCOPE:
 Trace every connection this feature has to the rest of the codebase.
 
 **INBOUND (what this feature imports):**
+
 1. For every import statement in every file in the feature folder:
    - Trace it to its source
    - Verify the source file exists
@@ -97,6 +99,7 @@ Trace every connection this feature has to the rest of the codebase.
    - Third-party packages imported
 
 **OUTBOUND (what imports this feature):**
+
 1. Search the entire codebase for imports from this feature folder
 2. For each consumer:
    - Verify they're importing entities that actually exist
@@ -104,6 +107,7 @@ Trace every connection this feature has to the rest of the codebase.
    - Note if any consumers are using deprecated patterns
 
 Output format:
+
 ```
 DEPENDENCY MAP:
   Inbound (this feature depends on):
@@ -127,6 +131,7 @@ DEPENDENCY MAP:
 Systematically check for problems. Run ALL of these checks:
 
 **CODE QUALITY:**
+
 - [ ] Every import resolves to a real file/export
 - [ ] No circular dependencies within the feature
 - [ ] Types are consistent across boundaries (no `any` at interfaces)
@@ -134,28 +139,33 @@ Systematically check for problems. Run ALL of these checks:
 - [ ] No TODO/FIXME/HACK comments indicating known issues
 
 **RUNTIME:**
+
 - [ ] All required environment variables are set (check .env)
 - [ ] Database migrations are up to date (if applicable)
 - [ ] API endpoints return expected shapes
 - [ ] No hardcoded values that should be configurable
 
 **TESTS:**
+
 - [ ] Run ALL tests related to this feature: find them by searching for imports from the feature folder
 - [ ] Record every failure with full error output
 - [ ] Check test coverage — are there untested code paths?
 
 **LOGS & ERRORS:**
+
 - [ ] Search for any log files, error reports, or Sentry-style error tracking
 - [ ] Check git log for recent changes to this feature: `git log --oneline -20 -- <feature-path>`
 - [ ] Check if any recent commits might have broken something: `git log --oneline -5 --all -- <files that this feature depends on>`
 
 **CONFIGURATION:**
+
 - [ ] Verify all config files this feature depends on are valid
 - [ ] Check for mismatches between development and production configs
 - [ ] Verify third-party service credentials are valid (if testable)
 
 **ROOT-CAUSE CONFIRMATION:**
 For each CRITICAL issue found, confirm root cause before adding it to the fix list:
+
 - State clearly: "I think X is the root cause because Y"
 - Trace the data/control flow backward to verify — don't trust surface-level symptoms
 - If the issue spans multiple components, add diagnostic logging at each boundary to identify which layer fails
@@ -164,13 +174,14 @@ For each CRITICAL issue found, confirm root cause before adding it to the fix li
 **RISK LABELING:**
 Assign each issue a risk label:
 
-| Risk | Criteria |
-|---|---|
+| Risk | Criteria                                                                                                                                  |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | HIGH | Public API surface / breaking interface contract / DB schema / auth or security logic / widely imported module (>3 callers) / git hotspot |
-| MED | Internal module with tests / shared utility / config with runtime impact / internal callers of changed functions |
-| LOW | Leaf module / isolated file / test-only change / single-purpose helper with no callers |
+| MED  | Internal module with tests / shared utility / config with runtime impact / internal callers of changed functions                          |
+| LOW  | Leaf module / isolated file / test-only change / single-purpose helper with no callers                                                    |
 
 Output format:
+
 ```
 DIAGNOSIS REPORT:
   Issues found: N
@@ -201,6 +212,7 @@ Fix issues in this EXACT order:
 5. **INTEGRATION LAST** — verify the feature works end-to-end with its consumers
 
 Rules:
+
 - Fix ONE issue at a time
 - After each fix, run the related test to confirm it works
 - If a fix breaks something else, STOP and re-evaluate (go back to DIAGNOSE)
@@ -212,6 +224,7 @@ Rules:
 If 3+ fixes in this phase create NEW issues (not pre-existing ones), STOP immediately.
 
 This pattern indicates an architectural problem, not a bug collection:
+
 - Each fix reveals new shared state / coupling / problem in a different place
 - Fixes require "massive refactoring" to implement
 - Each fix creates new symptoms elsewhere
@@ -221,6 +234,7 @@ This pattern indicates an architectural problem, not a bug collection:
 Do NOT attempt fix #4 without this discussion.
 
 Output after each fix:
+
 ```
 FIX #1:
   File: auth/service.ts:45
@@ -240,6 +254,7 @@ After all fixes are applied:
 5. Summarize all changes made
 
 Final output:
+
 ```
 FOCUSED FIX COMPLETE:
   Feature: auth
@@ -277,29 +292,29 @@ If you catch yourself thinking any of these, you are skipping phases:
 
 ## Common Rationalizations
 
-| Excuse | Reality |
-|---|---|
-| "The feature is small, I don't need all 5 phases" | Small features have dependencies too. Phases 1-2 take minutes for small features — do them. |
-| "I already know this codebase" | Knowledge decays. Trace the actual imports, don't rely on memory. |
-| "The user wants speed, not process" | Skipping phases causes rework. Systematic is faster than thrashing. |
-| "Only one file is broken" | If only one file were broken, the user would say "fix this bug", not "make the feature work." |
-| "I fixed the tests, so it works" | Tests can pass while consumers are broken. Verify Phase 5 fully. |
-| "The dependency map is too big to trace" | Then the feature is too big to fix without tracing. That's exactly why you need it. |
-| "Root cause is obvious, I don't need to confirm" | "Obvious" root causes are wrong 40% of the time. Confirm with evidence. |
-| "3 cascading failures is normal for a big fix" | 3 cascading failures means you're patching symptoms of an architectural problem. |
+| Excuse                                            | Reality                                                                                       |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| "The feature is small, I don't need all 5 phases" | Small features have dependencies too. Phases 1-2 take minutes for small features — do them.   |
+| "I already know this codebase"                    | Knowledge decays. Trace the actual imports, don't rely on memory.                             |
+| "The user wants speed, not process"               | Skipping phases causes rework. Systematic is faster than thrashing.                           |
+| "Only one file is broken"                         | If only one file were broken, the user would say "fix this bug", not "make the feature work." |
+| "I fixed the tests, so it works"                  | Tests can pass while consumers are broken. Verify Phase 5 fully.                              |
+| "The dependency map is too big to trace"          | Then the feature is too big to fix without tracing. That's exactly why you need it.           |
+| "Root cause is obvious, I don't need to confirm"  | "Obvious" root causes are wrong 40% of the time. Confirm with evidence.                       |
+| "3 cascading failures is normal for a big fix"    | 3 cascading failures means you're patching symptoms of an architectural problem.              |
 
 ## Anti-Patterns — NEVER do these
 
-| Anti-Pattern | Why It's Wrong |
-|---|---|
-| Starting to fix code before mapping all dependencies | You'll miss root causes and create whack-a-mole fixes |
-| Fixing only the file the user mentioned | Related files likely have issues too |
-| Ignoring environment variables and configuration | Many "code bugs" are actually config issues |
-| Skipping the test run phase | You can't verify fixes without running tests |
-| Making changes outside the feature folder without explaining why | Unexpected side effects confuse the user |
-| Fixing symptoms in consumer files instead of root cause in feature | Band-aids that break when the next consumer appears |
-| Declaring "done" without running verification tests | Untested fixes are unverified fixes |
-| Changing the public API without updating all consumers | Breaks everything that depends on the feature |
+| Anti-Pattern                                                       | Why It's Wrong                                        |
+| ------------------------------------------------------------------ | ----------------------------------------------------- |
+| Starting to fix code before mapping all dependencies               | You'll miss root causes and create whack-a-mole fixes |
+| Fixing only the file the user mentioned                            | Related files likely have issues too                  |
+| Ignoring environment variables and configuration                   | Many "code bugs" are actually config issues           |
+| Skipping the test run phase                                        | You can't verify fixes without running tests          |
+| Making changes outside the feature folder without explaining why   | Unexpected side effects confuse the user              |
+| Fixing symptoms in consumer files instead of root cause in feature | Band-aids that break when the next consumer appears   |
+| Declaring "done" without running verification tests                | Untested fixes are unverified fixes                   |
+| Changing the public API without updating all consumers             | Breaks everything that depends on the feature         |
 
 ## Related Skills
 
@@ -309,10 +324,10 @@ If you catch yourself thinking any of these, you are skipping phases:
 
 ## Quick Reference
 
-| Phase | Key Action | Output |
-|---|---|---|
-| SCOPE | Read every file, map entry points | Feature manifest |
-| TRACE | Map inbound + outbound dependencies | Dependency map |
-| DIAGNOSE | Check code, runtime, tests, logs, config | Diagnosis report |
-| FIX | Fix in order: deps → types → logic → tests → integration | Fix log per issue |
-| VERIFY | Run all tests, check consumers, summarize | Completion report |
+| Phase    | Key Action                                               | Output            |
+| -------- | -------------------------------------------------------- | ----------------- |
+| SCOPE    | Read every file, map entry points                        | Feature manifest  |
+| TRACE    | Map inbound + outbound dependencies                      | Dependency map    |
+| DIAGNOSE | Check code, runtime, tests, logs, config                 | Diagnosis report  |
+| FIX      | Fix in order: deps → types → logic → tests → integration | Fix log per issue |
+| VERIFY   | Run all tests, check consumers, summarize                | Completion report |

@@ -88,6 +88,7 @@ python3 scripts/prompt_versioner.py changelog --name support_classifier
 ## Pitfalls, Best Practices & Review Checklist
 
 **Avoid these mistakes:**
+
 1. Picking prompts from single-case outputs — use a realistic, edge-case-rich test suite.
 2. Changing prompt and model simultaneously — always isolate variables.
 3. Missing `must_not_contain` (forbidden-content) checks in evaluation criteria.
@@ -97,6 +98,7 @@ python3 scripts/prompt_versioner.py changelog --name support_classifier
 7. Model swap without rerunning the baseline A/B suite.
 
 **Before promoting any prompt, confirm:**
+
 - [ ] Task intent is explicit and unambiguous.
 - [ ] Output schema/format is explicit.
 - [ ] Safety and exclusion constraints are explicit.

@@ -16,18 +16,21 @@ Well-designed alerts are the difference between a reliable system and 3 AM pages
 ### Alert Classification
 
 #### Critical Alerts
+
 - Service is completely down
 - Data loss is occurring
 - Security breach detected
 - SLO burn rate indicates imminent SLO violation
 
-#### Warning Alerts  
+#### Warning Alerts
+
 - Service degradation affecting some users
 - Approaching resource limits
 - Dependent service issues
 - Elevated error rates within SLO
 
 #### Info Alerts
+
 - Deployment notifications
 - Capacity planning triggers
 - Configuration changes
@@ -38,6 +41,7 @@ Well-designed alerts are the difference between a reliable system and 3 AM pages
 ### Pattern 1: Symptoms, Not Causes
 
 **Good**: Alert on user-visible symptoms
+
 ```yaml
 - alert: HighLatency
   expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m])) > 0.5
@@ -48,6 +52,7 @@ Well-designed alerts are the difference between a reliable system and 3 AM pages
 ```
 
 **Bad**: Alert on internal metrics that may not affect users
+
 ```yaml
 - alert: HighCPU
   expr: cpu_usage > 80
@@ -74,7 +79,7 @@ Alert based on error budget consumption rate:
 
 ```yaml
 # Fast burn: 2% of monthly budget in 1 hour
-- alert: ErrorBudgetFastBurn  
+- alert: ErrorBudgetFastBurn
   expr: (
     error_rate_5m > (14.4 * error_budget_slo)
     and
@@ -83,12 +88,12 @@ Alert based on error budget consumption rate:
   for: 2m
   labels:
     severity: critical
-    
+
 # Slow burn: 10% of monthly budget in 3 days
 - alert: ErrorBudgetSlowBurn
   expr: (
     error_rate_6h > (1.0 * error_budget_slo)
-    and  
+    and
     error_rate_3d > (1.0 * error_budget_slo)
   )
   for: 15m
@@ -102,9 +107,8 @@ Use different thresholds for firing and resolving to prevent flapping:
 
 ```yaml
 - alert: HighErrorRate
-  expr: error_rate > 0.05  # Fire at 5%
+  expr: error_rate > 0.05 # Fire at 5%
   for: 5m
-  
 # Resolution happens automatically when error_rate < 0.03 (3%)
 # This prevents flapping around the 5% threshold
 ```
@@ -119,7 +123,7 @@ Alert when multiple conditions indicate a problem:
     (latency_p95 > latency_threshold)
     or
     (error_rate > error_threshold)
-    or 
+    or
     (availability < availability_threshold)
   ) and (
     request_rate > min_request_rate  # Only alert if we have traffic
@@ -147,63 +151,67 @@ Include relevant context in alerts:
 ### Routing by Impact and Urgency
 
 #### Critical Path Services
+
 ```yaml
 route:
-  group_by: ['service']
+  group_by: ["service"]
   routes:
-  - match:
-      service: 'payment-api'
-      severity: 'critical'
-    receiver: 'payment-team-pager'
-    continue: true
-  - match:
-      service: 'payment-api' 
-      severity: 'warning'
-    receiver: 'payment-team-slack'
+    - match:
+        service: "payment-api"
+        severity: "critical"
+      receiver: "payment-team-pager"
+      continue: true
+    - match:
+        service: "payment-api"
+        severity: "warning"
+      receiver: "payment-team-slack"
 ```
 
 #### Time-Based Routing
+
 ```yaml
 route:
   routes:
-  - match:
-      severity: 'critical'
-    receiver: 'oncall-pager'
-  - match:
-      severity: 'warning'
-      time: 'business_hours'  # 9 AM - 5 PM
-    receiver: 'team-slack'
-  - match:
-      severity: 'warning'
-      time: 'after_hours'
-    receiver: 'team-email'  # Lower urgency outside business hours
+    - match:
+        severity: "critical"
+      receiver: "oncall-pager"
+    - match:
+        severity: "warning"
+        time: "business_hours" # 9 AM - 5 PM
+      receiver: "team-slack"
+    - match:
+        severity: "warning"
+        time: "after_hours"
+      receiver: "team-email" # Lower urgency outside business hours
 ```
 
 ### Escalation Patterns
 
 #### Linear Escalation
+
 ```yaml
 receivers:
-- name: 'primary-oncall'
-  pagerduty_configs:
-  - escalation_policy: 'P1-Escalation'
-    # 0 min: Primary on-call
-    # 5 min: Secondary on-call  
-    # 15 min: Engineering manager
-    # 30 min: Director of engineering
+  - name: "primary-oncall"
+    pagerduty_configs:
+      - escalation_policy: "P1-Escalation"
+        # 0 min: Primary on-call
+        # 5 min: Secondary on-call
+        # 15 min: Engineering manager
+        # 30 min: Director of engineering
 ```
 
 #### Severity-Based Escalation
+
 ```yaml
 # Critical: Immediate escalation
 - match:
-    severity: 'critical'
-  receiver: 'critical-escalation'
-  
+    severity: "critical"
+  receiver: "critical-escalation"
+
 # Warning: Team-first escalation
 - match:
-    severity: 'warning'
-  receiver: 'team-escalation'
+    severity: "warning"
+  receiver: "team-escalation"
 ```
 
 ## Alert Fatigue Prevention
@@ -211,27 +219,29 @@ receivers:
 ### Grouping and Suppression
 
 #### Time-Based Grouping
+
 ```yaml
 route:
-  group_wait: 30s        # Wait 30s to group similar alerts
-  group_interval: 2m     # Send grouped alerts every 2 minutes
-  repeat_interval: 1h    # Re-send unresolved alerts every hour
+  group_wait: 30s # Wait 30s to group similar alerts
+  group_interval: 2m # Send grouped alerts every 2 minutes
+  repeat_interval: 1h # Re-send unresolved alerts every hour
 ```
 
 #### Dependent Service Suppression
+
 ```yaml
 - alert: ServiceDown
   expr: up == 0
-  
+
 - alert: HighLatency
   expr: latency_p95 > 1
   # This alert is suppressed when ServiceDown is firing
   inhibit_rules:
-  - source_match:
-      alertname: 'ServiceDown'
-    target_match:
-      alertname: 'HighLatency'
-    equal: ['service']
+    - source_match:
+        alertname: "ServiceDown"
+      target_match:
+        alertname: "HighLatency"
+      equal: ["service"]
 ```
 
 ### Alert Throttling
@@ -240,7 +250,7 @@ route:
 # Limit to 1 alert per 10 minutes for noisy conditions
 - alert: HighMemoryUsage
   expr: memory_usage_percent > 85
-  for: 10m  # Longer 'for' duration reduces noise
+  for: 10m # Longer 'for' duration reduces noise
   annotations:
     summary: "Memory usage has been high for 10+ minutes"
 ```
@@ -265,24 +275,28 @@ route:
 # Alert: {{ $labels.alertname }}
 
 ## Immediate Actions
+
 1. Check service status dashboard
 2. Verify if users are affected
 3. Look at recent deployments/changes
 
 ## Investigation Steps
+
 1. Check logs for errors in the last 30 minutes
-2. Verify dependent services are healthy  
+2. Verify dependent services are healthy
 3. Check resource utilization (CPU, memory, disk)
 4. Review recent alerts for patterns
 
 ## Resolution Actions
+
 - If deployment-related: Consider rollback
 - If resource-related: Scale up or optimize queries
 - If dependency-related: Engage appropriate team
 
 ## Escalation
+
 - Primary: @team-oncall
-- Secondary: @engineering-manager  
+- Secondary: @engineering-manager
 - Emergency: @site-reliability-team
 ```
 
@@ -302,18 +316,20 @@ annotations:
 ### Alert Testing Strategies
 
 #### Chaos Engineering Integration
+
 ```python
 # Test that alerts fire during controlled failures
 def test_alert_during_cpu_spike():
     with chaos.cpu_spike(target='payment-api', duration='2m'):
         assert wait_for_alert('HighCPU', timeout=180)
-        
+
 def test_alert_during_network_partition():
     with chaos.network_partition(target='database'):
         assert wait_for_alert('DatabaseUnreachable', timeout=60)
 ```
 
 #### Historical Alert Analysis
+
 ```prometheus
 # Query to find alerts that fired without incidents
 count by (alertname) (
@@ -328,6 +344,7 @@ count by (alertname) (
 ### Alert Quality Metrics
 
 #### Alert Precision
+
 ```
 Precision = True Positives / (True Positives + False Positives)
 ```
@@ -335,6 +352,7 @@ Precision = True Positives / (True Positives + False Positives)
 Track alerts that resulted in actual incidents vs false alarms.
 
 #### Time to Resolution
+
 ```prometheus
 # Average time from alert firing to resolution
 avg_over_time(
@@ -343,6 +361,7 @@ avg_over_time(
 ```
 
 #### Alert Fatigue Indicators
+
 ```prometheus
 # Alerts per day by team
 sum by (team) (
@@ -358,6 +377,7 @@ sum(alerts_acked_within_15m) / sum(alerts_fired) * 100
 ### Machine Learning-Enhanced Alerting
 
 #### Anomaly Detection
+
 ```yaml
 - alert: AnomalousTraffic
   expr: |
@@ -370,6 +390,7 @@ sum(alerts_acked_within_15m) / sum(alerts_fired) * 100
 ```
 
 #### Dynamic Thresholds
+
 ```yaml
 - alert: DynamicHighLatency
   expr: |
@@ -383,13 +404,13 @@ sum(alerts_acked_within_15m) / sum(alerts_fired) * 100
 
 ```yaml
 # Different thresholds for business vs off hours
-- alert: HighLatencyBusinessHours  
-  expr: latency_p95 > 0.2  # Stricter during business hours
+- alert: HighLatencyBusinessHours
+  expr: latency_p95 > 0.2 # Stricter during business hours
   for: 2m
   # Active 9 AM - 5 PM weekdays
-  
+
 - alert: HighLatencyOffHours
-  expr: latency_p95 > 0.5  # More lenient after hours  
+  expr: latency_p95 > 0.5 # More lenient after hours
   for: 5m
   # Active nights and weekends
 ```
@@ -403,16 +424,16 @@ sum(alerts_acked_within_15m) / sum(alerts_fired) * 100
   for: 5m
   labels:
     severity: info
-    
+
 - alert: ServiceLatencyHigh
   expr: latency_p95 > 0.5
-  for: 15m  # Same condition, longer duration
+  for: 15m # Same condition, longer duration
   labels:
     severity: warning
-    
-- alert: ServiceLatencyCritical  
+
+- alert: ServiceLatencyCritical
   expr: latency_p95 > 0.5
-  for: 30m  # Same condition, even longer duration
+  for: 30m # Same condition, even longer duration
   labels:
     severity: critical
 ```
@@ -420,47 +441,56 @@ sum(alerts_acked_within_15m) / sum(alerts_fired) * 100
 ## Anti-Patterns to Avoid
 
 ### Anti-Pattern 1: Alerting on Everything
+
 **Problem**: Too many alerts create noise and fatigue
 **Solution**: Be selective; only alert on user-impacting issues
 
 ### Anti-Pattern 2: Vague Alert Messages
+
 **Problem**: "Service X is down" - which instance? what's the impact?
 **Solution**: Include specific details and context
 
 ### Anti-Pattern 3: Alerts Without Runbooks
+
 **Problem**: Alerts that don't explain what to do
 **Solution**: Every alert must have an associated runbook
 
 ### Anti-Pattern 4: Static Thresholds
+
 **Problem**: 80% CPU might be normal during peak hours
 **Solution**: Use contextual, adaptive thresholds
 
 ### Anti-Pattern 5: Ignoring Alert Quality
+
 **Problem**: Accepting high false positive rates
 **Solution**: Regularly review and tune alert precision
 
 ## Implementation Checklist
 
 ### Pre-Implementation
+
 - [ ] Define alert severity levels and escalation policies
 - [ ] Create runbook templates
 - [ ] Set up alert routing configuration
 - [ ] Define SLOs that alerts will protect
 
 ### Alert Development
+
 - [ ] Each alert has clear success criteria
 - [ ] Alert conditions tested against historical data
 - [ ] Runbook created and accessible
 - [ ] Severity and routing configured
 - [ ] Context and suggested actions included
 
-### Post-Implementation  
+### Post-Implementation
+
 - [ ] Monitor alert precision and recall
 - [ ] Regular review of alert fatigue metrics
 - [ ] Quarterly alert effectiveness review
 - [ ] Team training on alert response procedures
 
 ### Quality Assurance
+
 - [ ] Test alerts fire during controlled failures
 - [ ] Verify alerts resolve when conditions improve
 - [ ] Confirm runbooks are accurate and helpful

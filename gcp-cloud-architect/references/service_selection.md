@@ -20,14 +20,14 @@ Quick reference for choosing the right GCP service based on requirements.
 
 ### Decision Matrix
 
-| Requirement | Recommended Service |
-|-------------|---------------------|
-| HTTP-triggered containers, auto-scaling | Cloud Run |
-| Event-driven, short tasks (<9 min) | Cloud Functions (2nd gen) |
-| Kubernetes workloads, microservices | GKE Autopilot |
-| Custom VMs, GPU/TPU | Compute Engine |
-| Batch processing, HPC | Batch |
-| Kubernetes with full control | GKE Standard |
+| Requirement                             | Recommended Service       |
+| --------------------------------------- | ------------------------- |
+| HTTP-triggered containers, auto-scaling | Cloud Run                 |
+| Event-driven, short tasks (<9 min)      | Cloud Functions (2nd gen) |
+| Kubernetes workloads, microservices     | GKE Autopilot             |
+| Custom VMs, GPU/TPU                     | Compute Engine            |
+| Batch processing, HPC                   | Batch                     |
+| Kubernetes with full control            | GKE Standard              |
 
 ### Cloud Run
 
@@ -46,12 +46,14 @@ Pricing: Per vCPU-second + GiB-second (free tier: 2M requests/month)
 ```
 
 **Use when:**
+
 - Containerized apps with HTTP endpoints
 - Variable/unpredictable traffic
 - Want scale-to-zero capability
 - No Kubernetes expertise needed
 
 **Avoid when:**
+
 - Non-HTTP workloads (use Cloud Functions or GKE)
 - Need GPU/TPU (use Compute Engine or GKE)
 - Require persistent local storage
@@ -71,12 +73,14 @@ Pricing: $0.40 per million invocations + compute time
 ```
 
 **Use when:**
+
 - Event-driven processing (Pub/Sub, Cloud Storage, Firestore)
 - Lightweight API endpoints
 - Scheduled tasks (Cloud Scheduler triggers)
 - Minimal infrastructure management
 
 **Avoid when:**
+
 - Long-running processes (>9 min)
 - Complex multi-container apps
 - Need fine-grained scaling control
@@ -95,6 +99,7 @@ Pricing: Per pod vCPU-hour + GiB-hour (no node management)
 ```
 
 **Use when:**
+
 - Team has Kubernetes expertise
 - Need pod-level resource control
 - Multi-container services
@@ -117,6 +122,7 @@ Pricing Options:
 ```
 
 **Use when:**
+
 - Need GPU/TPU
 - Windows workloads
 - Specific hardware requirements
@@ -128,14 +134,14 @@ Pricing Options:
 
 ### Decision Matrix
 
-| Data Type | Query Pattern | Scale | Recommended |
-|-----------|--------------|-------|-------------|
-| Key-value, document | Simple lookups, real-time | Any | Firestore |
-| Wide-column | High-throughput reads/writes | >1TB | Cloud Bigtable |
-| Relational | Complex joins, ACID | Variable | Cloud SQL |
-| Relational, global | Strong consistency, global | Large | Cloud Spanner |
-| Time-series | Time-based queries | Any | Bigtable or BigQuery |
-| Analytics, warehouse | SQL analytics | Petabytes | BigQuery |
+| Data Type            | Query Pattern                | Scale     | Recommended          |
+| -------------------- | ---------------------------- | --------- | -------------------- |
+| Key-value, document  | Simple lookups, real-time    | Any       | Firestore            |
+| Wide-column          | High-throughput reads/writes | >1TB      | Cloud Bigtable       |
+| Relational           | Complex joins, ACID          | Variable  | Cloud SQL            |
+| Relational, global   | Strong consistency, global   | Large     | Cloud Spanner        |
+| Time-series          | Time-based queries           | Any       | Bigtable or BigQuery |
+| Analytics, warehouse | SQL analytics                | Petabytes | BigQuery             |
 
 ### Firestore
 
@@ -156,12 +162,14 @@ Pricing:
 ```
 
 **Use when:**
+
 - Mobile/web apps needing offline sync
 - Real-time data updates
 - Flexible schema
 - Serverless architecture
 
 **Avoid when:**
+
 - Complex SQL queries with joins
 - Heavy analytics workloads
 - Data >1 MiB per document
@@ -170,11 +178,11 @@ Pricing:
 
 **Best for:** Relational data with familiar SQL
 
-| Engine | Version | Max Storage | Max Connections |
-|--------|---------|-------------|-----------------|
-| PostgreSQL | 15 | 64 TB | Instance-dependent |
-| MySQL | 8.0 | 64 TB | Instance-dependent |
-| SQL Server | 2022 | 64 TB | Instance-dependent |
+| Engine     | Version | Max Storage | Max Connections    |
+| ---------- | ------- | ----------- | ------------------ |
+| PostgreSQL | 15      | 64 TB       | Instance-dependent |
+| MySQL      | 8.0     | 64 TB       | Instance-dependent |
+| SQL Server | 2022    | 64 TB       | Instance-dependent |
 
 ```
 Pricing:
@@ -184,6 +192,7 @@ Pricing:
 ```
 
 **Use when:**
+
 - Relational data with complex queries
 - Existing SQL expertise
 - Need ACID transactions
@@ -206,6 +215,7 @@ Pricing:
 ```
 
 **Use when:**
+
 - Global applications needing strong consistency
 - Relational data at massive scale
 - 99.999% availability requirement
@@ -229,14 +239,14 @@ Pricing:
 
 ### Firestore vs Cloud SQL vs Spanner
 
-| Factor | Firestore | Cloud SQL | Cloud Spanner |
-|--------|-----------|-----------|---------------|
-| Query flexibility | Document-based | Full SQL | Full SQL |
-| Scaling | Automatic | Vertical + read replicas | Horizontal |
-| Consistency | Strong (single region) | ACID | Strong (global) |
-| Cost model | Per-operation | Per-hour | Per-node-hour |
-| Operational | Zero management | Managed (some ops) | Managed |
-| Best for | Mobile/web apps | Traditional apps | Global scale |
+| Factor            | Firestore              | Cloud SQL                | Cloud Spanner   |
+| ----------------- | ---------------------- | ------------------------ | --------------- |
+| Query flexibility | Document-based         | Full SQL                 | Full SQL        |
+| Scaling           | Automatic              | Vertical + read replicas | Horizontal      |
+| Consistency       | Strong (single region) | ACID                     | Strong (global) |
+| Cost model        | Per-operation          | Per-hour                 | Per-node-hour   |
+| Operational       | Zero management        | Managed (some ops)       | Managed         |
+| Best for          | Mobile/web apps        | Traditional apps         | Global scale    |
 
 ---
 
@@ -244,12 +254,12 @@ Pricing:
 
 ### Cloud Storage Classes
 
-| Class | Access Pattern | Min Duration | Cost (GiB/mo) |
-|-------|---------------|--------------|----------------|
-| Standard | Frequent | None | $0.020 |
-| Nearline | Monthly access | 30 days | $0.010 |
-| Coldline | Quarterly access | 90 days | $0.004 |
-| Archive | Annual access | 365 days | $0.0012 |
+| Class    | Access Pattern   | Min Duration | Cost (GiB/mo) |
+| -------- | ---------------- | ------------ | ------------- |
+| Standard | Frequent         | None         | $0.020        |
+| Nearline | Monthly access   | 30 days      | $0.010        |
+| Coldline | Quarterly access | 90 days      | $0.004        |
+| Archive  | Annual access    | 365 days     | $0.0012       |
 
 ### Lifecycle Policy Example
 
@@ -288,12 +298,12 @@ gsutil mb -l us-central1 --autoclass gs://my-bucket/
 
 ### Block and File Storage
 
-| Service | Use Case | Access |
-|---------|----------|--------|
-| Persistent Disk | GCE/GKE block storage | Single instance (RW) or multi (RO) |
-| Filestore | NFS shared file system | Multiple instances |
-| Parallelstore | HPC parallel file system | High throughput |
-| Cloud Storage FUSE | Mount GCS as filesystem | Any compute |
+| Service            | Use Case                 | Access                             |
+| ------------------ | ------------------------ | ---------------------------------- |
+| Persistent Disk    | GCE/GKE block storage    | Single instance (RW) or multi (RO) |
+| Filestore          | NFS shared file system   | Multiple instances                 |
+| Parallelstore      | HPC parallel file system | High throughput                    |
+| Cloud Storage FUSE | Mount GCS as filesystem  | Any compute                        |
 
 ---
 
@@ -301,13 +311,13 @@ gsutil mb -l us-central1 --autoclass gs://my-bucket/
 
 ### Decision Matrix
 
-| Pattern | Service | Use Case |
-|---------|---------|----------|
-| Pub/sub messaging | Pub/Sub | Event streaming, microservice decoupling |
-| Task queue | Cloud Tasks | Asynchronous task execution with retries |
-| Workflow orchestration | Workflows | Multi-step service orchestration |
-| Batch orchestration | Cloud Composer | Complex DAG-based pipelines (Airflow) |
-| Event triggers | Eventarc | Route events to Cloud Run, GKE, Workflows |
+| Pattern                | Service        | Use Case                                  |
+| ---------------------- | -------------- | ----------------------------------------- |
+| Pub/sub messaging      | Pub/Sub        | Event streaming, microservice decoupling  |
+| Task queue             | Cloud Tasks    | Asynchronous task execution with retries  |
+| Workflow orchestration | Workflows      | Multi-step service orchestration          |
+| Batch orchestration    | Cloud Composer | Complex DAG-based pipelines (Airflow)     |
+| Event triggers         | Eventarc       | Route events to Cloud Run, GKE, Workflows |
 
 ### Pub/Sub
 
@@ -376,13 +386,13 @@ Pricing: $0.40 per million operations
 
 ### API Gateway vs Cloud Endpoints vs Cloud Run
 
-| Factor | API Gateway | Cloud Endpoints | Cloud Run (direct) |
-|--------|-------------|-----------------|---------------------|
-| Protocol | REST, gRPC | REST, gRPC | Any HTTP |
-| Auth | API keys, JWT, Firebase | API keys, JWT | IAM, custom |
-| Rate limiting | Built-in | Built-in | Manual |
-| Cost | Per-call pricing | Per-call pricing | Per-request |
-| Best for | External APIs | Internal APIs | Simple services |
+| Factor        | API Gateway             | Cloud Endpoints  | Cloud Run (direct) |
+| ------------- | ----------------------- | ---------------- | ------------------ |
+| Protocol      | REST, gRPC              | REST, gRPC       | Any HTTP           |
+| Auth          | API keys, JWT, Firebase | API keys, JWT    | IAM, custom        |
+| Rate limiting | Built-in                | Built-in         | Manual             |
+| Cost          | Per-call pricing        | Per-call pricing | Per-request        |
+| Best for      | External APIs           | Internal APIs    | Simple services    |
 
 ### Cloud Endpoints Configuration
 
@@ -455,15 +465,15 @@ main:
 
 ### VPC Components
 
-| Component | Purpose |
-|-----------|---------|
-| VPC | Isolated network (global resource) |
-| Subnet | Regional network segment |
-| Cloud NAT | Outbound internet for private instances |
-| Cloud Router | Dynamic routing (BGP) |
-| Private Google Access | Access GCP APIs without public IP |
-| VPC Peering | Connect two VPC networks |
-| Shared VPC | Share VPC across projects |
+| Component             | Purpose                                 |
+| --------------------- | --------------------------------------- |
+| VPC                   | Isolated network (global resource)      |
+| Subnet                | Regional network segment                |
+| Cloud NAT             | Outbound internet for private instances |
+| Cloud Router          | Dynamic routing (BGP)                   |
+| Private Google Access | Access GCP APIs without public IP       |
+| VPC Peering           | Connect two VPC networks                |
+| Shared VPC            | Share VPC across projects               |
 
 ### VPC Design Pattern
 
@@ -514,22 +524,22 @@ gcloud projects add-iam-policy-binding my-project \
 
 ### Service Account Best Practices
 
-| Practice | Description |
-|----------|-------------|
+| Practice           | Description                            |
+| ------------------ | -------------------------------------- |
 | One SA per service | Separate service accounts per workload |
-| Workload Identity | Bind K8s SAs to GCP SAs in GKE |
+| Workload Identity  | Bind K8s SAs to GCP SAs in GKE         |
 | Short-lived tokens | Use impersonation instead of key files |
-| No SA keys | Avoid downloading JSON key files |
+| No SA keys         | Avoid downloading JSON key files       |
 
 ### Secret Manager vs Environment Variables
 
-| Factor | Secret Manager | Env Variables |
-|--------|---------------|---------------|
-| Rotation | Automatic versioning | Manual redeploy |
-| Audit | Cloud Audit Logs | No audit trail |
-| Access control | IAM per-secret | Per-service |
-| Pricing | $0.06/10K access ops | Free |
-| Use case | Credentials, API keys | Non-sensitive config |
+| Factor         | Secret Manager        | Env Variables        |
+| -------------- | --------------------- | -------------------- |
+| Rotation       | Automatic versioning  | Manual redeploy      |
+| Audit          | Cloud Audit Logs      | No audit trail       |
+| Access control | IAM per-secret        | Per-service          |
+| Pricing        | $0.06/10K access ops  | Free                 |
+| Use case       | Credentials, API keys | Non-sensitive config |
 
 ### Secret Manager Usage
 

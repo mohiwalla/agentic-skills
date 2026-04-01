@@ -5,6 +5,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 ## Pre-Interview Phase
 
 ### Job Description & Requirements
+
 - [ ] **Remove unnecessary requirements** that don't directly relate to job performance
 - [ ] **Avoid gendered language** (competitive, aggressive vs. collaborative, detail-oriented)
 - [ ] **Remove university prestige requirements** unless absolutely necessary for role
@@ -15,6 +16,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - [ ] **Review requirements for unconscious bias** (e.g., assuming continuous work history)
 
 ### Sourcing & Pipeline
+
 - [ ] **Diversify sourcing channels** beyond traditional networks
 - [ ] **Partner with diverse professional organizations** and communities
 - [ ] **Use bias-minimizing sourcing tools** and platforms
@@ -25,6 +27,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - [ ] **Use structured outreach messages** to reduce individual bias
 
 ### Resume Screening
+
 - [ ] **Implement blind resume review** (remove names, photos, university names initially)
 - [ ] **Use standardized screening criteria** applied consistently
 - [ ] **Multiple screeners for each resume** with independent scoring
@@ -37,6 +40,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 ## Interview Panel Composition
 
 ### Diversity Requirements
+
 - [ ] **Ensure diverse interview panels** (gender, ethnicity, seniority levels)
 - [ ] **Include at least one underrepresented interviewer** when possible
 - [ ] **Rotate panel assignments** to prevent bias patterns
@@ -47,6 +51,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - [ ] **Document panel composition rationale** for future review
 
 ### Interviewer Selection
+
 - [ ] **Choose interviewers based on relevant competency assessment ability**
 - [ ] **Ensure interviewers have completed bias training** within last 12 months
 - [ ] **Select interviewers with consistent calibration history**
@@ -59,6 +64,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 ## Interview Process Design
 
 ### Question Standardization
+
 - [ ] **Use standardized question sets** for each competency area
 - [ ] **Develop questions that assess skills, not culture fit stereotypes**
 - [ ] **Avoid questions about personal background** unless directly job-relevant
@@ -69,6 +75,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - [ ] **Regularly update question bank** based on effectiveness data
 
 ### Structured Interview Protocol
+
 - [ ] **Define clear time allocations** for each question/section
 - [ ] **Establish consistent interview flow** across all candidates
 - [ ] **Create standardized intro/outro** processes
@@ -79,6 +86,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - [ ] **Document any deviations** from standard protocol
 
 ### Accommodation Preparation
+
 - [ ] **Proactively offer accommodations** without requiring disclosure
 - [ ] **Provide multiple interview format options** (phone, video, in-person)
 - [ ] **Ensure accessibility of interview locations and tools**
@@ -91,6 +99,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 ## During the Interview
 
 ### Interviewer Behavior
+
 - [ ] **Use welcoming, professional tone** with all candidates
 - [ ] **Avoid assumptions based on appearance or background**
 - [ ] **Give equal encouragement and support** to all candidates
@@ -101,6 +110,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - [ ] **Avoid small talk** that could reveal irrelevant personal information
 
 ### Question Delivery
+
 - [ ] **Ask questions as written** without improvisation that could introduce bias
 - [ ] **Provide equal clarification** when candidates ask for it
 - [ ] **Use consistent follow-up probing** across candidates
@@ -111,6 +121,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - [ ] **Maintain professional demeanor** regardless of candidate background
 
 ### Real-time Bias Checking
+
 - [ ] **Notice first impressions** but don't let them drive assessment
 - [ ] **Question gut reactions** - are they based on competency evidence?
 - [ ] **Focus on specific examples** and evidence provided
@@ -123,6 +134,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 ## Evaluation & Scoring
 
 ### Scoring Consistency
+
 - [ ] **Use defined rubrics consistently** across all candidates
 - [ ] **Score immediately after interview** while details are fresh
 - [ ] **Focus scoring on demonstrated competencies** not potential or personality
@@ -133,6 +145,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - [ ] **Document reasoning** for all scores, especially extreme ones (1s and 4s)
 
 ### Bias Check Questions
+
 - [ ] **"Would I score this differently if the candidate looked different?"**
 - [ ] **"Am I basing this on evidence or assumptions?"**
 - [ ] **"Would this response get the same score from a different demographic?"**
@@ -143,6 +156,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - [ ] **"Would I want to work with this person?" (Check if this is biasing assessment)**
 
 ### Documentation Requirements
+
 - [ ] **Record specific examples** supporting each competency score
 - [ ] **Avoid subjective language** like "seems like," "appears to be"
 - [ ] **Focus on observable behaviors** and concrete responses
@@ -155,6 +169,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 ## Debrief Process
 
 ### Structured Discussion
+
 - [ ] **Start with independent score sharing** before discussion
 - [ ] **Focus discussion on evidence** not impressions or feelings
 - [ ] **Address significant score discrepancies** with evidence review
@@ -165,6 +180,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - [ ] **Consider multiple perspectives** on candidate responses
 
 ### Decision-Making Process
+
 - [ ] **Use weighted scoring system** based on role requirements
 - [ ] **Require minimum scores** in critical competency areas
 - [ ] **Avoid veto power** unless based on clear, documented evidence
@@ -175,6 +191,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - [ ] **Make final decision based on role requirements**, not team preferences
 
 ### Final Recommendations
+
 - [ ] **Provide specific, actionable feedback** for development areas
 - [ ] **Focus recommendations on skills and competencies**
 - [ ] **Avoid language that could reflect bias** in written feedback
@@ -187,6 +204,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 ## Post-Interview Monitoring
 
 ### Data Collection
+
 - [ ] **Track interviewer scoring patterns** for consistency analysis
 - [ ] **Monitor pass rates** by demographic groups
 - [ ] **Collect candidate experience feedback** on interview fairness
@@ -197,6 +215,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - [ ] **Document any bias incidents** or concerns raised
 
 ### Regular Analysis
+
 - [ ] **Conduct quarterly bias audits** of interview data
 - [ ] **Review interviewer calibration** and identify outliers
 - [ ] **Analyze demographic trends** in hiring outcomes
@@ -209,36 +228,43 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 ## Bias Types to Watch For
 
 ### Affinity Bias
+
 - **Definition**: Favoring candidates similar to yourself
 - **Watch for**: Over-positive response to shared backgrounds, interests, or experiences
 - **Mitigation**: Focus on job-relevant competencies, diversify interview panels
 
 ### Halo/Horn Effect
+
 - **Definition**: One positive/negative trait influencing overall assessment
 - **Watch for**: Strong performance in one area affecting scores in unrelated areas
 - **Mitigation**: Score each competency independently, use structured evaluation
 
 ### Confirmation Bias
+
 - **Definition**: Seeking information that confirms initial impressions
 - **Watch for**: Asking follow-ups that lead candidate toward expected responses
 - **Mitigation**: Use standardized questions, consider alternative interpretations
 
 ### Attribution Bias
+
 - **Definition**: Attributing success/failure to different causes based on candidate demographics
 - **Watch for**: Assuming women are "lucky" vs. men are "skilled" for same achievements
 - **Mitigation**: Focus on candidate's role in achievements, avoid assumptions
 
 ### Cultural Bias
+
 - **Definition**: Judging candidates based on cultural differences rather than job performance
 - **Watch for**: Penalizing communication styles, work approaches, or values that differ from team norm
 - **Mitigation**: Define job-relevant criteria clearly, consider diverse perspectives valuable
 
 ### Educational Bias
+
 - **Definition**: Over-weighting prestigious educational credentials
 - **Watch for**: Assuming higher capability based on school rank rather than demonstrated skills
 - **Mitigation**: Focus on skills demonstration, consider alternative learning paths
 
 ### Experience Bias
+
 - **Definition**: Requiring specific company or industry experience unnecessarily
 - **Watch for**: Discounting transferable skills from different industries or company sizes
 - **Mitigation**: Define core skills needed, assess adaptability and learning ability
@@ -246,6 +272,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 ## Emergency Bias Response Protocol
 
 ### During Interview
+
 1. **Pause the interview** if significant bias is observed
 2. **Privately address** bias with interviewer if possible
 3. **Document the incident** for review
@@ -253,6 +280,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 5. **Flag for debrief discussion** if interview continues
 
 ### Post-Interview
+
 1. **Report bias incidents** to hiring manager/HR immediately
 2. **Document specific behaviors** observed
 3. **Consider additional interviewer** for second opinion
@@ -260,6 +288,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 5. **Implement corrective actions** for future interviews
 
 ### Interviewer Coaching
+
 1. **Provide immediate feedback** on bias observed
 2. **Schedule bias training refresher** if needed
 3. **Monitor future interviews** for improvement
@@ -269,11 +298,13 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 ## Legal Compliance Reminders
 
 ### Protected Characteristics
+
 - Age, race, color, religion, sex, national origin, disability status, veteran status
 - Pregnancy, genetic information, sexual orientation, gender identity
 - Any other characteristics protected by local/state/federal law
 
 ### Prohibited Questions
+
 - Questions about family planning, marital status, pregnancy
 - Age-related questions (unless BFOQ)
 - Religious or political affiliations
@@ -282,6 +313,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - Financial status or credit (unless job-relevant)
 
 ### Documentation Requirements
+
 - Keep all interview materials for required retention period
 - Ensure consistent documentation across all candidates
 - Avoid documenting protected characteristic observations
@@ -290,6 +322,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 ## Training & Certification
 
 ### Required Training Topics
+
 - Unconscious bias awareness and mitigation
 - Structured interviewing techniques
 - Legal compliance in hiring
@@ -298,6 +331,7 @@ This comprehensive checklist helps identify, prevent, and mitigate various forms
 - Accommodation and accessibility requirements
 
 ### Ongoing Development
+
 - Annual bias training refresher
 - Quarterly calibration sessions
 - Regular updates on legal requirements

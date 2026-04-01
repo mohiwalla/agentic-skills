@@ -47,20 +47,20 @@ A journey map visualizes the end-to-end experience a user has while trying to ac
 
 ### Journey Map Types
 
-| Type | Focus | Best For |
-|------|-------|----------|
-| Current State | How things are today | Identifying pain points |
-| Future State | Ideal experience | Design vision |
-| Day-in-the-Life | Beyond your product | Context understanding |
-| Service Blueprint | Backend processes | Operations alignment |
+| Type              | Focus                | Best For                |
+| ----------------- | -------------------- | ----------------------- |
+| Current State     | How things are today | Identifying pain points |
+| Future State      | Ideal experience     | Design vision           |
+| Day-in-the-Life   | Beyond your product  | Context understanding   |
+| Service Blueprint | Backend processes    | Operations alignment    |
 
 ### When to Create Journey Maps
 
-| Scenario | Map Type | Outcome |
-|----------|----------|---------|
-| New product | Future state | Design direction |
-| Redesign | Current + Future | Gap analysis |
-| Churn investigation | Current state | Pain point diagnosis |
+| Scenario             | Map Type          | Outcome              |
+| -------------------- | ----------------- | -------------------- |
+| New product          | Future state      | Design direction     |
+| Redesign             | Current + Future  | Gap analysis         |
+| Churn investigation  | Current state     | Pain point diagnosis |
 | Cross-team alignment | Service blueprint | Process optimization |
 
 ---
@@ -70,12 +70,14 @@ A journey map visualizes the end-to-end experience a user has while trying to ac
 ### Step 1: Define Scope
 
 **Questions to Answer:**
+
 - Which persona is this journey for?
 - What goal are they trying to achieve?
 - Where does the journey start and end?
 - What timeframe does it cover?
 
 **Scope Template:**
+
 ```
 Persona: [Name from persona library]
 Goal: [Specific outcome they want]
@@ -85,6 +87,7 @@ Timeframe: [Hours/Days/Weeks]
 ```
 
 **Example:**
+
 ```
 Persona: Alex the Power User
 Goal: Set up automated weekly reports
@@ -97,13 +100,13 @@ Timeframe: 1-2 days
 
 **Data Sources for Journey Mapping:**
 
-| Source | Insights Gained |
-|--------|-----------------|
-| User interviews | Actions, emotions, quotes |
-| Session recordings | Actual behavior patterns |
-| Support tickets | Common pain points |
-| Analytics | Drop-off points, time spent |
-| Surveys | Satisfaction at stages |
+| Source             | Insights Gained             |
+| ------------------ | --------------------------- |
+| User interviews    | Actions, emotions, quotes   |
+| Session recordings | Actual behavior patterns    |
+| Support tickets    | Common pain points          |
+| Analytics          | Drop-off points, time spent |
+| Surveys            | Satisfaction at stages      |
 
 **Interview Questions for Journey Mapping:**
 
@@ -119,6 +122,7 @@ Timeframe: 1-2 days
 **Identify Natural Breakpoints:**
 
 Look for moments where:
+
 - User's mindset changes
 - Channels shift (web → app → email)
 - Time passes (hours, days)
@@ -127,6 +131,7 @@ Look for moments where:
 **Stage Validation:**
 
 Each stage should have:
+
 - Clear entry criteria
 - Distinct user actions
 - Measurable outcomes
@@ -147,12 +152,12 @@ For each stage, document:
 
 **Validation Methods:**
 
-| Method | Effort | Confidence |
-|--------|--------|------------|
-| Team review | Low | Medium |
-| User walkthrough | Medium | High |
-| Data correlation | Medium | High |
-| A/B test interventions | High | Very High |
+| Method                 | Effort | Confidence |
+| ---------------------- | ------ | ---------- |
+| Team review            | Low    | Medium     |
+| User walkthrough       | Medium | High       |
+| Data correlation       | Medium | High       |
+| A/B test interventions | High   | Very High  |
 
 ---
 
@@ -174,15 +179,16 @@ For each stage, document:
 
 **Stage: Onboarding**
 
-| Element | Description |
-|---------|-------------|
-| Goal | Complete setup, achieve first success |
-| Duration | 1-7 days |
-| Entry | User creates account |
-| Exit | First meaningful action completed |
-| Success Metric | Activation rate |
+| Element        | Description                           |
+| -------------- | ------------------------------------- |
+| Goal           | Complete setup, achieve first success |
+| Duration       | 1-7 days                              |
+| Entry          | User creates account                  |
+| Exit           | First meaningful action completed     |
+| Success Metric | Activation rate                       |
 
 **Substages:**
+
 1. Account creation
 2. Profile setup
 3. First feature use
@@ -191,13 +197,13 @@ For each stage, document:
 
 ### B2C vs. B2B Stages
 
-| B2C Stages | B2B Stages |
-|------------|------------|
-| Discover | Awareness |
-| Browse | Evaluation |
-| Purchase | Procurement |
-| Use | Implementation |
-| Return/Loyalty | Renewal |
+| B2C Stages     | B2B Stages     |
+| -------------- | -------------- |
+| Discover       | Awareness      |
+| Browse         | Evaluation     |
+| Purchase       | Procurement    |
+| Use            | Implementation |
+| Return/Loyalty | Renewal        |
 
 ---
 
@@ -205,13 +211,13 @@ For each stage, document:
 
 ### Touchpoint Categories
 
-| Category | Examples | Owner |
-|----------|----------|-------|
-| Marketing | Ads, content, social | Marketing |
-| Sales | Demos, calls, proposals | Sales |
-| Product | App, features, UI | Product |
-| Support | Help center, chat, tickets | Support |
-| Transactional | Emails, notifications | Varies |
+| Category      | Examples                   | Owner     |
+| ------------- | -------------------------- | --------- |
+| Marketing     | Ads, content, social       | Marketing |
+| Sales         | Demos, calls, proposals    | Sales     |
+| Product       | App, features, UI          | Product   |
+| Support       | Help center, chat, tickets | Support   |
+| Transactional | Emails, notifications      | Varies    |
 
 ### Touchpoint Mapping Template
 
@@ -228,12 +234,14 @@ Improvement Priority: [High/Medium/Low]
 ### Cross-Channel Consistency
 
 **Check for:**
+
 - Information consistency across channels
 - Seamless handoffs (web → mobile)
 - Context preservation (user doesn't repeat info)
 - Brand voice alignment
 
 **Red Flags:**
+
 - User has to re-enter information
 - Different answers from different channels
 - Can't continue task on different device
@@ -259,22 +267,24 @@ Improvement Priority: [High/Medium/Low]
 
 ### Emotional Triggers
 
-| Trigger | Positive Emotion | Negative Emotion |
-|---------|------------------|------------------|
-| Speed | Delight | Frustration |
-| Clarity | Confidence | Confusion |
-| Control | Empowerment | Helplessness |
-| Progress | Satisfaction | Anxiety |
-| Recognition | Validation | Neglect |
+| Trigger     | Positive Emotion | Negative Emotion |
+| ----------- | ---------------- | ---------------- |
+| Speed       | Delight          | Frustration      |
+| Clarity     | Confidence       | Confusion        |
+| Control     | Empowerment      | Helplessness     |
+| Progress    | Satisfaction     | Anxiety          |
+| Recognition | Validation       | Neglect          |
 
 ### Emotion Data Sources
 
 **Direct Signals:**
+
 - Interview quotes: "I felt so relieved when..."
 - Survey scores: NPS, CSAT, CES
 - Support sentiment: Angry vs. grateful tickets
 
 **Inferred Signals:**
+
 - Rage clicks (frustration)
 - Quick completion (satisfaction)
 - Abandonment (frustration or confusion)
@@ -283,6 +293,7 @@ Improvement Priority: [High/Medium/Low]
 ### Emotion Curve Patterns
 
 **The Valley of Death:**
+
 ```
 😄 ─┐
     │     ╱
@@ -296,6 +307,7 @@ Improvement Priority: [High/Medium/Low]
 ```
 
 **The Aha Moment:**
+
 ```
 😄 ─┐         ╱──
     │        ╱
@@ -313,24 +325,24 @@ Improvement Priority: [High/Medium/Low]
 
 ### Pain Point Prioritization
 
-| Factor | Score (1-5) |
-|--------|-------------|
-| Frequency | How often does this occur? |
-| Severity | How much does it hurt? |
-| Breadth | How many users affected? |
-| Solvability | Can we fix this? |
+| Factor      | Score (1-5)                |
+| ----------- | -------------------------- |
+| Frequency   | How often does this occur? |
+| Severity    | How much does it hurt?     |
+| Breadth     | How many users affected?   |
+| Solvability | Can we fix this?           |
 
 **Priority Score = (Frequency + Severity + Breadth) × Solvability**
 
 ### Opportunity Types
 
-| Type | Description | Example |
-|------|-------------|---------|
-| Friction Reduction | Remove obstacles | Fewer form fields |
-| Moment of Delight | Exceed expectations | Personalized welcome |
-| Channel Addition | New touchpoint | Mobile app for on-the-go |
-| Proactive Support | Anticipate needs | Tutorial at right moment |
-| Personalization | Tailored experience | Role-based onboarding |
+| Type               | Description         | Example                  |
+| ------------------ | ------------------- | ------------------------ |
+| Friction Reduction | Remove obstacles    | Fewer form fields        |
+| Moment of Delight  | Exceed expectations | Personalized welcome     |
+| Channel Addition   | New touchpoint      | Mobile app for on-the-go |
+| Proactive Support  | Anticipate needs    | Tutorial at right moment |
+| Personalization    | Tailored experience | Role-based onboarding    |
 
 ### Opportunity Canvas
 
@@ -351,12 +363,12 @@ Improvement Priority: [High/Medium/Low]
 
 ### Quick Wins vs. Strategic Bets
 
-| Criteria | Quick Win | Strategic Bet |
-|----------|-----------|---------------|
-| Effort | Low | High |
-| Impact | Medium | High |
-| Timeline | Weeks | Quarters |
-| Risk | Low | Medium-High |
+| Criteria | Quick Win  | Strategic Bet    |
+| -------- | ---------- | ---------------- |
+| Effort   | Low        | High             |
+| Impact   | Medium     | High             |
+| Timeline | Weeks      | Quarters         |
+| Risk     | Low        | Medium-High      |
 | Requires | Small team | Cross-functional |
 
 ---
@@ -459,12 +471,14 @@ Add backstage layers:
 ### Journey Mapping Checklist
 
 **Preparation:**
+
 - [ ] Persona selected
 - [ ] Goal defined
 - [ ] Scope bounded
 - [ ] Data gathered (interviews, analytics)
 
 **Mapping:**
+
 - [ ] Stages identified
 - [ ] Actions documented
 - [ ] Touchpoints mapped
@@ -472,26 +486,28 @@ Add backstage layers:
 - [ ] Pain points identified
 
 **Analysis:**
+
 - [ ] Opportunities prioritized
 - [ ] Quick wins identified
 - [ ] Strategic bets proposed
 - [ ] Metrics defined
 
 **Validation:**
+
 - [ ] Team reviewed
 - [ ] User validated
 - [ ] Data correlated
 
 ### Common Mistakes
 
-| Mistake | Impact | Fix |
-|---------|--------|-----|
-| Too many stages | Overwhelming | Limit to 5-7 |
-| No data | Assumptions | Interview users |
-| Single session | Bias | Multiple sources |
-| No emotions | Misses human element | Add feeling layer |
-| No follow-through | Wasted effort | Create action plan |
+| Mistake           | Impact               | Fix                |
+| ----------------- | -------------------- | ------------------ |
+| Too many stages   | Overwhelming         | Limit to 5-7       |
+| No data           | Assumptions          | Interview users    |
+| Single session    | Bias                 | Multiple sources   |
+| No emotions       | Misses human element | Add feeling layer  |
+| No follow-through | Wasted effort        | Create action plan |
 
 ---
 
-*See also: `persona-methodology.md` for persona creation*
+_See also: `persona-methodology.md` for persona creation_

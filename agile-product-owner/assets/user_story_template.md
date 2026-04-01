@@ -2,14 +2,14 @@
 
 ## Story Info
 
-| Field | Value |
-|-------|-------|
-| **Title** | [Short descriptive title] |
-| **Epic** | [Parent epic name/link] |
-| **Story Points** | [Estimate] |
-| **Priority** | Must Have / Should Have / Nice to Have |
-| **Assignee** | [Name] |
-| **Sprint** | [Sprint number] |
+| Field            | Value                                  |
+| ---------------- | -------------------------------------- |
+| **Title**        | [Short descriptive title]              |
+| **Epic**         | [Parent epic name/link]                |
+| **Story Points** | [Estimate]                             |
+| **Priority**     | Must Have / Should Have / Nice to Have |
+| **Assignee**     | [Name]                                 |
+| **Sprint**       | [Sprint number]                        |
 
 ---
 
@@ -26,16 +26,19 @@
 ## Acceptance Criteria
 
 ### Scenario 1: [Happy Path]
+
 - **Given** [precondition or context]
 - **When** [action the user takes]
 - **Then** [expected outcome]
 
 ### Scenario 2: [Alternative Path]
+
 - **Given** [precondition or context]
 - **When** [action the user takes]
 - **Then** [expected outcome]
 
 ### Scenario 3: [Edge Case / Error]
+
 - **Given** [precondition or context]
 - **When** [action the user takes]
 - **Then** [expected error handling or outcome]
