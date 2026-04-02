@@ -29,6 +29,8 @@ description: >-
 - When creating a PR, always link the relevant Azure DevOps work item ID(s) to the PR using `--work-items` in `az repos pr create`.
 - Always link the originating Azure DevOps work item to the branch and commits by including `AB#<ticket-number>` in the first commit message on that branch.
 - Always target PRs to `develop` unless the user explicitly asks for a different target branch.
+- When a ticket reference is received and work begins, automatically start a Clockify timer using the `clockify` skill with ticket number/title in the description.
+- When a PR is successfully created, automatically stop the running Clockify timer using the `clockify` skill.
 
 ## Commit Convention
 
@@ -85,6 +87,11 @@ EOF
 
 Never add Co-Authored-By agents in commit message.
 Branch naming for issue fixes: `fix-<ticket-number>`
+
+## Clockify Integration
+
+Use the `clockify` skill for all Clockify operations (start, stop, list, edit, reports).
+This skill auto-triggers timer start on ticket-work start and timer stop after successful PR creation.
 
 ## Important: Azure DevOps Description/Discussion fields require HTML
 
