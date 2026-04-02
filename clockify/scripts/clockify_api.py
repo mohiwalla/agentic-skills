@@ -71,13 +71,59 @@ class ClockifyClient:
                 parsed = {"message": detail}
             raise RuntimeError(f"Clockify API {exc.code}: {json.dumps(parsed)}") from exc
 
-    def start_timer(self, description: str, project_id: str | None = None, billable: bool | None = None):
+    def list_tags(self, name: str | None = None, page_size: int | None = None):
+        query = clean_none(
+            {
+                "name": name,
+                "page-size": page_size,
+            }
+        )
+        return self._request("GET", f"/workspaces/{self.workspace_id}/tags", query=query)
+
+    def create_tag(self, name: str):
+        return self._request("POST", f"/workspaces/{self.workspace_id}/tags", payload={"name": name})
+
+    def resolve_tag_ids(
+        self,
+        tag_ids: list[str] | None = None,
+        tag_names: list[str] | None = None,
+        create_missing: bool = False,
+    ):
+        resolved = list(tag_ids or [])
+        if not tag_names:
+            return resolved or None
+
+        tags = self.list_tags(page_size=500)
+        tags_by_name = {tag["name"]: tag["id"] for tag in tags}
+        for tag_name in tag_names:
+            tag_id = tags_by_name.get(tag_name)
+            if tag_id is None and create_missing:
+                tag = self.create_tag(tag_name)
+                tag_id = tag["id"]
+                tags_by_name[tag_name] = tag_id
+            if tag_id is None:
+                raise RuntimeError(
+                    f"Clockify tag not found: {tag_name}. Use list-tags or pass --create-missing-tags true."
+                )
+            resolved.append(tag_id)
+
+        deduped = list(dict.fromkeys(resolved))
+        return deduped or None
+
+    def start_timer(
+        self,
+        description: str,
+        project_id: str | None = None,
+        billable: bool | None = None,
+        tag_ids: list[str] | None = None,
+    ):
         payload = clean_none(
             {
                 "start": utc_now_iso(),
                 "description": description,
                 "projectId": project_id,
                 "billable": billable,
+                "tagIds": tag_ids,
             }
         )
         return self._request("POST", f"/workspaces/{self.workspace_id}/time-entries", payload=payload)
@@ -126,6 +172,7 @@ class ClockifyClient:
         end: str | None = None,
         project_id: str | None = None,
         billable: bool | None = None,
+        tag_ids: list[str] | None = None,
     ):
         payload = clean_none(
             {
@@ -134,6 +181,7 @@ class ClockifyClient:
                 "end": end,
                 "projectId": project_id,
                 "billable": billable,
+                "tagIds": tag_ids,
             }
         )
         return self._request("PUT", f"/workspaces/{self.workspace_id}/time-entries/{entry_id}", payload=payload)
@@ -154,10 +202,21 @@ def build_parser():
 
     sub = parser.add_subparsers(dest="command", required=True)
 
+    def add_tag_args(cmd):
+        cmd.add_argument("--tag", action="append", default=[], help="Tag name; repeatable")
+        cmd.add_argument("--tag-id", action="append", default=[], help="Tag ID; repeatable")
+        cmd.add_argument(
+            "--create-missing-tags",
+            type=parse_bool,
+            default=False,
+            help="Create missing tags from --tag names",
+        )
+
     start = sub.add_parser("start", help="Start a running timer")
     start.add_argument("--description", required=True)
     start.add_argument("--project-id")
     start.add_argument("--billable", type=parse_bool)
+    add_tag_args(start)
 
     sub.add_parser("stop", help="Stop the running timer")
 
@@ -179,9 +238,17 @@ def build_parser():
     upd.add_argument("--end")
     upd.add_argument("--project-id")
     upd.add_argument("--billable", type=parse_bool)
+    add_tag_args(upd)
 
     delete_cmd = sub.add_parser("delete", help="Delete a time entry")
     delete_cmd.add_argument("--id", required=True)
+
+    list_tags_cmd = sub.add_parser("list-tags", help="List workspace tags")
+    list_tags_cmd.add_argument("--name")
+    list_tags_cmd.add_argument("--page-size", type=int)
+
+    create_tag_cmd = sub.add_parser("create-tag", help="Create a workspace tag")
+    create_tag_cmd.add_argument("--name", required=True)
 
     sub.add_parser("in-progress", help="List in-progress timers on workspace")
     return parser
@@ -206,7 +273,17 @@ def main():
 
     if args.command == "start":
         project_id = args.project_id or args.project_id_default
-        out = client.start_timer(description=args.description, project_id=project_id, billable=args.billable)
+        tag_ids = client.resolve_tag_ids(
+            tag_ids=args.tag_id,
+            tag_names=args.tag,
+            create_missing=bool(args.create_missing_tags),
+        )
+        out = client.start_timer(
+            description=args.description,
+            project_id=project_id,
+            billable=args.billable,
+            tag_ids=tag_ids,
+        )
     elif args.command == "stop":
         out = client.stop_timer()
     elif args.command == "list":
@@ -221,6 +298,11 @@ def main():
     elif args.command == "get":
         out = client.get_entry(args.id)
     elif args.command == "update":
+        tag_ids = client.resolve_tag_ids(
+            tag_ids=args.tag_id,
+            tag_names=args.tag,
+            create_missing=bool(args.create_missing_tags),
+        )
         out = client.update_entry(
             entry_id=args.id,
             start=args.start,
@@ -228,9 +310,14 @@ def main():
             end=args.end,
             project_id=args.project_id,
             billable=args.billable,
+            tag_ids=tag_ids,
         )
     elif args.command == "delete":
         out = client.delete_entry(args.id)
+    elif args.command == "list-tags":
+        out = client.list_tags(name=args.name, page_size=args.page_size)
+    elif args.command == "create-tag":
+        out = client.create_tag(name=args.name)
     else:
         out = client.in_progress()
 

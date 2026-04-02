@@ -56,7 +56,8 @@ Start timer:
 ```bash
 python clockify/scripts/clockify_api.py start \
   --description "fix-<ticket-number>: <ticket-title>" \
-  --project-id "<clockify-project-id>"
+  --project-id "<clockify-project-id>" \
+  --tag "AI"
 ```
 
 Stop timer:
@@ -94,8 +95,26 @@ python clockify/scripts/clockify_api.py update \
   --start "2026-04-02T10:00:00Z" \
   --end "2026-04-02T11:30:00Z" \
   --description "fix-<ticket-number>: updated details" \
+  --tag "AI" \
   --billable true
 ```
+
+List tags:
+
+```bash
+python clockify/scripts/clockify_api.py list-tags --name "AI"
+```
+
+Create a tag:
+
+```bash
+python clockify/scripts/clockify_api.py create-tag --name "AI"
+```
+
+Notes:
+
+- `start` and `update` both support repeatable `--tag "<name>"` and `--tag-id "<id>"`.
+- Use `--create-missing-tags true` with `start` or `update` to create missing tag names on demand.
 
 Delete an entry:
 
