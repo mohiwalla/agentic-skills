@@ -58,7 +58,7 @@ az boards work-item create \
 | --------------- | -------- | ------------------------------------------------------- |
 | `--type`        | Yes      | `Task`, `Bug`, `User Story`, `Issue`, `Epic`, `Feature` |
 | `--title`       | Yes      | Title of the work item                                  |
-| `--description` | No       | HTML or plain text                                      |
+| `--description` | No       | **Must be HTML** — markdown is NOT rendered (see below) |
 | `--iteration`   | No       | Full iteration path: `Project\Sprint N`                 |
 | `--area`        | No       | Full area path: `Project\Area`                          |
 | `--assigned-to` | No       | Display name or email                                   |
@@ -190,11 +190,69 @@ az boards iteration team show --team "MyTeam" --id ITERATION_ID -o json
 
 ---
 
+## CRITICAL: Description field requires HTML, NOT markdown
+
+The `--description` flag on `az boards work-item create` and `az boards work-item update`
+is rendered by Azure DevOps as **HTML**. If you pass raw markdown (`## Heading`, `- [ ] item`,
+`` `code` ``), it will be displayed as **literal plain text** — no headings, no lists, no formatting.
+
+**Always use HTML tags in the description:**
+
+```html
+<h2>Summary</h2>
+<p>Explanation of the issue with <code>inline code</code> and <b>bold</b>.</p>
+
+<h2>Steps to reproduce</h2>
+<ol>
+  <li>First step.</li>
+  <li>Second step.</li>
+</ol>
+
+<h2>Affected endpoints</h2>
+<ul>
+  <li><code>GET /api/v1/example</code></li>
+</ul>
+
+<h2>Acceptance criteria</h2>
+<ul>
+  <li>Endpoint returns <b>200</b> for valid input.</li>
+</ul>
+
+<h2>Definition of done</h2>
+<ul>
+  <li>Root cause fixed.</li>
+  <li>E2E test passes.</li>
+</ul>
+```
+
+**Quick mapping:**
+
+| Markdown              | HTML equivalent                          |
+| --------------------- | ---------------------------------------- |
+| `## Heading`          | `<h2>Heading</h2>`                       |
+| `**bold**`            | `<b>bold</b>`                            |
+| `` `code` ``          | `<code>code</code>`                      |
+| `- item`              | `<ul><li>item</li></ul>`                 |
+| `1. item`             | `<ol><li>item</li></ol>`                 |
+| `- [ ] checkbox`      | `<ul><li>checkbox text</li></ul>`        |
+| paragraph break       | `<p>text</p>` or `<br>`                  |
+
+**Do NOT:**
+- Pass raw markdown to `--description` — it will render as a single blob of text.
+- Repeat the work item title inside Description (it's already in `System.Title`).
+- Add a `**Description:**` label inside the Description field (it's redundant).
+
+**The `--discussion` flag** (comments) also accepts HTML, same rules apply.
+
+---
+
 ## Gotchas
 
+- **Description is HTML, not markdown** — see section above. This is the #1 mistake.
 - **No `--parent` flag on create** — always use `relation add` as a second step.
 - **Backslash in iteration paths** — use single backslash in shell: `"Project\Sprint 1"`.
 - **Estimate fields are in hours** — `0.5` = 30 minutes, `8` = one day.
 - **Work item types are case-sensitive** — `"User Story"` not `"user story"`.
 - **`--fields` uses full API field names** — find them via `az boards work-item show` on an existing item.
 - **`--yes` flag** — required on delete to skip interactive confirmation prompt.
+- **Sprint board visibility** — tickets won't appear on a sprint taskboard if unassigned and the board is filtered by person. Always set `--assigned-to`.

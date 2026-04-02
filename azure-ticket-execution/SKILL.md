@@ -17,6 +17,7 @@ description: >-
 - Only use a different iteration when the user explicitly requests it.
 - Always start by creating an easy-to-skim execution plan and ask the user to confirm before proceeding.
 - This planning-and-confirmation step is mandatory even when plan mode is not explicitly selected.
+- Do not `git commit`, `git push`, or raise a PR unless the user explicitly asks for that step or clearly approves it.
 - After the plan is approved, implement all required changes end-to-end.
 - Always switch to `develop` first, pull the latest changes, and create a new working branch from updated `develop`.
 - Add corresponding tests in the same repository when tests or testing infrastructure already exist.
@@ -25,7 +26,7 @@ description: >-
 - For TypeScript codebases, build the project and fix all resulting errors and warnings before completion.
 - When raising a PR, always ask the user for required reviewer name(s) if not already provided.
 - Always add required reviewers: the user (`AZURE_DEVOPS_USERNAME`) and any reviewer(s) requested by the user.
-- Right after creating the PR, submit approval from the user's side.
+- After creating a PR (only once the user has approved doing so), submit approval from the user's side right away.
 - Always target PRs to `develop` unless the user explicitly asks for a different target branch.
 
 ## Commit Convention
@@ -34,29 +35,59 @@ Semantic commit messages: `label(scope): description`
 
 Labels: `fix`, `feat`, `chore`, `docs`, `test`, `devops`
 
+### Git and PR commands (by phase)
+
+Each block is separate on purpose: **only run a block after the user has explicitly approved that phase.** Do not chain commit → push → PR in one shot unless the user approved all of them.
+
+**Phase A — branch from `develop` (after plan approval, before local edits)**
+
 ```bash
-git checkout -b fix-16486
-# ... make changes ...
+git checkout develop
+git pull origin develop
+git checkout -b fix-<ticket-number>
+```
+
+**Phase B — commit (only after user explicitly approves committing)**
+
+```bash
 git add <changed-files>
 git commit -m "$(cat <<'EOF'
 fix: handle SOCKS proxy authentication
 
-Fixes: https://dev.azure.com/sifars/<project-name>/_workitems/edit/16486
+Fixes: https://dev.azure.com/sifars/<project-name>/_workitems/edit/<ticket-number>
 EOF
 )"
-git push origin fix-16486
+```
+
+**Phase C — push (only after user explicitly approves pushing)**
+
+```bash
+git push origin fix-<ticket-number>
+```
+
+**Phase D — open PR (only after user explicitly approves opening a PR)**
+
+```bash
 az repos pr create \
-  --source-branch fix-16486 \
+  --source-branch fix-<ticket-number> \
   --target-branch develop \
   --title "fix: handle SOCKS proxy authentication" \
   --description "$(cat <<'EOF'
 ## Summary
 - <describe the change very! briefly>
 
-Fixes https://dev.azure.com/sifars/<project-name>/_workitems/edit/16486
+Fixes https://dev.azure.com/sifars/<project-name>/_workitems/edit/<ticket-number>
 EOF
 )"
 ```
 
 Never add Co-Authored-By agents in commit message.
 Branch naming for issue fixes: `fix-<ticket-number>`
+
+## Important: Azure DevOps Description/Discussion fields require HTML
+
+When creating or updating work items via `az boards`, the `--description` and `--discussion`
+flags render content as **HTML**. Raw markdown (`##`, `- [ ]`, backticks) will display as
+literal plain text — no formatting. Always use `<h2>`, `<p>`, `<code>`, `<ul>/<li>`, `<ol>/<li>`, `<b>`.
+
+See the `azure-boards` skill for the full HTML mapping reference and examples.
