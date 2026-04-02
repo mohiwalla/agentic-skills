@@ -26,7 +26,8 @@ description: >-
 - For TypeScript codebases, build the project and fix all resulting errors and warnings before completion.
 - When raising a PR, always ask the user for required reviewer name(s) if not already provided.
 - Always add required reviewers: the user (`AZURE_DEVOPS_USERNAME`) and any reviewer(s) requested by the user.
-- After creating a PR (only once the user has approved doing so), submit approval from the user's side right away.
+- When creating a PR, always link the relevant Azure DevOps work item ID(s) to the PR using `--work-items` in `az repos pr create`.
+- Always link the originating Azure DevOps work item to the branch and commits by including `AB#<ticket-number>` in the first commit message on that branch.
 - Always target PRs to `develop` unless the user explicitly asks for a different target branch.
 
 ## Commit Convention
@@ -54,7 +55,7 @@ git add <changed-files>
 git commit -m "$(cat <<'EOF'
 fix: handle SOCKS proxy authentication
 
-Fixes: https://dev.azure.com/sifars/<project-name>/_workitems/edit/<ticket-number>
+Fixes AB#<ticket-number>
 EOF
 )"
 ```
@@ -71,12 +72,13 @@ git push origin fix-<ticket-number>
 az repos pr create \
   --source-branch fix-<ticket-number> \
   --target-branch develop \
+  --work-items <ticket-number> \
   --title "fix: handle SOCKS proxy authentication" \
   --description "$(cat <<'EOF'
 ## Summary
 - <describe the change very! briefly>
 
-Fixes https://dev.azure.com/sifars/<project-name>/_workitems/edit/<ticket-number>
+Fixes AB#<ticket-number>
 EOF
 )"
 ```
