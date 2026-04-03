@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-slack": {
+      "source": "stablyai/agent-slack",
+      "sourceType": "github",
+      "computedHash": "ef5d1740993c70da84f0fc4650ab5dbb54bbaed583079369729824686101d336"
+    }
+  }
+}
