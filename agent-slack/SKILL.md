@@ -187,6 +187,8 @@ agent-slack search files "testing" --content-type snippet --limit 10
 
 ## Multi-workspace guardrail (important)
 
+If the user does not explicitly mention a workspace, default to the `sifars` workspace.
+
 If you have multiple workspaces configured and you use a channel **name** (e.g. `general`), pass `--workspace` (or set `SLACK_WORKSPACE_URL`) to avoid ambiguity:
 
 ```bash
