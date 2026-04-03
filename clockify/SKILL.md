@@ -45,7 +45,7 @@ If no clear project match exists, ask the user before starting the timer.
 
 Use the Python helper instead of ad-hoc curl calls:
 
-`python clockify/scripts/clockify_api.py <subcommand> [args...]`
+`python3 ~/.cursor/skills/clockify/scripts/clockify_api.py <subcommand> [args...]`
 
 This gives a better DX and consistent JSON output.
 
@@ -54,7 +54,7 @@ This gives a better DX and consistent JSON output.
 Start timer:
 
 ```bash
-python clockify/scripts/clockify_api.py start \
+python3 ~/.cursor/skills/clockify/scripts/clockify_api.py start \
   --description "fix-<ticket-number>: <ticket-title>" \
   --project-id "<clockify-project-id>" \
   --tag "AI"
@@ -63,13 +63,13 @@ python clockify/scripts/clockify_api.py start \
 Stop timer:
 
 ```bash
-python clockify/scripts/clockify_api.py stop
+python3 ~/.cursor/skills/clockify/scripts/clockify_api.py stop
 ```
 
 List entries:
 
 ```bash
-python clockify/scripts/clockify_api.py list \
+python3 ~/.cursor/skills/clockify/scripts/clockify_api.py list \
   --start "2026-04-01T00:00:00Z" \
   --end "2026-04-02T00:00:00Z" \
   --description "fix-<ticket-number>"
@@ -78,19 +78,19 @@ python clockify/scripts/clockify_api.py list \
 List only in-progress entries:
 
 ```bash
-python clockify/scripts/clockify_api.py list --in-progress true
+python3 ~/.cursor/skills/clockify/scripts/clockify_api.py list --in-progress true
 ```
 
 Get one entry:
 
 ```bash
-python clockify/scripts/clockify_api.py get --id "<time-entry-id>"
+python3 ~/.cursor/skills/clockify/scripts/clockify_api.py get --id "<time-entry-id>"
 ```
 
 Update an entry:
 
 ```bash
-python clockify/scripts/clockify_api.py update \
+python3 ~/.cursor/skills/clockify/scripts/clockify_api.py update \
   --id "<time-entry-id>" \
   --start "2026-04-02T10:00:00Z" \
   --end "2026-04-02T11:30:00Z" \
@@ -102,13 +102,13 @@ python clockify/scripts/clockify_api.py update \
 List tags:
 
 ```bash
-python clockify/scripts/clockify_api.py list-tags --name "AI"
+python3 ~/.cursor/skills/clockify/scripts/clockify_api.py list-tags --name "AI"
 ```
 
 Create a tag:
 
 ```bash
-python clockify/scripts/clockify_api.py create-tag --name "AI"
+python3 ~/.cursor/skills/clockify/scripts/clockify_api.py create-tag --name "AI"
 ```
 
 Notes:
@@ -119,13 +119,13 @@ Notes:
 Delete an entry:
 
 ```bash
-python clockify/scripts/clockify_api.py delete --id "<time-entry-id>"
+python3 ~/.cursor/skills/clockify/scripts/clockify_api.py delete --id "<time-entry-id>"
 ```
 
 Workspace in-progress snapshot:
 
 ```bash
-python clockify/scripts/clockify_api.py in-progress
+python3 ~/.cursor/skills/clockify/scripts/clockify_api.py in-progress
 ```
 
 ## Reporting Notes
