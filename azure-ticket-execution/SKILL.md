@@ -93,10 +93,7 @@ Branch naming for issue fixes: `fix-<ticket-number>`
 Use the `clockify` skill for all Clockify operations (start, stop, list, edit, reports).
 This skill auto-triggers timer start on ticket-work start and timer stop after successful PR creation.
 
-## Important: Azure DevOps Description/Discussion fields require HTML
+## Azure Boards Integration
 
-When creating or updating work items via `az boards`, the `--description` and `--discussion`
-flags render content as **HTML**. Raw markdown (`##`, `- [ ]`, backticks) will display as
-literal plain text — no formatting. Always use `<h2>`, `<p>`, `<code>`, `<ul>/<li>`, `<ol>/<li>`, `<b>`.
-
-See the `azure-boards` skill for the full HTML mapping reference and examples.
+Use the `azure-boards` skill's Python helper for all work-item operations (create, update, get, query, comment, link).
+See the `azure-boards` skill for the full HTML mapping reference, examples, and command syntax.

@@ -1,11 +1,11 @@
 ---
 name: azure-boards
 description: >-
-  Manage Azure Boards work items via Azure CLI (az boards). Covers creating,
-  updating, deleting, linking, and querying tasks, bugs, user stories, and
-  other work item types. Use when the user asks to create tickets, manage
-  sprints, link work items, update Azure DevOps boards, or any Azure Boards
-  operations.
+  Manage Azure Boards work items via a Python helper (REST API wrapper).
+  Covers creating, updating, deleting, linking, querying tasks, bugs,
+  user stories, and other work item types. Use when the user asks to
+  create tickets, manage sprints, link work items, update Azure DevOps
+  boards, or any Azure Boards operations.
 ---
 
 # Azure Boards CLI Reference
@@ -18,55 +18,59 @@ description: >-
 - When creating new tickets, always assign them to the latest iteration by default.
 - Only use a non-latest iteration when the user explicitly asks for a different one.
 
-## Prerequisites
+## Configuration
 
-- **Azure CLI** with the `azure-devops` extension installed.
-- Authenticated via `az login`.
-- Defaults configured (optional but recommended):
+Required environment variables:
 
-```bash
-az devops configure -d organization=https://dev.azure.com/ORG
-az devops configure -d project=PROJECT_NAME
-```
+- `AZURE_DEVOPS_ORG` — organization name (e.g. `sifars`)
+- `AZURE_DEVOPS_PROJECT` — project name (e.g. `Ipns-opad`)
+- `AZURE_DEVOPS_PAT` — personal access token
 
-Verify setup:
+Rules:
 
-```bash
-az devops configure -l
-az version  # check "azure-devops" under extensions
-```
+- Prefer env vars; do not hard-code PATs in files.
+- If any required config is missing, ask the user before executing commands.
+
+## Execution Model
+
+Use the Python helper instead of raw `az boards` CLI commands:
+
+`python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py <subcommand> [args...]`
+
+This provides consistent JSON output, automatic retry on transient errors, auto-detection of the current iteration, and a `--parent-id` flag on create (no separate link step needed).
 
 ---
 
 ## Create Work Item
 
 ```bash
-az boards work-item create \
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py create \
   --type "Task" \
   --title "My Task" \
-  --description "Description here" \
-  --iteration "ProjectName\Sprint 1" \
-  --area "ProjectName\TeamName" \
+  --description "<p>HTML description here</p>" \
   --assigned-to "user@example.com" \
-  --fields "Microsoft.VSTS.Scheduling.OriginalEstimate=2" \
-  -o json
+  --parent-id 12345 \
+  --field "Microsoft.VSTS.Scheduling.OriginalEstimate=2" \
+  --tags "frontend; urgent"
 ```
 
 ### Key Arguments
 
-| Arg             | Required | Notes                                                   |
-| --------------- | -------- | ------------------------------------------------------- |
-| `--type`        | Yes      | `Task`, `Bug`, `User Story`, `Issue`, `Epic`, `Feature` |
-| `--title`       | Yes      | Title of the work item                                  |
-| `--description` | No       | **Must be HTML** — markdown is NOT rendered (see below) |
-| `--iteration`   | No       | Full iteration path: `Project\Sprint N`                 |
-| `--area`        | No       | Full area path: `Project\Area`                          |
-| `--assigned-to` | No       | Display name or email                                   |
-| `--fields`      | No       | Space-separated `"field=value"` pairs                   |
-| `--discussion`  | No       | Adds a comment                                          |
-| `--reason`      | No       | Reason for the state                                    |
+| Arg             | Required | Notes                                                          |
+| --------------- | -------- | -------------------------------------------------------------- |
+| `--type`        | Yes      | `Task`, `Bug`, `User Story`, `Issue`, `Epic`, `Feature`        |
+| `--title`       | Yes      | Title of the work item                                         |
+| `--description` | No       | **Must be HTML** — markdown is NOT rendered (see below)        |
+| `--iteration`   | No       | Full path: `Project\Sprint 1` (auto-detects if omitted)        |
+| `--area`        | No       | Full area path e.g. `Project\Area`                             |
+| `--assigned-to` | No       | Display name or email                                          |
+| `--state`       | No       | e.g. `New`, `Active`, `Closed`                                 |
+| `--reason`      | No       | Reason for the state                                           |
+| `--tags`        | No       | Semicolon-separated tags                                       |
+| `--field`       | No       | Repeatable `"Key=Value"` for any field                         |
+| `--parent-id`   | No       | Parent work item ID — auto-creates the parent link             |
 
-### Common Fields (`--fields`)
+### Common Fields (`--field`)
 
 | Field                                        | Purpose           | Example              |
 | -------------------------------------------- | ----------------- | -------------------- |
@@ -75,21 +79,70 @@ az boards work-item create \
 | `Microsoft.VSTS.Scheduling.CompletedWork`    | Completed hours   | `2`                  |
 | `Microsoft.VSTS.Common.Priority`             | Priority (1-4)    | `1` = critical       |
 | `Microsoft.VSTS.Common.Severity`             | Bug severity      | `2 - High`           |
-| `System.Tags`                                | Tags              | `"frontend; urgent"` |
-| `System.State`                               | State             | `Active`, `Closed`   |
-
-> **NOTE:** `--parent` is NOT a valid argument on `az boards work-item create`. You must create the item first, then add a parent relation separately.
 
 ---
 
-## Link Work Items (Parent/Child)
+## Update Work Item
 
 ```bash
-az boards work-item relation add \
-  --id CHILD_ID \
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py update \
+  --id 12345 \
+  --state "Active" \
+  --assigned-to "user@example.com" \
+  --field "Microsoft.VSTS.Scheduling.RemainingWork=2"
+```
+
+All arguments are optional except `--id`. Only provided fields are updated.
+
+---
+
+## Get / Show Work Item
+
+```bash
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py get --id 12345
+```
+
+Returns a summarized JSON with id, type, title, state, assigned_to, iteration, area, tags, priority, parent, url, and relations.
+
+---
+
+## Delete Work Item
+
+```bash
+# Soft delete (recycle bin)
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py delete --id 12345
+
+# Permanent delete
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py delete --id 12345 --destroy true
+```
+
+---
+
+## Query Work Items (WIQL)
+
+```bash
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py query \
+  --wiql "SELECT [System.Id] FROM WorkItems WHERE [System.IterationPath] = 'Project\Sprint 1' AND [System.WorkItemType] = 'Task'" \
+  --top 50
+```
+
+Returns hydrated work items (not just IDs). Use `--fields` to request only specific fields:
+
+```bash
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py query \
+  --wiql "SELECT [System.Id] FROM WorkItems WHERE [System.AssignedTo] = 'Kamaljot Singh' AND [System.State] = 'Active'" \
+  --fields "System.Title,System.State,System.IterationPath"
+```
+
+---
+
+## Link Work Items (Relations)
+
+```bash
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py relation-add \
+  --id 100 \
   --relation-type parent \
-  --target-id PARENT_ID \
-  -o json
+  --target-id 200
 ```
 
 ### Relation Types
@@ -102,78 +155,26 @@ az boards work-item relation add \
 | `predecessor` | Target must complete before `--id` |
 | `successor`   | `--id` must complete before target |
 
-Multiple targets: `--target-id 100,101,102`
-
-You can also use `--target-url` for cross-project links.
-
-### List Available Relation Types
+Remove a relation by its index (from the `get` output):
 
 ```bash
-az boards work-item relation list-type -o table
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py relation-remove \
+  --id 100 \
+  --relation-index 0
 ```
 
 ---
 
-## Update Work Item
+## Comments (Discussion)
 
 ```bash
-az boards work-item update \
+# Add a comment
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py comment-add \
   --id 12345 \
-  --state "Active" \
-  --assigned-to "user@example.com" \
-  --fields "Microsoft.VSTS.Scheduling.RemainingWork=2" \
-  -o json
-```
+  --text "<p>Investigation complete — root cause is X.</p>"
 
----
-
-## Delete Work Item
-
-```bash
-# Soft delete (moves to recycle bin)
-az boards work-item delete --id 12345 --yes -o json
-
-# Permanent delete
-az boards work-item delete --id 12345 --destroy --yes -o json
-```
-
----
-
-## Show / Query Work Items
-
-```bash
-# Show single item
-az boards work-item show --id 12345 -o json
-
-# Show with relations
-az boards work-item relation show --id 12345 -o json
-
-# Query using WIQL
-az boards query --wiql "SELECT [System.Id], [System.Title] FROM WorkItems WHERE [System.IterationPath] = 'Project\Sprint 1' AND [System.WorkItemType] = 'Task'" -o table
-```
-
----
-
-## Typical Workflow: Create Task Under User Story
-
-This is the most common pattern — two commands, sequential:
-
-```bash
-# 1. Create the task
-az boards work-item create \
-  --type "Task" \
-  --title "Implement feature X" \
-  --description "Details here" \
-  --iteration "MyProject\Sprint 5" \
-  --fields "Microsoft.VSTS.Scheduling.OriginalEstimate=4" \
-  -o json
-
-# 2. Link to parent user story (use the ID from step 1 output)
-az boards work-item relation add \
-  --id NEW_TASK_ID \
-  --relation-type parent \
-  --target-id PARENT_STORY_ID \
-  -o json
+# List comments
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py comment-list --id 12345 --top 10
 ```
 
 ---
@@ -181,26 +182,44 @@ az boards work-item relation add \
 ## Iteration / Sprint Management
 
 ```bash
-# List iterations for a team
-az boards iteration team list --team "MyTeam" -o table
+# List all iterations
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py iterations
 
-# Show iteration details
-az boards iteration team show --team "MyTeam" --id ITERATION_ID -o json
+# Filter by timeframe
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py iterations --timeframe current
+
+# Show the current (or latest) iteration
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py current-iteration
 ```
 
 ---
 
-## CRITICAL: Description field requires HTML, NOT markdown
+## Typical Workflow: Create Task Under User Story
 
-The `--description` flag on `az boards work-item create` and `az boards work-item update`
-is rendered by Azure DevOps as **HTML**. If you pass raw markdown (`## Heading`, `- [ ] item`,
-`` `code` ``), it will be displayed as **literal plain text** — no headings, no lists, no formatting.
+Single command — `--parent-id` handles the link automatically:
 
-**Always use HTML tags in the description:**
+```bash
+python3 ~/.cursor/skills/azure-boards/scripts/azure_boards_api.py create \
+  --type "Task" \
+  --title "Implement feature X" \
+  --description "<p>Details here</p>" \
+  --parent-id 5678 \
+  --assigned-to "user@example.com" \
+  --field "Microsoft.VSTS.Scheduling.OriginalEstimate=4"
+```
+
+---
+
+## CRITICAL: Description and comment fields require HTML, NOT markdown
+
+The `--description` and `--text` (comment) fields are rendered by Azure DevOps as **HTML**.
+If you pass raw markdown, it displays as literal plain text.
+
+**Always use HTML tags:**
 
 ```html
 <h2>Summary</h2>
-<p>Explanation of the issue with <code>inline code</code> and <b>bold</b>.</p>
+<p>Explanation with <code>inline code</code> and <b>bold</b>.</p>
 
 <h2>Steps to reproduce</h2>
 <ol>
@@ -208,20 +227,9 @@ is rendered by Azure DevOps as **HTML**. If you pass raw markdown (`## Heading`,
   <li>Second step.</li>
 </ol>
 
-<h2>Affected endpoints</h2>
-<ul>
-  <li><code>GET /api/v1/example</code></li>
-</ul>
-
 <h2>Acceptance criteria</h2>
 <ul>
   <li>Endpoint returns <b>200</b> for valid input.</li>
-</ul>
-
-<h2>Definition of done</h2>
-<ul>
-  <li>Root cause fixed.</li>
-  <li>E2E test passes.</li>
 </ul>
 ```
 
@@ -234,25 +242,22 @@ is rendered by Azure DevOps as **HTML**. If you pass raw markdown (`## Heading`,
 | `` `code` ``          | `<code>code</code>`                      |
 | `- item`              | `<ul><li>item</li></ul>`                 |
 | `1. item`             | `<ol><li>item</li></ol>`                 |
-| `- [ ] checkbox`      | `<ul><li>checkbox text</li></ul>`        |
 | paragraph break       | `<p>text</p>` or `<br>`                  |
 
 **Do NOT:**
+
 - Pass raw markdown to `--description` — it will render as a single blob of text.
 - Repeat the work item title inside Description (it's already in `System.Title`).
 - Add a `**Description:**` label inside the Description field (it's redundant).
-
-**The `--discussion` flag** (comments) also accepts HTML, same rules apply.
 
 ---
 
 ## Gotchas
 
 - **Description is HTML, not markdown** — see section above. This is the #1 mistake.
-- **No `--parent` flag on create** — always use `relation add` as a second step.
-- **Backslash in iteration paths** — use single backslash in shell: `"Project\Sprint 1"`.
+- **`--parent-id` on create** handles the link in one step (no separate `relation-add` needed).
+- **Iteration auto-detection** — if `--iteration` is omitted on `create`, the script auto-detects the current sprint.
 - **Estimate fields are in hours** — `0.5` = 30 minutes, `8` = one day.
 - **Work item types are case-sensitive** — `"User Story"` not `"user story"`.
-- **`--fields` uses full API field names** — find them via `az boards work-item show` on an existing item.
-- **`--yes` flag** — required on delete to skip interactive confirmation prompt.
+- **`--field` uses full API field names** — find them via `get` on an existing item.
 - **Sprint board visibility** — tickets won't appear on a sprint taskboard if unassigned and the board is filtered by person. Always set `--assigned-to`.
