@@ -47,7 +47,7 @@ Each block is separate on purpose: **only run a block after the user has explici
 ```bash
 git checkout develop
 git pull origin develop
-git checkout -b fix-<ticket-number>
+git checkout -b fix/<ticket-number>
 ```
 
 **Phase B — commit (only after user explicitly approves committing)**
@@ -65,14 +65,14 @@ EOF
 **Phase C — push (only after user explicitly approves pushing)**
 
 ```bash
-git push origin fix-<ticket-number>
+git push origin fix/<ticket-number>
 ```
 
 **Phase D — open PR (only after user explicitly approves opening a PR)**
 
 ```bash
 az repos pr create \
-  --source-branch fix-<ticket-number> \
+  --source-branch fix/<ticket-number> \
   --target-branch develop \
   --work-items <ticket-number> \
   --title "fix: handle SOCKS proxy authentication" \
@@ -86,7 +86,7 @@ EOF
 ```
 
 Never add Co-Authored-By agents in commit message.
-Branch naming for issue fixes: `fix-<ticket-number>`
+Branch naming for issue fixes: `fix/ticket-number>`
 
 ## Clockify Integration
 

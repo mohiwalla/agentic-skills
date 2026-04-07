@@ -55,7 +55,7 @@ Start timer:
 
 ```bash
 python3 ~/.cursor/skills/clockify/scripts/clockify_api.py start \
-  --description "fix-<ticket-number>: <ticket-title>" \
+  --description "fix/<ticket-number>: <ticket-title>" \
   --project-id "<clockify-project-id>" \
   --tag "AI"
 ```
@@ -72,7 +72,7 @@ List entries:
 python3 ~/.cursor/skills/clockify/scripts/clockify_api.py list \
   --start "2026-04-01T00:00:00Z" \
   --end "2026-04-02T00:00:00Z" \
-  --description "fix-<ticket-number>"
+  --description "fix/<ticket-number>"
 ```
 
 List only in-progress entries:
@@ -94,7 +94,7 @@ python3 ~/.cursor/skills/clockify/scripts/clockify_api.py update \
   --id "<time-entry-id>" \
   --start "2026-04-02T10:00:00Z" \
   --end "2026-04-02T11:30:00Z" \
-  --description "fix-<ticket-number>: updated details" \
+  --description "fix/<ticket-number>: updated details" \
   --tag "AI" \
   --billable true
 ```
